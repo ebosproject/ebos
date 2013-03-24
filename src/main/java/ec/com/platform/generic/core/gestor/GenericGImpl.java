@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -48,7 +49,9 @@ import ec.com.platform.generic.web.jsf.mb.AbstractServiceMB;
 import ec.com.platform.seguridad.core.gestor.SeguridadGImpl;
 import ec.com.platform.seguridad.exception.SeguridadException;
 import ec.com.platform.seguridad.resources.SeguridadMensajes;
+import ec.com.platform.util.Constantes;
 import ec.com.platform.util.HTTPUtils;
+import ec.com.platform.util.MessageUtils;
 import ec.com.platform.util.ObjectUtils;
 import ec.com.platform.util.type.JsfMessage;
 
@@ -1014,25 +1017,38 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 //    }
 //
 
-    public void wrapMessage(FacesMessage.Severity severity, String summary, String... args){
-        FacesMessage message = new FacesMessage(severity, summary, "");
+	/**
+	 * Metodo que devuelve el bundle name del modulo actual, por defaul devuelve el 
+	 * bundle name del modulo generico.
+	 * Sobreescribir metodo para definir bundle name del modulo actual
+	 * 
+	 * @author Eduardo Plua Alay
+	 */	
+	protected String getBundleName(){
+		return Constantes.MODULE_BUNDLE_NAME;
+	}
+	
+	private final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(getBundleName());
+	
+    public void wrapMessage(FacesMessage.Severity severity, String key, Object... args){
+        FacesMessage message = new FacesMessage(severity, MessageUtils.buildMessage(key, RESOURCE_BUNDLE, args), "");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
-    public void wrapSuccessMessage(String summary) {        
-        wrapMessage(FacesMessage.SEVERITY_INFO, summary, "");
+    public void wrapSuccessMessage(String key, Object... args) {        
+        wrapMessage(FacesMessage.SEVERITY_INFO, key, "");
     }
 
-    public void wrapWarningMessage(String summary) {
-        wrapMessage(FacesMessage.SEVERITY_WARN, summary, "");        
+    public void wrapWarningMessage(String key, Object... args) {
+        wrapMessage(FacesMessage.SEVERITY_WARN, key, "");        
     }
 
-    public void wrapErrorMessage(String summary) {
-        wrapMessage(FacesMessage.SEVERITY_ERROR, summary, "");        
+    public void wrapErrorMessage(String key, Object... args) {
+        wrapMessage(FacesMessage.SEVERITY_ERROR, key, "");        
     }
     
-    public void wrapFatalMessage(String summary) {
-        wrapMessage(FacesMessage.SEVERITY_FATAL, summary, "");        
+    public void wrapFatalMessage(String key, Object... args) {
+        wrapMessage(FacesMessage.SEVERITY_FATAL, key, "");        
     }
 //
     /**

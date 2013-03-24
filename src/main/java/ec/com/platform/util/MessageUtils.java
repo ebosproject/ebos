@@ -1,7 +1,5 @@
 package ec.com.platform.util;
 
-import ec.com.platform.util.resources.GenericMensajes;
-
 import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -11,6 +9,9 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang.StringUtils;
+
+import ec.com.platform.generic.resources.GenericMensajes;
+import ec.com.platform.util.resources.UtilMensajes;
 
 /**
  * Utilidades para trabajar con mensajes en base a
@@ -145,7 +146,7 @@ public class MessageUtils {
 
 	public static void addLabeledFacesMessage(FacesContext facesContext, UIComponent component, String message, FacesMessage.Severity severity) {
 		FacesMessage fm = new FacesMessage();
-		String msg = GenericMensajes.getString("LabeledMessage",
+		String msg = UtilMensajes.getString("LabeledMessage",
 				getLabel(facesContext, component), message);
 		configureSimpleFacesMessage(fm, msg, severity);
 		facesContext.addMessage(null, fm);

@@ -9,6 +9,7 @@ import ec.com.platform.app.model.MessageResource;
 import ec.com.platform.app.model.MessageResource_;
 import ec.com.platform.fwk.crud.GenericCriteria;
 import ec.com.platform.generic.core.gestor.GenericGImpl;
+import ec.com.platform.util.Constantes;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -18,6 +19,11 @@ import ec.com.platform.generic.core.gestor.GenericGImpl;
 public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG {
 
 	private static final long serialVersionUID = -7535155949566180920L;
+	
+	@Override
+    protected String getBundleName(){
+    	return Constantes.DOMAIN_NAME+".app.resources.app";
+    }
 
     //
     // MessageResource

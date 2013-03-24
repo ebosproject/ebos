@@ -13,6 +13,7 @@ import ec.com.platform.administracion.model.Parametros_;
 import ec.com.platform.fwk.crud.GenericCriteria;
 import ec.com.platform.generic.core.gestor.GenericGImpl;
 import ec.com.platform.generic.model.Generic;
+import ec.com.platform.util.Constantes;
 import ec.com.platform.util.GenericUtils;
 
 /**
@@ -22,6 +23,11 @@ import ec.com.platform.util.GenericUtils;
 public class AdministracionGImpl extends GenericGImpl<Object, AdministracionException> implements AdministracionG{
 
 	private static final long serialVersionUID = -5387275517395137673L;
+	
+	@Override
+    protected String getBundleName(){
+    	return Constantes.DOMAIN_NAME+".administracion.resources.administracion";
+    }
 
 	//
     //Parametros
@@ -98,6 +104,5 @@ public class AdministracionGImpl extends GenericGImpl<Object, AdministracionExce
         }
         return hashParam;
     }
-    
     
 }

@@ -224,29 +224,29 @@ import ec.com.platform.util.type.JsfMessage;
     }
     
     @Override
-    public void wrapMessage(FacesMessage.Severity severity, String summary, String... args){
-        FacesMessage message = new FacesMessage(severity, summary, "");
+    public void wrapMessage(FacesMessage.Severity severity, String key, Object... args){
+        FacesMessage message = new FacesMessage(severity, key, "");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
     @Override
-    public void wrapSuccessMessage(String summary) {        
-        wrapMessage(FacesMessage.SEVERITY_INFO, summary, "");
+    public void wrapSuccessMessage(String key, Object... args) {        
+        wrapMessage(FacesMessage.SEVERITY_INFO, key, "");
     }
 
     @Override
-    public void wrapWarningMessage(String summary) {
-        wrapMessage(FacesMessage.SEVERITY_WARN, summary, "");        
+    public void wrapWarningMessage(String key, Object... args) {
+        wrapMessage(FacesMessage.SEVERITY_WARN, key, "");        
     }
 
     @Override
-    public void wrapErrorMessage(String summary) {
-        wrapMessage(FacesMessage.SEVERITY_ERROR, summary, "");        
+    public void wrapErrorMessage(String key, Object... args) {
+        wrapMessage(FacesMessage.SEVERITY_ERROR, key, "");        
     }
     
     @Override
-    public void wrapFatalMessage(String summary) {
-        wrapMessage(FacesMessage.SEVERITY_FATAL, summary, "");        
+    public void wrapFatalMessage(String key, Object... args) {
+        wrapMessage(FacesMessage.SEVERITY_FATAL, key, "");        
     }
 
 }

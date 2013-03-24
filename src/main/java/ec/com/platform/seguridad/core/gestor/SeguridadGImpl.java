@@ -33,6 +33,7 @@ import ec.com.platform.seguridad.model.Usuario;
 import ec.com.platform.seguridad.model.UsuarioRol;
 import ec.com.platform.seguridad.model.UsuarioRol_;
 import ec.com.platform.seguridad.model.Usuario_;
+import ec.com.platform.util.Constantes;
 import ec.com.platform.util.GenericUtils;
 import ec.com.platform.util.StringUtils;
 import ec.com.platform.util.core.gestor.UtilG;
@@ -45,6 +46,11 @@ import ec.com.platform.util.crypto.CryptoUtils;
 public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> implements SeguridadG {
 
 	private static final long serialVersionUID = -7535155949566180920L;
+	
+	@Override
+    protected String getBundleName(){
+    	return Constantes.DOMAIN_NAME+".seguridad.resources.seguridad";
+    }
 	
 	/**
 	 * Dependencias
@@ -483,4 +489,5 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public SesionUsuarioMB getSesionUsuario() {
     	return super.getSesionUsuario();
     }
+            
 }

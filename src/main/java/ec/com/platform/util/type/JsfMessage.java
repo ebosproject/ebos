@@ -8,14 +8,14 @@ import javax.faces.application.FacesMessage;
  */
 public interface JsfMessage {
 
-    public void wrapErrorMessage(String summary);
+    public void wrapErrorMessage(String key, Object... args);
 
-    public void wrapFatalMessage(String summary);
+    public void wrapFatalMessage(String key, Object... args);
 
-    public void wrapMessage(FacesMessage.Severity severity, String summary, String... args);
+    public void wrapMessage(FacesMessage.Severity severity, String key, Object... args);
 
-    public void wrapSuccessMessage(String summary);
+    public void wrapSuccessMessage(String key, Object... args);
 
-    public void wrapWarningMessage(String summary);
+    public void wrapWarningMessage(String key, Object... args);
     
 }

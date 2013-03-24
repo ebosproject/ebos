@@ -132,21 +132,21 @@ public class Constantes {
     /**
      * Nombre de variable para guardar el nombre de la compan&iacute;a
      */
-    public static final String MAXIMO_REGISTROS_PERMITIDOS = "swiss.bean.current.maximoregistros";
+    public static final String MAXIMO_REGISTROS_PERMITIDOS = "platform.bean.current.maximoregistros";
     /**
      * Variable utilizada como nombre de la empresa Swiss seleccionada
      */
-    public static String SWISS_EMPRESA_ATTR = "swiss.current.empresasSwiss";
+    public static String PLATFORM_EMPRESA_ATTR = "platform.current.empresasPlatform";
     /**
      * Swiss 2.0: Variable utilizada como nombre de sesi&oacute;n para usuario
      * conectado
      */
-    public static String SWISS_LOGGED_USER_ATTR = "swiss.current.usuarioSwiss";
+    public static String PLATFORM_LOGGED_USER_ATTR = "platform.current.usuarioPlatform";
     /**
      * Nombre de variable para guardar el nombre de la oficina seleccionada en
      * el Login
      */
-    public static final String CURRENT_OFFICE = "swiss.bean.current.office";
+    public static final String CURRENT_OFFICE = "platform.bean.current.office";
     /**
      * Nombre de variable para guardar el nombre del punto de venta del usuario
      */
@@ -205,12 +205,17 @@ public class Constantes {
     }
 
     public static final void resetVersion() {
-        version = System.getProperty("swiss.version", Integer.toHexString(new Date().hashCode()));
+        version = System.getProperty("platform.version", Integer.toHexString(new Date().hashCode()));
     }
         
     /**
      * Nombre del tema con el que inicia el sistema, por default = 'aristo' 
      */
 	public static final String tema = System.getProperty("platform.session.tema", "aristo");
+	
+	/*
+	 * Bundle name por default de un modulo 
+	 */
+	public static final String MODULE_BUNDLE_NAME = Constantes.DOMAIN_NAME+".generic.resources.generic";
         
 }

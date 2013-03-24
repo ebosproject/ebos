@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ec.com.platform.generic.core.gestor.GenericGImpl;
+import ec.com.platform.util.Constantes;
 import ec.com.platform.util.exception.UtilException;
 import ec.com.platform.util.mail.SendMail;
-import ec.com.platform.util.sms.SendSms;
 
 /**
  * 
@@ -19,6 +19,11 @@ import ec.com.platform.util.sms.SendSms;
 public class UtilGImpl extends GenericGImpl<Object, UtilException> implements UtilG {
 
 	private static final long serialVersionUID = 8272908095248096866L;
+	
+	@Override
+    protected String getBundleName(){
+    	return Constantes.DOMAIN_NAME+".util.resources.util";
+    }
 	
 	//
 	// Dependencias

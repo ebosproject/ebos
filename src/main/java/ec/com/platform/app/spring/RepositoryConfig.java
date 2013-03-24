@@ -20,6 +20,7 @@ import org.springframework.jdbc.support.lob.LobHandler;
 import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 
+import ec.com.platform.app.resources.AppMensajes;
 import ec.com.platform.fwk.crud.CrudService;
 import ec.com.platform.fwk.crud.FinderSQLService;
 import ec.com.platform.fwk.crud.FinderService;
@@ -70,12 +71,12 @@ public class RepositoryConfig {
 	@Value("${transaction.buildAll}") private String transactionBuildAll;
 	
 	@Bean
-	public DataSource dataSource() throws NamingException{ //TODO (epa): Cambiar mensaje por resource bundle
+	public DataSource dataSource() throws NamingException{ //TODO (epa): Optimizar este metodo
 		try{
 			return (DataSource) new InitialContext().lookup(platformJndi);
 		} catch(Exception ex){
-			System.err.println("Error en creacion de DataSource: "+ex.getMessage());
-			return null;
+			AppMensajes.getString("Error en creacion de DataSource: ", ex.getMessage());
+			return (DataSource) new InitialContext().lookup(platformJndi);
 		}		
 	}
 	
