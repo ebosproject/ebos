@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import ec.com.platform.app.model.Bundle_;
 import ec.com.platform.app.model.EmpresaPersona_;
 import ec.com.platform.app.model.Persona_;
 import ec.com.platform.app.web.jsf.mb.SesionUsuarioMB;
@@ -108,7 +109,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public void eliminarUsuario(Usuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
         Long id = usuario.getId();
         delete(usuario);
-        wrapSuccessMessage("Usuario " + id + " eliminado correctamente");
+        wrapSuccessMessage("Usuario {0} eliminado correctamente", id);
     }
 
     @Override
@@ -118,6 +119,12 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     
     private GenericCriteria<Usuario> buildUsuarioCriteria(Usuario usuario){
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
+        
+        criteria.addEquals(Bundle_.id, usuario.getId());
+		if(criteria.isChanged()){
+			return criteria;
+		}
+		
         criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
         criteria.addLike(Usuario_.username, usuario.getUsername());
         criteria.addLike(EmpresaPersona_.persona+"."+Persona_.nombres, usuario.getEmpresaPersona().getPersona().getNombres());
@@ -398,7 +405,6 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
         criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion);
         if (objeto != null) {
-	        criteria.addAliasedLeftJoins(Opcion_.padre);
 	        criteria.addLike(Objeto_.descripcion, objeto.getDescripcion());
 	        criteria.addLike(Objeto_.codigo, objeto.getCodigo());
 	        criteria.addLike(Objeto_.estado, objeto.getEstado().getValue());

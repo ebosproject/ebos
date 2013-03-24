@@ -12,7 +12,7 @@ import ec.com.platform.seguridad.core.servicio.SeguridadS;
 /**
  * Superclase de los ManageBeans.
  *
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 public abstract class AbstractServiceMB implements Serializable {
 
@@ -20,7 +20,7 @@ public abstract class AbstractServiceMB implements Serializable {
 
 	@Getter @Setter
     @ManagedProperty(value = "#{sesionUsuario}")
-    protected SesionUsuarioMB sesionUsuario = null;
+    protected SesionUsuarioMB sesionUsuario;
      
     @Getter @Setter
     @ManagedProperty(value = "#{seguridadS}")

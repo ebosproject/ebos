@@ -7,7 +7,7 @@
 
     <ui:param name="objeto" value="${bean.activeEntity}" />    
 
-    <pl:panelGrid id="pnlOpcion" columns="2">        
+    <pl:panelGrid id="pnlObjeto" columns="2">        
                 
        <pl:outputText id="id" value="#{objeto.id}" label="Id"/>                
        <pl:outputText id="estado" value="#{objeto.estado.label}" label="#{msg.plEstado}"/>                
@@ -20,10 +20,10 @@
        <pl:inputText id="nombre" value="#{objeto.codigo}" label="#{msg.plCodigo}" required="true"/>
        <pl:inputText id="descripcion" value="#{objeto.descripcion}" label="#{msg.plDescripcion}"/>        
        
-       <pl:selectOneMenu id="tipo" value="#{opcion.tipo}" label="#{msg.plTipo}">
+       <pl:selectOneMenu id="tipo" value="#{objeto.tipo}" label="#{msg.plTipo}">
             <f:selectItem itemLabel ="" itemValue="" />
-            <f:selectItems value="#{bean.tipoList}" var="opc"
-                itemLabel="#{opc.label}" itemValue="#{opc}"/>
+            <f:selectItems value="#{bean.tipoObjetoList}" var="reg"
+                itemLabel="#{reg.label}" itemValue="#{reg}"/>
         </pl:selectOneMenu>                
                       
                 

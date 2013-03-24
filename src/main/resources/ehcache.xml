@@ -37,7 +37,7 @@
     	maxElementsInMemory="100" 
     	overflowToDisk="false" />    
 
-	<cache name="messagesResources"     
+	<cache name="cacheBundle"     
 		maxElementsInMemory="1000"
         eternal="true"
         timeToIdleSeconds="120"

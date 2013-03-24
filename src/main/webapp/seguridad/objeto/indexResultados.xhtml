@@ -5,11 +5,11 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
     
-    <p:column id="estado" headerText="Estado">
+    <p:column id="estado" headerText="#{msg.plEstado}">
         <pl:outputText value="#{reg.estado.label}" />
     </p:column>    
-    <p:column id="descripcion" headerText="Descripcion">
-        <pl:outputText header="Descripcion" value="#{reg.descripcion}"/>            
+    <p:column id="descripcion" headerText="#{msg.plDescripcion}">
+        <pl:outputText value="#{reg.descripcion}"/>            
     </p:column>
 
 </ui:composition>       

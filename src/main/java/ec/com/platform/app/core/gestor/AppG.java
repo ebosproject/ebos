@@ -2,7 +2,8 @@ package ec.com.platform.app.core.gestor;
 
 import java.util.List;
 
-import ec.com.platform.app.model.MessageResource;
+import ec.com.platform.app.model.Bundle;
+import ec.com.platform.fwk.crud.Paginacion;
 
 /**
  *
@@ -14,9 +15,15 @@ public interface AppG {
     //
     // MessageResource
     //
-	public MessageResource obtenerMessageResourcePorCodeYLocale(String codigo, String localidad);
+	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, String localidad);
 	
 	public List<String> obtenerCodeMessageResourcePorLocale(String localidad);
 	
-	public MessageResource guardarMessageResource(MessageResource messageResource);
+	public Bundle guardarBundle(Bundle messageResource);
+
+	public List<Bundle> obtenerBundleList(Bundle bundle, Paginacion paginacion);
+
+	public Bundle obtenerBundleNuevo();
+
+	public void eliminarBundle(Bundle activeEntity);
 }

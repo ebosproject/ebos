@@ -213,9 +213,14 @@ public class Constantes {
      */
 	public static final String tema = System.getProperty("platform.session.tema", "aristo");
 	
-	/*
-	 * Bundle name por default de un modulo 
+	/**
+	 * Resource Bundle name por default de un modulo 
 	 */
 	public static final String MODULE_BUNDLE_NAME = Constantes.DOMAIN_NAME+".generic.resources.generic";
+	
+	/**
+	 * Resource bundle not prefix not found
+	 */
+	public static final String PREFIX_NOT_FOUND = "???";
         
 }

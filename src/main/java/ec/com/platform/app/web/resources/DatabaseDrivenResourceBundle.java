@@ -7,8 +7,9 @@ import java.util.ResourceBundle;
 import javax.faces.context.FacesContext;
 
 import ec.com.platform.app.core.service.AppS;
-import ec.com.platform.app.model.MessageResource;
+import ec.com.platform.app.model.Bundle;
 import ec.com.platform.app.spring.utils.SpringUtils;
+import ec.com.platform.util.Constantes;
 
 
 /**
@@ -19,8 +20,6 @@ import ec.com.platform.app.spring.utils.SpringUtils;
  */
 public class DatabaseDrivenResourceBundle extends ResourceBundle {
  
-    private static final String PREFIX_NOT_FOUND = "???";
- 
     private AppS appS;
  
     public DatabaseDrivenResourceBundle() {
@@ -29,13 +28,13 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
     
     @Override
     protected Object handleGetObject(String key) {
-        final MessageResource messageResource = appS
+        final Bundle messageResource = appS
                 .obtenerMessageResourcePorCodeYLocale(key, FacesContext.getCurrentInstance()
                         .getViewRoot().getLocale().getLanguage());
         if (messageResource != null) {
             return messageResource.getValor();
         }
-        return new StringBuilder(PREFIX_NOT_FOUND).append(key).append(PREFIX_NOT_FOUND).toString();
+        return new StringBuilder(Constantes.PREFIX_NOT_FOUND).append(key).append(Constantes.PREFIX_NOT_FOUND).toString();
     }
  
     @Override

@@ -6,6 +6,7 @@
                 xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
 
     <ui:param name="westRendered" value="true" />
+    <ui:param name="showAuditoria" value="true" />
 
     <ui:define name="west">
         <h:form id="frmFiltros">
@@ -67,10 +68,10 @@
                 
                 <ui:insert name="resultados" />
                 
-			    <p:column id="creado" headerText="#{msg.plCreado}" width="60" resizable="false">        
+			    <p:column id="creado" headerText="#{msg.plCreado}" width="60" resizable="false" rendered="#{showAuditoria}">        
 			        <pl:outputDate value="#{reg.fechaCreacion}" title="#{msg.plPor}: #{reg.usuarioCreacion.username}"/>
 			    </p:column>
-			    <p:column id="modificado" headerText="#{msg.plModificado}" width="60" resizable="false">        
+			    <p:column id="modificado" headerText="#{msg.plModificado}" width="60" resizable="false" rendered="#{showAuditoria}">        
 			        <pl:outputDate value="#{reg.fechaModificacion}" title="#{msg.plPor}: #{reg.usuarioModificacion.username}"/>
 			    </p:column>                    
         	</p:dataTable>

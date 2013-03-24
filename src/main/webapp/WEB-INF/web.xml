@@ -29,6 +29,7 @@
         /WEB-INF/faces-navigation.xml,
         /WEB-INF/web/faces-navigation.xml,
         /WEB-INF/seguridad/faces-navigation.xml,
+        /WEB-INF/app/faces-navigation.xml,
         /WEB-INF/administracion/faces-navigation.xml
     </param-value>
   </context-param>

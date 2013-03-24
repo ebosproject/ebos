@@ -21,7 +21,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import ec.com.platform.generic.model.Auditoria;
 import ec.com.platform.generic.model.Generic;
-import ec.com.platform.generic.resources.GenericMensajes;
+import ec.com.platform.seguridad.resources.SeguridadMensajes;
 import ec.com.platform.util.Constantes;
 import ec.com.platform.util.GenericUtils;
 import ec.com.platform.util.type.StringValuedEnum;
@@ -56,7 +56,7 @@ public class Objeto extends GenericSeguridad<Objeto> {
     
     @Column(name = "tipo", nullable = false)
     @Type(type = Objeto.TipoObjeto.TYPE)
-    private Generic.Estado tipo;
+    private Objeto.TipoObjeto tipo;
     
     @Column(name = "estado", nullable = false)
     @Type(type = Generic.Estado.TYPE)
@@ -82,7 +82,9 @@ public class Objeto extends GenericSeguridad<Objeto> {
 
         public static class Type extends StringValuedEnumType<TipoObjeto> {
         }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".generic.model.Objeto$TipoObjeto$Type";
+        
+        public static final String TYPE = Constantes.DOMAIN_NAME+".seguridad.model.Objeto$TipoObjeto$Type";
+        
         @Getter
         private String value;
         private String labelKey;
@@ -100,7 +102,7 @@ public class Objeto extends GenericSeguridad<Objeto> {
 
         @Override
         public String getLabel() {
-            return GenericMensajes.getString(labelKey);
+            return SeguridadMensajes.getString(labelKey);
         }
 
         @Override

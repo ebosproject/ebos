@@ -25,6 +25,7 @@ public class ObjetoMB extends GenericSeguridadMB<Objeto> {
     public void getInit() {
         entitySearch = new Objeto();
         entitySearch.setEstado(Generic.Estado.ACTIVO);
+        entitySearch.setTipo(Objeto.TipoObjeto.BEAN);
     }
 
     @Override

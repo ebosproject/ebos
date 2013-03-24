@@ -34,18 +34,11 @@ public class MessageUtils {
 	 * @return String
 	 */
 	public static String buildMessage(String key, ResourceBundle resource, Object... params) {
-		String message;
 		try {
-			//System.out.println(key + ":" + resource.getString(key) + " - " + params);
-			message = getFormattedMessage(resource.getString(key), params);
+			return getFormattedMessage(resource.getString(key), params);
 		} catch (Exception e) {
-			//message = '!' + keySummary + '!';
-			//message = "Error desplegando el mensaje: \"" + key
-			//		+ "\". Notifique al administrador.";
-			message = "\"" + key + "\"";
-			System.out.println(e);
-		}
-		return message;
+			return new StringBuilder(Constantes.PREFIX_NOT_FOUND).append(key).append(Constantes.PREFIX_NOT_FOUND).toString();			
+		}		
 	}
 
 	public static String getFormattedMessage(String message, Object... params) {

@@ -57,43 +57,51 @@ public abstract class Generic<T extends Generic<T>> implements GenericEntity, Se
     /////////// METODOS PROXY PARA PROPIEDAD AUDITORIA ///////
     
     @Transient
-    public Usuario getUsuarioCreacion(){
-    	return getAuditoria().getUsuarioCreacion();
+    public Usuario getUsuarioCreacion(){    	
+    	return getAuditoria() != null ? getAuditoria().getUsuarioCreacion() : null;
     }
     
     @Transient
     public void setUsuarioCreacion(Usuario usuarioCreacion){
-    	getAuditoria().setUsuarioCreacion(usuarioCreacion);
+    	if(getAuditoria() != null){
+    		getAuditoria().setUsuarioCreacion(usuarioCreacion);
+    	}
     }
     
     @Transient
     public Usuario getUsuarioModificacion(){
-    	return getAuditoria().getUsuarioModificacion();
+    	return getAuditoria() != null ? getAuditoria().getUsuarioModificacion() : null;
     }
     
     @Transient
     public void setUsuarioModificacion(Usuario usuarioModificacion){
-    	getAuditoria().setUsuarioModificacion(usuarioModificacion);
+    	if(getAuditoria() != null){    	
+    		getAuditoria().setUsuarioModificacion(usuarioModificacion);
+    	}
     }
     
     @Transient
     public Date getFechaCreacion(){
-    	return getAuditoria().getFechaCreacion();
+    	return getAuditoria() != null ? getAuditoria().getFechaCreacion() : null;
     }
     
     @Transient
     public void setFechaCreacion(Date fechaCreacion){
-    	getAuditoria().setFechaCreacion(fechaCreacion);
+    	if(getAuditoria() != null){
+    		getAuditoria().setFechaCreacion(fechaCreacion);
+    	}
     }
     
     @Transient
     public Date getFechaModificacion(){
-    	return getAuditoria().getFechaModificacion();
+    	return getAuditoria() != null ? getAuditoria().getFechaModificacion() : null;
     }
     
     @Transient
     public void setFechaModificacion(Date fechaModificacion){
-    	getAuditoria().setFechaModificacion(fechaModificacion);
+    	if(getAuditoria() != null){
+    		getAuditoria().setFechaModificacion(fechaModificacion);
+    	}
     }
 
     /**
