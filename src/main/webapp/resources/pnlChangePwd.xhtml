@@ -1,0 +1,21 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+    
+    <p:dialog header="#{msg.plCambiarPassword}" widgetVar="dlgCambiarPwd" resizable="false" modal="true">
+        <h:form id="frmCambiarPassword">
+            <pl:panelGrid id="pnlCambiarPassword">
+                <pl:password id="actpassword" label="#{msg.plPasswordActual}" value="#{sesionUsuario.usuario.password}" required="true"/>
+                <pl:password id="newpassword" label="#{msg.plNuevoPassword}" value="#{sesionUsuario.usuario.newpassword}" required="true"/>
+                <pl:password id="confpassword" label="#{msg.plConfirmarPassword}" value="#{sesionUsuario.usuario.confpassword}" required="true"/>                        
+            </pl:panelGrid>   
+            <br/>
+            <div align="center">
+                <p:commandButton value="#{msg.plCambiar}" actionListener="#{sesionUsuario.cambiarPassword}"/>
+                <p:commandButton value="#{msg.plCancelar}" type="button" onclick="dlgCambiarPwd.hide()" />                        
+            </div>
+        </h:form>
+    </p:dialog>
+
+</ui:composition>

@@ -1,0 +1,169 @@
+2013-03-20 23:16:30,366 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTACTIVO_CUSTODIO add constraint FKDE280A65CA388A foreign key (empresapersona_id) references PLTFAPPL.APPTEMPRESA_PERSONA
+2013-03-20 23:16:30,366 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkde280a65ca388a» para la relación «apptactivo_custodio» ya existe
+2013-03-20 23:16:30,366 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTACTIVO_CUSTODIO add constraint FKDE280ACCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,366 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkde280accb4ffe9» para la relación «apptactivo_custodio» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTCATEGORIA add constraint FKA9C64000BEDFD357 foreign key (padre_id) references PLTFAPPL.APPTCATEGORIA
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fka9c64000bedfd357» para la relación «apptcategoria» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTEMPRESA add constraint FK5A4AF296B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk5a4af296b6d2ef0c» para la relación «apptempresa» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTEMPRESA add constraint FK5A4AF296CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk5a4af296ccb4ffe9» para la relación «apptempresa» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTEMPRESA add constraint FK5A4AF296B46FA6A foreign key (persona_id) references PLTFAPPL.APPTPERSONA
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk5a4af296b46fa6a» para la relación «apptempresa» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTEMPRESA_PERSONA add constraint FK903CFEE3B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk903cfee3b6d2ef0c» para la relación «apptempresa_persona» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTEMPRESA_PERSONA add constraint FK903CFEE3CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk903cfee3ccb4ffe9» para la relación «apptempresa_persona» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTEMPRESA_PERSONA add constraint FK903CFEE3B46FA6A foreign key (persona_id) references PLTFAPPL.APPTPERSONA
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk903cfee3b46fa6a» para la relación «apptempresa_persona» ya existe
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTEMPRESA_PERSONA add constraint FK903CFEE3E075714A foreign key (empresa_id) references PLTFAPPL.APPTEMPRESA
+2013-03-20 23:16:30,382 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk903cfee3e075714a» para la relación «apptempresa_persona» ya existe
+2013-03-20 23:16:30,398 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTMESSAGE_RESOURCE add constraint FKD21B49D9B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,398 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkd21b49d9b6d2ef0c» para la relación «apptmessage_resource» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTMESSAGE_RESOURCE add constraint FKD21B49D9CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkd21b49d9ccb4ffe9» para la relación «apptmessage_resource» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTPERSONA add constraint FK92A581B9B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk92a581b9b6d2ef0c» para la relación «apptpersona» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTPERSONA add constraint FK92A581B9CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk92a581b9ccb4ffe9» para la relación «apptpersona» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTPROPIEDAD add constraint FK219172358E76D98A foreign key (activo_id) references PLTFAPPL.APPTACTIVO
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk219172358e76d98a» para la relación «apptpropiedad» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTPROPIEDAD add constraint FK21917235A8916D0A foreign key (categoria_id) references PLTFAPPL.APPTCATEGORIA
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk21917235a8916d0a» para la relación «apptpropiedad» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTPROPIEDAD_VALOR add constraint FK11D5321AA78444EA foreign key (propiedad_id) references PLTFAPPL.APPTPROPIEDAD
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk11d5321aa78444ea» para la relación «apptpropiedad_valor» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTSUCURSAL add constraint FK2E96DDF3B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk2e96ddf3b6d2ef0c» para la relación «apptsucursal» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTSUCURSAL add constraint FK2E96DDF3CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk2e96ddf3ccb4ffe9» para la relación «apptsucursal» ya existe
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFAPPL.APPTSUCURSAL add constraint FK2E96DDF3E075714A foreign key (empresa_id) references PLTFAPPL.APPTEMPRESA
+2013-03-20 23:16:30,413 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk2e96ddf3e075714a» para la relación «apptsucursal» ya existe
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTEVENTO add constraint FK2E7BD0DCB6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk2e7bd0dcb6d2ef0c» para la relación «bittevento» ya existe
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTEVENTO add constraint FK2E7BD0DCCCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk2e7bd0dcccb4ffe9» para la relación «bittevento» ya existe
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTEVENTO_LOG add constraint FKF85C5941B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkf85c5941b6d2ef0c» para la relación «bittevento_log» ya existe
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTEVENTO_LOG add constraint FKF85C5941A6339B40 foreign key (evento_id) references PLTFBITA.BITTEVENTO
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkf85c5941a6339b40» para la relación «bittevento_log» ya existe
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTEVENTO_LOG add constraint FKF85C5941CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkf85c5941ccb4ffe9» para la relación «bittevento_log» ya existe
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTEVISITANTE add constraint FK8DD3C0ABB6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk8dd3c0abb6d2ef0c» para la relación «bittevisitante» ya existe
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTEVISITANTE add constraint FK8DD3C0ABCCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,429 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk8dd3c0abccb4ffe9» para la relación «bittevisitante» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTINSPECCION add constraint FK252CFF6CB6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk252cff6cb6d2ef0c» para la relación «bittinspeccion» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTINSPECCION add constraint FK252CFF6CCCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk252cff6cccb4ffe9» para la relación «bittinspeccion» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTINSPECCION_DETALLE add constraint FK4D10384B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk4d10384b6d2ef0c» para la relación «bittinspeccion_detalle» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTINSPECCION_DETALLE add constraint FK4D10384CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk4d10384ccb4ffe9» para la relación «bittinspeccion_detalle» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTRUTA add constraint FK71D1D177B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk71d1d177b6d2ef0c» para la relación «bittruta» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTRUTA add constraint FK71D1D177CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk71d1d177ccb4ffe9» para la relación «bittruta» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTRUTA_LOG add constraint FKA93A945CB6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fka93a945cb6d2ef0c» para la relación «bittruta_log» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTRUTA_LOG add constraint FKA93A945CCCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fka93a945cccb4ffe9» para la relación «bittruta_log» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTTURNO add constraint FKC88486CBB6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkc88486cbb6d2ef0c» para la relación «bittturno» ya existe
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFBITA.BITTTURNO add constraint FKC88486CBCCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,444 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkc88486cbccb4ffe9» para la relación «bittturno» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTOBJETO add constraint FKDFD414C8B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkdfd414c8b6d2ef0c» para la relación «segtobjeto» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTOBJETO add constraint FKDFD414C8CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fkdfd414c8ccb4ffe9» para la relación «segtobjeto» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTOPCION add constraint FKE0963DA5B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fke0963da5b6d2ef0c» para la relación «segtopcion» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTOPCION add constraint FKE0963DA5D576B2BB foreign key (padre_id) references PLTFSEGU.SEGTOPCION
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fke0963da5d576b2bb» para la relación «segtopcion» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTOPCION add constraint FKE0963DA5CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fke0963da5ccb4ffe9» para la relación «segtopcion» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTOPCION add constraint FKE0963DA54DFDDFBB foreign key (objeto_id) references PLTFSEGU.SEGTOBJETO
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fke0963da54dfddfbb» para la relación «segtopcion» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTROL add constraint FKA0738A90B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fka0738a90b6d2ef0c» para la relación «segtrol» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTROL add constraint FKA0738A90CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fka0738a90ccb4ffe9» para la relación «segtrol» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTROL_OPCION add constraint FK85CC32B57987F859 foreign key (rol_id) references PLTFSEGU.SEGTROL
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk85cc32b57987f859» para la relación «segtrol_opcion» ya existe
+2013-03-20 23:16:30,460 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTROL_OPCION add constraint FK85CC32B5B6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk85cc32b5b6d2ef0c» para la relación «segtrol_opcion» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTROL_OPCION add constraint FK85CC32B59151569B foreign key (opcion_id) references PLTFSEGU.SEGTOPCION
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk85cc32b59151569b» para la relación «segtrol_opcion» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTROL_OPCION add constraint FK85CC32B5CCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk85cc32b5ccb4ffe9» para la relación «segtrol_opcion» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTUSUARIO add constraint FK75AF736FB6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk75af736fb6d2ef0c» para la relación «segtusuario» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTUSUARIO add constraint FK75AF736F65CA388A foreign key (empresapersona_id) references PLTFAPPL.APPTEMPRESA_PERSONA
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk75af736f65ca388a» para la relación «segtusuario» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTUSUARIO add constraint FK75AF736FCCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk75af736fccb4ffe9» para la relación «segtusuario» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTUSUARIO_ROL add constraint FK610690DF7987F859 foreign key (rol_id) references PLTFSEGU.SEGTROL
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk610690df7987f859» para la relación «segtusuario_rol» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTUSUARIO_ROL add constraint FK610690DFFE5FF079 foreign key (usuario_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk610690dffe5ff079» para la relación «segtusuario_rol» ya existe
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTUSUARIO_ROL add constraint FK610690DFB6D2EF0C foreign key (usuarioModificacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,476 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk610690dfb6d2ef0c» para la relación «segtusuario_rol» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table PLTFSEGU.SEGTUSUARIO_ROL add constraint FK610690DFCCB4FFE9 foreign key (usuarioCreacion_id) references PLTFSEGU.SEGTUSUARIO
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la restricción «fk610690dfccb4ffe9» para la relación «segtusuario_rol» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFADMI.ADMSCONFIGURACION
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «admsconfiguracion» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFADMI.ADMSPARAMETROS
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «admsparametros» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSACTIVO
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appsactivo» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSACTIVO_CUSTODIO
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appsactivo_custodio» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSCATEGORIA
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appscategoria» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSEMPRESA
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appsempresa» ya existe
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSEMPRESA_PERSONA
+2013-03-20 23:16:30,507 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appsempresa_persona» ya existe
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSMESSAGE_RESOURCE
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appsmessage_resource» ya existe
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSPERSONA
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appspersona» ya existe
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSPROPIEDAD
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appspropiedad» ya existe
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSPROPIEDAD_VALOR
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appspropiedad_valor» ya existe
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSSUCURSAL
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appssucursal» ya existe
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFAPPL.APPSTEMA
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «appstema» ya existe
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSEVENTO
+2013-03-20 23:16:30,522 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsevento» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSEVENTO_LOG
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsevento_log» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSINSPECCION
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsinspeccion» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSINSPECCION_DETALLE
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsinspeccion_detalle» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSRUTA
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsruta» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSRUTA_LOG
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsruta_log» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSTURNO
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsturno» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFBITA.BITSVISITANTE
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «bitsvisitante» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFSEGU.SEGSOBJETO
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «segsobjeto» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFSEGU.SEGSOPCION
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «segsopcion» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFSEGU.SEGSROL
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «segsrol» ya existe
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFSEGU.SEGSROL_OPCION
+2013-03-20 23:16:30,538 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «segsrol_opcion» ya existe
+2013-03-20 23:16:30,554 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFSEGU.SEGSUSUARIO
+2013-03-20 23:16:30,554 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «segsusuario» ya existe
+2013-03-20 23:16:30,554 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create sequence PLTFSEGU.SEGSUSUARIO_ROL
+2013-03-20 23:16:30,554 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: la relación «segsusuario_rol» ya existe
+2013-03-20 23:16:30,554 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] schema export complete
+2013-03-20 23:16:30,554 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/platform
+2013-03-20 23:16:30,741 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/platform

@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+    <p:column id="estado" headerText="#{msg.plEstado}">
+        <pl:outputText value="#{reg.estado.label}"/>
+    </p:column>
+    <p:column id="username" headerText="#{msg.plUsername}">
+        <pl:outputText value="#{reg.username}"/>
+    </p:column>
+    <p:column id="nombres" headerText="#{msg.plNombres}">
+        <pl:outputText value="#{reg.empresaPersona.persona.nombres} #{reg.empresaPersona.persona.apellidos}"/>
+    </p:column>
+    <p:column id="mail" headerText="#{msg.plMail}">
+        <pl:outputText value="#{reg.empresaPersona.persona.mail}"/>
+    </p:column>
+</ui:composition>       

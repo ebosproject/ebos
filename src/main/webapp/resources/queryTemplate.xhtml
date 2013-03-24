@@ -1,0 +1,79 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="tabContentTemplate.xhtml"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+    <ui:param name="westRendered" value="true" />
+
+    <ui:define name="west">
+        <h:form id="frmFiltros">
+            <p:toolbar id="toolBarFiltros">
+                <p:toolbarGroup align="left">
+                    <p:commandButton id="btnBuscar" actionListener="#{bean._buscar}" value="#{msg.plBuscar}" 
+                    icon="ui-icon-search" update=":frmResultados"/>
+                </p:toolbarGroup>
+            </p:toolbar>
+
+            <h:panelGroup>
+                <ui:insert name="filtros" />
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="center">
+        <h:form id="frmResultados" prependId="false">
+            <p:toolbar id="toolbarResultados">
+                <p:toolbarGroup align="left">
+                    <p:commandButton id="btnNuevo" value="#{msg.plNuevo}" rendered="#{bean.habilitaCrear}"
+                                     action="#{bean._crear}" icon="ui-icon-document" ajax="false"/>
+                    <p:commandButton id="btnEditar" value="#{msg.plEditar}" action="#{bean._editar}" rendered="#{bean.habilitaEditar and not empty bean.dataTable}"
+                                     icon="ui-icon-edit" ajax="false"/>                    
+                    <p:commandButton id="btnExportar" value="#{msg.plExportar}" ajax="false" rendered="#{bean.habilitaExportar}">
+                        <p:dataExporter type="xls" target="dtResultados" fileName="Reporte"/>
+                    </p:commandButton>
+                </p:toolbarGroup>
+            </p:toolbar>
+            
+            <p:remoteCommand id="fnEditar" action="#{bean._editar}" name="fnEditar" 
+            	rendered="#{bean.habilitaEditar and not empty bean.dataTable}"/>
+            
+            <p:dataTable id="dtResultados" 
+                         var="reg" 
+                         value="#{bean.dataTable}"
+                         lazy="true" 
+                         selectionMode="single"
+                         selection="#{bean.activeEntity}"
+                         paginator="true" 
+                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+                         rowsPerPageTemplate="5,10,15,50"
+                         rows="10" 
+                         emptyMessage="#{msg.plEmptyDataTable}"
+                         resizableColumns="true"
+                         scrollable="true"  
+                         scrollHeight="90%"
+                         rowKey="#{reg.id}">
+                         
+                <p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" oncomplete="fnEditar();"/>         
+                         
+                <p:column headerText="Id" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
+                    <p:commandLink id="cmlEditar" type="push" value="#{reg.id}" 
+                    	action="#{bean._editar}" ajax="false" style="color:blue"
+                        title="#{msg.plVer}" onmouseup="jsPreventDefault(event,this);">
+                        <f:setPropertyActionListener value="#{reg}" target="#{bean.activeEntity}"/>
+                    </p:commandLink>
+                </p:column>
+                
+                <ui:insert name="resultados" />
+                
+			    <p:column id="creado" headerText="#{msg.plCreado}" width="60" resizable="false">        
+			        <pl:outputDate value="#{reg.fechaCreacion}" title="#{msg.plPor}: #{reg.usuarioCreacion.username}"/>
+			    </p:column>
+			    <p:column id="modificado" headerText="#{msg.plModificado}" width="60" resizable="false">        
+			        <pl:outputDate value="#{reg.fechaModificacion}" title="#{msg.plPor}: #{reg.usuarioModificacion.username}"/>
+			    </p:column>                    
+        	</p:dataTable>
+        </h:form>    
+    </ui:define>
+</ui:composition>

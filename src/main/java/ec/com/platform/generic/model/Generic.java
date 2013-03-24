@@ -1,0 +1,168 @@
+package ec.com.platform.generic.model;
+
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.Transient;
+
+import lombok.Getter;
+import lombok.Setter;
+import ec.com.platform.generic.resources.GenericMensajes;
+import ec.com.platform.seguridad.model.Usuario;
+import ec.com.platform.util.Constantes;
+import ec.com.platform.util.GenericEntity;
+import ec.com.platform.util.GenericUtils;
+import ec.com.platform.util.type.StringValuedEnum;
+import ec.com.platform.util.type.StringValuedEnumReflect;
+import ec.com.platform.util.type.StringValuedEnumType;
+
+/**
+ * Superclase para todas las Entidades @Entity de todos los modulos del sistema
+ *
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ */
+public abstract class Generic<T extends Generic<T>> implements GenericEntity, Serializable {
+
+	private static final long serialVersionUID = 2233398298735454479L;
+
+	/**
+	 * Metodos para propiedad Id
+	 */
+	public abstract Long getId();
+    public abstract void setId(Long id);
+
+    public Auditoria getAuditoria(){
+    	return null;
+    }
+    public void setAuditoria(Auditoria auditoria){    	
+    }
+    
+	@Getter @Setter
+    @Transient
+    private Date fechaDesde;
+    
+    @Getter @Setter
+    @Transient
+    private Date fechaHasta;
+    
+    @Transient
+    @Override
+    public Object getValue() {
+        return getId();
+    }
+    
+    /////////// METODOS PROXY PARA PROPIEDAD AUDITORIA ///////
+    
+    @Transient
+    public Usuario getUsuarioCreacion(){
+    	return getAuditoria().getUsuarioCreacion();
+    }
+    
+    @Transient
+    public void setUsuarioCreacion(Usuario usuarioCreacion){
+    	getAuditoria().setUsuarioCreacion(usuarioCreacion);
+    }
+    
+    @Transient
+    public Usuario getUsuarioModificacion(){
+    	return getAuditoria().getUsuarioModificacion();
+    }
+    
+    @Transient
+    public void setUsuarioModificacion(Usuario usuarioModificacion){
+    	getAuditoria().setUsuarioModificacion(usuarioModificacion);
+    }
+    
+    @Transient
+    public Date getFechaCreacion(){
+    	return getAuditoria().getFechaCreacion();
+    }
+    
+    @Transient
+    public void setFechaCreacion(Date fechaCreacion){
+    	getAuditoria().setFechaCreacion(fechaCreacion);
+    }
+    
+    @Transient
+    public Date getFechaModificacion(){
+    	return getAuditoria().getFechaModificacion();
+    }
+    
+    @Transient
+    public void setFechaModificacion(Date fechaModificacion){
+    	getAuditoria().setFechaModificacion(fechaModificacion);
+    }
+
+    /**
+     * @return Etiqueta; por default devuelve el Id de la entidad
+     */
+    @Transient
+    @Override
+    public String getLabel() {
+        return String.valueOf(getId());
+    }   
+
+    @Override
+    public abstract boolean equals(Object object);
+
+    @Override
+    public abstract int hashCode();
+
+    @Override
+    public abstract String toString();
+
+    /**
+     * <strong>Estado A/I para cualquier Entidad</strong> <br>
+     * <table border="1">
+     * <tr><th valign="top"> Estados </th>
+     * <tr><td valign="top"> A: Activo<br> I: Inactivo<br> </td></tr>
+     * </table>
+     *
+     * @author Eduardo Plua Alay
+     *
+     */
+    public enum Estado implements StringValuedEnum<Estado> {
+
+        ACTIVO("A"),
+        INACTIVO("I");
+
+        public static class Type extends StringValuedEnumType<Estado> {
+        }
+        public static final String TYPE = Constantes.DOMAIN_NAME+".generic.model.Generic$Estado$Type";
+        @Getter
+        private String value;
+        private String labelKey;
+
+        private Estado(String value) {
+            this.value = value;
+            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
+        }
+        public static final Map<String, Estado> LABELED_MAP =
+                GenericUtils.buildLabeledEnumMap(Estado.values());
+        /**
+         * Lists para iteraciones
+         */
+        public static final List<Estado> LIST = Arrays.asList(Estado.values());
+
+        @Override
+        public String getLabel() {
+            return GenericMensajes.getString(labelKey);
+        }
+
+        @Override
+        public String getDescription() {
+            return getLabel();
+        }
+
+        public boolean isActivo() {
+            return this.equals(ACTIVO);
+        }
+
+        public boolean isInactivo() {
+            return this.equals(INACTIVO);
+        }
+    }
+}

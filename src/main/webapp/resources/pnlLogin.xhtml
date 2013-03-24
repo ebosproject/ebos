@@ -1,0 +1,28 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form id="frmIniciarSesion">
+		<p:panel header="#{msg.systemIngreso}"
+			style="width: 350px; padding: 5px;">
+			<h:panelGrid id="pnlingreso" columns="3">
+				<p:graphicImage value="resources/images/username.png" />
+				<p:watermark for="username" value="#{msg.plUsuario}" />
+				<p:inputText id="username" value="#{sesionUsuario.usuario.username}"
+					required="true" requiredMessage="#{msg.plIngreseUsuario}" />
+				<p:graphicImage value="resources/images/password.png" />
+				<p:watermark for="password" value="#{msg.plClave}" />
+				<p:inputText id="password" type="password"
+					value="#{sesionUsuario.usuario.password}" required="true"
+					requiredMessage="#{msg.plIngreseClave}" />
+			</h:panelGrid>
+			<h:panelGrid>
+				<p:commandButton id="btnIniciarSesion" value="#{msg.plIngresar}"
+					actionListener="#{sesionUsuario.iniciarSesion}" ajax="false"
+					update="@all" />
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+	<p:messages id="msgWelcome" />
+
+</ui:composition>

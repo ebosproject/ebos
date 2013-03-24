@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+    <ui:param name="usuario" value="${bean.activeEntity}" /> 
+    <ui:param name="showPassword" value="#{usuario.id eq null}" />
+
+    <pl:panelGrid id="pnlUsuario" columns="2">
+        
+        <pl:outputText id="id" value="#{usuario.id}" label="Id"/>
+        <pl:outputText id="estado" value="#{usuario.estado.label}" label="#{msg.plEstado}"/>     
+        
+        <pl:outputDate id="fechaCreacion" value="#{usuario.fechaCreacion}" label ="#{msg.plCreado}"/>                 
+        <pl:outputDate id="fechaModificacion" value="#{usuario.fechaModificacion}" label="#{msg.plModificado}"/>                
+        
+        <pl:password id="password" label="#{msg.plPassword}" value="#{usuario.password}"  feedback="true" required="true" 
+                      rendered="#{showPassword}"/>        
+        <pl:inputText id="username" label="#{msg.plUsuario}" value="#{usuario.username}" required="true"/>                
+        
+        <pl:inputText id="nombres" label="#{msg.plNombres}" value="#{usuario.empresaPersona.persona.nombres}" required="true"/>                       
+        <pl:inputText id="apellidos" value="#{usuario.empresaPersona.persona.apellidos}" label="#{msg.plApellidos}"/>                
+        
+        <pl:inputText id="email" label="#{msg.plEmail}" value="#{usuario.empresaPersona.persona.mail}" required="true" maxlength="100"/>
+    </pl:panelGrid>
+
+</ui:composition>
+

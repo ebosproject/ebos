@@ -1,0 +1,17 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    
+    <p:confirmDialog header="Platform View Expired" severity="alert" width="200px"
+                     visible="#{not empty param['expired']}" 
+                     message="#{msg.plViewExpired}" widgetVar="viewExpiredDlg">
+		<div align="center"><p:commandButton type="button" value="OK" onclick="viewExpiredDlg.hide()" /></div>
+    </p:confirmDialog>
+    
+    <p:confirmDialog header="Platform Timed Out" severity="alert" width="200px"
+                     visible="#{not empty param['timedout']}" 
+                     message="#{msg.plSessionTimedout}" widgetVar="timedoutDlg">
+		<div align="center"><p:commandButton type="button" value="OK" onclick="timedoutDlg.hide()" /></div>
+    </p:confirmDialog>
+
+</ui:composition>

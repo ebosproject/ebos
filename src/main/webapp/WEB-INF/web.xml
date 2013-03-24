@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Platform</display-name>
+  <description>Platform Project</description>
+  <resource-ref>
+    <description>DataSource</description>
+    <res-ref-name>jdbc/platformPostgres</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  
+  <!-- JSF -->
+  <context-param>
+    <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+    <param-value>/WEB-INF/platform.taglib.xml</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Production</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>server</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.CONFIG_FILES</param-name>
+    <param-value>
+        /WEB-INF/faces-config.xml,
+        /WEB-INF/faces-navigation.xml,
+        /WEB-INF/web/faces-navigation.xml,
+        /WEB-INF/seguridad/faces-navigation.xml,
+        /WEB-INF/administracion/faces-navigation.xml
+    </param-value>
+  </context-param>
+    <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <context-param>
+  	<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  
+  <!-- PRIMEFACES -->
+  <context-param>
+  	<param-name>primefaces.THEME</param-name>
+    <param-value>#{sesionUsuario.tema}</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+    <param-value>6LfwZwoAAAAAAEhRyntKF1PBzysAJLzqp2v-GMRR</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+    <param-value>6LfwZwoAAAAAAI-oUHpdvRnkMfu9fXQHxc0P7IBu</param-value>
+  </context-param>
+  
+  <!-- SPRING -->
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>
+    	org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+    </param-value>
+  </context-param>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>ec.com.platform.app.spring.AppConfig</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
+  
+  <!-- FACES -->
+  <listener>
+       <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+  
+  <context-param>
+    <param-name>com.sun.faces.enableMissingResourceLibraryDetection</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <security-constraint>
+    <display-name>Restrict raw documents</display-name>
+    <web-resource-collection>
+      <web-resource-name>XHTML</web-resource-name>
+      <url-pattern>*.xhtml</url-pattern>
+    </web-resource-collection>
+    <web-resource-collection>
+      <web-resource-name>XCSS</web-resource-name>
+      <url-pattern>*.xcss</url-pattern>
+    </web-resource-collection>
+    <web-resource-collection>
+      <web-resource-name>XML</web-resource-name>
+      <url-pattern>*.xml</url-pattern>
+    </web-resource-collection>
+    <auth-constraint/>
+  </security-constraint>
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>home.jsf</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    <location>/home.jsf</location>
+  </error-page>
+</web-app>

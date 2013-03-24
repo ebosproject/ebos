@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+    <p:column id="estado" headerText="#{msg.plEstado}">
+        <pl:outputText value="#{reg.estado.label}" />
+    </p:column>        
+    <p:column id="grupo" headerText="#{msg.plGrupo}">
+        <pl:outputText value="#{reg.grupo}"/>
+    </p:column>
+    <p:column id="clave" headerText="#{msg.plClave}">
+        <pl:outputText value="#{reg.clave}" />
+    </p:column>
+    <p:column id="valor" headerText="#{msg.plValor}">
+        <pl:outputText value="#{reg.valor}" />
+    </p:column>
+
+</ui:composition>       

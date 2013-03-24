@@ -1,0 +1,30 @@
+	<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+	<div id="footer" class="ui-widget ui-widget-footer">
+		<div id="clock">
+			<p:clock />
+		</div>
+		<div id="themeswitcher">
+			<h:form>
+				<p:themeSwitcher value="#{themeSwitcherMB.tema}" var="t" 
+					style="width:175px;" effect="fade" >
+					<f:selectItem itemLabel="#{msg.plEscojaTema}" itemValue="" />
+					<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
+						var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
+					<p:ajax listener="#{themeSwitcherMB.guardarTema}" />
+					<p:column>
+						<h:graphicImage name="images/themes/#{t.imagen}" />
+					</p:column>
+					<p:column>
+                  		#{t.nombre}
+		            </p:column>
+				</p:themeSwitcher>
+			</h:form>
+		</div>
+	</div>
+
+</ui:composition>

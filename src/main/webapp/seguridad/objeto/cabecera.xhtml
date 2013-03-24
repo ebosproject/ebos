@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+    <ui:param name="objeto" value="${bean.activeEntity}" />    
+
+    <pl:panelGrid id="pnlOpcion" columns="2">        
+                
+       <pl:outputText id="id" value="#{objeto.id}" label="Id"/>                
+       <pl:outputText id="estado" value="#{objeto.estado.label}" label="#{msg.plEstado}"/>                
+        
+       <pl:outputDate id="creado" value="#{objeto.fechaCreacion}" 
+       		label="#{msg.plCreado}" title="#{msg.plPor}: {objeto.usuarioCreacion}"/>               
+       <pl:outputDate id="modificado" value="#{objeto.fechaModificacion}" 
+       		label="#{msg.plModificado}" title="#{msg.plPor}: {objeto.usuarioModificacion}"/>
+               
+       <pl:inputText id="nombre" value="#{objeto.codigo}" label="#{msg.plCodigo}" required="true"/>
+       <pl:inputText id="descripcion" value="#{objeto.descripcion}" label="#{msg.plDescripcion}"/>        
+       
+       <pl:selectOneMenu id="tipo" value="#{opcion.tipo}" label="#{msg.plTipo}">
+            <f:selectItem itemLabel ="" itemValue="" />
+            <f:selectItems value="#{bean.tipoList}" var="opc"
+                itemLabel="#{opc.label}" itemValue="#{opc}"/>
+        </pl:selectOneMenu>                
+                      
+                
+    </pl:panelGrid>        
+    
+</ui:composition>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+    <application>
+        <locale-config>
+            <default-locale>es</default-locale>
+            <supported-locale>es</supported-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>ec.com.platform.app.web.resources.DatabaseDrivenResourceBundle</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+    
+    <factory>
+        <exception-handler-factory>ec.com.platform.util.web.jsf.event.PlatformExceptionHandlerFactory</exception-handler-factory>
+    </factory>  
+    
+    <!-- <lifecycle>
+        <phase-listener>ec.com.platform.util.web.jsf.event.SessionPhaseListener</phase-listener>
+    </lifecycle>  
+     -->
+     
+    <component>
+        <component-type>ec.com.platform.app.web.component.Layout</component-type>
+        <component-class>ec.com.platform.app.web.component.Layout</component-class>
+    </component>
+    <component>
+        <component-type>ec.com.platform.app.web.component.LayoutPane</component-type>
+        <component-class>ec.com.platform.app.web.component.LayoutPane</component-class>
+    </component>
+
+    <render-kit>
+        <renderer>
+            <component-family>ec.com.platform.app.web.component</component-family>
+            <renderer-type>ec.com.platform.app.web.component.LayoutRenderer</renderer-type>
+            <renderer-class>ec.com.platform.app.web.component.LayoutRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>ec.com.platform.app.web.component</component-family>
+            <renderer-type>ec.com.platform.app.web.component.LayoutPaneRenderer</renderer-type>
+            <renderer-class>ec.com.platform.app.web.component.LayoutPaneRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+    
+</faces-config>     

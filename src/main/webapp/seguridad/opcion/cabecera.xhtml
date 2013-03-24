@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+    <ui:param name="opcion" value="#{bean.activeEntity}" />    
+
+    <pl:panelGrid id="pnlOpcion" columns="2">        
+                
+       <pl:outputText id="id" value="#{opcion.id}" label="Id"/>                
+       <pl:outputText id="estado" value="#{opcion.estado.label}" label="#{msg.plEstado}"/>                
+        
+       <pl:outputDate id="creado" value="#{opcion.fechaCreacion}" 
+       		label="#{msg.plCreado}" title="#{msg.plPor}: {opcion.usuarioCreacion}"/>               
+       <pl:outputDate id="modificado" value="#{opcion.fechaModificacion}" 
+       		label="#{msg.plModificado}" title="#{msg.plPor}: {opcion.usuarioModificacion}"/>
+               
+       <pl:inputText id="nombre" value="#{opcion.nombre}" label="#{msg.plNombre}" required="true"/>
+       <pl:inputText id="descripcion" value="#{opcion.descripcion}" label="#{msg.plDescripcion}"/>        
+               
+       <pl:inputText id="etiqueta" value="#{opcion.etiqueta}" required="true" maxlength="20" label="#{msg.plEtiqueta}"/>               
+       <pl:inputText id="target" value="#{opcion.target}" label="#{msg.plTarget}" required="true" maxlength="200"/> 
+               
+       <pl:inputText id="icono" value="#{opcion.icono}" label="#{msg.plIcono}"/>        
+       <p:selectOneMenu id="padre" value="#{opcion.padre}" efect="fade" converter="#{bean.opcionConverter}" label="#{msg.plPadre}">
+            <f:selectItem itemLabel ="#{msg.plSeleccionaUno}" itemValue="" />
+            <f:selectItems value="#{bean.opcionList}" var="opc"
+                itemLabel="#{opc.etiqueta}" itemValue="#{opc}"/>
+        </p:selectOneMenu>
+                
+    </pl:panelGrid>        
+    
+</ui:composition>

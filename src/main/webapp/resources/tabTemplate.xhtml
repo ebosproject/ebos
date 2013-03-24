@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pl="http://platform.com.ec/ui">
+
+    <f:view contentType="text/html">
+        <h:head>            
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>            
+            <title>#{msg.systemName}</title>            
+            <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
+            <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
+            <h:outputScript library="js" name="jquery-1.7.2.js" />
+            <h:outputScript library="js" name="scripts.js" />              
+            <link rel="shortcut icon" href="resources/images/favicon.ico" />
+<script type="text/javascript">//<![CDATA[
+    window.history.forward(1);            
+    jQuery.noConflict();        
+
+    function jsAbrirOpcion(opcionId, url){ //TODO (epa): embeber esta logica en MB
+        //Add new tab
+    	abrirOpcion(([{name:'opcionId', value:opcionId}]));
+		//Prepender iframe
+		jQuery('div[id^="pnl_"]').hide();
+		if(jQuery("div[id='pnl_"+opcionId+"']").length == 0){				
+			var iFrame = "<div id='pnl_"+opcionId+"' style='display: block; height:100%'>"+		
+			"<iframe id='iframe_"+opcionId+"' src='"+url+"'"+
+			"frameborder='0' class='border0' width='100%' height='100%'>"+                        
+	        "<p>Su navegador no soporta iframes</p></iframe></div>";
+	        jQuery("div[id='tabContent']").prepend(iFrame);
+		}
+		else {
+			jQuery("div[id='pnl_"+opcionId+"']").show();
+		}
+    }
+
+    function jsCambiarOpcion(opcionId){
+		//Hide active iframe
+    	jQuery('div[id^="pnl_"]').hide();
+    	//Show iframe
+    	jQuery("div[id='pnl_"+opcionId+"']").show();
+    }
+
+    function jsCerrarOpcion(opcionId){
+    	//Remove prepender iframe
+    	jQuery("div[id='pnl_"+opcionId+"']").remove();
+    }
+
+//]]></script>            
+        </h:head>        
+        <h:body>
+            <ui:include id="pnlLoading" src="pnlLoading.xhtml" />
+            
+            <ui:fragment id="frgWelcome" rendered="#{not sesionUsuario.login}">
+            	<ui:include id="pnlViewExpired" src="pnlViewExpired.xhtml" />
+		    	<div id="lyLogin" align="center">
+			        <div id="lyNorth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-north ui-layout-pane ui-layout-pane-north banner" style="border: medium none; position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 1; height: 51px; display: block; visibility: visible;"/>
+			        <div id="lyCenter" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-center ui-layout-pane ui-layout-pane-center" style="border: medium none; position: absolute; margin: 0px; left: 0px; right: 0px; top: 63px; bottom: 58px; height: 278px; z-index: 1; display: block; visibility: visible;">            	
+			        	<ui:include id="pnlLogin" src="pnlLogin.xhtml" />
+			       	</div>
+			        <div id="lySouth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-south ui-layout-pane ui-layout-pane-south" style="border: medium none; position: absolute; margin: 0px; top: auto; bottom: 0px; left: 0px; right: 0px; width: auto; z-index: 1; height: 46px; display: block; visibility: visible;">
+			        	<h:outputLabel id="copyright" value="#{msg.systemCopyright}"/>
+			        </div>
+			    </div>
+            </ui:fragment>
+
+			<ui:fragment id="frgHome" rendered="#{sesionUsuario.login}">
+				<ui:include id="pnlHome" src="pnlHome.xhtml" />	            
+            </ui:fragment>
+        </h:body>
+    </f:view>
+</html>

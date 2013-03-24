@@ -1,0 +1,30 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform"
+                xmlns:f="http://java.sun.com/jsf/core">
+    
+    <ui:remove>
+    	idle: Faltando 5 min se alerta al usuario que su sesion se cerrara
+    </ui:remove>
+    <p:idleMonitor timeout="#{(session.maxInactiveInterval * 1000)-20000}" >
+    	<p:ajax event="idle" listener="#{idleMonitorMB.idleListener}"/>  
+		<p:ajax event="active" listener="#{idleMonitorMB.activeListener}" />
+    </p:idleMonitor>    
+    
+<ui:remove>    
+    <p:dialog header="Sesion Caducada" widgetVar="sessionTimeOutDialog" modal="true" position="center" 
+              closable="false" width="400" visible="false" resizable="false">
+        <pl:panelGrid>
+            <pl:outputText value="La sesion ha caducado, por favor, pulse sobre el siguiente boton para volver a acceder al sistema" />
+            <h:form id="frmTimeout">
+            	<br/>
+                <div align="center">
+                    <p:commandButton id="confirmBackToLogin" value="Volver a acceder al sistema" ajax="false" update="@all" />                
+                </div>
+            </h:form>
+        </pl:panelGrid>        
+    </p:dialog>
+</ui:remove>
+
+</ui:composition>

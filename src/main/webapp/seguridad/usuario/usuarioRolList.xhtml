@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <ui:param name="update" value=":frmRol:dtUsuarioRolList"/>    
+
+    <h:form id="frmRol">
+        <p:toolbar id="toolBarDetalle" style="width: 74%">
+            <p:toolbarGroup align="right">
+                <p:commandButton id="agregarRolBtn" value="#{msg.plAgregar}" type="button" rendered="#{bean.habilitaCrear}"/>
+                <p:commandButton id="guardarUsuarioRolBtn" value="#{msg.plGuardar}" type="push" rendered="#{bean.habilitaEditar}"
+                                 action="#{bean.guardarUsuarioRolList}" update="#{update}"/>
+                <p:commandButton id="eliminarUsuarioRolBtn" value="#{msg.plEliminar}" type="push" rendered="#{bean.habilitaEliminar}"
+                                 action="#{bean.eliminarUsuarioRolList}" update="#{update}"/>
+            </p:toolbarGroup>
+        </p:toolbar>
+        <p:overlayPanel for="agregarRolBtn" hideEffect="fade" dynamic="true" my="left bottom">            
+            <p:dataTable id="dtOpcionList" var="reg" value="#{bean.rolList}">
+                <p:column id="id" headerText="#{msg.plSel}">
+                    <h:commandLink value="#{reg.id}" action="#{bean.agregarUsuarioRol}" id="cmlEditar">
+                        <f:setPropertyActionListener value="#{reg}" target="#{bean.selectedRol}"/>
+                        <p:ajax update="#{update}"/>
+                    </h:commandLink>
+                </p:column>
+                <p:column id="nombre" headerText="#{msg.plNombre}">
+                    <pl:outputText value="#{reg.nombre}" />
+                </p:column>
+                <p:column id="descripcion" headerText="#{msg.plDescripcion}">
+                    <pl:outputText header="Descripcion" value="#{reg.descripcion}"/>            
+                </p:column>                               
+            </p:dataTable>
+        </p:overlayPanel>
+
+        <p:dataTable id="dtUsuarioRolList" var="reg" value="#{bean.usuarioRolList}" 
+                     rowKey="#{reg.id}" selection="#{bean.selectedUsuarioRolList}" style="width: 75%">
+
+            <p:column selectionMode="multiple" rendered="#{bean.habilitaEliminar or bean.habilitaEditar}"/>
+
+            <p:column id="nombre" headerText="#{msg.plNombre}">
+                <pl:outputText value="#{reg.rol.nombre}" />
+            </p:column>
+
+            <p:column id="descripcion" headerText="#{msg.plDescripcion}">
+                <pl:outputText value="#{reg.rol.descripcion}" />
+            </p:column>
+
+            <p:column id="estado" headerText="#{msg.plEstado}">
+                <pl:outputText value="#{reg.estado.label}" />
+            </p:column>
+
+            <p:column id="creado" headerText="#{msg.plCreado}">
+                <pl:outputDate value="#{reg.fechaCreacion}" />
+            </p:column>
+
+            <p:column id="modificado" headerText="#{msg.plModificado}">
+                <pl:outputDate value="#{reg.fechaModificacion}" />
+            </p:column>
+
+        </p:dataTable>
+
+    </h:form>   
+</ui:composition>
+

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pl="http://platform.com.ec/ui">
+          
+    <f:view contentType="text/html" >
+        <h:head>            
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <title>#{msg.systemName}</title>
+            <h:outputStylesheet library="css" name="componentes.css" />
+<script type="text/javascript">//<![CDATA[
+    function jsPreventDefault(event, elem){	
+        if(window!=window.top&&window.top.jsPreventDefault)window.top.jsPreventDefault(event, elem);
+    }	    
+//]]></script>
+        </h:head>
+        <h:body>
+			<ui:include id="pnlLoading" src="pnlLoading.xhtml" />            
+
+            <pl:layout options="#{layoutMB.layoutOptionsContent}">  
+                
+                <pl:layoutPane id="lyWest" position="west" rendered="#{westRendered}">
+                    <ui:insert name="west" />
+                </pl:layoutPane>
+                
+                <pl:layoutPane id="lyCenter" position="center">
+                    <p:growl id="msgTabs" autoUpdate="true" sticky="true"/>
+                    <ui:insert name="center"/>                    
+                </pl:layoutPane> 
+                
+            </pl:layout>            
+        </h:body>
+    </f:view>
+</html>

@@ -1,0 +1,11 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    
+    <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();" />
+    <p:dialog modal="true" widgetVar="statusDialog" draggable="false"
+                closable="false" resizable="false" showHeader="false">
+        <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
+    </p:dialog>
+
+</ui:composition>
