@@ -1,0 +1,13 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+
+    <pl:panelGrid id="pnlFiltros">               
+        <pl:inputText id="id" value="#{bean.entitySearch.id}" label="#{msg.plId}"/>                    
+        <pl:inputText id="codigo" value="#{bean.entitySearch.codigo}" label="#{msg.plCodigo}"/>        
+        <pl:inputText id="localidad" value="#{bean.entitySearch.localidad}" label="#{msg.plLocalidad}"/>        
+    </pl:panelGrid>
+
+</ui:composition>

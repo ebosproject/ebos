@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#app#*" PATH="/app/*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#app#*:0" NAME="item" PATH="/app/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="app#bundle#index.jsf::#app#bundle#index.jsf"
+    NAME="output" PATH="/app/bundle/index.jsf"
+    TARGET="rules:#app#bundle#index.jsf" TITLE="app/bundle/index.jsf" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="crearBundle::#app#bundle#contenedor.jsf"
+    NAME="output1" PATH="/app/bundle/contenedor.jsf"
+    TARGET="rules:#app#bundle#contenedor.jsf" TITLE="crearBundle" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#app#bundle#contenedor.jsf"
+  PATH="/app/bundle/contenedor.jsf" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#app#bundle#index.jsf"
+  PATH="/app/bundle/index.jsf" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
