@@ -30,7 +30,7 @@ public interface AppS extends Serializable {
 	 * @return
 	 */
 	@Cacheable(value="cacheBundle")
-	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, String localidad);
+	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, Bundle.Localidad localidad);
 	
 	/**
 	 * Obtiene el listado de codigos de los {@link Bundle} entities existentes por localidad
@@ -39,7 +39,7 @@ public interface AppS extends Serializable {
 	 * @return
 	 */
 	@Cacheable(value="cacheBundle")
-	public List<String> obtenerCodeMessageResourcePorLocale(String localidad);
+	public List<String> obtenerCodeMessageResourcePorLocale(Bundle.Localidad localidad);
 	
 	public Bundle obtenerBundleNuevo();
 	

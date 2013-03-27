@@ -2,6 +2,7 @@ package ec.com.platform.app.web.resources;
 
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javax.faces.context.FacesContext;
@@ -29,8 +30,9 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
     @Override
     protected Object handleGetObject(String key) {
         final Bundle messageResource = appS
-                .obtenerMessageResourcePorCodeYLocale(key, FacesContext.getCurrentInstance()
-                        .getViewRoot().getLocale().getLanguage());
+                .obtenerMessageResourcePorCodeYLocale(key, Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
+                        .getViewRoot().getLocale().toString()));        
+        
         if (messageResource != null) {
             return messageResource.getValor();
         }
@@ -40,8 +42,8 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
     @Override
     public Enumeration<String> getKeys() {
         return Collections.enumeration(appS
-                .obtenerCodeMessageResourcePorLocale(FacesContext.getCurrentInstance().getViewRoot()
-                        .getLocale().getLanguage()));
+                .obtenerCodeMessageResourcePorLocale(Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
+                        .getViewRoot().getLocale().toString())));
     }
  
 }

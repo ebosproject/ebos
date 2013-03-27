@@ -95,7 +95,7 @@ public class Propiedad extends GenericApp<Propiedad> {
      * @author Eduardo Plua Alay
      *
      */
-    public enum TipoDato implements StringValuedEnum<TipoDato> {
+    public enum TipoDato implements StringValuedEnum<TipoDato> { //TODO (epa): agregar mas tipos de datos
 
         TEXT("T"),
         NUMBER("N"),

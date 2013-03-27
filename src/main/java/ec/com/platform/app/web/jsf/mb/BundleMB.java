@@ -1,9 +1,12 @@
 package ec.com.platform.app.web.jsf.mb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import lombok.Getter;
 
 import ec.com.platform.app.model.Bundle;
 import ec.com.platform.fwk.crud.Paginacion;
@@ -79,5 +82,9 @@ public class BundleMB extends GenericAppMB<Bundle> {
     public void eliminar() {
         appS.eliminarBundle(activeEntity);                
     }            
+    
+    //////////////////////// DATALIST ///////////////////////////////
+    @Getter
+    public final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);
     
 }

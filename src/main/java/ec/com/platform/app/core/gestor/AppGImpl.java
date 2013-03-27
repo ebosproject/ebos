@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import ec.com.platform.app.exception.AppException;
 import ec.com.platform.app.model.Bundle;
+import ec.com.platform.app.model.Bundle.Localidad;
 import ec.com.platform.app.model.Bundle_;
 import ec.com.platform.app.model.MessageResource_;
 import ec.com.platform.fwk.crud.GenericCriteria;
@@ -40,15 +41,15 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 			return findByCriteria(criteria, paginacion);
 		}
 		
-		criteria.addLike(Bundle_.codigo, bundle.getCodigo());
-        criteria.addLike(Bundle_.localidad, bundle.getLocalidad());
+		criteria.addLikeIfNotNull(Bundle_.codigo, bundle.getCodigo());
+        criteria.addEqualsIfNotNull(Bundle_.localidad, bundle.getLocalidad());
 
         return findByCriteria(criteria, paginacion);
 	}
 	
 	@Override
 	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo,
-			String localidad) {
+			Bundle.Localidad localidad) {
 		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
 		criteria.addEquals(MessageResource_.codigo, codigo);
 		criteria.addEquals(MessageResource_.localidad, localidad);
@@ -56,7 +57,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	}
 
 	@Override
-	public List<String> obtenerCodeMessageResourcePorLocale(String localidad) {
+	public List<String> obtenerCodeMessageResourcePorLocale(Localidad localidad) {
 		return findByQuery("select m.codigo from Bundle m where m.localidad = :localidad", String.class, localidad);
 	}
 	

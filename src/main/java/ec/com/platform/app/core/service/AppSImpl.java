@@ -37,12 +37,12 @@ public class AppSImpl implements AppS{
 	}
 	
 	@Override
-	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, String localidad){
+	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, Bundle.Localidad localidad){
 		return appG.obtenerMessageResourcePorCodeYLocale(codigo, localidad);
 	}
 
 	@Override
-	public List<String> obtenerCodeMessageResourcePorLocale(String localidad) {
+	public List<String> obtenerCodeMessageResourcePorLocale(Bundle.Localidad localidad) {
 		return appG.obtenerCodeMessageResourcePorLocale(localidad);
 	}
 	
