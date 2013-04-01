@@ -33,7 +33,7 @@ public class AppConfig {
 	@Bean
 	public PropertyPlaceholderConfigurer propertyPlaceholderConfigurer(){
 		PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
-		ppc.setLocation(new ClassPathResource("ec/com/platform/app/resources/app.properties"));
+		ppc.setLocation(new ClassPathResource("ec/com/platform/app/resources/appconfig.properties"));
 		ppc.setIgnoreUnresolvablePlaceholders(true);
 		return ppc;
 	}

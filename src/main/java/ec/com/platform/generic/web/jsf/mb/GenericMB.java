@@ -3,6 +3,7 @@ package ec.com.platform.generic.web.jsf.mb;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -16,7 +17,10 @@ import org.primefaces.model.SortOrder;
 
 import ec.com.platform.app.web.jsf.mb.SesionUsuarioMB;
 import ec.com.platform.fwk.crud.Paginacion;
+import ec.com.platform.generic.core.gestor.GenericGImpl;
 import ec.com.platform.generic.model.Generic;
+import ec.com.platform.util.Constantes;
+import ec.com.platform.util.MessageUtils;
 import ec.com.platform.util.NumberUtils;
 import ec.com.platform.util.type.JsfMessage;
 
@@ -223,9 +227,20 @@ import ec.com.platform.util.type.JsfMessage;
         setHabilitaExportar(sesionUsuario.verificaAcceso(TARGET_ID, SesionUsuarioMB.EXPORTAR_ACTION_ID));
     }
     
+    /**
+	 * @see {@link GenericGImpl#getBundleName()}
+	 * 
+	 * @author Eduardo Plua Alay
+	 */	
+	protected String getBundleName(){
+		return Constantes.MODULE_BUNDLE_NAME;
+	}
+	
+	private final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(getBundleName());
+    
     @Override
     public void wrapMessage(FacesMessage.Severity severity, String key, Object... args){
-        FacesMessage message = new FacesMessage(severity, key, "");
+        FacesMessage message = new FacesMessage(severity, MessageUtils.buildMessage(key, RESOURCE_BUNDLE, args), "");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     

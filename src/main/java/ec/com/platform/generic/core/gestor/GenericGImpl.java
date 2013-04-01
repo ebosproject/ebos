@@ -1036,19 +1036,19 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
     }
     
     public void wrapSuccessMessage(String key, Object... args) {        
-        wrapMessage(FacesMessage.SEVERITY_INFO, key, "");
+        wrapMessage(FacesMessage.SEVERITY_INFO, key, args);
     }
 
     public void wrapWarningMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_WARN, key, "");        
+        wrapMessage(FacesMessage.SEVERITY_WARN, key, args);        
     }
 
     public void wrapErrorMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_ERROR, key, "");        
+        wrapMessage(FacesMessage.SEVERITY_ERROR, key, args);        
     }
     
     public void wrapFatalMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_FATAL, key, "");        
+        wrapMessage(FacesMessage.SEVERITY_FATAL, key, args);        
     }
 //
     /**

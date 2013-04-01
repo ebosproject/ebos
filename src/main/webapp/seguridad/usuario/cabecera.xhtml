@@ -6,7 +6,6 @@
                 xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
 
     <ui:param name="usuario" value="${bean.activeEntity}" /> 
-    <ui:param name="showPassword" value="#{usuario.id eq null}" />
 
     <pl:panelGrid id="pnlUsuario" columns="2">
         
@@ -17,7 +16,7 @@
         <pl:outputDate id="fechaModificacion" value="#{usuario.fechaModificacion}" label="#{msg.plModificado}"/>                
         
         <pl:password id="password" label="#{msg.plPassword}" value="#{usuario.password}"  feedback="true" required="true" 
-                      rendered="#{showPassword}"/>        
+                      rendered="#{usuario.id eq null}"/>        
         <pl:inputText id="username" label="#{msg.plUsuario}" value="#{usuario.username}" required="true"/>                
         
         <pl:inputText id="nombres" label="#{msg.plNombres}" value="#{usuario.empresaPersona.persona.nombres}" required="true"/>                       

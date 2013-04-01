@@ -7,6 +7,7 @@ import lombok.Setter;
 import ec.com.platform.administracion.core.servicio.AdministracionS;
 import ec.com.platform.generic.model.Generic;
 import ec.com.platform.generic.web.jsf.mb.GenericMB;
+import ec.com.platform.util.Constantes;
 
 /**
  *
@@ -19,9 +20,14 @@ public abstract class GenericAdministracionMB<T extends Generic<T>> extends Gene
 	public GenericAdministracionMB(){
         super();
     }
+	
+	@Override
+    protected String getBundleName(){
+    	return Constantes.DOMAIN_NAME+".administracion.resources.administracion";
+    }
     
 	@Getter @Setter
     @ManagedProperty(value = "#{administracionS}")
     protected AdministracionS administracionS;
-
+	
 }

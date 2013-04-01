@@ -8,6 +8,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -55,8 +57,9 @@ public class Propiedad extends GenericApp<Propiedad> {
 	@JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 	
-	@Column(name = "tipoDato", nullable = false)
-    @Type(type = Propiedad.TipoDato.TYPE)
+	@Column(name = "tipoDato", nullable = false, length = 1)
+    //@Type(type = Propiedad.TipoDato.TYPE)
+	@Enumerated(EnumType.STRING)
     private Propiedad.TipoDato tipoDato;
 	
 	@Column(name = "valor", length = 50)
@@ -74,8 +77,9 @@ public class Propiedad extends GenericApp<Propiedad> {
     @Column(name="lista")
     private boolean lista;
 	
-    @Column(name = "estado", nullable = false)
-    @Type(type = Generic.Estado.TYPE)
+    @Column(name = "estado", nullable = false, length = 1)
+    //@Type(type = Generic.Estado.TYPE)
+    @Enumerated(EnumType.STRING)
     private Generic.Estado estado;
     
     @OneToMany(mappedBy = "propiedad", fetch= FetchType.LAZY)
@@ -101,10 +105,10 @@ public class Propiedad extends GenericApp<Propiedad> {
         NUMBER("N"),
         BOOLEAN("B");
 
-        public static class Type extends StringValuedEnumType<TipoDato> {
-        }
+//        public static class Type extends StringValuedEnumType<TipoDato> {
+//        }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Propiedad$TipoDato$Type";
+        //public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Propiedad$TipoDato$Type";
 
         @Getter
         private String value;

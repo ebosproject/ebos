@@ -25,5 +25,5 @@ public abstract class AbstractServiceMB implements Serializable {
     @Getter @Setter
     @ManagedProperty(value = "#{seguridadS}")
     protected SeguridadS seguridadS;
-
+    
 }

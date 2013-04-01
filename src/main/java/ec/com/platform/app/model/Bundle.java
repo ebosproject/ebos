@@ -30,7 +30,7 @@ public class Bundle extends GenericApp<Bundle>{
 	@Column(name = "codigo", nullable = false, length = 50)
 	private String codigo;
 
-	@Column(name = "localidad", nullable = false, length = 4)
+	@Column(name = "localidad", nullable = false, length = 5)
 	private String localidad; //TODO (epa): cambiar tipo String por Enum
 
 	@Column(name = "valor", nullable = false, length = 500)

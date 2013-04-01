@@ -7,6 +7,7 @@ import lombok.Setter;
 import ec.com.platform.administracion.core.servicio.AdministracionS;
 import ec.com.platform.generic.model.Generic;
 import ec.com.platform.generic.web.jsf.mb.GenericMB;
+import ec.com.platform.util.Constantes;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -19,6 +20,11 @@ public abstract class GenericBitacoraMB<T extends Generic<T>> extends GenericMB<
 
 	public GenericBitacoraMB(){
         super();
+    }
+	
+	@Override
+    protected String getBundleName(){
+    	return Constantes.DOMAIN_NAME+".bitacora.resources.bitacora";
     }
     
 	@Getter @Setter

@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 
 import ec.com.platform.app.model.Bundle;
+import ec.com.platform.app.model.Propiedad;
 import ec.com.platform.fwk.crud.Paginacion;
 
 /**
@@ -59,7 +60,19 @@ public interface AppS extends Serializable {
 	 * @param activeEntity
 	 */
 	@CacheEvict(value="cacheBundle", allEntries=true)
-	public void eliminarBundle(Bundle activeEntity);
-		
-    
+	public void eliminarBundle(Bundle bundle);
+
+	
+	//
+    // Propiedad
+    //
+
+	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Paginacion paginacion);
+	
+	public Propiedad obtenerPropiedadNuevo();
+	
+	public Propiedad guardarPropiedad(Propiedad propiedad);
+	
+	public void eliminarPropiedad(Propiedad propiedad);
+
 }

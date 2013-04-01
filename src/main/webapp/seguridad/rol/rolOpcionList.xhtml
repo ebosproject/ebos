@@ -15,9 +15,9 @@
                                  action="#{bean.eliminarRolOpcionList}" update="#{update}"/>
             </p:toolbarGroup>
         </p:toolbar>
-        <p:overlayPanel for="agregarOpcionBtn" dynamic="true" my="left bottom">
+        <p:overlayPanel for="agregarOpcionBtn" dynamic="true" my="left bottom" >
             <p:dataTable id="dtOpcionList" var="reg" value="#{bean.opcionList}" paginator="true" rows="10">
-                <p:column id="id" headerText="#{msg.plSelect}">
+                <p:column id="id" headerText="#{msg.plSel}">
                     <h:commandLink value="#{reg.id}" action="#{bean.agregarRolOpcion}" id="cmlEditar">
                         <f:setPropertyActionListener value="#{reg}" target="#{bean.selectedOpcion}"/>
                         <p:ajax update="#{update}" />

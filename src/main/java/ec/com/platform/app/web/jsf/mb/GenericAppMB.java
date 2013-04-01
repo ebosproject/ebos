@@ -7,6 +7,7 @@ import lombok.Setter;
 import ec.com.platform.app.core.service.AppS;
 import ec.com.platform.generic.model.Generic;
 import ec.com.platform.generic.web.jsf.mb.GenericMB;
+import ec.com.platform.util.Constantes;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -18,6 +19,11 @@ public abstract class GenericAppMB<T extends Generic<T>> extends GenericMB<T> {
 
 	public GenericAppMB() {
         super();
+    }
+	
+	@Override
+    protected String getBundleName(){
+    	return Constantes.DOMAIN_NAME+".app.resources.app";
     }
 	
 	@Getter @Setter

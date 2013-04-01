@@ -15,6 +15,15 @@
             <from-outcome>crearBundle</from-outcome>
             <to-view-id>/app/bundle/contenedor.jsf</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>app/propiedad/index.jsf</from-outcome>
+            <to-view-id>/app/propiedad/index.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>crearPropiedad</from-outcome>
+            <to-view-id>/app/propiedad/contenedor.jsf</to-view-id>
+        </navigation-case>
      </navigation-rule>   
 
 </faces-config>

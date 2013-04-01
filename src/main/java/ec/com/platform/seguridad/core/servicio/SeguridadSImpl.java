@@ -36,13 +36,6 @@ public class SeguridadSImpl implements SeguridadS{
     @Autowired
     @Qualifier("seguridadG")
     private SeguridadG seguridadG;
-
-//    public SeguridadG getSeguridadG() {
-//        return seguridadG;
-//    }
-//    public void setSeguridadG(SeguridadG seguridadG) {
-//        this.seguridadG = seguridadG;
-//    }
     
     //
     // Usuario
@@ -223,5 +216,9 @@ public class SeguridadSImpl implements SeguridadS{
     public SesionUsuarioMB getSesionUsuario() {
     	return seguridadG.getSesionUsuario();
     }    
+    
+    public void guardarPreferenciasUsuario(Usuario usuario){
+    	seguridadG.guardarPreferenciasUsuario(usuario);
+    }
 
 }

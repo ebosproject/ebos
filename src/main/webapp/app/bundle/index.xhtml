@@ -4,13 +4,13 @@
 
     <ui:param name="bean" value="#{bundleMB}" />
     <ui:param name="optionName" value="#{msg.plBundle}" />
-    <ui:param name="showAuditoria" value="false" />
     
     <ui:define name="filtros">
         <ui:include src="indexFiltros.xhtml" />
     </ui:define>
 
     <ui:define name="resultados">
+    	<ui:param name="showAuditoria" value="false" />
         <ui:include src="indexResultados.xhtml" />
     </ui:define>
 
