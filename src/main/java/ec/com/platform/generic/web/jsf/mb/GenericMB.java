@@ -263,5 +263,12 @@ import ec.com.platform.util.type.JsfMessage;
     public void wrapFatalMessage(String key, Object... args) {
         wrapMessage(FacesMessage.SEVERITY_FATAL, key, "");        
     }
+    
+    
+    
+	///////////////////////////LISTS ///////////////////////////
+    
+    @Getter
+	private List<Generic.Estado> estadoList = new ArrayList<Generic.Estado>(Generic.Estado.LIST);
 
 }

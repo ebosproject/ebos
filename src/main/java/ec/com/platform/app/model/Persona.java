@@ -9,6 +9,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -71,12 +73,18 @@ public class Persona extends GenericApp<Persona>{
 	@Column(name = "empleado", nullable = false)
 	private boolean empleado;
 	
-	@Column(name = "tipoIdentificacion", nullable = false)
-    @Type(type = TipoPersona.TYPE)
-    private TipoPersona tipoIdentificacion;
+	@Column(name = "tipoIdentificacion", nullable = false, length = 1)
+    //@Type(type = TipoPersona.TYPE)
+	@Enumerated(EnumType.STRING)
+    private TipoIdentificacion tipoIdentificacion;
+	
+	@Column(name = "tipoPersona", nullable = false, length = 1)
+	@Enumerated(EnumType.STRING)
+    private TipoPersona tipoPersona;
 	
 	@Column(name = "estado", nullable = false)
-    @Type(type = Generic.Estado.TYPE)
+    //@Type(type = Generic.Estado.TYPE)
+	@Enumerated(EnumType.STRING)
     private Generic.Estado estado;
 	
 	@OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
@@ -117,7 +125,7 @@ public class Persona extends GenericApp<Persona>{
         /**
          * Lists para iteraciones
          */
-        public static final List<Estado> LIST = Arrays.asList(Estado.values());
+        public static final List<TipoIdentificacion> LIST = Arrays.asList(TipoIdentificacion.values());
 
         @Override
         public String getLabel() {
@@ -154,9 +162,9 @@ public class Persona extends GenericApp<Persona>{
         NATURAL("N"),
         JURIDICA("J");
 
-        public static class Type extends StringValuedEnumType<Estado> {
-        }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Persona$TipoPersona$Type";
+//        public static class Type extends StringValuedEnumType<Estado> {
+//        }
+//        public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Persona$TipoPersona$Type";
 
         @Getter
         private String value;

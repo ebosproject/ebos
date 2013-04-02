@@ -26,4 +26,14 @@
         </navigation-case>
      </navigation-rule>   
 
+     <navigation-case>
+            <from-outcome>app/persona/index.jsf</from-outcome>
+            <to-view-id>/app/persona/index.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>crearPersona</from-outcome>
+            <to-view-id>/app/persona/contenedor.jsf</to-view-id>
+        </navigation-case>
+     </navigation-rule>   
+
 </faces-config>

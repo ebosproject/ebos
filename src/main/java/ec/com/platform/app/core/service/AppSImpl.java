@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import ec.com.platform.app.core.gestor.AppG;
 import ec.com.platform.app.model.Bundle;
+import ec.com.platform.app.model.Persona;
 import ec.com.platform.app.model.Propiedad;
 import ec.com.platform.fwk.crud.Paginacion;
 
@@ -81,5 +82,25 @@ public class AppSImpl implements AppS{
 	
 	public void eliminarPropiedad(Propiedad propiedad){
 		appG.eliminarPropiedad(propiedad);
+	}
+	
+	//
+	// Persona
+	//
+	
+	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion){
+		return appG.obtenerPersonaList(persona, paginacion);
+	}
+
+	public Persona obtenerPersonaNuevo(){
+		return appG.obtenerPersonaNuevo();
+	}
+
+	public Persona guardarPersona(Persona persona){
+		return appG.guardarPersona(persona);
+	}
+
+	public void eliminarPersona(Persona persona){
+		appG.eliminarPersona(persona);
 	}
 }

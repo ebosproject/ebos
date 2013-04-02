@@ -8,6 +8,8 @@ import ec.com.platform.app.exception.AppException;
 import ec.com.platform.app.model.Bundle;
 import ec.com.platform.app.model.Bundle_;
 import ec.com.platform.app.model.MessageResource_;
+import ec.com.platform.app.model.Persona;
+import ec.com.platform.app.model.Persona_;
 import ec.com.platform.app.model.Propiedad;
 import ec.com.platform.app.model.Propiedad_;
 import ec.com.platform.fwk.crud.GenericCriteria;
@@ -125,6 +127,47 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 		Long id = propiedad.getId();
         delete(propiedad);
         wrapSuccessMessage("propiedad.success.eliminar", id);
+	}
+	
+	//
+	// Persona
+	//
+	
+	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion){
+		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
+
+		criteria.addEqualsIfNotZero(Persona_.id, persona.getId());
+		if(criteria.isChanged()){
+			return findByCriteria(criteria, paginacion);
+		}
+		criteria.addLikeIfNotNull(Persona_.apellidos, persona.getApellidos());
+		criteria.addLikeIfNotNull(Persona_.nombres, persona.getNombres());
+        criteria.addEqualsIfNotNull(Persona_.cliente, persona.isCliente());
+        criteria.addEqualsIfNotNull(Persona_.empleado, persona.isEmpleado());
+        criteria.addEqualsIfNotNull(Persona_.proveedor, persona.isProveedor());
+        criteria.addEqualsIfNotNull(Persona_.estado, persona.getEstado());
+        criteria.addEqualsIfNotNull(Persona_.tipoIdentificacion, persona.getTipoIdentificacion());
+        criteria.addEqualsIfNotNull(Persona_.tipoPersona, persona.getTipoPersona());
+
+        return findByCriteria(criteria, paginacion);
+	}
+
+	public Persona obtenerPersonaNuevo(){
+		Persona persona = new Persona();
+		persona.setEstado(Estado.INACTIVO);
+		return persona;
+	}
+
+	public Persona guardarPersona(Persona persona){
+		persona = saveOrUpdate(persona);
+        wrapSuccessMessage("persona.success.guardar", persona.getId());
+        return persona;
+	}
+
+	public void eliminarPersona(Persona persona){
+		Long id = persona.getId();
+        delete(persona);
+        wrapSuccessMessage("persona.success.eliminar", id);
 	}
 	
 }

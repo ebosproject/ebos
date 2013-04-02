@@ -3,6 +3,7 @@ package ec.com.platform.app.core.gestor;
 import java.util.List;
 
 import ec.com.platform.app.model.Bundle;
+import ec.com.platform.app.model.Persona;
 import ec.com.platform.app.model.Propiedad;
 import ec.com.platform.fwk.crud.Paginacion;
 
@@ -39,4 +40,18 @@ public interface AppG {
 	public Propiedad guardarPropiedad(Propiedad propiedad);
 
 	public void eliminarPropiedad(Propiedad propiedad);
+
+	
+	//
+	// Persona
+	//
+	
+	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion);
+
+	public Persona obtenerPersonaNuevo();
+
+	public Persona guardarPersona(Persona persona);
+
+	public void eliminarPersona(Persona persona);
+	
 }
