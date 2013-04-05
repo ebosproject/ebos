@@ -1,5 +1,6 @@
 package ec.com.platform.generic.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,8 +21,10 @@ import ec.com.platform.seguridad.model.Usuario;
  * @since 2013-02-10
  */
 @Embeddable
-public class Auditoria {
-	
+public class Auditoria implements Serializable{
+
+	private static final long serialVersionUID = -2195848600759541457L;
+
 	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "usuarioCreacion_id", nullable = false)

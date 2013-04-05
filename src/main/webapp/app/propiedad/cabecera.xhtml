@@ -10,13 +10,9 @@
     <pl:panelGrid id="pnlBundle" columns="2">        
                 
        <pl:outputText id="id" value="#{bundle.id}" label="#{msg.plId}"/>                
-       <pl:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" label="#{msg.plLocalidad}" required="true">
-            <f:selectItem itemLabel ="#{msg.plSeleccionaUno}" itemValue="" />
-            <f:selectItems value="#{bean.localidadList}" var="opc"
-                itemLabel="#{opc.label}" itemValue="#{opc}"/>
-        </pl:selectOneMenu>
-       <pl:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.plCodigo}" required="true" maxlength="50"/>
-       <pl:inputText id="valor" value="#{bundle.valor}" label="#{msg.plValor}" required="true" maxlength="500"/>        
+       <pl:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.plCodigo}" required="true"/>
+       <pl:inputText id="localidad" value="#{bundle.localidad}" label="#{msg.plLocalidad}" required="true"/>                
+       <pl:inputText id="valor" value="#{bundle.valor}" label="#{msg.plValor}" required="true"/>        
                 
     </pl:panelGrid>        
     

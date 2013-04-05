@@ -43,7 +43,7 @@ public class Usuario extends GenericSeguridad<Usuario> {
 	@Embedded
 	private Auditoria auditoria;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "empresapersona_id", nullable = false)
     private EmpresaPersona empresaPersona;
     

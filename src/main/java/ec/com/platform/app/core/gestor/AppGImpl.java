@@ -9,9 +9,14 @@ import ec.com.platform.app.model.Bundle;
 import ec.com.platform.app.model.Bundle.Localidad;
 import ec.com.platform.app.model.Bundle_;
 import ec.com.platform.app.model.MessageResource_;
+import ec.com.platform.app.model.Persona;
+import ec.com.platform.app.model.Persona_;
+import ec.com.platform.app.model.Propiedad;
+import ec.com.platform.app.model.Propiedad_;
 import ec.com.platform.fwk.crud.GenericCriteria;
 import ec.com.platform.fwk.crud.Paginacion;
 import ec.com.platform.generic.core.gestor.GenericGImpl;
+import ec.com.platform.generic.model.Generic.Estado;
 import ec.com.platform.util.Constantes;
 
 /**
@@ -36,7 +41,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	public List<Bundle> obtenerBundleList(Bundle bundle, Paginacion paginacion) {
 		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
 
-		criteria.addEqualsIfNotNull(Bundle_.id, bundle.getId());
+		criteria.addEqualsIfNotZero(Bundle_.id, bundle.getId());
 		if(criteria.isChanged()){
 			return findByCriteria(criteria, paginacion);
 		}
@@ -63,13 +68,14 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	
 	@Override
 	public Bundle obtenerBundleNuevo() {
-        return new Bundle();
+		Bundle bundle = new Bundle();
+        return bundle;
 	}
 
 	@Override
 	public Bundle guardarBundle(Bundle bundle) {
 		bundle = saveOrUpdate(bundle);
-        wrapSuccessMessage("Bundle {0} guardado correctamente", bundle.getId());
+        wrapSuccessMessage("bundle.success.guardar", bundle.getId());
         return bundle;
 	}
 
@@ -77,7 +83,92 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	public void eliminarBundle(Bundle bundle) {
 		Long id = bundle.getId();
         delete(bundle);
-        wrapSuccessMessage("Bundle {0} eliminado correctamente", id);
+        wrapSuccessMessage("bundle.success.eliminar", id);
+	}
+	
+	//
+	// Propiedad
+	//
+	
+	@Override
+	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Paginacion paginacion){
+		GenericCriteria<Propiedad> criteria = GenericCriteria.forClass(Propiedad.class);
+
+		criteria.addEqualsIfNotZero(Propiedad_.id, propiedad.getId());
+		if(criteria.isChanged()){
+			return findByCriteria(criteria, paginacion);
+		}
+		criteria.addLikeIfNotNull(Propiedad_.valor, propiedad.getValor());
+		criteria.addLikeIfNotNull(Propiedad_.valorDefecto, propiedad.getValorDefecto());
+        criteria.addEqualsIfNotNull(Propiedad_.categoria, propiedad.getCategoria());
+        criteria.addEqualsIfNotNull(Propiedad_.estado, propiedad.getEstado());
+        criteria.addEqualsIfNotNull(Propiedad_.lista, propiedad.isLista());
+        criteria.addEqualsIfNotNull(Propiedad_.requerido, propiedad.isRequerido());
+        criteria.addEqualsIfNotNull(Propiedad_.tipoDato, propiedad.getTipoDato());
+
+        return findByCriteria(criteria, paginacion);
+	}
+
+	@Override
+	public Propiedad obtenerPropiedadNuevo(){
+		Propiedad propiedad = new Propiedad();
+		propiedad.setEstado(Estado.INACTIVO);
+		return propiedad;
+	}
+
+	@Override
+	public Propiedad guardarPropiedad(Propiedad propiedad){
+		propiedad = saveOrUpdate(propiedad);
+        wrapSuccessMessage("propiedad.success.guardar", propiedad.getId());
+        return propiedad;
+	}
+
+	@Override
+	public void eliminarPropiedad(Propiedad propiedad){
+		Long id = propiedad.getId();
+        delete(propiedad);
+        wrapSuccessMessage("propiedad.success.eliminar", id);
+	}
+	
+	//
+	// Persona
+	//
+	
+	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion){
+		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
+
+		criteria.addEqualsIfNotZero(Persona_.id, persona.getId());
+		if(criteria.isChanged()){
+			return findByCriteria(criteria, paginacion);
+		}
+		criteria.addLikeIfNotNull(Persona_.apellidos, persona.getApellidos());
+		criteria.addLikeIfNotNull(Persona_.nombres, persona.getNombres());
+        criteria.addEqualsIfNotNull(Persona_.cliente, persona.isCliente());
+        criteria.addEqualsIfNotNull(Persona_.empleado, persona.isEmpleado());
+        criteria.addEqualsIfNotNull(Persona_.proveedor, persona.isProveedor());
+        criteria.addEqualsIfNotNull(Persona_.estado, persona.getEstado());
+        criteria.addEqualsIfNotNull(Persona_.tipoIdentificacion, persona.getTipoIdentificacion());
+        criteria.addEqualsIfNotNull(Persona_.tipoPersona, persona.getTipoPersona());
+
+        return findByCriteria(criteria, paginacion);
+	}
+
+	public Persona obtenerPersonaNuevo(){
+		Persona persona = new Persona();
+		persona.setEstado(Estado.INACTIVO);
+		return persona;
+	}
+
+	public Persona guardarPersona(Persona persona){
+		persona = saveOrUpdate(persona);
+        wrapSuccessMessage("persona.success.guardar", persona.getId());
+        return persona;
+	}
+
+	public void eliminarPersona(Persona persona){
+		Long id = persona.getId();
+        delete(persona);
+        wrapSuccessMessage("persona.success.eliminar", id);
 	}
 	
 }

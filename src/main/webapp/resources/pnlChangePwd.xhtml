@@ -3,7 +3,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
     
-    <p:dialog header="#{msg.plCambiarPassword}" widgetVar="dlgCambiarPwd" resizable="false" modal="true">
+    <p:dialog header="#{msg.plCambiarPassword}" widgetVar="dlgCambiarPwd" resizable="false" modal="true" closeOnEscape="true">
         <h:form id="frmCambiarPassword">
             <pl:panelGrid id="pnlCambiarPassword">
                 <pl:password id="actpassword" label="#{msg.plPasswordActual}" value="#{sesionUsuario.usuario.password}" required="true"/>
@@ -12,8 +12,8 @@
             </pl:panelGrid>   
             <br/>
             <div align="center">
-                <p:commandButton value="#{msg.plCambiar}" actionListener="#{sesionUsuario.cambiarPassword}"/>
-                <p:commandButton value="#{msg.plCancelar}" type="button" onclick="dlgCambiarPwd.hide()" />                        
+                <p:commandButton value="#{msg.plCambiar}" actionListener="#{sesionUsuario.cambiarPassword}" oncomplete="dlgCambiarPwd.hide()" update="@form"/>
+                <p:commandButton value="#{msg.plCancelar}" type="button" onclick="dlgCambiarPwd.hide()" update="@form"/>                        
             </div>
         </h:form>
     </p:dialog>

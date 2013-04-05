@@ -2,15 +2,14 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/resources/queryTemplate.xhtml">
 
-    <ui:param name="bean" value="#{bundleMB}" />
-    <ui:param name="optionName" value="#{msg.plBundle}" />
+    <ui:param name="bean" value="#{propiedadMB}" />
+    <ui:param name="optionName" value="#{msg.plPropiedad}" />
     
     <ui:define name="filtros">
         <ui:include src="indexFiltros.xhtml" />
     </ui:define>
 
-    <ui:define name="resultados">
-    	<ui:param name="showAuditoria" value="false" />
+    <ui:define name="resultados">    	
         <ui:include src="indexResultados.xhtml" />
     </ui:define>
 

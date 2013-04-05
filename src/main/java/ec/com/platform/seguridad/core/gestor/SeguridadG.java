@@ -2,6 +2,8 @@ package ec.com.platform.seguridad.core.gestor;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import ec.com.platform.app.web.jsf.mb.SesionUsuarioMB;
 import ec.com.platform.fwk.crud.Paginacion;
 import ec.com.platform.seguridad.model.Objeto;
@@ -94,9 +96,12 @@ public interface SeguridadG {
     // 
     // Session Usuario
     //
+    @Transactional(readOnly = true)
     public boolean iniciarSesion(SesionUsuarioMB aThis);
 
     public void cambiarPassword(Usuario usuario);
 
     public SesionUsuarioMB getSesionUsuario();
+
+	public void guardarPreferenciasUsuario(Usuario usuario);
 }

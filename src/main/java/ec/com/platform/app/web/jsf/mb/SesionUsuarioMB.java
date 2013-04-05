@@ -67,7 +67,7 @@ public class SesionUsuarioMB implements Serializable{
     
     public void iniciarSesion(){                
         login = seguridadS.iniciarSesion(this);
-        //usuario.setPassword(null);
+        usuario.setPassword(null);
         defineSessionTimeout();
     }
     
@@ -92,6 +92,9 @@ public class SesionUsuarioMB implements Serializable{
     
     public void cambiarPassword(){
         seguridadS.cambiarPassword(usuario);
+        usuario.setPassword(null);
+        usuario.setNewpassword(null);
+        usuario.setConfpassword(null);
     }
     
     // Permisos de Seguridad
@@ -145,7 +148,7 @@ public class SesionUsuarioMB implements Serializable{
 	public void guardarTema(String tema){
 		this.tema = tema;
 		usuario.setTema(tema);
-		seguridadS.guardarUsuario(usuario);
+		seguridadS.guardarPreferenciasUsuario(usuario);
 	}
     
 }

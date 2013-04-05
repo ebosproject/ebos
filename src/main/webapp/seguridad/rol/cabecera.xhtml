@@ -15,8 +15,8 @@
         <pl:outputDate id="creado" label="#{msg.plCreado}" value="#{rol.fechaCreacion}"/>        
         <pl:outputDate id="modificado" label="#{msg.plModificado}" value="#{rol.fechaModificacion}"/>
         
-        <pl:inputText id="nombre" label="#{msg.plNombre}" value="#{rol.nombre}" required="true"/>        
-        <pl:inputText id="descripcion" label="#{msg.plDescripcion}" value="#{rol.descripcion}" required="true"/>        
+        <pl:inputText id="nombre" label="#{msg.plNombre}" value="#{rol.nombre}" required="true" maxlength="30"/>        
+        <pl:inputText id="descripcion" label="#{msg.plDescripcion}" value="#{rol.descripcion}" required="true" maxlength="500"/>        
                 
     </pl:panelGrid>        
     

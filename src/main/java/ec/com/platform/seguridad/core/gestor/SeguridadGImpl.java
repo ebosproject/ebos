@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import ec.com.platform.app.model.Bundle_;
 import ec.com.platform.app.model.EmpresaPersona_;
 import ec.com.platform.app.model.Persona_;
 import ec.com.platform.app.web.jsf.mb.SesionUsuarioMB;
@@ -94,7 +93,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
 
             usuario = saveOrUpdate(usuario);
 
-            wrapSuccessMessage("Usuario " + usuario.getId() + " guardado correctamente");
+            wrapSuccessMessage("usuario.success.guardar", usuario.getId());
 
             //Envio de correo de creacion nuevo usuario
             if (estadoActual.isInactivo()) {
@@ -109,7 +108,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public void eliminarUsuario(Usuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
         Long id = usuario.getId();
         delete(usuario);
-        wrapSuccessMessage("Usuario {0} eliminado correctamente", id);
+        wrapSuccessMessage("usuario.success.eliminar", id);
     }
 
     @Override
@@ -120,7 +119,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     private GenericCriteria<Usuario> buildUsuarioCriteria(Usuario usuario){
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
         
-        criteria.addEquals(Bundle_.id, usuario.getId());
+        criteria.addEqualsIfNotZero(Usuario_.id, usuario.getId());
 		if(criteria.isChanged()){
 			return criteria;
 		}
@@ -223,7 +222,6 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public Rol obtenerRolNuevo() {
         Rol rol = new Rol();
         rol.setEstado(Usuario.Estado.INACTIVO);
-
         return rol;
     }
 
@@ -238,7 +236,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
             rol.setEstado(Generic.Estado.ACTIVO);
         }
         rol = saveOrUpdate(rol);
-        wrapSuccessMessage("Rol " + rol.getId() + " guardado correctamente");
+        wrapSuccessMessage("rol.success.guardar",rol.getId());
         return rol;
     }
 
@@ -246,7 +244,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public void eliminarRol(Rol rol) {
         Long id = rol.getId();
     	delete(rol);
-        wrapSuccessMessage("Rol " + id + " eliminado correctamente");        
+        wrapSuccessMessage("rol.success.eliminar", id);        
     }
 
     @Override
@@ -469,12 +467,10 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     
     @Override
     public void cambiarPassword(Usuario usuario){
-        GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
-        criteria.addEquals(Usuario_.estado, Generic.Estado.ACTIVO);
-        criteria.addEquals(Usuario_.username, usuario.getUsername());
-        criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(usuario.getPassword()));
+        Usuario oldUsuario = obtenerUsuarioPorId(usuario.getId());
+        evict(oldUsuario);
         
-        if (findFirstByCriteria(criteria) != null) {
+        if (oldUsuario.getPassword().equals(CryptoUtils.computeHashSHA256(usuario.getPassword()))) {        	
             if(usuario.getNewpassword().equals(usuario.getConfpassword())){
                 usuario.setPassword(CryptoUtils.computeHashSHA256(usuario.getNewpassword()));
                 update(usuario);
@@ -485,15 +481,22 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         } else {
            wrapErrorMessage("Contrasena actual incorrecta"); 
         }
-                
-        usuario.setPassword(null);
-        usuario.setNewpassword(null);
-        usuario.setConfpassword(null);
     }
     
     @Override
     public SesionUsuarioMB getSesionUsuario() {
     	return super.getSesionUsuario();
+    }
+    
+    /**
+     * Guarda las preferencias del usuario
+     */
+    public void guardarPreferenciasUsuario(Usuario usuario){
+    	Usuario oldUsuario = obtenerUsuarioPorId(usuario.getId());
+    	//Definir preferencias a guardar    	
+    	oldUsuario.setTema(usuario.getTema());    	
+    	update(oldUsuario);    	
+    	wrapSuccessMessage("usuario.success.guardarPreferencias");
     }
             
 }

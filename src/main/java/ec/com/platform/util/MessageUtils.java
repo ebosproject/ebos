@@ -30,7 +30,8 @@ public class MessageUtils {
 	 * Permite obtener un valor de una clave de archivo de propiedades indicado
 	 * @param key Clave String
 	 * @param resource Archivo de properties {@link ResourceBundle}
-	 * @param params Arreglo varargs de parametros Object... 
+	 * @param params Arreglo varargs de parametros Object...
+	 * @update Eduardo Plua Alay 
 	 * @return String
 	 */
 	public static String buildMessage(String key, ResourceBundle resource, Object... params) {

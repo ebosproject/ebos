@@ -4,9 +4,8 @@
                 xmlns:p="http://primefaces.org.ui"
                 template="/resources/bodyTemplate.xhtml">
 
-    <ui:param name="bean" value="#{rolMB}" />
-    <ui:param name="optionName" value="#{msg.plRol}" />
-    <ui:param name="updateActualizar" value="@(pnlDetalle)" />
+    <ui:param name="bean" value="#{bundleMB}" />
+    <ui:param name="optionName" value="#{msg.plBundle}" />
     
     <ui:define name="cabecera">
 
@@ -19,11 +18,9 @@
     <ui:define name="detalle">
 
         <h:panelGroup id="pnlDetalle">
-            <ui:fragment rendered="#{bean.activeEntity.id ne null}">
-                <ui:include src="rolOpcionList.xhtml" />
-            </ui:fragment>
+
         </h:panelGroup>
-                
+
     </ui:define>
 
 </ui:composition>

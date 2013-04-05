@@ -95,8 +95,9 @@ public class Objeto extends GenericSeguridad<Objeto> {
         }
         public static final Map<String, TipoObjeto> LABELED_MAP =
                 GenericUtils.buildLabeledEnumMap(TipoObjeto.values());
+
         /**
-         * Lists para iteraciones
+         * Listas para iteraciones
          */
         public static final List<TipoObjeto> LIST = Arrays.asList(TipoObjeto.values());
 

@@ -102,5 +102,7 @@ public interface SeguridadS extends Serializable {
     public void cambiarPassword(Usuario usuario);
     
     public SesionUsuarioMB getSesionUsuario();
+
+	public void guardarPreferenciasUsuario(Usuario usuario);
     
 }
