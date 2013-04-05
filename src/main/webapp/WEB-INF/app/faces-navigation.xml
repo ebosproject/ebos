@@ -24,9 +24,8 @@
             <from-outcome>crearPropiedad</from-outcome>
             <to-view-id>/app/propiedad/contenedor.jsf</to-view-id>
         </navigation-case>
-     </navigation-rule>   
 
-     <navigation-case>
+     	<navigation-case>
             <from-outcome>app/persona/index.jsf</from-outcome>
             <to-view-id>/app/persona/index.jsf</to-view-id>
         </navigation-case>
