@@ -19,7 +19,7 @@ import ec.com.platform.util.type.StringValuedEnum;
 
 /**
  * Utilidades para trabajar sobre objetos que implementan {@link Generic} y sus subinterfaces
- * @author Eduardo Plua Alay
+ * @update <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 public class GenericUtils {
 

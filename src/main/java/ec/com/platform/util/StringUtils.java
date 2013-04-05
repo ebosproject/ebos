@@ -2,7 +2,7 @@ package ec.com.platform.util;
 
 /**
  * Utilidades para trabajar con cadenas
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 public class StringUtils {
    

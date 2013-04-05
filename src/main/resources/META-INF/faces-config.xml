@@ -21,20 +21,20 @@
     </factory>  
     
     <!-- <lifecycle>
-        <phase-listener>ec.com.platform.util.web.jsf.event.SessionPhaseListener</phase-listener>
-    </lifecycle>  
-     -->
-     
-    <component>
+       <phase-listener>ec.com.platform.util.web.jsf.event.SessionPhaseListener</phase-listener>
+    </lifecycle>
+     -->  
+         
+    <!-- <component>
         <component-type>ec.com.platform.app.web.component.Layout</component-type>
         <component-class>ec.com.platform.app.web.component.Layout</component-class>
-    </component>
-    <component>
+    </component> -->
+    <!-- <component>
         <component-type>ec.com.platform.app.web.component.LayoutPane</component-type>
         <component-class>ec.com.platform.app.web.component.LayoutPane</component-class>
-    </component>
+    </component> -->
 
-    <render-kit>
+    <!-- <render-kit>
         <renderer>
             <component-family>ec.com.platform.app.web.component</component-family>
             <renderer-type>ec.com.platform.app.web.component.LayoutRenderer</renderer-type>
@@ -45,6 +45,6 @@
             <renderer-type>ec.com.platform.app.web.component.LayoutPaneRenderer</renderer-type>
             <renderer-class>ec.com.platform.app.web.component.LayoutPaneRenderer</renderer-class>
         </renderer>
-    </render-kit>
+    </render-kit>  -->
     
 </faces-config>     

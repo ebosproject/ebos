@@ -1,9 +1,5 @@
 package ec.com.platform.fwk.service.interceptor;
 
-import ec.com.platform.fwk.service.LogFwkSwiss;
-import ec.com.platform.fwk.service.LogSvc;
-import ec.com.platform.fwk.service.Printer;
-
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -15,7 +11,10 @@ import java.util.Properties;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+
+import ec.com.platform.fwk.service.LogFwkSwiss;
+import ec.com.platform.fwk.service.LogSvc;
+import ec.com.platform.fwk.service.Printer;
 
 /**
  * @author mbermude
@@ -27,7 +26,7 @@ public class LogServicioInterceptor implements MethodInterceptor {
 	/**
 	 * Cache de instancias de Printers
 	 */
-	private static Map allPrintersObj = new HashMap();
+	private static Map<String, Object> allPrintersObj = new HashMap<String, Object>();
 
 	/**
 	 * propiedad para Spring Printers de conversion
@@ -49,7 +48,7 @@ public class LogServicioInterceptor implements MethodInterceptor {
 	/**
 	 * Propiedades internas
 	 */
-	private List metodosList=new LinkedList();
+	private List<String> metodosList=new LinkedList<String>();
 	private LogSvc logSvc;
 	private boolean logTodos;
 
@@ -75,6 +74,7 @@ public class LogServicioInterceptor implements MethodInterceptor {
 	 *            &lt;/value&gt;
 	 *            
 	 *            	 */
+	@SuppressWarnings("rawtypes")
 	public void setPrinters(Properties pPrinters) {
 		printers = pPrinters;
 		if (printers != null) {

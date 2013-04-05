@@ -13,9 +13,8 @@ import java.util.Collection;
  * Se inicializa mediante el tipo de entidad a administrar.
  * 
  * @author <a href="mailto:juanleonsolis@gmail.com">Ing. Juan Leon Solis</a>
- * @version $$
+ * @update <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * 
- * @FechaModificacion ${date}
  */
 public interface DaoSupport extends Crud {
 
@@ -24,7 +23,7 @@ public interface DaoSupport extends Crud {
      * 
      * @return
      */
-    public Class getEntityType();
+    public Class<?> getEntityType();
 
     /**
      * Devuelve el nombre de la entidad.
@@ -66,7 +65,7 @@ public interface DaoSupport extends Crud {
      * @return Collection
      * @throws FinderException
      */
-    public Collection findAll() throws FinderException;
+    public Collection<?> findAll() throws FinderException;
 
     /**
      * Busca una entidad cuyo id es el pasado por parametro.
@@ -86,7 +85,7 @@ public interface DaoSupport extends Crud {
      * @return Collection
      * @throws FinderException
      */
-    public Collection findByNamedQuery(String queryName) throws FinderException;
+    public Collection<?> findByNamedQuery(String queryName) throws FinderException;
 
     /**
      * Ejecuta una query cuyo nombre es queryName y la cual posee un binding
@@ -98,7 +97,7 @@ public interface DaoSupport extends Crud {
      * @return Collection
      * @throws FinderException
      */
-    public Collection findByNamedQuery(String queryName, Object value)
+    public Collection<?> findByNamedQuery(String queryName, Object value)
             throws FinderException;
 
     /**
@@ -111,7 +110,7 @@ public interface DaoSupport extends Crud {
      * @return Collection
      * @throws FinderException
      */
-    public Collection findByNamedQuery(String queryName, Object[] values)
+    public Collection<?> findByNamedQuery(String queryName, Object[] values)
             throws FinderException;
 
 }

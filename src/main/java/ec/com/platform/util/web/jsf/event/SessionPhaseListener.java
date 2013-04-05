@@ -1,7 +1,6 @@
 package ec.com.platform.util.web.jsf.event;
 
 import java.io.IOException;
-import java.io.Writer;
 import java.util.Map;
 
 import javax.faces.FacesException;
@@ -18,7 +17,6 @@ import javax.faces.render.ResponseStateManager;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
@@ -30,14 +28,17 @@ import ec.com.platform.util.HTTPUtils;
 
 /**
  * 
- * @author Eduardo Plua Alay
+ * Manejador de excepciones por Timedout de la Sesion
+ * 
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  *
  */
+@Deprecated
 public class SessionPhaseListener implements PhaseListener {
 
-	private static final long serialVersionUID = -2968652619085120630L;
-
-        private static boolean LOGGING = Boolean.parseBoolean(System.getProperty("ciscnet.session_timeout.logging", "TRUE"));
+	private static final long serialVersionUID = 4806047674472804381L;
+	
+	private static boolean LOGGING = Constantes.LOGGING;
 
 	@Override
 	public PhaseId getPhaseId() {

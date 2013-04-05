@@ -409,7 +409,7 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 			return new ArrayList<T>();
 		}
 		if (pNolimitRecords) {
-			hibernateTemplate.setMaxResults(0); // FIXME (ltw): considerar ResultTransformer
+			hibernateTemplate.setMaxResults(0); // FIXME: considerar ResultTransformer
 			List<T> result = (List<T>) hibernateTemplate
 					.findByCriteria(criteria.getCriteria());
 			hibernateTemplate.setMaxResults(maxRecords);

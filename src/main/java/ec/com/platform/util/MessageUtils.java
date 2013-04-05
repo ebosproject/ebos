@@ -14,10 +14,9 @@ import ec.com.platform.generic.resources.GenericMensajes;
 import ec.com.platform.util.resources.UtilMensajes;
 
 /**
- * Utilidades para trabajar con mensajes en base a
- * claves y valores de archivos de recursos.
+ * Utilidades para trabajar con mensajes en base a claves y valores de archivos de recursos.
  * Incluye tambien mensajes para JSF.
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 public class MessageUtils {
 

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
+import javax.faces.render.FacesRenderer;
 
 import org.primefaces.renderkit.CoreRenderer;
 
@@ -12,8 +13,11 @@ import org.primefaces.renderkit.CoreRenderer;
  * LayoutPaneRenderer
  *
  * @author  Oleg Varaksin / last modified by $Author: $
- * @version $Revision: 1.0 $
+ * @update <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ * @version $Revision: 2.0
  */
+@FacesRenderer(componentFamily = "ec.com.platform.app.web.component",
+		rendererType = "ec.com.platform.app.web.component.LayoutPaneRenderer")
 public class LayoutPaneRenderer extends CoreRenderer {
 
 	@Override

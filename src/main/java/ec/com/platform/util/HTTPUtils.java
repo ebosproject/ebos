@@ -14,7 +14,7 @@ import org.apache.commons.lang.StringUtils;
  *
  * @see
  * http://johannburkard.de/blog/programming/java/x-forwarded-for-http-header.html
- * @author Eduardo Plua Alay
+ * @udpate <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 public final class HTTPUtils {
 

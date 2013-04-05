@@ -60,13 +60,13 @@ import ec.com.platform.util.type.JsfMessage;
  * Superclase de las implementaciones de la capa G
  * @param <X> tipo del Entity base del modulo
  * @param <E> tipo de la excepcion
- * @author Luis Tama Wong
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ * 
  */
 public abstract class GenericGImpl<X, E extends Exception> extends TransactionProxyFactoryBean implements GenericG, Serializable, JsfMessage{
 
-	private static final long serialVersionUID = -318807978176892550L;
-	
+	private static final long serialVersionUID = -204770942577453524L;
+
 	/**
 	 * Dependencias
 	 */
@@ -1063,7 +1063,7 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
     protected SesionUsuarioMB getSesionUsuario() {
         SesionUsuarioMB sesionUsuario = (SesionUsuarioMB) HTTPUtils.getSessionAttribute(SesionUsuarioMB.BEAN_NAME);
         if (sesionUsuario == null) {
-            throw new SeguridadException("iniciarSesion.error.sesionNoValida");
+            throw new SeguridadException("sesion.error.sesionNoValida");
         }
         return sesionUsuario;
     }

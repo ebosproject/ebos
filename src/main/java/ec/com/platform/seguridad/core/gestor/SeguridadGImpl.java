@@ -457,7 +457,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         if (usuario != null) {        	
         	aThis.setUsuario(usuario);
         } else {
-            wrapErrorMessage("Usuario o contrasena incorrecta");
+            wrapErrorMessage("sesion.error.usuarioPassIncorrecta");
             return false;
         }
         List<RolOpcion> rolOpcionList = obtenerRolOpcionList(usuario);

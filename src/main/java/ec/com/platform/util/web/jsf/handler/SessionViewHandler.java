@@ -15,9 +15,10 @@ import ec.com.platform.util.web.jsf.event.SessionPhaseListener;
 
 /**
  * 
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  *
  */
+@Deprecated
 public class SessionViewHandler extends ViewHandlerWrapper{
 
     @Getter

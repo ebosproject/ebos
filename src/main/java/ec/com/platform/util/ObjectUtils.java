@@ -16,7 +16,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * Utilidades para trabajar sobre objetos
- * @author Eduardo Plua Alay
+ * @update Eduardo Plua Alay
  */
 public class ObjectUtils {
 	

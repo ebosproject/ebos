@@ -70,7 +70,7 @@
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>ec.com.platform.app.spring.AppConfig</param-value>
+    <param-value>ec.com.platform.app.spring.config.AppConfig</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

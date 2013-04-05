@@ -1,7 +1,3 @@
-/*
- * Created on 25.10.2004 by Sergey Smirnov, Exadel, Inc.
- *
- */
 package ec.com.platform.util.web.jsf.handler;
 
 import javax.faces.application.NavigationHandler;
@@ -12,8 +8,9 @@ import javax.faces.context.FacesContext;
  * @see javax.faces.application.NavigationHandler
  * @see com.sun.faces.application.NavigationHandlerImpl
  * @author Sergey Smirnov, Exadel, Inc.
- * @author Eduardo Plua Alay 
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
+@Deprecated
 public class NavigationManager extends NavigationHandler {
 
 	NavigationHandler _base;

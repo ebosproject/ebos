@@ -9,11 +9,7 @@ import ec.com.platform.util.crypto.CryptoUtils;
  * <p>Clase que cotiene el valor de variables globales a nivel de todas las
  * aplicaciones de Framework</p>
  *
- * @author Gerardo Yand&uacute;n
- * @author Eduardo Plua Alay
- * @version 1.0, 15/04/2007
- * @since J2SDK1.4.2
- * @update 2013-01-26
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 public class Constantes {
 
@@ -222,5 +218,7 @@ public class Constantes {
 	 * Resource bundle not prefix not found
 	 */
 	public static final String PREFIX_NOT_FOUND = "???";
+	
+	public static final boolean LOGGING = Boolean.parseBoolean(System.getProperty("platform.session_timeout.logging", "TRUE"));
         
 }

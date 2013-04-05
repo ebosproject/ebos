@@ -1,5 +1,6 @@
 package ec.com.platform.app.web.component;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 
 import ec.com.platform.util.Constantes;
@@ -8,9 +9,10 @@ import ec.com.platform.util.Constantes;
  * LayoutPane
  *
  * @author Oleg Varaksin / last modified by $Author: $
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @version $Revision: 1.0 $
  */
+@FacesComponent(value = "ec.com.platform.app.web.component.LayoutPane")
 public class LayoutPane extends UIComponentBase {
 
 	public static final String COMPONENT_FAMILY = Constantes.DOMAIN_NAME+".app.web.component";

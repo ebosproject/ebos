@@ -11,6 +11,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
+/**
+ * Manejador de excepciones por Timedout de las vistas
+ * 
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ */
 public class PlatformExceptionHandler extends ExceptionHandlerWrapper {
 
 	private ExceptionHandler wrapped;

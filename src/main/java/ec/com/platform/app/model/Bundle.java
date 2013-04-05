@@ -60,8 +60,8 @@ public class Bundle extends GenericApp<Bundle>{
      */
     public enum Localidad implements StringValuedEnum<Localidad> {
 
-        es_EC("es_EC"),
-        en_US("en_US");
+        es("es"),
+        en("en");
 
 //        public static class Type extends StringValuedEnumType<Localidad> {
 //        }

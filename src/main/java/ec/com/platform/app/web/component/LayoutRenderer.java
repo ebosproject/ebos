@@ -6,14 +6,20 @@ import org.primefaces.util.ComponentUtils;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
+import javax.faces.render.FacesRenderer;
+
 import java.io.IOException;
 
 /**
  * LayoutRenderer
  *
  * @author  Oleg Varaksin / last modified by $Author: $
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ * 
  * @version $Revision: 1.0 $
  */
+@FacesRenderer(componentFamily = "ec.com.platform.app.web.component", 
+	rendererType = "ec.com.platform.app.web.component.LayoutRenderer")
 public class LayoutRenderer extends CoreRenderer {
 
 	@Override

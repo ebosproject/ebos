@@ -1,4 +1,4 @@
-package ec.com.platform.app.spring;
+package ec.com.platform.app.spring.config;
 
 import java.util.Properties;
 

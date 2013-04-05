@@ -6,7 +6,7 @@ import ec.com.platform.util.Constantes;
 
 /**
  *
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 public abstract class GenericSeguridadMB<T extends Generic<T>> extends GenericMB<T> {
 

@@ -7,6 +7,7 @@ import ec.com.platform.util.Constantes;
 
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIComponentBase;
 import javax.faces.component.UINamingContainer;
@@ -24,7 +25,7 @@ import java.util.logging.Logger;
  * Layout
  *
  * @author  Oleg Varaksin / last modified by $Author: $
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @version $Revision: 2.0 $
  * @since 2013-02-05
  */
@@ -35,6 +36,7 @@ import java.util.logging.Logger;
                           @ResourceDependency(library = "js", name = "layout/jquery.layout.js"),
                           @ResourceDependency(library = "js", name = "layout/layout.js")
                       })
+@FacesComponent(value = "ec.com.platform.app.web.component.Layout")
 public class Layout extends UIComponentBase implements Widget, ClientBehaviorHolder {
 
 	private static final Logger LOG = Logger.getLogger(Layout.class.getName());

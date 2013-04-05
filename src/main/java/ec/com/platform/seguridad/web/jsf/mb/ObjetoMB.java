@@ -13,7 +13,7 @@ import ec.com.platform.seguridad.model.Objeto;
 import ec.com.platform.util.GenericUtils;
 
 /**
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @ManagedBean(name = "objetoMB")
 @SessionScoped
