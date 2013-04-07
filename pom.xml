@@ -20,7 +20,7 @@
                 <role>Buildmaster</role>
                 <role>Developer</role>
             </roles>
-            <timezone>+5</timezone>
+            <timezone>-5</timezone>
         </developer>
     </developers>
 
@@ -56,17 +56,7 @@
 					<encoding>UTF-8</encoding>
           			<compilerArgument>-proc:none</compilerArgument>					
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jboss-maven-plugin</artifactId>
-				<version>1.5.0</version>
-				<configuration>
-					<jbossHome>E:\DESARROLLO\jboss-5.1.0.GA</jbossHome>
-					<serverName>pl-test</serverName>
-					<fileName>target/platform.war</fileName>
-				</configuration>
-			</plugin>
+			</plugin>			
 		
 		<!-- CORE LAYER-->
 			<!-- <plugin> <groupId>org.bsc.maven</groupId> <artifactId>maven-processor-plugin</artifactId> 
@@ -109,7 +99,7 @@
 						</component>
 					</components>
 					<componentProperties>
-						<drop>false</drop>
+						<drop>true</drop>
 						<jdk5>true</jdk5>
 						<skip>false</skip>
 						<outputfilename>schema.sql</outputfilename>

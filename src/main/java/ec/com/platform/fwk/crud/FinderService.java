@@ -197,7 +197,6 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @param criteria {@link GenericCriteria}
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	public <T> List<T> findByCriteria(GenericCriteria<T> criteria)
 			throws FinderException;
@@ -208,7 +207,6 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @param criteria {@link GenericCriteria}
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	public <T> List<T> findByCriteriaWithProjection(GenericCriteria<T> criteria)
 			throws FinderException;
@@ -245,7 +243,6 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @param clazz
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	public <T,V> List<V> findByCriteriaWithAliasToBeanTransformation(GenericCriteria<T> criteria, Class<V> clazz)
 			throws FinderException;
@@ -271,7 +268,6 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @param maxResult
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, int firstResult, int maxResult)
 		throws FinderException;
@@ -283,7 +279,6 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @param pagination
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, PaginationParams pagination)
 		throws FinderException;
@@ -317,7 +312,6 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @param pNolimitRecords
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, boolean pNolimitRecords)
 			throws FinderException;
@@ -524,7 +518,7 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * 
 	 * @param pQueryString
 	 *            El nombre del NamedQuery
-	 * @param pDTO
+	 * @param p
 	 *            Java Bean Object con las propiedades de consulta
 	 * 
 	 * @return List de Objetos
@@ -532,7 +526,7 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @throws FinderException
 	 */
 	public List<?> findByNamedQueryAndValueBean(String pQueryString,
-			Object pDTO) throws FinderException;
+			Object p) throws FinderException;
 
 	
 	/**
@@ -542,7 +536,7 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * 
 	 * @param pQueryString
 	 *            El nombre del NamedQuery
-	 * @param pDTO
+	 * @param p
 	 *            Java Bean Object con las propiedades de consulta
 	 * @param pMaxResults
 	 *            Numero maximo de registros en la consulta
@@ -551,7 +545,7 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * @throws FinderException
 	 */
 //	public List findByNamedQueryAndValueBean(String pQueryString,
-//			Object pDTO, int pMaxResults) throws FinderException;
+//			Object p, int pMaxResults) throws FinderException;
 	
 	/**
 	 * Metodo para realizacion de una consulta, que llama un NamedQuery, y recibe

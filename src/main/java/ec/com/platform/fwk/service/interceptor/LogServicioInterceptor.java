@@ -12,7 +12,7 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.lang.StringUtils;
 
-import ec.com.platform.fwk.service.LogFwkSwiss;
+import ec.com.platform.fwk.service.LogFwkPLatform;
 import ec.com.platform.fwk.service.LogSvc;
 import ec.com.platform.fwk.service.Printer;
 
@@ -30,7 +30,7 @@ public class LogServicioInterceptor implements MethodInterceptor {
 
 	/**
 	 * propiedad para Spring Printers de conversion
-	 * qclass_nombre_de_objeto_a_convertir=qclass_de_Printer_(implementa ec.com.ecuaquimica.swiss.fwk.servicio.Printer) 
+	 * qclass_nombre_de_objeto_a_convertir=qclass_de_Printer_(implementa ec.com.platform.fwk.servicio.Printer) 
 	 */
 	private Properties printers;
 	
@@ -69,8 +69,8 @@ public class LogServicioInterceptor implements MethodInterceptor {
 	 *            recibe los parametros de conversion par aun Properties
 	 *            para Spring
 	 *            &lt;value&gt;
-	 *            qclass_nombre_de_objeto_a_convertir=qclass_de_Printer_(implementa ec.com.ecuaquimica.swiss.fwk.servicio.Printer)
-	 *            qclass_nombre_de_Otro_a_convertir=qclass_de_OtroPrinter_(implementa ec.com.ecuaquimica.swiss.fwk.servicio.Printer) 
+	 *            qclass_nombre_de_objeto_a_convertir=qclass_de_Printer_(implementa ec.com.platform.fwk.servicio.Printer)
+	 *            qclass_nombre_de_Otro_a_convertir=qclass_de_OtroPrinter_(implementa ec.com.platform.fwk.servicio.Printer) 
 	 *            &lt;/value&gt;
 	 *            
 	 *            	 */
@@ -175,7 +175,7 @@ public class LogServicioInterceptor implements MethodInterceptor {
 
 	public void writeToLog(String pObj, String pAccion) {
 
-		LogFwkSwiss logFwkSat = new LogFwkSwiss(fuente, pObj, pAccion);
+		LogFwkPLatform logFwkSat = new LogFwkPLatform(fuente, pObj, pAccion);
 		logSvc.writeToLog(logFwkSat);
 	}
 

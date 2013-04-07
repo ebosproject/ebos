@@ -95,7 +95,7 @@ public class Constantes {
      */
     public static final String TIMEOUT_PAGE = TIMEOUT_VIEW + JSF_SUFFIX;
     /**
-     * Nombre de variable para guardar el token de sesion del userDto
+     * Nombre de variable para guardar el token de sesion del user
      */
     public static final String TOKEN = "nkttxms";
     /**
@@ -103,17 +103,17 @@ public class Constantes {
      */
     public static final String LOGGED_USER_ATTR = "security.currenLogonUser";
     /**
-     * Swiss 2.0: Nombre de variable para guardar la lista de RoleDto del
-     * UserDto
+     * Nombre de variable para guardar la lista de Rol del
+     * Usuario
      */
     public static final String ROLES_BY_USER = "security.roles.currentUser";
     /**
-     * Swiss 2.0: Nombre de variable para guardar las acciones permitidas por
+     * Nombre de variable para guardar las acciones permitidas por
      * cada Usuario JSF
      */
     public static final String ACTIONS_BY_USER = "security.actions.currentUser";
     /**
-     * Swiss 2.0 (Struts): Nombre de variable para guardar los Items permitidos
+     * Nombre de variable para guardar los Items permitidos
      * por cada Usuario
      */
     public static final String ITEMS_BY_USER = "framework.items.currentUser";
@@ -130,11 +130,11 @@ public class Constantes {
      */
     public static final String MAXIMO_REGISTROS_PERMITIDOS = "platform.bean.current.maximoregistros";
     /**
-     * Variable utilizada como nombre de la empresa Swiss seleccionada
+     * Variable utilizada como nombre de la empresa seleccionada
      */
     public static String PLATFORM_EMPRESA_ATTR = "platform.current.empresasPlatform";
     /**
-     * Swiss 2.0: Variable utilizada como nombre de sesi&oacute;n para usuario
+     * Variable utilizada como nombre de sesi&oacute;n para usuario
      * conectado
      */
     public static String PLATFORM_LOGGED_USER_ATTR = "platform.current.usuarioPlatform";
@@ -146,7 +146,7 @@ public class Constantes {
     /**
      * Nombre de variable para guardar el nombre del punto de venta del usuario
      */
-    public static final String CURRENT_PTO_VENTA = "swiss.bean.current.puntoVenta";
+    public static final String CURRENT_PTO_VENTA = "platform.bean.current.puntoVenta";
     /**
      * Variable para el nombre de la compania
      */
@@ -176,7 +176,7 @@ public class Constantes {
     /**
      * Nombre de variable para el manejo de label de bienvenida
      */
-    public static final String CURRENT_LANGUAGE_LABELS = "WelcomeDto";
+    public static final String CURRENT_LANGUAGE_LABELS = "Welcome";
     /**
      * Nombre de variable para guardar el idioma a utilizar
      */
@@ -190,7 +190,7 @@ public class Constantes {
      */
     public static final String RELEASE_DATE = DateUtils.getFormattedDate("dd-MM-yyyy HH:mm");
     /**
-     * Version del SwisSystem en ejecucion, en base a la fecha de despliegue de
+     * Version del sistema en ejecucion, en base a la fecha de despliegue de
      * la aplicacion
      */
     @Getter

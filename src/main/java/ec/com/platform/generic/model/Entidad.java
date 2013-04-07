@@ -13,18 +13,18 @@ import lombok.Setter;
 import ec.com.platform.generic.resources.GenericMensajes;
 import ec.com.platform.seguridad.model.Usuario;
 import ec.com.platform.util.Constantes;
-import ec.com.platform.util.GenericEntity;
 import ec.com.platform.util.GenericUtils;
+import ec.com.platform.util.IEntidad;
 import ec.com.platform.util.type.StringValuedEnum;
 import ec.com.platform.util.type.StringValuedEnumReflect;
 import ec.com.platform.util.type.StringValuedEnumType;
 
 /**
- * Superclase para todas las Entidades @Entity de todos los modulos del sistema
+ * Superclase para todas las @Entidades de todos los modulos del sistema
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Generic<T extends Generic<T>> implements GenericEntity, Serializable {
+public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Serializable {
 
 	private static final long serialVersionUID = 2233398298735454479L;
 
@@ -139,15 +139,18 @@ public abstract class Generic<T extends Generic<T>> implements GenericEntity, Se
 
         public static class Type extends StringValuedEnumType<Estado> {
         }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".generic.model.Generic$Estado$Type";
+        
+        public static final String TYPE = Constantes.DOMAIN_NAME+".generic.model.Entidad$Estado$Type";
+        
         @Getter
         private String value;
         private String labelKey;
-
+        
         private Estado(String value) {
             this.value = value;
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
+        
         public static final Map<String, Estado> LABELED_MAP =
                 GenericUtils.buildLabeledEnumMap(Estado.values());
         /**

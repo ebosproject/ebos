@@ -1,6 +1,6 @@
 package ec.com.platform.fwk.service.interceptor;
 
-import ec.com.platform.fwk.service.LogFwkSwiss;
+import ec.com.platform.fwk.service.LogFwkPLatform;
 import ec.com.platform.fwk.service.LogSvc;
 
 import java.util.ArrayList;
@@ -102,13 +102,13 @@ public class LogCrudInterceptor implements MethodInterceptor {
 			
 		}
 		String entidad = "["+tabla+"]" + ":" + ReflectionToStringHbmBean.toString(pObj);		
-		LogFwkSwiss logFwkSat = new LogFwkSwiss(LogSvc.LOG_CRUD, entidad ,pAccion);
+		LogFwkPLatform logFwkSat = new LogFwkPLatform(LogSvc.LOG_CRUD, entidad ,pAccion);
 		logSvc.writeToLog(logFwkSat);
 		
 	}
 	
 	public void writeToLogBulk(String pStr) {
-		LogFwkSwiss logFwkSat = new LogFwkSwiss(LogSvc.LOG_CRUD, pStr ,"Actualizacion-Bloque");
+		LogFwkPLatform logFwkSat = new LogFwkPLatform(LogSvc.LOG_CRUD, pStr ,"Actualizacion-Bloque");
 		logSvc.writeToLog(logFwkSat);	
 	}
 	

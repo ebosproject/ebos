@@ -6,7 +6,7 @@ package ec.com.platform.util;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2012-07-27
  */
-public interface GenericEntity {
+public interface IEntidad {
 
 	/**
 	 * @return valor

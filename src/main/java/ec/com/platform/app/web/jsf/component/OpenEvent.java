@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import javax.faces.component.UIComponent;
 import javax.faces.component.behavior.Behavior;

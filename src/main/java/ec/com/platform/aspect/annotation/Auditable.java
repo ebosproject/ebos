@@ -7,11 +7,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Anotacion para indicar que un DTO es sujeto de auditoria por modificaciones y eliminaciones.
- * Debe indicarse el tipo de la clase DTO que manejara la auditoria,
- * la cual debe extender de {@link AbstractAuditDTO}.
+ * Anotacion para indicar que un  es sujeto de auditoria por modificaciones y eliminaciones.
+ * Debe indicarse el tipo de la clase  que manejara la auditoria,
+ * la cual debe extender de {@link AbstractAuditEntity}.
  * @see AuditAspectGImpl
- * @author Luis Tama Wong
  */
 @Documented
 @Target({ElementType.TYPE})
@@ -19,10 +18,10 @@ import java.lang.annotation.Target;
 public @interface Auditable {
 
 //    /**
-//     * Tipo de la clase DTO que manejara la auditoria del DTO anotado.
-//     * Debe extender de {@link AbstractAuditDTO}.
+//     * Tipo de la clase  que manejara la auditoria del  anotado.
+//     * Debe extender de {@link AbstractAudit}.
 //     */
 //	
-//    Class<? extends AbstractAuditDTO<?, ?>> value();
+//    Class<? extends AbstractAudit<?, ?>> value();
     
 }

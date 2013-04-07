@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import org.primefaces.component.api.Widget;
 import org.primefaces.util.Constants;
@@ -36,13 +36,13 @@ import java.util.logging.Logger;
                           @ResourceDependency(library = "js", name = "layout/jquery.layout.js"),
                           @ResourceDependency(library = "js", name = "layout/layout.js")
                       })
-@FacesComponent(value = "ec.com.platform.app.web.component.Layout")
+@FacesComponent(value = "ec.com.platform.app.web.jsf.component.Layout")
 public class Layout extends UIComponentBase implements Widget, ClientBehaviorHolder {
 
 	private static final Logger LOG = Logger.getLogger(Layout.class.getName());
 
-	public static final String COMPONENT_FAMILY = Constantes.DOMAIN_NAME+".app.web.component";
-	private static final String DEFAULT_RENDERER = Constantes.DOMAIN_NAME+".app.web.component.LayoutRenderer";
+	public static final String COMPONENT_FAMILY = Constantes.DOMAIN_NAME+".app.web.jsf.component";
+	private static final String DEFAULT_RENDERER = Constantes.DOMAIN_NAME+".app.web.jsf.component.LayoutRenderer";
 
 	public static final String POSITION_SEPARATOR = "_";
 	public static final String STYLE_CLASS_PANE = "ui-widget-content ui-corner-all";

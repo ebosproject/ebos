@@ -12,7 +12,7 @@ import lombok.Setter;
 import ec.com.platform.app.model.EmpresaPersona;
 import ec.com.platform.app.model.Persona;
 import ec.com.platform.fwk.crud.Paginacion;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.seguridad.model.Rol;
 import ec.com.platform.seguridad.model.Usuario;
 import ec.com.platform.seguridad.model.UsuarioRol;
@@ -34,7 +34,7 @@ public class UsuarioMB extends GenericSeguridadMB<Usuario> {
         EmpresaPersona empresaPersona = new EmpresaPersona();
         empresaPersona.setPersona(new Persona());
         entitySearch.setEmpresaPersona(empresaPersona);
-        entitySearch.setEstado(Generic.Estado.ACTIVO);    
+        entitySearch.setEstado(Entidad.Estado.ACTIVO);    
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -12,7 +12,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 
- * @author Luis Tama Wong
+ * @update <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  *
  */
 public class DateUtils {

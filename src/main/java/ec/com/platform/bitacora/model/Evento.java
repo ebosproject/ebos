@@ -23,6 +23,9 @@ import javax.persistence.Transient;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.platform.bitacora.resources.BitacoraMensajes;
 import ec.com.platform.generic.model.Auditoria;
 import ec.com.platform.util.Constantes;
@@ -30,7 +33,6 @@ import ec.com.platform.util.GenericUtils;
 import ec.com.platform.util.type.StringValuedEnum;
 import ec.com.platform.util.type.StringValuedEnumReflect;
 import ec.com.platform.util.type.StringValuedEnumType;
-import ec.com.platform.util.type.Type;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

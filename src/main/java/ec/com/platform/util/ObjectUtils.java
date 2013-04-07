@@ -44,18 +44,18 @@ public class ObjectUtils {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T buildInstanceWithFields(T obj, String... fields) {
-		T newDto = null;
+		T newEntity = null;
 		try {
-			newDto = ((Class<T>) obj.getClass()).newInstance();
+			newEntity = ((Class<T>) obj.getClass()).newInstance();
 			for (String field : fields) {
 				Field f = obj.getClass().getDeclaredField(field);
 				f.setAccessible(true);
-				f.set(newDto, f.get(obj));
+				f.set(newEntity, f.get(obj));
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		return newDto;
+		return newEntity;
 	}
 	
 	/**
@@ -69,20 +69,20 @@ public class ObjectUtils {
 	 * @return D
 	 */
 	public static <D, T> D convertWithFields(Class<D> clazz, T obj, String... fields) {
-		D newDto = null;
+		D newEntity = null;
 		try {
-			newDto = clazz.newInstance();
+			newEntity = clazz.newInstance();
 			for (String field : fields) {
 				Field oField = obj.getClass().getDeclaredField(field);
 				Field dField = clazz.getDeclaredField(field);
 				oField.setAccessible(true);
 				dField.setAccessible(true);
-				dField.set(newDto, oField.get(obj));
+				dField.set(newEntity, oField.get(obj));
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		return newDto;
+		return newEntity;
 	}
 	
 	/**
@@ -98,10 +98,10 @@ public class ObjectUtils {
 	 * @return D
 	 */
 	public static <D, T> D convertWithAllFields(Class<D> clazz, T obj, String... excludedFields) {
-		D newDto = null;
+		D newEntity = null;
 		List<String> excludedFieldNames = Arrays.asList(excludedFields);
 		try {
-			newDto = clazz.newInstance();
+			newEntity = clazz.newInstance();
 			List<Field> oFields = getAllFields(obj.getClass());
 			for (Field oField : oFields) {
 				if (excludedFieldNames.contains(oField.getName())) // no copiar campos excluidos
@@ -116,7 +116,7 @@ public class ObjectUtils {
 						continue;
 					oField.setAccessible(true);
 					dField.setAccessible(true);
-					dField.set(newDto, oField.get(obj));
+					dField.set(newEntity, oField.get(obj));
 				} catch (NoSuchFieldException e) {
 					continue;
 				}
@@ -124,7 +124,7 @@ public class ObjectUtils {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		return newDto;
+		return newEntity;
 	}
 	
 	/**
@@ -462,7 +462,6 @@ public class ObjectUtils {
 	 * @return T
 	 * @see http://stackoverflow.com/questions/1671378/java-get-first-item-from-a-collection
 	 * @see http://hanuska.blogspot.com/2006/09/first-element-in-list.html
-	 * @author Luis Tama Wong
 	 */
 	public static <T> T getFirstOrNull(Collection<T> col) {
 		if (isEmpty(col)) {
@@ -488,7 +487,6 @@ public class ObjectUtils {
 	 * @return T
 	 * @see http://stackoverflow.com/questions/1671378/java-get-first-item-from-a-collection
 	 * @see http://hanuska.blogspot.com/2006/09/first-element-in-list.html
-	 * @author Luis Tama Wong
 	 */
 	public static <T> T getUniqueOrNull(Collection<T> col) {
 		if (isEmpty(col) || col.size() != 1) {

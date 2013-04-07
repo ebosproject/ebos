@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.platform.generic.model.Auditoria;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -44,6 +44,6 @@ public class Parametros extends GenericAdministracion<Parametros>{
     
     @Column(name = "ESTADO", nullable=false, length=1)
     @Enumerated(EnumType.STRING)
-    private Generic.Estado estado;
+    private Entidad.Estado estado;
     
 }

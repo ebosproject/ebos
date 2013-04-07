@@ -14,9 +14,8 @@ import ec.com.platform.generic.web.jsf.mb.AbstractServiceMB;
  * corresponde a un servicio que debe inicializarse y ser
  * controlado mediante permisos de seguridad.
  * Debe indicarse el nombre del servicio en el valor de esta anotacion,
- * el cual debe corresponder al codigo del servicio definido en {@link ServicioDTO#getCodigo()}.
+ * el cual debe corresponder al codigo del servicio definido en {@link Servicio#getCodigo()}.
  * @see SecurityAspectGImpl#interceptInitServiceMethodFromMB(AbstractServiceMB, InitService)
- * @author Luis Tama Wong
  */
 @Documented
 @Target({ElementType.METHOD})
@@ -24,7 +23,7 @@ import ec.com.platform.generic.web.jsf.mb.AbstractServiceMB;
 public @interface InitService {
 
     /**
-     * Nombre del servicio, que debe corresponder al {@link ServicioDTO#getCodigo()}.
+     * Nombre del servicio, que debe corresponder al {@link Servicio#getCodigo()}.
      */
     String value();
 }

@@ -12,7 +12,7 @@ import ec.com.platform.administracion.model.Parametros;
 import ec.com.platform.administracion.model.Parametros_;
 import ec.com.platform.fwk.crud.GenericCriteria;
 import ec.com.platform.generic.core.gestor.GenericGImpl;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.util.Constantes;
 import ec.com.platform.util.GenericUtils;
 
@@ -51,14 +51,14 @@ public class AdministracionGImpl extends GenericGImpl<Object, AdministracionExce
         }else{
             param.setFechaCreacion(fecha);
             param.setFechaModificacion(fecha);
-            param.setEstado(Generic.Estado.ACTIVO);
+            param.setEstado(Entidad.Estado.ACTIVO);
         }
         param = saveOrUpdate(param);
         
         //Actualiza lista de parametros en el bean de aplicacion
         //getApp().getConfiguracion().setParametros(buildParametrosHash(obtenerParametrosList(null)));
         //TODO (epa): refrescar parametros en Application Spring Bean
-        wrapSuccessMessage("Parametro "+param.getId()+" guardado correctamente");
+        putSuccess("Parametro "+param.getId()+" guardado correctamente");
         return param;
     }
 
@@ -80,14 +80,14 @@ public class AdministracionGImpl extends GenericGImpl<Object, AdministracionExce
                 
         if(configuracion.isEnviarSmsPrx() && configuracion.isEnviarSmsGatewayPrx()){            
             configuracion.setEnviarSmsGatewayPrx(false);
-            wrapWarningMessage("Sólo se puede habilitar una opción de envío de mensajes, por default es Sms");            
+            putWarning("Sólo se puede habilitar una opción de envío de mensajes, por default es Sms");            
         }        
         configuracion = update(configuracion);      
         
         //Actualiza las configuraciones del sistema en el bean de aplicacion
         //getApp().setConfiguracion(configuracion);
         //TODO (epa): refrescar parametros en Application Spring Bean
-        wrapSuccessMessage("Configuración actualizada correctamente");
+        putSuccess("Configuración actualizada correctamente");
         return configuracion;
     }
     

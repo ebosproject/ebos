@@ -7,10 +7,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Anotacion para un indice unique para un DTO.
+ * Anotacion para un indice unique para un .
  * Debe indicarse el nombre del indice en el valor de esta anotacion,
  * y los nombres de los campos a validar.
- * @author Luis Tama Wong
  */
 @Documented
 @Target(ElementType.TYPE)

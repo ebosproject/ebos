@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
@@ -12,11 +12,11 @@ import ec.com.platform.util.Constantes;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @version $Revision: 1.0 $
  */
-@FacesComponent(value = "ec.com.platform.app.web.component.LayoutPane")
+@FacesComponent(value = "ec.com.platform.app.web.jsf.component.LayoutPane")
 public class LayoutPane extends UIComponentBase {
 
-	public static final String COMPONENT_FAMILY = Constantes.DOMAIN_NAME+".app.web.component";
-	private static final String DEFAULT_RENDERER = Constantes.DOMAIN_NAME+".app.web.component.LayoutPaneRenderer";
+	public static final String COMPONENT_FAMILY = Constantes.DOMAIN_NAME+".app.web.jsf.component";
+	private static final String DEFAULT_RENDERER = Constantes.DOMAIN_NAME+".app.web.jsf.component.LayoutPaneRenderer";
 
 	/**
 	 * PropertyKeys

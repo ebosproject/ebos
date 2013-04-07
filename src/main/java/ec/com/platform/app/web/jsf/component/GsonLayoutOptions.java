@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

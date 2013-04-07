@@ -20,31 +20,4 @@
         <exception-handler-factory>ec.com.platform.util.web.jsf.event.PlatformExceptionHandlerFactory</exception-handler-factory>
     </factory>  
     
-    <!-- <lifecycle>
-       <phase-listener>ec.com.platform.util.web.jsf.event.SessionPhaseListener</phase-listener>
-    </lifecycle>
-     -->  
-         
-    <!-- <component>
-        <component-type>ec.com.platform.app.web.component.Layout</component-type>
-        <component-class>ec.com.platform.app.web.component.Layout</component-class>
-    </component> -->
-    <!-- <component>
-        <component-type>ec.com.platform.app.web.component.LayoutPane</component-type>
-        <component-class>ec.com.platform.app.web.component.LayoutPane</component-class>
-    </component> -->
-
-    <!-- <render-kit>
-        <renderer>
-            <component-family>ec.com.platform.app.web.component</component-family>
-            <renderer-type>ec.com.platform.app.web.component.LayoutRenderer</renderer-type>
-            <renderer-class>ec.com.platform.app.web.component.LayoutRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>ec.com.platform.app.web.component</component-family>
-            <renderer-type>ec.com.platform.app.web.component.LayoutPaneRenderer</renderer-type>
-            <renderer-class>ec.com.platform.app.web.component.LayoutPaneRenderer</renderer-class>
-        </renderer>
-    </render-kit>  -->
-    
 </faces-config>     

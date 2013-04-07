@@ -6,9 +6,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import ec.com.platform.generic.model.Entidad;
+
 /**
- * Anotacion para especificar una lista de indices unique para un DTO
- * @author Luis Tama Wong
+ * Anotacion para especificar una lista de indices unique para {@link Entidad}
  */
 @Documented
 @Target(ElementType.TYPE)

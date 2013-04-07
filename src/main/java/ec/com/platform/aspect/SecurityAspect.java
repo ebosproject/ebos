@@ -6,13 +6,20 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import org.apache.log4j.lf5.LogRecordFilter;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import ec.com.platform.app.model.Persona;
 import ec.com.platform.app.web.jsf.mb.SesionUsuarioMB;
+import ec.com.platform.seguridad.core.servicio.SeguridadS;
 import ec.com.platform.seguridad.model.Usuario;
 import ec.com.platform.util.Constantes;
 import ec.com.platform.util.DateUtils;
@@ -27,6 +34,11 @@ import ec.com.platform.util.HTTPUtils;
 @Aspect
 @Component
 public class SecurityAspect {
+	
+	@Getter @Setter
+    @Autowired
+    @Qualifier("seguridadS")
+    private SeguridadS seguridadS;
 
 	/*@Before("execution(* com.mkyong.customer.bo.CustomerBo.addCustomer(..))")
 	public void logBefore(JoinPoint joinPoint) {
@@ -86,32 +98,31 @@ public class SecurityAspect {
 	
 	@AfterReturning(pointcut="execution(* ec.com.platform.seguridad.core.gestor.SeguridadG.iniciarSesion(..))",
 			returning= "result")
-	public boolean login(JoinPoint joinPoint, boolean result) throws Throwable {
+	public void login(JoinPoint joinPoint, boolean result) throws Throwable {
+		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+		
 		try {
 			Usuario usuario = ((SesionUsuarioMB) joinPoint.getArgs()[0]).getUsuario();
-			ExternalContext context = FacesContext.getCurrentInstance()
-					.getExternalContext();
-			String STATE = "FAILED ";
-			
-			if (result) {
-				Map<String, Object> sessionMap = context.getSessionMap();
-				sessionMap.put(Constantes.LOGGED_USER_ATTR, Boolean.TRUE);
-				STATE = "OK ";
-			}
 
 			Persona persona = usuario.getEmpresaPersona().getPersona();
 			System.out.println(DateUtils.getFormattedTimestamp()
 					+ " ["
 					+ HTTPUtils.getRemoteAddr(((HttpServletRequest) context
-							.getRequest())) + "]" + " >>> LOGIN " + STATE
+							.getRequest())) + "]" + " >>> LOGIN " + (result?"OK ":"FAILED ")
 					+ usuario.getId() + "::" + persona.getNombres() + " "
 					+ persona.getApellidos());
 			
-			return true;
 		} catch (Exception ex) {
-			System.out.println("No se puede conectar con servidor, pongase en contacto con el administrador del sistema"
-					+ ex.getMessage());
-			return false;
+		
+			result = false;
+			seguridadS.putError("sesion.error.app", ex.getMessage());
+			System.err.println(ex);
+		
+		} finally {
+			if (result) {
+				Map<String, Object> sessionMap = context.getSessionMap();
+				sessionMap.put(Constantes.LOGGED_USER_ATTR, Boolean.TRUE);
+			}
 		}
 	}
 

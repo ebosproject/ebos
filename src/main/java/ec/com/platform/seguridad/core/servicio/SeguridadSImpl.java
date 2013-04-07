@@ -36,6 +36,14 @@ public class SeguridadSImpl implements SeguridadS{
     @Autowired
     @Qualifier("seguridadG")
     private SeguridadG seguridadG;
+	
+	//
+	// Put Messages
+	//
+	
+	public void putError(String key, Object... args){
+		seguridadG.putError(key, args);
+	}
     
     //
     // Usuario
@@ -220,5 +228,5 @@ public class SeguridadSImpl implements SeguridadS{
     public void guardarPreferenciasUsuario(Usuario usuario){
     	seguridadG.guardarPreferenciasUsuario(usuario);
     }
-
+    
 }

@@ -9,8 +9,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,15 +19,17 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.platform.app.resources.AppMensajes;
 import ec.com.platform.generic.model.Auditoria;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.util.Constantes;
 import ec.com.platform.util.GenericUtils;
 import ec.com.platform.util.type.StringValuedEnum;
 import ec.com.platform.util.type.StringValuedEnumReflect;
 import ec.com.platform.util.type.StringValuedEnumType;
-import ec.com.platform.util.type.Type;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -74,18 +74,16 @@ public class Persona extends GenericApp<Persona>{
 	private boolean empleado;
 	
 	@Column(name = "tipoIdentificacion", nullable = false, length = 1)
-    //@Type(type = TipoPersona.TYPE)
-	@Enumerated(EnumType.STRING)
+    @Type(type = TipoIdentificacion.TYPE)
     private TipoIdentificacion tipoIdentificacion;
 	
 	@Column(name = "tipoPersona", nullable = false, length = 1)
-	@Enumerated(EnumType.STRING)
+	@Type(type = TipoPersona.TYPE)
     private TipoPersona tipoPersona;
 	
-	@Column(name = "estado", nullable = false)
-    //@Type(type = Generic.Estado.TYPE)
-	@Enumerated(EnumType.STRING)
-    private Generic.Estado estado;
+	@Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
 	
 	@OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
     private Set<Empresa> empresaList = new HashSet<Empresa>(0);
@@ -104,7 +102,6 @@ public class Persona extends GenericApp<Persona>{
      *
      */
     public enum TipoIdentificacion implements StringValuedEnum<TipoIdentificacion> {
-
         CEDULA("C"),
         RUC("R");
 
@@ -162,9 +159,9 @@ public class Persona extends GenericApp<Persona>{
         NATURAL("N"),
         JURIDICA("J");
 
-//        public static class Type extends StringValuedEnumType<Estado> {
-//        }
-//        public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Persona$TipoPersona$Type";
+        public static class Type extends StringValuedEnumType<Estado> {
+        }
+        public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Persona$TipoPersona$Type";
 
         @Getter
         private String value;

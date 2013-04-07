@@ -12,7 +12,7 @@
        <pl:outputText id="id" value="#{bundle.id}" label="#{msg.plId}"/>                
        <pl:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" label="#{msg.plLocalidad}" required="true">
             <f:selectItem itemLabel ="#{msg.plSeleccionaUno}" itemValue="" />
-            <f:selectItems value="#{bean.localidadList}" var="opc"
+            <f:selectItems value="#{bunbleMB.localidadList}" var="opc"
                 itemLabel="#{opc.label}" itemValue="#{opc}"/>
         </pl:selectOneMenu>
        <pl:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.plCodigo}" required="true" maxlength="50"/>

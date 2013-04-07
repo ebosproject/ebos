@@ -12,7 +12,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
 import ec.com.platform.fwk.crud.Paginacion;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.seguridad.model.Opcion;
 import ec.com.platform.util.GenericUtils;
 import ec.com.platform.util.StringUtils;
@@ -29,7 +29,7 @@ public class OpcionMB extends GenericSeguridadMB<Opcion> {
 	@Override
     public void getInit() {
         entitySearch = new Opcion();
-        entitySearch.setEstado(Generic.Estado.ACTIVO);
+        entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 
     @Override

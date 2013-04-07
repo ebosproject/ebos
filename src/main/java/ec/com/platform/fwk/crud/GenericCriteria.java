@@ -27,12 +27,12 @@ import org.hibernate.impl.CriteriaImpl;
 import org.hibernate.transform.ResultTransformer;
 import org.hibernate.type.Type;
 
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.util.ObjectUtils;
 
 /**
- * Contiene un Criteria, y conoce su tipo de clase.
+ * Criteria generico para cualquier {@link Entidad}
  * @param <T>
- * @author Luis Tama Wong
  */
 public class GenericCriteria<T> implements Serializable {
 

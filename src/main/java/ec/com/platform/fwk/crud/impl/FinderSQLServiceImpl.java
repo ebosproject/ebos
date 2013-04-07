@@ -148,8 +148,8 @@ public class FinderSQLServiceImpl extends TransactionProxyFactoryBean implements
 	 *            Cadena con el query a ejecutar
 	 * @param pRowMapper
 	 *            Clase indicar como se debe mapear el resultado obtenido en el
-	 *            DTO correspondiente
-	 * @return Lista de DTO's
+	 *             correspondiente
+	 * @return Lista de 's
 	 * @throws FinderSQLException
 	 *             Si ocurre alguna excepcion al ejecutar el query
 	 */
@@ -191,8 +191,8 @@ public class FinderSQLServiceImpl extends TransactionProxyFactoryBean implements
 	 *            Arreglo de objetos con los parametros a enviar
 	 * @param pRowMapper
 	 *            Clase indicar como se debe mapear el resultado obtenido en el
-	 *            DTO correspondiente
-	 * @return Lista de DTO's
+	 *             correspondiente
+	 * @return Lista de 's
 	 * @throws FinderSQLException
 	 *             Si ocurre alguna excepcion al ejecutar el query
 	 */

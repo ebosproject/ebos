@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import java.io.IOException;
 
@@ -16,8 +16,8 @@ import org.primefaces.renderkit.CoreRenderer;
  * @update <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @version $Revision: 2.0
  */
-@FacesRenderer(componentFamily = "ec.com.platform.app.web.component",
-		rendererType = "ec.com.platform.app.web.component.LayoutPaneRenderer")
+@FacesRenderer(componentFamily = "ec.com.platform.app.web.jsf.component",
+		rendererType = "ec.com.platform.app.web.jsf.component.LayoutPaneRenderer")
 public class LayoutPaneRenderer extends CoreRenderer {
 
 	@Override

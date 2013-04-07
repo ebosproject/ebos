@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import javax.faces.component.UIComponent;
 import javax.faces.component.behavior.Behavior;
@@ -7,31 +7,18 @@ import javax.faces.event.AjaxBehaviorListener;
 import javax.faces.event.FacesListener;
 
 /**
- * ResizeEvent
+ * CloseEvent
  *
- * @author Oleg Varaksin / last modified by $Author: $
+ * @author  Oleg Varaksin / last modified by $Author: $
  * @author Eduardo Plua Alay
  * @version $Revision: 2.0 $
  */
-public class ResizeEvent extends AjaxBehaviorEvent {
+public class CloseEvent extends AjaxBehaviorEvent {
 
-	private static final long serialVersionUID = -7876083775546797254L;
-	
-	private double width;
-	private double height;
+	private static final long serialVersionUID = -7628933814396487061L;
 
-	public ResizeEvent(UIComponent component, Behavior behavior, double width, double height) {
+	public CloseEvent(UIComponent component, Behavior behavior) {
 		super(component, behavior);
-		this.width = width;
-		this.height = height;
-	}
-
-	public final double getWidth() {
-		return width;
-	}
-
-	public final double getHeight() {
-		return height;
 	}
 
 	@Override

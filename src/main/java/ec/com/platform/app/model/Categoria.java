@@ -16,8 +16,10 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.platform.generic.model.Generic;
-import ec.com.platform.util.type.Type;
+
+import org.hibernate.annotations.Type;
+
+import ec.com.platform.generic.model.Entidad;
 
 /**
  * Theme clase
@@ -47,9 +49,9 @@ public class Categoria extends GenericApp<Categoria> {
 	@Column(name = "descripcion", nullable = false, length = 100)
     private String descripcion;
 	
-    @Column(name = "estado", nullable = false)
-    @Type(type = Generic.Estado.TYPE)
-    private Generic.Estado estado;
+    @Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
     
     @OneToMany(mappedBy = "categoria", fetch= FetchType.LAZY)
     private Set<Activo> activoList = new HashSet<Activo>(0);       

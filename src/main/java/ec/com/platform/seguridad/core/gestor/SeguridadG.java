@@ -18,6 +18,12 @@ import ec.com.platform.seguridad.model.UsuarioRol;
  * @author Eduardo Plua Alay
  */
 public interface SeguridadG {
+	
+	//
+	// Put Messages
+	//
+	
+	public void putError(String key, Object... args);
 
     //
     //Usuario
@@ -104,4 +110,5 @@ public interface SeguridadG {
     public SesionUsuarioMB getSesionUsuario();
 
 	public void guardarPreferenciasUsuario(Usuario usuario);
+
 }

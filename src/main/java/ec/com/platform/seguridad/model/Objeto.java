@@ -19,15 +19,17 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.platform.generic.model.Auditoria;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.seguridad.resources.SeguridadMensajes;
 import ec.com.platform.util.Constantes;
 import ec.com.platform.util.GenericUtils;
 import ec.com.platform.util.type.StringValuedEnum;
 import ec.com.platform.util.type.StringValuedEnumReflect;
 import ec.com.platform.util.type.StringValuedEnumType;
-import ec.com.platform.util.type.Type;
 
 /**
  *
@@ -54,13 +56,13 @@ public class Objeto extends GenericSeguridad<Objeto> {
     @Column(name="descripcion", length=150)
     private String descripcion;
     
-    @Column(name = "tipo", nullable = false)
+    @Column(name = "tipo", nullable = false, length = 1)
     @Type(type = Objeto.TipoObjeto.TYPE)
     private Objeto.TipoObjeto tipo;
     
-    @Column(name = "estado", nullable = false)
-    @Type(type = Generic.Estado.TYPE)
-    private Generic.Estado estado;
+    @Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
 
     @OneToMany(mappedBy = "objeto", fetch=FetchType.LAZY)
     private Set<Opcion> opcionList = new HashSet<Opcion>(0);

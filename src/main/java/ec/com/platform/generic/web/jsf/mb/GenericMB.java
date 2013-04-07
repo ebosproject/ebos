@@ -18,7 +18,7 @@ import org.primefaces.model.SortOrder;
 import ec.com.platform.app.web.jsf.mb.SesionUsuarioMB;
 import ec.com.platform.fwk.crud.Paginacion;
 import ec.com.platform.generic.core.gestor.GenericGImpl;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.util.Constantes;
 import ec.com.platform.util.MessageUtils;
 import ec.com.platform.util.NumberUtils;
@@ -28,7 +28,7 @@ import ec.com.platform.util.type.JsfMessage;
  *
  * @author Eduardo Plua Alay
  */
-    public abstract class GenericMB<T extends Generic<T>> extends AbstractServiceMB implements JsfMessage{
+    public abstract class GenericMB<T extends Entidad<T>> extends AbstractServiceMB implements JsfMessage{
 
 	private static final long serialVersionUID = 7260345983546581957L;
 	
@@ -239,29 +239,29 @@ import ec.com.platform.util.type.JsfMessage;
 	private final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(getBundleName());
     
     @Override
-    public void wrapMessage(FacesMessage.Severity severity, String key, Object... args){
+    public void putMessage(FacesMessage.Severity severity, String key, Object... args){
         FacesMessage message = new FacesMessage(severity, MessageUtils.buildMessage(key, RESOURCE_BUNDLE, args), "");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
     @Override
-    public void wrapSuccessMessage(String key, Object... args) {        
-        wrapMessage(FacesMessage.SEVERITY_INFO, key, "");
+    public void putSuccess(String key, Object... args) {        
+        putMessage(FacesMessage.SEVERITY_INFO, key, "");
     }
 
     @Override
-    public void wrapWarningMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_WARN, key, "");        
+    public void putWarning(String key, Object... args) {
+        putMessage(FacesMessage.SEVERITY_WARN, key, "");        
     }
 
     @Override
-    public void wrapErrorMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_ERROR, key, "");        
+    public void putError(String key, Object... args) {
+        putMessage(FacesMessage.SEVERITY_ERROR, key, "");        
     }
     
     @Override
-    public void wrapFatalMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_FATAL, key, "");        
+    public void putFatal(String key, Object... args) {
+        putMessage(FacesMessage.SEVERITY_FATAL, key, "");        
     }
     
     
@@ -269,6 +269,6 @@ import ec.com.platform.util.type.JsfMessage;
 	///////////////////////////LISTS ///////////////////////////
     
     @Getter
-	private List<Generic.Estado> estadoList = new ArrayList<Generic.Estado>(Generic.Estado.LIST);
+	private List<Entidad.Estado> estadoList = new ArrayList<Entidad.Estado>(Entidad.Estado.LIST);
 
 }

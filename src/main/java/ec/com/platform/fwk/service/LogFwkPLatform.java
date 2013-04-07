@@ -7,7 +7,7 @@ import java.util.Date;
  * @author <a href="mailto:juanleonsolis@gmail.com">Ing. Juan Leon Solis</a>
  *
  */
-public class LogFwkSwiss implements Serializable{
+public class LogFwkPLatform implements Serializable{
 	
 	/**
 	 * 
@@ -25,7 +25,7 @@ public class LogFwkSwiss implements Serializable{
 	 * @param pEntity
 	 * @param pAccion
 	 */
-	public LogFwkSwiss(String pSrc, String pEntity, String pAccion) {
+	public LogFwkPLatform(String pSrc, String pEntity, String pAccion) {
 		src = pSrc;
 		entity = pEntity;
 		accion = pAccion;
@@ -38,7 +38,7 @@ public class LogFwkSwiss implements Serializable{
 	 * @param pEntity
 	 * @param pAccion
 	 */
-	public LogFwkSwiss(String pSrc, String pUsuario, String pEntity, String pAccion) {
+	public LogFwkPLatform(String pSrc, String pUsuario, String pEntity, String pAccion) {
 		fecha = new Date();
 		src = pSrc;
 		usuario = pUsuario;

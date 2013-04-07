@@ -1,6 +1,6 @@
 package ec.com.platform.app.web.jsf.mb;
 
-import ec.com.platform.app.web.component.LayoutOptions;
+import ec.com.platform.app.web.jsf.component.LayoutOptions;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;

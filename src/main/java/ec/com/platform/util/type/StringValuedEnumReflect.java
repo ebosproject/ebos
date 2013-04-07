@@ -3,8 +3,7 @@ package ec.com.platform.util.type;
 
 /**
  * Utility class designed to inspect StringValuedEnums.
- * @author Luis Tama Wong
- * @author Eduardo Plua Alay
+ * @update Eduardo Plua Alay
  * @see http://community.jboss.org/wiki/Java5StringValuedEnumUserType
  */
 public class StringValuedEnumReflect {

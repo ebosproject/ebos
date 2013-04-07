@@ -10,14 +10,13 @@ import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
  * Anotacion para indicar que un parametro de un metodo o el valor retornado por un metodo
- * corresponde a un DTO que debe verificarse mediante permisos de seguridad
+ * corresponde a un  que debe verificarse mediante permisos de seguridad
  * a traves de un alias.
  * Debe indicarse el nombre del alias en el valor de esta anotacion,
  * el cual debe corresponder al alias obtenido del nombre de la clase
- * definido en {@link PermisosRaizDTO#getNombreClase()},
+ * definido en {@link PermisosRaiz#getNombreClase()},
  * pero solamente a partir del caracter "@".
- * @see SecurityAspectGImpl#interceptDTOSetterFromDTO(ProceedingJoinPoint, SecurityAspectGImpl.SecurityEnabledDTO, SecurityAspectGImpl.SecurityEnabledDTO)
- * @author Luis Tama Wong
+ * @see SecurityAspectGImpl#interceptSetterFrom(ProceedingJoinPoint, SecurityAspectGImpl.SecurityEnabled, SecurityAspectGImpl.SecurityEnabled)
  */
 @Documented
 @Target({ElementType.PARAMETER, ElementType.METHOD})
@@ -26,7 +25,7 @@ public @interface Alias {
 
     /**
      * Nombre del alias, que es obtenido del nombre de la clase
-     * definido en {@link PermisosRaizDTO#getNombreClase()},
+     * definido en {@link PermisosRaiz#getNombreClase()},
      * pero solamente a partir del caracter "@".
      */
     String value();

@@ -1,5 +1,5 @@
 package ec.com.platform.aspect.annotation;
 
-public class AbstractAuditDTO<T1, T2> {
+public class AbstractAuditEntity<T1, T2> {
 
 }

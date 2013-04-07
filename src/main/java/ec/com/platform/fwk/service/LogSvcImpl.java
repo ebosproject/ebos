@@ -18,12 +18,12 @@ public class LogSvcImpl implements LogSvc {
 
 	private static Log loggerSAD = LogFactory.getLog(LOG_SAD);
 
-	public void writeToLog(LogFwkSwiss pLogFwkSwiss) {
-		String src = pLogFwkSwiss.getSrc();
+	public void writeToLog(LogFwkPLatform pLogFwkPlatform) {
+		String src = pLogFwkPlatform.getSrc();
 		String usuario = "";//InfoContext.getLogin() + "@" + InfoContext.getIpUsuario();
-		pLogFwkSwiss.setUsuario(usuario);
-		String msg = TAB + pLogFwkSwiss.getAccion() + TAB + USUARIO + usuario + TAB
-				+ pLogFwkSwiss.getEntity();
+		pLogFwkPlatform.setUsuario(usuario);
+		String msg = TAB + pLogFwkPlatform.getAccion() + TAB + USUARIO + usuario + TAB
+				+ pLogFwkPlatform.getEntity();
 		if (src == null)
 			throw new IllegalArgumentException(
 					"No se conoce la fuente del mensaje");

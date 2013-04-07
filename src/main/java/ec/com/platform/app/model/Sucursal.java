@@ -12,9 +12,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.platform.generic.model.Auditoria;
-import ec.com.platform.generic.model.Generic;
-import ec.com.platform.util.type.Type;
+import ec.com.platform.generic.model.Entidad;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -42,8 +44,8 @@ public class Sucursal extends GenericApp<Sucursal>{
 	@Column(name = "descripcion", nullable = false, length = 50)
 	private String descripcion;
 
-	@Column(name = "estado", nullable = false)
-    @Type(type = Generic.Estado.TYPE)
-    private Generic.Estado estado;
+	@Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
 	
 }

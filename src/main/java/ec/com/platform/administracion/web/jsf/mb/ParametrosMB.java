@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 
 import ec.com.platform.administracion.model.Parametros;
 import ec.com.platform.fwk.crud.Paginacion;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.util.GenericUtils;
 
 
@@ -26,7 +26,7 @@ public class ParametrosMB extends GenericAdministracionMB<Parametros>{
     @Override
     public void getInit() {
         entitySearch = new Parametros();
-        entitySearch.setEstado(Generic.Estado.ACTIVO);
+        entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 
     @Override

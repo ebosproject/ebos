@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 
 import lombok.Getter;
 import ec.com.platform.fwk.crud.Paginacion;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.seguridad.model.Objeto;
 import ec.com.platform.util.GenericUtils;
 
@@ -24,7 +24,7 @@ public class ObjetoMB extends GenericSeguridadMB<Objeto> {
 	@Override
     public void getInit() {
         entitySearch = new Objeto();
-        entitySearch.setEstado(Generic.Estado.ACTIVO);
+        entitySearch.setEstado(Entidad.Estado.ACTIVO);
         entitySearch.setTipo(Objeto.TipoObjeto.BEAN);
     }
 

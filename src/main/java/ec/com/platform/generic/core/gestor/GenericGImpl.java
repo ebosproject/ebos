@@ -101,7 +101,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findAll(Class, int)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> T findById(Serializable id, Class<T> entityType) {
 		T obj = finder.findById(id, entityType);
@@ -110,7 +109,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> T findFirstByCriteria(GenericCriteria<T> criteria) {
 		T value = ObjectUtils.getFirstOrNull(findByCriteria(criteria));
@@ -119,7 +117,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria) {
 		List<T> list = finder.findByCriteria(criteria);
@@ -128,7 +125,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, boolean)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria, boolean pNolimitRecords) {
 		List<T> list = finder.findByCriteria(criteria, pNolimitRecords);
@@ -137,7 +133,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, boolean)}
-	 * @author Luis Tama Wong
 	 */
 	@SuppressWarnings("unchecked")
 	protected <T extends X, V> List<V> findByCriteria(GenericCriteria<T> criteria, Class<V> clazz, boolean pNolimitRecords) {
@@ -147,7 +142,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, Class)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X, V> List<V> findByCriteria(GenericCriteria<T> criteria, Class<V> clazz) {
 		List<V> list = finder.findByCriteria(criteria, clazz);
@@ -156,7 +150,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteriaWithProjection(GenericCriteria, Class)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X, V> List<V> findByCriteriaWithProjection(GenericCriteria<T> criteria, Class<V> clazz) {
 		List<V> list = finder.findByCriteriaWithProjection(criteria, clazz);
@@ -165,7 +158,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, Class)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X, V> V findFirstByCriteria(GenericCriteria<T> criteria, Class<V> clazz) {
 		V value = ObjectUtils.getFirstOrNull(findByCriteria(criteria, clazz, true));
@@ -174,7 +166,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteriaWithProjection(GenericCriteria, Class)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X, V> V findFirstByCriteriaWithProjection(GenericCriteria<T> criteria, Class<V> clazz) {
 		V value = ObjectUtils.getFirstOrNull(findByCriteriaWithProjection(criteria, clazz));
@@ -277,7 +268,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, int, int)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria, int firstResult, int maxResult) {
 		List<T> list = finder.findByCriteria(criteria, firstResult, maxResult);
@@ -286,7 +276,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, int, int)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> T findFirstByCriteria(GenericCriteria<T> criteria, int firstResult, int maxResult) {
 		T value = ObjectUtils.getFirstOrNull(findByCriteria(criteria, firstResult, maxResult));
@@ -295,7 +284,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, PaginationParams)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria, PaginationParams pagination) {
 		List<T> list = finder.findByCriteria(criteria, pagination);
@@ -313,7 +301,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findAll(Class, int)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findAll(Class<T> entityType, int max) {
 		List<T> list = finder.findAll(entityType, max);
@@ -322,7 +309,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 
 	/**
 	 * Llama a {@link FinderService#findAll(Class)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findAll(Class<T> entityType) {
 		List<T> list = finder.findAll(entityType);
@@ -331,7 +317,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findAll(Class, String, boolean)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findAll(Class<T> entityType, String propertyName, boolean ascending) {
 		List<T> list = finder.findAll(entityType, propertyName, ascending);
@@ -340,7 +325,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByCriteriaWithAliasToBeanTransformation(GenericCriteria, Class)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X, V extends X> List<V> findByCriteriaWithAliasToBeanTransformation(GenericCriteria<T> criteria, Class<V> clazz) {
 		List<V> list = finder.findByCriteriaWithAliasToBeanTransformation(criteria, clazz);
@@ -349,7 +333,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#pagerFromEntity(Class, int, int)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> pagerFromEntity(Class<T> clazz, int firstResult, int maxResults) {
 		List<T> list = finder.pagerFromEntity(clazz, firstResult, maxResults);
@@ -358,7 +341,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByQuery(String)}
-	 * @author Luis Tama Wong
 	 */
 	protected List<?> findByQuery(String queryString) {
 		List<?> list = finder.findByQuery(queryString);
@@ -367,7 +349,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 
 	/**
 	 * Llama a {@link FinderService#findByQuery(String, Object[])}
-	 * @author Luis Tama Wong
 	 */
 	protected <V> List<V> findByQuery(String queryString, Class<V> clazz, Object... values) {
 		@SuppressWarnings("unchecked")
@@ -377,7 +358,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 
 	/**
 	 * Llama a {@link FinderService#findByQuery(String, Object[], boolean)}
-	 * @author Luis Tama Wong
 	 */
 	protected <V> List<V> findByQuery(String queryString, Class<V> clazz, boolean pNolimitRecords, Object... values) {
 		@SuppressWarnings("unchecked")
@@ -387,7 +367,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 
 	/**
 	 * Llama a {@link FinderService#findByQuery(String)}
-	 * @author Luis Tama Wong
 	 */
 	protected Object findFirstByQuery(String queryString) {
 		Object value = ObjectUtils.getFirstOrNull(findByQuery(queryString));
@@ -396,7 +375,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findAllWithoutSizeLimit(Class)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findAllWithoutSizeLimit(Class<T> entityType) {
 		List<T> list = finder.findAllWithoutSizeLimit(entityType);
@@ -405,7 +383,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findAllWithoutSizeLimit(Class, String, boolean)}
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> List<T> findAllWithoutSizeLimit(Class<T> entityType, String propertyName, boolean ascending) {
 		List<T> list = finder.findAllWithoutSizeLimit(entityType, propertyName, ascending);
@@ -414,7 +391,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link FinderService#findByNamedQueryAndNamedParam(String, String, Object)}
-	 * @author Luis Tama Wong
 	 */
 	protected List<?> findByNamedQueryAndNamedParam(String queryName, String paramName, Object value) {
 		List<?> list = finder.findByNamedQueryAndNamedParam(queryName, paramName, value);
@@ -425,56 +401,51 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 
 	/**
 	 * Llama a {@link Crud#create(Object)}
-	 * @param dto
-	 * @author Luis Tama Wong
+	 * @param 
 	 */
-	protected <T extends X> T create(T dto) {
+	protected <T extends X> T create(T entity) {
 		// validar indices
-		validateUniqueness(dto);
+		validateUniqueness(entity);
 		// crear
-		crud.create(dto);
-		return dto;
+		crud.create(entity);
+		return entity;
 	}
 
 	/**
 	 * Llama a {@link Crud#update(Object)}
-	 * @param dto
-	 * @author Luis Tama Wong
+	 * @param 
 	 */
-	protected <T extends X> T update(T dto) {
+	protected <T extends X> T update(T entity) {
 		// validar indices
-		validateUniqueness(dto);
+		validateUniqueness(entity);
 		// actualizar
-		crud.update(dto);
-		return dto;
+		crud.update(entity);
+		return entity;
 	}
 
 	/**
 	 * Llama a {@link Crud#saveOrUpdate(Object)}
-	 * @param dto
-	 * @author Luis Tama Wong
+	 * @param 
 	 */
-	protected <T extends X> T saveOrUpdate(T dto) {
+	protected <T extends X> T saveOrUpdate(T entity) {
 		// validar indices
-		validateUniqueness(dto);
+		validateUniqueness(entity);
 		// guardar
-		crud.saveOrUpdate(dto);
-		return dto;
+		crud.saveOrUpdate(entity);
+		return entity;
 	}
 
 	/**
 	 * Llama a {@link Crud#delete(Object)}
-	 * @param dto
-	 * @author Luis Tama Wong
+	 * @param 
 	 */
-	protected <T extends X> void delete(T dto) {
-		crud.delete(dto);
+	protected <T extends X> void delete(T entity) {
+		crud.delete(entity);
 	}
 
 	/**
 	 * Llama a {@link Crud#deleteAll(Object)}
 	 * @param col
-	 * @author Luis Tama Wong
 	 */
 	protected <T extends X> void deleteAll(Collection<T> col) {
 		crud.deleteAll(col);
@@ -482,7 +453,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link Crud#flush()}
-	 * @author Luis Tama Wong
 	 */
 	protected void flush() {
 		crud.flush();
@@ -490,48 +460,45 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	/**
 	 * Llama a {@link Crud#merge()}
-	 * @author Luis Tama Wong
 	 */
 	@SuppressWarnings("unchecked")
-	protected <T extends X> T merge(T dto) {
-		return (T) crud.merge(dto);
+	protected <T extends X> T merge(T entity) {
+		return (T) crud.merge(entity);
 	}
 	
 	/**
 	 * Llama a {@link Crud#refresh()}
-	 * @author Luis Tama Wong
 	 */
-	protected <T extends X> T refresh(T dto) {
-		crud.refresh(dto);
-		return dto;
+	protected <T extends X> T refresh(T entity) {
+		crud.refresh(entity);
+		return entity;
 	}
 	
 	/**
 	 * Llama a {@link Crud#evict()}.
-	 * Desvincula el dto dado de la session de Hibernate.
-	 * Permite manejar mas de una referencia a un dto,
+	 * Desvincula el entity dado de la session de Hibernate.
+	 * Permite manejar mas de una referencia a una entity,
 	 * evitando errores tipo
 	 * {@link org.hibernate.NonUniqueObjectException}.<br><br>
 	 * Uso 1, cuando se hace los cambios manualmente:<pre>
-	 * T oldDTO = findById(..); // obtener dto original
-	 * evict(oldDTO); // desvincularlo de la session
-	 * T newDTO = findById(..); // obtener dto para modificar
+	 * T oldEntity = findById(..); // obtener  original
+	 * evict(oldEntity); // desvincularlo de la session
+	 * T newEntity = findById(..); // obtener  para modificar
 	 * ... // realizar cambios y validaciones
-	 * update(newDTO); // guardar dto modificado</pre>
+	 * update(newEntity); // guardar  modificado</pre>
 	 * Uso 2, cuando los cambios ocurren primero:<pre>
-	 * T newDTO = findById(..); // obtener dto para modificar (pudo ocurrir en el MB)
+	 * T newEntity = findById(..); // obtener  para modificar (pudo ocurrir en el MB)
 	 * // realizar cambios (pudo ocurrir en el MB)
-	 * evict(newDTO); // desvincularlo de la session
-	 * T oldDTO = findById(..); // obtener dto original
+	 * evict(newEntity); // desvincularlo de la session
+	 * T oldEntity = findById(..); // obtener  original
 	 * ... // realizar validaciones
-	 * newDTO = merge(newDTO); // combinar nuevo dto con el original
-	 * update(newDTO); // guardar</pre>
-	 * @author Luis Tama Wong
+	 * newEntity = merge(newEntity); // combinar nuevo  con el original
+	 * update(newEntity); // guardar</pre>
 	 * @see http://stackoverflow.com/questions/183013/hibernate-comparing-current-previous-record/186561#186561
 	 */
-	protected <T extends X> T evict(T dto) {
-		crud.evict(dto);
-		return dto;
+	protected <T extends X> T evict(T entity) {
+		crud.evict(entity);
+		return entity;
 	}
 	
 	/**
@@ -547,7 +514,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	 * @see https://forum.hibernate.org/viewtopic.php?f=1&t=976550
 	 * @return
 	 * @throws E
-	 * @author Luis Tama Wong
 	 */
 	@SuppressWarnings("deprecation")
 	protected String getServerURL() throws E {
@@ -568,7 +534,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	 * @see http://docs.jboss.org/hibernate/core/3.5/reference/en/html/querysql.html
 	 * @return
 	 * @throws E
-	 * @author Luis Tama Wong
 	 */
 	protected <T> List<T> findBySqlQuery(String queryString, Class<T> clazz) throws E {
 		try {
@@ -836,7 +801,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	 * @param fieldNames
 	 * @param values
 	 * @return
-	 * @author Luis Tama Wong
 	 */
 	protected final <T extends X> boolean checkExists(Class<T> clazz, String fieldNames, Object... values) {
 		if (StringUtils.isBlank(fieldNames) || ObjectUtils.isEmpty(values)) {
@@ -857,17 +821,16 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	}
 
 	/**
-	 * Verifica si existe un registro del tipo del dto especificado
+	 * Verifica si existe un registro del tipo del  especificado
 	 * que cumpla con los indices definidos en el tipo.
 	 * Devuelve el nombre del primer indice para el cual los campos
-	 * del dto tienen valores existentes.
-	 * @param dto
+	 * del  tienen valores existentes.
+	 * @param 
 	 * @return
-	 * @author Luis Tama Wong
 	 */
-	protected final <T extends X> String checkExists(T dto) {
+	protected final <T extends X> String checkExists(T entity) {
 		@SuppressWarnings("unchecked")
-		Class<T> clazz = (Class<T>) dto.getClass();
+		Class<T> clazz = (Class<T>) entity.getClass();
 		UniqueIndexes annotation = clazz.getAnnotation(UniqueIndexes.class);
 		if (annotation != null) {
 			UniqueIndex[] indexes = annotation.value();
@@ -877,7 +840,7 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 					try {
 						Field f = ObjectUtils.getField(clazz, index.idFieldName());
 						f.setAccessible(true);
-						Object value = f.get(dto);
+						Object value = f.get(entity);
 						criteria.addNotEqualsIfNotNull(index.idFieldName(), value);
 					} catch (Exception e) {
 						throw new PropertyValueException(null, clazz.getName(), index.idFieldName());
@@ -887,7 +850,7 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 						try {
 							Field f = ObjectUtils.getField(clazz, field);
 							f.setAccessible(true);
-							Object value = f.get(dto);
+							Object value = f.get(entity);
 							criteria.addEqualsNullSafe(field, value);
 						} catch (Exception e) {
 							throw new PropertyValueException(null, clazz.getName(), field);
@@ -912,7 +875,6 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	 * @param fieldNames
 	 * @param values
 	 * @throws ConstraintViolationException
-	 * @author Luis Tama Wong
 	 */
 	protected final <T extends X> void validateUniqueness(String indexName, Class<T> clazz,
 			String fieldNames, Object... values) throws ConstraintViolationException {
@@ -922,15 +884,14 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	}
 
 	/**
-	 * Lanza una excepcion si existe al menos un registro del tipo del dto especificado
+	 * Lanza una excepcion si existe al menos un registro del tipo del  especificado
 	 * que cumple con al menos uno de los indices del tipo.
 	 * Se utiliza el nombre del indice como clave del mensaje de la excepcion.
-	 * @param dto
+	 * @param 
 	 * @throws ConstraintViolationException
-	 * @author Luis Tama Wong
 	 */
-	protected final <T extends X> void validateUniqueness(T dto) throws ConstraintViolationException {
-		String indexName = checkExists(dto);
+	protected final <T extends X> void validateUniqueness(T entity) throws ConstraintViolationException {
+		String indexName = checkExists(entity);
 		if (indexName != null) {
 			throw new ConstraintViolationException(null, null, indexName);
 		}
@@ -1030,25 +991,25 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	
 	private final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(getBundleName());
 	
-    public void wrapMessage(FacesMessage.Severity severity, String key, Object... args){
+    public void putMessage(FacesMessage.Severity severity, String key, Object... args){
         FacesMessage message = new FacesMessage(severity, MessageUtils.buildMessage(key, RESOURCE_BUNDLE, args), "");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
-    public void wrapSuccessMessage(String key, Object... args) {        
-        wrapMessage(FacesMessage.SEVERITY_INFO, key, args);
+    public void putSuccess(String key, Object... args) {        
+        putMessage(FacesMessage.SEVERITY_INFO, key, args);
     }
 
-    public void wrapWarningMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_WARN, key, args);        
+    public void putWarning(String key, Object... args) {
+        putMessage(FacesMessage.SEVERITY_WARN, key, args);        
     }
 
-    public void wrapErrorMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_ERROR, key, args);        
+    public void putError(String key, Object... args) {
+        putMessage(FacesMessage.SEVERITY_ERROR, key, args);        
     }
     
-    public void wrapFatalMessage(String key, Object... args) {
-        wrapMessage(FacesMessage.SEVERITY_FATAL, key, args);        
+    public void putFatal(String key, Object... args) {
+        putMessage(FacesMessage.SEVERITY_FATAL, key, args);        
     }
 //
     /**

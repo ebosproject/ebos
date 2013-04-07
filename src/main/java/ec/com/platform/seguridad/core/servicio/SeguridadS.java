@@ -19,6 +19,12 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Eduardo Plua Alay
  */
 public interface SeguridadS extends Serializable {
+	
+	//
+	// Put Messages
+	//
+	
+	public void putError(String key, Object... args);
     
     //
     // Usuario
@@ -104,5 +110,5 @@ public interface SeguridadS extends Serializable {
     public SesionUsuarioMB getSesionUsuario();
 
 	public void guardarPreferenciasUsuario(Usuario usuario);
-    
+
 }

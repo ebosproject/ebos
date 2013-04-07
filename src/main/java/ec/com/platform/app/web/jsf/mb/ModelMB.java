@@ -46,6 +46,8 @@ public class ModelMB implements Serializable{
 	@Getter @Setter 
     private TabView tabModel;
 	
+	private CustomTab tab;
+	
 	public class CustomTab extends Tab{
 		@Getter @Setter
 		private Opcion opcion; 
@@ -131,7 +133,7 @@ public class ModelMB implements Serializable{
 	    		}
 	    	}
 	    	if(opcion != null){
-	    		CustomTab tab = new CustomTab();
+	    		tab = new CustomTab();
 		    	tab.setId("tab_"+activeOpcionId);
 		    	tab.setTitle(opcion.getEtiqueta());
 		    	tab.setClosable(true);

@@ -18,10 +18,12 @@ import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.platform.app.model.EmpresaPersona;
 import ec.com.platform.generic.model.Auditoria;
-import ec.com.platform.generic.model.Generic;
-import ec.com.platform.util.type.Type;
+import ec.com.platform.generic.model.Entidad;
 
 /**
  *
@@ -53,9 +55,9 @@ public class Usuario extends GenericSeguridad<Usuario> {
     @Column(name = "password", nullable = false, length = 64)
     private String password;
     
-    @Column(name = "estado", nullable = false)
-    @Type(type = Generic.Estado.TYPE)
-    private Generic.Estado estado;
+    @Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
     
     @Column(name = "tema", length = 50)
     private String tema;

@@ -201,7 +201,6 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	 * @param resultTransformer
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	private List<?> findByCriteriaWithResultTransformer(DetachedCriteria criteria, ResultTransformer resultTransformer)
 			throws FinderException {
@@ -297,9 +296,9 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	}
 
 	public List<?> findByNamedQueryAndValueBean(String pQueryString,
-			Object pDTO) throws FinderException {
+			Object p) throws FinderException {
 		return hibernateTemplate.findByNamedQueryAndValueBean(
-				pQueryString, pDTO);
+				pQueryString, p);
 	}
 
 	public <T> List<T> findAll(Class<T> entityType, String propertyName)
@@ -344,13 +343,13 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	}
 
 	/*public List findByNamedQueryAndValueBean(String pQueryString,
-			Object pDTO, int pMaxResults) throws FinderException {
+			Object p, int pMaxResults) throws FinderException {
 		if (pMaxResults > 1000 || pMaxResults < 0)
 //			throw new FinderException("Numero de registros invalido :"
 //					+ pMaxResults);
 			throw new FinderException();
 		hibernateTemplate.setMaxResults(pMaxResults);
-		List col = findByNamedQueryAndValueBean(pQueryString, pDTO);
+		List col = findByNamedQueryAndValueBean(pQueryString, p);
 		hibernateTemplate.setMaxResults(maxRecords);
 		return col;
 	}*/
@@ -534,13 +533,12 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	 * @param pagination
 	 * @return
 	 * @throws FinderException
-	 * @author Luis Tama Wong
 	 */
 	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, PaginationParams pagination)
 		throws FinderException {
 		// obtener lista con el criteria con paginacion
 		List<T> list = findByCriteria(criteria, pagination.getFirstRow(), pagination.getMaxRows());
-		// obtener total de registros con el criteria, quitando paginacion
+		// obtener total de registros con el criteria, sin paginacion
 		Integer count = 0;
 		if (criteria != null) {
 			criteria.setProjection(Projections.rowCount());
@@ -724,8 +722,8 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	 *            Arreglo de objetos con los parametros a enviar
 	 * @param pRowMapper
 	 *            Clase indicar como se debe mapear el resultado obtenido en el
-	 *            DTO correspondiente
-	 * @return Lista de DTO's
+	 *             correspondiente
+	 * @return Lista de 's
 	 * @throws FinderSQLException
 	 *             Si ocurre alguna excepcion al ejecutar el query
 	 */
@@ -742,8 +740,8 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	 *            Cadena con el query a ejecutar
 	 * @param pRowMapper
 	 *            Clase indicar como se debe mapear el resultado obtenido en el
-	 *            DTO correspondiente
-	 * @return Lista de DTO's
+	 *             correspondiente
+	 * @return Lista de 's
 	 * @throws FinderSQLException
 	 *             Si ocurre alguna excepcion al ejecutar el query
 	 */
@@ -777,8 +775,8 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	 *            Arreglo de objetos con los parametros a enviar
 	 * @param pResultSetExtractor
 	 *            Clase indicar como se debe mapear el resultado obtenido en el
-	 *            DTO correspondiente
-	 * @return Lista de DTO's
+	 *             correspondiente
+	 * @return Lista de 's
 	 * @throws FinderSQLException
 	 *             Si ocurre alguna excepcion al ejecutar el query
 	 */
@@ -794,8 +792,8 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	 *            Cadena con el query a ejecutar
 	 * @param pResultSetExtractor
 	 *            Clase indicar como se debe mapear el resultado obtenido en el
-	 *            DTO correspondiente
-	 * @return Lista de DTO's
+	 *             correspondiente
+	 * @return Lista de 's
 	 * @throws FinderSQLException
 	 *             Si ocurre alguna excepcion al ejecutar el query
 	 */

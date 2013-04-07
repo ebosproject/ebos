@@ -94,7 +94,7 @@ public abstract class ParametrosProcedimiento {
 		} else {
 			throw new IllegalArgumentException("Valor de parametro no valido: "
 					+ pTipoDato + "."
-					+ "Consultar los valores en ec.com.ecuaquimica.swiss.fwk.crud.Tipos");
+					+ "Consultar los valores en ec.com.platform.fwk.crud.Tipos");
 		}
 
 	}
@@ -122,7 +122,7 @@ public abstract class ParametrosProcedimiento {
 					"Valor de parametro no valido: "
 							+ pTipoParametro
 							+ "."
-							+ "Consultar los valores en ec.com.ecuaquimica.swiss.fwk.crud.ParametrosProcedimiento");
+							+ "Consultar los valores en ec.com.platform.fwk.crud.ParametrosProcedimiento");
 		}
 	}
 

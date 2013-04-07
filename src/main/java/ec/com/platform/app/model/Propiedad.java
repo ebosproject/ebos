@@ -22,14 +22,16 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.platform.app.resources.AppMensajes;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.util.Constantes;
 import ec.com.platform.util.GenericUtils;
 import ec.com.platform.util.type.StringValuedEnum;
 import ec.com.platform.util.type.StringValuedEnumReflect;
 import ec.com.platform.util.type.StringValuedEnumType;
-import ec.com.platform.util.type.Type;
 
 /**
  * Theme clase
@@ -58,8 +60,7 @@ public class Propiedad extends GenericApp<Propiedad> {
     private Categoria categoria;
 	
 	@Column(name = "tipoDato", nullable = false, length = 1)
-    //@Type(type = Propiedad.TipoDato.TYPE)
-	@Enumerated(EnumType.STRING)
+    @Type(type = Propiedad.TipoDato.TYPE)
     private Propiedad.TipoDato tipoDato;
 	
 	@Column(name = "valor", length = 50)
@@ -80,7 +81,7 @@ public class Propiedad extends GenericApp<Propiedad> {
     @Column(name = "estado", nullable = false, length = 1)
     //@Type(type = Generic.Estado.TYPE)
     @Enumerated(EnumType.STRING)
-    private Generic.Estado estado;
+    private Entidad.Estado estado;
     
     @OneToMany(mappedBy = "propiedad", fetch= FetchType.LAZY)
     private Set<PropiedadValor> propiedadValorList = new HashSet<PropiedadValor>(0);
@@ -105,10 +106,10 @@ public class Propiedad extends GenericApp<Propiedad> {
         NUMBER("N"),
         BOOLEAN("B");
 
-//        public static class Type extends StringValuedEnumType<TipoDato> {
-//        }
+        public static class Type extends StringValuedEnumType<TipoDato> {
+        }
         
-        //public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Propiedad$TipoDato$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".app.model.Propiedad$TipoDato$Type";
 
         @Getter
         private String value;

@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.platform.fwk.crud.Paginacion;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.seguridad.model.Opcion;
 import ec.com.platform.seguridad.model.Rol;
 import ec.com.platform.seguridad.model.RolOpcion;
@@ -29,7 +29,7 @@ public class RolMB extends GenericSeguridadMB<Rol> {
     public void getInit() {
         // para busquedas
         entitySearch = new Rol();
-        entitySearch.setEstado(Generic.Estado.ACTIVO);
+        entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 
     @Override

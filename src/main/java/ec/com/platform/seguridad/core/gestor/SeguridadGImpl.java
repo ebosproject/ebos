@@ -19,7 +19,7 @@ import ec.com.platform.fwk.crud.Paginacion;
 import ec.com.platform.generic.core.gestor.GenericGImpl;
 import ec.com.platform.generic.model.Auditoria;
 import ec.com.platform.generic.model.Auditoria_;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.seguridad.exception.SeguridadException;
 import ec.com.platform.seguridad.model.Objeto;
 import ec.com.platform.seguridad.model.Objeto_;
@@ -60,6 +60,14 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Autowired
     @Qualifier("utilG")
     private UtilG utilG;
+	
+	//
+	// Put Messages
+	//
+	
+	public void putError(String key, Object... args){
+		super.putError(key, args);
+	}
     
     //
     //Usuario
@@ -81,19 +89,19 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
 
         if (isUsuarioValido(usuario)) {
             Date date = new Date();
-            Generic.Estado estadoActual = usuario.getEstado();
+            Entidad.Estado estadoActual = usuario.getEstado();
             if (GenericUtils.isPersistent(usuario)) {
                 usuario.setFechaModificacion(date);
             } else {
                 usuario.setPassword(CryptoUtils.computeHashSHA256(usuario.getPassword()));
                 usuario.setFechaCreacion(date);
                 usuario.setFechaModificacion(date);
-                usuario.setEstado(Generic.Estado.ACTIVO);
+                usuario.setEstado(Entidad.Estado.ACTIVO);
             }
 
             usuario = saveOrUpdate(usuario);
 
-            wrapSuccessMessage("usuario.success.guardar", usuario.getId());
+            putSuccess("usuario.success.guardar", usuario.getId());
 
             //Envio de correo de creacion nuevo usuario
             if (estadoActual.isInactivo()) {
@@ -108,7 +116,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public void eliminarUsuario(Usuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
         Long id = usuario.getId();
         delete(usuario);
-        wrapSuccessMessage("usuario.success.eliminar", id);
+        putSuccess("usuario.success.eliminar", id);
     }
 
     @Override
@@ -128,7 +136,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         criteria.addLike(Usuario_.username, usuario.getUsername());
         criteria.addLike(EmpresaPersona_.persona+"."+Persona_.nombres, usuario.getEmpresaPersona().getPersona().getNombres());
         criteria.addLike(EmpresaPersona_.persona+"."+Persona_.apellidos, usuario.getEmpresaPersona().getPersona().getApellidos());
-        criteria.addEquals(Usuario_.estado, Generic.Estado.ACTIVO);
+        criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
         return criteria;
     }
 
@@ -146,7 +154,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public void generarUsuarioRol(Usuario usuario, Rol rol) {
         UsuarioRol usuarioRol = new UsuarioRol();
-        usuarioRol.setEstado(Generic.Estado.ACTIVO);
+        usuarioRol.setEstado(Entidad.Estado.ACTIVO);
         usuarioRol.setUsuario(usuario);
         usuarioRol.setRol(rol);
         Date fecha = new Date();
@@ -159,7 +167,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public List<UsuarioRol> obtenerUsuarioRolList(Usuario usuario) {
         GenericCriteria<UsuarioRol> query = GenericCriteria.forClass(UsuarioRol.class);
-        query.addEquals(UsuarioRol_.estado, Generic.Estado.ACTIVO);
+        query.addEquals(UsuarioRol_.estado, Entidad.Estado.ACTIVO);
         query.addEquals(UsuarioRol_.usuario, usuario);
 
         return findByCriteria(query);
@@ -168,7 +176,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public void eliminarUsuarioRolList(List<UsuarioRol> usuarioRolList) {
     	deleteAll(usuarioRolList);
-    	wrapSuccessMessage("Rol(es) removido(s) correctamente");
+    	putSuccess("Rol(es) removido(s) correctamente");
     }
 
     private void buildSendMailCuentaUsuario(Usuario usuario) {      
@@ -188,7 +196,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         query.addEquals(Usuario_.username, username);        
 
         if (findFirstByCriteria(query) != null) {
-            wrapErrorMessage("Usuario: '"+username+"' ya existe");
+            putError("Usuario: '"+username+"' ya existe");
             return false;
         }
         return true;
@@ -205,7 +213,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public List<Rol> obtenerRolList(Rol rol, Paginacion paginacion) {
         GenericCriteria<Rol> criteria = GenericCriteria.forClass(Rol.class);
-        criteria.addEquals(Rol_.estado, Generic.Estado.ACTIVO);
+        criteria.addEquals(Rol_.estado, Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
         criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion);
         if(rol != null){
@@ -233,10 +241,10 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         } else {
             rol.setFechaCreacion(date);
             rol.setFechaModificacion(date);
-            rol.setEstado(Generic.Estado.ACTIVO);
+            rol.setEstado(Entidad.Estado.ACTIVO);
         }
         rol = saveOrUpdate(rol);
-        wrapSuccessMessage("rol.success.guardar",rol.getId());
+        putSuccess("rol.success.guardar",rol.getId());
         return rol;
     }
 
@@ -244,14 +252,14 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public void eliminarRol(Rol rol) {
         Long id = rol.getId();
     	delete(rol);
-        wrapSuccessMessage("rol.success.eliminar", id);        
+        putSuccess("rol.success.eliminar", id);        
     }
 
     @Override
     public List<RolOpcion> obtenerRolOpcionList(Rol rol) {
         GenericCriteria<RolOpcion> query = GenericCriteria.forClass(RolOpcion.class);
 
-        query.addEquals(RolOpcion_.estado, Generic.Estado.ACTIVO);
+        query.addEquals(RolOpcion_.estado, Entidad.Estado.ACTIVO);
         query.addEquals(RolOpcion_.rol, rol);
 
         return findByCriteria(query);
@@ -267,7 +275,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         
         rolOpcion.setRol(rol);
         rolOpcion.setOpcion(opcion);
-        rolOpcion.setEstado(Generic.Estado.ACTIVO);
+        rolOpcion.setEstado(Entidad.Estado.ACTIVO);
         rolOpcion.setCrear(false);
         rolOpcion.setEditar(false);
         rolOpcion.setEliminar(false);
@@ -297,7 +305,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public void eliminarRolOpcionList(List<RolOpcion> rolOpcionList) {
         deleteAll(rolOpcionList);
-        wrapSuccessMessage("Opcion(es) removido(s) correctamente");
+        putSuccess("Opcion(es) removido(s) correctamente");
     }
 
     //TODO (epa): Optimizar consulta
@@ -305,7 +313,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
 
         GenericCriteria<UsuarioRol> criteria = GenericCriteria.forClass(UsuarioRol.class);
         criteria.addEquals(UsuarioRol_.usuario, usuario);
-        criteria.addEquals(UsuarioRol_.estado, Generic.Estado.ACTIVO);
+        criteria.addEquals(UsuarioRol_.estado, Entidad.Estado.ACTIVO);
         List<UsuarioRol> usuarioRolList = findByCriteria(criteria);
 
         List<RolOpcion> rolOpcionList = new ArrayList<RolOpcion>();
@@ -313,7 +321,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         if (usuarioRolList != null) {
             for (UsuarioRol usuarioRol : usuarioRolList) {
                 GenericCriteria<RolOpcion> rolOpcCriteria = GenericCriteria.forClass(RolOpcion.class);
-                rolOpcCriteria.addEquals(RolOpcion_.estado, Generic.Estado.ACTIVO);
+                rolOpcCriteria.addEquals(RolOpcion_.estado, Entidad.Estado.ACTIVO);
                 rolOpcCriteria.addEquals(RolOpcion_.rol, usuarioRol.getRol());
                 List<RolOpcion> tmp = findByCriteria(rolOpcCriteria);
                 if (tmp != null) {
@@ -336,7 +344,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public List<Opcion> obtenerOpcionList(Opcion opcion, Paginacion paginacion) {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-        criteria.addEquals("estado", Generic.Estado.ACTIVO);
+        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
         criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion, Opcion_.padre);
         if (opcion != null) {
@@ -360,10 +368,10 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public Opcion guardarOpcion(Opcion opcion) {
         if (!GenericUtils.isPersistent(opcion)) {
-            opcion.setEstado(Generic.Estado.ACTIVO);
+            opcion.setEstado(Entidad.Estado.ACTIVO);
         }
         opcion = saveOrUpdate(opcion);
-        wrapSuccessMessage("Opcion " + opcion.getId() + " guardado correctamente");
+        putSuccess("Opcion " + opcion.getId() + " guardado correctamente");
         return opcion;
     }
 
@@ -371,13 +379,13 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public void eliminarOpcion(Opcion opcion) {
         Long id = opcion.getId();
         delete(opcion);
-        wrapSuccessMessage("Opcion " + id + " eliminada correctamente");
+        putSuccess("Opcion " + id + " eliminada correctamente");
     }
 
     @Override
     public Opcion obtenerOpcion(Long id) {
     	GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-    	criteria.addEquals("estado", Generic.Estado.ACTIVO);
+    	criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
         criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion);
         return findFirstByCriteria(criteria);
@@ -386,7 +394,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public List<Opcion> obtenerOpcionPadreList() {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-        criteria.addEquals(Opcion_.estado, Generic.Estado.ACTIVO);
+        criteria.addEquals(Opcion_.estado, Entidad.Estado.ACTIVO);
         criteria.addIsNull(Opcion_.padre);
         criteria.addOrderAsc(Opcion_.padre);
         return findByCriteria(criteria);
@@ -399,7 +407,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public List<Objeto> obtenerObjetoList(Objeto objeto, Paginacion paginacion) {
         GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
-        criteria.addEquals("estado", Generic.Estado.ACTIVO);
+        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
         criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion);
         if (objeto != null) {
@@ -422,10 +430,10 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public Objeto guardarObjeto(Objeto objeto) {
         if (!GenericUtils.isPersistent(objeto)) {
-            objeto.setEstado(Generic.Estado.ACTIVO);
+            objeto.setEstado(Entidad.Estado.ACTIVO);
         }
         objeto = saveOrUpdate(objeto);
-        wrapSuccessMessage("Objeto " + objeto.getId() + " guardado correctamente");
+        putSuccess("Objeto " + objeto.getId() + " guardado correctamente");
         return objeto;
     }
 
@@ -433,7 +441,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     public void eliminarObjeto(Objeto objeto) {
         Long id = objeto.getId();
     	delete(objeto);
-        wrapSuccessMessage("Objeto " + id + " eliminado correctamente");
+        putSuccess("Objeto " + id + " eliminado correctamente");
     }
 
     @Override
@@ -449,7 +457,8 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public boolean iniciarSesion(SesionUsuarioMB aThis) {
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
-        criteria.addEquals(Usuario_.estado, Generic.Estado.ACTIVO);
+        criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
+        criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
         criteria.addEquals(Usuario_.username, aThis.getUsuario().getUsername());
         criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(aThis.getUsuario().getPassword()));
 
@@ -457,7 +466,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         if (usuario != null) {        	
         	aThis.setUsuario(usuario);
         } else {
-            wrapErrorMessage("sesion.error.usuarioPassIncorrecta");
+            putError("sesion.error.usuarioPassIncorrecta");
             return false;
         }
         List<RolOpcion> rolOpcionList = obtenerRolOpcionList(usuario);
@@ -474,12 +483,12 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
             if(usuario.getNewpassword().equals(usuario.getConfpassword())){
                 usuario.setPassword(CryptoUtils.computeHashSHA256(usuario.getNewpassword()));
                 update(usuario);
-                wrapSuccessMessage("Contrasena actualizada correctamente");
+                putSuccess("Contrasena actualizada correctamente");
             } else {
-                wrapErrorMessage("Contrasena de confirmacion incorrecta"); 
+                putError("Contrasena de confirmacion incorrecta"); 
             }
         } else {
-           wrapErrorMessage("Contrasena actual incorrecta"); 
+           putError("Contrasena actual incorrecta"); 
         }
     }
     
@@ -496,7 +505,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     	//Definir preferencias a guardar    	
     	oldUsuario.setTema(usuario.getTema());    	
     	update(oldUsuario);    	
-    	wrapSuccessMessage("usuario.success.guardarPreferencias");
+    	putSuccess("usuario.success.guardarPreferencias");
     }
             
 }

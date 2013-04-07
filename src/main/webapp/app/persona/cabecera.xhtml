@@ -5,14 +5,14 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
 
-    <ui:param name="bundle" value="${bean.activeEntity}" />    
+    <ui:param name="persona" value="${bean.activeEntity}" />    
 
-    <pl:panelGrid id="pnlBundle" columns="2">        
+    <pl:panelGrid id="pnlPersona" columns="2">        
                 
-       <pl:outputText id="id" value="#{bundle.id}" label="#{msg.plId}"/>                
-       <pl:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.plCodigo}" required="true"/>
-       <pl:inputText id="localidad" value="#{bundle.localidad}" label="#{msg.plLocalidad}" required="true"/>                
-       <pl:inputText id="valor" value="#{bundle.valor}" label="#{msg.plValor}" required="true"/>        
+       <pl:outputText id="id" value="#{persona.id}" label="#{msg.plId}"/>                
+       <pl:inputText id="codigo" value="#{persona.codigo}" label="#{msg.plCodigo}" required="true"/>
+       <pl:inputText id="localidad" value="#{persona.localidad}" label="#{msg.plLocalidad}" required="true"/>                
+       <pl:inputText id="valor" value="#{persona.valor}" label="#{msg.plValor}" required="true"/>        
                 
     </pl:panelGrid>        
     

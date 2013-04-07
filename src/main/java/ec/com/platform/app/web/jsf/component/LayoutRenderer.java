@@ -1,4 +1,4 @@
-package ec.com.platform.app.web.component;
+package ec.com.platform.app.web.jsf.component;
 
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.ComponentUtils;
@@ -18,8 +18,8 @@ import java.io.IOException;
  * 
  * @version $Revision: 1.0 $
  */
-@FacesRenderer(componentFamily = "ec.com.platform.app.web.component", 
-	rendererType = "ec.com.platform.app.web.component.LayoutRenderer")
+@FacesRenderer(componentFamily = "ec.com.platform.app.web.jsf.component", 
+	rendererType = "ec.com.platform.app.web.jsf.component.LayoutRenderer")
 public class LayoutRenderer extends CoreRenderer {
 
 	@Override

@@ -7,11 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import ec.com.platform.generic.model.Generic;
-import ec.com.platform.util.type.Type;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Type;
+
+import ec.com.platform.generic.model.Entidad;
 
 /**
  * Theme clase
@@ -37,9 +38,9 @@ public class Tema extends GenericApp<Tema> {
 	@Column(name = "imagen", nullable = false, length = 50)
     private String imagen;
 	
-    @Column(name = "estado", nullable = false)
-    @Type(type = Generic.Estado.TYPE)
-    private Generic.Estado estado;
+    @Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
     
     public Tema(String nombre, String imagen) {
         this.nombre = nombre;

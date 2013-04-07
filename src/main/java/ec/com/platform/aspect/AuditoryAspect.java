@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import ec.com.platform.generic.model.Auditoria;
-import ec.com.platform.generic.model.Generic;
+import ec.com.platform.generic.model.Entidad;
 import ec.com.platform.seguridad.core.servicio.SeguridadS;
 import ec.com.platform.seguridad.model.Usuario;
 import ec.com.platform.util.GenericUtils;
@@ -93,7 +93,7 @@ public class AuditoryAspect {
 	
 	@AfterReturning(pointcut = "execution(* ec.com.platform.*.core.servicio.*S.obtener*Nuevo(..))",
 			returning= "entity")
-	public void obtenerNuevoEntity(JoinPoint joinPoint, Generic<?> entity){		
+	public void obtenerNuevoEntity(JoinPoint joinPoint, Entidad<?> entity){		
 		entity.setAuditoria(new Auditoria());
 		Usuario usuario = seguridadS.getSesionUsuario().getUsuario();
 		entity.setUsuarioCreacion(usuario);
@@ -103,7 +103,7 @@ public class AuditoryAspect {
 	
 	@Before("execution(* ec.com.platform.*.core.servicio.*S.guardarOpcion(..))")	
 	public void guardarEntity(JoinPoint joinPoint){
-		Generic<?> entity = (Generic<?>) joinPoint.getArgs()[0];
+		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
 		Usuario usuario = seguridadS.getSesionUsuario().getUsuario();			
 		Date date = new Date();
         if (GenericUtils.isPersistent(entity)) {

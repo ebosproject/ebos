@@ -11,20 +11,23 @@ import java.util.logging.Logger;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import org.hibernate.usertype.EnhancedUserType;
+import org.hibernate.usertype.ParameterizedType;
  
 /**
  * Tipo de dato para mapeo entre Strings SQL que representan constantes y Enums Java en archivo .hbm.xml de Hibernate.
  * Modo de uso con anotaciones JPA/Hibernate:
  * <pre>
  * &#64;Column(name="ESTADO", nullable = false)
- * &#64;Type(type = ec.com.ecuaquimica.swiss.util.dto.GenericDTO.Estado.TYPE)
- * private ec.com.ecuaquimica.swiss.util.dto.GenericDTO.Estado estado;</pre>
+ * &#64;Type(type = ec.com.platform.util..Generic.Estado.TYPE)
+ * private ec.com.platform.util..Generic.Estado estado;</pre>
  * Codigo anterior en HBM:
  * <pre>
  * &lt;property name="valor">
  *  &lt;column name="VALOR" length="2" not-null="true" />
- *  &lt;type name="ec.com.ecuaquimica.swiss.util.type.StringValuedEnumType">
- *   &lt;param name="enumClassName">ec.com.ecuaquimica.swiss.corporativo.dto.ClaseDTO$TipoDatoEnum&lt;/param>
+ *  &lt;type name="ec.com.platform.util.type.StringValuedEnumType">
+ *   &lt;param name="enumClassName">ec.com.platform.corporativo..Clase$TipoDatoEnum&lt;/param>
  *  &lt;/type>
  * &lt;/property></pre>
  * Codigo anterior con String:
@@ -32,7 +35,7 @@ import lombok.Setter;
  * &lt;property name="valor" type="string">
  *  &lt;column name="VALOR" length="2" not-null="true" />
  * &lt;/property></pre>
- * @author Eduardo Plua Alay
+ * @update Eduardo Plua Alay
  * @see StringValuedEnum
  * @see ExampleEnum
  * @see http://community.jboss.org/wiki/Java5StringValuedEnumUserType
@@ -104,11 +107,10 @@ public class StringValuedEnumType <T extends Enum<T> & StringValuedEnum<T>>
      * @param names the column names
      * @param owner the containing entity
      * @return Object
-     * @throws Exception
      * @throws SQLException
      */
     public Object nullSafeGet(ResultSet rs, String[] names, Object owner)
-            throws Exception, SQLException {
+            throws SQLException {
         String value = rs.getString( names[0] );
         if (value==null) {
             value = getDefaultValue();
@@ -130,11 +132,10 @@ public class StringValuedEnumType <T extends Enum<T> & StringValuedEnum<T>>
      * @param st a JDBC prepared statement
      * @param value the object to write
      * @param index statement parameter index
-     * @throws Exception
      * @throws SQLException
      */   
     public void nullSafeSet(PreparedStatement st, Object value, int index)
-    throws Exception, SQLException {
+    throws SQLException {
         if (value==null) {
             st.setNull(index, Types.VARCHAR);
         } else {
@@ -142,29 +143,27 @@ public class StringValuedEnumType <T extends Enum<T> & StringValuedEnum<T>>
         }
     }
     
-    public Object assemble(Serializable cached, Object owner)
-            throws Exception {
+    public Object assemble(Serializable cached, Object owner) {
         return cached;
     }
     
-    public Serializable disassemble(Object value) throws Exception {
+    public Serializable disassemble(Object value) {
         return (Enum<T>) value;
     }
         
-    public Object deepCopy(Object value) throws Exception {
+    public Object deepCopy(Object value) {
         return value;
     }
  
-    public boolean equals(Object x, Object y) throws Exception {
+    public boolean equals(Object x, Object y) {
         return x==y;
     }
     
-    public int hashCode(Object x) throws Exception {
+    public int hashCode(Object x) {
         return x.hashCode();
     }
  
-    public Object replace(Object original, Object target, Object owner)
-            throws Exception {
+    public Object replace(Object original, Object target, Object owner) {
         return original;
     }
  

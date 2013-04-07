@@ -16,7 +16,7 @@ import ec.com.platform.app.model.Propiedad_;
 import ec.com.platform.fwk.crud.GenericCriteria;
 import ec.com.platform.fwk.crud.Paginacion;
 import ec.com.platform.generic.core.gestor.GenericGImpl;
-import ec.com.platform.generic.model.Generic.Estado;
+import ec.com.platform.generic.model.Entidad.Estado;
 import ec.com.platform.util.Constantes;
 
 /**
@@ -75,7 +75,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	@Override
 	public Bundle guardarBundle(Bundle bundle) {
 		bundle = saveOrUpdate(bundle);
-        wrapSuccessMessage("bundle.success.guardar", bundle.getId());
+        putSuccess("bundle.success.guardar", bundle.getId());
         return bundle;
 	}
 
@@ -83,7 +83,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	public void eliminarBundle(Bundle bundle) {
 		Long id = bundle.getId();
         delete(bundle);
-        wrapSuccessMessage("bundle.success.eliminar", id);
+        putSuccess("bundle.success.eliminar", id);
 	}
 	
 	//
@@ -119,7 +119,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	@Override
 	public Propiedad guardarPropiedad(Propiedad propiedad){
 		propiedad = saveOrUpdate(propiedad);
-        wrapSuccessMessage("propiedad.success.guardar", propiedad.getId());
+        putSuccess("propiedad.success.guardar", propiedad.getId());
         return propiedad;
 	}
 
@@ -127,7 +127,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	public void eliminarPropiedad(Propiedad propiedad){
 		Long id = propiedad.getId();
         delete(propiedad);
-        wrapSuccessMessage("propiedad.success.eliminar", id);
+        putSuccess("propiedad.success.eliminar", id);
 	}
 	
 	//
@@ -161,14 +161,14 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 
 	public Persona guardarPersona(Persona persona){
 		persona = saveOrUpdate(persona);
-        wrapSuccessMessage("persona.success.guardar", persona.getId());
+        putSuccess("persona.success.guardar", persona.getId());
         return persona;
 	}
 
 	public void eliminarPersona(Persona persona){
 		Long id = persona.getId();
         delete(persona);
-        wrapSuccessMessage("persona.success.eliminar", id);
+        putSuccess("persona.success.eliminar", id);
 	}
 	
 }

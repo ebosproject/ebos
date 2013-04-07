@@ -1,6 +1,5 @@
 package ec.com.platform.bitacora.model;
 
-import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +10,6 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.platform.generic.model.Auditoria;
-import ec.com.platform.generic.model.Generic;
-import ec.com.platform.util.type.Type;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

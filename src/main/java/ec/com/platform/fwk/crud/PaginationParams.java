@@ -8,7 +8,6 @@ import java.util.Map;
 /**
  * Parametros de paginacion de una consulta
  * 
- * @author Luis Tama Wong
  */
 public final class PaginationParams {
 

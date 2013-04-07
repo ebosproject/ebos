@@ -1,20 +1,20 @@
 package ec.com.platform.util.type;
 
-import ec.com.platform.generic.model.Generic;
-import ec.com.platform.util.GenericEntity;
+import ec.com.platform.generic.model.Entidad;
+import ec.com.platform.util.IEntidad;
 
 /**
- * Plantilla para grupos de constantes (Enum) que implementan {@link Generic}.
+ * Plantilla para grupos de constantes (Enum) que implementan {@link Entidad}.
  * Pueden ser usados como tipo de dato para Hibernate con ayuda de {@link StringValuedEnumType}.
  * Ver ejemplo de implementacion {@link ExampleEnum}.
  *
- * @author Eduardo Plua Alay
+ * @update <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2012-07-27
  * @see StringValuedEnumType
  * @see ExampleEnum
  * @see http://community.jboss.org/wiki/Java5StringValuedEnumUserType
  */
-public interface StringValuedEnum<T extends Enum<T>> extends GenericEntity {
+public interface StringValuedEnum<T extends Enum<T>> extends IEntidad {
 
     /**
      * Etiqueta para este enumType
