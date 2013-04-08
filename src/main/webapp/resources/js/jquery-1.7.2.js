@@ -53,7 +53,7 @@ var jQuery = function( selector, context ) {
 	// JSON RegExp
 	rvalidchars = /^[\],:{}\s]*$/,
 	rvalidescape = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,
-	rvalikens = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
+	rvalidtokens = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
 	rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g,
 
 	// Useragent RegExp
@@ -567,7 +567,7 @@ jQuery.extend({
 		// Make sure the incoming data is actual JSON
 		// Logic borrowed from http://json.org/json2.js
 		if ( rvalidchars.test( data.replace( rvalidescape, "@" )
-			.replace( rvalikens, "]" )
+			.replace( rvalidtokens, "]" )
 			.replace( rvalidbraces, "")) ) {
 
 			return ( new Function( "return " + data ) )();
@@ -6242,8 +6242,8 @@ jQuery.buildFragment = function( args, nodes, scripts ) {
 jQuery.fragments = {};
 
 jQuery.each({
-	appen: "append",
-	prepen: "prepend",
+	appendTo: "append",
+	prependTo: "prepend",
 	insertBefore: "before",
 	insertAfter: "after",
 	replaceAll: "replaceWith"
@@ -7031,7 +7031,7 @@ try {
 ajaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];
 
 // Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
-function adPrefiltersOrTransports( structure ) {
+function addToPrefiltersOrTransports( structure ) {
 
 	// dataTypeExpression is optional and defaults to "*"
 	return function( dataTypeExpression, func ) {
@@ -7344,8 +7344,8 @@ jQuery.extend({
 		}
 	},
 
-	ajaxPrefilter: adPrefiltersOrTransports( prefilters ),
-	ajaxTransport: adPrefiltersOrTransports( transports ),
+	ajaxPrefilter: addToPrefiltersOrTransports( prefilters ),
+	ajaxTransport: addToPrefiltersOrTransports( transports ),
 
 	// Main method
 	ajax: function( url, options ) {
@@ -9017,7 +9017,7 @@ function defaultDisplay( nodeName ) {
 	if ( !elemdisplay[ nodeName ] ) {
 
 		var body = document.body,
-			elem = jQuery( "<" + nodeName + ">" ).appen( body ),
+			elem = jQuery( "<" + nodeName + ">" ).appendTo( body ),
 			display = elem.css( "display" );
 		elem.remove();
 

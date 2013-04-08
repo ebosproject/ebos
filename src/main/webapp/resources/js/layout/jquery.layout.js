@@ -324,7 +324,7 @@ $.layout = {
 ,	scrollbarWidth:		function () { return window.scrollbarWidth  || $.layout.getScrollbarSize('width'); }
 ,	scrollbarHeight:	function () { return window.scrollbarHeight || $.layout.getScrollbarSize('height'); }
 ,	getScrollbarSize:	function (dim) {
-		var $c	= $('<div style="position: absolute; top: -10000px; left: -10000px; width: 100px; height: 100px; overflow: scroll;"></div>').appen("body");
+		var $c	= $('<div style="position: absolute; top: -10000px; left: -10000px; width: 100px; height: 100px; overflow: scroll;"></div>').appendTo("body");
 		var d	= { width: $c.css("width") - $c[0].clientWidth, height: $c.height() - $c[0].clientHeight };
 		$c.remove();
 		window.scrollbarWidth	= d.width;
@@ -596,7 +596,7 @@ $.layout = {
 				+	'<span style="float: right; padding-left: 7px; cursor: pointer;" title="Remove Console" onclick="$(this).closest(\'#layoutLogger\').remove()">X</span>Layout console.log</div>'
 				+	'<ul style="font-size: 13px; font-weight: none; list-style: none; margin: 0; padding: 0 0 2px;"></ul>'
 				+ '</div>'
-				).appen("body");
+				).appendTo("body");
 			$e.css('left', $(window).width() - $e.outerWidth() - 5)
 			if ($.ui.draggable) $e.draggable({ handle: ':first-child' });
 			return $e;
@@ -2382,7 +2382,7 @@ $.fn.layout = function (opts) {
 				.addClass(rClass +" "+ rClass+_pane)
 				.hover(addHover, removeHover) // ALWAYS add hover-classes, even if resizing is not enabled - handle with CSS instead
 				.hover(onResizerEnter, onResizerLeave) // ALWAYS NEED resizer.mouseleave to balance toggler.mouseenter
-				.appen($N) // append DIV to container
+				.appendTo($N) // append DIV to container
 			;
 			if (o.resizerDblClickToggle)
 				$R.bind("dblclick."+ sID, toggle );
@@ -2401,7 +2401,7 @@ $.fn.layout = function (opts) {
 					.addClass(tClass +" "+ tClass+_pane)
 					.hover(addHover, removeHover) // ALWAYS add hover-classes, even if toggling is not enabled - handle with CSS instead
 					.bind("mouseenter", onResizerEnter) // NEED toggler.mouseenter because mouseenter MAY NOT fire on resizer
-					.appen($R) // append SPAN to resizer DIV
+					.appendTo($R) // append SPAN to resizer DIV
 				;
 				// ADD INNER-SPANS TO TOGGLER
 				if (o.togglerContent_open) // ui-layout-open
@@ -2414,7 +2414,7 @@ $.fn.layout = function (opts) {
 						.data("layoutEdge", pane)
 						.addClass("content content-open")
 						.css("display","none")
-						.appen( $T )
+						.appendTo( $T )
 						//.hover( addHover, removeHover ) // use ui-layout-toggler-west-hover .content-open instead!
 					;
 				if (o.togglerContent_closed) // ui-layout-closed
@@ -2425,7 +2425,7 @@ $.fn.layout = function (opts) {
 						})
 						.addClass("content content-closed")
 						.css("display","none")
-						.appen( $T )
+						.appendTo( $T )
 						//.hover( addHover, removeHover ) // use ui-layout-toggler-west-hover .content-closed instead!
 					;
 				// ADD TOGGLER.click/.hover
@@ -5625,7 +5625,7 @@ $.layout.buttons = {
 
 
 	/**
-	* NEW syntax for binding layout-buttons - will eventually replace adggle, addOpen, etc.
+	* NEW syntax for binding layout-buttons - will eventually replace addToggle, addOpen, etc.
 	*
 	* @param {Object}			inst		Layout Instance object
 	* @param {(string|!Object)}	selector	jQuery selector (or element) for button, eg: ".ui-layout-north .toggle-button"
@@ -5635,11 +5635,11 @@ $.layout.buttons = {
 ,	bind: function (inst, selector, action, pane) {
 		var _ = $.layout.buttons;
 		switch (action.toLowerCase()) {
-			case "toggle":			_.adggle	(inst, selector, pane); break;	
+			case "toggle":			_.addToggle	(inst, selector, pane); break;	
 			case "open":			_.addOpen	(inst, selector, pane); break;
 			case "close":			_.addClose	(inst, selector, pane); break;
 			case "pin":				_.addPin	(inst, selector, pane); break;
-			case "toggle-slide":	_.adggle	(inst, selector, pane, true); break;	
+			case "toggle-slide":	_.addToggle	(inst, selector, pane, true); break;	
 			case "open-slide":		_.addOpen	(inst, selector, pane, true); break;
 		}
 		return inst;
@@ -5653,7 +5653,7 @@ $.layout.buttons = {
 	* @param {string}  			pane 		Name of the pane the button is for: 'north', 'south', etc.
 	* @param {boolean=}			slide 		true = slide-open, false = pin-open
 	*/
-,	adggle: function (inst, selector, pane, slide) {
+,	addToggle: function (inst, selector, pane, slide) {
 		$.layout.buttons.get(inst, selector, pane, "toggle")
 			.click(function(evt){
 				inst.toggle(pane, !!slide);
@@ -5784,7 +5784,7 @@ $.layout.buttons = {
 		$.extend( inst, {
 			bindButton:		function (sel, action, pane) { return _.bind(inst, sel, action, pane); }
 		//	DEPRECATED METHODS
-		,	adggleBtn:	function (sel, pane, slide) { return _.adggle(inst, sel, pane, slide); }
+		,	addToggleBtn:	function (sel, pane, slide) { return _.addToggle(inst, sel, pane, slide); }
 		,	addOpenBtn:		function (sel, pane, slide) { return _.addOpen(inst, sel, pane, slide); }
 		,	addCloseBtn:	function (sel, pane) { return _.addClose(inst, sel, pane); }
 		,	addPinBtn:		function (sel, pane) { return _.addPin(inst, sel, pane); }

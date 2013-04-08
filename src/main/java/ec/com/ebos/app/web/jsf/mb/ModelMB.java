@@ -12,7 +12,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import lombok.Getter;
 import lombok.Setter;
 
 import org.primefaces.component.menuitem.MenuItem;
@@ -25,6 +24,7 @@ import org.primefaces.event.TabCloseEvent;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 
+import ec.com.ebos.app.web.jsf.component.CustomTab;
 import ec.com.ebos.seguridad.model.Opcion;
 import ec.com.ebos.seguridad.model.RolOpcion;
 
@@ -43,17 +43,20 @@ public class ModelMB implements Serializable{
 	
 	private MenuModel menuModel;
 	
-	@Getter @Setter 
+	@Setter 
     private TabView tabModel;
 	
 	private CustomTab tab;
 	
-	public class CustomTab extends Tab{
-		@Getter @Setter
-		private Opcion opcion; 
-	}
-	
 	private List<RolOpcion> rolOpcionList;
+	
+	private String activeOpcionId;
+	
+	@PostConstruct
+    public void init(){
+    	menuModel = new DefaultMenuModel();
+    	tabModel = new TabView();
+    }
 	
 	public MenuModel getMenuModel(){
 		if(menuModel.getContents().isEmpty()){
@@ -62,11 +65,11 @@ public class ModelMB implements Serializable{
     	return menuModel;
 	}
 	
-    @PostConstruct
-    public void init(){
-    	menuModel = new DefaultMenuModel();
-    	tabModel = new TabView();
-    }
+	public TabView getTabModel(){// TODO (epa): quitar si ya no hay errores de CustomTab
+		return tabModel;
+	}
+	
+   
     
     private void buildMenuModel() { //TODO (epa): Optimizar con Mapas y hacerlo recursivo, con N niveles
     	rolOpcionList = sesionUsuario.getRolOpcionList();
@@ -76,9 +79,9 @@ public class ModelMB implements Serializable{
             Opcion modulo = rolOpcion.getOpcion();
             if (modulo.getPadre() == null) {
                 submenu.setLabel(modulo.getEtiqueta());
-                String icono = modulo.getIcono();
-                if(icono != null){
-                	submenu.setStyle("background-image:url('resources/images/" + icono + "') !important;"
+                String iconoModulo = modulo.getIcono();
+                if(iconoModulo != null && !iconoModulo.isEmpty()){
+                	submenu.setStyle("background-image:url('resources/images/" + iconoModulo + "') !important;"
                             + "background-repeat: no-repeat;"
                             + "background-position: center left;"
                             + "padding: 0px 0px 0px 20px");                	
@@ -92,10 +95,13 @@ public class ModelMB implements Serializable{
                             MenuItem item = new MenuItem();                                                                              
                             item.setValue(pantallaOp.getEtiqueta());
                             item.setOnclick("jsAbrirOpcion('"+pantallaOp.getId()+"','"+pantallaOp.getTarget()+"');");
-                            item.setStyle("background-image:url('resources/images/" + pantallaOp.getIcono() + "') !important;"
-                                    + "background-repeat: no-repeat;"
-                                    + "background-position: center left;"
-                                    + "padding: 0px 0px 0px 20px");                            
+                            String iconoPantalla = pantallaOp.getIcono();
+                            if(iconoPantalla != null && !iconoPantalla.isEmpty()){
+                            	item.setStyle("background-image:url('resources/images/" + iconoPantalla + "') !important;"
+                                        + "background-repeat: no-repeat;"
+                                        + "background-position: center left;"
+                                        + "padding: 0px 0px 0px 20px");
+                            }
                                 
                             submenu.getChildren().add(item);
                         }
@@ -175,5 +181,4 @@ public class ModelMB implements Serializable{
 		RequestContext.getCurrentInstance().execute("jsCambiarOpcion("+activeOpcionId+")");
 	}
     
-    private String activeOpcionId;
 }

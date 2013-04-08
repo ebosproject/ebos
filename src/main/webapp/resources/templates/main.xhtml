@@ -26,7 +26,7 @@
 		//Prepender iframe
 		jQuery('div[id^="pnl_"]').hide();
 		if(jQuery("div[id='pnl_"+opcionId+"']").length == 0){				
-			var iFrame = "<div id='pnl_"+opcionId+"' style='disebay: block; height:100%'>"+		
+			var iFrame = "<div id='pnl_"+opcionId+"' style='display: block; height:100%'>"+		
 			"<iframe id='iframe_"+opcionId+"' src='"+url+"'"+
 			"frameborder='0' class='border0' width='100%' height='100%'>"+                        
 	        "<p>Su navegador no soporta iframes</p></iframe></div>";
@@ -55,13 +55,13 @@
             <ui:include id="loading" src="loading.xhtml" />
             
             <ui:fragment id="frgWelcome" rendered="#{not sesionUsuario.login}">
-            	<ui:include id="pnlViewExpired" src="pnlViewExpired.xhtml" />
+            	<ui:include id="pnlViewExpired" src="../panels/pnlViewExpired.xhtml" />
 		    	<div id="lyLogin" align="center">
-			        <div id="lyNorth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-north ui-layout-pane ui-layout-pane-north banner" style="border: medium none; position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 1; height: 51px; disebay: block; visibility: visible;"/>
-			        <div id="lyCenter" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-center ui-layout-pane ui-layout-pane-center" style="border: medium none; position: absolute; margin: 0px; left: 0px; right: 0px; top: 63px; bottom: 58px; height: 278px; z-index: 1; disebay: block; visibility: visible;">            	
+			        <div id="lyNorth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-north ui-layout-pane ui-layout-pane-north banner" style="border: medium none; position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 1; height: 51px; display: block; visibility: visible;"/>
+			        <div id="lyCenter" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-center ui-layout-pane ui-layout-pane-center" style="border: medium none; position: absolute; margin: 0px; left: 0px; right: 0px; top: 63px; bottom: 58px; height: 278px; z-index: 1; display: block; visibility: visible;">            	
 			        	<ui:include id="login" src="login.xhtml" />
 			       	</div>
-			        <div id="lySouth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-south ui-layout-pane ui-layout-pane-south" style="border: medium none; position: absolute; margin: 0px; top: auto; bottom: 0px; left: 0px; right: 0px; width: auto; z-index: 1; height: 46px; disebay: block; visibility: visible;">
+			        <div id="lySouth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-south ui-layout-pane ui-layout-pane-south" style="border: medium none; position: absolute; margin: 0px; top: auto; bottom: 0px; left: 0px; right: 0px; width: auto; z-index: 1; height: 46px; display: block; visibility: visible;">
 			        	<h:outputLabel id="copyright" value="#{msg.systemCopyright}"/>
 			        </div>
 			    </div>

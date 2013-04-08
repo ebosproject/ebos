@@ -74,12 +74,12 @@ public class SesionUsuarioMB implements Serializable{
     public void cerrarSesion() {                
         this.rolOpcionList.clear();        
         this.login = false;
-        // Invalida la sesion web actual, crear una nueva, y asociar el bean de sesion del usuario y el de mensajes
+        // Invalida la sesion web actual, crear una nueva, y asocia el bean de sesion del usuario
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        // invalida la sesion web actual, crear una nueva, y asociar el bean de sesion del usuario y el de mensajes
+        // invalida la sesion web actual, crear una nueva, y asocia el bean de sesion del usuario
         session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         if (session != null) {
             session.invalidate();

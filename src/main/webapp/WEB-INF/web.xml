@@ -110,10 +110,10 @@
   
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>home.jsf</welcome-file>
+    <welcome-file>welcome.jsf</welcome-file>
   </welcome-file-list>
   <error-page>
     <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-    <location>/home.jsf</location>
+    <location>/welcome.jsf</location>
   </error-page>
 </web-app>
