@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <cc:interface disebayName="selectOneMenu" >
+        <cc:attribute name="value" required="true" />
+        <cc:attribute name="label" required="true" type="java.lang.Object"/>
+        <cc:attribute name="required"/>                
+        <cc:attribute name="converter" type="javax.faces.convert.Converter"/>
+        <cc:attribute name="converterMessage"/> 
+        <cc:attribute name="caseSensitive" default="false" type="java.lang.Boolean"/>
+        <cc:attribute name="requiredMessage"/>
+        <cc:attribute name="maxlength" default="25"/>
+        <cc:attribute name="disabled" default="false" type="java.lang.Boolean"/>
+        <cc:attribute name="widgetVar"/>
+        <cc:attribute name="var"/>
+        <cc:attribute name="binding" type="javax.faces.component.UIComponent"/>
+        <cc:attribute name="editable" />
+        <cc:attribute name="efect" />
+        <cc:attribute name="effectSpeed" />
+        <cc:attribute name="filter" />
+        <cc:attribute name="filterFunction" />
+        <cc:attribute name="filterMatchMode" />
+        <cc:attribute name="height" />
+        <cc:attribute name="immediate" type="java.lang.Boolean"/>
+        <cc:attribute name="tabindex" />
+        <cc:attribute name="validator" type="javax.faces.validator.Validator"/>
+        <cc:attribute name="validatorMessage" />
+        <cc:attribute name="valueChangeListener" type="javax.faces.event.ValueChangeListener"/>
+        <cc:attribute name="style" />
+        <cc:attribute name="styleClass"/>
+		<cc:attribute name="onchange" />
+		<cc:attribute name="onkeydown" />
+		<cc:attribute name="onkeyup" />
+		<cc:attribute name="panelStyle"/>
+		<cc:attribute name="panelStyleClass"/>
+    </cc:interface>
+
+    <cc:implementation>                                           
+        <h:outputLabel value="#{cc.attrs.label}" 
+                       for="#{cc.attrs.id}" 
+                       rendered="#{not empty cc.attrs.label}" 
+                       styleClass="ui-widget"/>
+        <td>
+            <p:selectOneMenu id="#{cc.attrs.id}"            
+                             value="#{cc.attrs.value}" 
+                             converter="#{cc.attrs.converter}"
+                             rendered="#{cc.attrs.rendered}" 
+                             required="#{cc.attrs.required}" 
+                             converterMessage="#{cc.attrs.converterMessage}"
+                             caseSensitive="#{cc.attrs.caseSensitive}"
+                             requiredMessage="#{cc.attrs.requiredMessage}"
+                             maxlength="#{cc.attrs.maxlength}"
+                             widgetVar="#{cc.attrs.widgetVar}"
+                             disabled="#{cc.attrs.disabled}"
+                             var="#{cc.attrs.var}"
+                             binding="#{cc.attrs.binding}"
+                             editable="#{cc.attrs.editable}"
+                             effect="#{cc.attrs.efect}"
+                             effectSpeed="#{cc.attrs.effectSpeed}"
+                             filter="#{cc.attrs.filter}"
+                             filterFunction="#{cc.attrs.filterFunction}"
+                             filterMatchMode="#{cc.attrs.filterMatchMode}"
+                             height="#{cc.attrs.height}"
+                             immediate="#{cc.attrs.immediate}"
+                             tabindex="#{cc.attrs.tabindex}"
+                             validatorMessage="#{cc.attrs.validatorMessage}"
+                             valueChangeListener="#{cc.attrs.valueChangeListener}"
+                             label="#{cc.attrs.label}"
+                             style="#{cc.attrs.style}"
+                             styleClass="#{cc.attrs.styleClass}"
+                             onchange="#{cc.attrs.onchange}"
+                             onkeydown="#{cc.attrs.onkeydown}"
+                             onkeyup="#{cc.attrs.onkeyup}"
+                             panelStyle="#{cc.attrs.panelStyle}"
+                             panelStyleClass="#{cc.attrs.panelStyleClass}">
+                             <!--validator="#{cc.attrs.validator}"  -->
+                <cc:insertChildren/>                
+            </p:selectOneMenu>
+        </td>
+    </cc:implementation> 
+</html>

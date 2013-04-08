@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"                
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <cc:interface disebayName="outputDate" >            
+        <cc:attribute name="value" required="true"/>
+        <cc:attribute name="label" />
+        <cc:attribute name="pattern" default="dd/MM/yyyy"/>
+        <cc:attribute name="title" default="#{cc.attrs.value}"/>
+        <cc:attribute name="styleClass"/>
+    </cc:interface>
+
+    <cc:implementation>            
+        <ui:fragment rendered="#{not empty cc.attrs.label}">
+            <h:outputLabel value="#{cc.attrs.label}" 
+                           for="#{cc.attrs.id}"                        
+                           styleClass="ui-widget #{cc.attrs.styleClass}"/>
+            <td>
+                <h:outputText id="#{cc.attrs.id}" 
+                              value="#{cc.attrs.value}" 
+                              styleClass="ui-widget #{cc.attrs.styleClass}">
+                    <f:convertDateTime pattern="#{cc.attrs.pattern}"/>
+                </h:outputText>        
+            </td>                  
+        </ui:fragment>
+        <h:outputText id="#{cc.attrs.id}_out" 
+                      value="#{cc.attrs.value}" 
+                      rendered="#{empty cc.attrs.label}" 
+                      styleClass="ui-widget #{cc.attrs.styleClass}" 
+                      title="#{cc.attrs.title}">
+            <f:convertDateTime pattern="#{cc.attrs.pattern}"/>
+        </h:outputText>             
+    </cc:implementation>    
+</html>

@@ -3,13 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>platform</artifactId>
-	<groupId>ec.com.platform</groupId>
+	<artifactId>ebos</artifactId>
+	<groupId>ec.com.ebos</groupId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>platform</name>
-	<description>Platform System</description>
-	<url>http://subversion.assembla.com/svn/epa/platform</url>
+	<name>ebos</name>
+	<url>http://subversion.assembla.com/git/ebos</url>
 	
 	<developers>
         <developer>
@@ -43,7 +42,7 @@
 	
 	<build>
 		<!-- WEB LAYER -->
-		<finalName>platform</finalName>
+		<finalName>ebos</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -137,9 +136,9 @@
 				</executions>
 				<configuration>
 					<driver>org.postgresql.Driver</driver>
-					<username>platform</username>
-					<password>platform</password>
-					<url>jdbc:postgresql://localhost:5432/platform</url>
+					<username>ebos</username>
+					<password>ebos</password>
+					<url>jdbc:postgresql://localhost:5432/ebos</url>
 					<schema>${dbunit.schema}</schema>
 					<skip>${maven.test.skip}</skip>
 					<skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>
@@ -1278,4 +1277,5 @@
         <spring.version>3.1.1.RELEASE</spring.version>
     </properties>
 
+	<description>eBos</description>
 </project>

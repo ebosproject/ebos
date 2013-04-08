@@ -2,7 +2,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
                 template="content.xhtml">
 
     <ui:param name="westRendered" value="true" />
@@ -12,7 +12,7 @@
         <h:form id="frmFiltros">
             <p:toolbar id="toolBarFiltros">
                 <p:toolbarGroup align="left">
-                    <p:commandButton id="btnBuscar" actionListener="#{bean._buscar}" value="#{msg.plBuscar}" 
+                    <p:commandButton id="btnBuscar" actionListener="#{bean._buscar}" value="#{msg.ebBuscar}" 
                     icon="ui-icon-search" update=":frmResultados"/>
                 </p:toolbarGroup>
             </p:toolbar>
@@ -27,11 +27,11 @@
         <h:form id="frmResultados" prependId="false">
             <p:toolbar id="toolbarResultados">
                 <p:toolbarGroup align="left">
-                    <p:commandButton id="btnNuevo" value="#{msg.plNuevo}" rendered="#{bean.habilitaCrear}"
+                    <p:commandButton id="btnNuevo" value="#{msg.ebNuevo}" rendered="#{bean.habilitaCrear}"
                                      action="#{bean._crear}" icon="ui-icon-document" ajax="false"/>
-                    <p:commandButton id="btnEditar" value="#{msg.plEditar}" action="#{bean._editar}" rendered="#{bean.habilitaEditar and not empty bean.dataTable}"
+                    <p:commandButton id="btnEditar" value="#{msg.ebEditar}" action="#{bean._editar}" rendered="#{bean.habilitaEditar and not empty bean.dataTable}"
                                      icon="ui-icon-edit" ajax="false"/>                    
-                    <p:commandButton id="btnExportar" value="#{msg.plExportar}" ajax="false" rendered="#{bean.habilitaExportar}">
+                    <p:commandButton id="btnExportar" value="#{msg.ebExportar}" ajax="false" rendered="#{bean.habilitaExportar}">
                         <p:dataExporter type="xls" target="dtResultados" fileName="Reporte"/>
                     </p:commandButton>
                 </p:toolbarGroup>
@@ -47,32 +47,32 @@
                          selectionMode="single"
                          selection="#{bean.activeEntity}"
                          paginator="true" 
-                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
-                         rowsPerPageTemplate="5,10,15,50"
+                         paginatorTemebate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+                         rowsPerPageTemebate="5,10,15,50"
                          rows="10" 
-                         emptyMessage="#{msg.plEmptyDataTable}"
+                         emptyMessage="#{msg.ebEmptyDataTable}"
                          resizableColumns="true"
                          scrollable="true"  
                          scrollHeight="90%"
                          rowKey="#{reg.id}">
                          
-                <p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" oncomplete="fnEditar();"/>         
+                <p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" oncomebete="fnEditar();"/>         
                          
                 <p:column headerText="Id" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
                     <p:commandLink id="cmlEditar" type="push" value="#{reg.id}" 
                     	action="#{bean._editar}" ajax="false" style="color:blue"
-                        title="#{msg.plVer}" onmouseup="jsPreventDefault(event,this);">
+                        title="#{msg.ebVer}" onmouseup="jsPreventDefault(event,this);">
                         <f:setPropertyActionListener value="#{reg}" target="#{bean.activeEntity}"/>
                     </p:commandLink>
                 </p:column>
                 
                 <ui:insert name="resultados" />
                 
-			    <p:column id="creado" headerText="#{msg.plCreado}" width="60" resizable="false" rendered="#{showAuditoria}">        
-			        <pl:outputDate value="#{reg.fechaCreacion}" title="#{msg.plPor}: #{reg.usuarioCreacion.username}"/>
+			    <p:column id="creado" headerText="#{msg.ebCreado}" width="60" resizable="false" rendered="#{showAuditoria}">        
+			        <eb:outputDate value="#{reg.fechaCreacion}" title="#{msg.ebPor}: #{reg.usuarioCreacion.username}"/>
 			    </p:column>
-			    <p:column id="modificado" headerText="#{msg.plModificado}" width="60" resizable="false" rendered="#{showAuditoria}">        
-			        <pl:outputDate value="#{reg.fechaModificacion}" title="#{msg.plPor}: #{reg.usuarioModificacion.username}"/>
+			    <p:column id="modificado" headerText="#{msg.ebModificado}" width="60" resizable="false" rendered="#{showAuditoria}">        
+			        <eb:outputDate value="#{reg.fechaModificacion}" title="#{msg.ebPor}: #{reg.usuarioModificacion.username}"/>
 			    </p:column>                    
         	</p:dataTable>
         </h:form>    

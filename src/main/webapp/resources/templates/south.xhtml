@@ -2,7 +2,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
 	<div id="footer" class="ui-widget ui-widget-footer">
 		<div id="clock">
@@ -12,7 +12,7 @@
 			<h:form>
 				<p:themeSwitcher value="#{themeSwitcherMB.tema}" var="t" 
 					style="width:175px;" effect="fade" >
-					<f:selectItem itemLabel="#{msg.plEscojaTema}" itemValue="" />
+					<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
 					<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
 						var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
 					<p:ajax listener="#{themeSwitcherMB.guardarTema}" />

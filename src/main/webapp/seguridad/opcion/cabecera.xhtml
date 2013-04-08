@@ -3,33 +3,33 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
     <ui:param name="opcion" value="#{bean.activeEntity}" />    
 
-    <pl:panelGrid id="pnlOpcion" columns="2">        
+    <eb:panelGrid id="pnlOpcion" columns="2">        
                 
-       <pl:outputText id="id" value="#{opcion.id}" label="Id"/>                
-       <pl:outputText id="estado" value="#{opcion.estado.label}" label="#{msg.plEstado}"/>                
+       <eb:outputText id="id" value="#{opcion.id}" label="Id"/>                
+       <eb:outputText id="estado" value="#{opcion.estado.label}" label="#{msg.ebEstado}"/>                
         
-       <pl:outputDate id="creado" value="#{opcion.fechaCreacion}" 
-       		label="#{msg.plCreado}" title="#{msg.plPor}: {opcion.usuarioCreacion}"/>               
-       <pl:outputDate id="modificado" value="#{opcion.fechaModificacion}" 
-       		label="#{msg.plModificado}" title="#{msg.plPor}: {opcion.usuarioModificacion}"/>
+       <eb:outputDate id="creado" value="#{opcion.fechaCreacion}" 
+       		label="#{msg.ebCreado}" title="#{msg.ebPor}: {opcion.usuarioCreacion}"/>               
+       <eb:outputDate id="modificado" value="#{opcion.fechaModificacion}" 
+       		label="#{msg.ebModificado}" title="#{msg.ebPor}: {opcion.usuarioModificacion}"/>
                
-       <pl:inputText id="nombre" value="#{opcion.nombre}" label="#{msg.plNombre}" required="true"/>
-       <pl:inputText id="descripcion" value="#{opcion.descripcion}" label="#{msg.plDescripcion}"/>        
+       <eb:inputText id="nombre" value="#{opcion.nombre}" label="#{msg.ebNombre}" required="true"/>
+       <eb:inputText id="descripcion" value="#{opcion.descripcion}" label="#{msg.ebDescripcion}"/>        
                
-       <pl:inputText id="etiqueta" value="#{opcion.etiqueta}" required="true" maxlength="20" label="#{msg.plEtiqueta}"/>               
-       <pl:inputText id="target" value="#{opcion.target}" label="#{msg.plTarget}" required="true" maxlength="200"/> 
+       <eb:inputText id="etiqueta" value="#{opcion.etiqueta}" required="true" maxlength="20" label="#{msg.ebEtiqueta}"/>               
+       <eb:inputText id="target" value="#{opcion.target}" label="#{msg.ebTarget}" required="true" maxlength="200"/> 
                
-       <pl:inputText id="icono" value="#{opcion.icono}" label="#{msg.plIcono}"/>        
-       <p:selectOneMenu id="padre" value="#{opcion.padre}" efect="fade" converter="#{bean.opcionConverter}" label="#{msg.plPadre}">
-            <f:selectItem itemLabel ="#{msg.plSeleccionaUno}" itemValue="" />
+       <eb:inputText id="icono" value="#{opcion.icono}" label="#{msg.ebIcono}"/>        
+       <p:selectOneMenu id="padre" value="#{opcion.padre}" efect="fade" converter="#{bean.opcionConverter}" label="#{msg.ebPadre}">
+            <f:selectItem itemLabel ="#{msg.ebSeleccionaUno}" itemValue="" />
             <f:selectItems value="#{bean.opcionList}" var="opc"
                 itemLabel="#{opc.etiqueta}" itemValue="#{opc}"/>
         </p:selectOneMenu>
                 
-    </pl:panelGrid>        
+    </eb:panelGrid>        
     
 </ui:composition>

@@ -3,16 +3,16 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
     
-    <p:column id="codigo" headerText="#{msg.plCodigo}">
-        <pl:outputText value="#{reg.codigo}" />
+    <p:column id="codigo" headerText="#{msg.ebCodigo}">
+        <eb:outputText value="#{reg.codigo}" />
     </p:column>
-    <p:column id="localidad" headerText="#{msg.plLocalidad}">
-        <pl:outputText value="#{reg.localidad}" />
+    <p:column id="localidad" headerText="#{msg.ebLocalidad}">
+        <eb:outputText value="#{reg.localidad}" />
     </p:column>
-    <p:column id="valor" headerText="#{msg.plValor}">
-        <pl:outputText value="#{reg.valor}"/>            
+    <p:column id="valor" headerText="#{msg.ebValor}">
+        <eb:outputText value="#{reg.valor}"/>            
     </p:column>
 
 </ui:composition>       

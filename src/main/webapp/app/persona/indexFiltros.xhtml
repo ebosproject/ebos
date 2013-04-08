@@ -2,12 +2,12 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"                
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
-    <pl:panelGrid id="pnlFiltros">               
-        <pl:inputText id="id" value="#{bean.entitySearch.id}" label="#{msg.plId}" type="number"/>                    
-        <pl:inputText id="valor" value="#{bean.entitySearch.valor}" label="#{msg.plValorDefecto}"/>        
-        <pl:inputText id="valorDefecto" value="#{bean.entitySearch.valorDefecto}" label="#{msg.plValorDefecto}"/>        
-    </pl:panelGrid>
+    <eb:panelGrid id="pnlFiltros">               
+        <eb:inputText id="id" value="#{bean.entitySearch.id}" label="#{msg.ebId}" type="number"/>                    
+        <eb:inputText id="valor" value="#{bean.entitySearch.valor}" label="#{msg.ebValorDefecto}"/>        
+        <eb:inputText id="valorDefecto" value="#{bean.entitySearch.valorDefecto}" label="#{msg.ebValorDefecto}"/>        
+    </eb:panelGrid>
 
 </ui:composition>

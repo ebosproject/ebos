@@ -1,19 +1,19 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
     
-    <p:dialog header="#{msg.plCambiarPassword}" widgetVar="dlgCambiarPwd" resizable="false" modal="true" closeOnEscape="true">
+    <p:dialog header="#{msg.ebCambiarPassword}" widgetVar="dlgCambiarPwd" resizable="false" modal="true" closeOnEscape="true">
         <h:form id="frmCambiarPassword">
-            <pl:panelGrid id="pnlCambiarPassword">
-                <pl:password id="actpassword" label="#{msg.plPasswordActual}" value="#{sesionUsuario.usuario.password}" required="true"/>
-                <pl:password id="newpassword" label="#{msg.plNuevoPassword}" value="#{sesionUsuario.usuario.newpassword}" required="true"/>
-                <pl:password id="confpassword" label="#{msg.plConfirmarPassword}" value="#{sesionUsuario.usuario.confpassword}" required="true"/>                        
-            </pl:panelGrid>   
+            <eb:panelGrid id="pnlCambiarPassword">
+                <eb:password id="actpassword" label="#{msg.ebPasswordActual}" value="#{sesionUsuario.usuario.password}" required="true"/>
+                <eb:password id="newpassword" label="#{msg.ebNuevoPassword}" value="#{sesionUsuario.usuario.newpassword}" required="true"/>
+                <eb:password id="confpassword" label="#{msg.ebConfirmarPassword}" value="#{sesionUsuario.usuario.confpassword}" required="true"/>                        
+            </eb:panelGrid>   
             <br/>
             <div align="center">
-                <p:commandButton value="#{msg.plCambiar}" actionListener="#{sesionUsuario.cambiarPassword}" oncomplete="dlgCambiarPwd.hide()" update="@form"/>
-                <p:commandButton value="#{msg.plCancelar}" type="button" onclick="dlgCambiarPwd.hide()" update="@form"/>                        
+                <p:commandButton value="#{msg.ebCambiar}" actionListener="#{sesionUsuario.cambiarPassword}" oncomebete="dlgCambiarPwd.hide()" update="@form"/>
+                <p:commandButton value="#{msg.ebCancelar}" type="button" onclick="dlgCambiarPwd.hide()" update="@form"/>                        
             </div>
         </h:form>
     </p:dialog>

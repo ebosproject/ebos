@@ -11,13 +11,13 @@
             <supported-locale>en</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>ec.com.platform.app.web.resources.DatabaseDrivenResourceBundle</base-name>
+            <base-name>ec.com.ebos.app.web.resources.DatabaseDrivenResourceBundle</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>
     
     <factory>
-        <exception-handler-factory>ec.com.platform.util.web.jsf.event.PlatformExceptionHandlerFactory</exception-handler-factory>
+        <exception-handler-factory>ec.com.ebos.util.web.jsf.event.EbosExceptionHandlerFactory</exception-handler-factory>
     </factory>  
     
 </faces-config>     

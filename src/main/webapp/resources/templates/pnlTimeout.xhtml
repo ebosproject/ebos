@@ -1,7 +1,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
                 xmlns:f="http://java.sun.com/jsf/core">
     
     <ui:remove>
@@ -15,15 +15,15 @@
 <ui:remove>    
     <p:dialog header="Sesion Caducada" widgetVar="sessionTimeOutDialog" modal="true" position="center" 
               closable="false" width="400" visible="false" resizable="false">
-        <pl:panelGrid>
-            <pl:outputText value="La sesion ha caducado, por favor, pulse sobre el siguiente boton para volver a acceder al sistema" />
+        <eb:panelGrid>
+            <eb:outputText value="La sesion ha caducado, por favor, pulse sobre el siguiente boton para volver a acceder al sistema" />
             <h:form id="frmTimeout">
             	<br/>
                 <div align="center">
                     <p:commandButton id="confirmBackToLogin" value="Volver a acceder al sistema" ajax="false" update="@all" />                
                 </div>
             </h:form>
-        </pl:panelGrid>        
+        </eb:panelGrid>        
     </p:dialog>
 </ui:remove>
 

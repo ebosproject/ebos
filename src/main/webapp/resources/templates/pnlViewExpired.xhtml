@@ -4,13 +4,13 @@
     
     <p:confirmDialog header="#{msg.systemViewExpired}" severity="alert" width="200px" closeOnEscape="true"
                      visible="#{not empty param['expired']}" 
-                     message="#{msg.plViewExpired}" widgetVar="viewExpiredDlg">
+                     message="#{msg.ebViewExpired}" widgetVar="viewExpiredDlg">
 		<div align="center"><p:commandButton type="button" value="OK" onclick="viewExpiredDlg.hide()" /></div>
     </p:confirmDialog>
     
     <p:confirmDialog header="#{msg.systemTimedout}" severity="alert" width="200px"
                      visible="#{not empty param['timedout']}" closeOnEscape="true"
-                     message="#{msg.plSessionTimedout}" widgetVar="timedoutDlg">
+                     message="#{msg.ebSessionTimedout}" widgetVar="timedoutDlg">
 		<div align="center"><p:commandButton type="button" value="OK" onclick="timedoutDlg.hide()" /></div>
     </p:confirmDialog>
 

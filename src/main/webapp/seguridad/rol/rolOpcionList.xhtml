@@ -3,7 +3,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"                
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">    
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">    
     <ui:param name="update" value=":frmOpcion:dtRolOpcionList"/>        
     <h:form id="frmOpcion">                        
         <p:toolbar id="toolBarDetalle">
@@ -17,24 +17,24 @@
         </p:toolbar>
         <p:overlayPanel for="agregarOpcionBtn" dynamic="true" my="left bottom" >
             <p:dataTable id="pcionList" var="reg" value="#{bean.opcionList}" paginator="true" rows="10">
-                <p:column id="id" headerText="#{msg.plSel}">
+                <p:column id="id" headerText="#{msg.ebSel}">
                     <h:commandLink value="#{reg.id}" action="#{bean.agregarRolOpcion}" id="cmlEditar">
                         <f:setPropertyActionListener value="#{reg}" target="#{bean.selectedOpcion}"/>
                         <p:ajax update="#{update}" />
                     </h:commandLink>
                 </p:column>
 
-                <p:column id="nombre" headerText="#{msg.plNombre}">
-                    <pl:outputText value="#{reg.nombre}" />
+                <p:column id="nombre" headerText="#{msg.ebNombre}">
+                    <eb:outputText value="#{reg.nombre}" />
                 </p:column>
-                <p:column id="descripcion" headerText="#{msg.plDescripcion}">
-                    <pl:outputText value="#{reg.descripcion}"/>            
+                <p:column id="descripcion" headerText="#{msg.ebDescripcion}">
+                    <eb:outputText value="#{reg.descripcion}"/>            
                 </p:column>
-                <p:column id="etiqueta" headerText="#{msg.plEtiqueta}">
-                    <pl:outputText value="#{reg.etiqueta}" />
+                <p:column id="etiqueta" headerText="#{msg.ebEtiqueta}">
+                    <eb:outputText value="#{reg.etiqueta}" />
                 </p:column>
-                <p:column id="target" headerText="#{msg.plTarget}">
-                    <pl:outputText value="#{reg.target}" />
+                <p:column id="target" headerText="#{msg.ebTarget}">
+                    <eb:outputText value="#{reg.target}" />
                 </p:column>
             </p:dataTable>
         </p:overlayPanel>
@@ -42,42 +42,42 @@
         <p:dataTable id="dtRolOpcionList" var="reg" value="#{bean.rolOpcionList}" 
                      rowKey="#{reg.id}" selection="#{bean.selectedRolOpcionList}" paginator="true" rows="12">
 
-            <p:column selectionMode="multiple" rendered="#{bean.habilitaEliminar or bean.habilitaEditar}"/>
+            <p:column selectionMode="multiebe" rendered="#{bean.habilitaEliminar or bean.habilitaEditar}"/>
 
-            <p:column id="opcion" headerText="#{msg.plOpcion}">
-                <pl:outputText value="#{reg.opcion.etiqueta}" />
+            <p:column id="opcion" headerText="#{msg.ebOpcion}">
+                <eb:outputText value="#{reg.opcion.etiqueta}" />
             </p:column>
 
-            <p:column id="padre" headerText="#{msg.plPadre}">
-                <pl:outputText value="#{reg.opcion.padre.etiqueta}" />
+            <p:column id="padre" headerText="#{msg.ebPadre}">
+                <eb:outputText value="#{reg.opcion.padre.etiqueta}" />
             </p:column>
 
-            <p:column id="estado" headerText="#{msg.plEstado}">
-                <pl:outputText value="#{reg.estado.label}" />
+            <p:column id="estado" headerText="#{msg.ebEstado}">
+                <eb:outputText value="#{reg.estado.label}" />
             </p:column>
 
-            <p:column id="crear" headerText="#{msg.plCrear}">
+            <p:column id="crear" headerText="#{msg.ebCrear}">
                 <p:selectBooleanCheckbox value="#{reg.crear}"/>
             </p:column>
 
-            <p:column id="editar" headerText="#{msg.plEditar}">
+            <p:column id="editar" headerText="#{msg.ebEditar}">
                 <p:selectBooleanCheckbox value="#{reg.editar}"/>
             </p:column>
 
-            <p:column id="eliminar" headerText="#{msg.plEliminar}">
+            <p:column id="eliminar" headerText="#{msg.ebEliminar}">
                 <p:selectBooleanCheckbox value="#{reg.eliminar}"/>
             </p:column>
 
-            <p:column id="exportar" headerText="#{msg.plExportar}">
+            <p:column id="exportar" headerText="#{msg.ebExportar}">
                 <p:selectBooleanCheckbox value="#{reg.exportar}"/>
             </p:column>
 
-            <p:column id="creado" headerText="#{msg.plCreado}">
-                <pl:outputDate value="#{reg.fechaCreacion}" />
+            <p:column id="creado" headerText="#{msg.ebCreado}">
+                <eb:outputDate value="#{reg.fechaCreacion}" />
             </p:column>
 
-            <p:column id="modificado" headerText="#{msg.plModificado}">
-                <pl:outputDate value="#{reg.fechaModificacion}" />
+            <p:column id="modificado" headerText="#{msg.ebModificado}">
+                <eb:outputDate value="#{reg.fechaModificacion}" />
             </p:column>
 
         </p:dataTable>

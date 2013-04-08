@@ -3,25 +3,25 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
     
-    <p:column id="valor" headerText="#{msg.plValor}">
-        <pl:outputText value="#{reg.valor}" />
+    <p:column id="valor" headerText="#{msg.ebValor}">
+        <eb:outputText value="#{reg.valor}" />
     </p:column>
-    <p:column id="valorDefecto" headerText="#{msg.plValorDefecto}">
-        <pl:outputText value="#{reg.valorDefecto}"/>            
+    <p:column id="valorDefecto" headerText="#{msg.ebValorDefecto}">
+        <eb:outputText value="#{reg.valorDefecto}"/>            
     </p:column>
-    <p:column id="longitud" headerText="#{msg.plLongitud}">
-        <pl:outputText value="#{reg.longitud}" />
+    <p:column id="longitud" headerText="#{msg.ebLongitud}">
+        <eb:outputText value="#{reg.longitud}" />
     </p:column>
-    <p:column id="requerido" headerText="#{msg.plRequerido}">
-        <pl:outputText value="#{reg.requerido}" />
+    <p:column id="requerido" headerText="#{msg.ebRequerido}">
+        <eb:outputText value="#{reg.requerido}" />
     </p:column>
-    <p:column id="lista" headerText="#{msg.plLista}">
-        <pl:outputText value="#{reg.lista}" />
+    <p:column id="lista" headerText="#{msg.ebLista}">
+        <eb:outputText value="#{reg.lista}" />
     </p:column>
-    <p:column id="estado" headerText="#{msg.plEstado}">
-        <pl:outputText value="#{reg.estado.label}"/>
+    <p:column id="estado" headerText="#{msg.ebEstado}">
+        <eb:outputText value="#{reg.estado.label}"/>
     </p:column>
 
 </ui:composition>       

@@ -3,18 +3,18 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
-    <p:column id="estado" headerText="#{msg.plEstado}">
-        <pl:outputText value="#{reg.estado.label}"/>
+    <p:column id="estado" headerText="#{msg.ebEstado}">
+        <eb:outputText value="#{reg.estado.label}"/>
     </p:column>
-    <p:column id="username" headerText="#{msg.plUsername}">
-        <pl:outputText value="#{reg.username}"/>
+    <p:column id="username" headerText="#{msg.ebUsername}">
+        <eb:outputText value="#{reg.username}"/>
     </p:column>
-    <p:column id="nombres" headerText="#{msg.plNombres}">
-        <pl:outputText value="#{reg.empresaPersona.persona.nombres} #{reg.empresaPersona.persona.apellidos}"/>
+    <p:column id="nombres" headerText="#{msg.ebNombres}">
+        <eb:outputText value="#{reg.empresaPersona.persona.nombres} #{reg.empresaPersona.persona.apellidos}"/>
     </p:column>
-    <p:column id="mail" headerText="#{msg.plMail}">
-        <pl:outputText value="#{reg.empresaPersona.persona.mail}"/>
+    <p:column id="mail" headerText="#{msg.ebMail}">
+        <eb:outputText value="#{reg.empresaPersona.persona.mail}"/>
     </p:column>
 </ui:composition>       

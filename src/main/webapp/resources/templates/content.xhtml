@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:pl="http://platform.com.ec/ui">
+      xmlns:eb="http://ebos.com.ec/ui">
           
     <f:view contentType="text/html" >
         <h:head>            
@@ -21,18 +21,18 @@
         <h:body>
 			<ui:include id="loading" src="loading.xhtml" />            
 
-            <pl:layout options="#{layoutMB.layoutOptionsContent}">  
+            <eb:layout options="#{layoutMB.layoutOptionsContent}">  
                 
-                <pl:layoutPane id="lyWest" position="west" rendered="#{westRendered}">
+                <eb:layoutPane id="lyWest" position="west" rendered="#{westRendered}">
                     <ui:insert name="west" />
-                </pl:layoutPane>
+                </eb:layoutPane>
                 
-                <pl:layoutPane id="lyCenter" position="center">
+                <eb:layoutPane id="lyCenter" position="center">
                     <p:growl id="msgTabs" autoUpdate="true" sticky="true"/>
                     <ui:insert name="center"/>                    
-                </pl:layoutPane> 
+                </eb:layoutPane> 
                 
-            </pl:layout>            
+            </eb:layout>            
         </h:body>
     </f:view>
 </html>

@@ -11,7 +11,7 @@
 
     <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
         <param name="Threshold" value="INFO" />
-        <param name="File" value="librae.log" />
+        <param name="File" value="ebos.log" />
         <param name="Append" value="true" />
         <param name="MaxFileSize" value="500KB" />
         <param name="MaxBackupIndex" value="1" />

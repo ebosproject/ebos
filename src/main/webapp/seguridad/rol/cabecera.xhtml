@@ -3,22 +3,22 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"                
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
     <ui:param name="rol" value="#{bean.activeEntity}" />    
 
-    <pl:panelGrid id="rol" columns="2">        
+    <eb:panelGrid id="rol" columns="2">        
         
-        <pl:outputText id="id" label="Id" value="#{rol.id}"/>
-        <pl:outputText id="estado" label="#{msg.plEstado}" value="#{rol.estado.label}"/>
+        <eb:outputText id="id" label="Id" value="#{rol.id}"/>
+        <eb:outputText id="estado" label="#{msg.ebEstado}" value="#{rol.estado.label}"/>
         
-        <pl:outputDate id="creado" label="#{msg.plCreado}" value="#{rol.fechaCreacion}"/>        
-        <pl:outputDate id="modificado" label="#{msg.plModificado}" value="#{rol.fechaModificacion}"/>
+        <eb:outputDate id="creado" label="#{msg.ebCreado}" value="#{rol.fechaCreacion}"/>        
+        <eb:outputDate id="modificado" label="#{msg.ebModificado}" value="#{rol.fechaModificacion}"/>
         
-        <pl:inputText id="nombre" label="#{msg.plNombre}" value="#{rol.nombre}" required="true" maxlength="30"/>        
-        <pl:inputText id="descripcion" label="#{msg.plDescripcion}" value="#{rol.descripcion}" required="true" maxlength="500"/>        
+        <eb:inputText id="nombre" label="#{msg.ebNombre}" value="#{rol.nombre}" required="true" maxlength="30"/>        
+        <eb:inputText id="descripcion" label="#{msg.ebDescripcion}" value="#{rol.descripcion}" required="true" maxlength="500"/>        
                 
-    </pl:panelGrid>        
+    </eb:panelGrid>        
     
 </ui:composition>
 

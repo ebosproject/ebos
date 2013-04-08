@@ -7,17 +7,17 @@
 			style="width: 350px; padding: 5px;">
 			<h:panelGrid id="pnlingreso" columns="3">
 				<p:graphicImage value="resources/images/username.png" />
-				<p:watermark for="username" value="#{msg.plUsuario}" />
+				<p:watermark for="username" value="#{msg.ebUsuario}" />
 				<p:inputText id="username" value="#{sesionUsuario.usuario.username}"
-					required="true" requiredMessage="#{msg.plIngreseUsuario}" />
+					required="true" requiredMessage="#{msg.ebIngreseUsuario}" />
 				<p:graphicImage value="resources/images/password.png" />
-				<p:watermark for="password" value="#{msg.plClave}" />
+				<p:watermark for="password" value="#{msg.ebClave}" />
 				<p:inputText id="password" type="password"
 					value="#{sesionUsuario.usuario.password}" required="true"
-					requiredMessage="#{msg.plIngreseClave}" />
+					requiredMessage="#{msg.ebIngreseClave}" />
 			</h:panelGrid>
 			<h:panelGrid>
-				<p:commandButton id="btnIniciarSesion" value="#{msg.plIngresar}"
+				<p:commandButton id="btnIniciarSesion" value="#{msg.ebIngresar}"
 					actionListener="#{sesionUsuario.iniciarSesion}" ajax="false"
 					update="@all" />
 			</h:panelGrid>

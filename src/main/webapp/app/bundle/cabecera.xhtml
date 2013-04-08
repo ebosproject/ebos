@@ -3,21 +3,21 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"                
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
     <ui:param name="bundle" value="${bean.activeEntity}" />    
 
-    <pl:panelGrid id="pnlBundle" columns="2">        
+    <eb:panelGrid id="pnlBundle" columns="2">        
                 
-       <pl:outputText id="id" value="#{bundle.id}" label="#{msg.plId}"/>                
-       <pl:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" label="#{msg.plLocalidad}" required="true">
-            <f:selectItem itemLabel ="#{msg.plSeleccionaUno}" itemValue="" />
+       <eb:outputText id="id" value="#{bundle.id}" label="#{msg.ebId}"/>                
+       <eb:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" label="#{msg.ebLocalidad}" required="true">
+            <f:selectItem itemLabel ="#{msg.ebSeleccionaUno}" itemValue="" />
             <f:selectItems value="#{bunbleMB.localidadList}" var="opc"
                 itemLabel="#{opc.label}" itemValue="#{opc}"/>
-        </pl:selectOneMenu>
-       <pl:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.plCodigo}" required="true" maxlength="50"/>
-       <pl:inputText id="valor" value="#{bundle.valor}" label="#{msg.plValor}" required="true" maxlength="500"/>        
+        </eb:selectOneMenu>
+       <eb:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.ebCodigo}" required="true" maxlength="50"/>
+       <eb:inputText id="valor" value="#{bundle.valor}" label="#{msg.ebValor}" required="true" maxlength="500"/>        
                 
-    </pl:panelGrid>        
+    </eb:panelGrid>        
     
 </ui:composition>

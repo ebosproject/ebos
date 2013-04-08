@@ -3,25 +3,25 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
     <p:column id="mantenimiento" headerText="Mantenimiento">
-        <pl:outputText value="#{reg.etiqueta}" />
+        <eb:outputText value="#{reg.etiqueta}" />
     </p:column>            
     <p:column id="modulo" headerText="Modulo">
-        <pl:outputText value="#{reg.padre.nombre}" title="#{reg.padre.id}"/>
+        <eb:outputText value="#{reg.padre.nombre}" title="#{reg.padre.id}"/>
     </p:column>
     <p:column id="nombre" headerText="Nombre">
-        <pl:outputText value="#{reg.nombre}" />
+        <eb:outputText value="#{reg.nombre}" />
     </p:column>
     <p:column id="estado" headerText="Estado">
-        <pl:outputText value="#{reg.estado.label}" />
+        <eb:outputText value="#{reg.estado.label}" />
     </p:column>    
     <p:column id="descripcion" headerText="Descripcion">
-        <pl:outputText header="Descripcion" value="#{reg.descripcion}"/>            
+        <eb:outputText header="Descripcion" value="#{reg.descripcion}"/>            
     </p:column>
     <p:column id="target" headerText="Target">
-        <pl:outputText value="#{reg.target}" />
+        <eb:outputText value="#{reg.target}" />
     </p:column>
 
 </ui:composition>       

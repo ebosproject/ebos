@@ -3,30 +3,30 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"                
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
     <ui:param name="objeto" value="${bean.activeEntity}" />    
 
-    <pl:panelGrid id="pnlObjeto" columns="2">        
+    <eb:panelGrid id="pnlObjeto" columns="2">        
                 
-       <pl:outputText id="id" value="#{objeto.id}" label="Id"/>                
-       <pl:outputText id="estado" value="#{objeto.estado.label}" label="#{msg.plEstado}"/>                
+       <eb:outputText id="id" value="#{objeto.id}" label="Id"/>                
+       <eb:outputText id="estado" value="#{objeto.estado.label}" label="#{msg.ebEstado}"/>                
         
-       <pl:outputDate id="creado" value="#{objeto.fechaCreacion}" 
-       		label="#{msg.plCreado}" title="#{msg.plPor}: {objeto.usuarioCreacion}"/>               
-       <pl:outputDate id="modificado" value="#{objeto.fechaModificacion}" 
-       		label="#{msg.plModificado}" title="#{msg.plPor}: {objeto.usuarioModificacion}"/>
+       <eb:outputDate id="creado" value="#{objeto.fechaCreacion}" 
+       		label="#{msg.ebCreado}" title="#{msg.ebPor}: {objeto.usuarioCreacion}"/>               
+       <eb:outputDate id="modificado" value="#{objeto.fechaModificacion}" 
+       		label="#{msg.ebModificado}" title="#{msg.ebPor}: {objeto.usuarioModificacion}"/>
                
-       <pl:inputText id="nombre" value="#{objeto.codigo}" label="#{msg.plCodigo}" required="true"/>
-       <pl:inputText id="descripcion" value="#{objeto.descripcion}" label="#{msg.plDescripcion}"/>        
+       <eb:inputText id="nombre" value="#{objeto.codigo}" label="#{msg.ebCodigo}" required="true"/>
+       <eb:inputText id="descripcion" value="#{objeto.descripcion}" label="#{msg.ebDescripcion}"/>        
        
-       <pl:selectOneMenu id="tipo" value="#{objeto.tipo}" label="#{msg.plTipo}">
+       <eb:selectOneMenu id="tipo" value="#{objeto.tipo}" label="#{msg.ebTipo}">
             <f:selectItem itemLabel ="" itemValue="" />
             <f:selectItems value="#{bean.tipoObjetoList}" var="reg"
                 itemLabel="#{reg.label}" itemValue="#{reg}"/>
-        </pl:selectOneMenu>                
+        </eb:selectOneMenu>                
                       
                 
-    </pl:panelGrid>        
+    </eb:panelGrid>        
     
 </ui:composition>

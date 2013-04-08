@@ -3,27 +3,27 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"                
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pl="http://java.sun.com/jsf/composite/componentes/platform">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
     <ui:param name="usuario" value="${bean.activeEntity}" /> 
 
-    <pl:panelGrid id="pnlUsuario" columns="2">
+    <eb:panelGrid id="pnlUsuario" columns="2">
         
-        <pl:outputText id="id" value="#{usuario.id}" label="Id"/>
-        <pl:outputText id="estado" value="#{usuario.estado.label}" label="#{msg.plEstado}"/>     
+        <eb:outputText id="id" value="#{usuario.id}" label="Id"/>
+        <eb:outputText id="estado" value="#{usuario.estado.label}" label="#{msg.ebEstado}"/>     
         
-        <pl:outputDate id="fechaCreacion" value="#{usuario.fechaCreacion}" label ="#{msg.plCreado}"/>                 
-        <pl:outputDate id="fechaModificacion" value="#{usuario.fechaModificacion}" label="#{msg.plModificado}"/>                
+        <eb:outputDate id="fechaCreacion" value="#{usuario.fechaCreacion}" label ="#{msg.ebCreado}"/>                 
+        <eb:outputDate id="fechaModificacion" value="#{usuario.fechaModificacion}" label="#{msg.ebModificado}"/>                
         
-        <pl:password id="password" label="#{msg.plPassword}" value="#{usuario.password}"  feedback="true" required="true" 
+        <eb:password id="password" label="#{msg.ebPassword}" value="#{usuario.password}"  feedback="true" required="true" 
                       rendered="#{usuario.id eq null}"/>        
-        <pl:inputText id="username" label="#{msg.plUsuario}" value="#{usuario.username}" required="true"/>                
+        <eb:inputText id="username" label="#{msg.ebUsuario}" value="#{usuario.username}" required="true"/>                
         
-        <pl:inputText id="nombres" label="#{msg.plNombres}" value="#{usuario.empresaPersona.persona.nombres}" required="true"/>                       
-        <pl:inputText id="apellidos" value="#{usuario.empresaPersona.persona.apellidos}" label="#{msg.plApellidos}"/>                
+        <eb:inputText id="nombres" label="#{msg.ebNombres}" value="#{usuario.empresaPersona.persona.nombres}" required="true"/>                       
+        <eb:inputText id="apellidos" value="#{usuario.empresaPersona.persona.apellidos}" label="#{msg.ebApellidos}"/>                
         
-        <pl:inputText id="email" label="#{msg.plEmail}" value="#{usuario.empresaPersona.persona.mail}" required="true" maxlength="100"/>
-    </pl:panelGrid>
+        <eb:inputText id="email" label="#{msg.ebEmail}" value="#{usuario.empresaPersona.persona.mail}" required="true" maxlength="100"/>
+    </eb:panelGrid>
 
 </ui:composition>
 

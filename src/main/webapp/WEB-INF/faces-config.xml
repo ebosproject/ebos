@@ -5,8 +5,8 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
     <application>
-       <!--  <view-handler>ec.com.platform.util.web.jsf.handler.SessionViewHandler</view-handler> -->
-       <!--  <navigation-handler>ec.com.platform.util.web.jsf.handler.NavigationManager</navigation-handler>  -->
+       <!--  <view-handler>ec.com.ebos.util.web.jsf.handler.SessionViewHandler</view-handler> -->
+       <!--  <navigation-handler>ec.com.ebos.util.web.jsf.handler.NavigationManager</navigation-handler>  -->
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>  
     </application>  
       
