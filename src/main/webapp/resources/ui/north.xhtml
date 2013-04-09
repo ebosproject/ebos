@@ -1,0 +1,28 @@
+	<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+	
+	<h:form id="frmCerrarSesion" prependId="false">
+		<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
+			<p:submenu label="#{msg.ebCuenta}">
+				<p:menuitem value="#{msg.ebCambiarPassword}"
+					onclick="dlgCambiarPwd.show()"/>
+			</p:submenu>
+			<f:facet name="options">
+				<eb:panelGrid columns="6">
+					<p:watermark for="find" value="#{msg.ebFind}" />
+					<p:inputText id="find"/>
+					<p:spacer width="30"/>
+					<p:clock autoSync="true" mode="server" pattern="yyyy/MM/dd HH:mm" syncInterval="60000"/>
+					<p:spacer width="14"/>
+					<p:commandButton value="#{msg.ebSalir} (#{sesionUsuario.usuario.username})"
+						actionListener="#{sesionUsuario.cerrarSesion}" ajax="false" update="@all" icon="ui-icon-extlink"/>
+				</eb:panelGrid>
+			</f:facet>					
+		</p:menubar>
+		<p:growl id="msgHome" autoUpdate="true" sticky="true" />
+	</h:form>
+	
+</ui:composition>

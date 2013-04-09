@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:p="http://primefaces.org/ui" 
+				xmlns:eb="http://ebos.com.ec/ui">
+<ui:remove>
+    <h:graphicImage url="/resources/images/banner_central.png" width="99%" height="99%" style="filter:alpha(opacity=60);-moz-opacity:.60"/>
+</ui:remove>
+	<h:form id="commands">
+		<p:remoteCommand name="abrirOpcion"
+			actionListener="#{modelMB.abrirOpcion}" update=":tabOptions" />
+	</h:form>
+	<p:tabView id="tabOptions" binding="#{modelMB.tabModel}"
+		widgetVar="tabView" dynamic="true">
+		<p:ajax event="tabChange" listener="#{modelMB.cambiarOpcion}" />
+		<p:ajax event="tabClose" listener="#{modelMB.cerrarOpcion}" />
+	</p:tabView>			
+	<div id="tabContent"
+		class="ui-panel ui-widget ui-widget-content ui-corner-all"
+		style="height: 100%">
+		<ui:repeat var="tab" value="#{modelMB.tabModel.children}">
+			<div id="pnl_#{tab.id}" style="display: block; height:100%">
+			<iframe id="iframe_#{tab.opcion.id}" src="#{tab.opcion.target}" class="border0" width="100%" height="100%">                        
+		        <p>Su navegador no soporta iframes</p></iframe>
+	        </div>
+		</ui:repeat>				
+	</div>					
+	<script>
+       	jQuery('#tabOptions li a').mouseup(function(event){jsPreventDefault(event, this)});
+   	</script>
+</ui:composition>
