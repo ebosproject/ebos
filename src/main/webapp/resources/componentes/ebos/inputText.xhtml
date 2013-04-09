@@ -12,6 +12,7 @@
         <cc:attribute name="maxlength" default="25" />
         <cc:attribute name="disabled" default="false" type="java.lang.Boolean"/>
         <cc:attribute name="type" default="text" type="java.lang.String" />
+        <cc:attribute name="style" type="java.lang.String" default="null"/>
     </cc:interface>
 
     <cc:implementation>         
@@ -25,8 +26,9 @@
                          rendered="#{cc.attrs.rendered}"                         
                          maxlength="#{cc.attrs.maxlength}"
                          disabled="#{cc.attrs.disabled}"
-                         label="#{cc.attrs.label}"
-                         type="#{cc.attrs.type}"/>            
+                         label="#{cc.attrs.label}" 
+                         type="#{cc.attrs.type}"
+                         style="#{cc.attrs.style}" />            
         </td>
 
     </cc:implementation>  

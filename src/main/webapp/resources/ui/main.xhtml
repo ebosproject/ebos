@@ -20,6 +20,23 @@
     window.history.forward(1);            
     jQuery.noConflict();        
 
+    function jsAbrirOpcion(opcionId, url){
+    	abrirOpcion(([{name:'opcionId', value:opcionId}]));
+    	var dialogId = "dlgOption_"+opcionId;
+    	var dialog = jQuery("div#"+dialogId+".ui-dialog-content");  
+    	if(dialog.length == 0){				
+			var iFrame = "<iframe id='iframe_"+opcionId+"' src='"+url+"'"+
+			"frameborder='0' class='border0' width='100%' height='100%'>"+                        
+	        "<p>Su navegador no soporta iframes</p></iframe>";
+	        dialog.prepend(iFrame);
+	        jQuery("div#"+dialogId).show();
+		} else {
+			
+		}
+    	#{p:widgetVar('dlgOption_37_2')}.show();
+		
+    }
+    /*
     function jsAbrirOpcion(opcionId, url){ //TODO (epa): embeber esta logica en MB
         //Add new tab
     	abrirOpcion(([{name:'opcionId', value:opcionId}]));
@@ -36,7 +53,7 @@
 			jQuery("div[id='pnl_"+opcionId+"']").show();
 		}
     }
-
+    
     function jsCambiarOpcion(opcionId){
 		//Hide active iframe
     	jQuery('div[id^="pnl_"]').hide();
@@ -48,7 +65,7 @@
     	//Remove prepender iframe
     	jQuery("div[id='pnl_"+opcionId+"']").remove();
     }
-
+*/
 //]]></script>            
         </h:head>        
         <h:body>

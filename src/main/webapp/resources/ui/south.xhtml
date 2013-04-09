@@ -3,34 +3,15 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
-
-	<div id="south" class="ui-widget ui-widget-footer">
-		<div id="themeswitcher">
-			<h:form>
-				<p:themeSwitcher value="#{themeSwitcherMB.tema}" var="t" 
-					style="width:175px;" effect="fade" >
-					<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
-					<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
-						var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
-					<p:ajax listener="#{themeSwitcherMB.guardarTema}" />
-					<p:column>
-						<h:graphicImage name="images/themes/#{t.imagen}" />
-					</p:column>
-					<p:column>
-                  		#{t.nombre}
-		            </p:column>
-				</p:themeSwitcher>
-			</h:form>
 <ui:remove>
-			<p:tabMenu activeIndex="0" >
-				<p:menuitem value="Overview" outcome="main" icon="ui-icon-star"/>
-				<p:menuitem value="Demos" outcome="demos" icon="ui-icon-search" />
-				<p:menuitem value="Documentation" outcome="docs" icon="ui-icon-document"/>
-				<p:menuitem value="Support" outcome="support" icon="ui-icon-wrench"/>
-				<p:menuitem value="Social" outcome="social" icon="ui-icon-person" />
-			</p:tabMenu>
-</ui:remove>
-		</div>
-	</div>
-
+	<h:form id="commands">
+		<p:remoteCommand name="abrirOpcion"
+			actionListener="#{modelMB.abrirOpcion}" update=":tabOptions" />
+	</h:form>
+	<p:tabView id="tabOptions" binding="#{modelMB.tabModel}" style="position:absolute; bottom:0; width:100%"
+		widgetVar="tabView" dynamic="true">
+		<p:ajax event="tabChange" listener="#{modelMB.cambiarOpcion}" />
+		<p:ajax event="tabClose" listener="#{modelMB.cerrarOpcion}" />
+	</p:tabView>
+	</ui:remove>
 </ui:composition>

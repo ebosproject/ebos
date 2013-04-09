@@ -122,3 +122,24 @@ label {
    	top:5px;
     right:50px;
 }
+
+body{
+	font-family: geneva, arial, helvetica, sans-serif;
+	font-size: 80%;
+	margin: 0;
+}
+
+#desk {
+	width: 100%; 
+	height: 100%; 
+	position: fixed; 
+	top: 0; 
+	bottom:0;
+	background: url("#{resource['images:desk/ebosback4.jpg']}");
+	margin: 0;
+	padding: 0;
+}
+
+#center{
+	
+}
