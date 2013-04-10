@@ -4,12 +4,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
-	<h:form id="frmCerrarSesion" prependId="false">
 		<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
-			<p:menuitem value="#{msg.ebOpciones}" onclick="dlgMain.show()" icon="ui-icon-star"/>
+			<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="dlgMain.show()" icon="ui-icon-star"/>
 			<p:submenu label="#{msg.ebCuenta}">
-				<p:menuitem value="#{msg.ebCambiarPassword}"
-					onclick="dlgCambiarPwd.show()"/>
+				<p:menuitem value="#{msg.ebCambiarPassword}" url="javascript:void(0)" onclick="dlgCambiarPwd.show()"/>
 			</p:submenu >
 			<f:facet name="options">
 				<eb:panelGrid columns="7">
@@ -17,8 +15,8 @@
 					<p:inputText id="find"/>
 					<p:spacer width="30"/>
 					<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
-					<p:spacer width="14"/>
-					<h:form>
+					<p:spacer width="16"/>
+					<h:form id="frmThemSwitcher">
 						<p:themeSwitcher value="#{themeSwitcherMB.tema}" var="t" 
 							style="width:175px;" effect="fade" >
 							<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
@@ -33,12 +31,13 @@
 				            </p:column>
 						</p:themeSwitcher>
 					</h:form>
-					<p:commandButton value="#{msg.ebSalir} (#{sesionUsuario.usuario.username})"
-						actionListener="#{sesionUsuario.cerrarSesion}" ajax="false" update="@all" icon="ui-icon-extlink"/>
+					<h:form id="frmCerrarSesion" prependId="false">
+						<p:commandButton value="#{msg.ebSalir} (#{sesionUsuario.usuario.username})"
+							actionListener="#{sesionUsuario.cerrarSesion}" ajax="true" icon="ui-icon-extlink" update=":opHome, :opWelcome"/>
+					</h:form>
 				</eb:panelGrid>
 			</f:facet>					
 		</p:menubar>
 		<p:growl id="msgHome" autoUpdate="true" sticky="true" />
-	</h:form>
 	
 </ui:composition>

@@ -71,22 +71,17 @@
         <h:body>
             <ui:include id="loading" src="loading.xhtml" />
             
-            <ui:fragment id="frgWelcome" rendered="#{not sesionUsuario.login}">
-            	<ui:include id="pnlViewExpired" src="pnlViewExpired.xhtml" />
-		    	<div id="lyLogin" align="center">
-			        <div id="lyNorth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-north ui-layout-pane ui-layout-pane-north banner" style="border: medium none; position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 1; height: 51px; display: block; visibility: visible;"/>
-			        <div id="lyCenter" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-center ui-layout-pane ui-layout-pane-center" style="border: medium none; position: absolute; margin: 0px; left: 0px; right: 0px; top: 63px; bottom: 58px; height: 278px; z-index: 1; display: block; visibility: visible;">            	
-			        	<ui:include src="login.xhtml" />
-			       	</div>
-			        <div id="lySouth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-south ui-layout-pane ui-layout-pane-south" style="border: medium none; position: absolute; margin: 0px; top: auto; bottom: 0px; left: 0px; right: 0px; width: auto; z-index: 1; height: 46px; display: block; visibility: visible;">
-			        	<h:outputLabel id="copyright" value="#{msg.systemCopyright}"/>
-			        </div>
-			    </div>
-            </ui:fragment>
-
-			<ui:fragment id="frgHome" rendered="#{sesionUsuario.login}">
-				<ui:include src="desk.xhtml" />	            
-            </ui:fragment>
+            <p:outputPanel id="opWelcome">
+	            <ui:fragment rendered="#{not sesionUsuario.login}">
+		        	<ui:include src="login.xhtml" />
+	            </ui:fragment>
+			</p:outputPanel>
+			
+			<p:outputPanel id="opHome">
+				<ui:fragment rendered="#{sesionUsuario.login}">
+					<ui:include src="desk.xhtml" />	            
+	            </ui:fragment>
+            </p:outputPanel>
         </h:body>
     </f:view>
 </html>

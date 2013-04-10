@@ -8,8 +8,12 @@
 		<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" />
 		<ui:include id="north" src="north.xhtml" />
 		<ui:include id="west" src="west.xhtml" />
-		<ui:include id="center" src="center.xhtml" />
-		<ui:include id="south" src="south.xhtml" />
+		<div id="center">
+			<ui:include id="center" src="center.xhtml" />
+		</div>
+		<div id="south" class="ui-menu ui-menubar ui-widget ui-widget-content ui-corner-all ui-helper-clearfix">
+			<ui:include id="south" src="south.xhtml" />
+		</div>
 	</div>	
 	
 </ui:composition>

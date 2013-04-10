@@ -2,27 +2,36 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:form id="frmIniciarSesion">
-		<p:panel header="#{msg.systemIngreso}" 
-			style="width: 350px; padding: 5px; margin:50px;">
-			<h:panelGrid id="pnlingreso" columns="3">
-				<p:graphicImage value="resources/images/username.png" />
-				<p:watermark for="username" value="#{msg.ebUsuario}" />
-				<p:inputText id="username" value="#{sesionUsuario.usuario.username}"
-					required="true" requiredMessage="#{msg.ebIngreseUsuario}" />
-				<p:graphicImage value="resources/images/password.png" />
-				<p:watermark for="password" value="#{msg.ebClave}" />
-				<p:inputText id="password" type="password"
-					value="#{sesionUsuario.usuario.password}" required="true"
-					requiredMessage="#{msg.ebIngreseClave}" />
-			</h:panelGrid>
-			<h:panelGrid>
-				<p:commandButton id="btnIniciarSesion" value="#{msg.ebIngresar}"
-					actionListener="#{sesionUsuario.iniciarSesion}" ajax="false"
-					update="@all" />
-			</h:panelGrid>
-		</p:panel>
-	</h:form>
-	<p:messages id="msgWelcome" />
+	<ui:include id="pnlViewExpired" src="pnlViewExpired.xhtml" />
+   	<div id="lyLogin" align="center">
+        <div id="lyNorth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-north ui-layout-pane ui-layout-pane-north banner" style="border: medium none; position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 1; height: 51px; display: block; visibility: visible;"/>
+        <div id="lyCenter" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-center ui-layout-pane ui-layout-pane-center" style="border: medium none; position: absolute; margin: 0px; left: 0px; right: 0px; top: 63px; bottom: 58px; height: 278px; z-index: 1; display: block; visibility: visible;">            	
+			<h:form id="frmIniciarSesion">
+				<p:panel header="#{msg.systemIngreso}" 
+					style="width: 350px; padding: 5px; margin:50px;">
+					<h:panelGrid id="pnlingreso" columns="3">
+						<p:graphicImage value="resources/images/username.png" />
+						<p:watermark for="username" value="#{msg.ebUsuario}" />
+						<p:inputText id="username" value="#{sesionUsuario.usuario.username}"
+							required="true" requiredMessage="#{msg.ebIngreseUsuario}" />
+						<p:graphicImage value="resources/images/password.png" />
+						<p:watermark for="password" value="#{msg.ebClave}" />
+						<p:inputText id="password" type="password"
+							value="#{sesionUsuario.usuario.password}" required="true"
+							requiredMessage="#{msg.ebIngreseClave}" />
+					</h:panelGrid>
+					<h:panelGrid>
+						<p:commandButton id="btnIniciarSesion" value="#{msg.ebIngresar}"
+							actionListener="#{sesionUsuario.iniciarSesion}" ajax="true"
+							update=":opHome, :opWelcome" />
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+			<p:messages id="msgWelcome" />
+       	</div>
+        <div id="lySouth" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-south ui-layout-pane ui-layout-pane-south" style="border: medium none; position: absolute; margin: 0px; top: auto; bottom: 0px; left: 0px; right: 0px; width: auto; z-index: 1; height: 46px; display: block; visibility: visible;">
+        	<h:outputLabel id="copyright" value="#{msg.systemCopyright}"/>
+        </div>
+    </div>
 
 </ui:composition>
