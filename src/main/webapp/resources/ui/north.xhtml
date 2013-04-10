@@ -34,7 +34,7 @@
 						</p:themeSwitcher>
 					</h:form>
 					<p:commandButton value="#{msg.ebSalir} (#{sesionUsuario.usuario.username})"
-						actionListener="#{sesionUsuario.cerrarSesion}" ajax="false" update="@all" icon="ui-icon-extlink"/>
+						actionListener="#{sesionUsuario.cerrarSesion}" ajax="true" icon="ui-icon-extlink" update=":opHome, :opWelcome"/>
 				</eb:panelGrid>
 			</f:facet>					
 		</p:menubar>
