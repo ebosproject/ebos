@@ -3,17 +3,18 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
     
-    <p:dialog header="#{msg.ebCambiarPassword}" widgetVar="dlgCambiarPwd" resizable="false" modal="true" closeOnEscape="true">
-        <h:form id="frmCambiarPassword">
-            <eb:panelGrid id="pnlCambiarPassword">
+    <p:dialog id="dlgChangePwd" header="#{msg.ebCambiarPassword}" widgetVar="wgtChangePwd" resizable="false" 
+    	modal="true" closeOnEscape="true" style="z-index:100 !important;" appendToBody="true">
+        <h:form id="frmChangePwd">
+            <eb:panelGrid id="pnlChangePwd">
                 <eb:password id="actpassword" label="#{msg.ebPasswordActual}" value="#{sesionUsuario.usuario.password}" required="true"/>
                 <eb:password id="newpassword" label="#{msg.ebNuevoPassword}" value="#{sesionUsuario.usuario.newpassword}" required="true"/>
                 <eb:password id="confpassword" label="#{msg.ebConfirmarPassword}" value="#{sesionUsuario.usuario.confpassword}" required="true"/>                        
             </eb:panelGrid>   
             <br/>
             <div align="center">
-                <p:commandButton value="#{msg.ebCambiar}" actionListener="#{sesionUsuario.cambiarPassword}" oncomebete="dlgCambiarPwd.hide()" update="@form"/>
-                <p:commandButton value="#{msg.ebCancelar}" type="button" onclick="dlgCambiarPwd.hide()" update="@form"/>                        
+                <p:commandButton id="btnChangePwd" value="#{msg.ebCambiar}" actionListener="#{sesionUsuario.cambiarPassword}" oncomebete="wgtChangePwd.hide()" update="@form"/>
+                <p:commandButton id="btnCancel" value="#{msg.ebCancelar}" type="button" onclick="wgtChangePwd.hide()" update="@form"/>                        
             </div>
         </h:form>
     </p:dialog>

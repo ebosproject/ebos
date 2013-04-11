@@ -5,28 +5,25 @@
 				xmlns:eb="http://ebos.com.ec/ui">
 	
 	<h:form id="frmDashboard">
-		<p:dashboard id="board" model="#{dashboardMB.model}">
+		<p:dashboard id="dashboard" model="#{dashboardMB.model}">
             <p:ajax event="reorder" listener="#{dashboardMB.handleReorder}"/>
-			<p:panel id="sports" header="#{msg.ebBundle}" >
-				<p:commandLink value="#{msg.ebBundle}" onclick="dlgOption_37.show()"/>
+			<p:panel id="bundle" header="#{msg.ebBundle}" >
+				<p:commandLink value="#{msg.ebBundle}" onclick="wgtOption_37.show()"/>
 			</p:panel>
-			<p:panel id="finance" header="Finance" >
-				<h:outputText value="Finance Content" />
+			<p:panel id="usuario" header="#{msg.ebUsuario}" >
+				<p:commandLink value="#{msg.ebUsuario}" onclick="wgtOption_37.show()"/>
 			</p:panel>
-			<p:panel id="lifestyle" header="Lifestyle">
-               	<h:outputText value="Lifestyle Content"  />
+			<p:panel id="rol" header="#{msg.ebRol}">
+               	<p:commandLink value="#{msg.ebRol}" onclick="wgtOption_37.show()"/>
 			</p:panel>
-			<p:panel id="weather" header="Weather">
-				<h:outputText value="Weather Content" />
-			</p:panel>
-			<p:panel id="politics" header="Politics">
-				<h:outputText value="Politics Content" />
+			<p:panel id="opcion" header="#{msg.ebOpcion}">
+				<p:commandLink value="#{msg.ebOpcion}" onclick="wgtOption_37.show()"/>
 			</p:panel>
 		</p:dashboard>
 	</h:form> 
 	
-	<p:dialog id="dlgOption_37_2" 
-		widgetVar="dlgOption_37_2" 
+	<p:dialog id="dlgOption" 
+		widgetVar="wgtOption_37" 
 		header="#{msg.ebBundle}"
 		height="700" width="900" 
 		minHeight="350" minWidth="450"
@@ -36,23 +33,18 @@
 		minimizable="true"
 		appendToBody="true"
 		showEffect="fade" 
-		hideEffect="drop">
-		<iframe id="iframe_37_2" src="app/bundle/index.jsf" class="border0" width="100%" height="100%">                        
-	        <p>Su navegador no soporta iframes</p>
-        </iframe>		        		
+		hideEffect="drop" onHide="alert('Cerrando...')">
+		
+		<ui:include src="/app/bundle/index.xhtml"/>	
+		
 	</p:dialog>
 
-	<p:dialog id="dlgOption_37" widgetVar="dlgOption_37" header="#{msg.ebBundle}" 
-		closeOnEscape="true" maximizable="true" minimizable="true">
-		<ui:include src="/app/bundle/index.xhtml"/>				        		
-	</p:dialog>
-	
 	<p:imageSwitch id="background" widgetVar="eBosBack" effect="fade" 
-		style="z-index:-100;" slideshowAuto="false">
-		<p:graphicImage value="resources/images/desk/ebosback4.jpg" height="100%" width="100%"/>
-		<p:graphicImage value="resources/images/desk/ebosback3.jpg" height="100%" width="100%"/>
-		<p:graphicImage value="resources/images/desk/ebosback2.jpg" height="100%" width="100%"/>
-		<p:graphicImage value="resources/images/desk/ebosback.jpg" height="100%" width="100%"/>	
+		style="z-index:-100; height:100%;" slideshowAuto="false">
+		<p:graphicImage value="resources/images/desk/ebosback4.jpg" width="100%"/>
+		<p:graphicImage value="resources/images/desk/ebosback3.jpg" width="100%"/>
+		<p:graphicImage value="resources/images/desk/ebosback2.jpg" width="100%"/>
+		<p:graphicImage value="resources/images/desk/ebosback.jpg" width="100%"/>	
 	</p:imageSwitch>
 	
 	<!-- <p:contextMenu for="background"> -->

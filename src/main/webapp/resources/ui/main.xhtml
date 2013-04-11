@@ -9,8 +9,10 @@
 
     <f:view contentType="text/html">
         <h:head>            
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>            
-            <title>#{msg.systemName}</title>            
+        	<f:facet name="first">
+	            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>            
+	            <title>#{msg.systemName}</title>
+            </f:facet>            
             <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
             <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
             <h:outputScript library="js" name="jquery-1.7.2.js" />
@@ -24,30 +26,30 @@
     	abrirOpcion(([{name:'opcionId', value:opcionId}]));
     	var dialogId = "dlgOption_"+opcionId;
     	var dialog = jQuery("div#"+dialogId+".ui-dialog-content");  
+
     	if(dialog.length == 0){				
-			var iFrame = "<iframe id='iframe_"+opcionId+"' src='"+url+"'"+
-			"frameborder='0' class='border0' width='100%' height='100%'>"+                        
-	        "<p>Su navegador no soporta iframes</p></iframe>";
-	        dialog.prepend(iFrame);
+			var contentPanel = " ";
+	        dialog.prepend(contentPanel);
 	        jQuery("div#"+dialogId).show();
-		} else {
-			
 		}
-    	#{p:widgetVar('dlgOption_37_2')}.show();
-		
     }
-//]]></script>            
+    
+    function jsCerrarOpcion(opcionId){
+    	//Remove prepender iframe
+    	jQuery("div[id='pnl_"+opcionId+"']").remove();
+    }    
+//]]></script>
         </h:head>        
         <h:body>
             <ui:include id="loading" src="loading.xhtml" />
             
-            <p:outputPanel id="opWelcome">
+            <p:outputPanel id="opnWelcome">
 	            <ui:fragment rendered="#{not sesionUsuario.login}">
 		        	<ui:include src="login.xhtml" />
 	            </ui:fragment>
 			</p:outputPanel>
 			
-			<p:outputPanel id="opHome">
+			<p:outputPanel id="opnHome">
 				<ui:fragment rendered="#{sesionUsuario.login}">
 					<ui:include src="desk.xhtml" />	            
 	            </ui:fragment>

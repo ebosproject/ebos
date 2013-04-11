@@ -2,14 +2,15 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:p="http://primefaces.org/ui">
-	<p:dialog id="dlgMain" widgetVar="dlgMain" dynamic="true" closeOnEscape="true" resizable="false" position="0,47">  
+				
+	<p:dialog id="dlgMain" widgetVar="wgtMain" dynamic="true" closeOnEscape="true" resizable="false" position="0,47">  
 		<h:form id="frmMenu">
 			<p:panelMenu id="pnlMenu" model="#{modelMB.menuModel}"/>
 			<script>
 	            jQuery('#frmMenu a').mouseup(function(event){jsPreventDefault(event, this)});
 	        </script>
 		</h:form>
-		<h:form id="commands">
+		<h:form id="frmCommands">
 			<p:remoteCommand name="abrirOpcion"	actionListener="#{modelMB.abrirOpcion}"/>
 		</h:form>
 	</p:dialog>
