@@ -85,14 +85,6 @@
 
 }
 
-/*
-    p:menubar
-*/
-
-/*Container element of menubar*/
-.ui-menubar{
-}
-
 
 
 .nestedUnit {
@@ -104,6 +96,30 @@
 */
 
 
+/*
+	p:clock
+*/
 .ui-clock{
-	padding: 4px 2px;
+	padding: 4px 4px;
+	text-align: center;
+}
+
+/*
+	p:dialog
+*/
+.ui-dialog-content{
+	padding: 0px !important;
+}
+
+/*
+	p:dashboard
+*/
+
+.ui-panel {
+	margin: 10px;
+	width:200px;
+}
+			
+.ui-dashboard-column {
+	width:220px;
 }
