@@ -81,11 +81,6 @@
     padding: 0 !important;
 }
 
-.ui-panel{
-
-}
-
-
 
 .nestedUnit {
     border:0px none !important;
@@ -115,7 +110,7 @@
 	p:dashboard
 */
 
-.ui-panel, div.ui-state-hover {
+.ui-panel {
 	margin: 10px;
 	width:200px;
 }

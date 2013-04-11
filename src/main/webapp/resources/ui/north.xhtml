@@ -8,7 +8,7 @@
 			<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="dlgMain.show()" icon="ui-icon-star"/>
 			<p:submenu label="#{msg.ebCuenta}">
 				<p:menuitem value="#{msg.ebCambiarPassword}" url="javascript:void(0)" onclick="dlgCambiarPwd.show()"/>
-			</p:submenu >
+			</p:submenu>
 			<f:facet name="options">
 				<eb:panelGrid columns="7">
 					<p:watermark for="find" value="#{msg.ebFind}" />
@@ -16,7 +16,7 @@
 					<p:spacer width="30"/>
 					<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
 					<p:spacer width="16"/>
-					<h:form id="frmThemSwitcher">
+					<h:form id="frmThemeSwitcher">
 						<p:themeSwitcher value="#{themeSwitcherMB.tema}" var="t" 
 							style="width:175px;" effect="fade" >
 							<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
