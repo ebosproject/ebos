@@ -11,7 +11,9 @@
 	        </script>
 		</h:form>
 		<h:form id="frmCommands">
-			<p:remoteCommand name="abrirOpcion"	actionListener="#{modelMB.abrirOpcion}"/>
+			<p:remoteCommand name="openOption"	actionListener="#{modelMB.openOption}"/>
+			<p:remoteCommand name="closeOption" actionListener="#{modelMB.closeOption}"/>
+			<p:remoteCommand name="changeOption" actionListener="#{modelMB.changeOption}"/>
 		</h:form>
 	</p:dialog>
 </ui:composition>

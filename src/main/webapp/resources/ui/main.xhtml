@@ -22,8 +22,9 @@
     window.history.forward(1);            
     jQuery.noConflict();        
 
-    function jsAbrirOpcion(opcionId, url){
-    	abrirOpcion(([{name:'opcionId', value:opcionId}]));
+    function jsOpenOption(optionId){
+    	openOption(([{name:'optionId', value:optionId}]));
+/*
     	var dialogId = "dlgOption_"+opcionId;
     	var dialog = jQuery("div#"+dialogId+".ui-dialog-content");  
 
@@ -31,13 +32,17 @@
 			var contentPanel = " ";
 	        dialog.prepend(contentPanel);
 	        jQuery("div#"+dialogId).show();
-		}
+		}*/
     }
     
-    function jsCerrarOpcion(opcionId){
-    	//Remove prepender iframe
-    	jQuery("div[id='pnl_"+opcionId+"']").remove();
+    function jsCloseOption(optionId){
+    	closeOption(([{name:'optionId', value:optionId}]));
+    	jQuery("div[id='pnl_"+optionId+"']").remove();
     }    
+
+    function jsChangeOption(optionId){
+    	changeOption(([{name:'optionId', value:optionId}]));
+    }
 //]]></script>
         </h:head>        
         <h:body>

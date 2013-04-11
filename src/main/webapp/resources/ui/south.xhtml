@@ -6,12 +6,12 @@
 <ui:remove>
 	<h:form id="commands">
 		<p:remoteCommand name="abrirOpcion"
-			actionListener="#{modelMB.abrirOpcion}" update=":tabOptions" />
+			actionListener="#{modelMB.openOption}" update=":tabOptions" />
 	</h:form>
 	<p:tabView id="tabOptions" binding="#{modelMB.tabModel}" style="position:absolute; bottom:0; width:100%"
 		widgetVar="tabView" dynamic="true">
 		<p:ajax event="tabChange" listener="#{modelMB.cambiarOpcion}" />
-		<p:ajax event="tabClose" listener="#{modelMB.cerrarOpcion}" />
+		<p:ajax event="tabClose" listener="#{modelMB.closeOption}" />
 	</p:tabView>
 </ui:remove>
 </ui:composition>
