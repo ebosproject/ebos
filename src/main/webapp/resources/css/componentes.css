@@ -75,25 +75,16 @@
 
 /*Main container of tab headers*/
 .ui-tabs-nav{
-} 
+}
+
 /*Each tab container*/
 .ui-tabs-panel{
     padding: 0 !important;
 }
 
-.ui-panel{
-
-}
-
-
-
 .nestedUnit {
     border:0px none !important;
 }
-
-/*
-    p:datatable
-*/
 
 
 /*
