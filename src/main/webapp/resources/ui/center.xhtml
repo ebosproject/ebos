@@ -8,38 +8,21 @@
 		<p:dashboard id="dashboard" model="#{dashboardMB.model}">
             <p:ajax event="reorder" listener="#{dashboardMB.handleReorder}"/>
 			<p:panel id="bundle" header="#{msg.ebBundle}" >
-				<p:commandLink value="#{msg.ebBundle}" onclick="wgtOption_37.show()"/>
+				<p:commandLink value="#{msg.ebBundle}"/>
 			</p:panel>
 			<p:panel id="usuario" header="#{msg.ebUsuario}" >
-				<p:commandLink value="#{msg.ebUsuario}" onclick="wgtOption_37.show()"/>
+				<p:commandLink value="#{msg.ebUsuario}"/>
 			</p:panel>
 			<p:panel id="rol" header="#{msg.ebRol}">
-               	<p:commandLink value="#{msg.ebRol}" onclick="wgtOption_37.show()"/>
+               	<p:commandLink value="#{msg.ebRol}"/>
 			</p:panel>
 			<p:panel id="opcion" header="#{msg.ebOpcion}">
-				<p:commandLink value="#{msg.ebOpcion}" onclick="wgtOption_37.show()"/>
+				<p:commandButton value="#{msg.ebOpcion}"/>
 			</p:panel>
 		</p:dashboard>
 	</h:form> 
 	
-	<p:dialog id="dlgOption" 
-		widgetVar="wgtOption_37" 
-		header="#{msg.ebBundle}"
-		height="700" width="900" 
-		minHeight="350" minWidth="450"
-		closeOnEscape="true" 
-		dynamic="true" 
-		maximizable="true" 
-		minimizable="true"
-		appendToBody="true"
-		showEffect="fade" 
-		hideEffect="drop" onHide="alert('Cerrando...')">
-		
-		<ui:include src="/app/bundle/index.xhtml"/>	
-		
-	</p:dialog>
-	
-	<h:panelGroup id="pngDialogs" layout="block" />
+	<p:panel id="pnlDialogs" binding="#{modelMB.pnlDialogs}"/>
 
 	<p:imageSwitch id="background" widgetVar="eBosBack" effect="fade" 
 		style="z-index:-100; height:100%;" slideshowAuto="false">

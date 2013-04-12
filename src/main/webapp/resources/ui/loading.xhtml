@@ -2,23 +2,24 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core">
-    
+
+<ui:remove>    
     <ui:insert name="status">
-            <p:ajaxStatus>
-                <f:facet name="start">
-                    <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
-                </f:facet>
-                <f:facet name="complete">
-                    <h:outputText value="" />
-                </f:facet>
-            </p:ajaxStatus>
+	     <p:ajaxStatus>
+	         <f:facet name="start">
+	             <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
+	         </f:facet>
+	         <f:facet name="complete">
+	             <h:outputText value="" />
+	         </f:facet>
+	     </p:ajaxStatus>
 	</ui:insert>
-<ui:remove>
+</ui:remove>
+
 	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();" />
     <p:dialog modal="true" widgetVar="statusDialog" draggable="false"
                 closable="false" resizable="false" showHeader="false">
         <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
     </p:dialog>
-</ui:remove>
 
 </ui:composition>

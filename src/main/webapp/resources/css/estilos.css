@@ -163,3 +163,13 @@ body{
 #dlgMain, .ui-dialog-content {
     overflow: hidden !important;
 }
+
+#pnlDialogs{
+	margin: 0px 10px 0px 0px; 
+	border-top-width: 0px; 
+	padding: 0px; 
+	width: 0px; 
+	height: 0px; 
+	border-left-width: 0px; 
+	border-bottom-width: 0px;
+}

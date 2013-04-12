@@ -4,7 +4,7 @@
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
     
     <p:dialog id="dlgChangePwd" header="#{msg.ebCambiarPassword}" widgetVar="wgtChangePwd" resizable="false" 
-    	modal="true" closeOnEscape="true" style="z-index:100 !important;" appendToBody="true">
+    	modal="true" closeOnEscape="true" style="z-index:100 !important;" appendToBody="false">
         <h:form id="frmChangePwd">
             <eb:panelGrid id="pnlChangePwd">
                 <eb:password id="actpassword" label="#{msg.ebPasswordActual}" value="#{sesionUsuario.usuario.password}" required="true"/>

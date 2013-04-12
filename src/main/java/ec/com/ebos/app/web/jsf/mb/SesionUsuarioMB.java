@@ -87,7 +87,6 @@ public class SesionUsuarioMB implements Serializable{
         session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
         session.setAttribute(BEAN_NAME, this);
         defineSessionTimeout();
-        
     }
     
     public void cambiarPassword(){

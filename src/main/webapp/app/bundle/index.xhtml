@@ -1,6 +1,7 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/resources/templates/index.xhtml">
+<f:subview xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ui="http://java.sun.com/jsf/facelets"
+            template="/resources/templates/index.xhtml">
 
     <ui:param name="bean" value="#{bundleMB}" />
     <ui:param name="optionName" value="#{msg.ebBundle}" />
@@ -14,4 +15,4 @@
         <ui:include src="indexResultados.xhtml" />
     </ui:define>
 
-</ui:composition>
+</f:subview>

@@ -2,16 +2,16 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui">
     
-    <p:confirmDialog header="#{msg.systemViewExpired}" severity="alert" width="200px" closeOnEscape="true"
+    <p:confirmDialog id="cdlViewExpired" header="#{msg.systemViewExpired}" severity="alert" width="200px" closeOnEscape="true"
                      visible="#{not empty param['expired']}" 
-                     message="#{msg.ebViewExpired}" widgetVar="viewExpiredDlg">
-		<div align="center"><p:commandButton type="button" value="OK" onclick="viewExpiredDlg.hide()" /></div>
+                     message="#{msg.ebViewExpired}" widgetVar="wgtViewExpired">
+		<div align="center"><p:commandButton type="button" value="OK" onclick="wgtViewExpired.hide()" /></div>
     </p:confirmDialog>
     
-    <p:confirmDialog header="#{msg.systemTimedout}" severity="alert" width="200px"
+    <p:confirmDialog id="cdlTimedout" header="#{msg.systemTimedout}" severity="alert" width="200px"
                      visible="#{not empty param['timedout']}" closeOnEscape="true"
-                     message="#{msg.ebSessionTimedout}" widgetVar="timedoutDlg">
-		<div align="center"><p:commandButton type="button" value="OK" onclick="timedoutDlg.hide()" /></div>
+                     message="#{msg.ebSessionTimedout}" widgetVar="wgtTimedout">
+		<div align="center"><p:commandButton type="button" value="OK" onclick="wgtTimedout.hide()" /></div>
     </p:confirmDialog>
 
 </ui:composition>
