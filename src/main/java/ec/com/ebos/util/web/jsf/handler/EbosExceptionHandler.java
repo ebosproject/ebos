@@ -1,4 +1,4 @@
-package ec.com.ebos.util.web.jsf.event;
+package ec.com.ebos.util.web.jsf.handler;
 
 import java.util.Iterator;
 

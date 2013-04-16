@@ -2,7 +2,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:p="http://primefaces.org/ui" 
-				xmlns:eb="http://ebos.com.ec/ui">
+				xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 	
 	<h:form id="frmDashboard">
 		<p:dashboard id="dashboard" model="#{dashboardMB.model}">
@@ -13,11 +13,11 @@
 			<p:panel id="usuario" header="#{msg.ebUsuario}" >
 				<p:commandLink value="#{msg.ebUsuario}"/>
 			</p:panel>
-			<p:panel id="rol" header="#{msg.ebRol}">
-               	<p:commandLink value="#{msg.ebRol}"/>
+			<p:panel id="rol" header="Prueba1">
+               	<p:commandButton value="#{msg.ebOpcion}" action="#{modelMB.prueba1}"/>
 			</p:panel>
-			<p:panel id="opcion" header="#{msg.ebOpcion}">
-				<p:commandButton value="#{msg.ebOpcion}"/>
+			<p:panel id="opcion" header="Prueba2">
+				<p:commandButton value="#{msg.ebOpcion}" action="#{modelMB.prueba2}"/>
 			</p:panel>
 		</p:dashboard>
 	</h:form> 
@@ -33,7 +33,7 @@
 	</p:imageSwitch>
 	
 	<!-- <p:contextMenu for="background"> -->
-	<p:contextMenu>
+	<p:contextMenu id="ctmBackground">
 		<p:menuitem value="#{msg.ebPreviousImage}" url="javascript:void(0)" onclick="eBosBack.previous();" icon="ui-icon-triangle-1-w"/>
 		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="eBosBack.next();" icon="ui-icon-triangle-1-e"/>
 	</p:contextMenu>

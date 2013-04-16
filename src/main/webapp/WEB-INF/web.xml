@@ -116,4 +116,12 @@
     <exception-type>javax.faces.application.ViewExpiredException</exception-type>
     <location>/welcome.jsf</location>
   </error-page>
+  <error-page>
+  	<error-code>404</error-code>
+    <location>/welcome.jsf</location>
+  </error-page>
+    <error-page>
+  	<error-code>500</error-code>
+    <location>/welcome.jsf</location>
+  </error-page>
 </web-app>

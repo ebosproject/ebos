@@ -10,6 +10,7 @@ import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -74,17 +75,14 @@ public class SesionUsuarioMB implements Serializable{
     public void cerrarSesion() {                
         this.rolOpcionList.clear();        
         this.login = false;
+        ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
+        
         // Invalida la sesion web actual, crear una nueva, y asocia el bean de sesion del usuario
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        HttpSession session = (HttpSession) extContext.getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        // invalida la sesion web actual, crear una nueva, y asocia el bean de sesion del usuario
-        session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        if (session != null) {
-            session.invalidate();
-        }
-        session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        session = (HttpSession) extContext.getSession(true);
         session.setAttribute(BEAN_NAME, this);
         defineSessionTimeout();
     }
@@ -123,10 +121,8 @@ public class SesionUsuarioMB implements Serializable{
     * Define el timeout de la sesion actual
     */
     private void defineSessionTimeout() {
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        if (session != null) {
-            session.setMaxInactiveInterval(login ? Constantes.SESSION_TIMEOUT : Constantes.SESSION_TIMEOUT_LOGOUT);
-        }
+    	ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
+    	extContext.setSessionMaxInactiveInterval(login ? Constantes.SESSION_TIMEOUT : Constantes.SESSION_TIMEOUT_LOGOUT);
     }
     
 //

@@ -28,10 +28,10 @@ public class IdleMonitorMB {
 		NavigationHandler navHandler = context.getApplication()
 				.getNavigationHandler();
 		sesionUsuario.cerrarSesion();
-//		RequestContext requestContext = RequestContext.getCurrentInstance();
-		
-//		requestContext.update("frgWelcome");
-//		requestContext.update("frgHome");
+
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.update("frgWelcome");
+		requestContext.update("frgHome");
 		
 //		context.addMessage(
 //				null,

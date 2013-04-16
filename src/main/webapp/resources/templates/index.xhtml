@@ -10,10 +10,10 @@
 
     <ui:define name="west">
         <h:form id="frmFiltros">
-            <p:toolbar id="toolBarFiltros">
+            <p:toolbar id="toolbarFiltros">
                 <p:toolbarGroup align="left">
                     <p:commandButton id="btnBuscar" actionListener="#{bean._buscar}" value="#{msg.ebBuscar}" 
-                    icon="ui-icon-search" update=":frmResultados"/>
+                    icon="ui-icon-search" update="@(:frmResultados)"/>
                 </p:toolbarGroup>
             </p:toolbar>
 
@@ -47,8 +47,8 @@
                          selectionMode="single"
                          selection="#{bean.activeEntity}"
                          paginator="true" 
-                         paginatorTemebate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
-                         rowsPerPageTemebate="5,10,15,50"
+                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+                         rowsPerPageTemplate="5,10,15,50"
                          rows="10" 
                          emptyMessage="#{msg.ebEmptyDataTable}"
                          resizableColumns="true"
@@ -56,9 +56,9 @@
                          scrollHeight="100%"
                          rowKey="#{reg.id}">
                          
-                <p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" oncomebete="fnEditar();"/>         
+                <p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" oncomplete="fnEditar();"/>         
                          
-                <p:column headerText="Id" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
+                <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
                     <p:commandLink id="cmlEditar" type="push" value="#{reg.id}" 
                     	action="#{bean._editar}" ajax="false" style="color:blue"
                         title="#{msg.ebVer}" onmouseup="jsPreventDefault(event,this);">

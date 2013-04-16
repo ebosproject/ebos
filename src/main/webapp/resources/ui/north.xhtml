@@ -10,32 +10,37 @@
 				<p:menuitem value="#{msg.ebCambiarPassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
 			</p:submenu>
 			<f:facet name="options">
-				<eb:panelGrid columns="7">
-					<p:watermark for="find" value="#{msg.ebFind}" />
-					<p:inputText id="find"/>
-					<p:spacer width="30"/>
-					<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
-					<p:spacer width="16"/>
-					<h:form id="frmThemeSwitcher">
-						<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherMB.tema}" var="t" 
-							style="width:175px;" effect="fade" >
-							<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
-							<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
-								var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
-							<p:ajax listener="#{themeSwitcherMB.guardarTema}" />
-							<p:column>
-								<h:graphicImage name="images/themes/#{t.imagen}" />
-							</p:column>
-							<p:column>
-				           		#{t.nombre}
-				            </p:column>
-						</p:themeSwitcher>
-					</h:form>
-					<h:form id="frmCerrarSesion" prependId="false">
-						<p:commandButton value="#{msg.ebSalir} (#{sesionUsuario.usuario.username})"
-							actionListener="#{sesionUsuario.cerrarSesion}" icon="ui-icon-extlink" update=":opnHome, :opnWelcome"/>
-					</h:form>
-				</eb:panelGrid>
+				<div style="height: 28px; width: 510px;">
+					<div style="position: absolute; top:0px; right: 368px; padding:1px 1px 1px 1px;">
+						<eb:inputText id="find" watermark="#{msg.ebFind}"/>
+					</div>
+					<div style="position: absolute; top:0px; right: 313px; padding:1px 1px 1px 1px;">
+						<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
+					</div>					
+					<div style="position: absolute; top:0px; right: 113px; padding:1px 1px 1px 1px;">
+						<h:form id="frmThemeSwitcher">
+							<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherMB.tema}" var="t" 
+								style="width:175px;" effect="fade" >
+								<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
+								<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
+									var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
+								<p:ajax listener="#{themeSwitcherMB.guardarTema}" />
+								<p:column>
+									<h:graphicImage name="images/themes/#{t.imagen}" />
+								</p:column>
+								<p:column>
+					           		#{t.nombre}
+					            </p:column>
+							</p:themeSwitcher>
+						</h:form>
+					</div>
+					<div style="position: absolute; top:0px; right: 0px; padding:1px 1px 1px 1px;">
+						<h:form id="frmCerrarSesion" prependId="false">
+							<p:commandButton value="#{msg.ebSalir} (#{sesionUsuario.usuario.username})"
+								actionListener="#{sesionUsuario.cerrarSesion}" icon="ui-icon-extlink" update=":opnHome, :opnWelcome"/>
+						</h:form>
+					</div>
+				</div>
 			</f:facet>					
 		</p:menubar>
 		<p:growl id="groHome" autoUpdate="true" sticky="true" />

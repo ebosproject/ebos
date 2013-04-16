@@ -16,8 +16,8 @@
 	</ui:insert>
 </ui:remove>
 
-	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();" />
-    <p:dialog modal="true" widgetVar="statusDialog" draggable="false"
+	<p:ajaxStatus id="ajaxStatus" onstart="wgtAjaxStatus.show();" onsuccess="wgtAjaxStatus.hide();" />
+    <p:dialog id="dlgAjaxStatus" modal="false" widgetVar="wgtAjaxStatus" draggable="false"
                 closable="false" resizable="false" showHeader="false">
         <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
     </p:dialog>

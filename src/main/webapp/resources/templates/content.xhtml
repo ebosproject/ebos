@@ -1,10 +1,9 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui">
 	
-	<ui:include id="loading" src="../ui/loading.xhtml" />            
-     <ui:insert name="west" />
-     <p:growl id="msgTabs" autoUpdate="true" sticky="true"/>
-     <ui:insert name="center"/>            
+	<!-- <ui:include id="loading" src="../ui/loading.xhtml" /> -->
+	<p:growl id="msgTabs" autoUpdate="true" sticky="true"/>            
+    <ui:insert name="west" />
+    <ui:insert name="center"/>            
              
 </ui:composition>            

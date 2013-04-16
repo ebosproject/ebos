@@ -155,8 +155,8 @@ body{
 
 #menubar{
 	border-width: 0;
-	height: 35px;
-	padding: 0 0 2px;
+	height: 30px;
+	padding: 0 0 0 0;
 	border-radius: 0 0 0 0;
 }
 
@@ -173,3 +173,25 @@ body{
 	border-left-width: 0px; 
 	border-bottom-width: 0px;
 }
+
+/*
+	login.xhtml
+*/
+#lyNorth{
+	border: medium none; 
+	position: absolute; 
+	margin: 0px; 
+	top: 0px; 
+	bottom: auto; 
+	left: 0px; 
+	right: 0px; 
+	width: auto; 
+	z-index: 1; 
+	height: 51px; 
+	display: block; 
+	visibility: visible;
+	
+}
+
+
+
