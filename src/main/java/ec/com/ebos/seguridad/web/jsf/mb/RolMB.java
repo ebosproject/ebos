@@ -9,8 +9,8 @@ import javax.faces.bean.SessionScoped;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.fwk.crud.Paginacion;
 import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.seguridad.model.Opcion;
 import ec.com.ebos.seguridad.model.Rol;
 import ec.com.ebos.seguridad.model.RolOpcion;
@@ -53,7 +53,7 @@ public class RolMB extends GenericSeguridadMB<Rol> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Rol> loadDataTableCollection(Rol rol, Paginacion paginacion) {
+    protected List<Rol> loadDataTableCollection(Rol rol, Pagination paginacion) {
         return seguridadS.obtenerRolList(rol, paginacion);
     }
         
@@ -129,7 +129,7 @@ public class RolMB extends GenericSeguridadMB<Rol> {
 
     public List<Opcion> getOpcionList() {
         if(opcionList.isEmpty()){
-            opcionList = seguridadS.obtenerOpcionList(null, new Paginacion()); // TODO (epa): Crear metodo sin paginacion
+            opcionList = seguridadS.obtenerOpcionList(null, new Pagination()); // TODO (epa): Crear metodo sin paginacion
         }        
         return opcionList;
     }

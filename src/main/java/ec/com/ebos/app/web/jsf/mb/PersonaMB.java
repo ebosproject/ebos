@@ -8,18 +8,20 @@ import javax.faces.bean.SessionScoped;
 
 import lombok.Getter;
 import ec.com.ebos.app.model.Persona;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.GenericUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-04-02
  */
-@ManagedBean(name = "personaMB")
+@ManagedBean(name = PersonaMB.BEAN_NAME)
 @SessionScoped
 public class PersonaMB extends GenericAppMB<Persona> {
     
 	private static final long serialVersionUID = 783070179851922363L;
+	
+	public static final String BEAN_NAME = "personaMB";
 
 	@Override
     public void getInit() {
@@ -51,7 +53,7 @@ public class PersonaMB extends GenericAppMB<Persona> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Persona> loadDataTableCollection(Persona persona, Paginacion paginacion) {
+    protected List<Persona> loadDataTableCollection(Persona persona, Pagination paginacion) {
         return appS.obtenerPersonaList(persona, paginacion);
     }
         

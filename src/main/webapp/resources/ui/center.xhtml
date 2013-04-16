@@ -14,17 +14,17 @@
 				<p:commandLink value="#{msg.ebUsuario}"/>
 			</p:panel>
 			<p:panel id="rol" header="Prueba1">
-               	<p:commandButton value="#{msg.ebOpcion}" action="#{modelMB.prueba1}"/>
+               	<p:commandButton value="#{msg.ebOpcion}" action="#{deskMB.prueba1}"/>
 			</p:panel>
 			<p:panel id="opcion" header="Prueba2">
-				<p:commandButton value="#{msg.ebOpcion}" action="#{modelMB.prueba2}"/>
+				<p:commandButton value="#{msg.ebOpcion}" action="#{deskMB.update('pngDialogs')}"/>
 			</p:panel>
 		</p:dashboard>
 	</h:form> 
 	
-	<p:panel id="pnlDialogs" binding="#{modelMB.pnlDialogs}"/>
+	<h:panelGroup id="pngDialogs" binding="#{deskMB.pngDialogs}"/>
 
-	<p:imageSwitch id="background" widgetVar="eBosBack" effect="fade" 
+	<p:imageSwitch id="background" widgetVar="wgtBack" effect="fade" 
 		style="z-index:-100; height:100%;" slideshowAuto="false">
 		<p:graphicImage value="resources/images/desk/ebosback4.jpg" width="100%"/>
 		<p:graphicImage value="resources/images/desk/ebosback3.jpg" width="100%"/>
@@ -34,8 +34,8 @@
 	
 	<!-- <p:contextMenu for="background"> -->
 	<p:contextMenu id="ctmBackground">
-		<p:menuitem value="#{msg.ebPreviousImage}" url="javascript:void(0)" onclick="eBosBack.previous();" icon="ui-icon-triangle-1-w"/>
-		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="eBosBack.next();" icon="ui-icon-triangle-1-e"/>
+		<p:menuitem value="#{msg.ebPreviousImage}" url="javascript:void(0)" onclick="wgtBack.previous();" icon="ui-icon-triangle-1-w"/>
+		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="wgtBack.next();" icon="ui-icon-triangle-1-e"/>
 	</p:contextMenu>
    	
 </ui:composition>

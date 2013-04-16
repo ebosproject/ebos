@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.apache.log4j.lf5.LogRecordFilter;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -18,7 +17,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.app.model.Persona;
-import ec.com.ebos.app.web.jsf.mb.SesionUsuarioMB;
+import ec.com.ebos.app.web.jsf.mb.SessionMB;
 import ec.com.ebos.seguridad.core.servicio.SeguridadS;
 import ec.com.ebos.seguridad.model.Usuario;
 import ec.com.ebos.util.Constantes;
@@ -26,7 +25,7 @@ import ec.com.ebos.util.DateUtils;
 import ec.com.ebos.util.HTTPUtils;
 
 /**
- * Aspectos de Securidad
+ * Security aspects of the platform
  * 
  * @author Eduardo Plua Alay
  * @since 2013/02/13
@@ -102,13 +101,12 @@ public class SecurityAspect {
 		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 		
 		try {
-			Usuario usuario = ((SesionUsuarioMB) joinPoint.getArgs()[0]).getUsuario();
+			Usuario usuario = ((SessionMB) joinPoint.getArgs()[0]).getUsuario();
 
 			Persona persona = usuario.getEmpresaPersona().getPersona();
 			System.out.println(DateUtils.getFormattedTimestamp()
-					+ " ["
-					+ HTTPUtils.getRemoteAddr(((HttpServletRequest) context
-							.getRequest())) + "]" + " >>> LOGIN " + (result?"OK ":"FAILED ")
+					+ " (" + HTTPUtils.getRemoteAddr(((HttpServletRequest) context
+					.getRequest())) + ")" + " --> LOGIN " + (result?"OK ":"FAILED ")
 					+ usuario.getId() + "::" + persona.getNombres() + " "
 					+ persona.getApellidos());
 			
@@ -121,7 +119,7 @@ public class SecurityAspect {
 		} finally {
 			if (result) {
 				Map<String, Object> sessionMap = context.getSessionMap();
-				sessionMap.put(Constantes.LOGGED_USER_ATTR, Boolean.TRUE);
+				sessionMap.put(Constantes.SESSION_ATTR_CURRENTUSER, Boolean.TRUE);
 			}
 		}
 	}

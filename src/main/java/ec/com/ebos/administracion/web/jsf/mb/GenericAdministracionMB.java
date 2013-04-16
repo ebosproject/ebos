@@ -7,7 +7,6 @@ import lombok.Setter;
 import ec.com.ebos.administracion.core.servicio.AdministracionS;
 import ec.com.ebos.generic.model.Entidad;
 import ec.com.ebos.generic.web.jsf.mb.GenericMB;
-import ec.com.ebos.util.Constantes;
 
 /**
  *
@@ -21,11 +20,6 @@ public abstract class GenericAdministracionMB<T extends Entidad<T>> extends Gene
         super();
     }
 	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".administracion.resources.administracion";
-    }
-    
 	@Getter @Setter
     @ManagedProperty(value = "#{administracionS}")
     protected AdministracionS administracionS;

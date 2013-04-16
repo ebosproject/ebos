@@ -10,10 +10,9 @@ import ec.com.ebos.administracion.core.exception.AdministracionException;
 import ec.com.ebos.administracion.model.Configuracion;
 import ec.com.ebos.administracion.model.Parametros;
 import ec.com.ebos.administracion.model.Parametros_;
-import ec.com.ebos.fwk.crud.GenericCriteria;
 import ec.com.ebos.generic.core.gestor.GenericGImpl;
 import ec.com.ebos.generic.model.Entidad;
-import ec.com.ebos.util.Constantes;
+import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.util.GenericUtils;
 
 /**
@@ -24,11 +23,6 @@ public class AdministracionGImpl extends GenericGImpl<Object, AdministracionExce
 
 	private static final long serialVersionUID = -5387275517395137673L;
 	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".administracion.resources.administracion";
-    }
-
 	//
     //Parametros
     //

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -26,13 +27,13 @@ import ec.com.ebos.util.Constantes;
  *
  * @author Eduardo Plua Alay
  */
-@ManagedBean(name = "sesionUsuario")
+@ManagedBean(name = SessionMB.BEAN_NAME)
 @SessionScoped
-public class SesionUsuarioMB implements Serializable{
+public class SessionMB implements Serializable{
 
-	private static final long serialVersionUID = -4715010869007043390L;
+	private static final long serialVersionUID = 502301922012194259L;
 
-	public static final String BEAN_NAME = "sesionUsuario";
+	public static final String BEAN_NAME = "sessionMB";
 	
     @Getter @Setter
     @ManagedProperty(value = "#{seguridadS}")
@@ -95,10 +96,10 @@ public class SesionUsuarioMB implements Serializable{
     }
     
     // Permisos de Seguridad
-    public static final int EDITAR_ACTION_ID = 1;
-    public static final int CREAR_ACTION_ID = 2;
-    public static final int ELIMINAR_ACTION_ID = 3;
-    public static final int EXPORTAR_ACTION_ID = 4;
+    public static final int EDIT_ACTION_ID = 1;
+    public static final int CREATE_ACTION_ID = 2;
+    public static final int DELETE_ACTION_ID = 3;
+    public static final int EXPORT_ACTION_ID = 4;
     
     
     public boolean verificaAcceso(String target, int accion){
@@ -106,10 +107,10 @@ public class SesionUsuarioMB implements Serializable{
         for(RolOpcion rolOpcion : rolOpcionList){            
             if(rolOpcion.getOpcion().getTarget().equals(target)){
                 switch(accion){
-                    case EDITAR_ACTION_ID: flag = rolOpcion.isEditar(); break;
-                    case CREAR_ACTION_ID: flag = rolOpcion.isCrear(); break;
-                    case ELIMINAR_ACTION_ID: flag = rolOpcion.isEliminar(); break;                       
-                    case EXPORTAR_ACTION_ID: flag = rolOpcion.isExportar(); break;
+                    case EDIT_ACTION_ID: flag = rolOpcion.isEditar(); break;
+                    case CREATE_ACTION_ID: flag = rolOpcion.isCrear(); break;
+                    case DELETE_ACTION_ID: flag = rolOpcion.isEliminar(); break;                       
+                    case EXPORT_ACTION_ID: flag = rolOpcion.isExportar(); break;
                 }
                 break;
             }
@@ -122,7 +123,7 @@ public class SesionUsuarioMB implements Serializable{
     */
     private void defineSessionTimeout() {
     	ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
-    	extContext.setSessionMaxInactiveInterval(login ? Constantes.SESSION_TIMEOUT : Constantes.SESSION_TIMEOUT_LOGOUT);
+    	extContext.setSessionMaxInactiveInterval(login ? Constantes.SESSION_TIMEOUT_LOGON : Constantes.SESSION_TIMEOUT_LOGOUT);
     }
     
 //
@@ -135,7 +136,7 @@ public class SesionUsuarioMB implements Serializable{
 		if (params.containsKey("tema")) {
 			tema = params.get("tema");
 		} else {
-			tema = usuario.getTema() != null ? usuario.getTema() : Constantes.tema;
+			tema = usuario.getTema() != null ? usuario.getTema() : Constantes.THEME;
 		}
 		return tema;
 	}
@@ -145,5 +146,26 @@ public class SesionUsuarioMB implements Serializable{
 		usuario.setTema(tema);
 		seguridadS.guardarPreferenciasUsuario(usuario);
 	}
+	
+    public void putMessage(FacesMessage.Severity severity, String msg){
+        FacesMessage message = new FacesMessage(severity, msg, "");
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+    
+    public void putSuccess(String msg) {        
+        putMessage(FacesMessage.SEVERITY_INFO, msg);
+    }
+
+    public void putWarning(String msg) {
+        putMessage(FacesMessage.SEVERITY_WARN, msg);        
+    }
+
+    public void putError(String msg) {
+        putMessage(FacesMessage.SEVERITY_ERROR, msg);        
+    }
+    
+    public void putFatal(String msg) {
+        putMessage(FacesMessage.SEVERITY_FATAL, msg);        
+    }
     
 }

@@ -21,13 +21,13 @@ import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 
 import ec.com.ebos.app.resources.AppMensajes;
-import ec.com.ebos.fwk.crud.CrudService;
-import ec.com.ebos.fwk.crud.FinderSQLService;
-import ec.com.ebos.fwk.crud.FinderService;
-import ec.com.ebos.fwk.crud.impl.CrudServiceImpl;
-import ec.com.ebos.fwk.crud.impl.FinderSQLServiceImpl;
-import ec.com.ebos.fwk.crud.impl.FinderServiceImpl;
-import ec.com.ebos.fwk.crud.support.BaseDaoSupport;
+import ec.com.ebos.orm.crud.CrudService;
+import ec.com.ebos.orm.crud.FinderSQLService;
+import ec.com.ebos.orm.crud.FinderService;
+import ec.com.ebos.orm.crud.impl.CrudServiceImpl;
+import ec.com.ebos.orm.crud.impl.FinderSQLServiceImpl;
+import ec.com.ebos.orm.crud.impl.FinderServiceImpl;
+import ec.com.ebos.orm.crud.support.BaseDaoSupport;
 import ec.com.ebos.util.Constantes;
 
 

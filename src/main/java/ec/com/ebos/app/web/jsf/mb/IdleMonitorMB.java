@@ -1,7 +1,6 @@
 package ec.com.ebos.app.web.jsf.mb;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.application.NavigationHandler;
@@ -10,28 +9,31 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-import org.apache.poi.util.StringUtil;
-import org.primefaces.context.RequestContext;
-
 import lombok.Setter;
 
-@ManagedBean(name = "idleMonitorMB")
-@RequestScoped
-public class IdleMonitorMB {
+import org.primefaces.context.RequestContext;
 
+@ManagedBean(name = IdleMonitorMB.BEAN_NAME)
+@RequestScoped
+public class IdleMonitorMB implements Serializable{
+
+	private static final long serialVersionUID = 1843880331963115097L;
+
+	public static final String BEAN_NAME = "idleMonitorMB";
+	
 	@Setter
-	@ManagedProperty(value = "#{sesionUsuario}")
-	private SesionUsuarioMB sesionUsuario;
+	@ManagedProperty(value = "#{"+SessionMB.BEAN_NAME+"}")
+	private SessionMB sessionMB;
 
 	public void idleListener() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		NavigationHandler navHandler = context.getApplication()
 				.getNavigationHandler();
-		sesionUsuario.cerrarSesion();
+		sessionMB.cerrarSesion();
 
 		RequestContext requestContext = RequestContext.getCurrentInstance();
-		requestContext.update("frgWelcome");
-		requestContext.update("frgHome");
+		requestContext.update(":pngWelcome");
+		requestContext.update(":pngHome");
 		
 //		context.addMessage(
 //				null,
@@ -44,7 +46,7 @@ public class IdleMonitorMB {
 	public void activeListener() {
 		FacesContext.getCurrentInstance().addMessage(
 				null,
-				new FacesMessage(FacesMessage.SEVERITY_WARN, sesionUsuario
+				new FacesMessage(FacesMessage.SEVERITY_WARN, sessionMB
 						.getUsuario().getEmpresaPersona().getPersona().getNombres(), "Bienvenido de nuevo"));
 	}
 

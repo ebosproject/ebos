@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import ec.com.ebos.app.web.jsf.mb.SesionUsuarioMB;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.app.web.jsf.mb.SessionMB;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.seguridad.core.gestor.SeguridadG;
 import ec.com.ebos.seguridad.model.Objeto;
 import ec.com.ebos.seguridad.model.Opcion;
@@ -70,7 +70,7 @@ public class SeguridadSImpl implements SeguridadS{
     }
     
     @Override
-    public List<Usuario> obtenerUsuarioList(Usuario entitySearch, Paginacion paginacion) {
+    public List<Usuario> obtenerUsuarioList(Usuario entitySearch, Pagination paginacion) {
         return seguridadG.obtenerUsuarioList(entitySearch, paginacion);
     }
     
@@ -104,7 +104,7 @@ public class SeguridadSImpl implements SeguridadS{
     //
     
     @Override
-    public List<Rol> obtenerRolList(Rol rol, Paginacion paginacion) {
+    public List<Rol> obtenerRolList(Rol rol, Pagination paginacion) {
         return seguridadG.obtenerRolList(rol, paginacion);
     }
 
@@ -153,7 +153,7 @@ public class SeguridadSImpl implements SeguridadS{
     //
     
     @Override
-    public List<Opcion> obtenerOpcionList(Opcion opcion, Paginacion paginacion) {
+    public List<Opcion> obtenerOpcionList(Opcion opcion, Pagination paginacion) {
         return seguridadG.obtenerOpcionList(opcion, paginacion);
     }
 
@@ -185,7 +185,7 @@ public class SeguridadSImpl implements SeguridadS{
     //
     // Objeto
     //
-    public List<Objeto> obtenerObjetoList(Objeto objeto, Paginacion paginacion){
+    public List<Objeto> obtenerObjetoList(Objeto objeto, Pagination paginacion){
     	return seguridadG.obtenerObjetoList(objeto, paginacion);
     }
 
@@ -210,7 +210,7 @@ public class SeguridadSImpl implements SeguridadS{
     //
     
     @Override
-    public boolean iniciarSesion(SesionUsuarioMB aThis) {        
+    public boolean iniciarSesion(SessionMB aThis) {        
         return seguridadG.iniciarSesion(aThis);
     }      
     
@@ -221,8 +221,8 @@ public class SeguridadSImpl implements SeguridadS{
     
     
     @Override
-    public SesionUsuarioMB getSesionUsuario() {
-    	return seguridadG.getSesionUsuario();
+    public SessionMB getSesionUsuario() {
+    	return seguridadG.getSessionMB();
     }    
     
     public void guardarPreferenciasUsuario(Usuario usuario){

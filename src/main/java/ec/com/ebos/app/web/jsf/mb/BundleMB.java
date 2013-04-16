@@ -9,18 +9,20 @@ import javax.faces.bean.SessionScoped;
 import lombok.Getter;
 
 import ec.com.ebos.app.model.Bundle;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.GenericUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-24
  */
-@ManagedBean(name = "bundleMB")
+@ManagedBean(name = BundleMB.BEAN_NAME)
 @SessionScoped
 public class BundleMB extends GenericAppMB<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
+	
+	public static final String BEAN_NAME = "bundleMB";
 
 	@Override
     public void getInit() {
@@ -53,7 +55,7 @@ public class BundleMB extends GenericAppMB<Bundle> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Bundle> loadDataTableCollection(Bundle bundle, Paginacion paginacion) {
+    protected List<Bundle> loadDataTableCollection(Bundle bundle, Pagination paginacion) {
         return appS.obtenerBundleList(bundle, paginacion);
     }
         

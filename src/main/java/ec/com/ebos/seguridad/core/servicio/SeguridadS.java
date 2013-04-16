@@ -1,7 +1,7 @@
 package ec.com.ebos.seguridad.core.servicio;
 
-import ec.com.ebos.app.web.jsf.mb.SesionUsuarioMB;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.app.web.jsf.mb.SessionMB;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.seguridad.model.Objeto;
 import ec.com.ebos.seguridad.model.Opcion;
 import ec.com.ebos.seguridad.model.Rol;
@@ -37,7 +37,7 @@ public interface SeguridadS extends Serializable {
     
     public void eliminarUsuario(Usuario usuario);
     
-    public List<Usuario> obtenerUsuarioList(Usuario entitySearch, Paginacion paginacion);
+    public List<Usuario> obtenerUsuarioList(Usuario entitySearch, Pagination paginacion);
     
     public void generarUsuarioRol(Usuario usuario, Rol rol);
 
@@ -51,7 +51,7 @@ public interface SeguridadS extends Serializable {
     //
     // Rol
     //
-    public List<Rol> obtenerRolList(Rol rol, Paginacion paginacion);
+    public List<Rol> obtenerRolList(Rol rol, Pagination paginacion);
 
     public Rol obtenerRolNuevo();
 
@@ -73,7 +73,7 @@ public interface SeguridadS extends Serializable {
     // Opcion
     //
     
-    public List<Opcion> obtenerOpcionList(Opcion opcion, Paginacion paginacion);
+    public List<Opcion> obtenerOpcionList(Opcion opcion, Pagination paginacion);
 
     public Opcion obtenerOpcionNuevo();
 
@@ -88,7 +88,7 @@ public interface SeguridadS extends Serializable {
     //
     // Objeto
     //
-    public List<Objeto> obtenerObjetoList(Objeto objeto, Paginacion paginacion);
+    public List<Objeto> obtenerObjetoList(Objeto objeto, Pagination paginacion);
 
     public Objeto obtenerObjetoNuevo();
 
@@ -103,11 +103,11 @@ public interface SeguridadS extends Serializable {
     //
 
     @Transactional
-    public boolean iniciarSesion(SesionUsuarioMB aThis);
+    public boolean iniciarSesion(SessionMB aThis);
 
     public void cambiarPassword(Usuario usuario);
     
-    public SesionUsuarioMB getSesionUsuario();
+    public SessionMB getSesionUsuario();
 
 	public void guardarPreferenciasUsuario(Usuario usuario);
 

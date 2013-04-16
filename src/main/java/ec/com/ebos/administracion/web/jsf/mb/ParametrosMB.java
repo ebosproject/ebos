@@ -8,8 +8,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import ec.com.ebos.administracion.model.Parametros;
-import ec.com.ebos.fwk.crud.Paginacion;
 import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.GenericUtils;
 
 
@@ -17,11 +17,13 @@ import ec.com.ebos.util.GenericUtils;
  *
  * @author Eduardo Plua Alay
  */
-@ManagedBean(name = "parametrosMB")
+@ManagedBean(name = ParametrosMB.BEAN_NAME)
 @SessionScoped
 public class ParametrosMB extends GenericAdministracionMB<Parametros>{
 
 	private static final long serialVersionUID = -8810452745934111969L;
+	
+	public static final String BEAN_NAME = "parametrosMB";
 	
     @Override
     public void getInit() {
@@ -48,7 +50,7 @@ public class ParametrosMB extends GenericAdministracionMB<Parametros>{
 
     ///////////////////////// DATA MODEL ////////////////////////
     @Override
-    protected List<Parametros> loadDataTableCollection(Parametros parametros, Paginacion paginacion) {
+    protected List<Parametros> loadDataTableCollection(Parametros parametros, Pagination paginacion) {
         return administracionS.obtenerParametrosList(parametros);
     }
 

@@ -25,17 +25,17 @@
         <h:body>
             <ui:include id="loading" src="loading.xhtml" />
             
-            <p:outputPanel id="opnWelcome">
-	            <ui:fragment rendered="#{not sesionUsuario.login}">
+            <h:panelGroup id="pngWelcome">
+	            <ui:fragment rendered="#{not sessionMB.login}">
 		        	<ui:include src="login.xhtml" />
 	            </ui:fragment>
-			</p:outputPanel>
+			</h:panelGroup>
 			
-			<p:outputPanel id="opnHome">
-				<ui:fragment rendered="#{sesionUsuario.login}">
+			<h:panelGroup id="pngHome">
+				<ui:fragment rendered="#{sessionMB.login}">
 					<ui:include src="desk.xhtml" />	            
 	            </ui:fragment>
-            </p:outputPanel>
+            </h:panelGroup>
         </h:body>
     </f:view>
 </html>

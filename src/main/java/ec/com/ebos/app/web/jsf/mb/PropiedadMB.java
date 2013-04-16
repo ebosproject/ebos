@@ -6,18 +6,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import ec.com.ebos.app.model.Propiedad;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.GenericUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-31
  */
-@ManagedBean(name = "propiedadMB")
+@ManagedBean(name = PropiedadMB.BEAN_NAME)
 @SessionScoped
 public class PropiedadMB extends GenericAppMB<Propiedad> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
+	
+	public static final String BEAN_NAME = "propiedadMB";
 
 	@Override
     public void getInit() {
@@ -50,7 +52,7 @@ public class PropiedadMB extends GenericAppMB<Propiedad> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Propiedad> loadDataTableCollection(Propiedad propiedad, Paginacion paginacion) {
+    protected List<Propiedad> loadDataTableCollection(Propiedad propiedad, Pagination paginacion) {
         return appS.obtenerPropiedadList(propiedad, paginacion);
     }
         

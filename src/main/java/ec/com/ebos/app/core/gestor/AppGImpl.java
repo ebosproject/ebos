@@ -6,18 +6,17 @@ import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.app.exception.AppException;
 import ec.com.ebos.app.model.Bundle;
+import ec.com.ebos.app.model.Bundle.Localidad;
 import ec.com.ebos.app.model.Bundle_;
 import ec.com.ebos.app.model.MessageResource_;
 import ec.com.ebos.app.model.Persona;
 import ec.com.ebos.app.model.Persona_;
 import ec.com.ebos.app.model.Propiedad;
 import ec.com.ebos.app.model.Propiedad_;
-import ec.com.ebos.app.model.Bundle.Localidad;
-import ec.com.ebos.fwk.crud.GenericCriteria;
-import ec.com.ebos.fwk.crud.Paginacion;
 import ec.com.ebos.generic.core.gestor.GenericGImpl;
 import ec.com.ebos.generic.model.Entidad.Estado;
-import ec.com.ebos.util.Constantes;
+import ec.com.ebos.orm.crud.GenericCriteria;
+import ec.com.ebos.orm.crud.Pagination;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -28,17 +27,12 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 
 	private static final long serialVersionUID = -7535155949566180920L;
 	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".app.resources.app";
-    }
-
     //
     // Bundle
     //
 	
 	@Override
-	public List<Bundle> obtenerBundleList(Bundle bundle, Paginacion paginacion) {
+	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion) {
 		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
 
 		criteria.addEqualsIfNotZero(Bundle_.id, bundle.getId());
@@ -91,7 +85,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	//
 	
 	@Override
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Paginacion paginacion){
+	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion){
 		GenericCriteria<Propiedad> criteria = GenericCriteria.forClass(Propiedad.class);
 
 		criteria.addEqualsIfNotZero(Propiedad_.id, propiedad.getId());
@@ -134,7 +128,7 @@ public class AppGImpl extends GenericGImpl<Object, AppException> implements AppG
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion){
+	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion){
 		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
 
 		criteria.addEqualsIfNotZero(Persona_.id, persona.getId());

@@ -7,23 +7,23 @@
    	<div id="lyLogin" align="center">
         <div id="lyNorth" class="ui-widget-header"/>
         <div id="lyCenter" class="ui-layout-unit ui-widget ui-widget-content ui-corner-all ui-layout-center ui-layout-pane ui-layout-pane-center" style="border: medium none; position: absolute; margin: 0px; left: 0px; right: 0px; top: 63px; bottom: 58px; height: 278px; z-index: 1; display: block; visibility: visible;">            	
-			<h:form id="frmIniciarSesion">
-				<p:panel id="pnlIniciarSesion" header="#{msg.systemIngreso}" 
+			<h:form id="frmLogin">
+				<p:panel id="pnlLogin" header="#{msg.systemIngreso}" 
 					style="width: 350px; padding: 5px; margin:50px;">
-					<eb:panelGrid id="pnlingreso" columns="2">
+					<eb:panelGrid id="pnlIngreso" columns="2">
 						<p:graphicImage value="resources/images/username.png" />
-						<eb:inputText id="username" value="#{sesionUsuario.usuario.username}"
+						<eb:inputText id="username" value="#{sessionMB.usuario.username}"
 							required="true" requiredMessage="#{msg.ebIngreseUsuario}"
 							maxlength="20" minlength="3" watermark="#{msg.ebUsuario}"/>
 						<p:graphicImage value="resources/images/password.png" />
 						<eb:inputText id="password" type="password"
-							value="#{sesionUsuario.usuario.password}" required="true"
+							value="#{sessionMB.usuario.password}" required="true"
 							requiredMessage="#{msg.ebIngreseClave}" watermark="#{msg.ebClave}"/>
 					</eb:panelGrid>
 					<eb:panelGrid>
 						<p:commandButton id="btnIniciarSesion" value="#{msg.ebIngresar}"
-							actionListener="#{sesionUsuario.iniciarSesion}"
-							update=":opnHome, :opnWelcome" />
+							actionListener="#{sessionMB.iniciarSesion}"
+							update=":pngHome, :pngWelcome" />
 					</eb:panelGrid>
 				</p:panel>
 			</h:form>

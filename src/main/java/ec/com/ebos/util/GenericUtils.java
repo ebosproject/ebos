@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
 import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.generic.model.IEntidad;
 import ec.com.ebos.util.type.StringValuedEnum;
 
 

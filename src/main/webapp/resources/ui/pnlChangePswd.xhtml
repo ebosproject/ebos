@@ -7,13 +7,13 @@
     	modal="true" closeOnEscape="true" style="z-index:100 !important;" appendToBody="false">
         <h:form id="frmChangePwd">
             <eb:panelGrid id="pnlChangePwd">
-                <eb:password id="actpassword" label="#{msg.ebPasswordActual}" value="#{sesionUsuario.usuario.password}" required="true"/>
-                <eb:password id="newpassword" label="#{msg.ebNuevoPassword}" value="#{sesionUsuario.usuario.newpassword}" required="true"/>
-                <eb:password id="confpassword" label="#{msg.ebConfirmarPassword}" value="#{sesionUsuario.usuario.confpassword}" required="true"/>                        
+                <eb:password id="actpassword" label="#{msg.ebPasswordActual}" value="#{sessionMB.usuario.password}" required="true"/>
+                <eb:password id="newpassword" label="#{msg.ebNuevoPassword}" value="#{sessionMB.usuario.newpassword}" required="true"/>
+                <eb:password id="confpassword" label="#{msg.ebConfirmarPassword}" value="#{sessionMB.usuario.confpassword}" required="true"/>                        
             </eb:panelGrid>   
             <br/>
             <div align="center">
-                <p:commandButton id="btnChangePwd" value="#{msg.ebCambiar}" actionListener="#{sesionUsuario.cambiarPassword}" oncomebete="wgtChangePwd.hide()" update="@form"/>
+                <p:commandButton id="btnChangePwd" value="#{msg.ebCambiar}" actionListener="#{sessionMB.cambiarPassword}" oncomebete="wgtChangePwd.hide()" update="@form"/>
                 <p:commandButton id="btnCancel" value="#{msg.ebCancelar}" type="button" onclick="wgtChangePwd.hide()" update="@form"/>                        
             </div>
         </h:form>

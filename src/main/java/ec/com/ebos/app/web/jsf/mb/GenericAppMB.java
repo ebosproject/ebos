@@ -7,7 +7,6 @@ import lombok.Setter;
 import ec.com.ebos.app.core.service.AppS;
 import ec.com.ebos.generic.model.Entidad;
 import ec.com.ebos.generic.web.jsf.mb.GenericMB;
-import ec.com.ebos.util.Constantes;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -20,12 +19,7 @@ public abstract class GenericAppMB<T extends Entidad<T>> extends GenericMB<T> {
 	public GenericAppMB() {
         super();
     }
-	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".app.resources.app";
-    }
-	
+
 	@Getter @Setter
     @ManagedProperty(value = "#{appS}")
     protected AppS appS;

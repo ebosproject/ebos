@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.generic.core.gestor.GenericGImpl;
-import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.exception.UtilException;
 import ec.com.ebos.util.mail.SendMail;
 
@@ -19,11 +18,6 @@ import ec.com.ebos.util.mail.SendMail;
 public class UtilGImpl extends GenericGImpl<Object, UtilException> implements UtilG {
 
 	private static final long serialVersionUID = 8272908095248096866L;
-	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".util.resources.util";
-    }
 	
 	//
 	// Dependencias

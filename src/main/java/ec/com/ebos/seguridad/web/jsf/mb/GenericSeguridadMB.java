@@ -2,7 +2,6 @@ package ec.com.ebos.seguridad.web.jsf.mb;
 
 import ec.com.ebos.generic.model.Entidad;
 import ec.com.ebos.generic.web.jsf.mb.GenericMB;
-import ec.com.ebos.util.Constantes;
 
 /**
  *
@@ -14,10 +13,5 @@ public abstract class GenericSeguridadMB<T extends Entidad<T>> extends GenericMB
 
 	public GenericSeguridadMB() {
         super();
-    }
-	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".seguridad.resources.seguridad";
     }
 }

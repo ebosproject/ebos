@@ -13,13 +13,13 @@ import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.app.model.EmpresaPersona_;
 import ec.com.ebos.app.model.Persona_;
-import ec.com.ebos.app.web.jsf.mb.SesionUsuarioMB;
-import ec.com.ebos.fwk.crud.GenericCriteria;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.app.web.jsf.mb.SessionMB;
 import ec.com.ebos.generic.core.gestor.GenericGImpl;
 import ec.com.ebos.generic.model.Auditoria;
 import ec.com.ebos.generic.model.Auditoria_;
 import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.orm.crud.GenericCriteria;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.seguridad.exception.SeguridadException;
 import ec.com.ebos.seguridad.model.Objeto;
 import ec.com.ebos.seguridad.model.Objeto_;
@@ -33,11 +33,10 @@ import ec.com.ebos.seguridad.model.Usuario;
 import ec.com.ebos.seguridad.model.UsuarioRol;
 import ec.com.ebos.seguridad.model.UsuarioRol_;
 import ec.com.ebos.seguridad.model.Usuario_;
-import ec.com.ebos.util.Constantes;
+import ec.com.ebos.util.CryptoUtils;
 import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.StringUtils;
 import ec.com.ebos.util.core.gestor.UtilG;
-import ec.com.ebos.util.crypto.CryptoUtils;
 
 /**
  * @author Eduardo Plua Alay
@@ -46,11 +45,6 @@ import ec.com.ebos.util.crypto.CryptoUtils;
 public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> implements SeguridadG {
 
 	private static final long serialVersionUID = -7535155949566180920L;
-	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".seguridad.resources.seguridad";
-    }
 	
 	/**
 	 * Dependencias
@@ -120,7 +114,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     }
 
     @Override
-    public List<Usuario> obtenerUsuarioList(Usuario usuario, Paginacion paginacion) {        
+    public List<Usuario> obtenerUsuarioList(Usuario usuario, Pagination paginacion) {        
         return findByCriteria(buildUsuarioCriteria(usuario), paginacion);
     }
     
@@ -211,7 +205,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     // Rol
     //
     @Override
-    public List<Rol> obtenerRolList(Rol rol, Paginacion paginacion) {
+    public List<Rol> obtenerRolList(Rol rol, Pagination paginacion) {
         GenericCriteria<Rol> criteria = GenericCriteria.forClass(Rol.class);
         criteria.addEquals(Rol_.estado, Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
@@ -270,7 +264,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
         RolOpcion rolOpcion = new RolOpcion();
         
         rolOpcion.setAuditoria(new Auditoria());
-        rolOpcion.setUsuarioCreacion(getSesionUsuario().getUsuario());
+        rolOpcion.setUsuarioCreacion(getSessionMB().getUsuario());
         rolOpcion.setFechaCreacion(new Date());
         
         rolOpcion.setRol(rol);
@@ -287,7 +281,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     @Override
     public void guardarRolOpcionList(List<RolOpcion> rolOpcionList) { 
         if (rolOpcionList != null) {
-        	Usuario usuario = getSesionUsuario().getUsuario();
+        	Usuario usuario = getSessionMB().getUsuario();
             Date fecha = new Date();
             for (RolOpcion rolOpcion : rolOpcionList) {
             	rolOpcion.setUsuarioModificacion(usuario);
@@ -342,7 +336,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     // Opcion
     //
     @Override
-    public List<Opcion> obtenerOpcionList(Opcion opcion, Paginacion paginacion) {
+    public List<Opcion> obtenerOpcionList(Opcion opcion, Pagination paginacion) {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
         criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
@@ -405,7 +399,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     //
     
     @Override
-    public List<Objeto> obtenerObjetoList(Objeto objeto, Paginacion paginacion) {
+    public List<Objeto> obtenerObjetoList(Objeto objeto, Pagination paginacion) {
         GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
         criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
@@ -455,7 +449,7 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     //
     
     @Override
-    public boolean iniciarSesion(SesionUsuarioMB aThis) {
+    public boolean iniciarSesion(SessionMB aThis) {
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
         criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
         criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
@@ -493,8 +487,8 @@ public class SeguridadGImpl extends GenericGImpl<Object, SeguridadException> imp
     }
     
     @Override
-    public SesionUsuarioMB getSesionUsuario() {
-    	return super.getSesionUsuario();
+    public SessionMB getSessionMB() {
+    	return super.getSessionMB();
     }
     
     /**

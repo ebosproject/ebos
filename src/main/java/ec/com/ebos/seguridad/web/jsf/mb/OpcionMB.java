@@ -11,8 +11,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
-import ec.com.ebos.fwk.crud.Paginacion;
 import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.seguridad.model.Opcion;
 import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.StringUtils;
@@ -53,7 +53,7 @@ public class OpcionMB extends GenericSeguridadMB<Opcion> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Opcion> loadDataTableCollection(Opcion opcion, Paginacion paginacion) {
+    protected List<Opcion> loadDataTableCollection(Opcion opcion, Pagination paginacion) {
         return seguridadS.obtenerOpcionList(opcion,paginacion);
     }
         

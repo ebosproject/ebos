@@ -8,15 +8,15 @@ import java.lang.annotation.Target;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
-import ec.com.ebos.generic.web.jsf.mb.AbstractServiceMB;
+import ec.com.ebos.generic.web.jsf.mb.GenericMB;
 
 /**
  * Anotacion para indicar que un metodo de una implementacion de capa S o G
  * corresponde a un servicio que debe verificarse mediante permisos de seguridad.
  * Debe indicarse el nombre del servicio en el valor de esta anotacion,
  * el cual debe corresponder al codigo del servicio definido en {@link Servicio#getCodigo()}.
- * @see SecurityAspectGImpl#interceptCheckServiceMethodOnSLayer(ProceedingJoinPoint, AbstractServiceMB, CheckService)
- * @see SecurityAspectGImpl#interceptCheckServiceMethodOnGLayer(ProceedingJoinPoint, AbstractServiceMB, CheckService)
+ * @see SecurityAspectGImpl#interceptCheckServiceMethodOnSLayer(ProceedingJoinPoint, GenericMB, CheckService)
+ * @see SecurityAspectGImpl#interceptCheckServiceMethodOnGLayer(ProceedingJoinPoint, GenericMB, CheckService)
  */
 @Documented
 @Target({ElementType.METHOD})

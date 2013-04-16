@@ -1,5 +1,6 @@
 package ec.com.ebos.app.web.jsf.mb;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,9 +20,13 @@ import ec.com.ebos.app.model.Tema;
  * @author Eduardo Plua Alay
  * @since 2013-02-27
  */
-@ManagedBean(name = "themeSwitcherMB")
+@ManagedBean(name = ThemeSwitcherMB.BEAN_NAME)
 @RequestScoped
-public class ThemeSwitcherMB {
+public class ThemeSwitcherMB implements Serializable{
+
+	private static final long serialVersionUID = -8104402118225511781L;
+
+	public static final String BEAN_NAME = "themeSwitcherMB";
 
 	@Getter
     private Map<String, String> temas;
@@ -33,13 +38,13 @@ public class ThemeSwitcherMB {
     private String tema;
 
     @Setter
-    @ManagedProperty(value = "#{sesionUsuario}")
-    private SesionUsuarioMB sesionUsuario;
+    @ManagedProperty(value = "#{"+SessionMB.BEAN_NAME+"}")
+    private SessionMB sessionMB;
     
 
     @PostConstruct
     public void init() { // TODO (epa): Leer temas desde base de datos
-        tema = sesionUsuario.getTema();
+        tema = sessionMB.getTema();
         
         temasAvanzados = new ArrayList<Tema>();
         temasAvanzados.add(new Tema("afterdark", "afterdark.png"));
@@ -121,7 +126,7 @@ public class ThemeSwitcherMB {
     }
     
     public void guardarTema() {
-        sesionUsuario.guardarTema(tema);
+        sessionMB.guardarTema(tema);
     }
 
 }

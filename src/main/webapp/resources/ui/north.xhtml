@@ -35,9 +35,9 @@
 						</h:form>
 					</div>
 					<div style="position: absolute; top:0px; right: 0px; padding:1px 1px 1px 1px;">
-						<h:form id="frmCerrarSesion" prependId="false">
-							<p:commandButton value="#{msg.ebSalir} (#{sesionUsuario.usuario.username})"
-								actionListener="#{sesionUsuario.cerrarSesion}" icon="ui-icon-extlink" update=":opnHome, :opnWelcome"/>
+						<h:form id="frmLogout" prependId="false">
+							<p:commandButton value="#{msg.ebSalir} (#{sessionMB.usuario.username})"
+								actionListener="#{sessionMB.cerrarSesion}" icon="ui-icon-extlink" update=":pngHome, :pngWelcome"/>
 						</h:form>
 					</div>
 				</div>

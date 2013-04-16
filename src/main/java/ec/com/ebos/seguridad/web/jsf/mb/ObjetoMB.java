@@ -7,8 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import lombok.Getter;
-import ec.com.ebos.fwk.crud.Paginacion;
 import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.seguridad.model.Objeto;
 import ec.com.ebos.util.GenericUtils;
 
@@ -49,7 +49,7 @@ public class ObjetoMB extends GenericSeguridadMB<Objeto> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Objeto> loadDataTableCollection(Objeto objeto, Paginacion paginacion) {
+    protected List<Objeto> loadDataTableCollection(Objeto objeto, Pagination paginacion) {
         return seguridadS.obtenerObjetoList(objeto,paginacion);
     }
         

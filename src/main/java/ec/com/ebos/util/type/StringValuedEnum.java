@@ -1,7 +1,7 @@
 package ec.com.ebos.util.type;
 
 import ec.com.ebos.generic.model.Entidad;
-import ec.com.ebos.util.IEntidad;
+import ec.com.ebos.generic.model.IEntidad;
 
 /**
  * Plantilla para grupos de constantes (Enum) que implementan {@link Entidad}.

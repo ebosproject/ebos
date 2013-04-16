@@ -10,33 +10,35 @@ import javax.faces.bean.ManagedBean;
  * 
  * @author Eduardo Plua Alay
  */
-@ManagedBean(name = "adminMB")
+@ManagedBean(name = AdminMB.BEAN_NAME)
 @ApplicationScoped
 public class AdminMB implements Serializable{
     
 	private static final long serialVersionUID = -3490701569635035883L;
 	
+	public static final String BEAN_NAME = "adminMB";
+	
 	/**
      * Sesiones de usuarios
      */
-    private transient Map<SesionUsuarioMB, Object> sesionUsuarioMap = new WeakHashMap<SesionUsuarioMB, Object>();
+    private transient Map<SessionMB, Object> sesionUsuarioMap = new WeakHashMap<SessionMB, Object>();
 
-    public void addSession(SesionUsuarioMB sesionUsuario) {
+    public void addSession(SessionMB sesionUsuario) {
         this.sesionUsuarioMap.put(sesionUsuario, null);
     }
 
-    public void removeSession(SesionUsuarioMB sesionUsuario) {
+    public void removeSession(SessionMB sesionUsuario) {
         this.sesionUsuarioMap.remove(sesionUsuario);
     }
     
-    public List<SesionUsuarioMB> getSessionList(){
-        return new ArrayList<SesionUsuarioMB>(sesionUsuarioMap.keySet());
+    public List<SessionMB> getSessionList(){
+        return new ArrayList<SessionMB>(sesionUsuarioMap.keySet());
     }
 
     public void removeSessionInactives(){
-        Collection<SesionUsuarioMB> list = sesionUsuarioMap.keySet();
-        for (Iterator<SesionUsuarioMB> iter = list.iterator(); iter.hasNext();) {
-            SesionUsuarioMB sesionUsuario = iter.next();
+        Collection<SessionMB> list = sesionUsuarioMap.keySet();
+        for (Iterator<SessionMB> iter = list.iterator(); iter.hasNext();) {
+            SessionMB sesionUsuario = iter.next();
             if (!sesionUsuario.isLogin()) {
                 sesionUsuarioMap.remove(sesionUsuario);
             }

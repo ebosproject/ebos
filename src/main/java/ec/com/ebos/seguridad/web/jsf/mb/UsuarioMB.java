@@ -11,8 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.app.model.EmpresaPersona;
 import ec.com.ebos.app.model.Persona;
-import ec.com.ebos.fwk.crud.Paginacion;
 import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.seguridad.model.Rol;
 import ec.com.ebos.seguridad.model.Usuario;
 import ec.com.ebos.seguridad.model.UsuarioRol;
@@ -58,7 +58,7 @@ public class UsuarioMB extends GenericSeguridadMB<Usuario> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Usuario> loadDataTableCollection(Usuario usuario, Paginacion paginacion) {
+    protected List<Usuario> loadDataTableCollection(Usuario usuario, Pagination paginacion) {
         return seguridadS.obtenerUsuarioList(usuario, paginacion);
     }
         

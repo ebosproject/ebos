@@ -1,13 +1,12 @@
 package ec.com.ebos.generic.web.jsf.mb;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.ManagedProperty;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,12 +14,18 @@ import lombok.Setter;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
-import ec.com.ebos.app.web.jsf.mb.SesionUsuarioMB;
-import ec.com.ebos.fwk.crud.Paginacion;
-import ec.com.ebos.generic.core.gestor.GenericGImpl;
+import ec.com.ebos.administracion.resources.AdministracionMensajes;
+import ec.com.ebos.administracion.web.jsf.mb.GenericAdministracionMB;
+import ec.com.ebos.app.resources.AppMensajes;
+import ec.com.ebos.app.web.jsf.mb.GenericAppMB;
+import ec.com.ebos.app.web.jsf.mb.SessionMB;
+import ec.com.ebos.bitacora.resources.BitacoraMensajes;
+import ec.com.ebos.bitacora.web.jsf.mb.GenericBitacoraMB;
 import ec.com.ebos.generic.model.Entidad;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.MessageUtils;
+import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.seguridad.core.servicio.SeguridadS;
+import ec.com.ebos.seguridad.resources.SeguridadMensajes;
+import ec.com.ebos.seguridad.web.jsf.mb.GenericSeguridadMB;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.type.JsfMessage;
 
@@ -28,9 +33,17 @@ import ec.com.ebos.util.type.JsfMessage;
  *
  * @author Eduardo Plua Alay
  */
-    public abstract class GenericMB<T extends Entidad<T>> extends AbstractServiceMB implements JsfMessage{
+    public abstract class GenericMB<T extends Entidad<T>> implements Serializable, JsfMessage{
 
-	private static final long serialVersionUID = 7260345983546581957L;
+	private static final long serialVersionUID = 6416663507886628619L;
+
+	@Getter @Setter
+    @ManagedProperty(value = "#{"+SessionMB.BEAN_NAME+"}")
+    protected SessionMB sessionMB;
+	
+    @Getter @Setter
+    @ManagedProperty(value = "#{seguridadS}")
+    protected SeguridadS seguridadS;
 	
 	protected String TARGET_ID;
     protected String TARGET_NEW_ID;
@@ -145,7 +158,7 @@ import ec.com.ebos.util.type.JsfMessage;
                         
 		private static final long serialVersionUID = -5130944051776981116L;
 
-		private Paginacion paginacion = new Paginacion();
+		private Pagination paginacion = new Pagination();
 		
 		private List<T> data = new ArrayList<T>();
 
@@ -194,7 +207,7 @@ import ec.com.ebos.util.type.JsfMessage;
         }
     };
     
-    protected List<T> loadDataTableCollection(T entity, Paginacion paginacion) {
+    protected List<T> loadDataTableCollection(T entity, Pagination paginacion) {
         return new ArrayList<T>();
     }
     
@@ -208,64 +221,62 @@ import ec.com.ebos.util.type.JsfMessage;
     }   
 
     protected void setHabilitaCrear() {
-        setHabilitaCrear(sesionUsuario.verificaAcceso(TARGET_ID, SesionUsuarioMB.CREAR_ACTION_ID));
+        setHabilitaCrear(sessionMB.verificaAcceso(TARGET_ID, SessionMB.CREATE_ACTION_ID));
     }
 
     protected void setHabilitaGuardar() {
-        setHabilitaGuardar(sesionUsuario.verificaAcceso(TARGET_ID, SesionUsuarioMB.CREAR_ACTION_ID));
+        setHabilitaGuardar(sessionMB.verificaAcceso(TARGET_ID, SessionMB.CREATE_ACTION_ID));
     }
 
     protected void setHabilitaEditar() {
-        setHabilitaEditar(sesionUsuario.verificaAcceso(TARGET_ID, SesionUsuarioMB.EDITAR_ACTION_ID));
+        setHabilitaEditar(sessionMB.verificaAcceso(TARGET_ID, SessionMB.EDIT_ACTION_ID));
     }
 
     protected void setHabilitaEliminar() {
-        setHabilitaEliminar(sesionUsuario.verificaAcceso(TARGET_ID, SesionUsuarioMB.ELIMINAR_ACTION_ID));
+        setHabilitaEliminar(sessionMB.verificaAcceso(TARGET_ID, SessionMB.DELETE_ACTION_ID));
     }
 
     protected void setHabilitaExportar() {
-        setHabilitaExportar(sesionUsuario.verificaAcceso(TARGET_ID, SesionUsuarioMB.EXPORTAR_ACTION_ID));
+        setHabilitaExportar(sessionMB.verificaAcceso(TARGET_ID, SessionMB.EXPORT_ACTION_ID));
     }
     
-    /**
-	 * @see {@link GenericGImpl#getBundleName()}
-	 * 
-	 * @author Eduardo Plua Alay
-	 */	
-	protected String getBundleName(){
-		return Constantes.MODULE_BUNDLE_NAME;
+	/**
+	 * Construye un mensaje utilizando el archivo de propiedades
+	 * del proyecto correspondiente al modulo
+	 * @param keySummary
+	 * @param params
+	 * @return
+	 */
+	private String buildMessage(String keySummary, Object... params) {
+		String message = "";
+		if (this instanceof GenericAdministracionMB) {
+			message = AdministracionMensajes.getString(keySummary, params);
+		} else if (this instanceof GenericSeguridadMB) {
+			message = SeguridadMensajes.getString(keySummary, params);
+		} else if (this instanceof GenericBitacoraMB){
+			message = BitacoraMensajes.getString(keySummary, params);
+		} else if (this instanceof GenericAppMB){
+			message = AppMensajes.getString(keySummary, params);
+		}
+		return message;
 	}
 	
-	private final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(getBundleName());
-    
-    @Override
-    public void putMessage(FacesMessage.Severity severity, String key, Object... args){
-        FacesMessage message = new FacesMessage(severity, MessageUtils.buildMessage(key, RESOURCE_BUNDLE, args), "");
-        FacesContext.getCurrentInstance().addMessage(null, message);
-    }
-    
-    @Override
     public void putSuccess(String key, Object... args) {        
-        putMessage(FacesMessage.SEVERITY_INFO, key, "");
-    }
+    	sessionMB.putSuccess(buildMessage(key, args));
+     }
 
-    @Override
-    public void putWarning(String key, Object... args) {
-        putMessage(FacesMessage.SEVERITY_WARN, key, "");        
-    }
+     public void putWarning(String key, Object... args) {
+    	 sessionMB.putWarning(buildMessage(key, args));        
+     }
 
-    @Override
-    public void putError(String key, Object... args) {
-        putMessage(FacesMessage.SEVERITY_ERROR, key, "");        
-    }
-    
-    @Override
-    public void putFatal(String key, Object... args) {
-        putMessage(FacesMessage.SEVERITY_FATAL, key, "");        
-    }
-    
-    
-    
+     public void putError(String key, Object... args) {
+    	 sessionMB.putError(buildMessage(key, args));        
+     }
+     
+     public void putFatal(String key, Object... args) {
+    	 sessionMB.putFatal(buildMessage(key, args));        
+     }
+        
 	///////////////////////////LISTS ///////////////////////////
     
     @Getter

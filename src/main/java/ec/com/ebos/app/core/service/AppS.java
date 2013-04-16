@@ -9,7 +9,7 @@ import org.springframework.cache.annotation.Cacheable;
 import ec.com.ebos.app.model.Bundle;
 import ec.com.ebos.app.model.Persona;
 import ec.com.ebos.app.model.Propiedad;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.orm.crud.Pagination;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -20,7 +20,7 @@ public interface AppS extends Serializable {
     // Bundle
     //
 
-	public List<Bundle> obtenerBundleList(Bundle bundle, Paginacion paginacion);
+	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion);
 	
 	/**
 	 * Obtiene un unique {@link Bundle} entity por su codigo y localidad.
@@ -68,7 +68,7 @@ public interface AppS extends Serializable {
     // Propiedad
     //
 
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Paginacion paginacion);
+	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion);
 	
 	public Propiedad obtenerPropiedadNuevo();
 	
@@ -81,7 +81,7 @@ public interface AppS extends Serializable {
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion);
+	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion);
 
 	public Persona obtenerPersonaNuevo();
 

@@ -14,7 +14,6 @@ import ec.com.ebos.generic.resources.GenericMensajes;
 import ec.com.ebos.seguridad.model.Usuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.GenericUtils;
-import ec.com.ebos.util.IEntidad;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;

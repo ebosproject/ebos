@@ -6,7 +6,7 @@ import ec.com.ebos.app.model.Bundle;
 import ec.com.ebos.app.model.Persona;
 import ec.com.ebos.app.model.Propiedad;
 import ec.com.ebos.app.model.Bundle.Localidad;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.orm.crud.Pagination;
 
 /**
  *
@@ -24,7 +24,7 @@ public interface AppG {
 	
 	public Bundle guardarBundle(Bundle messageResource);
 
-	public List<Bundle> obtenerBundleList(Bundle bundle, Paginacion paginacion);
+	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion);
 
 	public Bundle obtenerBundleNuevo();
 
@@ -34,7 +34,7 @@ public interface AppG {
 	// Propiedad
 	//
 
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Paginacion paginacion);
+	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion);
 
 	public Propiedad obtenerPropiedadNuevo();
 
@@ -47,7 +47,7 @@ public interface AppG {
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion);
+	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion);
 
 	public Persona obtenerPersonaNuevo();
 

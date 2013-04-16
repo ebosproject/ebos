@@ -12,11 +12,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -36,23 +33,26 @@ import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
 import ec.com.ebos.administracion.core.exception.AdministracionException;
 import ec.com.ebos.administracion.core.gestor.AdministracionGImpl;
 import ec.com.ebos.administracion.resources.AdministracionMensajes;
-import ec.com.ebos.app.web.jsf.mb.SesionUsuarioMB;
+import ec.com.ebos.app.core.gestor.AppGImpl;
+import ec.com.ebos.app.resources.AppMensajes;
+import ec.com.ebos.app.web.jsf.mb.SessionMB;
 import ec.com.ebos.aspect.annotation.UniqueIndex;
 import ec.com.ebos.aspect.annotation.UniqueIndexes;
-import ec.com.ebos.fwk.crud.Crud;
-import ec.com.ebos.fwk.crud.CrudService;
-import ec.com.ebos.fwk.crud.FinderService;
-import ec.com.ebos.fwk.crud.GenericCriteria;
-import ec.com.ebos.fwk.crud.Paginacion;
-import ec.com.ebos.fwk.crud.PaginationParams;
-import ec.com.ebos.generic.web.jsf.mb.AbstractServiceMB;
+import ec.com.ebos.bitacora.core.gestor.BitacoraGImpl;
+import ec.com.ebos.bitacora.resources.BitacoraMensajes;
+import ec.com.ebos.orm.crud.Crud;
+import ec.com.ebos.orm.crud.CrudService;
+import ec.com.ebos.orm.crud.FinderService;
+import ec.com.ebos.orm.crud.GenericCriteria;
+import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.orm.crud.PaginationParams;
 import ec.com.ebos.seguridad.core.gestor.SeguridadGImpl;
 import ec.com.ebos.seguridad.exception.SeguridadException;
 import ec.com.ebos.seguridad.resources.SeguridadMensajes;
-import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.HTTPUtils;
-import ec.com.ebos.util.MessageUtils;
 import ec.com.ebos.util.ObjectUtils;
+import ec.com.ebos.util.core.gestor.UtilGImpl;
+import ec.com.ebos.util.resources.UtilMensajes;
 import ec.com.ebos.util.type.JsfMessage;
 
 
@@ -291,10 +291,10 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 	}
 	
 	/**
-	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, Paginacion)}
+	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, Pagination)}
 	 * @author Eduardo Plua Alay
 	 */
-	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria, Paginacion paginacion) {
+	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria, Pagination paginacion) {
 		List<T> list = finder.findByCriteria(criteria, paginacion);
 		return list;
 	}
@@ -651,32 +651,15 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 //		return (ApplicationMB) HTTPUtils.getSessionAttribute("app");
 //	}
 
-	/**
-	 * Devuelve el {@link AbstractServiceMB} del hilo de ejecucion actual
-	 * @return {@link AbstractServiceMB}
-	 */
-	protected AbstractServiceMB getBean() {
-		// el aspecto debe obtener el AbstractServiceMB
-		return null;
-	}
+//	/**
+//	 * Devuelve el {@link AbstractServiceMB} del hilo de ejecucion actual
+//	 * @return {@link AbstractServiceMB}
+//	 */
+//	protected AbstractServiceMB getBean() {
+//		// el aspecto debe obtener el AbstractServiceMB
+//		return null;
+//	}
 
-	/**
-	 * Construye un mensaje utilizando el archivo de propiedades
-	 * del proyecto correspondiente al modulo
-	 * @param keySummary
-	 * @param params
-	 * @return
-	 */
-	@SuppressWarnings("unused")
-	private String buildMessage(String keySummary, Object... params) {
-		String message = "";
-		if (this instanceof AdministracionGImpl) {
-			message = AdministracionMensajes.getString(keySummary, params);
-		} else if (this instanceof SeguridadGImpl) {
-			message = SeguridadMensajes.getString(keySummary, params);
-		}
-		return message;
-	}
 
 	public void sendMail(String subject, String msg, String from, String ... to){
 		/*ApplicationContext context = 
@@ -686,10 +669,9 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 		if(from==null){
 			from = "noreply@ebos.com.ec";
 		}
-		msg = msg + "\r\n\r\n\r\neBos: Este correo ha sido generado automaticamente, no es necesario que conteste";
+		msg = msg + "\r\n\r\n\r\neBos: eBos, noreply";
 //		sendMail.sendMail(subject, msg, from, to);
 	}
-	
 	
 	public void callStoreProcedure(String nameProcedure, Object ... params)
 	throws E, SQLException{
@@ -977,52 +959,57 @@ public abstract class GenericGImpl<X, E extends Exception> extends TransactionPr
 //        return null;
 //    }
 //
-
+	
 	/**
-	 * Metodo que devuelve el bundle name del modulo actual, por defaul devuelve el 
-	 * bundle name del modulo generico.
-	 * Sobreescribir metodo para definir bundle name del modulo actual
-	 * 
-	 * @author Eduardo Plua Alay
-	 */	
-	protected String getBundleName(){
-		return Constantes.MODULE_BUNDLE_NAME;
+	 * Construye un mensaje utilizando el archivo de propiedades
+	 * del proyecto correspondiente al modulo
+	 * @param key
+	 * @param args
+	 * @return
+	 */
+	private String buildMessage(String key, Object... args) {
+		String message = "";
+		if (this instanceof AdministracionGImpl) {
+			message = AdministracionMensajes.getString(key, args);
+		} else if (this instanceof SeguridadGImpl) {
+			message = SeguridadMensajes.getString(key, args);
+		} else if (this instanceof BitacoraGImpl){
+			message = BitacoraMensajes.getString(key, args);
+		} else if (this instanceof AppGImpl){
+			message = AppMensajes.getString(key, args);
+		} else if (this instanceof UtilGImpl){
+			message = UtilMensajes.getString(key, args);
+		}
+		return message;
 	}
 	
-	private final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(getBundleName());
-	
-    public void putMessage(FacesMessage.Severity severity, String key, Object... args){
-        FacesMessage message = new FacesMessage(severity, MessageUtils.buildMessage(key, RESOURCE_BUNDLE, args), "");
-        FacesContext.getCurrentInstance().addMessage(null, message);
-    }
-    
     public void putSuccess(String key, Object... args) {        
-        putMessage(FacesMessage.SEVERITY_INFO, key, args);
+       getSessionMB().putSuccess(buildMessage(key, args));
     }
 
     public void putWarning(String key, Object... args) {
-        putMessage(FacesMessage.SEVERITY_WARN, key, args);        
+    	getSessionMB().putWarning(buildMessage(key, args));        
     }
 
     public void putError(String key, Object... args) {
-        putMessage(FacesMessage.SEVERITY_ERROR, key, args);        
+    	getSessionMB().putError(buildMessage(key, args));        
     }
     
     public void putFatal(String key, Object... args) {
-        putMessage(FacesMessage.SEVERITY_FATAL, key, args);        
+    	getSessionMB().putFatal(buildMessage(key, args));        
     }
 //
     /**
-     * Devuelve el {@link SesionUsuarioMB} del hilo de ejecucion actual
+     * Devuelve el {@link SessionMB} del hilo de ejecucion actual
      *
-     * @return {@link SesionUsuarioMB}
+     * @return {@link SessionMB}
      * @see
      * http://stackoverflow.com/questions/3320674/spring-how-do-i-inject-an-httpservletrequest-into-a-request-scoped-bean
      * @see org.springframework.web.context.request.RequestContextListener
      * @see org.springframework.web.context.request.RequestContextHolder
      */
-    protected SesionUsuarioMB getSesionUsuario() {
-        SesionUsuarioMB sesionUsuario = (SesionUsuarioMB) HTTPUtils.getSessionAttribute(SesionUsuarioMB.BEAN_NAME);
+    protected SessionMB getSessionMB() {
+        SessionMB sesionUsuario = (SessionMB) HTTPUtils.getSessionAttribute(SessionMB.BEAN_NAME);
         if (sesionUsuario == null) {
             throw new SeguridadException("sesion.error.sesionNoValida");
         }

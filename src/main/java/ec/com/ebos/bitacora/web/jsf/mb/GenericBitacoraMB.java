@@ -22,11 +22,6 @@ public abstract class GenericBitacoraMB<T extends Entidad<T>> extends GenericMB<
         super();
     }
 	
-	@Override
-    protected String getBundleName(){
-    	return Constantes.DOMAIN_NAME+".bitacora.resources.bitacora";
-    }
-    
 	@Getter @Setter
     @ManagedProperty(value = "#{administracionS}")
     protected AdministracionS administracionS;

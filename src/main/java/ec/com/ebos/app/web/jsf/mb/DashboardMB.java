@@ -19,11 +19,13 @@ import org.primefaces.model.DefaultDashboardModel;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013/04/10
  */
-@ManagedBean(name = "dashboardMB")
+@ManagedBean(name = DashboardMB.BEAN_NAME)
 @SessionScoped
 public class DashboardMB implements Serializable {
 
 	private static final long serialVersionUID = -4472801591227829631L;
+	
+	public static final String BEAN_NAME = "dashboardMB";
 	
 	private DashboardModel model;
 	

@@ -11,13 +11,13 @@ import ec.com.ebos.util.GenericUtils;
  *
  * @author Eduardo Plua Alay
  */
-@ManagedBean(name = "configuracionMB")
+@ManagedBean(name = ConfiguracionMB.BEAN_NAME)
 @SessionScoped
 public class ConfiguracionMB extends GenericAdministracionMB<Configuracion>{
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -4050902280012061901L;
+	
+	public static final String BEAN_NAME = "configuracionMB";
 	
 	private Configuracion configuracionActual;
     

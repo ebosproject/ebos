@@ -6,15 +6,20 @@
 	<p:dialog id="dlgMain" widgetVar="wgtMain" dynamic="true" 
 		closeOnEscape="true" resizable="false" position="0,47">  
 		<h:form id="frmMenu">
-			<p:panelMenu id="pnlMenu" model="#{modelMB.menuModel}"/>
+			<p:panelMenu id="pnlMenu" model="#{deskMB.menuModel}"/>
 			<script>
 	            jQuery('#frmMenu a').mouseup(function(event){jsPreventDefault(event, this)});
 	        </script>
 		</h:form>
 		<h:form id="frmCommands">
-			<p:remoteCommand name="openOption"	actionListener="#{modelMB.openOption}"/>
-			<p:remoteCommand name="closeOption" actionListener="#{modelMB.closeOption}"/>
-			<p:remoteCommand name="changeOption" actionListener="#{modelMB.changeOption}"/>
+			<p:remoteCommand name="openOption"	actionListener="#{deskMB.openOption}"
+				async="true" oncomplete="setTimeout('updateDialogs()',1000)" partialSubmit="true"/>
+		<ui:remove> 
+			<p:remoteCommand name="closeOption" actionListener="#{deskMB.closeOption}"
+				async="true" oncomplete="setTimeout('updateDialogs()',1000)"/>
+		</ui:remove> 
+			<p:remoteCommand name="changeOption" actionListener="#{deskMB.changeOption}"/>
+			<p:remoteCommand name="updateDialogs" update=":pngDialogs"/>
 		</h:form>
 	</p:dialog>
 </ui:composition>

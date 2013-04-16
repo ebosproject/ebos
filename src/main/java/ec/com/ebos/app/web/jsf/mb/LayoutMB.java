@@ -1,5 +1,7 @@
 package ec.com.ebos.app.web.jsf.mb;
 
+import java.io.Serializable;
+
 import ec.com.ebos.app.web.jsf.component.LayoutOptions;
 
 import javax.annotation.PostConstruct;
@@ -16,8 +18,12 @@ import lombok.Setter;
  * @since 2013-02-05
  */
 @ApplicationScoped //@ViewScoped
-@ManagedBean(eager = true, name="layoutMB")
-public class LayoutMB {
+@ManagedBean(eager = true, name=LayoutMB.BEAN_NAME)
+public class LayoutMB implements Serializable{
+	
+	private static final long serialVersionUID = 4364760309550718758L;
+
+	public static final String BEAN_NAME = "layoutMB";
 
 	@Getter @Setter
 	private LayoutOptions layoutOptionsHome;

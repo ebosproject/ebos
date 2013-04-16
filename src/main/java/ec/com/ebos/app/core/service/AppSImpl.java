@@ -13,7 +13,7 @@ import ec.com.ebos.app.core.gestor.AppG;
 import ec.com.ebos.app.model.Bundle;
 import ec.com.ebos.app.model.Persona;
 import ec.com.ebos.app.model.Propiedad;
-import ec.com.ebos.fwk.crud.Paginacion;
+import ec.com.ebos.orm.crud.Pagination;
 
 /**
  * @author Eduardo Plua Alay
@@ -34,7 +34,7 @@ public class AppSImpl implements AppS{
     //
 	
 	@Override
-	public List<Bundle> obtenerBundleList(Bundle bundle, Paginacion paginacion) {		
+	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion) {		
 		return appG.obtenerBundleList(bundle, paginacion);
 	}
 	
@@ -68,7 +68,7 @@ public class AppSImpl implements AppS{
     // Propiedad
     //
 
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Paginacion paginacion){
+	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion){
 		return appG.obtenerPropiedadList(propiedad, paginacion);
 	}
 	
@@ -88,7 +88,7 @@ public class AppSImpl implements AppS{
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Paginacion paginacion){
+	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion){
 		return appG.obtenerPersonaList(persona, paginacion);
 	}
 
