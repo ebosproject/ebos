@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -20,11 +21,14 @@ import ec.com.ebos.util.StringUtils;
 /**
  * @author Eduardo Plua Alay
  */
-@ManagedBean(name = "opcionMB")
-@SessionScoped
+@ManagedBean(name = OpcionMB.BEAN_NAME)
+//@SessionScoped
+@ViewScoped
 public class OpcionMB extends GenericSeguridadMB<Opcion> {
     
 	private static final long serialVersionUID = 833763360386716739L;
+	
+	public static final String BEAN_NAME = "opcionMB";
 
 	@Override
     public void getInit() {

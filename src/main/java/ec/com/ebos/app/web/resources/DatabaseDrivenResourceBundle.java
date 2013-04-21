@@ -2,7 +2,6 @@ package ec.com.ebos.app.web.resources;
 
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javax.faces.context.FacesContext;

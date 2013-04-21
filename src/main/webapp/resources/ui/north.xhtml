@@ -1,48 +1,52 @@
-	<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
 		<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
-			<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star"/>
+			<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star" process="@none"/>
 			<p:submenu label="#{msg.ebCuenta}">
 				<p:menuitem value="#{msg.ebCambiarPassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
-			</p:submenu>
+			</p:submenu>			
 			<f:facet name="options">
-				<div style="height: 28px; width: 510px;">
-					<div style="position: absolute; top:0px; right: 368px; padding:1px 1px 1px 1px;">
-						<eb:inputText id="find" watermark="#{msg.ebFind}"/>
-					</div>
-					<div style="position: absolute; top:0px; right: 313px; padding:1px 1px 1px 1px;">
-						<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
-					</div>					
-					<div style="position: absolute; top:0px; right: 113px; padding:1px 1px 1px 1px;">
-						<h:form id="frmThemeSwitcher">
-							<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherMB.tema}" var="t" 
-								style="width:175px;" effect="fade" >
-								<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
-								<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
-									var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
-								<p:ajax listener="#{themeSwitcherMB.guardarTema}" />
-								<p:column>
-									<h:graphicImage name="images/themes/#{t.imagen}" />
-								</p:column>
-								<p:column>
-					           		#{t.nombre}
-					            </p:column>
-							</p:themeSwitcher>
-						</h:form>
-					</div>
-					<div style="position: absolute; top:0px; right: 0px; padding:1px 1px 1px 1px;">
-						<h:form id="frmLogout" prependId="false">
-							<p:commandButton value="#{msg.ebSalir} (#{sessionMB.usuario.username})"
-								actionListener="#{sessionMB.cerrarSesion}" icon="ui-icon-extlink" update=":pngHome, :pngWelcome"/>
-						</h:form>
-					</div>
-				</div>
+				<h:panelGrid id="pngOptions" columns="9">
+					<form id="frmUpdDesk">
+						<p:commandButton icon="ui-icon-refresh" update="@all" title="#{msg.ebActualizar}" immediate="true"/>
+					</form>
+					
+					<eb:inputText id="find" watermark="#{msg.ebFind}"/>
+				
+					<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
+				
+					<p:spacer width="5"/>
+					
+					<h:form id="frmThemeSwitcher">
+						<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherMB.tema}" var="t" 
+							style="width:175px;" effect="fade" >
+							<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
+							<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
+								var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
+							<p:ajax listener="#{themeSwitcherMB.guardarTema}" />
+							<p:column>
+								<h:graphicImage name="images/themes/#{t.imagen}" />
+							</p:column>
+							<p:column>
+				           		#{t.nombre}
+				            </p:column>
+						</p:themeSwitcher>
+					</h:form>
+				
+					<h:form id="frmLogout" prependId="false">
+						<p:commandButton value="#{msg.ebSalir} (#{sessionMB.usuario.username})"
+							actionListener="#{sessionMB.cerrarSesion}" icon="ui-icon-extlink" onstart="wgtLogger.hide()" update=":pngHome, :pngWelcome"/>
+					</h:form>
+				</h:panelGrid>	
 			</f:facet>					
 		</p:menubar>
-		<p:growl id="groHome" autoUpdate="true" sticky="true" />
+		<p:growl id="grwHome" autoUpdate="true" sticky="true" widgetVar="wgtGrwHome" life="5000"/>
+		<p:log id="logger" widgetVar="wgtLogger" rendered="#{sessionMB.usuario.username eq 'admin'}"/>
+		<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
+		<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" /> 
 	
 </ui:composition>

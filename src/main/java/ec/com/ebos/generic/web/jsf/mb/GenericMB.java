@@ -38,7 +38,7 @@ import ec.com.ebos.util.type.JsfMessage;
 	private static final long serialVersionUID = 6416663507886628619L;
 
 	@Getter @Setter
-    @ManagedProperty(value = "#{"+SessionMB.BEAN_NAME+"}")
+    @ManagedProperty(value = SessionMB.EL_BEAN_NAME)
     protected SessionMB sessionMB;
 	
     @Getter @Setter
@@ -215,10 +215,6 @@ import ec.com.ebos.util.type.JsfMessage;
 	protected T loadRowData(Long rowKey){
         return (T) new Object();
     }
-
-    public final String getRandomId() {
-        return "id_" + ("" + Math.random()).substring(2);
-    }   
 
     protected void setHabilitaCrear() {
         setHabilitaCrear(sessionMB.verificaAcceso(TARGET_ID, SessionMB.CREATE_ACTION_ID));

@@ -1,9 +1,11 @@
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui">
-	
-	<!-- <ui:include id="loading" src="../ui/loading.xhtml" /> -->
-	<!-- <p:growl id="msgTabs" autoUpdate="true" sticky="true"/> -->            
-    <ui:insert name="west" />
-    <ui:insert name="center"/>            
-             
-</ui:composition>            
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      	xmlns:ui="http://java.sun.com/jsf/facelets"
+      	xmlns:p="http://primefaces.org/ui"
+      	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+
+    	<div id="content" style="height:100%;width:100%">
+	    	<ui:insert name="west" />
+			<ui:insert name="center"/>
+		</div>
+    
+</ui:composition>

@@ -91,7 +91,7 @@
 	p:clock
 */
 .ui-clock{
-	padding: 4px 4px;
+	padding: 4px !important;
 	text-align: center;
 }
 

@@ -2,79 +2,70 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
-                template="content.xhtml">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
     <ui:param name="westRendered" value="true" />
     <ui:param name="showAuditoria" value="true" />
 
-    <ui:define name="west">
-        <h:form id="frmFiltros">
-            <p:toolbar id="toolbarFiltros">
-                <p:toolbarGroup align="left">
-                    <p:commandButton id="btnBuscar" actionListener="#{bean._buscar}" value="#{msg.ebBuscar}" 
-                    icon="ui-icon-search" update="@(:frmResultados)"/>
-                </p:toolbarGroup>
-            </p:toolbar>
-
-            <h:panelGroup>
-                <ui:insert name="filtros" />
-            </h:panelGroup>
-        </h:form>
-    </ui:define>
-
-    <ui:define name="center">
-        <h:form id="frmResultados" prependId="false">
-            <p:toolbar id="toolbarResultados">
-                <p:toolbarGroup align="left">
-                    <p:commandButton id="btnNuevo" value="#{msg.ebNuevo}" rendered="#{bean.habilitaCrear}"
-                                     action="#{bean._crear}" icon="ui-icon-document" ajax="false"/>
-                    <p:commandButton id="btnEditar" value="#{msg.ebEditar}" action="#{bean._editar}" rendered="#{bean.habilitaEditar and not empty bean.dataTable}"
-                                     icon="ui-icon-edit" ajax="false"/>                    
-                    <p:commandButton id="btnExportar" value="#{msg.ebExportar}" ajax="false" rendered="#{bean.habilitaExportar}">
-                        <p:dataExporter type="xls" target="dtResultados" fileName="Reporte"/>
-                    </p:commandButton>
-                </p:toolbarGroup>
-            </p:toolbar>
-            
-            <p:remoteCommand id="fnEditar" action="#{bean._editar}" name="fnEditar" 
-            	rendered="#{bean.habilitaEditar and not empty bean.dataTable}"/>
-            
-            <p:dataTable id="dtResultados" 
-                         var="reg" 
-                         value="#{bean.dataTable}"
-                         lazy="true" 
-                         selectionMode="single"
-                         selection="#{bean.activeEntity}"
-                         paginator="true" 
-                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
-                         rowsPerPageTemplate="5,10,15,50"
-                         rows="10" 
-                         emptyMessage="#{msg.ebEmptyDataTable}"
-                         resizableColumns="true"
-                         scrollable="true"  
-                         scrollHeight="100%"
-                         rowKey="#{reg.id}">
-                         
-                <p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" oncomplete="fnEditar();"/>         
-                         
-                <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
-                    <p:commandLink id="cmlEditar" type="push" value="#{reg.id}" 
-                    	action="#{bean._editar}" ajax="false" style="color:blue"
-                        title="#{msg.ebVer}" onmouseup="jsPreventDefault(event,this);">
-                        <f:setPropertyActionListener value="#{reg}" target="#{bean.activeEntity}"/>
-                    </p:commandLink>
-                </p:column>
+	<h:form id="frmExplorer" prependId="false">
+	   	<p:panel id="pnlContFilters" header="Filtros" toggleable="true" 
+	   		toggleOrientation="horizontal" style="height:100%;width:210px;">
+	          	<f:facet name="actions">
+		           	<p:commandButton id="btnBuscar" styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default" actionListener="#{bean._buscar}" value="#{msg.ebBuscar}" 
+		                	icon="ui-icon-search" update="pnlContResults" process="@parent"/>
+	          	</f:facet>
+	           <ui:insert name="filtros"/>
+	    </p:panel>
+    
+        <p:panel id="pnlContResults" header="Resultados" style="position:absolute;top:0px;left:220px;right:0px;height:100%;width:75%">
+           	<f:facet name="actions">
+                <p:commandButton id="btnNuevo" value="#{msg.ebNuevo}" styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default" rendered="#{bean.habilitaCrear}"
+                                 action="#{bean._crear}" icon="ui-icon-document"/>
+                <p:commandButton id="btnEditar" value="#{msg.ebEditar}" styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default" action="#{bean._editar}" rendered="#{bean.habilitaEditar and not empty bean.dataTable}"
+                                 icon="ui-icon-edit"/>                    
+                <p:commandButton id="btnExportar" value="#{msg.ebExportar}" styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default" rendered="#{bean.habilitaExportar}">
+                    <p:dataExporter type="xls" target="dtResultados" fileName="Reporte"/>
+                </p:commandButton>
                 
-                <ui:insert name="resultados" />
-                
+                <p:remoteCommand id="fnEditar" action="#{bean._editar}" name="fnEditar" 
+	         		rendered="#{bean.habilitaEditar and not empty bean.dataTable}"/>
+            </f:facet>
+	        
+        	<p:dataTable id="dtResultados" 
+	                      var="reg" 
+	                      value="#{bean.dataTable}"
+	                      lazy="true" 
+	                      selectionMode="single"
+	                      selection="#{bean.activeEntity}"
+	                      paginator="true" 
+	                      paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+	                      rowsPerPageTemplate="5,10,15,50"
+	                      rows="10" 
+	                      emptyMessage="#{msg.ebEmptyDataTable}"
+	                      resizableColumns="true"
+	                      scrollable="true"  
+	                      scrollHeight="100%"
+	                      rowKey="#{reg.id}">
+
+	            <p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" oncomplete="fnEditar();"/>         
+
+	            <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
+	                 <p:commandLink id="cmlEditar" type="push" value="#{reg.id}" 
+	                 	action="#{bean._editar}" ajax="false" style="color:blue"
+	                     title="#{msg.ebVer}" onmouseup="jsPreventDefault(event,this);">
+	                     <f:setPropertyActionListener value="#{reg}" target="#{bean.activeEntity}"/>
+	                 </p:commandLink>
+	            </p:column>
+	             
+	            <ui:insert name="resultados" />
+	             
 			    <p:column id="creado" headerText="#{msg.ebCreado}" width="60" resizable="false" rendered="#{showAuditoria}">        
 			        <eb:outputDate value="#{reg.fechaCreacion}" title="#{msg.ebPor}: #{reg.usuarioCreacion.username}"/>
 			    </p:column>
 			    <p:column id="modificado" headerText="#{msg.ebModificado}" width="60" resizable="false" rendered="#{showAuditoria}">        
 			        <eb:outputDate value="#{reg.fechaModificacion}" title="#{msg.ebPor}: #{reg.usuarioModificacion.username}"/>
 			    </p:column>                    
-        	</p:dataTable>
-        </h:form>    
-    </ui:define>
+	     	</p:dataTable>
+    	</p:panel>
+    </h:form> 
 </ui:composition>

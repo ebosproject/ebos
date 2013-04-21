@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,11 +20,14 @@ import ec.com.ebos.util.GenericUtils;
 /**
  * @author Eduardo Plua Alay
  */
-@ManagedBean(name = "rolMB")
-@SessionScoped
+@ManagedBean(name = RolMB.BEAN_NAME)
+//@SessionScoped
+@ViewScoped
 public class RolMB extends GenericSeguridadMB<Rol> {
     
 	private static final long serialVersionUID = 5900425430487867980L;
+	
+	public static final String BEAN_NAME = "rolMB";
 
     @Override
     public void getInit() {

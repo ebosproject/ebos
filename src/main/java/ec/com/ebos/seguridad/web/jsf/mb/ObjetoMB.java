@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import ec.com.ebos.generic.model.Entidad;
@@ -15,11 +16,14 @@ import ec.com.ebos.util.GenericUtils;
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-@ManagedBean(name = "objetoMB")
-@SessionScoped
+@ManagedBean(name = ObjetoMB.BEAN_NAME)
+//@SessionScoped
+@ViewScoped
 public class ObjetoMB extends GenericSeguridadMB<Objeto> {
     
 	private static final long serialVersionUID = 833763360386716739L;
+	
+	public static final String BEAN_NAME = "objetoMB";
 
 	@Override
     public void getInit() {

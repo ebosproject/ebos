@@ -3,28 +3,26 @@
                 xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:p="http://primefaces.org/ui" 
 				xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
-	
+
 	<h:form id="frmDashboard">
-		<p:dashboard id="dashboard" model="#{dashboardMB.model}">
+		<p:dashboard id="dashboard" model="#{dashboardMB.model}" style="right:0px;">
             <p:ajax event="reorder" listener="#{dashboardMB.handleReorder}"/>
-			<p:panel id="bundle" header="#{msg.ebBundle}" >
-				<p:commandLink value="#{msg.ebBundle}"/>
+			<p:panel id="bundle" header="#{msg.ebBundle}">
+				<p:commandButton value="#{msg.ebBundle}" onclick="alert('En desarrollo');"/>
 			</p:panel>
-			<p:panel id="usuario" header="#{msg.ebUsuario}" >
-				<p:commandLink value="#{msg.ebUsuario}"/>
+			<p:panel id="usuario" header="#{msg.ebUsuario}">
+				<p:commandButton value="#{msg.ebOpcion}" onclick="alert('En desarrollo');"/>
 			</p:panel>
-			<p:panel id="rol" header="Prueba1">
-               	<p:commandButton value="#{msg.ebOpcion}" action="#{deskMB.prueba1}"/>
+			<p:panel id="rol" header="#{msg.ebRol}">
+               	<p:commandButton value="#{msg.ebRol}" onclick="alert('En desarrollo');"/>
 			</p:panel>
-			<p:panel id="opcion" header="Prueba2">
-				<p:commandButton value="#{msg.ebOpcion}" action="#{deskMB.update('pngDialogs')}"/>
+			<p:panel id="opcion" header="#{msg.ebOpcion}">
+				<p:commandButton value="#{msg.ebOpcion}" onclick="alert('En desarrollo');"/>
 			</p:panel>
 		</p:dashboard>
 	</h:form> 
 	
-	<h:panelGroup id="pngDialogs" binding="#{deskMB.pngDialogs}"/>
-
-	<p:imageSwitch id="background" widgetVar="wgtBack" effect="fade" 
+	<p:imageSwitch id="imsBackg" widgetVar="wgtBackg" effect="fade" 
 		style="z-index:-100; height:100%;" slideshowAuto="false">
 		<p:graphicImage value="resources/images/desk/ebosback4.jpg" width="100%"/>
 		<p:graphicImage value="resources/images/desk/ebosback3.jpg" width="100%"/>
@@ -32,10 +30,13 @@
 		<p:graphicImage value="resources/images/desk/ebosback.jpg" width="100%"/>	
 	</p:imageSwitch>
 	
-	<!-- <p:contextMenu for="background"> -->
-	<p:contextMenu id="ctmBackground">
-		<p:menuitem value="#{msg.ebPreviousImage}" url="javascript:void(0)" onclick="wgtBack.previous();" icon="ui-icon-triangle-1-w"/>
-		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="wgtBack.next();" icon="ui-icon-triangle-1-e"/>
+	<p:contextMenu id="ctmBackg" for="imsBackg">	
+		<p:menuitem value="#{msg.ebPreviousImage}" url="javascript:void(0)" onclick="wgtBackg.previous();" icon="ui-icon-triangle-1-w"/>
+		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="wgtBackg.next();" icon="ui-icon-triangle-1-e"/>
 	</p:contextMenu>
+
+	<ui:repeat var="pngFrame" value="#{deskMB.mapPngFrames}">
+		<h:panelGroup id="#{pngFrame}"/>	
+	</ui:repeat>
    	
 </ui:composition>

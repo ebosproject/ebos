@@ -38,7 +38,7 @@ public class ThemeSwitcherMB implements Serializable{
     private String tema;
 
     @Setter
-    @ManagedProperty(value = "#{"+SessionMB.BEAN_NAME+"}")
+    @ManagedProperty(value = SessionMB.EL_BEAN_NAME)
     private SessionMB sessionMB;
     
 

@@ -22,7 +22,7 @@ public class IdleMonitorMB implements Serializable{
 	public static final String BEAN_NAME = "idleMonitorMB";
 	
 	@Setter
-	@ManagedProperty(value = "#{"+SessionMB.BEAN_NAME+"}")
+	@ManagedProperty(value = SessionMB.EL_BEAN_NAME)
 	private SessionMB sessionMB;
 
 	public void idleListener() {

@@ -113,10 +113,6 @@ label {
     padding: 4px 0px;    
 }
 
-#clock {
-    text-align: left;
-}
-
 #themeswitcher {
     position:absolute;
    	top:5px;
@@ -149,7 +145,10 @@ body{
 }
 
 #center{
-	
+	width: 100%;
+    bottom: 33px;
+    position: absolute;
+    top: 30px;
 }
 
 
@@ -193,5 +192,10 @@ body{
 	
 }
 
-
+#pngOptions{
+	border-top-width: 0;
+    height: 30px;
+    margin-bottom: 0;
+    margin-top: -3px;
+}
 

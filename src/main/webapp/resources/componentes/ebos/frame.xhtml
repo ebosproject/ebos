@@ -7,7 +7,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    <cc:interface displayName="dialog" >
+    <cc:interface displayName="frame" >
         <cc:attribute name="maximizable" type="java.lang.Boolean" default="true"/>
         <cc:attribute name="minimizable" type="java.lang.Boolean" default="true"/>
         <cc:attribute name="resizable" type="java.lang.Boolean" default="true"/>
@@ -21,13 +21,13 @@
         <cc:attribute name="hideEffect" type="java.lang.String" default="fade"/>
         <cc:attribute name="showEffect" type="java.lang.String" default="drop"/>
         <cc:attribute name="header" type="java.lang.String"/>
+        <cc:attribute name="update" type="java.lang.String"/>
         <cc:attribute name="width" type="int" default="600"/>
         <cc:attribute name="height" type="int" default="400"/>
     </cc:interface>
 
     <cc:implementation>     
-    	<f:subview id="subview">    
-	        <p:dialog id="#{cc.attrs.id}_dlg"
+	        <p:dialog id="#{cc.attrs.id}_exp"
 	        	maximizable="#{cc.attrs.maximizable}"
 	        	minimizable="#{cc.attrs.minimizable}"
 	        	resizable="#{cc.attrs.resizable}"
@@ -43,10 +43,12 @@
 	        	showEffect="#{cc.attrs.showEffect}"
 	        	modal="#{cc.attrs.modal}">
 	        	
-	        	<p:ajax event="close" listener="#{deskMB.closeOption}" update=":pngDialogs"/> 
-	       		<ui:include src="#{cc.attrs.src}" /> 
+	        	<p:ajax event="close" listener="#{deskMB.closeFrame}" update="#{cc.attrs.update}"/>
+	        	<f:subview id="#{cc.attrs.id}_sbv">
+       				<ui:include src="#{cc.attrs.src}" />
+	       		</f:subview>
 	        </p:dialog>
-        </f:subview>
+        
     </cc:implementation>  
 
 </html>

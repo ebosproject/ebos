@@ -32,8 +32,10 @@ import ec.com.ebos.util.Constantes;
 public class SessionMB implements Serializable{
 
 	private static final long serialVersionUID = 502301922012194259L;
-
+	
 	public static final String BEAN_NAME = "sessionMB";
+	@SuppressWarnings("el-syntax")
+	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 	
     @Getter @Setter
     @ManagedProperty(value = "#{seguridadS}")

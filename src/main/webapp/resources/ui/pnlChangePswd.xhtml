@@ -13,7 +13,7 @@
             </eb:panelGrid>   
             <br/>
             <div align="center">
-                <p:commandButton id="btnChangePwd" value="#{msg.ebCambiar}" actionListener="#{sessionMB.cambiarPassword}" oncomebete="wgtChangePwd.hide()" update="@form"/>
+                <p:commandButton id="btnChangePwd" value="#{msg.ebCambiar}" actionListener="#{sessionMB.cambiarPassword}" oncomplete="wgtChangePwd.hide()" update="@form"/>
                 <p:commandButton id="btnCancel" value="#{msg.ebCancelar}" type="button" onclick="wgtChangePwd.hide()" update="@form"/>                        
             </div>
         </h:form>

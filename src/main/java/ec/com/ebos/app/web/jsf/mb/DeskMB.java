@@ -2,6 +2,7 @@ package ec.com.ebos.app.web.jsf.mb;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -12,23 +13,23 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlPanelGroup;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import org.primefaces.event.CloseEvent;
 import org.primefaces.component.menuitem.MenuItem;
 import org.primefaces.component.submenu.Submenu;
-import org.primefaces.context.RequestContext;
+import org.primefaces.event.CloseEvent;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
+
+import com.lowagie.text.pdf.hyphenation.TernaryTree.Iterator;
 
 import ec.com.ebos.seguridad.model.Opcion;
 import ec.com.ebos.seguridad.model.RolOpcion;
 import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.type.KeyFrame;
 
 /**
  * ManagedBean que maneja el menuOptions y los dialogs
@@ -43,7 +44,7 @@ public class DeskMB implements Serializable{
 	public static final String BEAN_NAME = "deskMB";
 	
 	@Setter
-    @ManagedProperty(value = "#{"+SessionMB.BEAN_NAME+"}")
+    @ManagedProperty(value = SessionMB.EL_BEAN_NAME)
     private SessionMB sessionMB;    
 	
 	private MenuModel menuModel;
@@ -53,17 +54,18 @@ public class DeskMB implements Serializable{
 	private Long activeOptionId;
 	
 	@Getter @Setter
-	private HtmlPanelGroup pngDialogs;
+	private List<KeyFrame> pngFrameList;
 
-	private String PNGDIALOGS_ID = ":pngDialogs";
+	private String PNGFRAMES_ID = ":pngFrames";
 	private String COMPONENT_LIBRARY = "componentes/ebos";
-	private String DIALOG_PREFIX = "dlgOption_";
+	private String FRAME_PREFIX = "fraOption_";
 	private String WIDGET_PREFIX = "wgtOption_";
-	private String DIALOG_RESOURCE = "dialog.xhtml";
+	private String FRAME_RESOURCE = "frames.xhtml";
 		
 	@PostConstruct
     public void init(){
     	menuModel = new DefaultMenuModel();
+    	buildMapPngFrames();    	
     }
 	
 	public MenuModel getMenuModel(){
@@ -114,6 +116,14 @@ public class DeskMB implements Serializable{
         }
     }
     
+    private void buildMapPngFrames(){
+    	pngFrameList =  new ArrayList<KeyFrame>();
+    	int maxOptions = sessionMB.getUsuario().getMaxOptions();
+    	for (int i = 0; i < maxOptions; i++) {
+			pngFrameList.add(new KeyFrame(FacesUtils.getRandomId(), false));
+		}
+    }
+    
 	@SuppressWarnings("rawtypes")
 	public void openOption() throws IOException{
     	FacesContext context = FacesContext.getCurrentInstance();
@@ -134,62 +144,57 @@ public class DeskMB implements Serializable{
     	
     	//Create and put CompositeComponente Dialog into #pnlDialogs
     	if(option != null){
+    		
+    		UIComponent pngFrame = context.getViewRoot().findComponent(getFrameId());
+    		
     		Map<String, Object> attrs = new TreeMap<String, Object>();
-    		attrs.put("id","dlgOption_"+option.getId());
+    		//attrs.put("id","dlgOption_"+option.getId());
     		attrs.put("widgetVar", WIDGET_PREFIX+option.getId());
             attrs.put("src", option.getTarget());
             //attrs.put("onHide", "closeOption(([{name:'optionId', value:"+option.getId()+"}]));");
             //attrs.put("onShow", "changeOption(([{name:'optionId', value:"+option.getId()+"}]));");
             attrs.put("header", option.getEtiqueta());
-    		FacesUtils.includeCompositeComponent(context, pngDialogs, COMPONENT_LIBRARY, DIALOG_RESOURCE, DIALOG_PREFIX+option.getId(), attrs);
+            attrs.put("update", PNGFRAMES_ID);
+    		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, FRAME_PREFIX+option.getId(), attrs);
     	}
     	
     }
 	
-//	@SuppressWarnings("rawtypes")
-	public void closeOption(CloseEvent event){
-		ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
-//	    Map map = extContext.getRequestParameterMap();
-	    HttpSession session = (HttpSession) extContext.getSession(false);	    
-//	    activeOptionId = Long.parseLong((String) map.get("optionId"));
-	    String dialogId = event.getComponent().getId();
-		activeOptionId = Long.valueOf(dialogId.substring(10, dialogId.indexOf("_dlg")));
-	    
-    	//Remove the beanOption of the session
+	/**
+	 * Remove frame from pngFrames 
+	 * 
+	 * @param event Frame
+	 */
+	public void closeFrame(CloseEvent event){
+    	//Remove the beanOption of the pngFrames
     	for(RolOpcion rolOpcion : rolOptionList){
     		Opcion option = rolOpcion.getOpcion();
     		if(option.getId().equals(activeOptionId)){
-				if (session != null) {					
-					pngDialogs.getChildren().remove(getActiveDialog());
-					session.removeAttribute(option.getBeanName());
-					//RequestContext.getCurrentInstance().update(PNGDIALOGS_ID);
-				}				
+					
     			break;
     		}
     	}
     }
 
-    @SuppressWarnings("rawtypes")
-	public void changeOption() {
-    	FacesContext context = FacesContext.getCurrentInstance();
-	    Map map = context.getExternalContext().getRequestParameterMap();
-	    activeOptionId = Long.parseLong((String) map.get("optionId"));
-	    
-    	//TODO (epa): completar
-		//RequestContext.getCurrentInstance().execute("jsChangeOption("+activeOptionId+")");
+	public UIComponent getFrame(String componentId){
+		UIComponent explorer = null;
+//		for(UIComponent child : pngFrames.getChildren()){
+//			if(child.getId().equals(componentId.substring(0, componentId.indexOf("_exp")))){
+//				explorer = child;
+//				break;
+//			}
+//		}
+		return explorer; 
 	}
-    
-    /**
-     * Get active dialog from binding {@link #pnlDialogs}
-     * @return UIComponent activeDialog
-     */
-    private UIComponent getActiveDialog(){
-    	for(UIComponent dialog : pngDialogs.getChildren()){
-    		if(dialog.getId().equals("dlgOption_"+activeOptionId)){
-    			return dialog;
-    		}
-    	}
-    	return null;
-    }
-    
+	
+	private String getFrameId(){
+		for (KeyFrame keyFrame : pngFrameList) {
+			if(keyFrame.getState()){
+				return keyFrame.getKey();
+			}			
+		}
+		return null;
+	}
+	 
 }
+

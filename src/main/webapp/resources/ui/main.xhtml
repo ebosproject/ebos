@@ -1,41 +1,51 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+<!-- <html > -->
 
-    <f:view contentType="text/html">
-        <h:head>            
-        	<f:facet name="first">
-	            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>            
-	            <title>#{msg.systemName}</title>
-            </f:facet>            
-            <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
-            <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
-            <h:outputScript library="js" name="jquery-1.7.2.js" />
-            <h:outputScript library="js" name="scripts.js" />              
-            <link rel="shortcut icon" href="resources/images/favicon.ico" />
-			<script type="text/javascript">//<![CDATA[
-			    window.history.forward(1);            
-			    jQuery.noConflict();        
-			//]]></script>
-        </h:head>        
-        <h:body>
-            <ui:include id="loading" src="loading.xhtml" />
-            
-            <h:panelGroup id="pngWelcome">
-	            <ui:fragment rendered="#{not sessionMB.login}">
-		        	<ui:include src="login.xhtml" />
-	            </ui:fragment>
-			</h:panelGroup>
-			
-			<h:panelGroup id="pngHome">
-				<ui:fragment rendered="#{sessionMB.login}">
-					<ui:include src="desk.xhtml" />	            
-	            </ui:fragment>
-            </h:panelGroup>
-        </h:body>
-    </f:view>
-</html>
+<f:view contentType="text/html"
+    	xmlns="http://www.w3.org/1999/xhtml"
+      	xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:ui="http://java.sun.com/jsf/facelets">
+      	
+	<h:head>            
+   		<f:facet name="first">
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>            
+          <title>#{msg.systemName}</title>
+       	</f:facet>            
+        <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
+        <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
+        <h:outputScript library="js" name="jquery-1.7.2.js" />
+        <h:outputScript library="js" name="scripts.js" />              
+        <link rel="shortcut icon" href="resources/images/favicon.ico" />
+		<script type="text/javascript">//<![CDATA[
+		    window.history.forward(1);            
+		    jQuery.noConflict();        
+		//]]></script>
+		<style type="text/css">
+             .ui-layout-north {
+                 z-index:20 !important;
+                 overflow:visible !important;;
+             }
+
+             .ui-layout-north .ui-layout-unit-content {
+                 overflow:visible !important;
+             }
+    	</style>
+	</h:head>        
+    <h:body>
+   		<ui:include id="loading" src="loading.xhtml" />
+        <h:panelGroup id="pngWelcome">
+       		<ui:fragment rendered="#{not sessionMB.login}">
+       			<ui:include src="login.xhtml" />
+          	</ui:fragment>
+		</h:panelGroup>
+	
+		<h:panelGroup id="pngHome">
+			<ui:fragment rendered="#{sessionMB.login}">
+				<ui:include src="desk.xhtml" />	            
+        	</ui:fragment>
+        </h:panelGroup>
+     </h:body>
+</f:view>
+<!-- </html> -->

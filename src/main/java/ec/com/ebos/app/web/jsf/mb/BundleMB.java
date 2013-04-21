@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
-
 import ec.com.ebos.app.model.Bundle;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.GenericUtils;
@@ -17,7 +16,8 @@ import ec.com.ebos.util.GenericUtils;
  * @since 2013-03-24
  */
 @ManagedBean(name = BundleMB.BEAN_NAME)
-@SessionScoped
+//@SessionScoped
+@ViewScoped
 public class BundleMB extends GenericAppMB<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
@@ -48,7 +48,7 @@ public class BundleMB extends GenericAppMB<Bundle> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "app/bundle/index.jsf";
+        TARGET_ID = "/app/bundle/index.xhtml";
         TARGET_NEW_ID = "crearBundle";
     }
     

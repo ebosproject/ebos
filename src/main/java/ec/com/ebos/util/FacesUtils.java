@@ -38,7 +38,8 @@ public class FacesUtils {
             // This basically creates <ui:component> based on <composite:interface>.
             Resource resource = application.getResourceHandler().createResource(resourceName, libraryName);
             UIComponent composite = application.createComponent(context, resource);
-            composite.setId(id); // Mandatory for the case composite is part of UIForm! Otherwise JSF can't find inputs.
+            //composite.setId(id); // Mandatory for the case composite is part of UIForm! Otherwise JSF can't find inputs.
+            composite.setId(getRandomId());
             composite.getAttributes().putAll(attrs);
 
             // This basically creates <composite:implementation>.
@@ -59,5 +60,9 @@ public class FacesUtils {
                 parent.popComponentFromEL(context);
             }
     }
+    
+    public static final String getRandomId() {
+        return "id_" + ("" + Math.random()).substring(2);
+    }   
 
 }

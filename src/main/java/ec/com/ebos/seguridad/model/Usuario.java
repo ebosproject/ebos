@@ -61,6 +61,9 @@ public class Usuario extends GenericSeguridad<Usuario> {
     
     @Column(name = "tema", length = 50)
     private String tema;
+    
+    @Column(name = "maxoptions", length = 5)
+    private int maxOptions;
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private Set<UsuarioRol> usuarioRolList = new HashSet<UsuarioRol>(0);

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,11 +22,14 @@ import ec.com.ebos.util.GenericUtils;
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-@ManagedBean(name = "usuarioMB")
-@SessionScoped
+@ManagedBean(name = UsuarioMB.BEAN_NAME)
+//@SessionScoped
+@ViewScoped
 public class UsuarioMB extends GenericSeguridadMB<Usuario> {
     
 	private static final long serialVersionUID = 3205546315013216597L;
+	
+	public static final String BEAN_NAME = "usuarioMB";
 
     @Override
     public void getInit() {
@@ -51,7 +55,7 @@ public class UsuarioMB extends GenericSeguridadMB<Usuario> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "seguridad/usuario/index.jsf";
+        TARGET_ID = "/seguridad/usuario/index.xhtml";
         TARGET_NEW_ID = "crearUsuario";
     }
     
