@@ -35,8 +35,6 @@
 		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="wgtBackg.next();" icon="ui-icon-triangle-1-e"/>
 	</p:contextMenu>
 
-	<ui:repeat var="pngFrame" value="#{deskMB.mapPngFrames}">
-		<h:panelGroup id="#{pngFrame}"/>	
-	</ui:repeat>
+	<h:panelGroup id="pngFrames" binding="#{deskMB.pngFrames}"/>	
    	
 </ui:composition>

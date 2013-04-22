@@ -6,7 +6,7 @@ import lombok.Data;
 public class KeyFrame {	
 	
 	private String key;
-	private Boolean state;
+	private boolean state;
 	
 	public KeyFrame(String key, boolean state) {
 		this.key = key;
