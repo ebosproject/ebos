@@ -17,6 +17,7 @@
         <cc:attribute name="src" type="java.lang.String"/>
         <cc:attribute name="onHide" type="java.lang.String"/>
         <cc:attribute name="onShow" type="java.lang.String"/>
+        <cc:attribute name="oncomplete" type="java.lang.String"/>
         <cc:attribute name="widgetVar" type="java.lang.String"/>
         <cc:attribute name="hideEffect" type="java.lang.String" default="fade"/>
         <cc:attribute name="showEffect" type="java.lang.String" default="drop"/>
@@ -27,12 +28,13 @@
     </cc:interface>
 
     <cc:implementation>     
-	        <p:dialog id="#{cc.attrs.id}_exp"
+	        <p:dialog id="#{cc.attrs.id}_dlg"
 	        	maximizable="#{cc.attrs.maximizable}"
 	        	minimizable="#{cc.attrs.minimizable}"
 	        	resizable="#{cc.attrs.resizable}"
 	        	onHide="#{cc.attrs.onHide}"
 	        	onShow="#{cc.attrs.onShow}"
+	        	oncomplete="#{cc.attrs.oncomplete}"
 	        	widgetVar="#{cc.attrs.widgetVar}"
 	        	width="#{cc.attrs.width}"
 	        	height="#{cc.attrs.height}"
@@ -43,7 +45,7 @@
 	        	showEffect="#{cc.attrs.showEffect}"
 	        	modal="#{cc.attrs.modal}">
 	        	
-	        	<p:ajax event="close" listener="#{deskMB.closeFrame}" update="#{cc.attrs.update}"/>
+	        	<p:ajax event="close" listener="#{deskMB.closeFrame}"/>
 	        	<f:subview id="#{cc.attrs.id}_sbv">
        				<ui:include src="#{cc.attrs.src}" />
 	       		</f:subview>

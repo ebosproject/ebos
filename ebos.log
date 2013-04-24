@@ -1,0 +1,94 @@
+2013-04-22 15:06:25,473 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-04-22 15:06:25,619 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-04-22 15:06:25,641 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-04-22 15:06:25,645 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-04-22 15:06:25,650 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-04-22 15:06:25,804 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-04-22 15:06:25,876 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/E:/work/workspace/ebos/src/main/resources/hibernate.cfg.xml
+2013-04-22 15:06:26,019 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-04-22 15:06:26,129 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.administracion.model.Configuracion
+2013-04-22 15:06:26,190 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.administracion.model.Configuracion on table ADMTCONFIGURACION
+2013-04-22 15:06:26,392 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.administracion.model.Parametros
+2013-04-22 15:06:26,393 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.administracion.model.Parametros on table ADMTPARAMETROS
+2013-04-22 15:06:26,414 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Activo
+2013-04-22 15:06:26,418 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Activo on table APPTACTIVO
+2013-04-22 15:06:26,462 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.ActivoCustodio
+2013-04-22 15:06:26,462 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
+2013-04-22 15:06:26,478 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Bundle
+2013-04-22 15:06:26,480 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Bundle on table APPTMESSAGE_RESOURCE
+2013-04-22 15:06:26,488 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Categoria
+2013-04-22 15:06:26,488 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Categoria on table APPTCATEGORIA
+2013-04-22 15:06:26,507 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Empresa
+2013-04-22 15:06:26,508 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Empresa on table APPTEMPRESA
+2013-04-22 15:06:26,593 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.EmpresaPersona
+2013-04-22 15:06:26,593 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.EmpresaPersona on table APPTEMPRESA_PERSONA
+2013-04-22 15:06:26,618 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Persona
+2013-04-22 15:06:26,620 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Persona on table APPTPERSONA
+2013-04-22 15:06:26,660 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Propiedad
+2013-04-22 15:06:26,660 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Propiedad on table APPTPROPIEDAD
+2013-04-22 15:06:26,684 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.PropiedadValor
+2013-04-22 15:06:26,688 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.PropiedadValor on table APPTPROPIEDAD_VALOR
+2013-04-22 15:06:26,694 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Sucursal
+2013-04-22 15:06:26,695 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Sucursal on table APPTSUCURSAL
+2013-04-22 15:06:26,709 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.app.model.Tema
+2013-04-22 15:06:26,710 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.app.model.Tema on table APPTTEMA
+2013-04-22 15:06:26,726 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-04-22 15:06:26,728 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table BITTEVENTO
+2013-04-22 15:06:26,756 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-04-22 15:06:26,757 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table BITTEVENTO_LOG
+2013-04-22 15:06:26,771 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-04-22 15:06:26,772 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table BITTINSPECCION
+2013-04-22 15:06:26,782 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-04-22 15:06:26,783 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table BITTINSPECCION_DETALLE
+2013-04-22 15:06:26,796 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-04-22 15:06:26,797 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table BITTRUTA
+2013-04-22 15:06:26,806 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-04-22 15:06:26,807 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table BITTRUTA_LOG
+2013-04-22 15:06:26,819 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-04-22 15:06:26,820 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table BITTTURNO
+2013-04-22 15:06:26,832 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-04-22 15:06:26,833 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table BITTEVISITANTE
+2013-04-22 15:06:26,849 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.seguridad.model.Objeto
+2013-04-22 15:06:26,852 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.seguridad.model.Objeto on table SEGTOBJETO
+2013-04-22 15:06:26,870 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.seguridad.model.Opcion
+2013-04-22 15:06:26,871 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.seguridad.model.Opcion on table SEGTOPCION
+2013-04-22 15:06:26,905 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.seguridad.model.Rol
+2013-04-22 15:06:26,906 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.seguridad.model.Rol on table SEGTROL
+2013-04-22 15:06:26,935 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.seguridad.model.RolOpcion
+2013-04-22 15:06:26,940 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.seguridad.model.RolOpcion on table SEGTROL_OPCION
+2013-04-22 15:06:26,965 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.seguridad.model.Usuario
+2013-04-22 15:06:26,966 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.seguridad.model.Usuario on table SEGTUSUARIO
+2013-04-22 15:06:26,988 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.seguridad.model.UsuarioRol
+2013-04-22 15:06:26,989 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.seguridad.model.UsuarioRol on table SEGTUSUARIO_ROL
+2013-04-22 15:06:27,178 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-22 15:06:27,196 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Activo.propiedadList -> APPTPROPIEDAD
+2013-04-22 15:06:27,199 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Categoria.activoList -> APPTACTIVO
+2013-04-22 15:06:27,202 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Categoria.categoriaList -> APPTCATEGORIA
+2013-04-22 15:06:27,206 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Empresa.activoList -> APPTACTIVO
+2013-04-22 15:06:27,209 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-22 15:06:27,212 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Empresa.sucursalList -> APPTSUCURSAL
+2013-04-22 15:06:27,216 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-22 15:06:27,219 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
+2013-04-22 15:06:27,223 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Persona.empresaList -> APPTEMPRESA
+2013-04-22 15:06:27,232 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-22 15:06:27,234 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.app.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
+2013-04-22 15:06:27,235 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> BITTEVENTO_LOG
+2013-04-22 15:06:27,238 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.seguridad.model.Objeto.opcionList -> SEGTOPCION
+2013-04-22 15:06:27,239 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.seguridad.model.Opcion.opcionList -> SEGTOPCION
+2013-04-22 15:06:27,241 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.seguridad.model.Opcion.rolOpcionList -> SEGTROL_OPCION
+2013-04-22 15:06:27,242 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.seguridad.model.Rol.rolOpcionList -> SEGTROL_OPCION
+2013-04-22 15:06:27,244 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.seguridad.model.Rol.usuarioRolList -> SEGTUSUARIO_ROL
+2013-04-22 15:06:27,247 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.seguridad.model.Usuario.usuarioRolList -> SEGTUSUARIO_ROL
+2013-04-22 15:06:27,307 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-04-22 15:06:27,526 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-04-22 15:06:27,815 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] Running hbm2ddl schema export
+2013-04-22 15:06:27,816 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] writing generated schema to file: E:\work\workspace\ebos\target\hibernate3\sql\schema.sql
+2013-04-22 15:06:27,817 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] exporting generated schema to database
+2013-04-22 15:06:27,836 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Using Hibernate built-in connection pool (not for production use!)
+2013-04-22 15:06:27,836 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Hibernate connection pool size: 20
+2013-04-22 15:06:27,836 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] autocommit mode: false
+2013-04-22 15:06:27,863 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-22 15:06:27,863 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] connection properties: {user=ebos, password=ebos}
+2013-04-22 15:06:33,821 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] schema export complete
+2013-04-22 15:06:33,821 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-22 15:06:34,001 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development

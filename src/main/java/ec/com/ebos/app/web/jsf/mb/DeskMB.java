@@ -2,7 +2,6 @@ package ec.com.ebos.app.web.jsf.mb;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -27,7 +26,6 @@ import org.primefaces.model.MenuModel;
 import ec.com.ebos.seguridad.model.Opcion;
 import ec.com.ebos.seguridad.model.RolOpcion;
 import ec.com.ebos.util.FacesUtils;
-import ec.com.ebos.util.type.KeyFrame;
 
 /**
  * ManagedBean que maneja el menuOptions y los dialogs
@@ -52,30 +50,24 @@ public class DeskMB implements Serializable{
 	
 	private List<RolOpcion> rolOptionList;
 	
-	//private Long activeOptionId;
-	
-	private List<KeyFrame> pngFrameList;
-	
 	@Setter
 	private HtmlPanelGroup pngFrames; 
 
 	private String COMPONENT_LIBRARY = "componentes/ebos";
 	private String FRAME_SUFFIX = "_fra";
 	private String WIDGET_PREFIX = "wgtOption_";
-	private String FRAME_RESOURCE = "frames.xhtml";
-	private String PNGFRAME_SUFFIX = "_png";
+	private String FRAME_RESOURCE = "frame.xhtml";
 		
 	@PostConstruct
     public void init(){
     	menuModel = new DefaultMenuModel();
     	pngFrames = new HtmlPanelGroup();
-    	pngFrameList = new ArrayList<KeyFrame>();
     }
 	
     @SuppressWarnings("el-syntax")
     private void buildMenuModel() { //TODO (epa): Optimizar con Mapas y hacerlo recursivo, con N niveles
     	rolOptionList = sessionMB.getRolOpcionList();
-    	//Construye arbol de opciones
+    	//Construye el arbol de opciones
         for (RolOpcion rolOpcion : rolOptionList) {
             Submenu submenu = new Submenu();
             Opcion modulo = rolOpcion.getOpcion();
@@ -96,9 +88,9 @@ public class DeskMB implements Serializable{
                         if (pantallaOp.getPadre() == modulo) {
                             MenuItem item = new MenuItem();                                                                              
                             item.setValue(pantallaOp.getEtiqueta());
-                            //item.setOnclick("openOption(([{name:'optionId', value:"+pantallaOp.getId()+"}]));");
-                            String actionExpression = String.format("#{%s.openOption('%d')}",BEAN_NAME,pantallaOp.getId());
+                            String actionExpression = String.format("#{%s.openFrame('%d')}",BEAN_NAME,pantallaOp.getId());
                             item.setActionExpression(FacesUtils.createMethodExpression(actionExpression, null, Long.class));
+                            item.setOncomplete("jsUpdPngFrame(xhr, status, args)");
                             String iconoPantalla = pantallaOp.getIcono();
                             if(iconoPantalla != null && !iconoPantalla.isEmpty()){
                             	item.setStyle("background-image:url('resources/images/" + iconoPantalla + "') !important;"
@@ -140,15 +132,18 @@ public class DeskMB implements Serializable{
     	return pngFrames;
 	}
     
-	//@SuppressWarnings("rawtypes")
-	public void openOption(Long optionId) throws IOException{
+    /**
+     * Abre un nuevo frame con la opcion seleccionada y la agrega en 
+     * un contenedor pngFrame
+     * 
+     * @param optionId
+     * @throws IOException
+     */
+    public void openFrame(Long optionId) throws IOException{
     	FacesContext context = FacesContext.getCurrentInstance();
+    	RequestContext requestContext = RequestContext.getCurrentInstance();
     	
-//    	//Get parameter optionId from dlgMenu
-//	    Map map = context.getExternalContext().getRequestParameterMap();
-//	    activeOptionId = Long.parseLong((String) map.get("optionId"));
-	    
-	    //Selection option entity from rolOptionList
+	    //Busca la opcion seleccionada en la lista de opciones del usuario actual
     	Opcion option = null;
     	for(RolOpcion rolOpcion : rolOptionList){
     		Opcion opcionTMP = rolOpcion.getOpcion();
@@ -158,45 +153,64 @@ public class DeskMB implements Serializable{
     		}
     	}
     	
-    	//Create and put CompositeComponente Dialog into #pnlDialogs
+    	//Crear y agrega el compositeComponent Frame en su contenedor pngFrame
     	String pngFrameId = getFrameId();
-    	UIComponent pngFrame = context.getViewRoot().findComponent(pngFrameId);
-    	if(option != null && pngFrame != null){
-    		
-    		Map<String, Object> attrs = new TreeMap<String, Object>();
-    		//attrs.put("id","dlgOption_"+option.getId());
-    		attrs.put("widgetVar", WIDGET_PREFIX+option.getId());
-            attrs.put("src", option.getTarget());
-            //attrs.put("onHide", "closeOption(([{name:'optionId', value:"+option.getId()+"}]));");
-            //attrs.put("onShow", "changeOption(([{name:'optionId', value:"+option.getId()+"}]));");
-            attrs.put("header", option.getEtiqueta());
-            attrs.put("update", ":"+pngFrame.getId());
-    		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, pngFrameId+FRAME_SUFFIX, attrs);
-    		RequestContext.getCurrentInstance().update(pngFrameId);
+    	if(pngFrameId != null){
+    		UIComponent pngFrame = context.getViewRoot().findComponent(pngFrameId);
+    		if(pngFrame != null){
+    			Map<String, Object> attrs = new TreeMap<String, Object>();
+        		attrs.put("widgetVar", WIDGET_PREFIX+pngFrameId);
+                attrs.put("src", option.getTarget());
+                attrs.put("header", option.getEtiqueta());
+        		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, pngFrameId+FRAME_SUFFIX, attrs);
+        		requestContext.addCallbackParam("pngFrameId",pngFrameId);
+    		}
     	}
     	
     }
 	
 	/**
-	 * Remove frame from pngFrame parent 
+	 * Actualiza el pngFrame del frame actual
+	 * @param pngFrameId
+	 */
+	@SuppressWarnings("rawtypes")
+	public void updateFrame(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		//Obtiene el parametro pngFrameId
+	    Map map = context.getExternalContext().getRequestParameterMap();
+	    String pngFrameId = (String) map.get("pngFrameId");
+		RequestContext.getCurrentInstance().update(pngFrameId);
+	}
+	
+	/**
+	 * Elimina el frame del contenedor pngFrame actual 
 	 * 
 	 * @param event Frame
 	 */
 	public void closeFrame(CloseEvent event){
 		FacesContext context = FacesContext.getCurrentInstance();
 		String frameId = event.getComponent().getId();
-		String pngframeId = frameId.substring(0, frameId.indexOf(FRAME_SUFFIX)-1);
-		UIComponent pngFrame = context.getViewRoot().findComponent(pngframeId);
-		pngFrame.getChildren().clear();
+		String pngFrameId = frameId.substring(0, frameId.indexOf(FRAME_SUFFIX));
+		UIComponent pngFrame = context.getViewRoot().findComponent(pngFrameId);
+		if(pngFrame != null){
+			pngFrame.getChildren().clear();
+			RequestContext.getCurrentInstance().update(pngFrameId);
+		}
     }
 	
+	/**
+	 * Obtiene el identificador de un contenedor pngFrame disponible para
+	 * ser usado por un frame de alguna opcion seleccionada
+	 *  
+	 * @return if pngFrame.children is empty = id pngFrame; else = null  
+	 */
 	private String getFrameId(){
 		for (UIComponent png : pngFrames.getChildren()) {			
 			if(png.getChildren().isEmpty()){
 				return png.getId();
 			}
 		}
-		sessionMB.putSuccess("Solo se pueden abrir "+sessionMB.getUsuario().getMaxOptions()+" opciones a la vez");//TODO (epa): internacionalizar
+		sessionMB.putWarning("Solo se pueden abrir "+sessionMB.getUsuario().getMaxOptions()+" opciones a la vez");//TODO (epa): internacionalizar
 		return null;
 	}
 	 

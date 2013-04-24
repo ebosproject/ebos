@@ -13,10 +13,14 @@
 		</h:form>
 		
 		<h:form id="frmCommands">
-			<ui:remove><p:remoteCommand name="openOption"
-					actionListener="#{deskMB.openOption}" 
-					oncomplete="setTimeout('rmcUpdPngExplorer()',500)"/></ui:remove>
-			<!-- <p:remoteCommand name="rmcUpdPngExplorer" update=":pngFrames"/> -->
+			<p:remoteCommand name="rmcUpdPngFrame" actionListener="#{deskMB.updateFrame}"/>
+			<script type="text/javascript">
+				function jsUpdPngFrame(xhr, status, args) {
+					setTimeout(function(){
+						rmcUpdPngFrame([{name:'pngFrameId', value:args.pngFrameId}]);
+						},1000);
+				}
+			</script>
 		</h:form>
 	</p:dialog>
 	
