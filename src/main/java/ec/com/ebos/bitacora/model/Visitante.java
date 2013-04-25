@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.generic.model.Auditoria;
+import ec.com.ebos.root.model.Auditoria;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -19,7 +19,7 @@ import ec.com.ebos.generic.model.Auditoria;
 @Entity
 @Table(name = "BITTEVISITANTE", schema = "EBOSBITA")
 @Data @EqualsAndHashCode(callSuper=false) 
-public class Visitante extends GenericBitacora<Visitante>{
+public class Visitante extends Bitacora<Visitante>{
 
 	private static final long serialVersionUID = -372384679228539239L;
 

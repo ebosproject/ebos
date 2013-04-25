@@ -4,8 +4,8 @@ import java.util.Properties;
 import javax.mail.internet.AddressException;
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.administracion.model.Configuracion;
-import ec.com.ebos.app.Application;
+import ec.com.ebos.admin.model.Configuracion;
+import ec.com.ebos.appl.Application;
 import ec.com.ebos.util.StringUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;

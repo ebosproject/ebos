@@ -13,10 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.generic.model.Auditoria;
-import ec.com.ebos.generic.model.Entidad;
-import ec.com.ebos.seguridad.core.servicio.SeguridadS;
-import ec.com.ebos.seguridad.model.Usuario;
+import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.security.core.service.SecurityS;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.GenericUtils;
 
 /**
@@ -31,8 +31,8 @@ public class AuditoryAspect {
 
 	@Getter @Setter
     @Autowired
-    @Qualifier("seguridadS")
-    private SeguridadS seguridadS;
+    @Qualifier("securityS")
+    private SecurityS securityS;
 
 	
 	/*@Before("execution(* com.mkyong.customer.bo.CustomerBo.addCustomer(..))")
@@ -76,7 +76,7 @@ public class AuditoryAspect {
 
 	}*/
 	
-//	@Around("execution(* ec.com.ebos.seguridad.core.gestor.SeguridadG.iniciarSesion(..))")
+//	@Around("execution(* ec.com.ebos.security.core.process.SecurityP.iniciarSesion(..))")
 //	public void loginAround(ProceedingJoinPoint joinPoint) throws Throwable {
 //
 //		System.out.println("logAround() is running!");
@@ -91,20 +91,20 @@ public class AuditoryAspect {
 //
 //	}
 	
-	@AfterReturning(pointcut = "execution(* ec.com.ebos.*.core.servicio.*S.obtener*Nuevo(..))",
+	@AfterReturning(pointcut = "execution(* ec.com.ebos.*.core.service.*S.obtener*Nuevo(..))",
 			returning= "entity")
 	public void obtenerNuevoEntity(JoinPoint joinPoint, Entidad<?> entity){		
 		entity.setAuditoria(new Auditoria());
-		Usuario usuario = seguridadS.getSesionUsuario().getUsuario();
+		Usuario usuario = securityS.getSesionUsuario().getUsuario();
 		entity.setUsuarioCreacion(usuario);
 		entity.setFechaCreacion(new Date());
 	}
 	
 	
-	@Before("execution(* ec.com.ebos.*.core.servicio.*S.guardarOpcion(..))")	
+	@Before("execution(* ec.com.ebos.*.core.service.*S.guardarOpcion(..))")	
 	public void guardarEntity(JoinPoint joinPoint){
 		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
-		Usuario usuario = seguridadS.getSesionUsuario().getUsuario();			
+		Usuario usuario = securityS.getSesionUsuario().getUsuario();			
 		Date date = new Date();
         if (GenericUtils.isPersistent(entity)) {
         	entity.setUsuarioModificacion(usuario);

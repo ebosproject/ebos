@@ -1,6 +1,6 @@
 package ec.com.ebos.util.exception;
 
-import ec.com.ebos.generic.core.exception.GenericException;
+import ec.com.ebos.root.core.exception.GenericException;
 import ec.com.ebos.util.resources.UtilMensajes;
 
 /**

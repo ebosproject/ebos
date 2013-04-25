@@ -3,23 +3,21 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:remove>    
-    <ui:insert name="status">
-	     <p:ajaxStatus>
-	         <f:facet name="start">
-	             <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
-	         </f:facet>
-	         <f:facet name="complete">
-	             <h:outputText value="" />
-	         </f:facet>
-	     </p:ajaxStatus>
-	</ui:insert>
-</ui:remove>
+	<p:ajaxStatus id="ajaxStatus" 
+		onstart="wgtAS.show();"
+		oncomplete="wgtAS.hide();"
+		onerror="wgtASError.show();"/>
 
-	<p:ajaxStatus id="ajaxStatus" onstart="wgtAjaxStatus.show();" onsuccess="wgtAjaxStatus.hide();" />
-    <p:dialog id="dlgAjaxStatus" modal="false" widgetVar="wgtAjaxStatus" draggable="false"
+    <p:dialog id="dlgAS" widgetVar="wgtAS" modal="false" draggable="false"
                 closable="false" resizable="false" showHeader="false">
         <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
+        <h:outputText value="#{msg.ebLoading}" style="text-align:center"/>
+    </p:dialog>
+    	
+    <p:dialog id="dlgASError" widgetVar="wgtASError" modal="true" draggable="false"
+                resizable="false" showHeader="false">
+       	<p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>        
+        <h:outputText value="#{msg.ebLostConnection}" style="text-align:center"/>
     </p:dialog>
 
 </ui:composition>

@@ -9,7 +9,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.app.Application;
+import ec.com.ebos.appl.Application;
 
 @Component
 public class SendSmsImpl implements SendSms {

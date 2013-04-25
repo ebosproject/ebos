@@ -45,7 +45,7 @@
 	        	showEffect="#{cc.attrs.showEffect}"
 	        	modal="#{cc.attrs.modal}">
 	        	
-	        	<p:ajax event="close" listener="#{deskMB.closeFrame}"/>
+	        	<p:ajax event="close" listener="#{deskBean.closeFrame}"/>
 	        	<f:subview id="#{cc.attrs.id}_sbv">
        				<ui:include src="#{cc.attrs.src}" />
 	       		</f:subview>

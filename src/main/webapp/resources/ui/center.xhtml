@@ -5,8 +5,8 @@
 				xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
 	<h:form id="frmDashboard">
-		<p:dashboard id="dashboard" model="#{dashboardMB.model}" style="right:0px;">
-            <p:ajax event="reorder" listener="#{dashboardMB.handleReorder}"/>
+		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;">
+            <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}"/>
 			<p:panel id="bundle" header="#{msg.ebBundle}">
 				<p:commandButton value="#{msg.ebBundle}" onclick="alert('En desarrollo');"/>
 			</p:panel>
@@ -25,16 +25,17 @@
 	<p:imageSwitch id="imsBackg" widgetVar="wgtBackg" effect="fade" 
 		style="z-index:-100; height:100%;" slideshowAuto="false">
 		<p:graphicImage value="resources/images/desk/ebosback4.jpg" width="100%"/>
+		<p:graphicImage value="resources/images/desk/ebosback5.png" width="100%"/>
 		<p:graphicImage value="resources/images/desk/ebosback3.jpg" width="100%"/>
 		<p:graphicImage value="resources/images/desk/ebosback2.jpg" width="100%"/>
 		<p:graphicImage value="resources/images/desk/ebosback.jpg" width="100%"/>	
 	</p:imageSwitch>
 	
-	<p:contextMenu id="ctmBackg" for="imsBackg">	
+	<p:contextMenu id="ctmBackg">		
 		<p:menuitem value="#{msg.ebPreviousImage}" url="javascript:void(0)" onclick="wgtBackg.previous();" icon="ui-icon-triangle-1-w"/>
 		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="wgtBackg.next();" icon="ui-icon-triangle-1-e"/>
 	</p:contextMenu>
 
-	<h:panelGroup id="pngFrames" binding="#{deskMB.pngFrames}"/>	
+	<h:panelGroup id="pngFrames" binding="#{deskBean.pngFrames}"/>	
    	
 </ui:composition>

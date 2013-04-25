@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/resources/templates/index.xhtml">
+
+    <ui:param name="bean" value="#{personaBean}" />
+    <ui:param name="optionName" value="#{msg.ebPersona}" />
+    
+    <ui:define name="filtros">
+        <ui:include src="indexFiltros.xhtml" />
+    </ui:define>
+
+    <ui:define name="resultados">    	
+        <ui:include src="indexResultados.xhtml" />
+    </ui:define>
+
+</ui:composition>

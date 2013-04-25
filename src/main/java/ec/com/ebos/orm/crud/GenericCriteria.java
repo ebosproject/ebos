@@ -27,7 +27,7 @@ import org.hibernate.impl.CriteriaImpl;
 import org.hibernate.transform.ResultTransformer;
 import org.hibernate.type.Type;
 
-import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.ObjectUtils;
 
 /**

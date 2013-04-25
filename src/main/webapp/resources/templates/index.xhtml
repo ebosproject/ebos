@@ -11,8 +11,8 @@
 	   	<p:panel id="pnlContFilters" header="Filtros" toggleable="true" 
 	   		toggleOrientation="horizontal" style="height:100%;width:210px;">
 	          	<f:facet name="actions">
-		           	<p:commandButton id="btnBuscar" styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default" actionListener="#{bean._buscar}" value="#{msg.ebBuscar}" 
-		                	icon="ui-icon-search" update="pnlContResults" process="@parent"/>
+		           	<p:commandButton id="btnSearch" styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default" actionListener="#{bean._buscar}" value="#{msg.ebBuscar}" 
+		                	icon="ui-icon-search" update="pnlContResults" process="@parent" onstart="wgtDtResultados.show()" oncomplete="wgtDtResultados.hide()"/>
 	          	</f:facet>
 	           <ui:insert name="filtros"/>
 	    </p:panel>
@@ -66,6 +66,15 @@
 			        <eb:outputDate value="#{reg.fechaModificacion}" title="#{msg.ebPor}: #{reg.usuarioModificacion.username}"/>
 			    </p:column>                    
 	     	</p:dataTable>
+	     	
+	     	<p:dialog id="dlgEdit" widgetVar="wgtEdit" closeOnEscape="true" draggable="true" closable="true" dynamic="true" 
+	     		height="150" width="200" header="#{msg.ebEdit}">
+    			
+    			
+    		</p:dialog>
     	</p:panel>
+    	
+    	<p:blockUI block="dtResultados" trigger="btnSearch" widgetVar="wgtDtResultados"/>
+    	
     </h:form> 
 </ui:composition>
