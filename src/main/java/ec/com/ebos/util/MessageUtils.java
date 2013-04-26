@@ -10,7 +10,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang.StringUtils;
 
-import ec.com.ebos.generic.resources.GenericMensajes;
+import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.util.resources.UtilMensajes;
 
 /**
@@ -147,7 +147,7 @@ public class MessageUtils {
 
 	public static void addLabeledFacesMessageToComponent(FacesContext facesContext, UIComponent component, String message, FacesMessage.Severity severity) {
 		FacesMessage fm = new FacesMessage();
-		String msg = GenericMensajes.getString("LabeledMessage",
+		String msg = RootMensajes.getString("LabeledMessage",
 				getLabel(facesContext, component), message);
 		configureSimpleFacesMessage(fm, msg, severity);
 		facesContext.addMessage(component.getClientId(facesContext), fm);

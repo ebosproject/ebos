@@ -1,38 +1,11 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:eb="http://ebos.com.ec/ui">
-          
-    <f:view contentType="text/html" >
-        <h:head>            
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <title>#{msg.systemName}</title>
-            <h:outputStylesheet library="css" name="componentes.css" />
-<script type="text/javascript">//<![CDATA[
-    function jsPreventDefault(event, elem){	
-        if(window!=window.top&&window.top.jsPreventDefault)window.top.jsPreventDefault(event, elem);
-    }	    
-//]]></script>
-        </h:head>
-        <h:body>
-			<ui:include id="loading" src="../ui/loading.xhtml" />            
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      	xmlns:ui="http://java.sun.com/jsf/facelets"
+      	xmlns:p="http://primefaces.org/ui"
+      	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
-            <eb:layout options="#{layoutMB.layoutOptionsContent}">  
-                
-                <eb:layoutPane id="lyWest" position="west" rendered="#{westRendered}">
-                    <ui:insert name="west" />
-                </eb:layoutPane>
-                
-                <eb:layoutPane id="lyCenter" position="center">
-                    <p:growl id="msgTabs" autoUpdate="true" sticky="true"/>
-                    <ui:insert name="center"/>                    
-                </eb:layoutPane> 
-                
-            </eb:layout>            
-        </h:body>
-    </f:view>
-</html>
+    	<div id="content" style="height:100%;width:100%">
+	    	<ui:insert name="west" />
+			<ui:insert name="center"/>
+		</div>
+    
+</ui:composition>

@@ -12,8 +12,8 @@
         </description>
         <tag-name>layout</tag-name>
         <component>
-            <component-type>ec.com.ebos.app.web.jsf.component.Layout</component-type>
-            <renderer-type>ec.com.ebos.app.web.jsf.component.LayoutRenderer</renderer-type>
+            <component-type>ec.com.ebos.appl.web.jsf.component.Layout</component-type>
+            <renderer-type>ec.com.ebos.appl.web.jsf.component.LayoutRenderer</renderer-type>
         </component>
         <attribute>
             <description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
@@ -72,8 +72,8 @@
         </description>
         <tag-name>layoutPane</tag-name>
         <component>
-            <component-type>ec.com.ebos.app.web.jsf.component.LayoutPane</component-type>
-            <renderer-type>ec.com.ebos.app.web.jsf.component.LayoutPaneRenderer</renderer-type>
+            <component-type>ec.com.ebos.appl.web.jsf.component.LayoutPane</component-type>
+            <renderer-type>ec.com.ebos.appl.web.jsf.component.LayoutPaneRenderer</renderer-type>
         </component>
         <attribute>
             <description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>

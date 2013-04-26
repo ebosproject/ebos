@@ -4,33 +4,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
-	<div id="south" class="ui-widget ui-widget-footer">
-		<div id="themeswitcher">
-			<h:form>
-				<p:themeSwitcher value="#{themeSwitcherMB.tema}" var="t" 
-					style="width:175px;" effect="fade" >
-					<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
-					<f:selectItems value="#{themeSwitcherMB.temasAvanzados}"
-						var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
-					<p:ajax listener="#{themeSwitcherMB.guardarTema}" />
-					<p:column>
-						<h:graphicImage name="images/themes/#{t.imagen}" />
-					</p:column>
-					<p:column>
-                  		#{t.nombre}
-		            </p:column>
-				</p:themeSwitcher>
-			</h:form>
-<ui:remove>
-			<p:tabMenu activeIndex="0" >
-				<p:menuitem value="Overview" outcome="main" icon="ui-icon-star"/>
-				<p:menuitem value="Demos" outcome="demos" icon="ui-icon-search" />
-				<p:menuitem value="Documentation" outcome="docs" icon="ui-icon-document"/>
-				<p:menuitem value="Support" outcome="support" icon="ui-icon-wrench"/>
-				<p:menuitem value="Social" outcome="social" icon="ui-icon-person" />
-			</p:tabMenu>
-</ui:remove>
-		</div>
-	</div>
+
 
 </ui:composition>

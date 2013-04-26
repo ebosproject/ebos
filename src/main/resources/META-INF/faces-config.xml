@@ -8,16 +8,16 @@
         <locale-config>
             <default-locale>es</default-locale>
             <supported-locale>es</supported-locale>
-            <supported-locale>en</supported-locale>
+            <!-- <supported-locale>en</supported-locale> -->
         </locale-config>
         <resource-bundle>
-            <base-name>ec.com.ebos.app.web.resources.DatabaseDrivenResourceBundle</base-name>
+            <base-name>ec.com.ebos.appl.web.resources.DatabaseDrivenResourceBundle</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>
     
     <factory>
-        <exception-handler-factory>ec.com.ebos.util.web.jsf.event.EbosExceptionHandlerFactory</exception-handler-factory>
+        <exception-handler-factory>ec.com.ebos.util.web.jsf.handler.EbosExceptionHandlerFactory</exception-handler-factory>
     </factory>  
     
 </faces-config>     

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <cc:interface displayName="frame" >
+        <cc:attribute name="maximizable" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="minimizable" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="resizable" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="visible" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="dynamic" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="modal" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="src" type="java.lang.String"/>
+        <cc:attribute name="onHide" type="java.lang.String"/>
+        <cc:attribute name="onShow" type="java.lang.String"/>
+        <cc:attribute name="oncomplete" type="java.lang.String"/>
+        <cc:attribute name="widgetVar" type="java.lang.String"/>
+        <cc:attribute name="hideEffect" type="java.lang.String" default="drop"/>
+        <cc:attribute name="showEffect" type="java.lang.String" default="fade"/>
+        <cc:attribute name="header" type="java.lang.String"/>
+        <cc:attribute name="update" type="java.lang.String"/>
+        <cc:attribute name="width" type="int" default="600"/>
+        <cc:attribute name="height" type="int" default="400"/>
+    </cc:interface>
+
+    <cc:implementation>     
+	        <p:dialog id="#{cc.attrs.id}_dlg"
+	        	maximizable="#{cc.attrs.maximizable}"
+	        	minimizable="#{cc.attrs.minimizable}"
+	        	resizable="#{cc.attrs.resizable}"
+	        	onHide="#{cc.attrs.onHide}"
+	        	onShow="#{cc.attrs.onShow}"
+	        	oncomplete="#{cc.attrs.oncomplete}"
+	        	widgetVar="#{cc.attrs.widgetVar}"
+	        	width="#{cc.attrs.width}"
+	        	height="#{cc.attrs.height}"
+	        	header="#{cc.attrs.header}"
+	        	visible="#{cc.attrs.visible}"
+	        	dynamic="#{cc.attrs.dynamic}"        	
+	        	hideEffect="#{cc.attrs.hideEffect}"
+	        	showEffect="#{cc.attrs.showEffect}"
+	        	modal="#{cc.attrs.modal}">
+	        	
+	        	<p:ajax event="close" listener="#{deskBean.closeFrame}"/>
+	        	<f:subview id="#{cc.attrs.id}_sbv">
+       				<ui:include src="#{cc.attrs.src}" />
+	       		</f:subview>
+	        </p:dialog>
+        
+    </cc:implementation>  
+
+</html>

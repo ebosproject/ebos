@@ -18,21 +18,25 @@ import org.apache.commons.lang.StringUtils;
 public class DateUtils {
 
     public static final TimeZone UTC_TIME_ZONE = TimeZone.getTimeZone("GMT");
+    
     /**
      * Number of milliseconds in a standard second.
      * @since 2.1
      */
     public static final long MILLIS_PER_SECOND = 1000;
+    
     /**
      * Number of milliseconds in a standard minute.
      * @since 2.1
      */
     public static final long MILLIS_PER_MINUTE = 60 * MILLIS_PER_SECOND;
+    
     /**
      * Number of milliseconds in a standard hour.
      * @since 2.1
      */
     public static final long MILLIS_PER_HOUR = 60 * MILLIS_PER_MINUTE;
+    
     /**
      * Number of milliseconds in a standard day.
      * @since 2.1

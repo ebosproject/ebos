@@ -27,7 +27,7 @@ import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.bitacora.resources.BitacoraMensajes;
-import ec.com.ebos.generic.model.Auditoria;
+import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -41,7 +41,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Entity
 @Table(name = "BITTEVENTO", schema = "EBOSBITA")
 @Data @EqualsAndHashCode(callSuper=false) 
-public class Evento extends GenericBitacora<Evento>{
+public class Evento extends Bitacora<Evento>{
 
 	private static final long serialVersionUID = 3922934845182492539L;
 

@@ -11,5 +11,13 @@ public class StringUtils {
     public static String[] split(String value, String regex){
     	return value.split(regex);
     }
+    
+    public static String concat(String... args){
+    	String value = "";
+    	for (String arg : args) {
+			value = value.concat(arg);
+		}
+    	return value;
+    }
 
 }

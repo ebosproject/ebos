@@ -6,7 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.root.model.Entidad;
 
 /**
  * Anotacion para especificar una lista de indices unique para {@link Entidad}

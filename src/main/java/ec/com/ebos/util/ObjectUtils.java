@@ -20,7 +20,7 @@ import org.apache.commons.lang.StringUtils;
  */
 public class ObjectUtils {
 	
-	private static final String DEFAULT_GETTER = "getDescripcion";
+	private static final String DEFAULT_GETTER = "getDescription";
 
 	/**
 	 * Compara dos objetos en base a su propio criterio, pero retorna solamente -1, 0, +1

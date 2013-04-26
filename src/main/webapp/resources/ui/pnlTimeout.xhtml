@@ -8,8 +8,8 @@
     	idle: Faltando 5 min se alerta al usuario que su sesion se cerrara
     </ui:remove>
     <p:idleMonitor timeout="#{(session.maxInactiveInterval * 1000)-20000}" >
-    	<p:ajax event="idle" listener="#{idleMonitorMB.idleListener}"/>  
-		<p:ajax event="active" listener="#{idleMonitorMB.activeListener}" />
+    	<p:ajax event="idle" listener="#{idleMonitorBean.idleListener}"/>  
+		<p:ajax event="active" listener="#{idleMonitorBean.activeListener}" />
     </p:idleMonitor>    
     
 <ui:remove>    

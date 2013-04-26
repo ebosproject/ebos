@@ -6,14 +6,16 @@
 
     <cc:interface displayName="panelGrid" >            
         <cc:attribute name="columns" default="1" />            
-        <cc:attribute name="styleClass"/>            
+        <cc:attribute name="styleClass" type="java.lang.String"/>
+        <cc:attribute name="style" type="java.lang.String"/>            
     </cc:interface>
 
     <cc:implementation>
         <h:panelGrid id="#{cc.attrs.id}" 
                      columns="#{cc.attrs.columns}"
                      rendered="#{cc.attrs.rendered}"
-                     styleClass="#{cc.attrs.styleClass}">
+                     styleClass="#{cc.attrs.styleClass}"
+                     style="#{cc.attrs.style}">
             <cc:insertChildren/>                
         </h:panelGrid>        
     </cc:implementation>

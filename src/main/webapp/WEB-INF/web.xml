@@ -50,7 +50,7 @@
   <!-- PRIMEFACES -->
   <context-param>
   	<param-name>primefaces.THEME</param-name>
-    <param-value>#{sesionUsuario.tema}</param-value>
+    <param-value>#{sessionBean.tema}</param-value>
   </context-param>
   <context-param>
   	<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
@@ -59,6 +59,10 @@
   <context-param>
   	<param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
     <param-value>6LfwZwoAAAAAAI-oUHpdvRnkMfu9fXQHxc0P7IBu</param-value>
+  </context-param>
+  <context-param>
+	<param-name>primefaces.SUBMIT</param-name>
+	<param-value>partial</param-value>
   </context-param>
   
   <!-- SPRING -->
@@ -70,7 +74,7 @@
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>ec.com.ebos.app.spring.config.AppConfig</param-value>
+    <param-value>ec.com.ebos.appl.spring.config.ApplConfig</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -114,6 +118,14 @@
   </welcome-file-list>
   <error-page>
     <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    <location>/welcome.jsf</location>
+  </error-page>
+  <error-page>
+  	<error-code>404</error-code>
+    <location>/welcome.jsf</location>
+  </error-page>
+    <error-page>
+  	<error-code>500</error-code>
     <location>/welcome.jsf</location>
   </error-page>
 </web-app>

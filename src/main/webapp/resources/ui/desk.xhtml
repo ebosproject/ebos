@@ -1,29 +1,16 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui" 
-	xmlns:eb="http://ebos.com.ec/ui">
+	xmlns:eb="http://ebos.com.ec/ui">	
 
-	<eb:layout id="layHome" widgetVar="fullLayoutWidget"
-		options="#{layoutMB.layoutOptionsHome}">
-
-		<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
-		<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" />
-
-		<eb:layoutPane id="lyNorth" position="north">
-			<ui:include id="north" src="north.xhtml" />
-		</eb:layoutPane>
-
-		<eb:layoutPane id="lyWest" position="west">
-			<ui:include id="west" src="west.xhtml" />
-		</eb:layoutPane>
-
-		<eb:layoutPane id="lyCenter" position="center">
+	<div id="desk">
+		<ui:include id="north" src="north.xhtml" />
+		<ui:include id="west" src="west.xhtml" />
+		<div id="center">
 			<ui:include id="center" src="center.xhtml" />
-		</eb:layoutPane>
-
-		<eb:layoutPane id="lySouth" position="south">
+		</div>
+		<div id="south" class="ui-menu ui-menubar ui-widget ui-widget-content ui-corner-all ui-helper-clearfix">
 			<ui:include id="south" src="south.xhtml" />
-		</eb:layoutPane>
-	</eb:layout>
-
+		</div>
+	</div>	
+	
 </ui:composition>

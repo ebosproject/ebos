@@ -1,11 +1,23 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.org/ui">
-    
-    <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();" />
-    <p:dialog modal="true" widgetVar="statusDialog" draggable="false"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+	<p:ajaxStatus id="ajaxStatus" 
+		onstart="wgtAS.show();"
+		oncomplete="wgtAS.hide();" />
+		<!-- onerror="wgtASError.show();"/> -->
+
+    <p:dialog id="dlgAS" widgetVar="wgtAS" modal="false" draggable="false"
                 closable="false" resizable="false" showHeader="false">
         <p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>
+        <h:outputText value="#{msg.ebLoading}" style="text-align:center"/>
+    </p:dialog>
+    	
+    <p:dialog id="dlgASError" widgetVar="wgtASError" modal="true" draggable="false"
+                resizable="false" showHeader="false">
+       	<p:graphicImage value="#{resource['images:ajaxloading.gif']}"/>        
+        <h:outputText value="#{msg.ebLostConnection}" style="text-align:center"/>
     </p:dialog>
 
 </ui:composition>

@@ -13,7 +13,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
-import ec.com.ebos.generic.model.Entidad;
+import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.IEntidad;
 import ec.com.ebos.util.type.StringValuedEnum;
 
 
