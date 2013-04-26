@@ -29,7 +29,7 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
     @Override
     protected Object handleGetObject(String key) {
         final Bundle messageResource = applS
-                .obtenerMessageResourcePorCodeYLocale(key, Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
+                .getMessageResource(key, Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
                         .getViewRoot().getLocale().toString()));        
         
         if (messageResource != null) {
@@ -41,7 +41,7 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
     @Override
     public Enumeration<String> getKeys() {
         return Collections.enumeration(applS
-                .obtenerCodeMessageResourcePorLocale(Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
+                .getCodeMessageResourceList(Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
                         .getViewRoot().getLocale().toString())));
     }
  

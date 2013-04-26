@@ -15,15 +15,15 @@ public interface AdministracionS extends Serializable {
     //
     //Parametros
     //
-    public List<Parametros> obtenerParametrosList(Parametros param);
+    public List<Parametros> getParametrosList(Parametros param);
 
-    public Parametros guardarParametros(Parametros param);
+    public Parametros saveParametros(Parametros param);
 
     //
     //Configuracion
     //
-    public Configuracion obtenerConfiguracion();
+    public Configuracion getConfiguracion();
 
-    public Configuracion guardarConfiguracion(Configuracion configuracionActual);
+    public Configuracion saveConfiguracion(Configuracion configuracionActual);
 
 }

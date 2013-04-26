@@ -55,22 +55,22 @@ public class UsuarioBean extends SecurityBean<Usuario> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/seguridad/usuario/index.xhtml";
+        TARGET_ID = "/security/usuario/index.xhtml";
         TARGET_NEW_ID = "crearUsuario";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Usuario> loadDataTableCollection(Usuario usuario, Pagination paginacion) {
-        return securityS.obtenerUsuarioList(usuario, paginacion);
+    protected List<Usuario> loadDataTableCollection(Usuario usuario, Pagination pagination) {
+        return securityS.findUsuarioList(usuario, pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = securityS.obtenerUsuarioNuevo();
+        activeEntity = securityS.createUsuario();
         usuarioRolList.clear();
         rolList.clear();        
     }
@@ -88,12 +88,12 @@ public class UsuarioBean extends SecurityBean<Usuario> {
 
     @Override
     public void guardar() {
-        activeEntity = securityS.guardarUsuario(activeEntity);                
+        activeEntity = securityS.saveUsuario(activeEntity);                
     }
 
     @Override
     public void eliminar() {
-        securityS.eliminarUsuario(activeEntity);                
+        securityS.saveUsuario(activeEntity);                
     }            
     
     ///////////////////////// DATALIST /////////////////////////
@@ -111,18 +111,18 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     private Rol selectedRol;    
 
     public void agregarUsuarioRol(){        
-        securityS.generarUsuarioRol(activeEntity, selectedRol);
+        securityS.generateUsuarioRol(activeEntity, selectedRol);
         usuarioRolList.clear();
     }
     
     public void guardarUsuarioRolList(){                
-        securityS.guardarUsuarioRolList(Arrays.asList(selectedUsuarioRolList));                
+        securityS.saveUsuarioRolList(Arrays.asList(selectedUsuarioRolList));                
         usuarioRolList.clear();
     }
     
     public void eliminarUsuarioRolList(){
         List<UsuarioRol> list = Arrays.asList(selectedUsuarioRolList);        
-        securityS.eliminarUsuarioRolList(list);        
+        securityS.deleteUsuarioRolList(list);        
         usuarioRolList.removeAll(list);
         usuarioRolList.clear();
     }
@@ -133,14 +133,14 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     
     public List<Rol> getRolList() {
         if(rolList.isEmpty()){
-            rolList = securityS.obtenerRolList(null, null);
+            rolList = securityS.findRolList(null, null);
         }
         return rolList;
     }
 
     public List<UsuarioRol> getUsuarioRolList() {
         if(usuarioRolList.isEmpty()){
-            usuarioRolList = securityS.obtenerUsuarioRolList(activeEntity);
+            usuarioRolList = securityS.getUsuarioRolList(activeEntity);
         }
         return usuarioRolList;
     }

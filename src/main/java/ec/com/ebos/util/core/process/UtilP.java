@@ -17,11 +17,11 @@ public interface UtilP{
     
     @Async    
     @Transactional(readOnly=false, propagation=Propagation.REQUIRES_NEW)
-    public void sensarMail();
+    public void senseMail();
    
     @Async    
     @Transactional(readOnly=false, propagation=Propagation.REQUIRES_NEW)
-    public void sensarSms();
+    public void senseSms();
 
     public void sendMail(String subject, String msg, String from, String tos, String ccs, String bccs);
     

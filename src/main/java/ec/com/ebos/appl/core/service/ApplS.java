@@ -20,7 +20,7 @@ public interface ApplS extends Serializable {
     // Bundle
     //
 
-	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion);
+	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination);
 	
 	/**
 	 * Obtiene un unique {@link Bundle} entity por su codigo y localidad.
@@ -32,7 +32,7 @@ public interface ApplS extends Serializable {
 	 * @return
 	 */
 	@Cacheable(value="cacheBundle")
-	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, Bundle.Localidad localidad);
+	public Bundle getMessageResource(String codigo, Bundle.Localidad localidad);
 	
 	/**
 	 * Obtiene el listado de codigos de los {@link Bundle} entities existentes por localidad
@@ -41,9 +41,9 @@ public interface ApplS extends Serializable {
 	 * @return
 	 */
 	@Cacheable(value="cacheBundle")
-	public List<String> obtenerCodeMessageResourcePorLocale(Bundle.Localidad localidad);
+	public List<String> getCodeMessageResourceList(Bundle.Localidad localidad);
 	
-	public Bundle obtenerBundleNuevo();
+	public Bundle createBundle();
 	
 	/**
 	 * Guarda un {@link Bundle} entity en la base de datos y descarga la cacheBundle
@@ -53,7 +53,7 @@ public interface ApplS extends Serializable {
 	 * @return
 	 */
 	@CacheEvict(value="cacheBundle", allEntries=true) //TODO (epa): Probar si la descarga de las bundle cacheadas es total o solo por entity almacenada
-	public Bundle guardarBundle(Bundle bundle);
+	public Bundle saveBundle(Bundle bundle);
 
 	
 	/**
@@ -61,32 +61,32 @@ public interface ApplS extends Serializable {
 	 * @param activeEntity
 	 */
 	@CacheEvict(value="cacheBundle", allEntries=true)
-	public void eliminarBundle(Bundle bundle);
+	public void deleteBundle(Bundle bundle);
 
 	
 	//
     // Propiedad
     //
 
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion);
+	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination);
 	
-	public Propiedad obtenerPropiedadNuevo();
+	public Propiedad createPropiedad();
 	
-	public Propiedad guardarPropiedad(Propiedad propiedad);
+	public Propiedad savePropiedad(Propiedad propiedad);
 	
-	public void eliminarPropiedad(Propiedad propiedad);
+	public void deletePropiedad(Propiedad propiedad);
 
 	
 	//
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion);
+	public List<Persona> findPersonaList(Persona persona, Pagination pagination);
 
-	public Persona obtenerPersonaNuevo();
+	public Persona createPersona();
 
-	public Persona guardarPersona(Persona persona);
+	public Persona savePersona(Persona persona);
 
-	public void eliminarPersona(Persona persona);
+	public void deletePersona(Persona persona);
 
 }

@@ -8,9 +8,9 @@ package ec.com.ebos.util.core.service;
 public interface UtilS{
 
     
-    public void sensarMail();
+    public void senseMail();
     
-    public void sensarSms();
+    public void senseSms();
     
 }
 

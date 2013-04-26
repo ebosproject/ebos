@@ -50,53 +50,53 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public Usuario obtenerUsuarioNuevo() {
-        return securityP.obtenerUsuarioNuevo();
+    public Usuario createUsuario() {
+        return securityP.createUsuario();
     }
     
     @Override
-    public Usuario obtenerUsuarioPorId(Long id) {
-        return securityP.obtenerUsuarioPorId(id);
+    public Usuario getUsuario(Long id) {
+        return securityP.getUsuario(id);
     }
 
     @Override
-    public Usuario guardarUsuario(Usuario usuario) {
-        return securityP.guardarUsuario(usuario);
+    public Usuario saveUsuario(Usuario usuario) {
+        return securityP.saveUsuario(usuario);
     }
 
     @Override
-    public void eliminarUsuario(Usuario usuario) {
-        securityP.eliminarUsuario(usuario);
+    public void deleteUsuario(Usuario usuario) {
+        securityP.deleteUsuario(usuario);
     }
     
     @Override
-    public List<Usuario> obtenerUsuarioList(Usuario entitySearch, Pagination paginacion) {
-        return securityP.obtenerUsuarioList(entitySearch, paginacion);
+    public List<Usuario> findUsuarioList(Usuario entitySearch, Pagination pagination) {
+        return securityP.findUsuarioList(entitySearch, pagination);
     }
     
     @Override
-    public void generarUsuarioRol(Usuario usuario, Rol rol) {
-        securityP.generarUsuarioRol(usuario,rol);
+    public void generateUsuarioRol(Usuario usuario, Rol rol) {
+        securityP.generateUsuarioRol(usuario,rol);
     }
 
     @Override
-    public void guardarUsuarioRolList(List<UsuarioRol> usuarioRolList) {
-        securityP.guardarUsuarioRolList(usuarioRolList);
+    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+        securityP.saveUsuarioRolList(usuarioRolList);
     }
     
     @Override
-    public List<UsuarioRol> obtenerUsuarioRolList(Usuario usuario) {
-        return securityP.obtenerUsuarioRolList(usuario);
+    public List<UsuarioRol> getUsuarioRolList(Usuario usuario) {
+        return securityP.getUsuarioRolList(usuario);
     }
     
     @Override
-    public void eliminarUsuarioRolList(List<UsuarioRol> usuarioRolList) {
-        securityP.eliminarUsuarioRolList(usuarioRolList);
+    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+        securityP.deleteUsuarioRolList(usuarioRolList);
     }
     
     @Override
-    public int obtenerUsuarioCount(){
-        return securityP.obtenerUsuarioCount();
+    public int getUsuarioCount(){
+        return securityP.getUsuarioCount();
     }
     
     //
@@ -104,48 +104,48 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public List<Rol> obtenerRolList(Rol rol, Pagination paginacion) {
-        return securityP.obtenerRolList(rol, paginacion);
+    public List<Rol> findRolList(Rol rol, Pagination pagination) {
+        return securityP.findRolList(rol, pagination);
     }
 
     @Override
-    public Rol obtenerRolNuevo() {
-        return securityP.obtenerRolNuevo();
+    public Rol createRol() {
+        return securityP.createRol();
     }
 
     @Override
-    public Rol guardarRol(Rol rol) {
-        return securityP.guardarRol(rol);
+    public Rol saveRol(Rol rol) {
+        return securityP.saveRol(rol);
     }
 
     @Override
-    public void eliminarRol(Rol rol) {
+    public void deleteRol(Rol rol) {
         securityP.eliminarRol(rol);
     }    
     
     @Override
-    public List<RolOpcion> obtenerRolOpcionList(Rol rol) {
-        return securityP.obtenerRolOpcionList(rol);
+    public List<RolOpcion> getRolOpcionList(Rol rol) {
+        return securityP.getRolOpcionList(rol);
     }
     
     @Override
-    public void generarRolOpcion(Rol rol, Opcion opcion) {
-        securityP.generarRolOpcion(rol, opcion);
+    public void generateRolOpcion(Rol rol, Opcion opcion) {
+        securityP.generateRolOpcion(rol, opcion);
     }
     
     @Override
-    public void guardarRolOpcionList(List<RolOpcion> rolOpcionList) {
-        securityP.guardarRolOpcionList(rolOpcionList);
+    public void saveRolOpcionList(List<RolOpcion> rolOpcionList) {
+        securityP.saveRolOpcionList(rolOpcionList);
     }
     
     @Override
-    public RolOpcion guardarRolOpcion(RolOpcion rolOpcion) {
-        return securityP.guardarRolOpcion(rolOpcion);
+    public RolOpcion saveRolOpcion(RolOpcion rolOpcion) {
+        return securityP.saveRolOpcion(rolOpcion);
     }
     
     @Override
-    public void eliminarRolOpcionList(List<RolOpcion> rolOpcionList) {
-        securityP.eliminarRolOpcionList(rolOpcionList);
+    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList) {
+        securityP.deleteRolOpcionList(rolOpcionList);
     }
     
     //
@@ -153,56 +153,56 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public List<Opcion> obtenerOpcionList(Opcion opcion, Pagination paginacion) {
-        return securityP.obtenerOpcionList(opcion, paginacion);
+    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
+        return securityP.findOpcionList(opcion, pagination);
     }
 
     @Override
-    public Opcion obtenerOpcionNuevo() {
-        return securityP.obtenerOpcionNuevo();
+    public Opcion createOpcion() {
+        return securityP.createOpcion();
     }
 
     @Override
-    public Opcion guardarOpcion(Opcion opcion) {
-        return securityP.guardarOpcion(opcion);
+    public Opcion saveOpcion(Opcion opcion) {
+        return securityP.saveOpcion(opcion);
     }
 
     @Override
-    public void eliminarOpcion(Opcion opcion) {
-        securityP.eliminarOpcion(opcion);
+    public void deleteOpcion(Opcion opcion) {
+        securityP.deleteOpcion(opcion);
     }
     
     @Override
-    public Opcion obtenerOpcion(Long id) {
-        return securityP.obtenerOpcion(id);
+    public Opcion getOpcion(Long id) {
+        return securityP.getOpcion(id);
     }
 
     @Override
-    public List<Opcion> obtenerOpcionPadreList() {
-        return securityP.obtenerOpcionPadreList();
+    public List<Opcion> getOpcionPadreList() {
+        return securityP.getOpcionPadreList();
     }
     
     //
     // Objeto
     //
-    public List<Objeto> obtenerObjetoList(Objeto objeto, Pagination paginacion){
-    	return securityP.obtenerObjetoList(objeto, paginacion);
+    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination){
+    	return securityP.findObjetoList(objeto, pagination);
     }
 
-    public Objeto obtenerObjetoNuevo(){
-    	return securityP.obtenerObjetoNuevo();
+    public Objeto createObjeto(){
+    	return securityP.createObjeto();
     }
 
-    public Objeto guardarObjeto(Objeto objeto){
-    	return securityP.guardarObjeto(objeto);
+    public Objeto saveObjeto(Objeto objeto){
+    	return securityP.saveObjeto(objeto);
     }
 
-    public void eliminarObjeto(Objeto objeto){
-    	securityP.eliminarObjeto(objeto);
+    public void deleteObjeto(Objeto objeto){
+    	securityP.deleteObjeto(objeto);
     }
 
-    public Objeto obtenerObjeto(Long id){
-    	return securityP.obtenerObjeto(id);
+    public Objeto getObjeto(Long id){
+    	return securityP.getObjeto(id);
     }
     
     //
@@ -210,23 +210,23 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public boolean iniciarSesion(SessionBean aThis) {        
-        return securityP.iniciarSesion(aThis);
+    public boolean authLogin(SessionBean aThis) {        
+        return securityP.authLogin(aThis);
     }      
     
     @Override
-    public void cambiarPassword(Usuario usuario){
-        securityP.cambiarPassword(usuario);
+    public void changePassword(Usuario usuario){
+        securityP.changePassword(usuario);
     }
     
     
     @Override
-    public SessionBean getSesionUsuario() {
-    	return securityP.getSessionMB();
+    public SessionBean getSesionBean() {
+    	return securityP.getSessionBean();
     }    
     
-    public void guardarPreferenciasUsuario(Usuario usuario){
-    	securityP.guardarPreferenciasUsuario(usuario);
+    public void saveUserPreferences(Usuario usuario){
+    	securityP.saveUserPreferences(usuario);
     }
     
 }

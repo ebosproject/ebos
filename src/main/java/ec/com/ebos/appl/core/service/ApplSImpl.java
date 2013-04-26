@@ -34,33 +34,33 @@ public class ApplSImpl implements ApplS{
     //
 	
 	@Override
-	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion) {		
-		return applP.obtenerBundleList(bundle, paginacion);
+	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {		
+		return applP.findBundleList(bundle, pagination);
 	}
 	
 	@Override
-	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, Bundle.Localidad localidad){
-		return applP.obtenerMessageResourcePorCodeYLocale(codigo, localidad);
+	public Bundle getMessageResource(String codigo, Bundle.Localidad localidad){
+		return applP.getMessageResource(codigo, localidad);
 	}
 
 	@Override
-	public List<String> obtenerCodeMessageResourcePorLocale(Bundle.Localidad localidad) {
-		return applP.obtenerCodeMessageResourcePorLocale(localidad);
+	public List<String> getCodeMessageResourceList(Bundle.Localidad localidad) {
+		return applP.getCodeMessageResourceList(localidad);
 	}
 	
 	@Override
-	public Bundle obtenerBundleNuevo() {
-		return applP.obtenerBundleNuevo();
+	public Bundle createBundle() {
+		return applP.buildBundle();
 	}
 	
 	@Override
-	public Bundle guardarBundle(Bundle messageResource) {
-        return applP.guardarBundle(messageResource);
+	public Bundle saveBundle(Bundle messageResource) {
+        return applP.saveBundle(messageResource);
 	}
 
 	@Override
-	public void eliminarBundle(Bundle bundle) {
-		applP.eliminarBundle(bundle);
+	public void deleteBundle(Bundle bundle) {
+		applP.deleteBundle(bundle);
 	}
 	
 	
@@ -68,39 +68,39 @@ public class ApplSImpl implements ApplS{
     // Propiedad
     //
 
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion){
-		return applP.obtenerPropiedadList(propiedad, paginacion);
+	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
+		return applP.findPropiedadList(propiedad, pagination);
 	}
 	
-	public Propiedad obtenerPropiedadNuevo(){
-		return applP.obtenerPropiedadNuevo();
+	public Propiedad createPropiedad(){
+		return applP.buildPropiedad();
 	}
 	
-	public Propiedad guardarPropiedad(Propiedad propiedad){
-		return applP.guardarPropiedad(propiedad);
+	public Propiedad savePropiedad(Propiedad propiedad){
+		return applP.savePropiedad(propiedad);
 	}
 	
-	public void eliminarPropiedad(Propiedad propiedad){
-		applP.eliminarPropiedad(propiedad);
+	public void deletePropiedad(Propiedad propiedad){
+		applP.deletePropiedad(propiedad);
 	}
 	
 	//
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion){
-		return applP.obtenerPersonaList(persona, paginacion);
+	public List<Persona> findPersonaList(Persona persona, Pagination pagination){
+		return applP.findPersonaList(persona, pagination);
 	}
 
-	public Persona obtenerPersonaNuevo(){
-		return applP.obtenerPersonaNuevo();
+	public Persona createPersona(){
+		return applP.buildPersona();
 	}
 
-	public Persona guardarPersona(Persona persona){
-		return applP.guardarPersona(persona);
+	public Persona savePersona(Persona persona){
+		return applP.savePersona(persona);
 	}
 
-	public void eliminarPersona(Persona persona){
-		applP.eliminarPersona(persona);
+	public void deletePersona(Persona persona){
+		applP.deletePersona(persona);
 	}
 }

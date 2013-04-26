@@ -70,7 +70,7 @@ public class SessionBean implements Serializable{
     }
     
     public void iniciarSesion(){                
-        login = securityS.iniciarSesion(this);
+        login = securityS.authLogin(this);
         usuario.setPassword(null);
         defineSessionTimeout();
     }
@@ -91,7 +91,7 @@ public class SessionBean implements Serializable{
     }
     
     public void cambiarPassword(){
-        securityS.cambiarPassword(usuario);
+        securityS.changePassword(usuario);
         usuario.setPassword(null);
         usuario.setNewpassword(null);
         usuario.setConfpassword(null);
@@ -146,7 +146,7 @@ public class SessionBean implements Serializable{
 	public void guardarTema(String tema){
 		this.tema = tema;
 		usuario.setTema(tema);
-		securityS.guardarPreferenciasUsuario(usuario);
+		securityS.saveUserPreferences(usuario);
 	}
 	
     public void putMessage(FacesMessage.Severity severity, String msg){

@@ -91,20 +91,20 @@ public class AuditoryAspect {
 //
 //	}
 	
-	@AfterReturning(pointcut = "execution(* ec.com.ebos.*.core.service.*S.obtener*Nuevo(..))",
+	@AfterReturning(pointcut = "execution(* ec.com.ebos.*.core.service.*S.create*(..))",
 			returning= "entity")
 	public void obtenerNuevoEntity(JoinPoint joinPoint, Entidad<?> entity){		
 		entity.setAuditoria(new Auditoria());
-		Usuario usuario = securityS.getSesionUsuario().getUsuario();
+		Usuario usuario = securityS.getSesionBean().getUsuario();
 		entity.setUsuarioCreacion(usuario);
 		entity.setFechaCreacion(new Date());
 	}
 	
 	
-	@Before("execution(* ec.com.ebos.*.core.service.*S.guardarOpcion(..))")	
+	@Before("execution(* ec.com.ebos.*.core.service.*S.save*(..))")	
 	public void guardarEntity(JoinPoint joinPoint){
 		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
-		Usuario usuario = securityS.getSesionUsuario().getUsuario();			
+		Usuario usuario = securityS.getSesionBean().getUsuario();			
 		Date date = new Date();
         if (GenericUtils.isPersistent(entity)) {
         	entity.setUsuarioModificacion(usuario);

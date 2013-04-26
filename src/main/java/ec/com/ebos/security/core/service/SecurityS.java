@@ -29,86 +29,86 @@ public interface SecurityS extends Serializable {
     //
     // Usuario
     //
-    public Usuario obtenerUsuarioNuevo();
+    public Usuario createUsuario();
 
-    public Usuario obtenerUsuarioPorId(Long id);
+    public Usuario getUsuario(Long id);
     
-    public Usuario guardarUsuario(Usuario usuario);
+    public Usuario saveUsuario(Usuario usuario);
     
-    public void eliminarUsuario(Usuario usuario);
+    public void deleteUsuario(Usuario usuario);
     
-    public List<Usuario> obtenerUsuarioList(Usuario entitySearch, Pagination paginacion);
+    public List<Usuario> findUsuarioList(Usuario entitySearch, Pagination pagination);
     
-    public void generarUsuarioRol(Usuario usuario, Rol rol);
+    public void generateUsuarioRol(Usuario usuario, Rol rol);
 
-    public void guardarUsuarioRolList(List<UsuarioRol> usuarioRolList);
+    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList);
     
-    public List<UsuarioRol> obtenerUsuarioRolList(Usuario usuario);
+    public List<UsuarioRol> getUsuarioRolList(Usuario usuario);
     
-    public void eliminarUsuarioRolList(List<UsuarioRol> usuarioRolList);
+    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList);
 
-    public int obtenerUsuarioCount();
+    public int getUsuarioCount();
     //
     // Rol
     //
-    public List<Rol> obtenerRolList(Rol rol, Pagination paginacion);
+    public List<Rol> findRolList(Rol rol, Pagination pagination);
 
-    public Rol obtenerRolNuevo();
+    public Rol createRol();
 
-    public Rol guardarRol(Rol rol);
+    public Rol saveRol(Rol rol);
 
-    public void eliminarRol(Rol rol);
+    public void deleteRol(Rol rol);
     
-    public void generarRolOpcion(Rol rol, Opcion opcion);
+    public void generateRolOpcion(Rol rol, Opcion opcion);
     
-    public List<RolOpcion> obtenerRolOpcionList(Rol rol);
+    public List<RolOpcion> getRolOpcionList(Rol rol);
     
-    public void guardarRolOpcionList(List<RolOpcion> rolOpcionList);
+    public void saveRolOpcionList(List<RolOpcion> rolOpcionList);
     
-    public RolOpcion guardarRolOpcion(RolOpcion rolOpcion);
+    public RolOpcion saveRolOpcion(RolOpcion rolOpcion);
     
-    public void eliminarRolOpcionList(List<RolOpcion> rolOpcionList);
+    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList);
     
     //
     // Opcion
     //
     
-    public List<Opcion> obtenerOpcionList(Opcion opcion, Pagination paginacion);
+    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination);
 
-    public Opcion obtenerOpcionNuevo();
+    public Opcion createOpcion();
 
-    public Opcion guardarOpcion(Opcion opcion);
+    public Opcion saveOpcion(Opcion opcion);
 
-    public void eliminarOpcion(Opcion opcion);
+    public void deleteOpcion(Opcion opcion);
     
-    public Opcion obtenerOpcion(Long id);
+    public Opcion getOpcion(Long id);
     
-    public List<Opcion> obtenerOpcionPadreList();
+    public List<Opcion> getOpcionPadreList();
     
     //
     // Objeto
     //
-    public List<Objeto> obtenerObjetoList(Objeto objeto, Pagination paginacion);
+    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination);
 
-    public Objeto obtenerObjetoNuevo();
+    public Objeto createObjeto();
 
-    public Objeto guardarObjeto(Objeto objeto);
+    public Objeto saveObjeto(Objeto objeto);
 
-    public void eliminarObjeto(Objeto objeto);
+    public void deleteObjeto(Objeto objeto);
 
-    public Objeto obtenerObjeto(Long id);
+    public Objeto getObjeto(Long id);
     
     //
     // Session usuario
     //
 
-    @Transactional
-    public boolean iniciarSesion(SessionBean aThis);
+    @Transactional(readOnly = true)
+    public boolean authLogin(SessionBean sessionBean);
 
-    public void cambiarPassword(Usuario usuario);
+    public void changePassword(Usuario usuario);
     
-    public SessionBean getSesionUsuario();
+    public SessionBean getSesionBean();
 
-	public void guardarPreferenciasUsuario(Usuario usuario);
+	public void saveUserPreferences(Usuario usuario);
 
 }

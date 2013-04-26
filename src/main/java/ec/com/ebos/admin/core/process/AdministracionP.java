@@ -14,15 +14,15 @@ public interface AdministracionP {
     //
     //Parametros
     //
-    public List<Parametros> obtenerParametrosList(Parametros param);
+    public List<Parametros> getParametrosList(Parametros param);
 
-    public Parametros guardarParametros(Parametros param);
+    public Parametros saveParametros(Parametros param);
 
     //
     //Configuracion
     //
-    public Configuracion obtenerConfiguracion();
+    public Configuracion getConfiguracion();
 
-    public Configuracion guardarConfiguracion(Configuracion configuracion);
+    public Configuracion saveConfiguracion(Configuracion configuracion);
 
 }

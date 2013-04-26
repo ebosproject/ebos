@@ -285,12 +285,12 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	
 	/**
 	 * @param criteria
-	 * @param paginacion
+	 * @param pagination
 	 * @return
 	 * @throws FinderException
 	 * @author Eduardo Plua Alay
 	 */
-	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, Pagination paginacion)
+	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, Pagination pagination)
 			throws FinderException;
 
 	/**

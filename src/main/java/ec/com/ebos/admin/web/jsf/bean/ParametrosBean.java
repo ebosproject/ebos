@@ -44,14 +44,14 @@ public class ParametrosBean extends AdministracionBean<Parametros>{
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "administracion/parametros/index.jsf";
+        TARGET_ID = "/admin/parametros/index.jsf";
         TARGET_NEW_ID = "crearParametros";        
     }
 
     ///////////////////////// DATA MODEL ////////////////////////
     @Override
-    protected List<Parametros> loadDataTableCollection(Parametros parametros, Pagination paginacion) {
-        return administracionS.obtenerParametrosList(parametros);
+    protected List<Parametros> loadDataTableCollection(Parametros parametros, Pagination pagination) {
+        return administracionS.getParametrosList(parametros);
     }
 
     //////////////////// ACCIONES ////////////////////
@@ -65,7 +65,7 @@ public class ParametrosBean extends AdministracionBean<Parametros>{
         String resp = validaDatos();
         
         if(resp.equals("OK")){
-        activeEntity = administracionS.guardarParametros(activeEntity);
+        activeEntity = administracionS.saveParametros(activeEntity);
             FacesMessage mensaje = new FacesMessage("Datos guardados, debe reiniciar el Motor commsms");
             mensaje.setSeverity(FacesMessage.SEVERITY_INFO);
             context.addMessage(null, mensaje);

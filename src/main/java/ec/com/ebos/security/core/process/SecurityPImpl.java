@@ -67,19 +67,19 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     //Usuario
     //
     @Override
-    public Usuario obtenerUsuarioNuevo() {
+    public Usuario createUsuario() {
         Usuario usuario = new Usuario();
         usuario.setEstado(Usuario.Estado.INACTIVO);
         return usuario;
     }
 
     @Override
-    public Usuario obtenerUsuarioPorId(Long id) {
+    public Usuario getUsuario(Long id) {
         return findById(id, Usuario.class);
     }
 
     @Override
-    public Usuario guardarUsuario(Usuario usuario) {
+    public Usuario saveUsuario(Usuario usuario) {
 
         if (isUsuarioValido(usuario)) {
             Date date = new Date();
@@ -107,15 +107,15 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public void eliminarUsuario(Usuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
+    public void deleteUsuario(Usuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
         Long id = usuario.getId();
         delete(usuario);
         putSuccess("usuario.success.eliminar", id);
     }
 
     @Override
-    public List<Usuario> obtenerUsuarioList(Usuario usuario, Pagination paginacion) {        
-        return findByCriteria(buildUsuarioCriteria(usuario), paginacion);
+    public List<Usuario> findUsuarioList(Usuario usuario, Pagination pagination) {        
+        return findByCriteria(buildUsuarioCriteria(usuario), pagination);
     }
     
     private GenericCriteria<Usuario> buildUsuarioCriteria(Usuario usuario){
@@ -135,7 +135,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public void guardarUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList) {
         if (usuarioRolList != null) {
             Date fecha = new Date();
             for (UsuarioRol usuarioRol : usuarioRolList) {
@@ -146,7 +146,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public void generarUsuarioRol(Usuario usuario, Rol rol) {
+    public void generateUsuarioRol(Usuario usuario, Rol rol) {
         UsuarioRol usuarioRol = new UsuarioRol();
         usuarioRol.setEstado(Entidad.Estado.ACTIVO);
         usuarioRol.setUsuario(usuario);
@@ -159,7 +159,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public List<UsuarioRol> obtenerUsuarioRolList(Usuario usuario) {
+    public List<UsuarioRol> getUsuarioRolList(Usuario usuario) {
         GenericCriteria<UsuarioRol> query = GenericCriteria.forClass(UsuarioRol.class);
         query.addEquals(UsuarioRol_.estado, Entidad.Estado.ACTIVO);
         query.addEquals(UsuarioRol_.usuario, usuario);
@@ -168,7 +168,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public void eliminarUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList) {
     	deleteAll(usuarioRolList);
     	putSuccess("Rol(es) removido(s) correctamente");
     }
@@ -197,7 +197,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
     
     @Override
-    public int obtenerUsuarioCount(){                       
+    public int getUsuarioCount(){                       
         return countByCriteria(buildUsuarioCriteria(new Usuario()));
     }
 
@@ -205,7 +205,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     // Rol
     //
     @Override
-    public List<Rol> obtenerRolList(Rol rol, Pagination paginacion) {
+    public List<Rol> findRolList(Rol rol, Pagination pagination) {
         GenericCriteria<Rol> criteria = GenericCriteria.forClass(Rol.class);
         criteria.addEquals(Rol_.estado, Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
@@ -214,21 +214,21 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
         	criteria.addLike(Rol_.nombre, rol.getNombre());
             criteria.addLike(Rol_.descripcion, rol.getDescripcion());
         }
-        if(paginacion != null){
-        	return findByCriteria(criteria, paginacion);
+        if(pagination != null){
+        	return findByCriteria(criteria, pagination);
         }
         return findByCriteria(criteria);
     }
 
     @Override
-    public Rol obtenerRolNuevo() {
+    public Rol createRol() {
         Rol rol = new Rol();
         rol.setEstado(Usuario.Estado.INACTIVO);
         return rol;
     }
 
     @Override
-    public Rol guardarRol(Rol rol) {
+    public Rol saveRol(Rol rol) {
         Date date = new Date();
         if (GenericUtils.isPersistent(rol)) {
             rol.setFechaModificacion(date);
@@ -250,7 +250,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public List<RolOpcion> obtenerRolOpcionList(Rol rol) {
+    public List<RolOpcion> getRolOpcionList(Rol rol) {
         GenericCriteria<RolOpcion> query = GenericCriteria.forClass(RolOpcion.class);
 
         query.addEquals(RolOpcion_.estado, Entidad.Estado.ACTIVO);
@@ -260,11 +260,11 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public void generarRolOpcion(Rol rol, Opcion opcion) {
+    public void generateRolOpcion(Rol rol, Opcion opcion) {
         RolOpcion rolOpcion = new RolOpcion();
         
         rolOpcion.setAuditoria(new Auditoria());
-        rolOpcion.setUsuarioCreacion(getSessionMB().getUsuario());
+        rolOpcion.setUsuarioCreacion(getSessionBean().getUsuario());
         rolOpcion.setFechaCreacion(new Date());
         
         rolOpcion.setRol(rol);
@@ -279,9 +279,9 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
   
     @Override
-    public void guardarRolOpcionList(List<RolOpcion> rolOpcionList) { 
+    public void saveRolOpcionList(List<RolOpcion> rolOpcionList) { 
         if (rolOpcionList != null) {
-        	Usuario usuario = getSessionMB().getUsuario();
+        	Usuario usuario = getSessionBean().getUsuario();
             Date fecha = new Date();
             for (RolOpcion rolOpcion : rolOpcionList) {
             	rolOpcion.setUsuarioModificacion(usuario);
@@ -292,12 +292,12 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public RolOpcion guardarRolOpcion(RolOpcion rolOpcion) {
+    public RolOpcion saveRolOpcion(RolOpcion rolOpcion) {
         return update(rolOpcion);
     }
 
     @Override
-    public void eliminarRolOpcionList(List<RolOpcion> rolOpcionList) {
+    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList) {
         deleteAll(rolOpcionList);
         putSuccess("Opcion(es) removido(s) correctamente");
     }
@@ -336,7 +336,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     // Opcion
     //
     @Override
-    public List<Opcion> obtenerOpcionList(Opcion opcion, Pagination paginacion) {
+    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
         criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
@@ -349,18 +349,18 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
 	        criteria.addLike(Opcion_.target, opcion.getTarget());
         }
         
-        return findByCriteria(criteria, paginacion);
+        return findByCriteria(criteria, pagination);
     }
 
     @Override
-    public Opcion obtenerOpcionNuevo() {
+    public Opcion createOpcion() {
         Opcion opcion = new Opcion();
         opcion.setEstado(Usuario.Estado.INACTIVO);
         return opcion;
     }
 
     @Override
-    public Opcion guardarOpcion(Opcion opcion) {
+    public Opcion saveOpcion(Opcion opcion) {
         if (!GenericUtils.isPersistent(opcion)) {
             opcion.setEstado(Entidad.Estado.ACTIVO);
         }
@@ -370,14 +370,14 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public void eliminarOpcion(Opcion opcion) {
+    public void deleteOpcion(Opcion opcion) {
         Long id = opcion.getId();
         delete(opcion);
         putSuccess("Opcion " + id + " eliminada correctamente");
     }
 
     @Override
-    public Opcion obtenerOpcion(Long id) {
+    public Opcion getOpcion(Long id) {
     	GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
     	criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
@@ -386,7 +386,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public List<Opcion> obtenerOpcionPadreList() {
+    public List<Opcion> getOpcionPadreList() {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
         criteria.addEquals(Opcion_.estado, Entidad.Estado.ACTIVO);
         criteria.addIsNull(Opcion_.padre);
@@ -399,7 +399,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     //
     
     @Override
-    public List<Objeto> obtenerObjetoList(Objeto objeto, Pagination paginacion) {
+    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination) {
         GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
         criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
@@ -411,18 +411,18 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
 	        criteria.addLike(Objeto_.tipo, objeto.getTipo().getValue());
         }
         
-        return findByCriteria(criteria, paginacion);
+        return findByCriteria(criteria, pagination);
     }
 
     @Override
-    public Objeto obtenerObjetoNuevo() {
+    public Objeto createObjeto() {
         Objeto opcion = new Objeto();
         opcion.setEstado(Usuario.Estado.INACTIVO);
         return opcion;
     }
 
     @Override
-    public Objeto guardarObjeto(Objeto objeto) {
+    public Objeto saveObjeto(Objeto objeto) {
         if (!GenericUtils.isPersistent(objeto)) {
             objeto.setEstado(Entidad.Estado.ACTIVO);
         }
@@ -432,14 +432,14 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
 
     @Override
-    public void eliminarObjeto(Objeto objeto) {
+    public void deleteObjeto(Objeto objeto) {
         Long id = objeto.getId();
     	delete(objeto);
         putSuccess("Objeto " + id + " eliminado correctamente");
     }
 
     @Override
-    public Objeto obtenerObjeto(Long id) {
+    public Objeto getObjeto(Long id) {
         return findById(id, Objeto.class);
     }
     
@@ -449,7 +449,7 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     //
     
     @Override
-    public boolean iniciarSesion(SessionBean aThis) {
+    public boolean authLogin(SessionBean aThis) {
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
         criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
         criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
@@ -469,8 +469,8 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
     
     @Override
-    public void cambiarPassword(Usuario usuario){
-        Usuario oldUsuario = obtenerUsuarioPorId(usuario.getId());
+    public void changePassword(Usuario usuario){
+        Usuario oldUsuario = getUsuario(usuario.getId());
         evict(oldUsuario);
         
         if (oldUsuario.getPassword().equals(CryptoUtils.computeHashSHA256(usuario.getPassword()))) {        	
@@ -487,15 +487,15 @@ public class SecurityPImpl extends CorePImpl<Object, SeguridadException> impleme
     }
     
     @Override
-    public SessionBean getSessionMB() {
-    	return super.getSessionMB();
+    public SessionBean getSessionBean() {
+    	return super.getSessionBean();
     }
     
     /**
      * Guarda las preferencias del usuario
      */
-    public void guardarPreferenciasUsuario(Usuario usuario){
-    	Usuario oldUsuario = obtenerUsuarioPorId(usuario.getId());
+    public void saveUserPreferences(Usuario usuario){
+    	Usuario oldUsuario = getUsuario(usuario.getId());
     	//Definir preferencias a guardar    	
     	oldUsuario.setTema(usuario.getTema());    	
     	update(oldUsuario);    	

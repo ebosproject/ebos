@@ -536,9 +536,9 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	 */
 	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, PaginationParams pagination)
 		throws FinderException {
-		// obtener lista con el criteria con paginacion
+		// obtener lista con el criteria con pagination
 		List<T> list = findByCriteria(criteria, pagination.getFirstRow(), pagination.getMaxRows());
-		// obtener total de registros con el criteria, sin paginacion
+		// obtener total de registros con el criteria, sin pagination
 		Integer count = 0;
 		if (criteria != null) {
 			criteria.setProjection(Projections.rowCount());
@@ -555,11 +555,11 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	/**
 	 * @author Eduardo Plua Alay
 	 */
-	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, Pagination paginacion)
+	public <T> List<T> findByCriteria(GenericCriteria<T> criteria, Pagination pagination)
 			throws FinderException {
-		// obtener lista con el criteria con paginacion
-		List<T> list = findByCriteria(criteria, paginacion.getFirst(), paginacion.getPageSize());
-		// obtener total de registros con el criteria, quitando paginacion
+		// obtener lista con el criteria con pagination
+		List<T> list = findByCriteria(criteria, pagination.getFirst(), pagination.getPageSize());
+		// obtener total de registros con el criteria, quitando pagination
 		Integer count = 0;
 		if (criteria != null) {
 			criteria.setProjection(Projections.rowCount());
@@ -568,7 +568,7 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 			executableCriteria.setMaxResults(1);
 			count = (Integer) executableCriteria.uniqueResult();
 		}
-		paginacion.setRowCount(count);
+		pagination.setRowCount(count);
 		return list;
 	}
 

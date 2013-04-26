@@ -45,22 +45,22 @@ public class PropiedadBean extends ApplicationBean<Propiedad> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "app/propiedad/index.jsf";
+        TARGET_ID = "/appl/propiedad/index.jsf";
         TARGET_NEW_ID = "crearPropiedad";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Propiedad> loadDataTableCollection(Propiedad propiedad, Pagination paginacion) {
-        return applS.obtenerPropiedadList(propiedad, paginacion);
+    protected List<Propiedad> loadDataTableCollection(Propiedad propiedad, Pagination pagination) {
+        return applS.findPropiedadList(propiedad, pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = applS.obtenerPropiedadNuevo();
+        activeEntity = applS.createPropiedad();
     }
 
     @Override
@@ -74,12 +74,12 @@ public class PropiedadBean extends ApplicationBean<Propiedad> {
 
     @Override
     public void guardar() {
-        activeEntity = applS.guardarPropiedad(activeEntity);                
+        activeEntity = applS.savePropiedad(activeEntity);                
     }
 
     @Override
     public void eliminar() {
-        applS.eliminarPropiedad(activeEntity);                
+        applS.deletePropiedad(activeEntity);                
     }            
     
 }

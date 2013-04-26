@@ -26,6 +26,7 @@ import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.resources.SecurityMensajes;
 import ec.com.ebos.security.web.jsf.bean.SecurityBean;
+import ec.com.ebos.util.FacesUtils;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.type.JsfMessage;
 
@@ -153,26 +154,26 @@ import ec.com.ebos.util.type.JsfMessage;
         habilitaControles();
     }
     
-    @Getter //TODO (epa): Optimizar paginacion en LazyDataModel
+    @Getter //TODO (epa): Optimizar pagination en LazyDataModel
     protected final LazyDataModel<T> dataTable = new LazyDataModel<T>() {                   
                         
 		private static final long serialVersionUID = -5130944051776981116L;
 
-		private Pagination paginacion = new Pagination();
+		private Pagination pagination = new Pagination();
 		
 		private List<T> data = new ArrayList<T>();
 
 		@Override
         public List<T> load(int first, int pageSize, String sortField,
                 SortOrder sortOrder, Map<String, String> filters) {
-			paginacion.setFirst(first);
-			paginacion.setPageSize(pageSize);
-			paginacion.setSortField(sortField);
-			paginacion.setSortOrder(sortOrder);
-			paginacion.setFilters(filters);
+			pagination.setFirst(first);
+			pagination.setPageSize(pageSize);
+			pagination.setSortField(sortField);
+			pagination.setSortOrder(sortOrder);
+			pagination.setFilters(filters);
 			
-            data = loadDataTableCollection(entitySearch, paginacion);
-            this.setRowCount(paginacion.getRowCount());
+            data = loadDataTableCollection(entitySearch, pagination);
+            this.setRowCount(pagination.getRowCount());
             if(data != null && !data.isEmpty()){
             	activeEntity = data.get(0);
             }            
@@ -207,7 +208,7 @@ import ec.com.ebos.util.type.JsfMessage;
         }
     };
     
-    protected List<T> loadDataTableCollection(T entity, Pagination paginacion) {
+    protected List<T> loadDataTableCollection(T entity, Pagination pagination) {
         return new ArrayList<T>();
     }
     
@@ -277,5 +278,12 @@ import ec.com.ebos.util.type.JsfMessage;
     
     @Getter
 	private List<Entidad.Estado> estadoList = new ArrayList<Entidad.Estado>(Entidad.Estado.LIST);
+    
+    ////////////////////////// UTILS //////////////////////////
+    
+    public String getRandomId(){
+    	return FacesUtils.getRandomId();
+    }
+    
 
 }

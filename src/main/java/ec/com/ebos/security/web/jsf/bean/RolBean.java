@@ -50,22 +50,22 @@ public class RolBean extends SecurityBean<Rol> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "seguridad/rol/index.jsf";
+        TARGET_ID = "/security/rol/index.jsf";
         TARGET_NEW_ID = "crearRol";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Rol> loadDataTableCollection(Rol rol, Pagination paginacion) {
-        return securityS.obtenerRolList(rol, paginacion);
+    protected List<Rol> loadDataTableCollection(Rol rol, Pagination pagination) {
+        return securityS.findRolList(rol, pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = securityS.obtenerRolNuevo();
+        activeEntity = securityS.createRol();
         opcionList.clear();
         rolOpcionList.clear();
     }
@@ -83,12 +83,12 @@ public class RolBean extends SecurityBean<Rol> {
 
     @Override
     public void guardar() {
-        activeEntity = securityS.guardarRol(activeEntity);
+        activeEntity = securityS.saveRol(activeEntity);
     }
 
     @Override
     public void eliminar() {
-        securityS.eliminarRol(activeEntity);    
+        securityS.deleteRol(activeEntity);    
     }            
     
     ///////////////////////// DATALIST /////////////////////////
@@ -106,19 +106,19 @@ public class RolBean extends SecurityBean<Rol> {
     private Opcion selectedOpcion;    
     
     public void agregarRolOpcion(){        
-        securityS.generarRolOpcion(activeEntity, selectedOpcion);
+        securityS.generateRolOpcion(activeEntity, selectedOpcion);
         rolOpcionList.clear();
     }
     
     public void guardarRolOpcionList(){                
-        securityS.guardarRolOpcionList(Arrays.asList(selectedRolOpcionList));
+        securityS.saveRolOpcionList(Arrays.asList(selectedRolOpcionList));
         selectedRolOpcionList = null;
         rolOpcionList.clear();
     }
     
     public void eliminarRolOpcionList(){ 
         List<RolOpcion> list = Arrays.asList(selectedRolOpcionList);
-        securityS.eliminarRolOpcionList(list);        
+        securityS.deleteRolOpcionList(list);        
         rolOpcionList.clear();
     }
     
@@ -126,14 +126,14 @@ public class RolBean extends SecurityBean<Rol> {
 
     public List<RolOpcion> getRolOpcionList() {
         if(rolOpcionList.isEmpty()){
-            rolOpcionList = securityS.obtenerRolOpcionList(activeEntity);
+            rolOpcionList = securityS.getRolOpcionList(activeEntity);
         }
         return rolOpcionList;
     }
 
     public List<Opcion> getOpcionList() {
         if(opcionList.isEmpty()){
-            opcionList = securityS.obtenerOpcionList(null, new Pagination()); // TODO (epa): Crear metodo sin paginacion
+            opcionList = securityS.findOpcionList(null, new Pagination()); // TODO (epa): Crear metodo sin pagination
         }        
         return opcionList;
     }

@@ -42,7 +42,7 @@ public class UtilPImpl extends CorePImpl<Object, UtilException> implements UtilP
 	 * mueve a la tabla historica enviahsms
 	 */
 	@Override
-	public void sensarMail() {		
+	public void senseMail() {		
 
 		// TODO (epa): Implementar logica de negocio
 		
@@ -64,7 +64,7 @@ public class UtilPImpl extends CorePImpl<Object, UtilException> implements UtilP
 	 * mueve a la tabla historica enviahsms
 	 */
 	@Override
-	public void sensarSms() {
+	public void senseSms() {
 
 		// TODO (epa): Implementar logica de negocio
 

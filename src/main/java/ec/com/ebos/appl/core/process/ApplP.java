@@ -18,41 +18,41 @@ public interface ApplP {
     //
     // MessageResource
     //
-	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo, Localidad localidad);
+	public Bundle getMessageResource(String codigo, Localidad localidad);
 	
-	public List<String> obtenerCodeMessageResourcePorLocale(Localidad localidad);
+	public List<String> getCodeMessageResourceList(Localidad localidad);
 	
-	public Bundle guardarBundle(Bundle messageResource);
+	public Bundle saveBundle(Bundle messageResource);
 
-	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion);
+	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination);
 
-	public Bundle obtenerBundleNuevo();
+	public Bundle buildBundle();
 
-	public void eliminarBundle(Bundle activeEntity);
+	public void deleteBundle(Bundle activeEntity);
 	
 	//
 	// Propiedad
 	//
 
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion);
+	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination);
 
-	public Propiedad obtenerPropiedadNuevo();
+	public Propiedad buildPropiedad();
 
-	public Propiedad guardarPropiedad(Propiedad propiedad);
+	public Propiedad savePropiedad(Propiedad propiedad);
 
-	public void eliminarPropiedad(Propiedad propiedad);
+	public void deletePropiedad(Propiedad propiedad);
 
 	
 	//
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion);
+	public List<Persona> findPersonaList(Persona persona, Pagination pagination);
 
-	public Persona obtenerPersonaNuevo();
+	public Persona buildPersona();
 
-	public Persona guardarPersona(Persona persona);
+	public Persona savePersona(Persona persona);
 
-	public void eliminarPersona(Persona persona);
+	public void deletePersona(Persona persona);
 	
 }

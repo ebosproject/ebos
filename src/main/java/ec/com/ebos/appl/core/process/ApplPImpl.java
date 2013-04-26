@@ -32,22 +32,22 @@ public class ApplPImpl extends CorePImpl<Object, AppException> implements ApplP 
     //
 	
 	@Override
-	public List<Bundle> obtenerBundleList(Bundle bundle, Pagination paginacion) {
+	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {
 		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
 
 		criteria.addEqualsIfNotZero(Bundle_.id, bundle.getId());
 		if(criteria.isChanged()){
-			return findByCriteria(criteria, paginacion);
+			return findByCriteria(criteria, pagination);
 		}
 		
 		criteria.addLikeIfNotNull(Bundle_.codigo, bundle.getCodigo());
         criteria.addEqualsIfNotNull(Bundle_.localidad, bundle.getLocalidad());
 
-        return findByCriteria(criteria, paginacion);
+        return findByCriteria(criteria, pagination);
 	}
 	
 	@Override
-	public Bundle obtenerMessageResourcePorCodeYLocale(String codigo,
+	public Bundle getMessageResource(String codigo,
 			Bundle.Localidad localidad) {
 		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
 		criteria.addEquals(MessageResource_.codigo, codigo);
@@ -56,25 +56,25 @@ public class ApplPImpl extends CorePImpl<Object, AppException> implements ApplP 
 	}
 
 	@Override
-	public List<String> obtenerCodeMessageResourcePorLocale(Localidad localidad) {
+	public List<String> getCodeMessageResourceList(Localidad localidad) {
 		return findByQuery("select m.codigo from Bundle m where m.localidad = :localidad", String.class, localidad);
 	}
 	
 	@Override
-	public Bundle obtenerBundleNuevo() {
+	public Bundle buildBundle() {
 		Bundle bundle = new Bundle();
         return bundle;
 	}
 
 	@Override
-	public Bundle guardarBundle(Bundle bundle) {
+	public Bundle saveBundle(Bundle bundle) {
 		bundle = saveOrUpdate(bundle);
         putSuccess("bundle.success.guardar", bundle.getId());
         return bundle;
 	}
 
 	@Override
-	public void eliminarBundle(Bundle bundle) {
+	public void deleteBundle(Bundle bundle) {
 		Long id = bundle.getId();
         delete(bundle);
         putSuccess("bundle.success.eliminar", id);
@@ -85,12 +85,12 @@ public class ApplPImpl extends CorePImpl<Object, AppException> implements ApplP 
 	//
 	
 	@Override
-	public List<Propiedad> obtenerPropiedadList(Propiedad propiedad, Pagination paginacion){
+	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
 		GenericCriteria<Propiedad> criteria = GenericCriteria.forClass(Propiedad.class);
 
 		criteria.addEqualsIfNotZero(Propiedad_.id, propiedad.getId());
 		if(criteria.isChanged()){
-			return findByCriteria(criteria, paginacion);
+			return findByCriteria(criteria, pagination);
 		}
 		criteria.addLikeIfNotNull(Propiedad_.valor, propiedad.getValor());
 		criteria.addLikeIfNotNull(Propiedad_.valorDefecto, propiedad.getValorDefecto());
@@ -100,25 +100,25 @@ public class ApplPImpl extends CorePImpl<Object, AppException> implements ApplP 
         criteria.addEqualsIfNotNull(Propiedad_.requerido, propiedad.isRequerido());
         criteria.addEqualsIfNotNull(Propiedad_.tipoDato, propiedad.getTipoDato());
 
-        return findByCriteria(criteria, paginacion);
+        return findByCriteria(criteria, pagination);
 	}
 
 	@Override
-	public Propiedad obtenerPropiedadNuevo(){
+	public Propiedad buildPropiedad(){
 		Propiedad propiedad = new Propiedad();
 		propiedad.setEstado(Estado.INACTIVO);
 		return propiedad;
 	}
 
 	@Override
-	public Propiedad guardarPropiedad(Propiedad propiedad){
+	public Propiedad savePropiedad(Propiedad propiedad){
 		propiedad = saveOrUpdate(propiedad);
         putSuccess("propiedad.success.guardar", propiedad.getId());
         return propiedad;
 	}
 
 	@Override
-	public void eliminarPropiedad(Propiedad propiedad){
+	public void deletePropiedad(Propiedad propiedad){
 		Long id = propiedad.getId();
         delete(propiedad);
         putSuccess("propiedad.success.eliminar", id);
@@ -128,12 +128,12 @@ public class ApplPImpl extends CorePImpl<Object, AppException> implements ApplP 
 	// Persona
 	//
 	
-	public List<Persona> obtenerPersonaList(Persona persona, Pagination paginacion){
+	public List<Persona> findPersonaList(Persona persona, Pagination pagination){
 		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
 
 		criteria.addEqualsIfNotZero(Persona_.id, persona.getId());
 		if(criteria.isChanged()){
-			return findByCriteria(criteria, paginacion);
+			return findByCriteria(criteria, pagination);
 		}
 		criteria.addLikeIfNotNull(Persona_.apellidos, persona.getApellidos());
 		criteria.addLikeIfNotNull(Persona_.nombres, persona.getNombres());
@@ -144,22 +144,22 @@ public class ApplPImpl extends CorePImpl<Object, AppException> implements ApplP 
         criteria.addEqualsIfNotNull(Persona_.tipoIdentificacion, persona.getTipoIdentificacion());
         criteria.addEqualsIfNotNull(Persona_.tipoPersona, persona.getTipoPersona());
 
-        return findByCriteria(criteria, paginacion);
+        return findByCriteria(criteria, pagination);
 	}
 
-	public Persona obtenerPersonaNuevo(){
+	public Persona buildPersona(){
 		Persona persona = new Persona();
 		persona.setEstado(Estado.INACTIVO);
 		return persona;
 	}
 
-	public Persona guardarPersona(Persona persona){
+	public Persona savePersona(Persona persona){
 		persona = saveOrUpdate(persona);
         putSuccess("persona.success.guardar", persona.getId());
         return persona;
 	}
 
-	public void eliminarPersona(Persona persona){
+	public void deletePersona(Persona persona){
 		Long id = persona.getId();
         delete(persona);
         putSuccess("persona.success.eliminar", id);

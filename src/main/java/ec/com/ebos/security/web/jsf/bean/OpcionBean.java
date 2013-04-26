@@ -50,22 +50,22 @@ public class OpcionBean extends SecurityBean<Opcion> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "seguridad/opcion/index.jsf";
+        TARGET_ID = "/security/opcion/index.jsf";
         TARGET_NEW_ID = "crearOpcion";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Opcion> loadDataTableCollection(Opcion opcion, Pagination paginacion) {
-        return securityS.obtenerOpcionList(opcion,paginacion);
+    protected List<Opcion> loadDataTableCollection(Opcion opcion, Pagination pagination) {
+        return securityS.findOpcionList(opcion,pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = securityS.obtenerOpcionNuevo();
+        activeEntity = securityS.createOpcion();
     }
 
     @Override
@@ -74,12 +74,12 @@ public class OpcionBean extends SecurityBean<Opcion> {
         
     @Override
     public void guardar() {
-        activeEntity = securityS.guardarOpcion(activeEntity);        
+        activeEntity = securityS.saveOpcion(activeEntity);        
     }
 
     @Override
     public void eliminar() {
-        securityS.eliminarOpcion(activeEntity);        
+        securityS.deleteOpcion(activeEntity);        
     }            
 
    
@@ -98,7 +98,7 @@ public class OpcionBean extends SecurityBean<Opcion> {
                     return null;
                 }
                 try{
-                    return securityS.obtenerOpcion(Long.parseLong(submittedValue));
+                    return securityS.getOpcion(Long.parseLong(submittedValue));
                 } catch(NumberFormatException exception) {
                 	throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid objet"));
                 }
@@ -119,7 +119,7 @@ public class OpcionBean extends SecurityBean<Opcion> {
 
     public List<Opcion> getOpcionList() {
     	if(opcionList.isEmpty()){
-    		opcionList = securityS.obtenerOpcionPadreList();
+    		opcionList = securityS.getOpcionPadreList();
     	}
         return opcionList;
     }

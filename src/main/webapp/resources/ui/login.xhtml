@@ -7,10 +7,9 @@
    	<div id="lyLogin" align="center">
         <!-- <div id="lyNorth" class="ui-widget-header"/> -->
         <ui:include src="slideShow.xhtml" />
-        <div id="lyCenter" class="ui-layout-unit ui-widget ui-corner-all ui-layout-center ui-layout-pane ui-layout-pane-center" style="border: medium none; position: absolute; margin: 0px; left: 0px; right: 0px; top: 63px; bottom: 58px; height: 278px; z-index: 1; display: block; visibility: visible;">            	
+        <div id="lyCenter">
 			<h:form id="frmLogin">
-				<p:panel id="pnlLogin" header="#{msg.systemIngreso}" 
-					style="width: 350px; padding: 5px; margin:50px; background:none !important;">
+				<p:panel id="pnlLogin" styleClass="eb-login" header="#{msg.systemIngreso}" >
 					<eb:panelGrid id="pnlIngreso" columns="2">
 						<p:graphicImage value="resources/images/username.png" />
 						<eb:inputText id="username" value="#{sessionBean.usuario.username}"

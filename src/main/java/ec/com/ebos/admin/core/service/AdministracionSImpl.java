@@ -33,13 +33,13 @@ public class AdministracionSImpl implements AdministracionS{
     //
     
     @Override
-    public List<Parametros> obtenerParametrosList(Parametros param) {
-        return administracionP.obtenerParametrosList(param);
+    public List<Parametros> getParametrosList(Parametros param) {
+        return administracionP.getParametrosList(param);
     }
 
     @Override
-    public Parametros guardarParametros(Parametros param) {
-        return administracionP.guardarParametros(param);
+    public Parametros saveParametros(Parametros param) {
+        return administracionP.saveParametros(param);
     }
     
     //
@@ -47,13 +47,13 @@ public class AdministracionSImpl implements AdministracionS{
     //
 
     @Override
-    public Configuracion obtenerConfiguracion() {
-        return administracionP.obtenerConfiguracion();
+    public Configuracion getConfiguracion() {
+        return administracionP.getConfiguracion();
     }
     
     @Override
-    public Configuracion guardarConfiguracion(Configuracion configuracion) {
-        return administracionP.guardarConfiguracion(configuracion);
+    public Configuracion saveConfiguracion(Configuracion configuracion) {
+        return administracionP.saveConfiguracion(configuracion);
     }
 
 

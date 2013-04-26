@@ -46,22 +46,22 @@ public class ObjetoBean extends SecurityBean<Objeto> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "seguridad/objeto/index.jsf";
+        TARGET_ID = "/security/objeto/index.jsf";
         TARGET_NEW_ID = "crearObjeto";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Objeto> loadDataTableCollection(Objeto objeto, Pagination paginacion) {
-        return securityS.obtenerObjetoList(objeto,paginacion);
+    protected List<Objeto> loadDataTableCollection(Objeto objeto, Pagination pagination) {
+        return securityS.findObjetoList(objeto,pagination);
     }
         
     ////////////////////////// ACCIONES ////////////////////////
     
     @Override
     public void crear() {
-        activeEntity = securityS.obtenerObjetoNuevo();
+        activeEntity = securityS.createObjeto();
     }
 
     @Override
@@ -70,12 +70,12 @@ public class ObjetoBean extends SecurityBean<Objeto> {
         
     @Override
     public void guardar() {
-        activeEntity = securityS.guardarObjeto(activeEntity);        
+        activeEntity = securityS.saveObjeto(activeEntity);        
     }
 
     @Override
     public void eliminar() {
-        securityS.eliminarObjeto(activeEntity);        
+        securityS.deleteObjeto(activeEntity);        
     }
     
 	///////////////////////////LISTS ///////////////////////////

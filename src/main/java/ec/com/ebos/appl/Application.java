@@ -42,7 +42,7 @@ public class Application implements Serializable{
      */
     public String getParametro(String clave){
     	if(configuracion == null){
-    		configuracion = administracionP.obtenerConfiguracion();
+    		configuracion = administracionP.getConfiguracion();
     	}
         String value = configuracion.getParametros().get(clave);          
         return value == null? "": value;

@@ -294,8 +294,8 @@ public abstract class CorePImpl<X, E extends Exception> extends TransactionProxy
 	 * Llama a {@link FinderService#findByCriteria(GenericCriteria, Pagination)}
 	 * @author Eduardo Plua Alay
 	 */
-	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria, Pagination paginacion) {
-		List<T> list = finder.findByCriteria(criteria, paginacion);
+	protected <T extends X> List<T> findByCriteria(GenericCriteria<T> criteria, Pagination pagination) {
+		List<T> list = finder.findByCriteria(criteria, pagination);
 		return list;
 	}
 	
@@ -984,19 +984,19 @@ public abstract class CorePImpl<X, E extends Exception> extends TransactionProxy
 	}
 	
     public void putSuccess(String key, Object... args) {        
-       getSessionMB().putSuccess(buildMessage(key, args));
+       getSessionBean().putSuccess(buildMessage(key, args));
     }
 
     public void putWarning(String key, Object... args) {
-    	getSessionMB().putWarning(buildMessage(key, args));        
+    	getSessionBean().putWarning(buildMessage(key, args));        
     }
 
     public void putError(String key, Object... args) {
-    	getSessionMB().putError(buildMessage(key, args));        
+    	getSessionBean().putError(buildMessage(key, args));        
     }
     
     public void putFatal(String key, Object... args) {
-    	getSessionMB().putFatal(buildMessage(key, args));        
+    	getSessionBean().putFatal(buildMessage(key, args));        
     }
 //
     /**
@@ -1008,7 +1008,7 @@ public abstract class CorePImpl<X, E extends Exception> extends TransactionProxy
      * @see org.springframework.web.context.request.RequestContextListener
      * @see org.springframework.web.context.request.RequestContextHolder
      */
-    protected SessionBean getSessionMB() {
+    protected SessionBean getSessionBean() {
         SessionBean sesionUsuario = (SessionBean) HTTPUtils.getSessionAttribute(SessionBean.BEAN_NAME);
         if (sesionUsuario == null) {
             throw new SeguridadException("sesion.error.sesionNoValida");

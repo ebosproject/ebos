@@ -67,7 +67,8 @@ public class RepositoryConfig {
 	@Value("${transaction.findAll}") private String transactionFindAll;
 	@Value("${transaction.getAll}") private String transactionGetAll;
 	@Value("${transaction.isAll}") private String transactionIsAll;
-	@Value("${transaction.obtenerAll}") private String transactionObtenerAll;
+	@Value("${transaction.createAll}") private String transactionCreateAll;
+	@Value("${transaction.searchAll}") private String transactionSearchAll;
 	@Value("${transaction.buildAll}") private String transactionBuildAll;
 	
 	@Bean
@@ -202,7 +203,8 @@ public class RepositoryConfig {
 		properties.setProperty("find*", transactionFindAll);
 		properties.setProperty("get*", transactionGetAll);
 		properties.setProperty("is*", transactionIsAll);
-		properties.setProperty("obtener*", transactionObtenerAll);
+		properties.setProperty("create*", transactionCreateAll);
+		properties.setProperty("search*", transactionSearchAll);
 		properties.setProperty("build*", transactionBuildAll);
 		return properties;
 	}

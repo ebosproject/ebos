@@ -41,19 +41,19 @@ public class ConfiguracionBean extends AdministracionBean<Configuracion>{
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "administracion/configuracion/contenedor.jsf";
+        TARGET_ID = "/admin/configuracion/contenedor.jsf";
         TARGET_NEW_ID = "editarConfiguracion";        
     }
     
     //////////////////// ACCIONES ////////////////////
     
     public void actualizar() {
-        configuracionActual = administracionS.obtenerConfiguracion();
+        configuracionActual = administracionS.getConfiguracion();
         habilitaControles();
     }
 
     public void guardar() {
-        configuracionActual = administracionS.guardarConfiguracion(configuracionActual); 
+        configuracionActual = administracionS.saveConfiguracion(configuracionActual); 
         habilitaControles();
     }
 
@@ -62,7 +62,7 @@ public class ConfiguracionBean extends AdministracionBean<Configuracion>{
 
     public Configuracion getConfiguracionActual() {
         if(!GenericUtils.isPersistent(configuracionActual)){
-            configuracionActual = administracionS.obtenerConfiguracion();
+            configuracionActual = administracionS.getConfiguracion();
         }            
         return configuracionActual;
     }

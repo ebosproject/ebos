@@ -29,8 +29,8 @@ public class UtilSImpl implements UtilS {
      */
     @Override
     @Scheduled(fixedDelay = 1*60000)
-    public void sensarMail() {       
-         utilP.sensarMail();
+    public void senseMail() {       
+         utilP.senseMail();
     }
     
     /**
@@ -38,8 +38,8 @@ public class UtilSImpl implements UtilS {
      */
     @Override
     @Scheduled(fixedDelay = 2*60000)
-    public void sensarSms() {       
-         utilP.sensarSms();
+    public void senseSms() {       
+         utilP.senseSms();
     }
     
 }

@@ -48,22 +48,22 @@ public class BundleBean extends ApplicationBean<Bundle> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/app/bundle/index.xhtml";
+        TARGET_ID = "/appl/bundle/index.xhtml";
         TARGET_NEW_ID = "crearBundle";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Bundle> loadDataTableCollection(Bundle bundle, Pagination paginacion) {
-        return applS.obtenerBundleList(bundle, paginacion);
+    protected List<Bundle> loadDataTableCollection(Bundle bundle, Pagination pagination) {
+        return applS.findBundleList(bundle, pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = applS.obtenerBundleNuevo();
+        activeEntity = applS.createBundle();
     }
 
     @Override
@@ -77,12 +77,12 @@ public class BundleBean extends ApplicationBean<Bundle> {
 
     @Override
     public void guardar() {
-        activeEntity = applS.guardarBundle(activeEntity);                
+        activeEntity = applS.saveBundle(activeEntity);                
     }
 
     @Override
     public void eliminar() {
-        applS.eliminarBundle(activeEntity);                
+        applS.deleteBundle(activeEntity);                
     }            
     
     //////////////////////// DATALIST ///////////////////////////////

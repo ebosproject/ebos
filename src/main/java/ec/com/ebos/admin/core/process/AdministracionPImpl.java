@@ -28,7 +28,7 @@ public class AdministracionPImpl extends CorePImpl<Object, AdministracionExcepti
     //
 	
     @Override
-    public List<Parametros> obtenerParametrosList(Parametros param) {
+    public List<Parametros> getParametrosList(Parametros param) {
         GenericCriteria<Parametros> criteria = GenericCriteria.forClass(Parametros.class);
         if(param != null){
             criteria.addLike(Parametros_.grupo, param.getGrupo());
@@ -38,7 +38,7 @@ public class AdministracionPImpl extends CorePImpl<Object, AdministracionExcepti
     }
 
     @Override
-    public Parametros guardarParametros(Parametros param) throws AdministracionException{
+    public Parametros saveParametros(Parametros param) throws AdministracionException{
         Date fecha = new Date();
         if(GenericUtils.isPersistent(param)){
             param.setFechaModificacion(fecha);
@@ -63,14 +63,14 @@ public class AdministracionPImpl extends CorePImpl<Object, AdministracionExcepti
     
     @SuppressWarnings("unchecked")
 	@Override
-    public Configuracion obtenerConfiguracion() {                
+    public Configuracion getConfiguracion() {                
         Configuracion conf = findById(new Long(1), Configuracion.class);       
-        conf.setParametros(buildParametrosHash(obtenerParametrosList(null)));
+        conf.setParametros(buildParametrosHash(getParametrosList(null)));
         return conf;
     }
 
     @Override
-    public Configuracion guardarConfiguracion(Configuracion configuracion) throws AdministracionException{                
+    public Configuracion saveConfiguracion(Configuracion configuracion) throws AdministracionException{                
                 
         if(configuracion.isEnviarSmsPrx() && configuracion.isEnviarSmsGatewayPrx()){            
             configuracion.setEnviarSmsGatewayPrx(false);

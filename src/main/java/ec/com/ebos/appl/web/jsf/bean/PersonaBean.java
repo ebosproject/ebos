@@ -46,22 +46,22 @@ public class PersonaBean extends ApplicationBean<Persona> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "app/persona/index.jsf";
+        TARGET_ID = "/appl/persona/index.jsf";
         TARGET_NEW_ID = "crearPersona";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Persona> loadDataTableCollection(Persona persona, Pagination paginacion) {
-        return applS.obtenerPersonaList(persona, paginacion);
+    protected List<Persona> loadDataTableCollection(Persona persona, Pagination pagination) {
+        return applS.findPersonaList(persona, pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = applS.obtenerPersonaNuevo();
+        activeEntity = applS.createPersona();
     }
 
     @Override
@@ -75,12 +75,12 @@ public class PersonaBean extends ApplicationBean<Persona> {
 
     @Override
     public void guardar() {
-        activeEntity = applS.guardarPersona(activeEntity);                
+        activeEntity = applS.savePersona(activeEntity);                
     }
 
     @Override
     public void eliminar() {
-        applS.eliminarPersona(activeEntity);                
+        applS.deletePersona(activeEntity);                
     }
     
 	///////////////////////////LISTS ///////////////////////////

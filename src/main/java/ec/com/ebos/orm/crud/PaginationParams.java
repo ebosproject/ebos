@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Parametros de paginacion de una consulta
+ * Parametros de pagination de una consulta
  * 
  */
 public final class PaginationParams {
@@ -81,18 +81,18 @@ public final class PaginationParams {
 	/**
 	 * Recalcula <code>totalRows</code>, <code>totalPages</code>
 	 * y la bandera <code>usePages</code>.<br>
-	 * Reconstruye las opciones de paginacion.
+	 * Reconstruye las opciones de pagination.
 	 */
 	public void calcPages(int size) {
 		pagesToScroll.clear();
 		if (size > rowsPerPage || totalRows == 0) {
-			// si hay mas elementos que rowsPerPage o no se modifico el total, es que no hubo paginacion
+			// si hay mas elementos que rowsPerPage o no se modifico el total, es que no hubo pagination
 			usePages = false;
 			totalRows = size;
 			totalPages = 1;
 			pagesToScroll.put(1, 1);
 		} else {
-			// calcular paginacion
+			// calcular pagination
 			usePages = true;
 			totalPages = (int) Math.ceil((double) totalRows / rowsPerPage);
 			// reconstruir opciones
