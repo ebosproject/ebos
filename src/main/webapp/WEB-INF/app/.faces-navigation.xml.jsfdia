@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#app#*" PATH="/app/*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#app#*:0" NAME="item" PATH="/app/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="app#bundle#index.jsf::#app#bundle#index.jsf"
+    NAME="output" PATH="/app/bundle/index.jsf"
+    TARGET="rules:#app#bundle#index.jsf" TITLE="app/bundle/index.jsf" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="crearBundle::#app#bundle#contenedor.jsf"
+    NAME="output1" PATH="/app/bundle/contenedor.jsf"
+    TARGET="rules:#app#bundle#contenedor.jsf" TITLE="crearBundle" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="app#propiedad#index.jsf::#app#propiedad#index.jsf"
+    NAME="output2" PATH="/app/propiedad/index.jsf"
+    TARGET="rules:#app#propiedad#index.jsf"
+    TITLE="app/propiedad/index.jsf" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="crearPropiedad::#app#propiedad#contenedor.jsf" NAME="output3"
+    PATH="/app/propiedad/contenedor.jsf"
+    TARGET="rules:#app#propiedad#contenedor.jsf" TITLE="crearPropiedad" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="app#persona#index.jsf::#app#persona#index.jsf" NAME="output4"
+    PATH="/app/persona/index.jsf" TARGET="rules:#app#persona#index.jsf"
+    TITLE="app/persona/index.jsf" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="crearPersona::#app#persona#contenedor.jsf"
+    NAME="output5" PATH="/app/persona/contenedor.jsf"
+    TARGET="rules:#app#persona#contenedor.jsf" TITLE="crearPersona" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#app#bundle#contenedor.jsf"
+  PATH="/app/bundle/contenedor.jsf" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#app#bundle#index.jsf"
+  PATH="/app/bundle/index.jsf" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#app#persona#index.jsf"
+  PATH="/app/persona/index.jsf" SHAPE="304,641,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#app#persona#contenedor.jsf"
+  PATH="/app/persona/contenedor.jsf" SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#app#propiedad#contenedor.jsf"
+  PATH="/app/propiedad/contenedor.jsf" SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#app#propiedad#index.jsf"
+  PATH="/app/propiedad/index.jsf" SHAPE="304,417,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

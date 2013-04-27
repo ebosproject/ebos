@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+
+    <p:column id="estado" headerText="#{msg.ebEstado}">
+        <eb:outputText value="#{reg.estado.label}" />
+    </p:column>
+    <p:column id="nombre" headerText="#{msg.ebNombre}">
+        <eb:outputText value="#{reg.nombre}" />
+    </p:column>
+    <p:column id="descripcion" headerText="#{msg.ebDescripcion}">
+        <eb:outputText value="#{reg.descripcion}"/>            
+    </p:column>
+
+</ui:composition>       

@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"                
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/resources/templates/contenedor.xhtml">
+
+    <ui:param name="bean" value="#{usuarioBean}" />        
+    <ui:param name="optionName" value="#{msg.ebUsuario}" />
+    <ui:param name="updateActualizar" value=":pnlDetalle" />
+            
+    <ui:define name="cabecera">                 
+        <h:panelGroup id="pnlCabecera">
+            <ui:include src="cabecera.xhtml" />            
+        </h:panelGroup>
+    </ui:define>
+            
+    <ui:define name="detalle">
+
+        <h:panelGroup id="pnlDetalle">
+            <ui:fragment rendered="#{bean.activeEntity.id ne null}">
+                <ui:include src="usuarioRolList.xhtml" />            
+            </ui:fragment>
+        </h:panelGroup>
+
+    </ui:define>
+
+</ui:composition>

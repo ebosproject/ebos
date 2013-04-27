@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:p="http://primefaces.org/ui">
+				
+	<p:dialog id="dlgHome" widgetVar="wgtMain" dynamic="true" 
+		closeOnEscape="true" resizable="false" position="0,47">  
+		<h:form id="frmHome">
+			<p:panelMenu id="pnlHome" model="#{deskBean.menuModel}" />
+			<script>
+	            jQuery('#frmHome a').mouseup(function(event){jsPreventDefault(event, this)});
+	        </script>
+		</h:form>
+		
+		<h:form id="frmCommands">
+			<p:remoteCommand name="rmcUpdPngFrame" actionListener="#{deskBean.updateFrame}"/>
+			<script type="text/javascript">
+				function jsUpdPngFrame(xhr, status, args) {
+					setTimeout(function(){
+						rmcUpdPngFrame([{name:'pngFrameId', value:args.pngFrameId}]);
+						},1500);
+				}
+			</script>
+		</h:form>
+	</p:dialog>
+	
+	
+</ui:composition>

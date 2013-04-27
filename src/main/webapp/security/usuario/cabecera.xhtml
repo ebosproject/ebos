@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+
+    <ui:param name="usuario" value="${bean.activeEntity}" /> 
+
+    <eb:panelGrid id="pnlUsuario" columns="2">
+        
+        <eb:outputText id="id" value="#{usuario.id}" label="Id"/>
+        <eb:outputText id="estado" value="#{usuario.estado.label}" label="#{msg.ebEstado}"/>     
+        
+        <eb:outputDate id="fechaCreacion" value="#{usuario.fechaCreacion}" label ="#{msg.ebCreado}"/>                 
+        <eb:outputDate id="fechaModificacion" value="#{usuario.fechaModificacion}" label="#{msg.ebModificado}"/>                
+        
+        <eb:password id="password" label="#{msg.ebPassword}" value="#{usuario.password}"  feedback="true" required="true" 
+                      rendered="#{usuario.id eq null}"/>        
+        <eb:inputText id="username" label="#{msg.ebUsuario}" value="#{usuario.username}" required="true"/>                
+        
+        <eb:inputText id="nombres" label="#{msg.ebNombres}" value="#{usuario.empresaPersona.persona.nombres}" required="true"/>                       
+        <eb:inputText id="apellidos" value="#{usuario.empresaPersona.persona.apellidos}" label="#{msg.ebApellidos}"/>                
+        
+        <eb:inputText id="email" label="#{msg.ebEmail}" value="#{usuario.empresaPersona.persona.mail}" required="true" maxlength="100"/>
+    </eb:panelGrid>
+
+</ui:composition>
+

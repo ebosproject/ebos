@@ -1,0 +1,29 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="content.xhtml">
+
+    <ui:param name="westRendered" value="false" />
+
+    <ui:define name="center">         
+        <h:form id="frmCabecera">            
+            <p:toolbar id="toolBarContent">
+                <p:toolbarGroup align="left">
+                    <p:commandButton id="btnNuevo" immediate="true" type="push" rendered="#{bean.habilitaCrear}"
+                                     value="#{msg.ebNuevo}" action="#{bean._crear}" icon="ui-icon-document" ajax="false"/>
+                    <p:commandButton id="btnGuardar" value="#{msg.ebGuardar}" action="#{bean._guardar}" rendered="#{bean.habilitaEditar}"
+                                     icon="ui-icon-disk" update="pnlCabecera, :pnlDetalle"/> 
+                    <p:commandButton id="btnEliminar" immediate="true" type="push" value="#{msg.ebEliminar}" rendered="#{bean.habilitaEliminar}"
+                                     action="#{bean._eliminar}" icon="ui-icon-trash" ajax="false"/>
+                </p:toolbarGroup>
+                <p:toolbarGroup align="right">
+                    <p:commandButton id="btnActualizar" action="#{bean._actualizar}" icon="ui-icon-refresh" update="pnlCabecera,#{updateActualizar}" title="#{msg.ebActualizar}" rendered="#{bean.habilitaActualizar}"/>
+                    <p:commandButton id="btnSalir" immediate="true" type="push" action="#{bean.TARGET_ID}" icon="ui-icon-close" ajax="false" title="#{msg.ebCerrar}" rendered="#{bean.habilitaCerrar}"/>
+                </p:toolbarGroup>
+            </p:toolbar>                     
+            <ui:insert name="cabecera"/>                                                                                                                                
+        </h:form>
+        <ui:insert name="detalle" />
+    </ui:define>
+
+</ui:composition>

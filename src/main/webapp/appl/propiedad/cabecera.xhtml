@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+
+    <ui:param name="bundle" value="${bean.activeEntity}" />    
+
+    <eb:panelGrid id="pnlBundle" columns="2">        
+                
+       <eb:outputText id="id" value="#{bundle.id}" label="#{msg.ebId}"/>                
+       <eb:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.ebCodigo}" required="true"/>
+       <eb:inputText id="localidad" value="#{bundle.localidad}" label="#{msg.ebLocalidad}" required="true"/>                
+       <eb:inputText id="valor" value="#{bundle.valor}" label="#{msg.ebValor}" required="true"/>        
+                
+    </eb:panelGrid>        
+    
+</ui:composition>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <cc:interface displayName="outputText" >
+        <cc:attribute name="value" required="true" />
+        <cc:attribute name="label"/>
+        <cc:attribute name="required"/>                
+    </cc:interface>
+
+    <cc:implementation>                          
+        <ui:fragment rendered="#{not empty cc.attrs.label}">
+        <h:outputLabel value="#{cc.attrs.label}" 
+                       for="#{cc.attrs.id}" 
+                       styleClass="ui-widget"/>
+	        <td>
+	            <h:outputText id="#{cc.attrs.id}" 
+	                          value="#{cc.attrs.value}"
+	                          styleClass="ui-widget"/>                 
+	        </td>
+        </ui:fragment>
+        <h:outputText id="#{cc.attrs.id}_out" 
+                          value="#{cc.attrs.value}"
+                          rendered="#{empty cc.attrs.label}"
+                          styleClass="ui-widget"/>
+    </cc:implementation> 
+</html>

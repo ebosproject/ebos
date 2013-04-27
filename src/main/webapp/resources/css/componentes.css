@@ -1,0 +1,116 @@
+/* 
+    Document   : componentes
+    Created on : 2012-09-25
+    Author     : Eduardo Plua Alay
+    Description: Estilos para componentes eBos
+*/
+
+/*
+    Resolucion general de los componentes Primefaces
+*/
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 12px !important;
+    style="color: #666666; 
+    font-family: arial,sans-serif;
+}
+
+/*
+    p:growl
+*/
+.ui-growl {
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    margin-top: 20px;
+}
+
+
+/**
+*   Override styles del componente personalizado layout
+*   ly:layout
+*/
+
+.ui-layout-north{
+    z-index:300 !important;
+    overflow:visible !important;
+}
+
+.ui-layout-pane-west{
+	overflow: auto !important;
+}
+
+.ui-layout-pane-center{
+	overflow: hidden !important;
+}
+
+/*
+    p:panelMenu
+*/
+.ui-panelmenu .ui-panelmenu-panel{
+    padding: 0 !important;
+}
+
+/*
+    p:messages
+*/
+.ui-messages-error{
+    height: 20px;
+}
+
+
+/*
+    p:tabview
+*/
+
+/*Main tabview container element*/
+
+.ui-tabs {
+    border:0px none !important;
+    padding: 0 !important;
+}
+
+.ui-tabs, .ui-tabs-panel, .ui-tabs-panels{
+  
+}
+
+/*Main container of tab headers*/
+.ui-tabs-nav{
+}
+
+/*Each tab container*/
+.ui-tabs-panel{
+    padding: 0 !important;
+}
+
+.nestedUnit {
+    border:0px none !important;
+}
+
+
+/*
+	p:clock
+*/
+.ui-clock{
+	padding: 4px !important;
+	text-align: center;
+}
+
+/*
+	p:dialog
+*/
+.ui-dialog-content{
+	padding: 0px !important;
+}
+
+/*
+	p:dashboard
+*/
+
+.ui-panel {
+	margin: 10px;
+	width:200px;
+}
+			
+.ui-dashboard-column {
+	width:220px;
+}
