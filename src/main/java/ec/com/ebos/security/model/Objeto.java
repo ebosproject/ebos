@@ -22,6 +22,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.resources.SecurityMensajes;
@@ -36,15 +37,19 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = "SEGTOBJETO", schema = "EBOSSEGU")
+@Table(name = Objeto.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class Objeto extends Security<Objeto> {
     
 	private static final long serialVersionUID = -3052521057254508069L;
 
+	protected static final String TABLE_NAME = "OBJETO";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "SEGTOBJETO_ID_GENERATOR", sequenceName = "EBOSSEGU.SEGSOBJETO")
-	@GeneratedValue(generator = "SEGTOBJETO_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
     private Long id;
 
 	@Embedded

@@ -14,6 +14,6 @@ public class BitacoraSImpl implements BitacoraS{
 //	@Getter @Setter
 //    @Autowired
 //    @Qualifier("appG")
-//    private ApplP appG;
+//    private MasterP appG;
 	
 }

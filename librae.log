@@ -10,28 +10,28 @@
 2013-04-07 02:59:56,631 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table ADMTCONFIGURACION
 2013-04-07 02:59:56,777 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
 2013-04-07 02:59:56,778 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table ADMTPARAMETROS
-2013-04-07 02:59:56,804 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Activo
-2013-04-07 02:59:56,805 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Activo on table APPTACTIVO
-2013-04-07 02:59:56,852 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.ActivoCustodio
-2013-04-07 02:59:56,853 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
-2013-04-07 02:59:56,875 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Bundle
-2013-04-07 02:59:56,876 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Bundle on table APPTMESSAGE_RESOURCE
-2013-04-07 02:59:56,884 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Categoria
-2013-04-07 02:59:56,885 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Categoria on table APPTCATEGORIA
-2013-04-07 02:59:56,909 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Empresa
-2013-04-07 02:59:56,910 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Empresa on table APPTEMPRESA
-2013-04-07 02:59:56,939 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.EmpresaPersona
-2013-04-07 02:59:56,940 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.EmpresaPersona on table APPTEMPRESA_PERSONA
-2013-04-07 02:59:56,960 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Persona
-2013-04-07 02:59:56,962 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Persona on table APPTPERSONA
-2013-04-07 02:59:57,000 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Propiedad
-2013-04-07 02:59:57,005 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Propiedad on table APPTPROPIEDAD
-2013-04-07 02:59:57,025 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.PropiedadValor
-2013-04-07 02:59:57,029 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.PropiedadValor on table APPTPROPIEDAD_VALOR
-2013-04-07 02:59:57,035 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Sucursal
-2013-04-07 02:59:57,036 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Sucursal on table APPTSUCURSAL
-2013-04-07 02:59:57,052 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Tema
-2013-04-07 02:59:57,053 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Tema on table APPTTEMA
+2013-04-07 02:59:56,804 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-07 02:59:56,805 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table APPTACTIVO
+2013-04-07 02:59:56,852 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-07 02:59:56,853 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
+2013-04-07 02:59:56,875 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-07 02:59:56,876 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table APPTMESSAGE_RESOURCE
+2013-04-07 02:59:56,884 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-07 02:59:56,885 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table APPTCATEGORIA
+2013-04-07 02:59:56,909 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Empresa
+2013-04-07 02:59:56,910 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Empresa on table APPTEMPRESA
+2013-04-07 02:59:56,939 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-07 02:59:56,940 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table APPTEMPRESA_PERSONA
+2013-04-07 02:59:56,960 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-07 02:59:56,962 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table APPTPERSONA
+2013-04-07 02:59:57,000 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-07 02:59:57,005 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table APPTPROPIEDAD
+2013-04-07 02:59:57,025 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-07 02:59:57,029 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table APPTPROPIEDAD_VALOR
+2013-04-07 02:59:57,035 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-07 02:59:57,036 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table APPTSUCURSAL
+2013-04-07 02:59:57,052 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-07 02:59:57,053 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table APPTTEMA
 2013-04-07 02:59:57,060 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
 2013-04-07 02:59:57,061 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table BITTEVENTO
 2013-04-07 02:59:57,092 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
@@ -60,18 +60,18 @@
 2013-04-07 02:59:57,281 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table SEGTUSUARIO
 2013-04-07 02:59:57,304 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
 2013-04-07 02:59:57,304 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table SEGTUSUARIO_ROL
-2013-04-07 02:59:57,471 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 02:59:57,476 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.propiedadList -> APPTPROPIEDAD
-2013-04-07 02:59:57,479 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.activoList -> APPTACTIVO
-2013-04-07 02:59:57,482 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.categoriaList -> APPTCATEGORIA
-2013-04-07 02:59:57,485 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.activoList -> APPTACTIVO
-2013-04-07 02:59:57,488 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 02:59:57,492 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.sucursalList -> APPTSUCURSAL
-2013-04-07 02:59:57,495 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 02:59:57,497 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
-2013-04-07 02:59:57,501 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaList -> APPTEMPRESA
-2013-04-07 02:59:57,504 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 02:59:57,507 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
+2013-04-07 02:59:57,471 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 02:59:57,476 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> APPTPROPIEDAD
+2013-04-07 02:59:57,479 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> APPTACTIVO
+2013-04-07 02:59:57,482 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> APPTCATEGORIA
+2013-04-07 02:59:57,485 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.activoList -> APPTACTIVO
+2013-04-07 02:59:57,488 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 02:59:57,492 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.sucursalList -> APPTSUCURSAL
+2013-04-07 02:59:57,495 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 02:59:57,497 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
+2013-04-07 02:59:57,501 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> APPTEMPRESA
+2013-04-07 02:59:57,504 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 02:59:57,507 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
 2013-04-07 02:59:57,510 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> BITTEVENTO_LOG
 2013-04-07 02:59:57,513 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> SEGTOPCION
 2013-04-07 02:59:57,525 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> SEGTOPCION
@@ -340,28 +340,28 @@
 2013-04-07 03:01:31,636 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table ADMTCONFIGURACION
 2013-04-07 03:01:31,811 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
 2013-04-07 03:01:31,812 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table ADMTPARAMETROS
-2013-04-07 03:01:31,840 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Activo
-2013-04-07 03:01:31,842 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Activo on table APPTACTIVO
-2013-04-07 03:01:31,906 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.ActivoCustodio
-2013-04-07 03:01:31,907 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
-2013-04-07 03:01:31,924 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Bundle
-2013-04-07 03:01:31,925 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Bundle on table APPTMESSAGE_RESOURCE
-2013-04-07 03:01:31,964 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Categoria
-2013-04-07 03:01:31,967 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Categoria on table APPTCATEGORIA
-2013-04-07 03:01:32,011 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Empresa
-2013-04-07 03:01:32,012 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Empresa on table APPTEMPRESA
-2013-04-07 03:01:32,095 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.EmpresaPersona
-2013-04-07 03:01:32,097 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.EmpresaPersona on table APPTEMPRESA_PERSONA
-2013-04-07 03:01:32,157 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Persona
-2013-04-07 03:01:32,159 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Persona on table APPTPERSONA
-2013-04-07 03:01:32,234 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Propiedad
-2013-04-07 03:01:32,235 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Propiedad on table APPTPROPIEDAD
-2013-04-07 03:01:32,311 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.PropiedadValor
-2013-04-07 03:01:32,315 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.PropiedadValor on table APPTPROPIEDAD_VALOR
-2013-04-07 03:01:32,326 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Sucursal
-2013-04-07 03:01:32,328 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Sucursal on table APPTSUCURSAL
-2013-04-07 03:01:32,373 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Tema
-2013-04-07 03:01:32,375 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Tema on table APPTTEMA
+2013-04-07 03:01:31,840 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-07 03:01:31,842 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table APPTACTIVO
+2013-04-07 03:01:31,906 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-07 03:01:31,907 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
+2013-04-07 03:01:31,924 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-07 03:01:31,925 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table APPTMESSAGE_RESOURCE
+2013-04-07 03:01:31,964 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-07 03:01:31,967 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table APPTCATEGORIA
+2013-04-07 03:01:32,011 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Empresa
+2013-04-07 03:01:32,012 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Empresa on table APPTEMPRESA
+2013-04-07 03:01:32,095 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-07 03:01:32,097 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table APPTEMPRESA_PERSONA
+2013-04-07 03:01:32,157 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-07 03:01:32,159 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table APPTPERSONA
+2013-04-07 03:01:32,234 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-07 03:01:32,235 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table APPTPROPIEDAD
+2013-04-07 03:01:32,311 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-07 03:01:32,315 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table APPTPROPIEDAD_VALOR
+2013-04-07 03:01:32,326 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-07 03:01:32,328 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table APPTSUCURSAL
+2013-04-07 03:01:32,373 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-07 03:01:32,375 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table APPTTEMA
 2013-04-07 03:01:32,394 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
 2013-04-07 03:01:32,396 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table BITTEVENTO
 2013-04-07 03:01:32,446 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
@@ -390,18 +390,18 @@
 2013-04-07 03:01:32,854 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table SEGTUSUARIO
 2013-04-07 03:01:32,894 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
 2013-04-07 03:01:32,895 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table SEGTUSUARIO_ROL
-2013-04-07 03:01:32,980 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 03:01:32,983 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.propiedadList -> APPTPROPIEDAD
-2013-04-07 03:01:32,984 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.activoList -> APPTACTIVO
-2013-04-07 03:01:32,986 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.categoriaList -> APPTCATEGORIA
-2013-04-07 03:01:32,987 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.activoList -> APPTACTIVO
-2013-04-07 03:01:32,988 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 03:01:32,990 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.sucursalList -> APPTSUCURSAL
-2013-04-07 03:01:32,991 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 03:01:32,993 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
-2013-04-07 03:01:32,994 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaList -> APPTEMPRESA
-2013-04-07 03:01:32,995 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 03:01:32,996 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
+2013-04-07 03:01:32,980 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 03:01:32,983 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> APPTPROPIEDAD
+2013-04-07 03:01:32,984 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> APPTACTIVO
+2013-04-07 03:01:32,986 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> APPTCATEGORIA
+2013-04-07 03:01:32,987 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.activoList -> APPTACTIVO
+2013-04-07 03:01:32,988 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 03:01:32,990 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.sucursalList -> APPTSUCURSAL
+2013-04-07 03:01:32,991 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 03:01:32,993 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
+2013-04-07 03:01:32,994 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> APPTEMPRESA
+2013-04-07 03:01:32,995 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 03:01:32,996 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
 2013-04-07 03:01:32,998 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> BITTEVENTO_LOG
 2013-04-07 03:01:33,003 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> SEGTOPCION
 2013-04-07 03:01:33,010 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> SEGTOPCION
@@ -434,28 +434,28 @@
 2013-04-07 03:19:01,189 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table ADMTCONFIGURACION
 2013-04-07 03:19:01,337 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
 2013-04-07 03:19:01,338 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table ADMTPARAMETROS
-2013-04-07 03:19:01,381 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Activo
-2013-04-07 03:19:01,382 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Activo on table APPTACTIVO
-2013-04-07 03:19:01,439 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.ActivoCustodio
-2013-04-07 03:19:01,440 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
-2013-04-07 03:19:01,469 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Bundle
-2013-04-07 03:19:01,471 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Bundle on table APPTMESSAGE_RESOURCE
-2013-04-07 03:19:01,484 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Categoria
-2013-04-07 03:19:01,485 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Categoria on table APPTCATEGORIA
-2013-04-07 03:19:01,504 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Empresa
-2013-04-07 03:19:01,506 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Empresa on table APPTEMPRESA
-2013-04-07 03:19:01,553 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.EmpresaPersona
-2013-04-07 03:19:01,554 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.EmpresaPersona on table APPTEMPRESA_PERSONA
-2013-04-07 03:19:01,580 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Persona
-2013-04-07 03:19:01,581 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Persona on table APPTPERSONA
-2013-04-07 03:19:01,639 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Propiedad
-2013-04-07 03:19:01,640 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Propiedad on table APPTPROPIEDAD
-2013-04-07 03:19:01,663 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.PropiedadValor
-2013-04-07 03:19:01,667 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.PropiedadValor on table APPTPROPIEDAD_VALOR
-2013-04-07 03:19:01,690 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Sucursal
-2013-04-07 03:19:01,691 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Sucursal on table APPTSUCURSAL
-2013-04-07 03:19:01,706 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Tema
-2013-04-07 03:19:01,707 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Tema on table APPTTEMA
+2013-04-07 03:19:01,381 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-07 03:19:01,382 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table APPTACTIVO
+2013-04-07 03:19:01,439 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-07 03:19:01,440 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
+2013-04-07 03:19:01,469 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-07 03:19:01,471 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table APPTMESSAGE_RESOURCE
+2013-04-07 03:19:01,484 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-07 03:19:01,485 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table APPTCATEGORIA
+2013-04-07 03:19:01,504 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Empresa
+2013-04-07 03:19:01,506 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Empresa on table APPTEMPRESA
+2013-04-07 03:19:01,553 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-07 03:19:01,554 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table APPTEMPRESA_PERSONA
+2013-04-07 03:19:01,580 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-07 03:19:01,581 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table APPTPERSONA
+2013-04-07 03:19:01,639 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-07 03:19:01,640 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table APPTPROPIEDAD
+2013-04-07 03:19:01,663 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-07 03:19:01,667 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table APPTPROPIEDAD_VALOR
+2013-04-07 03:19:01,690 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-07 03:19:01,691 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table APPTSUCURSAL
+2013-04-07 03:19:01,706 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-07 03:19:01,707 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table APPTTEMA
 2013-04-07 03:19:01,718 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
 2013-04-07 03:19:01,720 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table BITTEVENTO
 2013-04-07 03:19:01,757 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
@@ -484,18 +484,18 @@
 2013-04-07 03:19:02,104 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table SEGTUSUARIO
 2013-04-07 03:19:02,158 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
 2013-04-07 03:19:02,160 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table SEGTUSUARIO_ROL
-2013-04-07 03:19:02,246 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 03:19:02,249 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.propiedadList -> APPTPROPIEDAD
-2013-04-07 03:19:02,250 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.activoList -> APPTACTIVO
-2013-04-07 03:19:02,251 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.categoriaList -> APPTCATEGORIA
-2013-04-07 03:19:02,253 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.activoList -> APPTACTIVO
-2013-04-07 03:19:02,254 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 03:19:02,255 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.sucursalList -> APPTSUCURSAL
-2013-04-07 03:19:02,257 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 03:19:02,258 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
-2013-04-07 03:19:02,259 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaList -> APPTEMPRESA
-2013-04-07 03:19:02,260 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 03:19:02,263 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
+2013-04-07 03:19:02,246 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 03:19:02,249 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> APPTPROPIEDAD
+2013-04-07 03:19:02,250 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> APPTACTIVO
+2013-04-07 03:19:02,251 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> APPTCATEGORIA
+2013-04-07 03:19:02,253 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.activoList -> APPTACTIVO
+2013-04-07 03:19:02,254 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 03:19:02,255 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.sucursalList -> APPTSUCURSAL
+2013-04-07 03:19:02,257 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 03:19:02,258 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
+2013-04-07 03:19:02,259 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> APPTEMPRESA
+2013-04-07 03:19:02,260 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 03:19:02,263 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
 2013-04-07 03:19:02,264 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> BITTEVENTO_LOG
 2013-04-07 03:19:02,269 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> SEGTOPCION
 2013-04-07 03:19:02,271 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> SEGTOPCION
@@ -528,28 +528,28 @@
 2013-04-07 03:23:21,174 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table ADMTCONFIGURACION
 2013-04-07 03:23:21,309 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
 2013-04-07 03:23:21,310 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table ADMTPARAMETROS
-2013-04-07 03:23:21,369 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Activo
-2013-04-07 03:23:21,371 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Activo on table APPTACTIVO
-2013-04-07 03:23:21,450 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.ActivoCustodio
-2013-04-07 03:23:21,452 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
-2013-04-07 03:23:21,467 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Bundle
-2013-04-07 03:23:21,468 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Bundle on table APPTMESSAGE_RESOURCE
-2013-04-07 03:23:21,480 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Categoria
-2013-04-07 03:23:21,482 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Categoria on table APPTCATEGORIA
-2013-04-07 03:23:21,505 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Empresa
-2013-04-07 03:23:21,506 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Empresa on table APPTEMPRESA
-2013-04-07 03:23:21,565 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.EmpresaPersona
-2013-04-07 03:23:21,567 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.EmpresaPersona on table APPTEMPRESA_PERSONA
-2013-04-07 03:23:21,618 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Persona
-2013-04-07 03:23:21,621 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Persona on table APPTPERSONA
-2013-04-07 03:23:21,670 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Propiedad
-2013-04-07 03:23:21,671 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Propiedad on table APPTPROPIEDAD
-2013-04-07 03:23:21,694 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.PropiedadValor
-2013-04-07 03:23:21,698 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.PropiedadValor on table APPTPROPIEDAD_VALOR
-2013-04-07 03:23:21,709 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Sucursal
-2013-04-07 03:23:21,760 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Sucursal on table APPTSUCURSAL
-2013-04-07 03:23:21,788 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Tema
-2013-04-07 03:23:21,789 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Tema on table APPTTEMA
+2013-04-07 03:23:21,369 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-07 03:23:21,371 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table APPTACTIVO
+2013-04-07 03:23:21,450 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-07 03:23:21,452 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
+2013-04-07 03:23:21,467 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-07 03:23:21,468 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table APPTMESSAGE_RESOURCE
+2013-04-07 03:23:21,480 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-07 03:23:21,482 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table APPTCATEGORIA
+2013-04-07 03:23:21,505 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Empresa
+2013-04-07 03:23:21,506 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Empresa on table APPTEMPRESA
+2013-04-07 03:23:21,565 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-07 03:23:21,567 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table APPTEMPRESA_PERSONA
+2013-04-07 03:23:21,618 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-07 03:23:21,621 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table APPTPERSONA
+2013-04-07 03:23:21,670 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-07 03:23:21,671 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table APPTPROPIEDAD
+2013-04-07 03:23:21,694 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-07 03:23:21,698 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table APPTPROPIEDAD_VALOR
+2013-04-07 03:23:21,709 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-07 03:23:21,760 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table APPTSUCURSAL
+2013-04-07 03:23:21,788 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-07 03:23:21,789 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table APPTTEMA
 2013-04-07 03:23:21,799 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
 2013-04-07 03:23:21,800 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table BITTEVENTO
 2013-04-07 03:23:21,837 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
@@ -578,18 +578,18 @@
 2013-04-07 03:23:22,170 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table SEGTUSUARIO
 2013-04-07 03:23:22,219 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
 2013-04-07 03:23:22,220 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table SEGTUSUARIO_ROL
-2013-04-07 03:23:22,299 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 03:23:22,302 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.propiedadList -> APPTPROPIEDAD
-2013-04-07 03:23:22,304 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.activoList -> APPTACTIVO
-2013-04-07 03:23:22,305 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.categoriaList -> APPTCATEGORIA
-2013-04-07 03:23:22,306 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.activoList -> APPTACTIVO
-2013-04-07 03:23:22,307 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 03:23:22,309 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.sucursalList -> APPTSUCURSAL
-2013-04-07 03:23:22,310 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 03:23:22,311 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
-2013-04-07 03:23:22,313 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaList -> APPTEMPRESA
-2013-04-07 03:23:22,314 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 03:23:22,315 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
+2013-04-07 03:23:22,299 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 03:23:22,302 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> APPTPROPIEDAD
+2013-04-07 03:23:22,304 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> APPTACTIVO
+2013-04-07 03:23:22,305 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> APPTCATEGORIA
+2013-04-07 03:23:22,306 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.activoList -> APPTACTIVO
+2013-04-07 03:23:22,307 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 03:23:22,309 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.sucursalList -> APPTSUCURSAL
+2013-04-07 03:23:22,310 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 03:23:22,311 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
+2013-04-07 03:23:22,313 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> APPTEMPRESA
+2013-04-07 03:23:22,314 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 03:23:22,315 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
 2013-04-07 03:23:22,316 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> BITTEVENTO_LOG
 2013-04-07 03:23:22,318 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> SEGTOPCION
 2013-04-07 03:23:22,323 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> SEGTOPCION
@@ -622,28 +622,28 @@
 2013-04-07 16:28:42,929 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table ADMTCONFIGURACION
 2013-04-07 16:28:43,096 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
 2013-04-07 16:28:43,098 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table ADMTPARAMETROS
-2013-04-07 16:28:43,148 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Activo
-2013-04-07 16:28:43,149 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Activo on table APPTACTIVO
-2013-04-07 16:28:43,237 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.ActivoCustodio
-2013-04-07 16:28:43,240 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
-2013-04-07 16:28:43,276 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Bundle
-2013-04-07 16:28:43,279 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Bundle on table APPTMESSAGE_RESOURCE
-2013-04-07 16:28:43,301 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Categoria
-2013-04-07 16:28:43,304 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Categoria on table APPTCATEGORIA
-2013-04-07 16:28:43,344 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Empresa
-2013-04-07 16:28:43,346 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Empresa on table APPTEMPRESA
-2013-04-07 16:28:43,412 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.EmpresaPersona
-2013-04-07 16:28:43,413 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.EmpresaPersona on table APPTEMPRESA_PERSONA
-2013-04-07 16:28:43,464 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Persona
-2013-04-07 16:28:43,466 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Persona on table APPTPERSONA
-2013-04-07 16:28:43,529 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Propiedad
-2013-04-07 16:28:43,531 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Propiedad on table APPTPROPIEDAD
-2013-04-07 16:28:43,576 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.PropiedadValor
-2013-04-07 16:28:43,581 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.PropiedadValor on table APPTPROPIEDAD_VALOR
-2013-04-07 16:28:43,591 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Sucursal
-2013-04-07 16:28:43,592 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Sucursal on table APPTSUCURSAL
-2013-04-07 16:28:43,607 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.appl.model.Tema
-2013-04-07 16:28:43,609 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.appl.model.Tema on table APPTTEMA
+2013-04-07 16:28:43,148 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-07 16:28:43,149 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table APPTACTIVO
+2013-04-07 16:28:43,237 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-07 16:28:43,240 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table APPTACTIVO_CUSTODIO
+2013-04-07 16:28:43,276 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-07 16:28:43,279 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table APPTMESSAGE_RESOURCE
+2013-04-07 16:28:43,301 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-07 16:28:43,304 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table APPTCATEGORIA
+2013-04-07 16:28:43,344 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Empresa
+2013-04-07 16:28:43,346 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Empresa on table APPTEMPRESA
+2013-04-07 16:28:43,412 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-07 16:28:43,413 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table APPTEMPRESA_PERSONA
+2013-04-07 16:28:43,464 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-07 16:28:43,466 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table APPTPERSONA
+2013-04-07 16:28:43,529 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-07 16:28:43,531 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table APPTPROPIEDAD
+2013-04-07 16:28:43,576 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-07 16:28:43,581 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table APPTPROPIEDAD_VALOR
+2013-04-07 16:28:43,591 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-07 16:28:43,592 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table APPTSUCURSAL
+2013-04-07 16:28:43,607 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-07 16:28:43,609 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table APPTTEMA
 2013-04-07 16:28:43,635 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
 2013-04-07 16:28:43,636 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table BITTEVENTO
 2013-04-07 16:28:43,671 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
@@ -672,18 +672,18 @@
 2013-04-07 16:28:43,987 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table SEGTUSUARIO
 2013-04-07 16:28:44,012 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
 2013-04-07 16:28:44,013 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table SEGTUSUARIO_ROL
-2013-04-07 16:28:44,081 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 16:28:44,083 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Activo.propiedadList -> APPTPROPIEDAD
-2013-04-07 16:28:44,084 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.activoList -> APPTACTIVO
-2013-04-07 16:28:44,085 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Categoria.categoriaList -> APPTCATEGORIA
-2013-04-07 16:28:44,086 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.activoList -> APPTACTIVO
-2013-04-07 16:28:44,088 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 16:28:44,089 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Empresa.sucursalList -> APPTSUCURSAL
-2013-04-07 16:28:44,090 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
-2013-04-07 16:28:44,091 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
-2013-04-07 16:28:44,108 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaList -> APPTEMPRESA
-2013-04-07 16:28:44,109 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
-2013-04-07 16:28:44,111 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.appl.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
+2013-04-07 16:28:44,081 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 16:28:44,083 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> APPTPROPIEDAD
+2013-04-07 16:28:44,084 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> APPTACTIVO
+2013-04-07 16:28:44,085 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> APPTCATEGORIA
+2013-04-07 16:28:44,086 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.activoList -> APPTACTIVO
+2013-04-07 16:28:44,088 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 16:28:44,089 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Empresa.sucursalList -> APPTSUCURSAL
+2013-04-07 16:28:44,090 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> APPTACTIVO_CUSTODIO
+2013-04-07 16:28:44,091 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> SEGTUSUARIO
+2013-04-07 16:28:44,108 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> APPTEMPRESA
+2013-04-07 16:28:44,109 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> APPTEMPRESA_PERSONA
+2013-04-07 16:28:44,111 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> APPTPROPIEDAD_VALOR
 2013-04-07 16:28:44,112 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> BITTEVENTO_LOG
 2013-04-07 16:28:44,116 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> SEGTOPCION
 2013-04-07 16:28:44,117 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> SEGTOPCION

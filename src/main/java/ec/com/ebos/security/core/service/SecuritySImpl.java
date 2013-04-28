@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import ec.com.ebos.appl.web.jsf.bean.SessionBean;
+import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.core.process.SecurityP;
 import ec.com.ebos.security.model.Objeto;
@@ -34,7 +34,7 @@ public class SecuritySImpl implements SecurityS{
 	//@Resource() TODO (epa): Probar Annotation
 	@Getter @Setter
     @Autowired
-    @Qualifier("securityP")
+    @Qualifier(SecurityP.BEAN_NAME)
     private SecurityP securityP;
 	
 	//

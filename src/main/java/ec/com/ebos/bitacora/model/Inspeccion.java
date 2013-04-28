@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -16,15 +17,19 @@ import ec.com.ebos.root.model.Auditoria;
  * 
  */
 @Entity
-@Table(name = "BITTINSPECCION", schema = "EBOSBITA")
+@Table(name = Inspeccion.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class Inspeccion extends Bitacora<Inspeccion>{
 
 	private static final long serialVersionUID = 3459900461151474054L;
 
+	protected static final String TABLE_NAME = "INSPECCION";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "BITTINSPECCION_ID_GENERATOR", sequenceName = "EBOSBITA.BITSINSPECCION")
-	@GeneratedValue(generator = "BITTINSPECCION_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
 	private Long id;
 	
 	@Embedded

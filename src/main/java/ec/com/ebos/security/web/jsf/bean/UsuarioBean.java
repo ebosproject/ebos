@@ -5,13 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.appl.model.EmpresaPersona;
-import ec.com.ebos.appl.model.Persona;
+import ec.com.ebos.master.model.EmpresaPersona;
+import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Rol;
@@ -23,7 +22,6 @@ import ec.com.ebos.util.GenericUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @ManagedBean(name = UsuarioBean.BEAN_NAME)
-//@SessionScoped
 @ViewScoped
 public class UsuarioBean extends SecurityBean<Usuario> {
     

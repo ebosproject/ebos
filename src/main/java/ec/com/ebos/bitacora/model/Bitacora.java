@@ -10,4 +10,6 @@ public abstract class Bitacora<T extends Bitacora<T>> extends Entidad<T> {
 
 	private static final long serialVersionUID = -8243313018975221667L;
 	
+	public static final String SCHEMA = "EBOSBITA";
+	
 }

@@ -27,6 +27,7 @@ import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.bitacora.resources.BitacoraMensajes;
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.GenericUtils;
@@ -39,15 +40,19 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  * 
  */
 @Entity
-@Table(name = "BITTEVENTO", schema = "EBOSBITA")
+@Table(name = Evento.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class Evento extends Bitacora<Evento>{
 
 	private static final long serialVersionUID = 3922934845182492539L;
 
+	protected static final String TABLE_NAME = "EVENTO";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "BITTEVENTO_ID_GENERATOR", sequenceName = "EBOSBITA.BITSEVENTO")
-	@GeneratedValue(generator = "BITTEVENTO_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
 	private Long id;
 	
 	@Embedded

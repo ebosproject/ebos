@@ -13,6 +13,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -20,15 +21,19 @@ import ec.com.ebos.root.model.Entidad;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = "ADMTPARAMETROS", schema = "EBOSADMI")
+@Table(name = Parametros.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class Parametros extends Administracion<Parametros>{
   
 	private static final long serialVersionUID = 7865213458933031067L;
 
+	protected static final String TABLE_NAME = "PARAMETROS";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "ADMTPARAMETROS_ID_GENERATOR", sequenceName = "EBOSADMI.ADMSPARAMETROS")
-	@GeneratedValue(generator = "ADMTPARAMETROS_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
 	@Embedded

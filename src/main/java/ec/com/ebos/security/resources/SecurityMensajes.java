@@ -1,6 +1,6 @@
 package ec.com.ebos.security.resources;
 
-import ec.com.ebos.appl.web.resources.DatabaseDrivenResourceBundle;
+import ec.com.ebos.master.web.resources.DatabaseDrivenResourceBundle;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.MessageUtils;
 

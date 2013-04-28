@@ -57,49 +57,49 @@ public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Seriali
     
     @Transient
     public Usuario getUsuarioCreacion(){    	
-    	return getAuditoria() != null ? getAuditoria().getUsuarioCreacion() : null;
+    	return getAuditoria() != null ? getAuditoria().getCreador() : null;
     }
     
     @Transient
     public void setUsuarioCreacion(Usuario usuarioCreacion){
     	if(getAuditoria() != null){
-    		getAuditoria().setUsuarioCreacion(usuarioCreacion);
+    		getAuditoria().setCreador(usuarioCreacion);
     	}
     }
     
     @Transient
     public Usuario getUsuarioModificacion(){
-    	return getAuditoria() != null ? getAuditoria().getUsuarioModificacion() : null;
+    	return getAuditoria() != null ? getAuditoria().getModificador() : null;
     }
     
     @Transient
     public void setUsuarioModificacion(Usuario usuarioModificacion){
     	if(getAuditoria() != null){    	
-    		getAuditoria().setUsuarioModificacion(usuarioModificacion);
+    		getAuditoria().setModificador(usuarioModificacion);
     	}
     }
     
     @Transient
     public Date getFechaCreacion(){
-    	return getAuditoria() != null ? getAuditoria().getFechaCreacion() : null;
+    	return getAuditoria() != null ? getAuditoria().getCreacion() : null;
     }
     
     @Transient
     public void setFechaCreacion(Date fechaCreacion){
     	if(getAuditoria() != null){
-    		getAuditoria().setFechaCreacion(fechaCreacion);
+    		getAuditoria().setCreacion(fechaCreacion);
     	}
     }
     
     @Transient
     public Date getFechaModificacion(){
-    	return getAuditoria() != null ? getAuditoria().getFechaModificacion() : null;
+    	return getAuditoria() != null ? getAuditoria().getModificacion() : null;
     }
     
     @Transient
     public void setFechaModificacion(Date fechaModificacion){
     	if(getAuditoria() != null){
-    		getAuditoria().setFechaModificacion(fechaModificacion);
+    		getAuditoria().setModificacion(fechaModificacion);
     	}
     }
 

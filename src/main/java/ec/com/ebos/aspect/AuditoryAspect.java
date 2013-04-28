@@ -31,7 +31,7 @@ public class AuditoryAspect {
 
 	@Getter @Setter
     @Autowired
-    @Qualifier("securityS")
+    @Qualifier(SecurityS.BEAN_NAME)
     private SecurityS securityS;
 
 	

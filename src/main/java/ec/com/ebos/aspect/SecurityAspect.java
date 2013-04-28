@@ -16,8 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.appl.model.Persona;
-import ec.com.ebos.appl.web.jsf.bean.SessionBean;
+import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
@@ -36,7 +36,7 @@ public class SecurityAspect {
 	
 	@Getter @Setter
     @Autowired
-    @Qualifier("securityS")
+    @Qualifier(SecurityS.BEAN_NAME)
     private SecurityS securityS;
 
 	/*@Before("execution(* com.mkyong.customer.bo.CustomerBo.addCustomer(..))")

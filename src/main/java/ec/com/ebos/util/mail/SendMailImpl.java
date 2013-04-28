@@ -5,7 +5,7 @@ import javax.mail.internet.AddressException;
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.admin.model.Configuracion;
-import ec.com.ebos.appl.Application;
+import ec.com.ebos.master.Master;
 import ec.com.ebos.util.StringUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class SendMailImpl extends JavaMailSenderImpl implements MailSender, Send
     //
     @Getter @Setter
     @Autowired
-    private Application app;
+    private Master app;
     
     private String remitente = null;
     

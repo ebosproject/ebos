@@ -1,7 +1,7 @@
 
 package ec.com.ebos.bitacora.core.exception;
 
-import ec.com.ebos.appl.resources.ApplMensajes;
+import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.core.exception.GenericException;
 
 /**
@@ -27,7 +27,7 @@ public class BitacoraException extends GenericException{
         * @param keySummary Mensaje de error
         */
     public BitacoraException(String keySummary, Object ... params){
-            super(ApplMensajes.getString(keySummary, params), keySummary);
+            super(MasterMensajes.getString(keySummary, params), keySummary);
     }
 
 }

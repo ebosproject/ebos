@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -19,22 +20,26 @@ import ec.com.ebos.root.model.Auditoria;
  * 
  */
 @Entity
-@Table(name = "BITTEVENTO_LOG", schema = "EBOSBITA")
+@Table(name = EventoLog.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class EventoLog extends Bitacora<EventoLog>{
 
 	private static final long serialVersionUID = 4194216821641946007L;
 
+	protected static final String TABLE_NAME = "EVENTO_LOG";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "BITTEVENTO_LOG_ID_GENERATOR", sequenceName = "EBOSBITA.BITSEVENTO_LOG")
-	@GeneratedValue(generator = "BITTEVENTO_LOG_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
 	private Long id;
 			
 	@Embedded
 	private Auditoria auditoria;
 	
 	@ManyToOne
-	@JoinColumn(name = "evento_id", nullable = false)
+	@JoinColumn(name = "id_evento", nullable = false)
     private Evento evento;
 	
 	@Column(name = "descripcion", nullable = false, length = 50)

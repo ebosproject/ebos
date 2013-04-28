@@ -11,6 +11,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 
 import lombok.Data;
@@ -20,15 +21,19 @@ import lombok.EqualsAndHashCode;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = "ADMTCONFIGURACION", schema = "EBOSADMI")
+@Table(name = Configuracion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class Configuracion extends Administracion<Configuracion> {
 
 	private static final long serialVersionUID = -6748190361672935897L;
 
+	protected static final String TABLE_NAME = "CONFIGURACION";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "ADMTCONFIGURACION_ID_GENERATOR", sequenceName = "EBOSADMI.ADMSCONFIGURACION")
-	@GeneratedValue(generator = "ADMTCONFIGURACION_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
 	@Embedded

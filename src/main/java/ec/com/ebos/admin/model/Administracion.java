@@ -9,4 +9,6 @@ public abstract class Administracion<T extends Administracion<T>> extends Entida
 
 	private static final long serialVersionUID = -9112699178930476045L;
 	
+	public static final String SCHEMA = "EBOSADMI";
+	
 }

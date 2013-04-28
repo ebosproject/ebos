@@ -11,15 +11,15 @@ import ec.com.ebos.admin.model.Configuracion;
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.admin.model.field.Parametros_;
 import ec.com.ebos.orm.crud.GenericCriteria;
-import ec.com.ebos.root.core.process.CorePImpl;
+import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.GenericUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-@Repository("administracionP")
-public class AdministracionPImpl extends CorePImpl<Object, AdministracionException> implements AdministracionP{
+@Repository("adminP")
+public class AdministracionPImpl extends RootPImpl<Object, AdministracionException> implements AdministracionP{
 
 	private static final long serialVersionUID = -5387275517395137673L;
 	
@@ -51,7 +51,7 @@ public class AdministracionPImpl extends CorePImpl<Object, AdministracionExcepti
         
         //Actualiza lista de parametros en el bean de aplicacion
         //getApp().getConfiguracion().setParametros(buildParametrosHash(obtenerParametrosList(null)));
-        //TODO (epa): refrescar parametros en Application Spring Bean
+        //TODO (epa): refrescar parametros en Master Spring Bean
         putSuccess("Parametro "+param.getId()+" guardado correctamente");
         return param;
     }
@@ -80,7 +80,7 @@ public class AdministracionPImpl extends CorePImpl<Object, AdministracionExcepti
         
         //Actualiza las configuraciones del sistema en el bean de aplicacion
         //getApp().setConfiguracion(configuracion);
-        //TODO (epa): refrescar parametros en Application Spring Bean
+        //TODO (epa): refrescar parametros en Master Spring Bean
         putSuccess("Configuración actualizada correctamente");
         return configuracion;
     }

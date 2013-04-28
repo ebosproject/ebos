@@ -18,6 +18,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -27,15 +28,19 @@ import ec.com.ebos.root.model.Entidad;
  * 
  */
 @Entity
-@Table(name = "SEGTROL", schema = "EBOSSEGU")
+@Table(name = Rol.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class Rol extends Security<Rol> {
     
 	private static final long serialVersionUID = 1684996463596485829L;
 
+	protected static final String TABLE_NAME = "ROL";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "SEGTROL_ID_GENERATOR", sequenceName = "EBOSSEGU.SEGSROL")
-	@GeneratedValue(generator = "SEGTROL_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
     private Long id;
     
 	@Embedded

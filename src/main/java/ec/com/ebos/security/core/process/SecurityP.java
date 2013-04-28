@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import ec.com.ebos.appl.web.jsf.bean.SessionBean;
+import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.model.Objeto;
 import ec.com.ebos.security.model.Opcion;
@@ -18,6 +18,18 @@ import ec.com.ebos.security.model.UsuarioRol;
  * @author Eduardo Plua Alay
  */
 public interface SecurityP {
+	
+	/**
+	 * Nombre del Spring Bean para {@link SecurityP}
+	 */
+	public static final String BEAN_NAME = "securityP";
+	
+	/**
+	 * Nombre del Bean como EL a ser referenciado para la inyeccion de una instancia de {@link SecurityPImpl} 
+	 * en otro ManagedBean 
+	 */
+	@SuppressWarnings("el-syntax")
+	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 	
 	//
 	// Put Messages

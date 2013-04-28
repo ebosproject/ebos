@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import ec.com.ebos.appl.model.field.EmpresaPersona_;
-import ec.com.ebos.appl.model.field.Persona_;
-import ec.com.ebos.appl.web.jsf.bean.SessionBean;
+import ec.com.ebos.master.model.field.EmpresaPersona_;
+import ec.com.ebos.master.model.field.Persona_;
+import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.root.core.process.CorePImpl;
+import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Auditoria_;
@@ -41,8 +41,8 @@ import ec.com.ebos.util.core.process.UtilP;
 /**
  * @author Eduardo Plua Alay
  */
-@Repository("securityP")
-public class SecurityPImpl extends CorePImpl<Object, SeguridadException> implements SecurityP {
+@Repository(SecurityP.BEAN_NAME)
+public class SecurityPImpl extends RootPImpl<Object, SeguridadException> implements SecurityP {
 
 	private static final long serialVersionUID = -7535155949566180920L;
 	

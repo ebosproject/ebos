@@ -21,6 +21,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -30,26 +31,30 @@ import ec.com.ebos.root.model.Entidad;
  * 
  */
 @Entity
-@Table(name = "SEGTOPCION", schema = "EBOSSEGU")
+@Table(name = Opcion.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class Opcion extends Security<Opcion> {
     
 	private static final long serialVersionUID = 6962443015587297421L;
 
+	protected static final String TABLE_NAME = "OPCION";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "SEGTOPCION_ID_GENERATOR", sequenceName = "EBOSSEGU.SEGSOPCION")
-	@GeneratedValue(generator = "SEGTOPCION_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
     private Long id;
 
 	@Embedded
 	private Auditoria auditoria;	
 	
 	@ManyToOne
-	@JoinColumn(name = "padre_id")
+	@JoinColumn(name = "id_padre")
     private Opcion padre;
 	
 	@ManyToOne
-	@JoinColumn(name = "objeto_id")
+	@JoinColumn(name = "id_objeto")
     private Objeto objeto;
     
     @Column(name="nombre", length=30, unique=true, nullable=false)

@@ -16,11 +16,11 @@ import org.primefaces.model.SortOrder;
 
 import ec.com.ebos.admin.resources.AdminMensajes;
 import ec.com.ebos.admin.web.jsf.bean.AdministracionBean;
-import ec.com.ebos.appl.resources.ApplMensajes;
-import ec.com.ebos.appl.web.jsf.bean.ApplicationBean;
-import ec.com.ebos.appl.web.jsf.bean.SessionBean;
 import ec.com.ebos.bitacora.resources.BitacoraMensajes;
 import ec.com.ebos.bitacora.web.jsf.bean.BitacoraBean;
+import ec.com.ebos.master.resources.MasterMensajes;
+import ec.com.ebos.master.web.jsf.bean.MasterBean;
+import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
@@ -43,7 +43,7 @@ import ec.com.ebos.util.type.JsfMessage;
     protected SessionBean sessionBean;
 	
     @Getter @Setter
-    @ManagedProperty(value = "#{securityS}")
+    @ManagedProperty(value = SecurityS.EL_BEAN_NAME)
     protected SecurityS securityS;
 	
 	protected String TARGET_ID;
@@ -252,8 +252,8 @@ import ec.com.ebos.util.type.JsfMessage;
 			message = SecurityMensajes.getString(keySummary, params);
 		} else if (this instanceof BitacoraBean){
 			message = BitacoraMensajes.getString(keySummary, params);
-		} else if (this instanceof ApplicationBean){
-			message = ApplMensajes.getString(keySummary, params);
+		} else if (this instanceof MasterBean){
+			message = MasterMensajes.getString(keySummary, params);
 		}
 		return message;
 	}

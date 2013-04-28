@@ -27,21 +27,21 @@ public class Auditoria implements Serializable{
 
 	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "usuarioCreacion_id", nullable = false)
-	private Usuario usuarioCreacion;
+    @JoinColumn(name = "id_creador", nullable = false)
+	private Usuario creador;
 	
 	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "usuarioModificacion_id")
-	private Usuario usuarioModificacion;
+    @JoinColumn(name = "id_modificador")
+	private Usuario modificador;
 
 	@Getter @Setter
-	@Column(name = "fechaCreacion", nullable = false)
+	@Column(name = "creacion", nullable = false)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date fechaCreacion;
+	private Date creacion;
 	
 	@Getter @Setter
-	@Column(name = "fechaModificacion")
+	@Column(name = "modificacion")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date fechaModificacion;
+	private Date modificacion;
 }

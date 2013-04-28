@@ -15,6 +15,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -24,26 +25,30 @@ import ec.com.ebos.root.model.Entidad;
  * 
  */
 @Entity
-@Table(name = "SEGTUSUARIO_ROL", schema = "EBOSSEGU")
+@Table(name = UsuarioRol.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class UsuarioRol extends Security<UsuarioRol> {
 
 	private static final long serialVersionUID = -1368865964860468015L;
 
+	protected static final String TABLE_NAME = "USUARIO_ROL";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = "SEGTUSUARIO_ROL_ID_GENERATOR", sequenceName = "EBOSSEGU.SEGSUSUARIO_ROL")
-	@GeneratedValue(generator = "SEGTUSUARIO_ROL_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
 	@Embedded
 	private Auditoria auditoria;
 	
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
             
     @ManyToOne
-    @JoinColumn(name = "rol_id", nullable = false)
+    @JoinColumn(name = "id_rol", nullable = false)
     private Rol rol;
 
     @Column(name = "estado", nullable = false, length = 1)

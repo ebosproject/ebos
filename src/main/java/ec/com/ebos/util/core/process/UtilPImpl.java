@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import ec.com.ebos.root.core.process.CorePImpl;
+import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.util.exception.UtilException;
 import ec.com.ebos.util.mail.SendMail;
 
@@ -15,7 +15,7 @@ import ec.com.ebos.util.mail.SendMail;
  * @author Eduardo Plua Alay
  */
 @Repository("utilP")
-public class UtilPImpl extends CorePImpl<Object, UtilException> implements UtilP {
+public class UtilPImpl extends RootPImpl<Object, UtilException> implements UtilP {
 
 	private static final long serialVersionUID = 8272908095248096866L;
 	
@@ -24,7 +24,7 @@ public class UtilPImpl extends CorePImpl<Object, UtilException> implements UtilP
 	//
 //	@Getter @Setter
 //    @Autowired
-//    private Application app;
+//    private Master app;
 //	
 //	@Getter @Setter
 //    @Autowired

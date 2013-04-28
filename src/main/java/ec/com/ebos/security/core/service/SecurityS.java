@@ -1,6 +1,11 @@
 package ec.com.ebos.security.core.service;
 
-import ec.com.ebos.appl.web.jsf.bean.SessionBean;
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.model.Objeto;
 import ec.com.ebos.security.model.Opcion;
@@ -9,16 +14,23 @@ import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.UsuarioRol;
 
-import java.io.Serializable;
-import java.util.List;
-
-import org.springframework.transaction.annotation.Transactional;
-
 /**
  *
  * @author Eduardo Plua Alay
  */
 public interface SecurityS extends Serializable {
+	
+	/**
+	 * Nombre del Spring Bean para {@link SecurityS}
+	 */
+	public static final String BEAN_NAME = "securityS";
+	
+	/**
+	 * Nombre del Bean como EL a ser referenciado para la inyeccion de una instancia de {@link SecuritySImpl} 
+	 * en otro ManagedBean
+	 */
+	@SuppressWarnings("el-syntax")
+	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 	
 	//
 	// Put Messages

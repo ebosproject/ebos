@@ -11,7 +11,7 @@
             <!-- <supported-locale>en</supported-locale> -->
         </locale-config>
         <resource-bundle>
-            <base-name>ec.com.ebos.appl.web.resources.DatabaseDrivenResourceBundle</base-name>
+            <base-name>ec.com.ebos.master.web.resources.DatabaseDrivenResourceBundle</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>

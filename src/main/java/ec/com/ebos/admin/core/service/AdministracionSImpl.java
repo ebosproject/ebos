@@ -24,7 +24,7 @@ public class AdministracionSImpl implements AdministracionS{
 
 	@Getter @Setter
 	@Autowired
-    @Qualifier("administracionP")
+    @Qualifier("adminP")
     private AdministracionP administracionP = null;
 
 
