@@ -26,6 +26,8 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Serializable {
 
 	private static final long serialVersionUID = 2233398298735454479L;
+	public static final int CODIGO = 25;
+	public static final int DESCRIPCION = 100;
 
 	/**
 	 * Metodos para propiedad Id
