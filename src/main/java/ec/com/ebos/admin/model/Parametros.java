@@ -50,6 +50,6 @@ public class Parametros extends Administracion<Parametros>{
     
     @Column(name = "ESTADO", nullable=false, length=1)
     @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    private Entidad.Estado estado  ;
     
 }
