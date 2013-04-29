@@ -1,15 +1,16 @@
 package ec.com.ebos.logis.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import ec.com.ebos.conf.model.DB_STRUCTURE;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.logis.model.field.Fields_;
+import ec.com.ebos.root.model.Entidad;
 
 
 /**
@@ -30,5 +31,11 @@ public abstract class ProductoBase extends EntidadLogistica<ProductoBase> {
 	@SequenceGenerator(name = TABLENAME+"_ID_GENERATOR", sequenceName = EntidadLogistica.SCHEMA_OWNER+".S_"+TABLENAME)
 	@GeneratedValue(generator = TABLENAME+"_ID_GENERATOR")
 	private Long id;
+	
+	@Column(name = Fields_.codigo, nullable = false, length = Entidad.CODIGO)
+	private String codigo;
+	
+	@Column(name = Fields_.descripcion, nullable = false, length = Entidad.DESCRIPCION)
+	private String descripcion;
 	
 }
