@@ -25,7 +25,7 @@ import ec.com.ebos.util.DateUtils;
 import ec.com.ebos.util.HTTPUtils;
 
 /**
- * Security aspects of the platform
+ * Contabilidad aspects of the platform
  * 
  * @author Eduardo Plua Alay
  * @since 2013/02/13

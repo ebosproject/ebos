@@ -49,7 +49,7 @@ public class EmpresaPersona extends Master<EmpresaPersona>{
 		
 	@ManyToOne
 	@JoinColumn(name = "id_empresa", nullable = false)
-    private Empresa empresa;
+    private Organizacion empresa;
         
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_persona", nullable = false)

@@ -48,7 +48,7 @@ public class Activo extends Master<Activo>{
 		
 	@ManyToOne
 	@JoinColumn(name = "id_empresa", nullable = false)
-    private Empresa empresa;
+    private Organizacion empresa;
         
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false)

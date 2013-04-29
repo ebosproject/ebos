@@ -90,7 +90,7 @@ public class Persona extends Master<Persona>{
     private Entidad.Estado estado;
 	
 	@OneToMany(mappedBy = "persona", fetch = FetchType.LAZY)
-    private Set<Empresa> empresaList = new HashSet<Empresa>(0);
+    private Set<Organizacion> empresaList = new HashSet<Organizacion>(0);
 	
 	@OneToMany(mappedBy = "persona", fetch= FetchType.LAZY)
     private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);

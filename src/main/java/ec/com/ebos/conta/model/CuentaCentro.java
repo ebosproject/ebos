@@ -1,8 +1,9 @@
-package ec.com.ebos.master.model;
+package ec.com.ebos.conta.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,41 +16,57 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Master;
+import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
 /**
+ * Asiento detalle
+ *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * 
+ * @author <a href="mailto:vipconsultoresaso@gmail.com">Victor Viejo</a>
+ * @since 2013/04/28
  */
 @Entity
-@Table(name = Sucursal.TABLE_NAME, schema = Master.SCHEMA)
+@Table(name = CuentaCentro.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
-public class Sucursal extends Master<Sucursal>{
+public class CuentaCentro extends Contabilidad<CuentaCentro> {
 
-	private static final long serialVersionUID = 7508531917964868788L;
-
-	protected static final String TABLE_NAME = "SUCURSAL";
+	private static final long serialVersionUID = 1943393643558976463L;
+	
+	protected static final String TABLE_NAME = "CUENTA_CENTRO";
 	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
+	/**
+	 * Id de la estructura organizacional
+	 */
 	@Id
 	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
 	@GeneratedValue(generator = GENERATOR)
-	private Long id;
+    private Long id;
 	
-	@Embedded
-	private Auditoria auditoria;
-		
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
 	
-	@Column(name = "descripcion", nullable = false, length = 50)
-	private String descripcion;
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_cuenta_contable", nullable = false)
+    private CuentaContable cuentaContable;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_tipo_centro_costo")
+    private TipoCentroCosto tipoCentroCosto;
+	
+	@Embedded
+	private Auditoria auditoria;
+	
+	/**
+	 * Estado de la {@link CuentaCentro}
+	 */
 	@Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
-	
+    private Entidad.Estado estado = Estado.ACTIVO;
+    
 }

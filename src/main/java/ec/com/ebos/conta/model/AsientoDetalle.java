@@ -1,0 +1,104 @@
+package ec.com.ebos.conta.model;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import ec.com.ebos.admin.model.Documento;
+import ec.com.ebos.master.model.Master;
+import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.root.model.Entidad;
+
+/**
+ * Asientos contables
+ *
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ * @author <a href="mailto:vipconsultoresaso@gmail.com">Victor Viejo</a>
+ * @since 2013/04/28
+ */
+@Entity
+@Table(name = AsientoDetalle.TABLE_NAME, schema = Contabilidad.SCHEMA)
+@Data @EqualsAndHashCode(callSuper=false) 
+public class AsientoDetalle extends Contabilidad<AsientoDetalle> {
+
+	private static final long serialVersionUID = -2771940733623486993L;
+	
+	protected static final String TABLE_NAME = "ASIENTO_DETALLE";
+	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
+	/**
+	 * Id de la estructura organizacional
+	 */
+	@Id
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
+    private Long id;
+	
+	/**
+	 * Asiento contable
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_asiento", nullable = false)
+    private Asiento asiento;
+	
+	/**
+	 * Cuenta contable
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_cuenta_contable", nullable = false)
+    private CuentaContable cuentaContable;
+	
+	/**
+	 * Centro de costo
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_centro_costo")
+    private CentroCosto centroCosto;
+	
+	/**
+	 * Subcentro de costo
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_subcentro_costo")
+    private CentroCosto subcentroCosto;
+	
+	/**
+	 * Documento
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_documento")
+    private Documento documento;
+	
+	@Embedded
+	private Auditoria auditoria;
+	
+	/**
+	 * Monto deudor del detalle
+	 */
+    @Column(name = "valor_debe", nullable = false, length = 16, precision = 2)
+    private BigDecimal valorDebe =  BigDecimal.ZERO;
+    
+    /**
+	 * Monto acreedor del detalle
+	 */
+    @Column(name = "valor_haber", nullable = false, length = 16, precision = 2)
+    private BigDecimal valorHaber =  BigDecimal.ZERO;
+    
+    /**
+	 * Descripcion o nombre de la estructura organizacional
+	 */
+	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = Entidad.DESCRIPCION_LENGTH)
+	private String descripcion;
+}

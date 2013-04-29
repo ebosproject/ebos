@@ -28,13 +28,13 @@ import ec.com.ebos.root.model.Entidad;
  * 
  */
 @Entity
-@Table(name = Empresa.TABLE_NAME, schema = Master.SCHEMA)
+@Table(name = Organizacion.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
-public class Empresa extends Master<Empresa>{
+public class Organizacion extends Master<Organizacion>{
 
 	private static final long serialVersionUID = 7508531917964868788L;
 
-	protected static final String TABLE_NAME = "EMPRESA";
+	protected static final String TABLE_NAME = "ORGANIZACION";
 	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 

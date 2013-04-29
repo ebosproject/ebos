@@ -25,7 +25,7 @@ import ec.com.ebos.util.Constantes;
 /**
  * Bean para datos de sesion del usuario
  *
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @ManagedBean(name = SessionBean.BEAN_NAME)
 @SessionScoped
