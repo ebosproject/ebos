@@ -20,6 +20,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.PropertyExpression;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Subqueries;
 import org.hibernate.engine.SessionImplementor;
@@ -243,6 +244,30 @@ public class GenericCriteria<T> implements Serializable {
 	public GenericCriteria<T> addEqualsProperty(String propertyName, String otherPropertyName) {
 		criteria.add(Restrictions.eqProperty(propertyName, otherPropertyName));
 		return this;
+	}
+	
+	
+	
+	/**
+	 * Adds an "like" constraint to two properties
+	 */
+	public GenericCriteria<T> addLikeProperty(String propertyName, String otherPropertyName) {
+		criteria.add(new InnerPropertyExpression(propertyName, otherPropertyName, "like"));
+		return this;
+	}
+	
+	/**
+	 * Superclase para comparacion entre dos propiedades
+	 * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+	 *
+	 */
+	private static class InnerPropertyExpression extends PropertyExpression {
+		protected InnerPropertyExpression(String propertyName,
+				String otherPropertyName, String op) {
+			super(propertyName, otherPropertyName, op);
+		}
+		private static final long serialVersionUID = 2L;
+		
 	}
 
 	public GenericCriteria<T> addIsNull(String propertyName) {
