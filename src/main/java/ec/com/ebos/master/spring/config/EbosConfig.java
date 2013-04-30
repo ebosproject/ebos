@@ -27,7 +27,9 @@ import org.springframework.core.io.ClassPathResource;
 	"ec.com.ebos.aspect", 
 	"ec.com.ebos.security", 
 	"ec.com.ebos.util",
-	"ec.com.ebos.admin"})
+	"ec.com.ebos.admin",
+	"ec.com.ebos.conta",
+	"ec.com.ebos.logis"})
 public class EbosConfig {
 	
 	@Bean

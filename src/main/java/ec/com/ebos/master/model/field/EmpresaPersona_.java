@@ -7,13 +7,9 @@ import ec.com.ebos.master.model.EmpresaPersona;
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class EmpresaPersona_ {
+public abstract class EmpresaPersona_ extends Master_{
 
-	public static String id = "id";
-	public static String descripcion = "descripcion";
-	public static String persona = "persona";
-	public static String imagen = "imagen";
-	public static String estado = "estado";
+	public static final String persona = "persona";
 	
 }
 

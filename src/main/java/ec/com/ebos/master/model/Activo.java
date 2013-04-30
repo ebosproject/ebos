@@ -35,7 +35,7 @@ public class Activo extends Master<Activo>{
 	private static final long serialVersionUID = 7521526484197846192L;
 	
 	protected static final String TABLE_NAME = "ACTIVO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

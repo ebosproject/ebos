@@ -30,7 +30,7 @@ public class ActivoCustodio extends Master<ActivoCustodio>{
 	private static final long serialVersionUID = 8578280108376775316L;
 	
 	protected static final String TABLE_NAME = "ACTIVO_CUSTODIO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

@@ -23,7 +23,6 @@ import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.conta.resources.ContaMensajes;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
@@ -47,7 +46,7 @@ public class SaldoCentroCosto extends Contabilidad<SaldoCentroCosto> {
 	private static final long serialVersionUID = 5615088107461153660L;
 
 	protected static final String TABLE_NAME = "SALDO_CENTRO_COSTO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -75,7 +74,7 @@ public class SaldoCentroCosto extends Contabilidad<SaldoCentroCosto> {
 	/**
 	 * Tipo de saldo
 	 */
-	@Column(name = "estado", nullable = false, length = 3)
+	@Column(name = "tipoSaldo", nullable = false, length = 3)
     @Type(type = SaldoCentroCosto.TipoSaldo.TYPE)
     private SaldoCentroCosto.TipoSaldo tipoSaldo = SaldoCentroCosto.TipoSaldo.CENTRO;
 	

@@ -20,7 +20,7 @@ import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Auditoria_;
-import ec.com.ebos.security.exception.SeguridadException;
+import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.security.model.Objeto;
 import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.Rol;
@@ -42,7 +42,7 @@ import ec.com.ebos.util.core.process.UtilP;
  * @author Eduardo Plua Alay
  */
 @Repository(SecurityP.BEAN_NAME)
-public class SecurityPImpl extends RootPImpl<Object, SeguridadException> implements SecurityP {
+public class SecurityPImpl extends RootPImpl<Object, SecurityException> implements SecurityP {
 
 	private static final long serialVersionUID = -7535155949566180920L;
 	
@@ -208,8 +208,8 @@ public class SecurityPImpl extends RootPImpl<Object, SeguridadException> impleme
     public List<Rol> findRolList(Rol rol, Pagination pagination) {
         GenericCriteria<Rol> criteria = GenericCriteria.forClass(Rol.class);
         criteria.addEquals(Rol_.estado, Entidad.Estado.ACTIVO);
-        criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
-        criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion);
+        criteria.addAliasedJoins(Auditoria_.creador);
+        criteria.addAliasedLeftJoins(Auditoria_.modificador);
         if(rol != null){
         	criteria.addLike(Rol_.nombre, rol.getNombre());
             criteria.addLike(Rol_.descripcion, rol.getDescripcion());
@@ -339,8 +339,8 @@ public class SecurityPImpl extends RootPImpl<Object, SeguridadException> impleme
     public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
         criteria.addEquals("estado", Entidad.Estado.ACTIVO);
-        criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
-        criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion, Opcion_.padre);
+        criteria.addAliasedJoins(Auditoria_.creador);
+        criteria.addAliasedLeftJoins(Auditoria_.modificador, Opcion_.padre);
         if (opcion != null) {
 	        criteria.addAliasedLeftJoins(Opcion_.padre);
 	        criteria.addLike(Opcion_.nombre, opcion.getNombre());
@@ -380,8 +380,8 @@ public class SecurityPImpl extends RootPImpl<Object, SeguridadException> impleme
     public Opcion getOpcion(Long id) {
     	GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
     	criteria.addEquals("estado", Entidad.Estado.ACTIVO);
-        criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
-        criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion);
+        criteria.addAliasedJoins(Auditoria_.creador);
+        criteria.addAliasedLeftJoins(Auditoria_.modificador);
         return findFirstByCriteria(criteria);
     }
 
@@ -402,8 +402,8 @@ public class SecurityPImpl extends RootPImpl<Object, SeguridadException> impleme
     public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination) {
         GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
         criteria.addEquals("estado", Entidad.Estado.ACTIVO);
-        criteria.addAliasedJoins(Auditoria_.usuarioCreacion);
-        criteria.addAliasedLeftJoins(Auditoria_.usuarioModificacion);
+        criteria.addAliasedJoins(Auditoria_.creador);
+        criteria.addAliasedLeftJoins(Auditoria_.modificador);
         if (objeto != null) {
 	        criteria.addLike(Objeto_.descripcion, objeto.getDescripcion());
 	        criteria.addLike(Objeto_.codigo, objeto.getCodigo());

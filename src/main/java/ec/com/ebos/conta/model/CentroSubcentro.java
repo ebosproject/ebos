@@ -15,7 +15,6 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Entidad;
 
 /**
@@ -33,7 +32,7 @@ public class CentroSubcentro extends Contabilidad<CentroSubcentro> {
 	private static final long serialVersionUID = 3656927531814475058L;
 
 	protected static final String TABLE_NAME = "CENTRO_SUBCENTRO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -50,6 +49,13 @@ public class CentroSubcentro extends Contabilidad<CentroSubcentro> {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_centro_costo", nullable = false)
     private CentroCosto centroCosto;
+
+	/**
+	 * Subcentro costo
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_subcentro_costo")
+    private CentroCosto subcentroCosto;	
 	
 	/**
 	 * Tipo de centro de costo
@@ -58,13 +64,6 @@ public class CentroSubcentro extends Contabilidad<CentroSubcentro> {
 	@JoinColumn(name = "id_tipo_centro_costo")
     private TipoCentroCosto tipoCentroCosto;	
     
-	/**
-	 * Subcentro costo
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_subcentro_costo")
-    private CentroCosto subcentroCosto;	
-	
 	/**
 	 * Estado de la relacion 
 	 */

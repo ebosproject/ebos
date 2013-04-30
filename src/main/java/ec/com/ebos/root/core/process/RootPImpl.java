@@ -47,7 +47,7 @@ import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.orm.crud.PaginationParams;
 import ec.com.ebos.security.core.process.SecurityPImpl;
-import ec.com.ebos.security.exception.SeguridadException;
+import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.security.resources.SecurityMensajes;
 import ec.com.ebos.util.HTTPUtils;
 import ec.com.ebos.util.ObjectUtils;
@@ -563,7 +563,7 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
 			if (this instanceof AdministracionPImpl) {
 				x = new AdministracionException();
 			} else if (this instanceof SecurityPImpl) {
-				x = new SeguridadException();
+				x = new SecurityException();
 			}
 
 			x.initCause(e);
@@ -709,7 +709,7 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
         sf.close();
 	}
 
-	private Object callFunction(String nameProcedure, int type, Object ... params) throws SeguridadException {
+	private Object callFunction(String nameProcedure, int type, Object ... params) throws SecurityException {
         //Configuration c = new Configuration().configure();
         //SessionFactory sf = c.buildSessionFactory();
         //Session session = sf.openSession();
@@ -760,19 +760,19 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
         return result;
 	}
 
-	protected Long callFunctionLong(String nameProcedure, Object ... params) throws SeguridadException {
+	protected Long callFunctionLong(String nameProcedure, Object ... params) throws SecurityException {
 		return (Long) callFunction(nameProcedure, Types.BIGINT, params);
 	}
 
-	protected Double callFunctionDouble(String nameProcedure, Object ... params) throws SeguridadException {
+	protected Double callFunctionDouble(String nameProcedure, Object ... params) throws SecurityException {
 		return (Double) callFunction(nameProcedure, Types.DOUBLE, params);
 	}
 	
-	protected BigDecimal callFunctionBigDecimal(String nameProcedure, Object ... params) throws SeguridadException {
+	protected BigDecimal callFunctionBigDecimal(String nameProcedure, Object ... params) throws SecurityException {
 		return (BigDecimal) callFunction(nameProcedure, Types.DECIMAL, params);
 	}
 
-	protected String callFunctionString(String nameProcedure, Object ... params) throws SeguridadException {
+	protected String callFunctionString(String nameProcedure, Object ... params) throws SecurityException {
 		return (String) callFunction(nameProcedure, Types.VARCHAR, params);
 	}
 
@@ -1011,7 +1011,7 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
     protected SessionBean getSessionBean() {
         SessionBean sesionUsuario = (SessionBean) HTTPUtils.getSessionAttribute(SessionBean.BEAN_NAME);
         if (sesionUsuario == null) {
-            throw new SeguridadException("sesion.error.sesionNoValida");
+            throw new SecurityException("sesion.error.sesionNoValida");
         }
         return sesionUsuario;
     }

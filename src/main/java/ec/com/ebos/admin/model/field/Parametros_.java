@@ -1,15 +1,13 @@
 package ec.com.ebos.admin.model.field;
 
 /**
- * Entity model attributes for Paramatros
+ * Entity model attributes for {@link Parametros}
  * 
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Parametros_ {
+public abstract class Parametros_ extends Administracion_{
 
-	public static String id = "id";
 	public static String grupo;
-	public static String estado;
 	public static String valor;
 	public static String clave;
 

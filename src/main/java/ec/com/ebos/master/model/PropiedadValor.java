@@ -27,7 +27,7 @@ public class PropiedadValor extends Master<PropiedadValor> {
 	private static final long serialVersionUID = -5344259206776358470L;
 
 	protected static final String TABLE_NAME = "PROPIEDAD_VALOR";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

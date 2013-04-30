@@ -42,7 +42,7 @@ public class Persona extends Master<Persona>{
 	private static final long serialVersionUID = -2896367216397132540L;
 
 	protected static final String TABLE_NAME = "PERSONA";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

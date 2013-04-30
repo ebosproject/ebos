@@ -18,7 +18,6 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -37,7 +36,7 @@ public class SaldoCuentaCentro extends Contabilidad<SaldoCuentaCentro> {
 	private static final long serialVersionUID = 1433992189978133926L;
 	
 	protected static final String TABLE_NAME = "SALDO_CUENTA_CENTRO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**

@@ -35,7 +35,7 @@ public class Categoria extends Master<Categoria> {
 	private static final long serialVersionUID = 2268813629003896997L;
 
 	protected static final String TABLE_NAME = "CATEGORIA";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

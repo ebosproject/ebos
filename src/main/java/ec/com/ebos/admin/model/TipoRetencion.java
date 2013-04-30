@@ -1,14 +1,20 @@
 package ec.com.ebos.admin.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.master.model.Master;
+import ec.com.ebos.conta.model.SaldoRetencion;
+import ec.com.ebos.conta.model.field.SaldoRetencion_;
 
 /**
  * Documento
@@ -24,7 +30,7 @@ public class TipoRetencion extends Administracion<TipoRetencion> {
 	private static final long serialVersionUID = -6748190361672935897L;
 
 	protected static final String TABLE_NAME = "TIPO_RETENCION";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id
@@ -32,8 +38,7 @@ public class TipoRetencion extends Administracion<TipoRetencion> {
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
-//	@Embedded
-//	private Auditoria auditoria;
-    
+	@OneToMany(mappedBy = SaldoRetencion_.tipoRetencion, fetch = FetchType.LAZY)
+    private Set<SaldoRetencion> saldoRetencionList = new HashSet<SaldoRetencion>(0);
     
 }

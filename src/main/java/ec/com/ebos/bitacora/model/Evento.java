@@ -27,7 +27,6 @@ import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.bitacora.resources.BitacoraMensajes;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.GenericUtils;
@@ -47,7 +46,7 @@ public class Evento extends Bitacora<Evento>{
 	private static final long serialVersionUID = 3922934845182492539L;
 
 	protected static final String TABLE_NAME = "EVENTO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Bitacora.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

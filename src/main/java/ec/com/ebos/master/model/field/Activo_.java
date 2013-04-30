@@ -7,12 +7,8 @@ import ec.com.ebos.master.model.Activo;
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Activo_ {
+public abstract class Activo_ extends Master_{
 
-	public static String id = "id";
-	public static String descripcion = "descripcion";
-	public static String imagen = "imagen";
-	public static String estado = "estado";
 	
 }
 

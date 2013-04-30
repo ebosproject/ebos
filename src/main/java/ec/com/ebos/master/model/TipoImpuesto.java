@@ -1,4 +1,4 @@
-package ec.com.ebos.conf.model;
+package ec.com.ebos.master.model;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,10 +15,13 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import ec.com.ebos.bitacora.model.Evento.TipoEvento;
-import ec.com.ebos.bitacora.resources.BitacoraMensajes;
+
+import org.hibernate.annotations.Type;
+
+import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -27,30 +30,39 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 
 /**
  * @author <a href="mailto:vipconsultoresaso@gmail.com">VIP Consultores</a>
+ * @update 2013/04/29 <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * 
  */
 @Entity
-@Table(name = DB_STRUCTURE.TIPO_IMPUESTO, schema = "ebosconf")
+@Table(name = TipoImpuesto.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 public class TipoImpuesto extends Entidad<TipoImpuesto>{
 
 	private static final long serialVersionUID = 3922934845182492539L;
+	
+	protected static final String TABLE_NAME = "TIPO_IMPUESTO";
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
+	/**
+	 * Id del tipo de documento
+	 */
 	@Id
-	@SequenceGenerator(name = DB_STRUCTURE.TIPO_IMPUESTO+"_ID_GENERATOR", sequenceName = "S_"+DB_STRUCTURE.TIPO_IMPUESTO)
-	@GeneratedValue(generator = DB_STRUCTURE.TIPO_IMPUESTO+"_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
 	private Long id;
 	
 	@Embedded
 	private Auditoria auditoria;
 		
-	@Column(name = "codigo", nullable = false, length = Entidad.CODIGO_LENGTH)
+	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght)
 	private String codigo;
 	
-	@Column(name = "descripcion", nullable = false, length = Entidad.DESCRIPCION_LENGTH)
+	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;
 	
 	@Column(name = "clase", nullable = false, length = 3)
+    @Type(type = ClaseImpuesto.TYPE)
 	private ClaseImpuesto claseImpuesto;
 	
     /**
@@ -81,7 +93,7 @@ public class TipoImpuesto extends Entidad<TipoImpuesto>{
         public static class Type extends StringValuedEnumType<ClaseImpuesto> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".conf.model.Evento$"+DB_STRUCTURE.TIPO_IMPUESTO+"$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.TipoImpuesto$ClaseImpuesto$Type";
 
         @Getter
         private String value;
@@ -91,16 +103,16 @@ public class TipoImpuesto extends Entidad<TipoImpuesto>{
             this.value = value;
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
-        public static final Map<String, TipoEvento> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoEvento.values());
+        public static final Map<String, ClaseImpuesto> LABELED_MAP =
+                GenericUtils.buildLabeledEnumMap(ClaseImpuesto.values());
         /**
          * Lists para iteraciones
          */
-        public static final List<TipoEvento> LIST = Arrays.asList(TipoEvento.values());
+        public static final List<ClaseImpuesto> LIST = Arrays.asList(ClaseImpuesto.values());
 
         @Override
         public String getLabel() {
-            return BitacoraMensajes.getString(labelKey);
+            return MasterMensajes.getString(labelKey);
         }
 
         @Override

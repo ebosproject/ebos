@@ -7,14 +7,14 @@ import ec.com.ebos.security.resources.SecurityMensajes;
  * 
  * @author Eduardo Plua Alay
  */
-public class SeguridadException extends GenericException {
+public class SecurityException extends GenericException {
 
 	private static final long serialVersionUID = -4778046922922740413L;
 
 	/**
 	 * Constructor por defecto
 	 */
-	public SeguridadException() {
+	public SecurityException() {
 		super();
 	}
 
@@ -24,7 +24,7 @@ public class SeguridadException extends GenericException {
 	 * @param keySummary
 	 *            Mensaje de error
 	 */
-	public SeguridadException(String keySummary, Object... params) {
+	public SecurityException(String keySummary, Object... params) {
 		super(SecurityMensajes.getString(keySummary, params), keySummary);
 	}
 

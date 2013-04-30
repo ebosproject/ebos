@@ -2,6 +2,8 @@ package ec.com.ebos.conta.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -19,9 +22,10 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
+import ec.com.ebos.conta.model.field.Periodo_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 
 /**
  * Ejercicio fiscal
@@ -38,7 +42,7 @@ public class Ejercicio extends Contabilidad<Ejercicio> {
 	private static final long serialVersionUID = 5615088107461153660L;
 
 	protected static final String TABLE_NAME = "EJERCICIO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -93,13 +97,18 @@ public class Ejercicio extends Contabilidad<Ejercicio> {
 	/**
 	 * Codigo de la estructura organizacional
 	 */
-	@Column(name = Entidad.CODIGO_NAME, nullable = false, length = Entidad.CODIGO_LENGTH)
+	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght)
 	private String codigo;
 	
 	/**
 	 * Descripcion o nombre de la estructura organizacional
 	 */
-	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = Entidad.DESCRIPCION_LENGTH)
+	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;	
     
+	@OneToMany(mappedBy = Periodo_.ejercicio, fetch = FetchType.LAZY)
+    private Set<Periodo> periodoList = new HashSet<Periodo>(0);
+	
+	@OneToMany(mappedBy = Periodo_.periodoFiscalPais, fetch = FetchType.LAZY)
+    private Set<Periodo> periodoList2 = new HashSet<Periodo>(0);
 }

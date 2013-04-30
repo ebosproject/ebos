@@ -36,7 +36,7 @@ public class EmpresaPersona extends Master<EmpresaPersona>{
 	private static final long serialVersionUID = 6960552970253412538L;
 
 	protected static final String TABLE_NAME = "EMPRESA_PERSONA";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

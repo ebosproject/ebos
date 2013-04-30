@@ -22,9 +22,9 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.master.model.EmpresaPersona;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.security.model.field.UsuarioRol_;
 
 /**
  *
@@ -39,7 +39,7 @@ public class Usuario extends Security<Usuario> {
 	private static final long serialVersionUID = 5615088107461153660L;
 
 	protected static final String TABLE_NAME = "USUARIO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Security.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id
@@ -70,7 +70,7 @@ public class Usuario extends Security<Usuario> {
     @Column(name = "maxoptions")
     private int maxOptions;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = UsuarioRol_.usuario, fetch = FetchType.LAZY)
     private Set<UsuarioRol> usuarioRolList = new HashSet<UsuarioRol>(0);
 
     @Transient

@@ -815,3 +815,1023 @@
 2013-04-28 13:04:29,873 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] schema export complete
 2013-04-28 13:04:29,874 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
 2013-04-28 13:04:30,030 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-29 23:50:06,205 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-04-29 23:50:06,318 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-04-29 23:50:06,328 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-04-29 23:50:06,332 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-04-29 23:50:06,346 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-04-29 23:50:06,453 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-04-29 23:50:06,537 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/E:/work/workspace/ebos/src/main/resources/hibernate.cfg.xml
+2013-04-29 23:50:07,008 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-04-29 23:50:07,130 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-04-29 23:50:07,201 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-04-29 23:50:07,381 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-04-29 23:50:07,382 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-04-29 23:50:07,428 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-04-29 23:50:07,429 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-04-29 23:50:07,461 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-04-29 23:50:07,462 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-04-29 23:50:07,470 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-04-29 23:50:07,471 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-04-29 23:50:07,504 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-04-29 23:50:07,505 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-04-29 23:50:07,522 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-04-29 23:50:07,523 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-04-29 23:50:07,547 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-04-29 23:50:07,549 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-04-29 23:50:07,566 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-04-29 23:50:07,568 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-04-29 23:50:07,582 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-04-29 23:50:07,583 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-04-29 23:50:07,646 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-04-29 23:50:07,647 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-04-29 23:50:07,661 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-04-29 23:50:07,663 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-04-29 23:50:07,682 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-04-29 23:50:07,721 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-04-29 23:50:07,748 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-04-29 23:50:07,749 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-04-29 23:50:07,829 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-04-29 23:50:07,830 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-04-29 23:50:07,933 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-04-29 23:50:07,936 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-04-29 23:50:07,968 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-04-29 23:50:07,970 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-04-29 23:50:08,039 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-04-29 23:50:08,041 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-04-29 23:50:08,063 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-04-29 23:50:08,067 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-04-29 23:50:08,173 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-04-29 23:50:08,174 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:50:08,226 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-04-29 23:50:08,227 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-04-29 23:50:08,244 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-04-29 23:50:08,245 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-04-29 23:50:08,272 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-04-29 23:50:08,273 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-04-29 23:50:08,351 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-04-29 23:50:08,352 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-04-29 23:50:08,362 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-04-29 23:50:08,363 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-04-29 23:50:08,384 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-04-29 23:50:08,384 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-04-29 23:50:08,406 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-04-29 23:50:08,407 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-04-29 23:50:08,425 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-04-29 23:50:08,426 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-04-29 23:50:08,441 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-04-29 23:50:08,442 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-04-29 23:50:08,460 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-04-29 23:50:08,464 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-04-29 23:50:08,480 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-04-29 23:50:08,481 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-04-29 23:50:08,492 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-04-29 23:50:08,495 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-04-29 23:50:08,498 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-29 23:50:08,499 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-04-29 23:50:08,517 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-29 23:50:08,518 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-04-29 23:50:08,531 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-29 23:50:08,532 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table BUNDLE
+2013-04-29 23:50:08,539 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-29 23:50:08,540 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-04-29 23:50:08,556 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-04-29 23:50:08,556 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-04-29 23:50:08,572 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-29 23:50:08,572 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-04-29 23:50:08,593 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-04-29 23:50:08,594 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-04-29 23:50:08,629 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-29 23:50:08,630 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-04-29 23:50:08,661 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-29 23:50:08,662 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-04-29 23:50:08,681 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-29 23:50:08,682 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-04-29 23:50:08,687 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-29 23:50:08,688 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-04-29 23:50:08,699 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-29 23:50:08,700 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-04-29 23:50:08,709 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-04-29 23:50:08,710 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-04-29 23:50:08,721 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-04-29 23:50:08,722 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-04-29 23:50:08,735 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Objeto
+2013-04-29 23:50:08,735 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Objeto on table OBJETO
+2013-04-29 23:50:08,755 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Opcion
+2013-04-29 23:50:08,755 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Opcion on table OPCION
+2013-04-29 23:50:08,782 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-04-29 23:50:08,783 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-04-29 23:50:08,803 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-04-29 23:50:08,803 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-04-29 23:50:08,821 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-04-29 23:50:08,822 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-04-29 23:50:08,957 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-04-29 23:50:08,958 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-04-29 23:50:09,060 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:50:09,063 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-04-29 23:50:09,064 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:50:09,065 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-04-29 23:50:09,094 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-04-29 23:50:09,100 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:50:09,101 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:50:09,103 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-04-29 23:50:09,106 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-29 23:50:09,107 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-29 23:50:09,108 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-29 23:50:09,109 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-04-29 23:50:09,110 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:50:09,118 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:50:09,119 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-29 23:50:09,120 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:50:09,121 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-04-29 23:50:09,128 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:50:09,129 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:50:09,130 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:50:09,131 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-04-29 23:52:50,788 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-04-29 23:52:50,911 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-04-29 23:52:50,916 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-04-29 23:52:50,920 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-04-29 23:52:50,924 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-04-29 23:52:51,118 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-04-29 23:52:51,578 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/E:/work/workspace/ebos/src/main/resources/hibernate.cfg.xml
+2013-04-29 23:52:51,914 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-04-29 23:52:52,224 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-04-29 23:52:52,375 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-04-29 23:52:52,873 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-04-29 23:52:52,875 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-04-29 23:52:53,082 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-04-29 23:52:53,084 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-04-29 23:52:53,108 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-04-29 23:52:53,109 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-04-29 23:52:53,272 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-04-29 23:52:53,273 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-04-29 23:52:53,299 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-04-29 23:52:53,301 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-04-29 23:52:53,427 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-04-29 23:52:53,428 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-04-29 23:52:53,439 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-04-29 23:52:53,441 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-04-29 23:52:53,455 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-04-29 23:52:53,456 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-04-29 23:52:53,626 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-04-29 23:52:53,628 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-04-29 23:52:53,660 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-04-29 23:52:53,663 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-04-29 23:52:53,781 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-04-29 23:52:53,782 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-04-29 23:52:53,801 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-04-29 23:52:53,802 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-04-29 23:52:53,997 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-04-29 23:52:53,999 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-04-29 23:52:54,029 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-04-29 23:52:54,030 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-04-29 23:52:54,446 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-04-29 23:52:54,447 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-04-29 23:52:54,455 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-04-29 23:52:54,457 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-04-29 23:52:54,587 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-04-29 23:52:54,589 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-04-29 23:52:54,658 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-04-29 23:52:54,659 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-04-29 23:52:54,958 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-04-29 23:52:54,959 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:52:54,966 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-04-29 23:52:54,967 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-04-29 23:52:54,988 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-04-29 23:52:54,989 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-04-29 23:52:55,188 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-04-29 23:52:55,189 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-04-29 23:52:55,400 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-04-29 23:52:55,401 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-04-29 23:52:55,412 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-04-29 23:52:55,413 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-04-29 23:53:00,867 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-04-29 23:53:00,868 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-04-29 23:53:00,892 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-04-29 23:53:00,892 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-04-29 23:53:00,912 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-04-29 23:53:00,913 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-04-29 23:53:00,929 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-04-29 23:53:00,929 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-04-29 23:53:00,956 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-04-29 23:53:00,957 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-04-29 23:53:00,973 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-04-29 23:53:00,974 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-04-29 23:53:00,990 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-04-29 23:53:00,991 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-04-29 23:53:00,994 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-29 23:53:00,995 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-04-29 23:53:01,017 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-29 23:53:01,018 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-04-29 23:53:01,047 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-29 23:53:01,048 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table BUNDLE
+2013-04-29 23:53:01,058 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-29 23:53:01,059 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-04-29 23:53:01,073 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-04-29 23:53:01,074 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-04-29 23:53:01,093 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-29 23:53:01,094 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-04-29 23:53:01,116 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-04-29 23:53:01,117 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-04-29 23:53:01,161 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-29 23:53:01,162 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-04-29 23:53:01,197 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-29 23:53:01,198 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-04-29 23:53:01,219 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-29 23:53:01,221 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-04-29 23:53:01,227 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-29 23:53:01,228 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-04-29 23:53:01,244 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-29 23:53:01,245 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-04-29 23:53:01,252 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-04-29 23:53:01,253 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-04-29 23:53:01,267 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-04-29 23:53:01,268 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-04-29 23:53:01,282 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Objeto
+2013-04-29 23:53:01,283 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Objeto on table OBJETO
+2013-04-29 23:53:01,303 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Opcion
+2013-04-29 23:53:01,304 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Opcion on table OPCION
+2013-04-29 23:53:01,331 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-04-29 23:53:01,332 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-04-29 23:53:01,357 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-04-29 23:53:01,358 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-04-29 23:53:01,377 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-04-29 23:53:01,378 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-04-29 23:53:01,400 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-04-29 23:53:01,401 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-04-29 23:53:01,615 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:53:01,617 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-04-29 23:53:01,619 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:53:01,620 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-04-29 23:53:01,621 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-04-29 23:53:01,622 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:53:01,624 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:53:01,625 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-04-29 23:53:01,631 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-29 23:53:01,632 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-29 23:53:01,634 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-29 23:53:01,816 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-04-29 23:53:01,821 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:53:01,824 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:53:01,827 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-29 23:53:01,830 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:53:01,833 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-04-29 23:53:01,836 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:53:01,839 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:53:01,842 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:53:01,846 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-04-29 23:53:01,849 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.ejercicioList -> EJERCICIO
+2013-04-29 23:53:01,852 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:53:01,855 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-29 23:53:01,858 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList -> PERIODO
+2013-04-29 23:53:01,862 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList2 -> PERIODO
+2013-04-29 23:53:01,865 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-29 23:53:01,879 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:53:01,881 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-29 23:53:01,882 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoRetencionList -> SALDO_RETENCION
+2013-04-29 23:53:01,884 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoAsiento.asientoList -> ASIENTO
+2013-04-29 23:53:01,885 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-29 23:53:01,886 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-29 23:53:02,032 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:53:02,034 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCuenta.cuentaContableList -> CUENTA_CONTABLE
+2013-04-29 23:53:02,035 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-29 23:53:02,037 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> PROPIEDAD
+2013-04-29 23:53:02,038 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> ACTIVO
+2013-04-29 23:53:02,041 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> CATEGORIA
+2013-04-29 23:53:02,042 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.divisionGeograficaList -> DIVISION_GEOGRAFICA
+2013-04-29 23:53:02,044 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.periodoFiscalPaisList -> PERIODO_FISCAL_PAIS
+2013-04-29 23:53:02,045 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-29 23:53:02,046 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> USUARIO
+2013-04-29 23:53:02,047 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.activoList -> ACTIVO
+2013-04-29 23:53:02,049 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-29 23:53:02,050 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:53:02,054 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:53:02,057 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.ejercicioList -> EJERCICIO
+2013-04-29 23:53:02,058 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-29 23:53:02,059 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.sucursalList -> SUCURSAL
+2013-04-29 23:53:02,061 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> ORGANIZACION
+2013-04-29 23:53:02,062 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-29 23:53:02,063 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> PROPIEDAD_VALOR
+2013-04-29 23:53:02,064 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.TipoDocumento.asientoList -> ASIENTO
+2013-04-29 23:53:02,066 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> OPCION
+2013-04-29 23:53:02,067 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> OPCION
+2013-04-29 23:53:02,069 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.rolOpcionList -> ROL_OPCION
+2013-04-29 23:53:02,070 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.rolOpcionList -> ROL_OPCION
+2013-04-29 23:53:02,071 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.usuarioRolList -> USUARIO_ROL
+2013-04-29 23:53:02,072 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Usuario.usuarioRolList -> USUARIO_ROL
+2013-04-29 23:53:02,583 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-04-29 23:53:02,999 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-04-29 23:54:29,214 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-04-29 23:54:29,227 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-04-29 23:54:29,231 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-04-29 23:54:29,235 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-04-29 23:54:29,239 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-04-29 23:54:29,293 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-04-29 23:54:29,539 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/E:/work/workspace/ebos/src/main/resources/hibernate.cfg.xml
+2013-04-29 23:54:29,617 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-04-29 23:54:29,703 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-04-29 23:54:29,765 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-04-29 23:54:29,944 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-04-29 23:54:29,945 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-04-29 23:54:29,993 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-04-29 23:54:29,994 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-04-29 23:54:30,026 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-04-29 23:54:30,028 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-04-29 23:54:30,036 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-04-29 23:54:30,037 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-04-29 23:54:30,109 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-04-29 23:54:30,111 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-04-29 23:54:30,142 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-04-29 23:54:30,146 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-04-29 23:54:30,173 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-04-29 23:54:30,175 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-04-29 23:54:30,186 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-04-29 23:54:30,187 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-04-29 23:54:30,201 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-04-29 23:54:30,202 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-04-29 23:54:30,215 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-04-29 23:54:30,219 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-04-29 23:54:30,231 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-04-29 23:54:30,232 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-04-29 23:54:30,249 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-04-29 23:54:30,250 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-04-29 23:54:30,315 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-04-29 23:54:30,316 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-04-29 23:54:30,345 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-04-29 23:54:30,346 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-04-29 23:54:30,537 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-04-29 23:54:30,538 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-04-29 23:54:30,581 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-04-29 23:54:30,583 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-04-29 23:54:30,606 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-04-29 23:54:30,608 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-04-29 23:54:30,647 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-04-29 23:54:30,648 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-04-29 23:54:30,768 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-04-29 23:54:30,770 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:54:30,781 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-04-29 23:54:30,783 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-04-29 23:54:30,816 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-04-29 23:54:30,817 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-04-29 23:54:30,838 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-04-29 23:54:30,839 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-04-29 23:54:31,015 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-04-29 23:54:31,016 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-04-29 23:54:31,026 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-04-29 23:54:31,029 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-04-29 23:54:31,084 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-04-29 23:54:31,084 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-04-29 23:54:31,147 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-04-29 23:54:31,147 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-04-29 23:54:31,170 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-04-29 23:54:31,174 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-04-29 23:54:31,194 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-04-29 23:54:31,194 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-04-29 23:54:31,220 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-04-29 23:54:31,221 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-04-29 23:54:31,272 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-04-29 23:54:31,272 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-04-29 23:54:31,324 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-04-29 23:54:31,324 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-04-29 23:54:31,329 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-29 23:54:31,330 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-04-29 23:54:31,356 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-29 23:54:31,359 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-04-29 23:54:31,371 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-29 23:54:31,372 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table BUNDLE
+2013-04-29 23:54:31,384 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-29 23:54:31,385 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-04-29 23:54:31,479 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-04-29 23:54:31,480 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-04-29 23:54:31,502 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-29 23:54:31,503 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-04-29 23:54:31,526 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-04-29 23:54:31,527 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-04-29 23:54:31,603 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-29 23:54:31,604 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-04-29 23:54:31,685 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-29 23:54:31,686 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-04-29 23:54:31,706 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-29 23:54:31,706 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-04-29 23:54:31,716 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-29 23:54:31,717 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-04-29 23:54:31,736 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-29 23:54:31,737 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-04-29 23:54:31,780 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-04-29 23:54:31,781 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-04-29 23:54:31,794 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-04-29 23:54:31,795 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-04-29 23:54:31,817 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Objeto
+2013-04-29 23:54:31,818 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Objeto on table OBJETO
+2013-04-29 23:54:31,835 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Opcion
+2013-04-29 23:54:31,870 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Opcion on table OPCION
+2013-04-29 23:54:31,933 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-04-29 23:54:31,933 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-04-29 23:54:31,955 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-04-29 23:54:31,955 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-04-29 23:54:31,974 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-04-29 23:54:31,974 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-04-29 23:54:31,995 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-04-29 23:54:31,996 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-04-29 23:54:32,073 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:54:32,085 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-04-29 23:54:32,087 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:54:32,088 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-04-29 23:54:32,089 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-04-29 23:54:32,090 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:54:32,091 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:54:32,094 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-04-29 23:54:32,099 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-29 23:54:32,100 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-29 23:54:32,101 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-29 23:54:32,102 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-04-29 23:54:32,104 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:54:32,151 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:54:32,158 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-29 23:54:32,159 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:54:32,160 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-04-29 23:54:32,161 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:54:32,162 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:54:32,163 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:54:32,165 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-04-29 23:54:32,166 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.ejercicioList -> EJERCICIO
+2013-04-29 23:54:32,167 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:54:32,168 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-29 23:54:32,176 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList -> PERIODO
+2013-04-29 23:54:32,178 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList2 -> PERIODO
+2013-04-29 23:54:32,179 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-29 23:54:32,180 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:54:32,181 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-29 23:54:32,182 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoRetencionList -> SALDO_RETENCION
+2013-04-29 23:54:32,183 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoAsiento.asientoList -> ASIENTO
+2013-04-29 23:54:32,184 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-29 23:54:32,185 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-29 23:54:32,187 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:54:32,188 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCuenta.cuentaContableList -> CUENTA_CONTABLE
+2013-04-29 23:54:32,189 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-29 23:54:32,237 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> PROPIEDAD
+2013-04-29 23:54:32,239 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> ACTIVO
+2013-04-29 23:54:32,241 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> CATEGORIA
+2013-04-29 23:54:32,242 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.divisionGeograficaList -> DIVISION_GEOGRAFICA
+2013-04-29 23:54:32,243 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.periodoFiscalPaisList -> PERIODO_FISCAL_PAIS
+2013-04-29 23:54:32,244 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-29 23:54:32,245 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> USUARIO
+2013-04-29 23:54:32,246 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.activoList -> ACTIVO
+2013-04-29 23:54:32,247 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-29 23:54:32,249 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:54:32,250 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:54:32,251 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.ejercicioList -> EJERCICIO
+2013-04-29 23:54:32,252 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-29 23:54:32,253 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.sucursalList -> SUCURSAL
+2013-04-29 23:54:32,255 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> ORGANIZACION
+2013-04-29 23:54:32,256 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-29 23:54:32,257 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> PROPIEDAD_VALOR
+2013-04-29 23:54:32,258 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.TipoDocumento.asientoList -> ASIENTO
+2013-04-29 23:54:32,259 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> OPCION
+2013-04-29 23:54:32,260 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> OPCION
+2013-04-29 23:54:32,261 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.rolOpcionList -> ROL_OPCION
+2013-04-29 23:54:32,262 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.rolOpcionList -> ROL_OPCION
+2013-04-29 23:54:32,266 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.usuarioRolList -> USUARIO_ROL
+2013-04-29 23:54:32,267 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Usuario.usuarioRolList -> USUARIO_ROL
+2013-04-29 23:54:32,304 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-04-29 23:54:32,451 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-04-29 23:54:32,932 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] Running hbm2ddl schema export
+2013-04-29 23:54:32,934 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] writing generated schema to file: E:\work\workspace\ebos\target\hibernate3\sql\schema.sql
+2013-04-29 23:54:32,934 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] exporting generated schema to database
+2013-04-29 23:54:32,942 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Using Hibernate built-in connection pool (not for production use!)
+2013-04-29 23:54:32,942 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Hibernate connection pool size: 20
+2013-04-29 23:54:32,979 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] autocommit mode: false
+2013-04-29 23:54:33,132 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-29 23:54:33,132 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] connection properties: {user=ebos, password=ebos}
+2013-04-29 23:54:35,277 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.ASIENTO (id int8 not null, codigo varchar(20) not null, comentario varchar(100) not null, cuadrado bool not null, descripcion varchar(100) not null, secuencia int4 not null, id_documento int8, id_tipo_asiento int8 not null, id_tipo_documento int8, primary key (id))
+2013-04-29 23:54:35,277 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,279 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.ASIENTO_DETALLE (id int8 not null, creacion timestamp not null, modificacion timestamp, descripcion varchar(100) not null, valor_debe numeric(2, 0) not null, valor_haber numeric(2, 0) not null, id_asiento int8 not null, id_creador int8 not null, id_modificador int8, id_centro_costo int8, id_cuenta_contable int8 not null, id_documento int8, id_subcentro_costo int8, primary key (id))
+2013-04-29 23:54:35,279 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,281 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.CENTRO_COSTO (id int8 not null, creacion timestamp not null, modificacion timestamp, codigo varchar(20) not null unique, codigo_formato varchar(50) not null, descripcion varchar(150) not null, estado varchar(1) not null, nivel int4 not null, pide_subcentro_costo bool not null, terminante int4 not null, id_creador int8 not null, id_modificador int8, id_padre int8, id_tipo_centro_costo int8, primary key (id))
+2013-04-29 23:54:35,281 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,298 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.CENTRO_COSTO_EMPRESA (id int8 not null, id_padre int8 not null, id_empresa int8 not null, primary key (id))
+2013-04-29 23:54:35,298 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,300 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.CENTRO_SUBCENTRO (id int8 not null, estado varchar(1) not null, id_centro_costo int8 not null, id_subcentro_costo int8, id_tipo_centro_costo int8, primary key (id))
+2013-04-29 23:54:35,300 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,301 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.CUENTA_CENTRO (id int8 not null, creacion timestamp not null, modificacion timestamp, estado varchar(1) not null, id_creador int8 not null, id_modificador int8, id_cuenta_contable int8 not null, id_empresa int8 not null, id_tipo_centro_costo int8, primary key (id))
+2013-04-29 23:54:35,302 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,303 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.CUENTA_CONTABLE (id int8 not null, creacion timestamp not null, modificacion timestamp, codigo varchar(20) not null unique, codigo_formato varchar(50) not null, descripcion varchar(150) not null, estado varchar(1) not null, naturaleza varchar(1) not null, nivel int4 not null, pide_centro_costo bool not null, terminante int4 not null, tipo_proceso varchar(1) not null, id_creador int8 not null, id_modificador int8, id_padre int8, id_tipo_cuenta int8 not null, primary key (id))
+2013-04-29 23:54:35,303 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,304 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.CUENTA_CONTABLE_EMPRESA (id int8 not null, id_cuenta_contable int8 not null, id_empresa int8 not null, primary key (id))
+2013-04-29 23:54:35,305 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,316 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.DOCUMENTO_DISTRIBUCION (id int8 not null, creacion timestamp not null, modificacion timestamp, estado varchar(1) not null, valor numeric(2, 0) not null, id_creador int8 not null, id_modificador int8, id_centro_costo int8 not null, id_documento int8, id_subcentro_costo int8 not null, primary key (id))
+2013-04-29 23:54:35,316 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,317 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.EJERCICIO (id int8 not null, codigo varchar(20) not null, fecha_final timestamp not null, descripcion varchar(100) not null, estado varchar(1) not null, fecha_inicial timestamp, valor numeric(2, 0) not null, id_cuenta_utilidad int8 not null, id_empresa int8 not null, primary key (id))
+2013-04-29 23:54:35,318 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,319 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.PERIODO (id int8 not null, codigo varchar(20) not null, fecha_final timestamp not null, descripcion varchar(100) not null, estado varchar(1) not null, fecha_inicial timestamp, valor_utilidad numeric(2, 0) not null, id_ejercicio int8 not null, id_periodo_fiscal_pais int8, primary key (id))
+2013-04-29 23:54:35,319 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,320 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.PERIODO_FISCAL_PAIS (id int8 not null, codigo varchar(20) not null, descripcion varchar(100) not null, id_division_geografica int8, primary key (id))
+2013-04-29 23:54:35,321 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,322 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.SALDO_CENTRO_COSTO (id int8 not null, creacion timestamp not null, modificacion timestamp, estado varchar(1) not null, saldo_inicial numeric(2, 0) not null, valor_debe numeric(2, 0) not null, valor_haber numeric(2, 0) not null, id_creador int8 not null, id_modificador int8, id_centro_costo int8 not null, id_periodo int8 not null, primary key (id))
+2013-04-29 23:54:35,322 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,326 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.SALDO_CUENTA_CENTRO (id int8 not null, creacion timestamp not null, modificacion timestamp, estado varchar(1) not null, saldo numeric(2, 0) not null, saldo_inicial numeric(2, 0) not null, valor_debe numeric(2, 0) not null, valor_haber numeric(2, 0) not null, id_creador int8 not null, id_modificador int8, id_centro_costo int8 not null, id_cuenta_contable int8 not null, id_periodo int8 not null, id_subcentro_costo int8, primary key (id))
+2013-04-29 23:54:35,327 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,328 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.SALDO_CUENTA_CONTABLE (id int8 not null, creacion timestamp not null, modificacion timestamp, estado varchar(1) not null, saldo numeric(2, 0) not null, saldo_inicial numeric(2, 0) not null, valor_debe numeric(2, 0) not null, valor_haber numeric(2, 0) not null, id_creador int8 not null, id_modificador int8, id_cuenta_contable int8 not null, id_periodo int8 not null, primary key (id))
+2013-04-29 23:54:35,329 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,335 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.SALDO_RETENCION (id int8 not null, creacion timestamp not null, modificacion timestamp, base_imponible numeric(2, 0) not null, valor_retenido numeric(2, 0) not null, id_creador int8 not null, id_modificador int8, id_periodo int8, id_tipo_retencion int8, primary key (id))
+2013-04-29 23:54:35,336 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,337 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.TIPO_ASIENTO (id int8 not null, creacion timestamp not null, modificacion timestamp, codigo varchar(20) not null, descripcion varchar(100) not null, distribucion bool not null, estado varchar(1) not null, formato_referencia varchar(20) not null, id_creador int8 not null, id_modificador int8, primary key (id))
+2013-04-29 23:54:35,337 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,339 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.TIPO_CENTRO_COSTO (id int8 not null, codigo varchar(20) not null, descripcion varchar(100) not null, distribucion bool not null, estado varchar(1) not null, primary key (id))
+2013-04-29 23:54:35,339 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:35,340 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: create table EBOSCONT.TIPO_CUENTA (id int8 not null, codigo varchar(20) not null, descripcion varchar(100) not null, naturaleza varchar(1) not null, tipo varchar(1) not null, primary key (id))
+2013-04-29 23:54:35,340 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,891 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO add constraint FK3C87BBCE7806F0 foreign key (id_documento) references EBOSADMI.DOCUMENTO
+2013-04-29 23:54:37,891 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,893 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO add constraint FK3C87BB983C2E4C foreign key (id_tipo_documento) references EBOSMAST.TIPO_DOCUMENTO
+2013-04-29 23:54:37,893 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,896 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO add constraint FK3C87BB92793147 foreign key (id_tipo_asiento) references EBOSCONT.TIPO_ASIENTO
+2013-04-29 23:54:37,896 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,897 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO_DETALLE add constraint FK7CF6CCD397944AAD foreign key (id_subcentro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,898 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,899 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO_DETALLE add constraint FK7CF6CCD3CE7806F0 foreign key (id_documento) references EBOSADMI.DOCUMENTO
+2013-04-29 23:54:37,899 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,900 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO_DETALLE add constraint FK7CF6CCD3D5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,901 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,902 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO_DETALLE add constraint FK7CF6CCD36E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,902 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,903 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO_DETALLE add constraint FK7CF6CCD385BD975E foreign key (id_asiento) references EBOSCONT.ASIENTO
+2013-04-29 23:54:37,903 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,904 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO_DETALLE add constraint FK7CF6CCD3726CE035 foreign key (id_centro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,905 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,906 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.ASIENTO_DETALLE add constraint FK7CF6CCD382BEE27 foreign key (id_cuenta_contable) references EBOSCONT.CUENTA_CONTABLE
+2013-04-29 23:54:37,906 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,907 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_COSTO add constraint FK7915B748F8F3A0B foreign key (id_padre) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,907 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,909 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_COSTO add constraint FK7915B748D5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,909 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,910 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_COSTO add constraint FK7915B7486E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,910 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,911 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_COSTO add constraint FK7915B748173CD6C4 foreign key (id_tipo_centro_costo) references EBOSCONT.TIPO_CENTRO_COSTO
+2013-04-29 23:54:37,912 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,913 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_COSTO_EMPRESA add constraint FK893E6272D1C1D70A foreign key (id_empresa) references EBOSMAST.ORGANIZACION
+2013-04-29 23:54:37,913 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,914 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_COSTO_EMPRESA add constraint FK893E6272F8F3A0B foreign key (id_padre) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,914 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,924 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_SUBCENTRO add constraint FK10324E2B97944AAD foreign key (id_subcentro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,924 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,925 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_SUBCENTRO add constraint FK10324E2B173CD6C4 foreign key (id_tipo_centro_costo) references EBOSCONT.TIPO_CENTRO_COSTO
+2013-04-29 23:54:37,926 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,927 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CENTRO_SUBCENTRO add constraint FK10324E2B726CE035 foreign key (id_centro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,927 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,929 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CENTRO add constraint FKA8A1D1BCD1C1D70A foreign key (id_empresa) references EBOSMAST.ORGANIZACION
+2013-04-29 23:54:37,931 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,932 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CENTRO add constraint FKA8A1D1BCD5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,933 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,934 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CENTRO add constraint FKA8A1D1BC6E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,934 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,935 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CENTRO add constraint FKA8A1D1BC173CD6C4 foreign key (id_tipo_centro_costo) references EBOSCONT.TIPO_CENTRO_COSTO
+2013-04-29 23:54:37,936 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,937 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CENTRO add constraint FKA8A1D1BC82BEE27 foreign key (id_cuenta_contable) references EBOSCONT.CUENTA_CONTABLE
+2013-04-29 23:54:37,937 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,938 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CONTABLE add constraint FK186AC1A38FE300DF foreign key (id_tipo_cuenta) references EBOSCONT.TIPO_CUENTA
+2013-04-29 23:54:37,939 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,940 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CONTABLE add constraint FK186AC1A3D153B18A foreign key (id_padre) references EBOSCONT.CUENTA_CONTABLE
+2013-04-29 23:54:37,940 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,941 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CONTABLE add constraint FK186AC1A3D5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,942 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,943 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CONTABLE add constraint FK186AC1A36E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,943 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,944 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CONTABLE_EMPRESA add constraint FK643CE1CDD1C1D70A foreign key (id_empresa) references EBOSMAST.ORGANIZACION
+2013-04-29 23:54:37,944 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,945 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.CUENTA_CONTABLE_EMPRESA add constraint FK643CE1CD82BEE27 foreign key (id_cuenta_contable) references EBOSCONT.CUENTA_CONTABLE
+2013-04-29 23:54:37,946 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,952 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.DOCUMENTO_DISTRIBUCION add constraint FKFDB1540097944AAD foreign key (id_subcentro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,953 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,954 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.DOCUMENTO_DISTRIBUCION add constraint FKFDB15400CE7806F0 foreign key (id_documento) references EBOSADMI.DOCUMENTO
+2013-04-29 23:54:37,954 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,955 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.DOCUMENTO_DISTRIBUCION add constraint FKFDB15400D5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,955 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,957 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.DOCUMENTO_DISTRIBUCION add constraint FKFDB154006E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,957 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,959 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.DOCUMENTO_DISTRIBUCION add constraint FKFDB15400726CE035 foreign key (id_centro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,959 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,960 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.EJERCICIO add constraint FKCF5699B1D1C1D70A foreign key (id_empresa) references EBOSMAST.ORGANIZACION
+2013-04-29 23:54:37,960 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,961 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.EJERCICIO add constraint FKCF5699B1558AF01B foreign key (id_cuenta_utilidad) references EBOSCONT.CUENTA_CONTABLE
+2013-04-29 23:54:37,962 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,963 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.PERIODO add constraint FK256CEAE5500E144 foreign key (id_periodo_fiscal_pais) references EBOSCONT.EJERCICIO
+2013-04-29 23:54:37,963 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,964 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.PERIODO add constraint FK256CEAEE4EF694A foreign key (id_ejercicio) references EBOSCONT.EJERCICIO
+2013-04-29 23:54:37,965 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,966 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.PERIODO_FISCAL_PAIS add constraint FK2FAAE4AB7E2BBFC8 foreign key (id_division_geografica) references EBOSMAST.DIVISION_GEOGRAFICA
+2013-04-29 23:54:37,966 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,967 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CENTRO_COSTO add constraint FKBB2A1EFED5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,967 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,969 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CENTRO_COSTO add constraint FKBB2A1EFE6E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:37,969 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,970 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CENTRO_COSTO add constraint FKBB2A1EFE726CE035 foreign key (id_centro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:37,970 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:37,971 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CENTRO_COSTO add constraint FKBB2A1EFE89F22544 foreign key (id_periodo) references EBOSCONT.PERIODO
+2013-04-29 23:54:37,972 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,019 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CENTRO add constraint FKA91A60C697944AAD foreign key (id_subcentro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:38,019 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,021 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CENTRO add constraint FKA91A60C6D5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,021 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,022 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CENTRO add constraint FKA91A60C66E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,022 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,023 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CENTRO add constraint FKA91A60C6726CE035 foreign key (id_centro_costo) references EBOSCONT.CENTRO_COSTO
+2013-04-29 23:54:38,024 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,025 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CENTRO add constraint FKA91A60C682BEE27 foreign key (id_cuenta_contable) references EBOSCONT.CUENTA_CONTABLE
+2013-04-29 23:54:38,025 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,026 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CENTRO add constraint FKA91A60C689F22544 foreign key (id_periodo) references EBOSCONT.PERIODO
+2013-04-29 23:54:38,026 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,027 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CONTABLE add constraint FKDCFBB62DD5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,028 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,029 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CONTABLE add constraint FKDCFBB62D6E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,029 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,032 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CONTABLE add constraint FKDCFBB62D82BEE27 foreign key (id_cuenta_contable) references EBOSCONT.CUENTA_CONTABLE
+2013-04-29 23:54:38,033 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,034 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_CUENTA_CONTABLE add constraint FKDCFBB62D89F22544 foreign key (id_periodo) references EBOSCONT.PERIODO
+2013-04-29 23:54:38,034 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,035 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_RETENCION add constraint FK42AED8B9D5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,035 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,037 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_RETENCION add constraint FK42AED8B96E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,037 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,038 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_RETENCION add constraint FK42AED8B96E837ECF foreign key (id_tipo_retencion) references EBOSADMI.TIPO_RETENCION
+2013-04-29 23:54:38,039 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,040 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.SALDO_RETENCION add constraint FK42AED8B989F22544 foreign key (id_periodo) references EBOSCONT.PERIODO
+2013-04-29 23:54:38,040 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,041 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.TIPO_ASIENTO add constraint FKA05F05B0D5ACA0C6 foreign key (id_modificador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,042 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,043 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] Unsuccessful: alter table EBOSCONT.TIPO_ASIENTO add constraint FKA05F05B06E7A9D23 foreign key (id_creador) references EBOSSECU.USUARIO
+2013-04-29 23:54:38,043 ERROR [org.hibernate.tool.hbm2ddl.SchemaExport] ERROR: no existe el esquema «eboscont»
+2013-04-29 23:54:38,925 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] schema export complete
+2013-04-29 23:54:38,925 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-29 23:54:39,153 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-29 23:56:19,977 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-04-29 23:56:19,990 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-04-29 23:56:20,001 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-04-29 23:56:20,005 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-04-29 23:56:20,009 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-04-29 23:56:20,062 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-04-29 23:56:20,269 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/E:/work/workspace/ebos/src/main/resources/hibernate.cfg.xml
+2013-04-29 23:56:20,350 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-04-29 23:56:20,453 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-04-29 23:56:20,501 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-04-29 23:56:20,632 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-04-29 23:56:20,674 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-04-29 23:56:20,735 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-04-29 23:56:20,736 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-04-29 23:56:20,766 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-04-29 23:56:20,767 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-04-29 23:56:20,776 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-04-29 23:56:20,777 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-04-29 23:56:20,808 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-04-29 23:56:20,809 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-04-29 23:56:20,829 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-04-29 23:56:20,831 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-04-29 23:56:20,843 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-04-29 23:56:20,846 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-04-29 23:56:20,878 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-04-29 23:56:20,879 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-04-29 23:56:20,960 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-04-29 23:56:20,961 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-04-29 23:56:20,972 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-04-29 23:56:20,975 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-04-29 23:56:20,987 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-04-29 23:56:20,988 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-04-29 23:56:21,023 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-04-29 23:56:21,024 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-04-29 23:56:21,048 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-04-29 23:56:21,049 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-04-29 23:56:21,139 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-04-29 23:56:21,141 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-04-29 23:56:21,221 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-04-29 23:56:21,222 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-04-29 23:56:21,232 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-04-29 23:56:21,233 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-04-29 23:56:21,242 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-04-29 23:56:21,243 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-04-29 23:56:21,300 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-04-29 23:56:21,301 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-04-29 23:56:21,471 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-04-29 23:56:21,472 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:56:21,502 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-04-29 23:56:21,504 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-04-29 23:56:21,564 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-04-29 23:56:21,565 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-04-29 23:56:21,657 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-04-29 23:56:21,659 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-04-29 23:56:21,698 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-04-29 23:56:21,699 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-04-29 23:56:21,729 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-04-29 23:56:21,730 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-04-29 23:56:21,806 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-04-29 23:56:21,807 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-04-29 23:56:21,893 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-04-29 23:56:21,894 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-04-29 23:56:22,019 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-04-29 23:56:22,019 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-04-29 23:56:22,042 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-04-29 23:56:22,043 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-04-29 23:56:22,071 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-04-29 23:56:22,072 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-04-29 23:56:22,087 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-04-29 23:56:22,088 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-04-29 23:56:22,105 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-04-29 23:56:22,106 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-04-29 23:56:22,108 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-29 23:56:22,109 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-04-29 23:56:22,127 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-29 23:56:22,151 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-04-29 23:56:22,164 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-29 23:56:22,165 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table BUNDLE
+2013-04-29 23:56:22,176 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-29 23:56:22,177 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-04-29 23:56:22,193 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-04-29 23:56:22,194 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-04-29 23:56:22,208 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-29 23:56:22,209 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-04-29 23:56:22,227 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-04-29 23:56:22,228 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-04-29 23:56:22,266 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-29 23:56:22,266 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-04-29 23:56:22,297 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-29 23:56:22,298 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-04-29 23:56:22,318 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-29 23:56:22,319 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-04-29 23:56:22,323 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-29 23:56:22,324 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-04-29 23:56:22,336 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-29 23:56:22,337 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-04-29 23:56:22,347 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-04-29 23:56:22,348 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-04-29 23:56:22,359 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-04-29 23:56:22,360 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-04-29 23:56:22,375 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Objeto
+2013-04-29 23:56:22,375 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Objeto on table OBJETO
+2013-04-29 23:56:22,391 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Opcion
+2013-04-29 23:56:22,392 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Opcion on table OPCION
+2013-04-29 23:56:22,416 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-04-29 23:56:22,417 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-04-29 23:56:22,437 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-04-29 23:56:22,437 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-04-29 23:56:22,463 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-04-29 23:56:22,464 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-04-29 23:56:22,486 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-04-29 23:56:22,486 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-04-29 23:56:22,551 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:56:22,554 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-04-29 23:56:22,555 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:56:22,556 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-04-29 23:56:22,557 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-04-29 23:56:22,558 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:56:22,559 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:56:22,560 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-04-29 23:56:22,561 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-29 23:56:22,563 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-29 23:56:22,564 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-29 23:56:22,565 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-04-29 23:56:22,566 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:56:22,567 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-04-29 23:56:22,568 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-29 23:56:22,573 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:56:22,575 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-04-29 23:56:22,577 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-29 23:56:22,578 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:56:22,579 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:56:22,580 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-04-29 23:56:22,581 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.ejercicioList -> EJERCICIO
+2013-04-29 23:56:22,582 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:56:22,584 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-29 23:56:22,585 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList -> PERIODO
+2013-04-29 23:56:22,586 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList2 -> PERIODO
+2013-04-29 23:56:22,587 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-29 23:56:22,588 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-29 23:56:22,589 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-29 23:56:22,590 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoRetencionList -> SALDO_RETENCION
+2013-04-29 23:56:22,591 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoAsiento.asientoList -> ASIENTO
+2013-04-29 23:56:22,592 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-29 23:56:22,593 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-29 23:56:22,594 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:56:22,596 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCuenta.cuentaContableList -> CUENTA_CONTABLE
+2013-04-29 23:56:22,597 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-29 23:56:22,598 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> PROPIEDAD
+2013-04-29 23:56:22,602 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> ACTIVO
+2013-04-29 23:56:22,603 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> CATEGORIA
+2013-04-29 23:56:22,604 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.divisionGeograficaList -> DIVISION_GEOGRAFICA
+2013-04-29 23:56:22,606 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.periodoFiscalPaisList -> PERIODO_FISCAL_PAIS
+2013-04-29 23:56:22,607 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-29 23:56:22,608 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> USUARIO
+2013-04-29 23:56:22,609 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.activoList -> ACTIVO
+2013-04-29 23:56:22,610 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-29 23:56:22,611 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaCentroList -> CUENTA_CENTRO
+2013-04-29 23:56:22,613 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-29 23:56:22,614 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.ejercicioList -> EJERCICIO
+2013-04-29 23:56:22,615 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-29 23:56:22,616 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.sucursalList -> SUCURSAL
+2013-04-29 23:56:22,617 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> ORGANIZACION
+2013-04-29 23:56:22,618 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-29 23:56:22,708 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> PROPIEDAD_VALOR
+2013-04-29 23:56:22,709 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.TipoDocumento.asientoList -> ASIENTO
+2013-04-29 23:56:22,710 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> OPCION
+2013-04-29 23:56:22,711 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> OPCION
+2013-04-29 23:56:22,712 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.rolOpcionList -> ROL_OPCION
+2013-04-29 23:56:22,713 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.rolOpcionList -> ROL_OPCION
+2013-04-29 23:56:22,714 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.usuarioRolList -> USUARIO_ROL
+2013-04-29 23:56:22,718 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Usuario.usuarioRolList -> USUARIO_ROL
+2013-04-29 23:56:22,769 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-04-29 23:56:22,969 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-04-29 23:56:23,349 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] Running hbm2ddl schema export
+2013-04-29 23:56:23,351 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] writing generated schema to file: E:\work\workspace\ebos\target\hibernate3\sql\schema.sql
+2013-04-29 23:56:23,352 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] exporting generated schema to database
+2013-04-29 23:56:23,354 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Using Hibernate built-in connection pool (not for production use!)
+2013-04-29 23:56:23,355 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Hibernate connection pool size: 20
+2013-04-29 23:56:23,355 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] autocommit mode: false
+2013-04-29 23:56:23,363 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-29 23:56:23,363 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] connection properties: {user=ebos, password=ebos}
+2013-04-29 23:56:31,142 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] schema export complete
+2013-04-29 23:56:31,142 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-29 23:56:31,354 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-30 00:12:53,477 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-04-30 00:12:53,489 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-04-30 00:12:53,511 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-04-30 00:12:53,514 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-04-30 00:12:53,522 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-04-30 00:12:53,576 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-04-30 00:12:53,657 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/E:/work/workspace/ebos/src/main/resources/hibernate.cfg.xml
+2013-04-30 00:12:53,868 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-04-30 00:12:53,953 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-04-30 00:12:54,017 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-04-30 00:12:54,183 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-04-30 00:12:54,185 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-04-30 00:12:54,235 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-04-30 00:12:54,236 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-04-30 00:12:54,265 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-04-30 00:12:54,301 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-04-30 00:12:54,311 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-04-30 00:12:54,312 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-04-30 00:12:54,345 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-04-30 00:12:54,387 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-04-30 00:12:54,438 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-04-30 00:12:54,440 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-04-30 00:12:54,456 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-04-30 00:12:54,457 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-04-30 00:12:54,481 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-04-30 00:12:54,482 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-04-30 00:12:54,495 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-04-30 00:12:54,496 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-04-30 00:12:54,506 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-04-30 00:12:54,507 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-04-30 00:12:54,557 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-04-30 00:12:54,558 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-04-30 00:12:54,577 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-04-30 00:12:54,578 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-04-30 00:12:54,646 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-04-30 00:12:54,649 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-04-30 00:12:54,729 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-04-30 00:12:54,730 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-04-30 00:12:54,918 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-04-30 00:12:54,921 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-04-30 00:12:54,933 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-04-30 00:12:54,935 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-04-30 00:12:54,990 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-04-30 00:12:54,993 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-04-30 00:12:55,009 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-04-30 00:12:55,010 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-04-30 00:12:55,163 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-04-30 00:12:55,165 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-04-30 00:12:55,170 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-04-30 00:12:55,171 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-04-30 00:12:55,190 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-04-30 00:12:55,193 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-04-30 00:12:55,255 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-04-30 00:12:55,256 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-04-30 00:12:55,294 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-04-30 00:12:55,295 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-04-30 00:12:55,307 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-04-30 00:12:55,308 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-04-30 00:12:55,447 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-04-30 00:12:55,448 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-04-30 00:12:55,481 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-04-30 00:12:55,481 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-04-30 00:12:55,504 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-04-30 00:12:55,505 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-04-30 00:12:55,520 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-04-30 00:12:55,521 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-04-30 00:12:55,573 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-04-30 00:12:55,574 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-04-30 00:12:55,601 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-04-30 00:12:55,602 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-04-30 00:12:55,614 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-04-30 00:12:55,615 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-04-30 00:12:55,619 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-04-30 00:12:55,668 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-04-30 00:12:55,686 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-04-30 00:12:55,687 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-04-30 00:12:55,707 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Bundle
+2013-04-30 00:12:55,708 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Bundle on table BUNDLE
+2013-04-30 00:12:55,715 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-04-30 00:12:55,715 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-04-30 00:12:55,761 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-04-30 00:12:55,767 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-04-30 00:12:55,820 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-04-30 00:12:55,821 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-04-30 00:12:55,840 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-04-30 00:12:55,841 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-04-30 00:12:55,892 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-04-30 00:12:55,893 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-04-30 00:12:55,976 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-04-30 00:12:55,977 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-04-30 00:12:56,002 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-04-30 00:12:56,002 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-04-30 00:12:56,007 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-04-30 00:12:56,008 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-04-30 00:12:56,053 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-04-30 00:12:56,055 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-04-30 00:12:56,065 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-04-30 00:12:56,066 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-04-30 00:12:56,115 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-04-30 00:12:56,116 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-04-30 00:12:56,131 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Objeto
+2013-04-30 00:12:56,131 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Objeto on table OBJETO
+2013-04-30 00:12:56,159 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Opcion
+2013-04-30 00:12:56,160 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Opcion on table OPCION
+2013-04-30 00:12:56,190 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-04-30 00:12:56,190 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-04-30 00:12:56,247 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-04-30 00:12:56,248 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-04-30 00:12:56,272 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-04-30 00:12:56,273 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-04-30 00:12:56,295 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-04-30 00:12:56,296 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-04-30 00:12:56,369 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-30 00:12:56,411 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-04-30 00:12:56,412 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-30 00:12:56,415 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-04-30 00:12:56,416 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-04-30 00:12:56,417 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-30 00:12:56,418 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-30 00:12:56,419 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-04-30 00:12:56,421 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-30 00:12:56,422 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-30 00:12:56,423 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-30 00:12:56,424 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-04-30 00:12:56,425 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-04-30 00:12:56,434 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-04-30 00:12:56,435 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-30 00:12:56,436 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-30 00:12:56,437 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-04-30 00:12:56,438 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-04-30 00:12:56,439 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-04-30 00:12:56,446 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-30 00:12:56,447 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-04-30 00:12:56,448 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.ejercicioList -> EJERCICIO
+2013-04-30 00:12:56,449 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-30 00:12:56,450 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-30 00:12:56,457 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList -> PERIODO
+2013-04-30 00:12:56,458 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList2 -> PERIODO
+2013-04-30 00:12:56,459 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-04-30 00:12:56,461 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-04-30 00:12:56,462 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-04-30 00:12:56,463 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoRetencionList -> SALDO_RETENCION
+2013-04-30 00:12:56,464 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoAsiento.asientoList -> ASIENTO
+2013-04-30 00:12:56,466 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroCostoList -> CENTRO_COSTO
+2013-04-30 00:12:56,467 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-04-30 00:12:56,468 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.cuentaCentroList -> CUENTA_CENTRO
+2013-04-30 00:12:56,469 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCuenta.cuentaContableList -> CUENTA_CONTABLE
+2013-04-30 00:12:56,471 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-30 00:12:56,477 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> PROPIEDAD
+2013-04-30 00:12:56,479 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> ACTIVO
+2013-04-30 00:12:56,520 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> CATEGORIA
+2013-04-30 00:12:56,522 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.divisionGeograficaList -> DIVISION_GEOGRAFICA
+2013-04-30 00:12:56,523 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.periodoFiscalPaisList -> PERIODO_FISCAL_PAIS
+2013-04-30 00:12:56,527 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> ACTIVO_CUSTODIO
+2013-04-30 00:12:56,528 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> USUARIO
+2013-04-30 00:12:56,529 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.activoList -> ACTIVO
+2013-04-30 00:12:56,530 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-04-30 00:12:56,531 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaCentroList -> CUENTA_CENTRO
+2013-04-30 00:12:56,532 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-04-30 00:12:56,544 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.ejercicioList -> EJERCICIO
+2013-04-30 00:12:56,545 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-30 00:12:56,546 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.sucursalList -> SUCURSAL
+2013-04-30 00:12:56,547 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> ORGANIZACION
+2013-04-30 00:12:56,549 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> EMPRESA_PERSONA
+2013-04-30 00:12:56,550 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> PROPIEDAD_VALOR
+2013-04-30 00:12:56,551 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.TipoDocumento.asientoList -> ASIENTO
+2013-04-30 00:12:56,552 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Objeto.opcionList -> OPCION
+2013-04-30 00:12:56,554 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.opcionList -> OPCION
+2013-04-30 00:12:56,555 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Opcion.rolOpcionList -> ROL_OPCION
+2013-04-30 00:12:56,556 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.rolOpcionList -> ROL_OPCION
+2013-04-30 00:12:56,557 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.usuarioRolList -> USUARIO_ROL
+2013-04-30 00:12:56,558 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Usuario.usuarioRolList -> USUARIO_ROL
+2013-04-30 00:12:56,598 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-04-30 00:12:56,744 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-04-30 00:12:57,406 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] Running hbm2ddl schema export
+2013-04-30 00:12:57,409 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] writing generated schema to file: E:\work\workspace\ebos\target\hibernate3\sql\schema.sql
+2013-04-30 00:12:57,409 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] exporting generated schema to database
+2013-04-30 00:12:57,412 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Using Hibernate built-in connection pool (not for production use!)
+2013-04-30 00:12:57,412 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Hibernate connection pool size: 20
+2013-04-30 00:12:57,412 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] autocommit mode: false
+2013-04-30 00:12:57,420 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-30 00:12:57,420 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] connection properties: {user=ebos, password=ebos}
+2013-04-30 00:13:05,783 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] schema export complete
+2013-04-30 00:13:05,784 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development
+2013-04-30 00:13:06,015 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos_development

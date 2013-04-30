@@ -15,7 +15,6 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -32,7 +31,7 @@ public class RolOpcion extends Security<RolOpcion> {
 	private static final long serialVersionUID = -6703784659046763976L;
 
 	protected static final String TABLE_NAME = "ROL_OPCION";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Security.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

@@ -5,12 +5,7 @@ package ec.com.ebos.root.model.field;
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Auditoria_ {
-
-	public static String usuarioCreacion = "auditoria.usuarioCreacion";
-	public static String usuarioModificacion = "auditoria.usuarioModificacion";
-	public static String fechaCreacion = "auditoria.fechaCreacion";
-	public static String fechaModificacion = "auditoria.fechaModificacion";
-	
+public abstract class Auditoria_ extends Entidad_{
+    	
 }
 

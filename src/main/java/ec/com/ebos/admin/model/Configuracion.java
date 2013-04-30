@@ -11,11 +11,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.root.model.Auditoria;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.root.model.Auditoria;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -28,7 +26,7 @@ public class Configuracion extends Administracion<Configuracion> {
 	private static final long serialVersionUID = -6748190361672935897L;
 
 	protected static final String TABLE_NAME = "CONFIGURACION";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

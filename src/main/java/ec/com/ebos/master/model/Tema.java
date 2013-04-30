@@ -28,7 +28,7 @@ public class Tema extends Master<Tema> {
 	private static final long serialVersionUID = -1002580062576804439L;
 
 	protected static final String TABLE_NAME = "TEMA";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

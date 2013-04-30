@@ -1,13 +1,17 @@
 package ec.com.ebos.conta.model;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,9 +21,9 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.conta.model.field.CuentaContable_;
 import ec.com.ebos.conta.resources.ContaMensajes;
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -41,7 +45,7 @@ public class TipoCuenta extends Contabilidad<TipoCuenta> {
 	private static final long serialVersionUID = 948691083807866461L;
 	
 	protected static final String TABLE_NAME = "TIPO_CUENTA";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -55,13 +59,13 @@ public class TipoCuenta extends Contabilidad<TipoCuenta> {
 	/**
 	 * Codigo de la estructura organizacional
 	 */
-	@Column(name = Entidad.CODIGO_NAME, nullable = false, length = Entidad.CODIGO_LENGTH)
+	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght)
 	private String codigo;
 	
 	/**
 	 * Descripcion o nombre de la estructura organizacional
 	 */
-	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = Entidad.DESCRIPCION_LENGTH)
+	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;	
 	
 	/**
@@ -77,6 +81,10 @@ public class TipoCuenta extends Contabilidad<TipoCuenta> {
 	@Column(name = "naturaleza", nullable = false, length = 1)
     @Type(type = CuentaContable.Naturaleza.TYPE)
     private CuentaContable.Naturaleza naturaleza = CuentaContable.Naturaleza.DEUDORA;
+	
+	
+	@OneToMany(mappedBy = CuentaContable_.tipoCuenta, fetch = FetchType.LAZY)
+    private Set<CuentaContable> cuentaContableList = new HashSet<CuentaContable>(0);
 	
 	/**
      * <strong>Tipos de Cuenta</strong> <br>

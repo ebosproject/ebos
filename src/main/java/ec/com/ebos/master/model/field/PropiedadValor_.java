@@ -7,12 +7,8 @@ import ec.com.ebos.master.model.PropiedadValor;
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class PropiedadValor_ {
+public abstract class PropiedadValor_ extends Master_{
 
-	public static String id = "id";
-	public static String nombre = "nombre";
-	public static String imagen = "imagen";
-	public static String estado = "estado";
 	
 }
 

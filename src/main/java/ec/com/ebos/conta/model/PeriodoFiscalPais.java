@@ -13,8 +13,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.master.model.DivisionGeografica;
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 
 /**
  * Periodos fiscales definidos para cada pais
@@ -31,7 +30,7 @@ public class PeriodoFiscalPais extends Contabilidad<PeriodoFiscalPais> {
 	private static final long serialVersionUID = -6957465871366953630L;
 
 	protected static final String TABLE_NAME = "PERIODO_FISCAL_PAIS";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -43,22 +42,22 @@ public class PeriodoFiscalPais extends Contabilidad<PeriodoFiscalPais> {
     private Long id;
 	
 	/**
-	 * Codigo de la estructura organizacional
-	 */
-	@Column(name = Entidad.CODIGO_NAME, nullable = false, length = Entidad.CODIGO_LENGTH)
-	private String codigo;
-	
-	/**
-	 * Descripcion o nombre de la estructura organizacional
-	 */
-	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = Entidad.DESCRIPCION_LENGTH)
-	private String descripcion;	
-	
-	/**
 	 * Division geografica
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_division_geografica")
 	private DivisionGeografica divisionGeografica;
+	
+	/**
+	 * Codigo de la estructura organizacional
+	 */
+	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght)
+	private String codigo;
+	
+	/**
+	 * Descripcion o nombre de la estructura organizacional
+	 */
+	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
+	private String descripcion;	
 	
 }

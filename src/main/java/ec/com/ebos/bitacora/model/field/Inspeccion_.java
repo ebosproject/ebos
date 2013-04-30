@@ -7,12 +7,8 @@ import ec.com.ebos.bitacora.model.Inspeccion;
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Inspeccion_ {
+public abstract class Inspeccion_ extends Bitacora_{
 
-	public static String id = "id";
-	public static String descripcion = "descripcion";
-	public static String imagen = "imagen";
-	public static String estado = "estado";
 	
 }
 

@@ -98,7 +98,7 @@
 						</component>
 					</components>
 					<componentProperties>
-						<drop>true</drop>
+						<drop>false</drop>
 						<jdk5>true</jdk5>
 						<skip>false</skip>
 						<outputfilename>schema.sql</outputfilename>

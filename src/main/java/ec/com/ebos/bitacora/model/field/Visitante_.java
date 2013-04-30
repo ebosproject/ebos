@@ -1,18 +1,13 @@
 package ec.com.ebos.bitacora.model.field;
 
-import ec.com.ebos.bitacora.model.Evento;
+import ec.com.ebos.bitacora.model.Visitante;
 
 /**
- * Entity model attributes for {@link Evento}
+ * Entity model attributes for {@link Visitante}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Visitante_ {
+public abstract class Visitante_ extends Bitacora_{
 
-	public static String id = "id";
-	public static String descripcion = "descripcion";
-	public static String imagen = "imagen";
-	public static String estado = "estado";
-	
 }
 

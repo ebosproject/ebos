@@ -5,12 +5,10 @@ package ec.com.ebos.security.model.field;
  * 
  * @author Eduardo Plua Alay
  */
-public abstract class UsuarioRol_ {
+public abstract class UsuarioRol_ extends Security_{
 
-	public static String id = "id";
-	public static String estado = "estado";
-	public static String usuario = "usuario";
-	public static String rol = "rol";
+	public static final String usuario = "usuario";
+	public static final String rol = "rol";
 
 }
 

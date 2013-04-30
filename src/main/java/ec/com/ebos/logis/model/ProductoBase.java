@@ -6,29 +6,29 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import ec.com.ebos.conf.model.DB_STRUCTURE;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.master.model.Master;
 
 
 /**
  * @author <a href="mailto:vipconsultoresaso@gmail.com">VIP Consultores</a>
+ * @update 2013/04/29 <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = ProductoBase.TABLENAME, schema = EntidadLogistica.SCHEMA_OWNER)
-@Data @EqualsAndHashCode(callSuper=false) 
-public abstract class ProductoBase extends EntidadLogistica<ProductoBase> {
+@Table(name = ProductoBase.TABLE_NAME, schema = Master.SCHEMA)
+@Data @EqualsAndHashCode(callSuper=false)
+public abstract class ProductoBase extends Logistica<ProductoBase> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4664966746836596369L;
-	public static final String TABLENAME = "ProductoBase";
 	
+	protected static final String TABLE_NAME = "PRODUCTO_BASE";
+	private static final String SEQUENCE = Logistica.SCHEMA+".S"+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
 	@Id
-	@SequenceGenerator(name = TABLENAME+"_ID_GENERATOR", sequenceName = EntidadLogistica.SCHEMA_OWNER+".S_"+TABLENAME)
-	@GeneratedValue(generator = TABLENAME+"_ID_GENERATOR")
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
 	private Long id;
 	
 }

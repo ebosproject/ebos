@@ -100,7 +100,9 @@ public class RepositoryConfig {
 		asfb.setPackagesToScan(new String[]{
 				Constantes.DOMAIN_NAME+".master.model",
 				Constantes.DOMAIN_NAME+".security.model",
-				Constantes.DOMAIN_NAME+".admin.model"
+				Constantes.DOMAIN_NAME+".admin.model",
+				Constantes.DOMAIN_NAME+".conta.model",
+				Constantes.DOMAIN_NAME+".logis.model"
 				});
 		
 		asfb.setHibernateProperties(hibernateProperties());

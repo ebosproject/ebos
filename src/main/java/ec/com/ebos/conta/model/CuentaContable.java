@@ -1,8 +1,10 @@
 package ec.com.ebos.conta.model;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -12,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -21,10 +24,17 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.conta.model.field.AsientoDetalle_;
+import ec.com.ebos.conta.model.field.CuentaCentro_;
+import ec.com.ebos.conta.model.field.CuentaContableEmpresa_;
+import ec.com.ebos.conta.model.field.CuentaContable_;
+import ec.com.ebos.conta.model.field.Ejercicio_;
+import ec.com.ebos.conta.model.field.SaldoCuentaCentro_;
+import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
 import ec.com.ebos.conta.resources.ContaMensajes;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -46,7 +56,7 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
 	private static final long serialVersionUID = 2646781225564626367L;
 	
 	protected static final String TABLE_NAME = "CUENTA_CONTABLE";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -74,13 +84,13 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
 	/**
 	 * Codigo de la {@link CuentaContable}
 	 */
-	@Column(name = Entidad.CODIGO_NAME, nullable = false, length = Entidad.CODIGO_LENGTH, unique = true)
+	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght, unique = true)
 	private String codigo;
 	
 	/**
 	 * Descripcion o nombre de la cuenta
 	 */
-	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = 150) //TODO (epa): Consultar si no se usa default Entidad.DESCRIPCION_LENGTH=100
+	@Column(name = Entidad_.descripcion, nullable = false, length = 150) //TODO (epa): Consultar si no se usa default Entidad.DESCRIPCION_LENGTH=100
 	private String descripcion;
 	
 	@Column(name="codigo_formato", nullable = false, length = 50)
@@ -128,6 +138,27 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
 	@Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;
+	
+	@OneToMany(mappedBy = AsientoDetalle_.cuentaContable, fetch = FetchType.LAZY)
+    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
+	
+	@OneToMany(mappedBy = CuentaCentro_.cuentaContable, fetch = FetchType.LAZY)
+    private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
+	
+	@OneToMany(mappedBy = CuentaContable_.padre, fetch = FetchType.LAZY)
+    private Set<CuentaContable> cuentaContableList = new HashSet<CuentaContable>(0);
+	
+	@OneToMany(mappedBy = CuentaContableEmpresa_.cuentaContable, fetch = FetchType.LAZY)
+    private Set<CuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<CuentaContableEmpresa>(0);
+	
+	@OneToMany(mappedBy = Ejercicio_.cuentaUtilidad, fetch = FetchType.LAZY)
+    private Set<Ejercicio> ejercicioList = new HashSet<Ejercicio>(0);
+	
+	@OneToMany(mappedBy = SaldoCuentaCentro_.cuentaContable, fetch = FetchType.LAZY)
+    private Set<SaldoCuentaCentro> saldoCuentaCentroList = new HashSet<SaldoCuentaCentro>(0);
+	
+	@OneToMany(mappedBy = SaldoCuentaContable_.cuentaContable, fetch = FetchType.LAZY)
+    private Set<SaldoCuentaContable> saldoCuentaContableList = new HashSet<SaldoCuentaContable>(0);
 	
     /**
      * <strong>Naturalezas de una {@link CuentaContable}</strong> <br>
@@ -204,7 +235,7 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
         public static class Type extends StringValuedEnumType<Estado> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".conta.model.CuentaContable$TipoOProceso$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".conta.model.CuentaContable$TipoProceso$Type";
         
         @Getter
         private String value;

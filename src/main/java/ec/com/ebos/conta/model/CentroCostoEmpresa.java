@@ -11,7 +11,6 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.Organizacion;
 
 /**
@@ -30,7 +29,7 @@ public class CentroCostoEmpresa extends Contabilidad<CentroCostoEmpresa> {
 	private static final long serialVersionUID = 3057838065566530983L;
 	
 	protected static final String TABLE_NAME = "CENTRO_COSTO_EMPRESA";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**

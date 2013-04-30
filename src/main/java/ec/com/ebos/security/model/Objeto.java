@@ -22,7 +22,6 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.resources.SecurityMensajes;
@@ -44,7 +43,7 @@ public class Objeto extends Security<Objeto> {
 	private static final long serialVersionUID = -3052521057254508069L;
 
 	protected static final String TABLE_NAME = "OBJETO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Security.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

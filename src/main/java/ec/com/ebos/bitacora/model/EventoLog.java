@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -27,7 +26,7 @@ public class EventoLog extends Bitacora<EventoLog>{
 	private static final long serialVersionUID = 4194216821641946007L;
 
 	protected static final String TABLE_NAME = "EVENTO_LOG";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Bitacora.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

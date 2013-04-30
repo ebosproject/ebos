@@ -1,10 +1,15 @@
 package ec.com.ebos.conta.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -13,9 +18,10 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
+import ec.com.ebos.conta.model.field.Asiento_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 
 /**
  * Asientos contables
@@ -32,7 +38,7 @@ public class TipoAsiento extends Contabilidad<TipoAsiento> {
 	private static final long serialVersionUID = -7133451003821826238L;
 	
 	protected static final String TABLE_NAME = "TIPO_ASIENTO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -46,13 +52,13 @@ public class TipoAsiento extends Contabilidad<TipoAsiento> {
 	/**
 	 * Codigo de la estructura organizacional
 	 */
-	@Column(name = Entidad.CODIGO_NAME, nullable = false, length = Entidad.CODIGO_LENGTH)
+	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght)
 	private String codigo;
 	
 	/**
 	 * Descripcion o nombre de la estructura organizacional
 	 */
-	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = Entidad.DESCRIPCION_LENGTH)
+	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;	
 	
 	@Column(name = "formato_referencia", length = 20, nullable = false)
@@ -73,5 +79,8 @@ public class TipoAsiento extends Contabilidad<TipoAsiento> {
 	@Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;		
+	
+	@OneToMany(mappedBy = Asiento_.tipoAsiento, fetch = FetchType.LAZY)
+    private Set<Asiento> asientoList = new HashSet<Asiento>(0);
     
 }

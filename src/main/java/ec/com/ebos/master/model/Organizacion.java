@@ -20,6 +20,17 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.conta.model.CentroCostoEmpresa;
+import ec.com.ebos.conta.model.CuentaCentro;
+import ec.com.ebos.conta.model.CuentaContableEmpresa;
+import ec.com.ebos.conta.model.Ejercicio;
+import ec.com.ebos.conta.model.field.CentroCostoEmpresa_;
+import ec.com.ebos.conta.model.field.CuentaCentro_;
+import ec.com.ebos.conta.model.field.CuentaContableEmpresa_;
+import ec.com.ebos.conta.model.field.Ejercicio_;
+import ec.com.ebos.master.model.field.Activo_;
+import ec.com.ebos.master.model.field.EmpresaPersona_;
+import ec.com.ebos.master.model.field.Sucursal_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -35,7 +46,7 @@ public class Organizacion extends Master<Organizacion>{
 	private static final long serialVersionUID = 7508531917964868788L;
 
 	protected static final String TABLE_NAME = "ORGANIZACION";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id
@@ -60,12 +71,24 @@ public class Organizacion extends Master<Organizacion>{
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	
-	@OneToMany(mappedBy = "empresa", fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = EmpresaPersona_.empresa, fetch= FetchType.LAZY)
     private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);
 	
-	@OneToMany(mappedBy = "empresa", fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = Sucursal_.empresa, fetch= FetchType.LAZY)
     private Set<Sucursal> sucursalList = new HashSet<Sucursal>(0);	
 	
-	@OneToMany(mappedBy = "empresa", fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = Activo_.empresa, fetch= FetchType.LAZY)
     private Set<Activo> activoList = new HashSet<Activo>(0);
+	
+	@OneToMany(mappedBy = CentroCostoEmpresa_.empresa, fetch = FetchType.LAZY)
+    private Set<CentroCostoEmpresa> centroCostoEmpresaList = new HashSet<CentroCostoEmpresa>(0);
+	
+	@OneToMany(mappedBy = CuentaCentro_.empresa, fetch = FetchType.LAZY)
+    private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
+	
+	@OneToMany(mappedBy = CuentaContableEmpresa_.empresa, fetch = FetchType.LAZY)
+    private Set<CuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<CuentaContableEmpresa>(0);
+	
+	@OneToMany(mappedBy = Ejercicio_.empresa, fetch = FetchType.LAZY)
+    private Set<Ejercicio> ejercicioList = new HashSet<Ejercicio>(0);
 }

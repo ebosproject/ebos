@@ -16,7 +16,6 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.TipoRetencion;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -36,7 +35,7 @@ public class SaldoRetencion extends Contabilidad<SaldoRetencion> {
 	 * Id de la estructura organizacional
 	 */
 	protected static final String TABLE_NAME = "SALDO_RETENCION";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

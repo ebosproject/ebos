@@ -16,9 +16,8 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
-import ec.com.ebos.master.model.Master;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 
 /**
  * Asientos contables
@@ -35,7 +34,7 @@ public class AsientoDetalle extends Contabilidad<AsientoDetalle> {
 	private static final long serialVersionUID = -2771940733623486993L;
 	
 	protected static final String TABLE_NAME = "ASIENTO_DETALLE";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -99,6 +98,6 @@ public class AsientoDetalle extends Contabilidad<AsientoDetalle> {
     /**
 	 * Descripcion o nombre de la estructura organizacional
 	 */
-	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = Entidad.DESCRIPCION_LENGTH)
+	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;
 }

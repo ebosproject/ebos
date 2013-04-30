@@ -1,9 +1,14 @@
 package ec.com.ebos.conta.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -12,8 +17,11 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
+import ec.com.ebos.conta.model.field.CentroCosto_;
+import ec.com.ebos.conta.model.field.CentroSubcentro_;
+import ec.com.ebos.conta.model.field.CuentaCentro_;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 
 /**
  * Tipos de centros de costo
@@ -30,7 +38,7 @@ public class TipoCentroCosto extends Contabilidad<TipoCentroCosto> {
 	private static final long serialVersionUID = 4913746566919074839L;
 	
 	protected static final String TABLE_NAME = "TIPO_CENTRO_COSTO";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Contabilidad.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	/**
@@ -44,13 +52,13 @@ public class TipoCentroCosto extends Contabilidad<TipoCentroCosto> {
 	/**
 	 * Codigo de la estructura organizacional
 	 */
-	@Column(name = Entidad.CODIGO_NAME, nullable = false, length = Entidad.CODIGO_LENGTH)
+	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght)
 	private String codigo;
 	
 	/**
 	 * Descripcion o nombre de la estructura organizacional
 	 */
-	@Column(name = Entidad.DESCRIPCION_NAME, nullable = false, length = Entidad.DESCRIPCION_LENGTH)
+	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;	
 	
 	/**
@@ -65,5 +73,14 @@ public class TipoCentroCosto extends Contabilidad<TipoCentroCosto> {
 	@Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;
+	
+	@OneToMany(mappedBy = CentroCosto_.tipoCentroCosto, fetch = FetchType.LAZY)
+    private Set<CentroCosto> centroCostoList = new HashSet<CentroCosto>(0);
+	
+	@OneToMany(mappedBy = CentroSubcentro_.tipoCentroCosto, fetch = FetchType.LAZY)
+    private Set<CentroSubcentro> centroSubcentroList = new HashSet<CentroSubcentro>(0);
+	
+	@OneToMany(mappedBy = CuentaCentro_.tipoCentroCosto, fetch = FetchType.LAZY)
+    private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
     
 }

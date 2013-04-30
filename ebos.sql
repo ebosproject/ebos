@@ -8,22 +8,24 @@ Datos iniciales eBos Project //TODO (epa): Terminar script para ejecució total 
 --
 --MASTER
 --
-
 /*
 PERSONA
 */
+ALTER TABLE ebosmast.persona ALTER COLUMN id_creador DROP NOT NULL;  
 INSERT INTO ebosmast.persona (id, apellidos, creacion, modificacion, cliente, empleado, identificacion, mail, nombres, proveedor, usuario, id_creador, id_modificador, estado, tipoidentificacion, tipopersona) 
 VALUES (1, 'Plúa Alay', '2013-03-19 00:00:00.0', '2013-03-19 00:00:00.0', false, false, '0926212515', 'eduardo.plua@gmail.com', 'Eduardo Plúa', false, true, null, null, 'A', 'C', 'N');
 
 /*
 EMPRESA
 */
-INSERT INTO ebosmast.empresa (id, creacion, modificacion, descripcion, imagen, id_creador, id_modificador, id_persona, estado) 
+ALTER TABLE ebosmast.organizacion ALTER COLUMN id_creador DROP NOT NULL;
+INSERT INTO ebosmast.organizacion (id, creacion, modificacion, descripcion, imagen, id_creador, id_modificador, id_persona, estado) 
 VALUES (1, '2013-03-19 00:00:00.0', '2013-03-19 00:00:00.0', 'Eduardo Plúa Alay', 'images/logo_empresa', null, null, 1, 'A');
 
 /*
 EMPRESA_PERSONA
 */
+ALTER TABLE ebosmast.empresa_persona ALTER COLUMN id_creador DROP NOT NULL;
 INSERT INTO ebosmast.empresa_persona (id, creacion, modificacion, id_creador, id_modificador, id_empresa, id_persona, estado) 
 VALUES (1, '2013-03-19 00:00:00.0', '2013-03-19 00:00:00.0', null, null, 1, 1, 'A');
 
@@ -104,7 +106,7 @@ INSERT INTO ebosmast.bundle (id, codigo, localidad, valor) VALUES (67, 'ebCrear'
 /*
 OBJETO
 */
-
+ALTER TABLE ebossecu.objeto ALTER COLUMN id_creador DROP NOT NULL;
 INSERT INTO ebossecu.objeto (id, creacion, modificacion, codigo, descripcion, id_creador, id_modificador, estado, tipo) 
 VALUES (1, '2013-03-24 00:00:00.0', '2013-03-24 00:00:00.0', 'sesionUsuario', 'Bean de sesion de usuario', null, NULL, 'A', 'B');
 INSERT INTO ebossecu.objeto (id, creacion, modificacion, codigo, descripcion, id_creador, id_modificador, estado, tipo) 
@@ -113,17 +115,27 @@ INSERT INTO ebossecu.objeto (id, creacion, modificacion, codigo, descripcion, id
 VALUES (3, '2013-03-24 00:00:00.0', '2013-03-24 00:00:00.0', 'usuarioBean', 'Bean de usuario', null, NULL, 'A', 'B');
 
 
+/*
+USUARIO
+*/
+INSERT INTO ebossecu.usuario (id, creacion, modificacion, password, tema, username, id_creador, id_modificador, id_empresapersona, estado, maxoptions) 
+VALUES (1, '2013-03-19 00:00:00.0', '2013-03-31 23:06:34.238', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', 'rocket', 'admin', 1, 1, 1, 'A', 10);
 
 /*
 Actualización de creador en todas las tablas anteriores
 */
 --MASTER
 UPDATE ebosmast.persona set id_creador = 1;
-UPDATE ebosmast.empresa set id_creador = 1;
+ALTER TABLE ebosmast.persona ALTER COLUMN id_creador SET NOT NULL;
+UPDATE ebosmast.organizacion set id_creador = 1;
+ALTER TABLE ebosmast.organizacion ALTER COLUMN id_creador SET NOT NULL;
 UPDATE ebosmast.empresa_persona set id_creador = 1;
+ALTER TABLE ebosmast.empresa_persona ALTER COLUMN id_creador SET NOT NULL;
 
 --SECU
 UPDATE ebossecu.objeto set id_creador = 1;
+ALTER TABLE ebossecu.objeto ALTER COLUMN id_creador SET NOT NULL;
+
 
 /*
 OPCION
@@ -217,11 +229,7 @@ INSERT INTO ebossecu.rol_opcion (id, creacion, modificacion, crear, editar, elim
 INSERT INTO ebossecu.rol_opcion (id, creacion, modificacion, crear, editar, eliminar, exportar, id_creador, id_modificador, id_opcion, id_rol, estado) VALUES (102, '2013-03-24 00:00:00.0', '2013-03-24 00:00:00.0', true, true, true, false, 1, NULL, 37, 1, 'A');
 INSERT INTO ebossecu.rol_opcion (id, creacion, modificacion, crear, editar, eliminar, exportar, id_creador, id_modificador, id_opcion, id_rol, estado) VALUES (103, '2013-03-24 00:00:00.0', '2013-03-24 00:00:00.0', true, true, true, false, 1, NULL, 38, 1, 'A');
 
-/*
-USUARIO
-*/
-INSERT INTO ebossecu.usuario (id, creacion, modificacion, password, tema, username, id_creador, id_modificador, id_empresapersona, estado, maxoptions) 
-VALUES (1, '2013-03-19 00:00:00.0', '2013-03-31 23:06:34.238', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', 'rocket', 'admin', 1, 1, 1, 'A', 10);
+
 
 /*
 USUARIO_ROL

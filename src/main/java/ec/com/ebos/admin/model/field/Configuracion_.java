@@ -4,9 +4,9 @@ package ec.com.ebos.admin.model.field;
 /**
  * Entity model attributes for Configuracion
  * 
- * @author Eduardo Plua Alay
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Configuracion_ {
+public abstract class Configuracion_ extends Administracion_{
 
 	public static String usuarioSmsGateway = "usuarioSmsGateway";
 	public static String servidorMail = "servidorMail";
@@ -15,7 +15,6 @@ public abstract class Configuracion_ {
 	public static String enviarSms = "enviarSms";
 	public static String baudioSms = "baudioSms";
 	public static String autenticarMail = "autenticarMail";
-	public static String id = "id";
 	public static String urlSmsGateway = "urlSmsGateway";
 	public static String centralSms = "centralSms";
 	public static String enviarSmsGateway = "enviarSmsGateway";

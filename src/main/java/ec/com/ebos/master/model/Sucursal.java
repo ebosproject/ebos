@@ -30,7 +30,7 @@ public class Sucursal extends Master<Sucursal>{
 	private static final long serialVersionUID = 7508531917964868788L;
 
 	protected static final String TABLE_NAME = "SUCURSAL";
-	private static final String SEQUENCE = Master.SCHEMA+"."+TABLE_NAME;
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id
