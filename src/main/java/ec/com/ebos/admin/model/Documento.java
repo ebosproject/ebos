@@ -1,8 +1,10 @@
 package ec.com.ebos.admin.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -50,4 +52,23 @@ public class Documento extends Administracion<Documento> {
     
 	@OneToMany(mappedBy = DocumentoDistribucion_.documento, fetch = FetchType.LAZY)
     private Set<DocumentoDistribucion> documentoDistribucionList = new HashSet<DocumentoDistribucion>(0);
+	
+	@Column
+	Date emitido;
+
+	@Column
+	Date vencimiento;
+
+	@Column
+	Date enviado;
+	
+	@Column
+	Date autorizado;
+	
+	@Column
+	Date procesado;
+
+	@Column
+	Date contabilizado;
+
 }
