@@ -1,4 +1,4 @@
-package ec.com.ebos.master.spring.config;
+package ec.com.ebos.spring.config;
 
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.cache.annotation.EnableCaching;
@@ -23,7 +23,8 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 @EnableAspectJAutoProxy
 @EnableCaching
-@ComponentScan({"ec.com.ebos.master",
+@ComponentScan({"ec.com.ebos.context",
+	"ec.com.ebos.master",
 	"ec.com.ebos.aspect", 
 	"ec.com.ebos.security", 
 	"ec.com.ebos.util",

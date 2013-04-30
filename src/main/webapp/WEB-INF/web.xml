@@ -26,11 +26,7 @@
     <param-name>javax.faces.CONFIG_FILES</param-name>
     <param-value>
         /WEB-INF/faces-config.xml,
-        /WEB-INF/faces-navigation.xml,
-        /WEB-INF/web/faces-navigation.xml
-        <!-- ,/WEB-INF/seguridad/faces-navigation.xml,
-        /WEB-INF/app/faces-navigation.xml,
-        /WEB-INF/administracion/faces-navigation.xml -->
+        /WEB-INF/faces-navigation.xml
     </param-value>
   </context-param>
     <servlet>
@@ -74,7 +70,7 @@
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>ec.com.ebos.master.spring.config.EbosConfig</param-value>
+    <param-value>ec.com.ebos.spring.config.EbosConfig</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

@@ -6,9 +6,9 @@ import java.util.ResourceBundle;
 
 import javax.faces.context.FacesContext;
 
+import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.core.service.MasterS;
 import ec.com.ebos.master.model.Bundle;
-import ec.com.ebos.master.spring.utils.SpringUtils;
 import ec.com.ebos.util.Constantes;
 
 
@@ -23,7 +23,7 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
     private MasterS masterS;
  
     public DatabaseDrivenResourceBundle() {
-    	masterS = SpringUtils.getBean("masterS", MasterS.class);
+    	masterS = EbosContext.getBean("masterS", MasterS.class);
     }
     
     @Override

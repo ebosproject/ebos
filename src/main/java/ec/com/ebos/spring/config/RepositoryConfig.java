@@ -1,4 +1,4 @@
-package ec.com.ebos.master.spring.config;
+package ec.com.ebos.spring.config;
 
 import java.util.Properties;
 

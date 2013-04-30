@@ -9,7 +9,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.master.Master;
+import ec.com.ebos.context.EbosContext;
 
 @Component
 public class SendSmsImpl implements SendSms {
@@ -20,7 +20,7 @@ public class SendSmsImpl implements SendSms {
     @Getter
     @Setter
     @Autowired
-    private Master app; 
+    private EbosContext app; 
     
 //    private Service srv;
 //    ClickatellHTTPGateway gateway;
