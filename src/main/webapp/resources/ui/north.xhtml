@@ -3,50 +3,51 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
-
-		<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
-			<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star" process="@none"/>
-			<p:submenu label="#{msg.ebCuenta}">
-				<p:menuitem value="#{msg.ebCambiarPassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
-			</p:submenu>			
-			<f:facet name="options">
-				<h:panelGrid id="pngOptions" columns="9">
-					<form id="frmUpdDesk">
-						<p:commandButton icon="ui-icon-refresh" update="pngFrames" title="#{msg.ebUpdateDesk}" immediate="true"/>
-					</form>
-					
-					<eb:inputText id="find" watermark="#{msg.ebFind}"/>
+		
+	<p:log id="logger" widgetVar="wgtLogger" rendered="#{sessionBean.usuario.username eq 'admin'}"/>
+	<p:draggable for="logger" opacity="0.5" dragOnly="true"/>
+	<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
+		<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star" process="@none"/>
+		<p:submenu label="#{msg.ebCuenta}">
+			<p:menuitem value="#{msg.ebCambiarPassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
+		</p:submenu>			
+		<f:facet name="options">
+			<h:panelGrid id="pngOptions" columns="9">
+				<form id="frmUpdDesk">
+					<p:commandButton icon="ui-icon-refresh" update="pnlFrames" title="#{msg.ebUpdateDesk}" immediate="true"/>
+				</form>
 				
-					<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
+				<eb:inputText id="find" watermark="#{msg.ebFind}"/>
+			
+				<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
+			
+				<p:spacer width="5"/>
 				
-					<p:spacer width="5"/>
-					
-					<h:form id="frmThemeSwitcher">
-						<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherBean.tema}" var="t" 
-							style="width:175px;" effect="fade" >
-							<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
-							<f:selectItems value="#{themeSwitcherBean.temasAvanzados}"
-								var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
-							<p:ajax listener="#{themeSwitcherBean.guardarTema}" />
-							<p:column>
-								<h:graphicImage name="images/themes/#{t.imagen}" />
-							</p:column>
-							<p:column>
-				           		#{t.nombre}
-				            </p:column>
-						</p:themeSwitcher>
-					</h:form>
-				
-					<h:form id="frmLogout" prependId="false">
-						<p:commandButton value="#{msg.ebSalir} (#{sessionBean.usuario.username})"
-							actionListener="#{sessionBean.cerrarSesion}" icon="ui-icon-extlink" onstart="wgtLogger.hide()" update=":pngHome, :pngWelcome"/>
-					</h:form>
-				</h:panelGrid>	
-			</f:facet>					
-		</p:menubar>
-		<p:growl id="grwHome" autoUpdate="true" sticky="true" widgetVar="wgtGrwHome" life="5000"/>
-		<p:log id="logger" widgetVar="wgtLogger" rendered="#{sessionBean.usuario.username eq 'admin'}"/>
-		<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
-		<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" /> 
+				<h:form id="frmThemeSwitcher">
+					<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherBean.tema}" var="t" 
+						style="width:175px;" effect="fade" >
+						<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
+						<f:selectItems value="#{themeSwitcherBean.temasAvanzados}"
+							var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
+						<p:ajax listener="#{themeSwitcherBean.guardarTema}" />
+						<p:column>
+							<h:graphicImage name="images/themes/#{t.imagen}" />
+						</p:column>
+						<p:column>
+			           		#{t.nombre}
+			            </p:column>
+					</p:themeSwitcher>
+				</h:form>
+			
+				<h:form id="frmLogout" prependId="false">
+					<p:commandButton value="#{msg.ebSalir} (#{sessionBean.usuario.username})"
+						actionListener="#{sessionBean.cerrarSesion}" icon="ui-icon-extlink" onstart="wgtLogger.hide();" update=":pngHome, :pngWelcome"/>
+				</h:form>
+			</h:panelGrid>	
+		</f:facet>					
+	</p:menubar>
+	<p:growl id="grwHome" autoUpdate="true" sticky="true" widgetVar="wgtGrwHome" life="5000" showDetail="true"/>
+	<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
+	<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" /> 
 	
 </ui:composition>

@@ -2,7 +2,9 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
 				xmlns:p="http://primefaces.org/ui" 
-				xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+				xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jstl/core">
 
 	<h:form id="frmDashboard">
 		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;">
@@ -35,7 +37,7 @@
 		<p:menuitem value="#{msg.ebPreviousImage}" url="javascript:void(0)" onclick="wgtBackg.previous();" icon="ui-icon-triangle-1-w"/>
 		<p:menuitem value="#{msg.ebNextImage}" url="javascript:void(0)" onclick="wgtBackg.next();" icon="ui-icon-triangle-1-e"/>
 	</p:contextMenu>
-
-	<h:panelGroup id="pngFrames" binding="#{deskBean.pngFrames}"/>	
+	
+	<p:panel id="pnlFrames" binding="#{deskBean.pnlFrames}"/>
    	
 </ui:composition>

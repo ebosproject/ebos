@@ -20,7 +20,7 @@ import ec.com.ebos.admin.model.Configuracion;
  * de todad la plataforma
  *
  * @author Eduardo Plua Alay
- * @since 2013/04/30
+ * @since 2013/05/01
  */
 @Component
 public class EbosContext implements Serializable{
@@ -58,12 +58,12 @@ public class EbosContext implements Serializable{
         String value = configuracion.getParametros().get(clave);          
         return value == null? "": value;
     }
-    
+
     public static <T> T getBean(String beanName, Class<T> beanClass) {
-        return (T)applicationContext.getBean(beanName, beanClass);
+        return (T) applicationContext.getBean(beanName, beanClass);
     }
      
     public static <T> T getBean(Class<T> beanClass) {
-        return (T)applicationContext.getBean(beanClass);
+        return (T) applicationContext.getBean(beanClass);
     }
 }

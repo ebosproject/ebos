@@ -52,6 +52,7 @@ public class FacesUtils {
             composite.getFacets().put(UIComponent.COMPOSITE_FACET_NAME, implementation);
 
             // Now include the composite component file in the given parent.
+            parent.getChildren().clear();
             parent.getChildren().add(composite);
             parent.pushComponentToEL(context, composite); // This makes #{cc} available.
             try {

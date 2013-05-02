@@ -29,7 +29,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-@Entity //TODO (epa): Cambiar nombre de tabla a 'BUNDLE'
+@Entity
 @Table(name = Bundle.TABLE_NAME, schema = Master.SCHEMA,
 	uniqueConstraints = @UniqueConstraint(columnNames={Bundle_.codigo, Bundle_.localidad}))
 @Data @EqualsAndHashCode(callSuper=false)
