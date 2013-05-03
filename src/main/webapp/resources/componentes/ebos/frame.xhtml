@@ -44,13 +44,15 @@
 	        	dynamic="#{cc.attrs.dynamic}"        	
 	        	hideEffect="#{cc.attrs.hideEffect}"
 	        	showEffect="#{cc.attrs.showEffect}"
-	        	modal="#{cc.attrs.modal}">
+	        	modal="#{cc.attrs.modal}" draggable="false"
+	        	>
 	        	
 	        	<p:ajax event="close" listener="#{deskBean.closeFrame}"/>
 	        	<f:subview id="#{cc.attrs.id}_sbv">
        				<ui:include src="#{cc.attrs.src}" />
 	       		</f:subview>
 	        </p:dialog>
+	        <p:draggable for="#{cc.attrs.id}_dlg" opacity="0.5" dragOnly="true"/>
         
     </cc:implementation>  
 

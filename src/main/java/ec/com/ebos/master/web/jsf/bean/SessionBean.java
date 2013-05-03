@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
 import lombok.Setter;
+import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
@@ -156,25 +157,45 @@ public class SessionBean implements Serializable{
 		securityS.saveUserPreferences(usuario);
 	}
 	
-    public void putMessage(FacesMessage.Severity severity, String msg){
-        FacesMessage message = new FacesMessage(severity, msg, "");
+    private void putMessage(FacesMessage.Severity severity, String keySummary, String detail, Object... args){
+    	String summary = RootMensajes.getString(keySummary, args);
+		putMessage(severity, summary, (detail != null && !detail.isEmpty()) ? detail : "");
+    }
+    
+    private void putMessage(FacesMessage.Severity severity, String summary, String detail){
+    	FacesMessage message = new FacesMessage(severity, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
-    public void putSuccess(String msg) {        
-        putMessage(FacesMessage.SEVERITY_INFO, msg);
-    }
-
-    public void putWarning(String msg) {
-        putMessage(FacesMessage.SEVERITY_WARN, msg);        
-    }
-
-    public void putError(String msg) {
-        putMessage(FacesMessage.SEVERITY_ERROR, msg);        
+    public void putSuccess(String keySummary, String detail, Object... args) {        
+        putMessage(FacesMessage.SEVERITY_INFO, keySummary, detail, args);
     }
     
-    public void putFatal(String msg) {
-        putMessage(FacesMessage.SEVERITY_FATAL, msg);        
+    public void putSuccess(String summary) {        
+        putMessage(FacesMessage.SEVERITY_INFO, summary, "");
+    }
+
+    public void putWarn(String keySummary, String detail, Object... args) {
+        putMessage(FacesMessage.SEVERITY_WARN, keySummary, detail, args);        
     }
     
+    public void putWarning(String summary) {
+        putMessage(FacesMessage.SEVERITY_WARN, summary, "");        
+    }
+
+    public void putError(String keySummary, String detail, Object... args) {
+        putMessage(FacesMessage.SEVERITY_ERROR, keySummary, detail, args);        
+    }
+    
+    public void putError(String summary) {
+        putMessage(FacesMessage.SEVERITY_ERROR, summary, "");        
+    }
+    
+    public void putFatal(String keySummary, String detail, Object... args) {
+        putMessage(FacesMessage.SEVERITY_FATAL, keySummary, detail, args);        
+    }
+    
+    public void putFatal(String summary) {
+        putMessage(FacesMessage.SEVERITY_FATAL, summary, "");        
+    }
 }

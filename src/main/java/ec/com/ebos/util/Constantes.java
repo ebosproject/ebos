@@ -57,5 +57,10 @@ public class Constantes {
 	 * Resource bundle prefix not found
 	 */
 	public static final String PREFIX_NOT_FOUND = "???";
+
+	/**
+	 * Growl component widget name into north.xhtml
+	 */
+	public static final String wgtGrowlHome = "wgtGrwHome";
 	
 }

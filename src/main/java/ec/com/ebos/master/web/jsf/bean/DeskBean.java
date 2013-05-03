@@ -17,6 +17,7 @@ import javax.faces.context.FacesContext;
 import lombok.Setter;
 
 import org.primefaces.component.menuitem.MenuItem;
+import org.primefaces.component.panel.Panel;
 import org.primefaces.component.submenu.Submenu;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CloseEvent;
@@ -51,7 +52,7 @@ public class DeskBean implements Serializable{
 	private List<RolOpcion> rolOptionList;
 	
 	@Setter
-	private HtmlPanelGroup pngFrames; 
+	private Panel pnlFrames; 
 
 	private String COMPONENT_LIBRARY = "componentes/ebos";
 	private String FRAME_SUFFIX = "_fra";
@@ -61,11 +62,15 @@ public class DeskBean implements Serializable{
 	@PostConstruct
     public void init(){
     	menuModel = new DefaultMenuModel();
-    	pngFrames = new HtmlPanelGroup();
+    	pnlFrames = new Panel();
     }
 	
     @SuppressWarnings("el-syntax")
     private void buildMenuModel() { //TODO (epa): Optimizar con Mapas y hacerlo recursivo, con N niveles
+    	String style = "background-image:url('resources/images/%s') !important;"
+                + "background-repeat: no-repeat;"
+                + "background-position: center left;"
+                + "padding: 0px 0px 0px 20px";
     	rolOptionList = sessionBean.getRolOpcionList();
     	//Construye el arbol de opciones
         for (RolOpcion rolOpcion : rolOptionList) {
@@ -75,10 +80,7 @@ public class DeskBean implements Serializable{
                 submenu.setLabel(modulo.getEtiqueta());
                 String iconoModulo = modulo.getIcono();
                 if(iconoModulo != null && !iconoModulo.isEmpty()){
-                	submenu.setStyle("background-image:url('resources/images/" + iconoModulo + "') !important;"
-                            + "background-repeat: no-repeat;"
-                            + "background-position: center left;"
-                            + "padding: 0px 0px 0px 20px");                	
+                	submenu.setStyle(String.format(style, iconoModulo));                	
                 }
 
                 for (RolOpcion pantalla : rolOptionList) {
@@ -93,10 +95,7 @@ public class DeskBean implements Serializable{
                             item.setOncomplete("jsUpdPngFrame(xhr, status, args)");
                             String iconoPantalla = pantallaOp.getIcono();
                             if(iconoPantalla != null && !iconoPantalla.isEmpty()){
-                            	item.setStyle("background-image:url('resources/images/" + iconoPantalla + "') !important;"
-                                        + "background-repeat: no-repeat;"
-                                        + "background-position: center left;"
-                                        + "padding: 0px 0px 0px 20px");
+                            	item.setStyle(String.format(style, iconoPantalla));
                             }
                                 
                             submenu.getChildren().add(item);
@@ -115,21 +114,21 @@ public class DeskBean implements Serializable{
     	return menuModel;
 	}
     
-    private void buildPngFrameList(){
-    	pngFrames.getChildren().clear();
+    private void buildPnlFrameList(){
+    	pnlFrames.getChildren().clear();
     	int maxOptions = sessionBean.getUsuario().getMaxOptions();
     	for (int i = 0; i < maxOptions; i++) {
-    		HtmlPanelGroup png = new HtmlPanelGroup();
-    		png.setId(FacesUtils.getRandomId());
-    		pngFrames.getChildren().add(png);
+    		HtmlPanelGroup pngFrame = new HtmlPanelGroup();
+    		pngFrame.setId(FacesUtils.getRandomId());
+    		pnlFrames.getChildren().add(pngFrame);
 		}
     }
     
-    public HtmlPanelGroup getPngFrames(){
-		if(pngFrames.getChildren().isEmpty()){
-			buildPngFrameList();	
+    public Panel getPnlFrames(){
+		if(pnlFrames.getChildCount() == 0){
+			buildPnlFrameList();	
 		}
-    	return pngFrames;
+    	return pnlFrames;
 	}
     
     /**
@@ -149,24 +148,26 @@ public class DeskBean implements Serializable{
     		Opcion opcionTMP = rolOpcion.getOpcion();
     		if(opcionTMP.getId().equals(optionId)){
     			option = opcionTMP;
-    			break;
+    			//break;
     		}
     	}
     	
     	//Crear y agrega el compositeComponent Frame en su contenedor pngFrame
-    	String pngFrameId = getFrameId();
-    	if(pngFrameId != null){
-    		UIComponent pngFrame = context.getViewRoot().findComponent(pngFrameId);
-    		if(pngFrame != null){
-    			Map<String, Object> attrs = new TreeMap<String, Object>();
-        		attrs.put("widgetVar", WIDGET_PREFIX+pngFrameId);
-                attrs.put("src", option.getTarget());
-                attrs.put("header", option.getEtiqueta());
-        		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, pngFrameId+FRAME_SUFFIX, attrs);
-        		requestContext.addCallbackParam("pngFrameId",pngFrameId);
-    		}
+    	UIComponent pngFrame = getPngFrame();
+    	if(pngFrame != null){
+    		pngFrame = context.getViewRoot().findComponent(pngFrame.getId());
+            try{
+            	Map<String, Object> attrs = new TreeMap<String, Object>();
+	    		attrs.put("widgetVar", WIDGET_PREFIX+pngFrame);
+	            attrs.put("src", option.getTarget());
+	            attrs.put("header", option.getEtiqueta());
+        		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, pngFrame.getId()+FRAME_SUFFIX+FacesUtils.getRandomId(), attrs);
+        		requestContext.addCallbackParam("pngFrameId",pngFrame.getId());
+            } catch(Exception ex){
+            	pngFrame.getChildren().clear();
+            	sessionBean.putError("desktop.summary.loadoption", ex.getMessage());
+            }
     	}
-    	
     }
 	
 	/**
@@ -178,39 +179,45 @@ public class DeskBean implements Serializable{
 		FacesContext context = FacesContext.getCurrentInstance();
 		//Obtiene el parametro pngFrameId
 	    Map map = context.getExternalContext().getRequestParameterMap();
-	    String pngFrameId = (String) map.get("pngFrameId");
-		RequestContext.getCurrentInstance().update(pngFrameId);
+	    String pngFrameCompId = (String) map.get("pngFrameId");
+		RequestContext.getCurrentInstance().update(pngFrameCompId);
 	}
 	
 	/**
 	 * Elimina el frame del contenedor pngFrame actual 
 	 * 
-	 * @param event Frame
+	 * @param event Frame 
 	 */
 	public void closeFrame(CloseEvent event){
-		FacesContext context = FacesContext.getCurrentInstance();
 		String frameId = event.getComponent().getId();
 		String pngFrameId = frameId.substring(0, frameId.indexOf(FRAME_SUFFIX));
-		UIComponent pngFrame = context.getViewRoot().findComponent(pngFrameId);
-		if(pngFrame != null){
-			pngFrame.getChildren().clear();
+		try{
+			for(UIComponent pngFrame : pnlFrames.getChildren()){
+				if(pngFrame.getId().equals(pngFrameId)){
+					pngFrame.getChildren().clear();
+					//break;
+				}
+			}
+		} catch(Exception ex){
+			sessionBean.putError("desktop.summary.loadoption", ex.getMessage());
+		} finally{
 			RequestContext.getCurrentInstance().update(pngFrameId);
 		}
     }
 	
 	/**
-	 * Obtiene el identificador de un contenedor pngFrame disponible para
+	 * Obtiene un contenedor pngFrame disponible para
 	 * ser usado por un frame de alguna opcion seleccionada
 	 *  
-	 * @return if pngFrame.children is empty = id pngFrame; else = null  
+	 * @return if pngFrame.children is empty return pngFrame; else return null  
 	 */
-	private String getFrameId(){
-		for (UIComponent png : pngFrames.getChildren()) {			
-			if(png.getChildren().isEmpty()){
-				return png.getId();
+	private UIComponent getPngFrame(){
+		for (UIComponent pngFrame : pnlFrames.getChildren()) {			
+			if(pngFrame.getChildCount() == 0){
+				return pngFrame;
 			}
 		}
-		sessionBean.putWarning("Solo se pueden abrir "+sessionBean.getUsuario().getMaxOptions()+" opciones a la vez");//TODO (epa): internacionalizar
+		sessionBean.putWarn("desktop.warn.maxloadoption","",sessionBean.getUsuario().getMaxOptions());
 		return null;
 	}
 	 
