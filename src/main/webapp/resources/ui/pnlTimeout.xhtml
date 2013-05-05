@@ -11,20 +11,5 @@
     	<p:ajax event="idle" listener="#{idleMonitorBean.idleListener}"/>  
 		<p:ajax event="active" listener="#{idleMonitorBean.activeListener}" />
     </p:idleMonitor>    
-    
-<ui:remove>    
-    <p:dialog header="Sesion Caducada" widgetVar="sessionTimeOutDialog" modal="true" position="center" 
-              closable="false" width="400" visible="false" resizable="false">
-        <eb:panelGrid>
-            <eb:outputText value="La sesion ha caducado, por favor, pulse sobre el siguiente boton para volver a acceder al sistema" />
-            <h:form id="frmTimeout">
-            	<br/>
-                <div align="center">
-                    <p:commandButton id="confirmBackToLogin" value="Volver a acceder al sistema" ajax="false" update="@all" />                
-                </div>
-            </h:form>
-        </eb:panelGrid>        
-    </p:dialog>
-</ui:remove>
 
 </ui:composition>

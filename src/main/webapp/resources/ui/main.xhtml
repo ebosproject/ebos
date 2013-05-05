@@ -15,22 +15,23 @@
        	</f:facet>            
         <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
         <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
-        <h:outputScript library="js" name="jquery-1.7.2.js" />
+        <!-- <h:outputScript library="js" name="jquery-1.7.2.js" />  -->
+        <h:outputScript library="primefaces" name="jquery/jquery.js" />
         <h:outputScript library="js" name="scripts.js" />              
         <link rel="shortcut icon" href="resources/images/ebos-ico.png" />
 		<script type="text/javascript">//<![CDATA[
 		    window.history.forward(1);            
-		    jQuery.noConflict();   
+		    var $ = jQuery.noConflict();   
 		//]]>
 		</script>
 		<style type="text/css">
-             .ui-layout-north {
+             /*.ui-layout-north {
                  z-index:20 !important;
                  overflow:visible !important;;
              }
              .ui-layout-north .ui-layout-unit-content {
                  overflow:visible !important;
-             }
+             }*/
 		</style>
 	</h:head>        
     <h:body>

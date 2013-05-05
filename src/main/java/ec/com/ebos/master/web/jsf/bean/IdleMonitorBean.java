@@ -40,7 +40,7 @@ public class IdleMonitorBean implements Serializable{
 //				new FacesMessage(FacesMessage.SEVERITY_WARN, sesionUsuario
 //						.getUsuario().getNombres(), "Bienvenido de nuevo"));
 		navHandler.handleNavigation(context, null,
-				"home?faces-redirect=true&timedout=true");
+				"welcome?faces-redirect=true&timedout=true");
 	}
 
 	public void activeListener() {

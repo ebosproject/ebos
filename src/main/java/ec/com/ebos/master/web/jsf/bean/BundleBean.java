@@ -48,8 +48,7 @@ public class BundleBean extends MasterBean<Bundle> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/master/bundle/index.xhtml";
-        TARGET_NEW_ID = "crearBundle";
+        TARGET_ID = "/master/bundle/finder.xhtml";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////

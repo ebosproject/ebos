@@ -5,9 +5,9 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
                 
-	<f:facet name="header">  
+	<ui:remove><f:facet name="header">  
     	#{msg.ebResultBundleList}
-    </f:facet>                
+    </f:facet> </ui:remove>               
     
     <p:column id="codigo" headerText="#{msg.ebCodigo}">
         <eb:outputText value="#{reg.codigo}" />

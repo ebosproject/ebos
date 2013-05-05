@@ -8,6 +8,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <cc:interface displayName="frame" >
+    	<cc:attribute name="parentId" type="java.lang.String" required="true"/>
         <cc:attribute name="maximizable" type="java.lang.Boolean" default="true"/>
         <cc:attribute name="minimizable" type="java.lang.Boolean" default="true"/>
         <cc:attribute name="resizable" type="java.lang.Boolean" default="true"/>
@@ -24,35 +25,44 @@
         <cc:attribute name="showEffect" type="java.lang.String" default="fade"/>
         <cc:attribute name="header" type="java.lang.String"/>
         <cc:attribute name="update" type="java.lang.String"/>
-        <cc:attribute name="width" type="int" default="600"/>
-        <cc:attribute name="height" type="int" default="400"/>
+        <cc:attribute name="width" type="int" default="700"/>
+        <cc:attribute name="height" type="int" default="450"/>
     </cc:interface>
 
-    <cc:implementation>     
-	        <p:dialog id="#{cc.attrs.id}_dlg"
-	        	maximizable="#{cc.attrs.maximizable}"
-	        	minimizable="#{cc.attrs.minimizable}"
-	        	resizable="#{cc.attrs.resizable}"
-	        	onHide="#{cc.attrs.onHide}"
-	        	onShow="#{cc.attrs.onShow}"
-	        	oncomplete="#{cc.attrs.oncomplete}"
-	        	widgetVar="#{cc.attrs.widgetVar}"
-	        	width="#{cc.attrs.width}"
-	        	height="#{cc.attrs.height}"
-	        	header="#{cc.attrs.header}"
-	        	visible="#{cc.attrs.visible}"
-	        	dynamic="#{cc.attrs.dynamic}"        	
-	        	hideEffect="#{cc.attrs.hideEffect}"
-	        	showEffect="#{cc.attrs.showEffect}"
-	        	modal="#{cc.attrs.modal}" draggable="false"
-	        	>
-	        	
-	        	<p:ajax event="close" listener="#{deskBean.closeFrame}"/>
-	        	<f:subview id="#{cc.attrs.id}_sbv">
-       				<ui:include src="#{cc.attrs.src}" />
-	       		</f:subview>
-	        </p:dialog>
-	        <p:draggable for="#{cc.attrs.id}_dlg" opacity="0.5" dragOnly="true"/>
+    <cc:implementation>
+        <p:dialog id="dlg"
+        	maximizable="#{cc.attrs.maximizable}"
+        	minimizable="#{cc.attrs.minimizable}"
+        	resizable="#{cc.attrs.resizable}"
+        	onHide="#{cc.attrs.onHide}"
+        	onShow="#{cc.attrs.onShow}"
+        	oncomplete="#{cc.attrs.oncomplete}"
+        	widgetVar="#{cc.attrs.widgetVar}"
+        	width="#{cc.attrs.width}"
+        	height="#{cc.attrs.height}"
+        	header="#{cc.attrs.header}"
+        	visible="#{cc.attrs.visible}"
+        	dynamic="#{cc.attrs.dynamic}"        	
+        	hideEffect="#{cc.attrs.hideEffect}"
+        	showEffect="#{cc.attrs.showEffect}"
+        	modal="#{cc.attrs.modal}" 
+        	draggable="false">
+
+			<p:outputPanel id="content" autoUpdate="true" >
+				<f:subview>
+					<ui:include src="#{cc.attrs.src}">
+						<ui:param name="frameId" value="dlg"/>
+					</ui:include>
+				</f:subview>
+       		</p:outputPanel>
+
+			<p:ajax event="close" listener="#{deskBean.closeFrame}" />
+			<p:draggable for="dlg" 
+		        opacity="0.5" 
+		        dragOnly="true" 
+		        handle="" 
+		        containment="#center"/>	       		
+        </p:dialog>
         
     </cc:implementation>  
 

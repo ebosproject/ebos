@@ -1,15 +1,15 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
             xmlns:ui="http://java.sun.com/jsf/facelets"
-            template="/resources/templates/index.xhtml">
+            template="/resources/templates/tplFinder.xhtml">
 
    	<ui:param name="bean" value="#{bundleBean}" />
     <ui:param name="optionName" value="#{msg.ebBundle}" />
     
-    <ui:define name="filtros">
+    <ui:define name="filters">
         <ui:include src="indexFiltros.xhtml" />
     </ui:define>
 
-    <ui:define name="resultados">
+    <ui:define name="results">
     	<ui:param name="showAuditoria" value="false" />
         <ui:include src="indexResultados.xhtml" />
     </ui:define>

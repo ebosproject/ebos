@@ -26,7 +26,7 @@ function jsPreventDefault(event, elem){
         event.preventDefault();
 
         // Created 2 variables within the event context			
-        var $self = jQuery(elem);
+        var $self = $(elem);
         var prevHref = $self.attr("href");		
         // Remove href attribute, so browser won't do anything on default behaviour
         $self.removeAttr("href");

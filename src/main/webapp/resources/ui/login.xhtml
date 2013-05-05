@@ -3,10 +3,9 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 
-	<ui:include id="pnlViewExpired" src="pnlViewExpired.xhtml" />
    	<div id="lyLogin" align="center">
         <ui:include src="slideShow.xhtml" />
-        <div id="lyCenter">
+        <div id="lyCenter" class="fullPage">
 			<h:form id="frmLogin">
 				<p:panel id="pnlLogin" styleClass="eb-login" header="#{msg.systemIngreso}" >
 					<eb:panelGrid id="pnlIngreso" columns="2">

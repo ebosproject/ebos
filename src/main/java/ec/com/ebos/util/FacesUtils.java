@@ -72,7 +72,7 @@ public class FacesUtils {
 	 * @return id generado
 	 */
     public static final String getRandomId() {
-        return "id_" + ("" + Math.random()).substring(2);
+        return ("" + Math.random()).substring(2);
     }
     
     /**

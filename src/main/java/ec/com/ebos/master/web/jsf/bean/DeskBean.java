@@ -55,7 +55,8 @@ public class DeskBean implements Serializable{
 	private Panel pnlFrames; 
 
 	private String COMPONENT_LIBRARY = "componentes/ebos";
-	private String FRAME_SUFFIX = "_fra";
+	private String PNGFRAME_PREFIX = "png_";
+	private String FRAME_PREFIX = "fra_";
 	private String WIDGET_PREFIX = "wgtOption_";
 	private String FRAME_RESOURCE = "frame.xhtml";
 		
@@ -115,11 +116,13 @@ public class DeskBean implements Serializable{
 	}
     
     private void buildPnlFrameList(){
+    	FacesContext context = FacesContext.getCurrentInstance();
     	pnlFrames.getChildren().clear();
     	int maxOptions = sessionBean.getUsuario().getMaxOptions();
     	for (int i = 0; i < maxOptions; i++) {
     		HtmlPanelGroup pngFrame = new HtmlPanelGroup();
-    		pngFrame.setId(FacesUtils.getRandomId());
+    		//pngFrame.setId(PNGFRAME_PREFIX+FacesUtils.getRandomId());
+    		pngFrame.setId(PNGFRAME_PREFIX+context.getViewRoot().createUniqueId());
     		pnlFrames.getChildren().add(pngFrame);
 		}
     }
@@ -161,7 +164,8 @@ public class DeskBean implements Serializable{
 	    		attrs.put("widgetVar", WIDGET_PREFIX+pngFrame);
 	            attrs.put("src", option.getTarget());
 	            attrs.put("header", option.getEtiqueta());
-        		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, pngFrame.getId()+FRAME_SUFFIX+FacesUtils.getRandomId(), attrs);
+	            attrs.put("parentId", pngFrame.getId());
+        		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, FRAME_PREFIX+context.getViewRoot().createUniqueId(), attrs);
         		requestContext.addCallbackParam("pngFrameId",pngFrame.getId());
             } catch(Exception ex){
             	pngFrame.getChildren().clear();
@@ -171,26 +175,12 @@ public class DeskBean implements Serializable{
     }
 	
 	/**
-	 * Actualiza el pngFrame del frame actual
-	 * @param pngFrameId
-	 */
-	@SuppressWarnings("rawtypes")
-	public void updateFrame(){
-		FacesContext context = FacesContext.getCurrentInstance();
-		//Obtiene el parametro pngFrameId
-	    Map map = context.getExternalContext().getRequestParameterMap();
-	    String pngFrameCompId = (String) map.get("pngFrameId");
-		RequestContext.getCurrentInstance().update(pngFrameCompId);
-	}
-	
-	/**
 	 * Elimina el frame del contenedor pngFrame actual 
 	 * 
 	 * @param event Frame 
 	 */
 	public void closeFrame(CloseEvent event){
-		String frameId = event.getComponent().getId();
-		String pngFrameId = frameId.substring(0, frameId.indexOf(FRAME_SUFFIX));
+		String pngFrameId = event.getComponent().getParent().getParent().getParent().getId();
 		try{
 			for(UIComponent pngFrame : pnlFrames.getChildren()){
 				if(pngFrame.getId().equals(pngFrameId)){
