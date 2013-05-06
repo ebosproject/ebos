@@ -48,19 +48,23 @@
         	modal="#{cc.attrs.modal}" 
         	draggable="false">
 
-			<p:outputPanel id="content" autoUpdate="true" >
-				<f:subview>
+			<p:outputPanel id="content" >
+				<f:subview id="sbv">
 					<ui:include src="#{cc.attrs.src}">
 						<ui:param name="frameId" value="dlg"/>
 					</ui:include>
 				</f:subview>
        		</p:outputPanel>
 
-			<p:ajax event="close" listener="#{deskBean.closeFrame}" />
+			<p:ajax event="close" onstart="rmc#{cc.attrs.id}Destroy(); rmc#{cc.attrs.id}Close();" />
+			<h:form id="frmActions" prependId="false">
+				<p:remoteCommand id="rmcDestroy" name="rmc#{cc.attrs.id}Destroy" actionListener="#{deskBean.closeFrame}"/>
+				<p:remoteCommand id="rmcClose" name="rmc#{cc.attrs.id}Close" actionListener="#{bean.destroy}"/>
+			</h:form>
 			<p:draggable for="dlg" 
 		        opacity="0.5" 
 		        dragOnly="true" 
-		        handle="" 
+		        handle=".ui-dialog-titlebar" 
 		        containment="#center"/>	       		
         </p:dialog>
         

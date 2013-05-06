@@ -16,11 +16,12 @@ public abstract class MasterBean<T extends Entidad<T>> extends RootBean<T> {
 
 	private static final long serialVersionUID = -5560084142240463124L;
 
-	public MasterBean() {
-        super();
-    }
-
 	@Getter @Setter
     @ManagedProperty(value = "#{masterS}")
     protected MasterS masterS;
+	
+	public MasterBean() {
+        super();
+    }
+	
 }

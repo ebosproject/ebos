@@ -3,8 +3,8 @@ package ec.com.ebos.master.web.jsf.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import ec.com.ebos.master.model.Bundle;
@@ -16,8 +16,7 @@ import ec.com.ebos.util.GenericUtils;
  * @since 2013-03-24
  */
 @ManagedBean(name = BundleBean.BEAN_NAME)
-//@SessionScoped
-@ViewScoped
+@ConversationScoped
 public class BundleBean extends MasterBean<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;

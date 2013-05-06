@@ -11,8 +11,8 @@
 				$('#frmHome a').mouseup(function(event){jsPreventDefault(event, this)});
 				function jsUpdPngFrame(xhr, status, args) {
 					if(args != null){
-						if(args.pngFrameId != null){								
-							PrimeFaces.ajax.AjaxRequest({source:'pnlFrames',update:args.pngFrameId});
+						if(args.pngFrameId != null){
+							PrimeFaces.ajax.AjaxRequest({source:'pnlFrames',process:'args.pngFrameId',update:args.pngFrameId});
 						}
 					}
 				}

@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.Conversation;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.event.ActionEvent;
+import javax.inject.Inject;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,10 +37,13 @@ import ec.com.ebos.util.type.JsfMessage;
  *
  * @author Eduardo Plua Alay
  */
-    public abstract class RootBean<T extends Entidad<T>> implements Serializable, JsfMessage{
+public abstract class RootBean<T extends Entidad<T>> implements Serializable, JsfMessage{
 
 	private static final long serialVersionUID = 6416663507886628619L;
 
+	@Inject
+    private Conversation conversation;
+	
 	@Getter @Setter
     @ManagedProperty(value = SessionBean.EL_BEAN_NAME)
     protected SessionBean sessionBean;
@@ -78,13 +84,15 @@ import ec.com.ebos.util.type.JsfMessage;
     
     @Getter @Setter
     protected Long paramId;
-                
+    
+    private boolean loaded = true;
+    
     public RootBean() {
         initTarget();
     }
     
     public void _buscar(){
-    	//TODO (epa): Limpiar numero de registros en el datalist para que funcione la busqueda del queryTemplate
+    	loaded = false;
     }
     
     public String _crear(){
@@ -146,55 +154,45 @@ import ec.com.ebos.util.type.JsfMessage;
     }
 
     @PostConstruct
-    public void postConstruct() {        
+    public void postConstruct() {
+    	conversation.begin();
         setHabilitaCrear();
         setHabilitaEditar();
         setHabilitaExportar();
         getInit();
         habilitaControles();
     }
+	
+	public void destroy(ActionEvent event) {
+        conversation.end();
+    }
     
-    @Getter //TODO (epa): Optimizar pagination en LazyDataModel
+    @Getter
     protected final LazyDataModel<T> dataTable = new LazyDataModel<T>() {                   
                         
 		private static final long serialVersionUID = -5130944051776981116L;
 
 		private Pagination pagination = new Pagination();
-		
-		private List<T> data = new ArrayList<T>();
-
+		private List<T> data = new ArrayList<T>(0);
+			
 		@Override
         public List<T> load(int first, int pageSize, String sortField,
                 SortOrder sortOrder, Map<String, String> filters) {
+			
 			pagination.setFirst(first);
 			pagination.setPageSize(pageSize);
 			pagination.setSortField(sortField);
 			pagination.setSortOrder(sortOrder);
 			pagination.setFilters(filters);
 			
-            data = loadDataTableCollection(entitySearch, pagination);
+			data = !loaded?loadDataTableCollection(entitySearch, pagination): new ArrayList<T>();
+            
             this.setRowCount(pagination.getRowCount());
             if(data != null && !data.isEmpty()){
             	activeEntity = data.get(0);
-            }            
-            return data;
-            //rowCount  
-//            int dataSize = data.size();
-//            this.setRowCount(dataSize);
-              
-
-            //paginate  
-//            if(dataSize > pageSize) {  
-//                try {  
-//                    return data.subList(first, first + pageSize);  
-//                }  
-//                catch(IndexOutOfBoundsException e) {  
-//                    return data.subList(first, first + (dataSize % pageSize));  
-//                }  
-//            }  
-//            else {  
-//                return data;  
-//            }                          
+            }           
+            loaded = true;
+            return data;                        
         }
         
         @Override
