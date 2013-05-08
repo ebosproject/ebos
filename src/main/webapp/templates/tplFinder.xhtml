@@ -107,16 +107,19 @@
     </pe:layout>
     
     <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytFinder" />
-	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" width="530" 
+    
+	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" height="350" width="600" appendToBody="true" 
 		showEffect="fade" hideEffect="fade" draggable="true" onHide="#{wgtBUI}.hide()">
-    	<h:panelGrid id="pnlE" columns="2" cellpadding="4">  
-    		<h:outputText value="#{bean.activeEntity.id}" />
-        </h:panelGrid>
+   		<p:outputPanel id="pnlE">  
+			<ui:insert name="master"/>
+		</p:outputPanel>    		
     </p:dialog>
+    
     <p:draggable for="dlgE" 
 	        opacity="0.5" 
-	        dragOnly="true" 
+	        dragOnly="true"
 	        handle=".ui-dialog-titlebar" 
 	        containment="#center"/>
+	        <!-- handle=".ui-dialog-titlebar" -->
 	
 </ui:composition>

@@ -6,32 +6,42 @@
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
                 xmlns:pe="http://primefaces.org/ui/extensions">
                 
-    <ui:param name="showAuditoria" value="true" />
-    <ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
-    <ui:param name="wgtE" value="wgtE#{frameId}" />            
-	
-	<pe:layout id="lytFinder" fullPage="false" style="height:100%; width:100%;" options="#{lytOptions.master}">
+ 
+	<pe:layout id="lytMaster" fullPage="false" style="height:100%; width:100%;" options="#{lytOptions.master}">
 		<pe:layoutPane position="north">
-       		
+       		<h:form id="frmHead">            
+	            <p:toolbar id="toolBarContent">
+	                <p:toolbarGroup align="left">
+	                    <p:commandButton id="btnNuevo" rendered="#{bean.habilitaCrear}" update=":#{frameId}:lypCenter" process="@this" partialSubmit="true"
+	                                     value="#{msg.ebNuevo}" actionListener="#{bean._crear}" icon="ui-icon-document"/>
+	                    <p:commandButton id="btnGuardar" value="#{msg.ebGuardar}" action="#{bean._guardar}" rendered="#{bean.habilitaEditar}"
+	                                     icon="ui-icon-disk" update=""/> 
+	                    <p:commandButton id="btnEliminar" immediate="true" type="push" value="#{msg.ebEliminar}" rendered="#{bean.habilitaEliminar}"
+	                                     action="#{bean._eliminar}" icon="ui-icon-trash" ajax="false"/>
+	                </p:toolbarGroup>
+	                <p:toolbarGroup align="right">
+	                    <p:commandButton id="btnActualizar" action="#{bean._actualizar}" icon="ui-icon-refresh" update="" title="#{msg.ebActualizar}" rendered="#{bean.habilitaActualizar}"/>
+	                </p:toolbarGroup>
+	            </p:toolbar>                     
+	        </h:form>	
          </pe:layoutPane>
-         <pe:layoutPane position="center">
-            
+         <pe:layoutPane id="lypCenter" position="center">
+            <pe:layoutPane position="center" >
+            	<ui:insert name="header"/>	        	
+	        </pe:layoutPane>
+	        <pe:layoutPane position="south">
+	        	<ui:insert name="detail"/>
+	        </pe:layoutPane>
        	 </pe:layoutPane>
-         <pe:layoutPane position="west">
+         <pe:layoutPane position="west" rendered="false">
          	
          </pe:layoutPane>
          <pe:layoutPane position="east" rendered="false">
-	        <pe:layoutPane position="center">
-	        	
-	        </pe:layoutPane>
-	        <pe:layoutPane position="south">
-	        	
-	        </pe:layoutPane>
+	        
          </pe:layoutPane>
          <pe:layoutPane position="south">
          	
          </pe:layoutPane>
     </pe:layout>
-    
    
 </ui:composition>

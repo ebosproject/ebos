@@ -87,11 +87,11 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     	
     }
     
-    public String _crear(){
+    public void _crear(){
         crear();
         habilitaControles();
         habilitaEliminar = false;
-        return TARGET_NEW_ID;
+        //return TARGET_NEW_ID;
     }
     
     protected void crear(){        
