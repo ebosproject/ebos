@@ -6,10 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.Conversation;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.event.ActionEvent;
-import javax.inject.Inject;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,9 +38,6 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
 
 	private static final long serialVersionUID = 6416663507886628619L;
 
-	@Inject
-    private Conversation conversation;
-	
 	@Getter @Setter
     @ManagedProperty(value = SessionBean.EL_BEAN_NAME)
     protected SessionBean sessionBean;
@@ -85,14 +79,12 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     @Getter @Setter
     protected Long paramId;
     
-    private boolean loaded = true;
-    
     public RootBean() {
         initTarget();
     }
     
     public void _buscar(){
-    	loaded = false;
+    	
     }
     
     public String _crear(){
@@ -155,7 +147,6 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
 
     @PostConstruct
     public void postConstruct() {
-    	conversation.begin();
         setHabilitaCrear();
         setHabilitaEditar();
         setHabilitaExportar();
@@ -163,9 +154,10 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
         habilitaControles();
     }
 	
-	public void destroy(ActionEvent event) {
-        conversation.end();
+    public void destroy(String beanName){
+    	FacesUtils.removeViewScopedBean(beanName);
     }
+     
     
     @Getter
     protected final LazyDataModel<T> dataTable = new LazyDataModel<T>() {                   
@@ -173,7 +165,7 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
 		private static final long serialVersionUID = -5130944051776981116L;
 
 		private Pagination pagination = new Pagination();
-		private List<T> data = new ArrayList<T>(0);
+		private List<T> data = new ArrayList<T>();
 			
 		@Override
         public List<T> load(int first, int pageSize, String sortField,
@@ -185,13 +177,12 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
 			pagination.setSortOrder(sortOrder);
 			pagination.setFilters(filters);
 			
-			data = !loaded?loadDataTableCollection(entitySearch, pagination): new ArrayList<T>();
+			data = loadDataTableCollection(entitySearch, pagination);
             
             this.setRowCount(pagination.getRowCount());
             if(data != null && !data.isEmpty()){
             	activeEntity = data.get(0);
             }           
-            loaded = true;
             return data;                        
         }
         
@@ -204,6 +195,14 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
         public Object getRowKey(T entity) {
             return entity.getId();
         }
+        
+        @Override
+        public void setRowIndex(int rowIndex) {
+        	if ( rowIndex == -1 || getPageSize() == 0 ) {
+        	    super.setRowIndex( -1 );
+        	   } else
+    	    super.setRowIndex( rowIndex % getPageSize() );
+        };
     };
     
     protected List<T> loadDataTableCollection(T entity, Pagination pagination) {

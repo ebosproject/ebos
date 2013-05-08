@@ -111,5 +111,13 @@ public class FacesUtils {
         return new MethodExpressionActionListener(context.getApplication().getExpressionFactory()
             .createMethodExpression(context.getELContext(), actionListenerExpression, null, new Class[] {ActionEvent.class}));
     }
+    
+    /**
+     * Remueve un bean ViewScope del ViewRoot
+     * @param beanName
+     */
+    public static void removeViewScopedBean(String beanName){
+      FacesContext.getCurrentInstance().getViewRoot().getViewMap().remove(beanName);
+    }
 
 }

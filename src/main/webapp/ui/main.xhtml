@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<f:view contentType="text/html"
+    	xmlns="http://www.w3.org/1999/xhtml"
+      	xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:p="http://primefaces.org/ui"
+      	xmlns:ui="http://java.sun.com/jsf/facelets"
+      	xmlns:pe="http://primefaces.org/ui/extensions">
+	
+	<pe:head title="#{msg.systemName}" shortcutIcon="resources/images/ebos-ico.png">
+        <f:facet name="first">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta http-equiv="pragma" content="no-cache"/>
+            <meta http-equiv="cache-control" content="no-cache"/>
+            <meta http-equiv="expires" content="0"/>
+        </f:facet>
+		<script type="text/javascript">//<![CDATA[
+		    window.history.forward(1);            
+		    var $ = jQuery.noConflict();   
+		//]]>
+		</script>
+		<style type="text/css">
+			#ajaxErrorHandlerDialog\:modal {
+                background: #f60;
+            }
+        </style>
+	</pe:head>
+    <h:body>
+   		<ui:include id="loading" src="loading.xhtml" />
+        <h:panelGroup id="pngWelcome">
+       		<ui:fragment rendered="#{not sessionBean.login}">
+       			<ui:include src="login.xhtml" />
+          	</ui:fragment>
+		</h:panelGroup>
+	
+		<h:panelGroup id="pngHome">
+			<ui:fragment rendered="#{sessionBean.login}">
+				<ui:include src="desk.xhtml" />	            
+        	</ui:fragment>
+        </h:panelGroup>
+        
+        <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
+        <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
+        <h:outputScript library="primefaces" name="jquery/jquery.js" />
+        <h:outputScript library="js" name="scripts.js" />
+        <h:outputStylesheet library="css" name="global.css"/>
+	    <h:outputStylesheet library="css" name="layout.css"/>
+	    <h:outputStylesheet library="css" name="usecases.css"/>
+	    <h:outputStylesheet library="css" name="themeSwitcher.css"/>
+	    <h:outputScript library="js" name="menu.js" target="head"/>
+        <h:outputStylesheet library="syntaxhighlighter" name="styles/syntaxhighlighter.css"/>
+        <h:outputScript library="syntaxhighlighter" name="scripts/shCore.js" target="body"/>
+        <h:outputScript library="syntaxhighlighter" name="scripts/shBrushXml.js" target="body"/>
+        <h:outputScript library="syntaxhighlighter" name="scripts/shBrushJava.js" target="body"/>
+        <h:outputScript library="syntaxhighlighter" name="scripts/shBrushCss.js" target="body"/>
+        <h:outputScript library="syntaxhighlighter" name="scripts/shBrushJScript.js" target="body"/>
+        <h:outputScript id="syntaxhighlighterInit" target="body">
+            dp.SyntaxHighlighter.ClipboardSwf = '#{request.contextPath}/resources/syntaxhighlighter/scripts/clipboard.swf';
+            dp.SyntaxHighlighter.HighlightAll('code');
+        </h:outputScript>
+        
+        <pe:ajaxErrorHandler button="#{msg.systemCloseWarning}" widgetVar="myAjaxErrorHandler" buttonOnclick="myAjaxErrorHandler.hide(); return false;">
+		    <div>
+		        <h2 class="ui-dialog-titlebar" style="border-bottom: 2px solid blue; border-top: 2px solid blue;padding: 15px; text-align:center;background:#ccc;">
+		            Error <span style="color: red;">{error-name}</span>
+		        </h2>
+				<div class="ui-dialog-content">
+					<p:panel header="Base information" toggleable="true">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Error message:" />
+							<h:outputText value="{error-message}" style="font-size: 1.2em;color:navy;" />
+		
+							<h:outputLabel value="Server name:" />
+							<h:outputText value="{error-hostname}"  style="font-size: 1.2em;color:navy;"/>
+						</h:panelGrid>
+					</p:panel>
+					<p:panel header="Exception details" toggleable="true">
+						<div style="overflow: auto; height: 300px; width: 440px;">
+							{error-stacktrace}
+						</div>
+					</p:panel>
+		
+					<div style="text-align  :center; padding: 5px;">
+						<p:commandButton onclick="window.location.href=window.location.href; return false;" value="#{msg.systemReload}"/>
+						<p:commandButton onclick="myAjaxErrorHandler.hide(); return false;" value="{msg.systemClose}"/>
+					</div>
+				</div>
+		    </div>
+		</pe:ajaxErrorHandler>
+     </h:body>
+</f:view>

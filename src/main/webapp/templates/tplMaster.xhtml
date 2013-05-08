@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+                xmlns:pe="http://primefaces.org/ui/extensions">
+                
+    <ui:param name="showAuditoria" value="true" />
+    <ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
+    <ui:param name="wgtE" value="wgtE#{frameId}" />            
+	
+	<pe:layout id="lytFinder" fullPage="false" style="height:100%; width:100%;" options="#{lytOptions.master}">
+		<pe:layoutPane position="north">
+       		
+         </pe:layoutPane>
+         <pe:layoutPane position="center">
+            
+       	 </pe:layoutPane>
+         <pe:layoutPane position="west">
+         	
+         </pe:layoutPane>
+         <pe:layoutPane position="east" rendered="false">
+	        <pe:layoutPane position="center">
+	        	
+	        </pe:layoutPane>
+	        <pe:layoutPane position="south">
+	        	
+	        </pe:layoutPane>
+         </pe:layoutPane>
+         <pe:layoutPane position="south">
+         	
+         </pe:layoutPane>
+    </pe:layout>
+    
+   
+</ui:composition>

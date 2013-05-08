@@ -50,25 +50,6 @@
 	<p:growl id="grwHome" autoUpdate="true" sticky="true" widgetVar="wgtGrwHome" life="5000" showDetail="true"/>
 	<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
 	<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" /> 
-	
-    <p:dialog id="dlgAbout" header="#{msg.systemAbout}"  height="320px" width="550px" closeOnEscape="true" 
-    	modal="true" draggable="false" widgetVar="wgtAbout" showEffect="fade" hideEffect="fade" resizable="false">
-		<h:form>
-			<h:panelGrid style="width:100%;text-align:center;">
-				<p:graphicImage value="resources/images/ebos.png" />
-				<h:outputText value="#{msg.systemName}" style="font-size:16px;"/>
-				<h:outputText value="#{msg.systemVersion}" />
-			</h:panelGrid>
-			<h:panelGrid>
-				<h:outputText value="#{msg.ebAuthors}" style="color:black; font-size:13px; text-decoration:underline;"/>
-				<h:outputText value="#{msg.devEPA}"/>
-				<h:outputText value="#{msg.devVVC}"/>
-			</h:panelGrid>
-			<h:panelGrid style="width:100%; text-align:center;">	
-				<h:outputText value="#{msg.systemCopyright}" />
-				<p:commandButton type="button" value="OK" onclick="wgtAbout.hide()" />
-			</h:panelGrid>
-		</h:form>
-	</p:dialog>
+    <ui:include id="secAbout" src="about.xhtml" /> 
 	
 </ui:composition>

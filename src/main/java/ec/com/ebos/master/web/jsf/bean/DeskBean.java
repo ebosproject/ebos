@@ -159,7 +159,7 @@ public class DeskBean implements Serializable{
     	UIComponent pngFrame = getPngFrame();
     	if(pngFrame != null){
     		pngFrame = context.getViewRoot().findComponent(pngFrame.getId());
-            try{
+//            try{
             	Map<String, Object> attrs = new TreeMap<String, Object>();
 	    		attrs.put("widgetVar", WIDGET_PREFIX+pngFrame);
 	            attrs.put("src", option.getTarget());
@@ -167,10 +167,10 @@ public class DeskBean implements Serializable{
 	            attrs.put("parentId", pngFrame.getId());
         		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, FRAME_PREFIX+context.getViewRoot().createUniqueId(), attrs);
         		requestContext.addCallbackParam("pngFrameId",pngFrame.getId());
-            } catch(Exception ex){
-            	pngFrame.getChildren().clear();
-            	sessionBean.putError("desktop.summary.loadoption", ex.getMessage());
-            }
+//            } catch(Exception ex){
+//            	pngFrame.getChildren().clear();
+//            	sessionBean.putError("desktop.summary.loadoption", ex.getMessage());
+//            }
     	}
     }
 	

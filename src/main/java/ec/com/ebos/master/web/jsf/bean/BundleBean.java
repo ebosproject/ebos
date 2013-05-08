@@ -3,8 +3,8 @@ package ec.com.ebos.master.web.jsf.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.ConversationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import ec.com.ebos.master.model.Bundle;
@@ -16,11 +16,12 @@ import ec.com.ebos.util.GenericUtils;
  * @since 2013-03-24
  */
 @ManagedBean(name = BundleBean.BEAN_NAME)
-@ConversationScoped
+@ViewScoped
 public class BundleBean extends MasterBean<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
 	
+	@Getter
 	public static final String BEAN_NAME = "bundleBean";
 
 	@Override
@@ -47,7 +48,7 @@ public class BundleBean extends MasterBean<Bundle> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/master/bundle/finder.xhtml";
+        TARGET_ID = "/modules/master/bundle/finder.xhtml";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
@@ -85,6 +86,6 @@ public class BundleBean extends MasterBean<Bundle> {
     
     //////////////////////// DATALIST ///////////////////////////////
     @Getter
-    public final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);
+    protected final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);
     
 }

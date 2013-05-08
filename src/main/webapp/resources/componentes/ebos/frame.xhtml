@@ -15,6 +15,7 @@
         <cc:attribute name="visible" type="java.lang.Boolean" default="true"/>
         <cc:attribute name="dynamic" type="java.lang.Boolean" default="true"/>
         <cc:attribute name="modal" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="draggable" type="java.lang.Boolean" default="false"/>
         <cc:attribute name="src" type="java.lang.String"/>
         <cc:attribute name="onHide" type="java.lang.String"/>
         <cc:attribute name="onShow" type="java.lang.String"/>
@@ -25,6 +26,7 @@
         <cc:attribute name="showEffect" type="java.lang.String" default="fade"/>
         <cc:attribute name="header" type="java.lang.String"/>
         <cc:attribute name="update" type="java.lang.String"/>
+        <!-- <cc:attribute name="footer" /> -->
         <cc:attribute name="width" type="int" default="700"/>
         <cc:attribute name="height" type="int" default="450"/>
     </cc:interface>
@@ -46,23 +48,16 @@
         	hideEffect="#{cc.attrs.hideEffect}"
         	showEffect="#{cc.attrs.showEffect}"
         	modal="#{cc.attrs.modal}" 
-        	draggable="false">
+        	draggable="#{cc.attrs.draggable}">
+        	
+			<ui:include src="#{cc.attrs.src}">
+				<ui:param name="frameId" value="#{cc.attrs.id}"/>
+			</ui:include>
 
-			<p:outputPanel id="content" >
-				<f:subview id="sbv">
-					<ui:include src="#{cc.attrs.src}">
-						<ui:param name="frameId" value="dlg"/>
-					</ui:include>
-				</f:subview>
-       		</p:outputPanel>
-
-			<p:ajax event="close" onstart="rmc#{cc.attrs.id}Destroy(); rmc#{cc.attrs.id}Close();" />
-			<h:form id="frmActions" prependId="false">
-				<p:remoteCommand id="rmcDestroy" name="rmc#{cc.attrs.id}Destroy" actionListener="#{deskBean.closeFrame}"/>
-				<p:remoteCommand id="rmcClose" name="rmc#{cc.attrs.id}Close" actionListener="#{bean.destroy}"/>
-			</h:form>
+			<p:ajax event="close" listener="#{deskBean.closeFrame}" />
+			
 			<p:draggable for="dlg" 
-		        opacity="0.5" 
+		        opacity="0.2" 
 		        dragOnly="true" 
 		        handle=".ui-dialog-titlebar" 
 		        containment="#center"/>	       		

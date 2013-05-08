@@ -1,0 +1,21 @@
+<!-- Archivo de ejemplo de configuracion "settings.xml" maven en eclipse-->
+<!-- <settings>
+	<localRepository>E:\work\.m2\repository</localRepository>
+	<interactiveMode />
+	<usePluginRegistry />
+	<offline />
+	<proxies>		
+		<proxy>
+			<active>true</active>
+			<protocol>http</protocol>
+			<host>192.168.1.253</host>
+			<port>3128</port>
+			<nonProxyHosts>localhost</nonProxyHosts>
+		</proxy>
+	</proxies>
+	<servers />
+	<mirrors/>
+	<profiles/>
+	<activeProfiles/>
+	<pluginGroups />
+</settings> -->

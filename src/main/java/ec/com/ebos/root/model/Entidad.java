@@ -81,25 +81,25 @@ public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Seriali
     
     @Transient
     public Date getFechaCreacion(){
-    	return getAuditoria() != null ? getAuditoria().getCreacion() : null;
+    	return getAuditoria() != null ? getAuditoria().getCreado() : null;
     }
     
     @Transient
     public void setFechaCreacion(Date fechaCreacion){
     	if(getAuditoria() != null){
-    		getAuditoria().setCreacion(fechaCreacion);
+    		getAuditoria().setCreado(fechaCreacion);
     	}
     }
     
     @Transient
     public Date getFechaModificacion(){
-    	return getAuditoria() != null ? getAuditoria().getModificacion() : null;
+    	return getAuditoria() != null ? getAuditoria().getModificado() : null;
     }
     
     @Transient
     public void setFechaModificacion(Date fechaModificacion){
     	if(getAuditoria() != null){
-    		getAuditoria().setModificacion(fechaModificacion);
+    		getAuditoria().setModificado(fechaModificacion);
     	}
     }
 
