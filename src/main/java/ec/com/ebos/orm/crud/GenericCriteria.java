@@ -220,7 +220,26 @@ public class GenericCriteria<T> implements Serializable {
 		return addEquals(propertyName, value, false);
 	}
 
-//	public <P, V extends P> GenericCriteria<T> addSafeEquals(P property, V value) {
+	public GenericCriteria<T> addLT(String propertyName, Object value) {
+		criteria.add(Restrictions.lt(propertyName, value));
+		return this;
+	}
+
+	public GenericCriteria<T> addGT(String propertyName, Object value) {
+		criteria.add(Restrictions.gt(propertyName, value));
+		return this;
+	}
+
+	public GenericCriteria<T> addLE(String propertyName, Object value) {
+		criteria.add(Restrictions.le(propertyName, value));
+		return this;
+	}
+
+	public GenericCriteria<T> addGE(String propertyName, Object value) {
+		criteria.add(Restrictions.ge(propertyName, value));
+		return this;
+	}
+	//	public <P, V extends P> GenericCriteria<T> addSafeEquals(P property, V value) {
 //		Argument<P> arg = Lambda.argument(property);
 //		return addEquals(arg.getInkvokedPropertyName(), value, false);
 //	}

@@ -20,6 +20,17 @@
     margin:0 2px;
 }
 
+.ebosIcon {
+    display:inline-block;
+    /*background-color:#900000;*/
+    background-image:url("/ebos/resources/images/ebosIcon.png");
+    background-position:left top;
+    background-repeat:no-repeat;
+    border:1px solid #C0C0C0;
+    padding-left: 36px;
+    margin:0 2px;
+}
+
 .classdiv{
     bottom: auto;
     display: block;

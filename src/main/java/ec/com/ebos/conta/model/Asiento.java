@@ -18,6 +18,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.conta.model.field.AsientoDetalle_;
+import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.TipoDocumento;
 import ec.com.ebos.root.model.field.Entidad_;
 
@@ -47,6 +48,18 @@ public class Asiento extends Contabilidad<Asiento> {
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_empresa")
+    private Organizacion empresa;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_punto_venta")
+    private Organizacion puntoVenta;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_periodo")
+    private Periodo periodo;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_documento")
     private TipoDocumento tipoDocumento;
