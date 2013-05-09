@@ -9,16 +9,16 @@
 	<h:form id="frmDashboard">
 		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;">
             <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}"/>
-			<p:panel id="bundle" header="#{msg.ebBundle}">
+			<p:panel id="bundle" title="#{msg.ebBundle}" style="width:64px">
 				<p:commandButton value="#{msg.ebBundle}" onclick="alert('En desarrollo');"/>
 			</p:panel>
-			<p:panel id="usuario" header="#{msg.ebUsuario}">
+			<p:panel id="usuario" title="#{msg.ebUsuario}" style="width:64px">
 				<p:commandButton value="#{msg.ebOpcion}" onclick="alert('En desarrollo');"/>
 			</p:panel>
-			<p:panel id="rol" header="#{msg.ebRol}">
+			<p:panel id="rol" title="#{msg.ebRol}" style="width:64px">
                	<p:commandButton value="#{msg.ebRol}" onclick="alert('En desarrollo');"/>
 			</p:panel>
-			<p:panel id="opcion" header="#{msg.ebOpcion}">
+			<p:panel id="opcion" title="#{msg.ebOpcion}" style="width:64px">
 				<p:commandButton value="#{msg.ebOpcion}" onclick="alert('En desarrollo');"/>
 			</p:panel>
 		</p:dashboard>

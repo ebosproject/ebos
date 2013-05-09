@@ -3,8 +3,8 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
-		
-	<p:log id="logger" widgetVar="wgtLogger" rendered="#{sessionBean.usuario.username eq 'admin'}"/>
+<ui:remove>		
+	<p:log id="logger" widgetVar="wgtLogger" rendered="false and #{sessionBean.usuario.username eq 'admin'}"/>
 	<p:draggable for="logger" opacity="0.5" dragOnly="true"/>
 	<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
 		<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star" process="@none"/>
@@ -49,5 +49,5 @@
 	<p:growl id="grwHome" autoUpdate="true" sticky="true" widgetVar="wgtGrwHome" life="5000" showDetail="true"/>
 	<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
 	<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" /> 
-	
+</ui:remove>	
 </ui:composition>
