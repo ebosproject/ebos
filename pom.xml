@@ -8,7 +8,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>ebos</name>
-	<url>http://subversion.assembla.com/git/ebos</url>
+	<url>https://git.assembla.com/git/ebos</url>
 	
 	<description>eBos - Ecuadorian Business Operations System</description>
 	
@@ -46,17 +46,24 @@
     </developers>
 
 	<repositories>
-		<repository>
-            <id>prime-repo-new</id>
-            <name>PrimeFaces Maven Repository</name>
-            <url>http://repository.primefaces.org</url>
-        </repository>
-        <repository>
+        <!-- <repository>
 			<id>jboss-public-repository-group</id>
 			<name>JBoss Public Repository Group</name>
 			<url>http://repository.jboss.org/nexus/content/groups/public</url>
 			<layout>default</layout>
-		</repository>				
+		</repository> -->
+		<repository>
+            <id>prime-repo-new</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
+		 <repository>
+            <id>prime-ext-repo</id>
+            <name>Sonatype Maven Repository</name>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <layout>default</layout>
+        </repository>				
 		<repository>
 			<id>java.net-maven2</id>
 			<name>java.net - Maven 2</name>
@@ -926,7 +933,7 @@
             <version>1.7.5</version>
         </dependency>
         
-        <!--PRIMEFACES THEMES-->
+        <!--PRIMEFACES AND PRIME-EXTENSIONS-->
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
