@@ -33,6 +33,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Table(name = Bundle.TABLE_NAME, schema = Master.SCHEMA,
 	uniqueConstraints = @UniqueConstraint(columnNames={Bundle_.codigo, Bundle_.localidad}))
 @Data @EqualsAndHashCode(callSuper=false)
+@org.hibernate.annotations.Entity(dynamicUpdate = true)
 public class Bundle extends Master<Bundle>{
 
 	private static final long serialVersionUID = -2896367216397132540L;

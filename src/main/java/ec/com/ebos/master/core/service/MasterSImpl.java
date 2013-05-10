@@ -53,6 +53,10 @@ public class MasterSImpl implements MasterS{
 		return masterP.buildBundle();
 	}
 	
+	public Bundle loadBundle(Long id){
+		return masterP.loadBundle(id);
+	}
+	
 	@Override
 	public Bundle saveBundle(Bundle messageResource) {
         return masterP.saveBundle(messageResource);

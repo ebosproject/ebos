@@ -12,7 +12,7 @@
 	
 	<pe:layout id="lytFinder" fullPage="false" style="height:100%; width:100%;" options="#{lytOptions.finder}">
 		<pe:layoutPane position="north">
-       		<h:form id="frmTF">
+       		<h:form id="frmT">
                  <p:toolbar style="overflow:hidden !important;">
 		           	<p:toolbarGroup align="left">
 			           	<p:commandButton id="btnSearch" value="#{msg.ebBuscar}" actionListener="#{bean._buscar}"
@@ -79,7 +79,7 @@
 				        <eb:outputDate value="#{reg.fechaModificacion}" title="#{msg.ebPor}: #{reg.usuarioModificacion.username}"/>
 				    </p:column>            
 		     	</p:dataTable>
-		     	<p:blockUI block="dtR" trigger=":#{frameId}:frmTF:btnSearch" />
+		     	<p:blockUI block="dtR" trigger=":#{frameId}:frmT:btnSearch" />
 		    </h:form> 	
        	 </pe:layoutPane>
          <pe:layoutPane position="west">

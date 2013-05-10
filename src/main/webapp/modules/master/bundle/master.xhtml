@@ -12,11 +12,12 @@
 	    <eb:panelGrid id="pnlBundle" columns="2">        
 	                
 	       <eb:outputText id="id" value="#{bundle.id}" label="#{msg.ebId}"/>                
-	       <eb:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" label="#{msg.ebLocalidad}" required="true">
+	       <!-- <eb:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" label="#{msg.ebLocalidad}" required="true">
 	            <f:selectItem itemLabel ="#{msg.ebSeleccionaUno}" itemValue="" />
 	            <f:selectItems value="#{bunbleBean.localidadList}" var="opc"
 	                itemLabel="#{opc.label}" itemValue="#{opc}"/>
 	        </eb:selectOneMenu>
+	         -->
 	       <eb:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.ebCodigo}" required="true" maxlength="50"/>
 	       <eb:inputText id="valor" value="#{bundle.valor}" label="#{msg.ebValor}" required="true" maxlength="500"/>        
 	                

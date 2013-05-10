@@ -83,7 +83,7 @@ public interface FinderService extends FinderSQLService, SessionExpuestos{
 	 * 
 	 * @throws FinderException
 	 */
-	public <T> T findById(Serializable id, Class<T> entityType)
+	public <T> T get(Serializable id, Class<T> entityType)
 			throws FinderException;
 
 	/**

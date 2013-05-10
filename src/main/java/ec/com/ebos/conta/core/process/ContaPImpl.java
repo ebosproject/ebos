@@ -75,7 +75,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			} else {
 				//
 			}
-			saveOrUpdate(saldoCuentaContable);
+			saveOrMerge(saldoCuentaContable);
 		}
 		
 		return true;

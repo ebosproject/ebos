@@ -9,13 +9,13 @@
  
 	<pe:layout id="lytMaster" fullPage="false" style="height:100%; width:100%;" options="#{lytOptions.master}">
 		<pe:layoutPane position="north">
-       		<h:form id="frmHead">            
+       		<h:form id="frmTM">            
 	            <p:toolbar id="toolBarContent">
 	                <p:toolbarGroup align="left">
 	                    <p:commandButton id="btnNuevo" rendered="#{bean.habilitaCrear}" update=":#{frameId}:lypCenter" process="@this" partialSubmit="true"
 	                                     value="#{msg.ebNuevo}" actionListener="#{bean._crear}" icon="ui-icon-document"/>
 	                    <p:commandButton id="btnGuardar" value="#{msg.ebGuardar}" action="#{bean._guardar}" rendered="#{bean.habilitaEditar}"
-	                                     icon="ui-icon-disk" update=""/> 
+	                                     icon="ui-icon-disk" update="" process="@this,:#{frameId}:frmH"/> 
 	                    <p:commandButton id="btnEliminar" immediate="true" type="push" value="#{msg.ebEliminar}" rendered="#{bean.habilitaEliminar}"
 	                                     action="#{bean._eliminar}" icon="ui-icon-trash" ajax="false"/>
 	                </p:toolbarGroup>
@@ -26,9 +26,11 @@
 	        </h:form>	
          </pe:layoutPane>
          <pe:layoutPane id="lypCenter" position="center">
-            <pe:layoutPane position="center" >
-            	<ui:insert name="header"/>	        	
-	        </pe:layoutPane>
+         	<h:form id="frmH">
+	            <pe:layoutPane position="center" >
+	            	<ui:insert name="header"/>	        	
+		        </pe:layoutPane>
+	        </h:form>
 	        <pe:layoutPane position="south">
 	        	<ui:insert name="detail"/>
 	        </pe:layoutPane>

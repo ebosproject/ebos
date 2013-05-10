@@ -47,7 +47,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
             param.setFechaModificacion(fecha);
             param.setEstado(Entidad.Estado.ACTIVO);
         }
-        param = saveOrUpdate(param);
+        param = saveOrMerge(param);
         
         //Actualiza lista de parametros en el bean de aplicacion
         //getApp().getConfiguracion().setParametros(buildParametrosHash(obtenerParametrosList(null)));
@@ -64,7 +64,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @SuppressWarnings("unchecked")
 	@Override
     public Configuracion getConfiguracion() {                
-        Configuracion conf = findById(new Long(1), Configuracion.class);       
+        Configuracion conf = get(new Long(1), Configuracion.class);       
         conf.setParametros(buildParametrosHash(getParametrosList(null)));
         return conf;
     }

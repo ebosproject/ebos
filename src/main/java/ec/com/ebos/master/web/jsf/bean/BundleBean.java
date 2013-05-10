@@ -67,6 +67,7 @@ public class BundleBean extends MasterBean<Bundle> {
 
     @Override
     public void editar() {        
+    	//activeEntity = masterS.loadBundle(activeEntity.getId());
     }
     
     @Override

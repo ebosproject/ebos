@@ -75,7 +75,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 
     @Override
     public Usuario getUsuario(Long id) {
-        return findById(id, Usuario.class);
+        return get(id, Usuario.class);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
                 usuario.setEstado(Entidad.Estado.ACTIVO);
             }
 
-            usuario = saveOrUpdate(usuario);
+            usuario = saveOrMerge(usuario);
 
             putSuccess("usuario.success.guardar", usuario.getId());
 
@@ -155,7 +155,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         usuarioRol.setFechaCreacion(fecha);
         usuarioRol.setFechaModificacion(fecha);
         
-        saveOrUpdate(usuarioRol);
+        saveOrMerge(usuarioRol);
     }
 
     @Override
@@ -237,7 +237,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
             rol.setFechaModificacion(date);
             rol.setEstado(Entidad.Estado.ACTIVO);
         }
-        rol = saveOrUpdate(rol);
+        rol = saveOrMerge(rol);
         putSuccess("rol.success.guardar",rol.getId());
         return rol;
     }
@@ -275,7 +275,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         rolOpcion.setEliminar(false);
         rolOpcion.setExportar(false);        
         
-        saveOrUpdate(rolOpcion);
+        saveOrMerge(rolOpcion);
     }
   
     @Override
@@ -364,7 +364,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         if (!GenericUtils.isPersistent(opcion)) {
             opcion.setEstado(Entidad.Estado.ACTIVO);
         }
-        opcion = saveOrUpdate(opcion);
+        opcion = saveOrMerge(opcion);
         putSuccess("Opcion " + opcion.getId() + " guardado correctamente");
         return opcion;
     }
@@ -426,7 +426,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         if (!GenericUtils.isPersistent(objeto)) {
             objeto.setEstado(Entidad.Estado.ACTIVO);
         }
-        objeto = saveOrUpdate(objeto);
+        objeto = saveOrMerge(objeto);
         putSuccess("Objeto " + objeto.getId() + " guardado correctamente");
         return objeto;
     }
@@ -440,7 +440,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 
     @Override
     public Objeto getObjeto(Long id) {
-        return findById(id, Objeto.class);
+        return get(id, Objeto.class);
     }
     
 

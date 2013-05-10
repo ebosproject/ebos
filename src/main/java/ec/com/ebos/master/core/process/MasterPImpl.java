@@ -2,6 +2,7 @@ package ec.com.ebos.master.core.process;
 
 import java.util.List;
 
+import org.hibernate.event.LoadEventListener.LoadType;
 import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.master.exception.MasterException;
@@ -65,10 +66,15 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 		Bundle bundle = new Bundle();
         return bundle;
 	}
+	
+	@Override
+	public Bundle loadBundle(Long id) {
+        return load(id, Bundle.class);
+	}
 
 	@Override
 	public Bundle saveBundle(Bundle bundle) {
-		bundle = saveOrUpdate(bundle);
+		bundle = saveOrMerge(bundle);
         putSuccess("bundle.success.guardar", bundle.getId());
         return bundle;
 	}
@@ -112,7 +118,7 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 
 	@Override
 	public Propiedad savePropiedad(Propiedad propiedad){
-		propiedad = saveOrUpdate(propiedad);
+		propiedad = saveOrMerge(propiedad);
         putSuccess("propiedad.success.guardar", propiedad.getId());
         return propiedad;
 	}
@@ -154,7 +160,7 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 	}
 
 	public Persona savePersona(Persona persona){
-		persona = saveOrUpdate(persona);
+		persona = saveOrMerge(persona);
         putSuccess("persona.success.guardar", persona.getId());
         return persona;
 	}

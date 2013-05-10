@@ -22,22 +22,14 @@
 
 		 // IE Evitar seleccion de texto
 		 document.onselectstart=function(){
-		 if (event.srcElement.type != "text" && event.srcElement.type != "textarea" && event.srcElement.type != "password")
-		 return false
-		 else return true;
+			 return !(event.srcElement.type != "text" && event.srcElement.type != "textarea" && event.srcElement.type != "password");
 		 };
 		 // FIREFOX Evitar seleccion de texto
 		 if (window.sidebar){
-		 document.onmousedown=function(e){
-		 var obj=e.target;
-		 if (obj.tagName.toUpperCase() == "INPUT" || obj.tagName.toUpperCase() == "TEXTAREA" || obj.tagName.toUpperCase() == "PASSWORD")
-		 return true;
-		 /*else if (obj.tagName=="BUTTON"){
-		 return true;
-		 }*/
-		 else
-		 return false;
-		 }
+		 	document.onmousedown=function(e){
+			 	var obj=e.target;
+			 	return (obj.tagName.toUpperCase() == "INPUT" || obj.tagName.toUpperCase() == "TEXTAREA" || obj.tagName.toUpperCase() == "PASSWORD");
+		 	}
 		 }
 		//]]>
 		</script>
@@ -48,18 +40,6 @@
         </style>
 	</pe:head>
     <h:body>
-   		<ui:include id="loading" src="loading.xhtml" />
-        <h:panelGroup id="pngWelcome">
-       		<ui:fragment rendered="#{not sessionBean.login}">
-       			<ui:include src="login.xhtml" />
-          	</ui:fragment>
-		</h:panelGroup>
-	
-		<h:panelGroup id="pngHome">
-			<ui:fragment rendered="#{sessionBean.login}">
-				<ui:include src="desk.xhtml" />	            
-        	</ui:fragment>
-        </h:panelGroup>
         
         <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
         <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
@@ -87,7 +67,7 @@
 		            Error <span style="color: red;">{error-name}</span>
 		        </h2>
 				<div class="ui-dialog-content">
-					<p:panel header="Base information" toggleable="true">
+					<p:panel header="Base information" toggleable="true" style="min-width:450px;">
 						<h:panelGrid columns="2">
 							<h:outputLabel value="Error message:" />
 							<h:outputText value="{error-message}" style="font-size: 1.2em;color:navy;" />
@@ -96,7 +76,7 @@
 							<h:outputText value="{error-hostname}"  style="font-size: 1.2em;color:navy;"/>
 						</h:panelGrid>
 					</p:panel>
-					<p:panel header="Exception details" toggleable="true">
+					<p:panel header="Exception details" toggleable="true" collapsed="true" style="min-width:450px;">
 						<div style="overflow: auto; height: 300px; width: 440px;">
 							{error-stacktrace}
 						</div>
@@ -109,5 +89,19 @@
 				</div>
 		    </div>
 		</pe:ajaxErrorHandler>
+        
+        <ui:include id="loading" src="loading.xhtml" />
+        <h:panelGroup id="pngWelcome">
+       		<p:outputPanel rendered="#{not sessionBean.login}">
+       			<ui:include src="login.xhtml" />
+          	</p:outputPanel>
+		</h:panelGroup>
+	
+		<h:panelGroup id="pngHome">
+			<p:outputPanel rendered="#{sessionBean.login}">
+				<ui:include src="desk.xhtml" />
+        	</p:outputPanel>
+        </h:panelGroup>
+        
      </h:body>
 </f:view>

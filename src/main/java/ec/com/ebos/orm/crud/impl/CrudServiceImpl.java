@@ -83,6 +83,14 @@ public class CrudServiceImpl extends TransactionProxyFactoryBean implements Crud
         }
     }
 
+    public void save(Object entity) throws CrudException {
+        try {
+        	hibernateTemplate.save(entity);
+        } catch (Exception e) {
+            throw new CrudException(e);
+        }
+    }
+    
     public void saveOrUpdate(Object entity) throws CrudException {
         try {
         	hibernateTemplate.saveOrUpdate(entity);
