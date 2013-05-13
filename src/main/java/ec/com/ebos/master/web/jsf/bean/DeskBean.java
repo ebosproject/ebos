@@ -58,7 +58,6 @@ public class DeskBean implements Serializable{
 	private String COMPONENT_LIBRARY = "componentes/ebos";
 	private String PNGFRAME_PREFIX = "png_";
 	private String FRAME_PREFIX = "fra_";
-	private final String WIDGET_PREFIX = "wgtOption_";
 	private String FRAME_RESOURCE = "frame.xhtml";
 		
 	@PostConstruct
