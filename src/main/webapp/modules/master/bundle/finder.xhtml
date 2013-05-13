@@ -3,7 +3,8 @@
             xmlns:p="http://primefaces.org/ui"
             xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
             xmlns:f="http://java.sun.com/jsf/core"
-            template="/templates/tplFinder.xhtml">
+            template="/templates/tplFinder.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
 
    	<ui:param name="bean" value="#{bundleBean}" />
     <ui:param name="optionName" value="#{msg.ebBundle}" />
@@ -21,19 +22,21 @@
 	    	#{msg.ebResultBundleList}
 	    </f:facet>               
 	    
+	    <p:column id="localidad" headerText="#{msg.ebLocalidad}" width="50" resizable="false">
+	        <eb:outputText value="#{reg.localidad}" />
+	    </p:column>
+	    
 	    <p:column id="codigo" headerText="#{msg.ebCodigo}">
 	        <eb:outputText value="#{reg.codigo}" />
 	    </p:column>
-	    <p:column id="localidad" headerText="#{msg.ebLocalidad}">
-	        <eb:outputText value="#{reg.localidad}" />
-	    </p:column>
+	    
 	    <p:column id="valor" headerText="#{msg.ebValor}">
 	        <eb:outputText value="#{reg.valor}"/>            
 	    </p:column>
     </ui:define>
 	    
-    <ui:define name="master">    	
-        <ui:include src="master.xhtml" />
+    <ui:define name="master">
+       	<ui:include src="master.xhtml" />
     </ui:define>
     
 </ui:composition>

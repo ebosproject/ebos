@@ -7,41 +7,51 @@
                 xmlns:pe="http://primefaces.org/ui/extensions">
                 
  
-	<pe:layout id="lytMaster" fullPage="false" style="height:100%; width:100%;" options="#{lytOptions.master}">
+	<pe:layout id="lytMaster" fullPage="false" style="min-height:350px; min-width:500px; height:100%; width:100%;" 
+		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},
+				'north':{'closable':false,'spacing_open':0,'resizable':false,'size':53},
+				'center':{'minHeight':60,'resizeWhileDragging':false,'closable':false,'minWidth':200,'resizable':false,
+					'childOptions':{'south':{'minSize':60,'size':'70%'},'center':{'minHeight':60}}}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTM">            
 	            <p:toolbar id="toolBarContent">
 	                <p:toolbarGroup align="left">
-	                    <p:commandButton id="btnNuevo" rendered="#{bean.habilitaCrear}" update=":#{frameId}:lypCenter" process="@this" partialSubmit="true"
-	                                     value="#{msg.ebNuevo}" actionListener="#{bean._crear}" icon="ui-icon-document"/>
-	                    <p:commandButton id="btnGuardar" value="#{msg.ebGuardar}" action="#{bean._guardar}" rendered="#{bean.habilitaEditar}"
-	                                     icon="ui-icon-disk" update="" process="@this,:#{frameId}:frmH"/> 
-	                    <p:commandButton id="btnEliminar" immediate="true" type="push" value="#{msg.ebEliminar}" rendered="#{bean.habilitaEliminar}"
-	                                     action="#{bean._eliminar}" icon="ui-icon-trash" ajax="false"/>
+	                    <p:commandButton id="btnNuevo" rendered="#{bean.habilitaCrear}" update=":#{frameId}:frmH, :#{frameId}:pnlHD" 
+                 			process="@this" partialSubmit="true" value="#{msg.ebNuevo}" 
+                 			actionListener="#{bean._crear}" icon="ui-icon-document" />
+	                    <p:commandButton id="btnGuardar" value="#{msg.ebGuardar}" action="#{bean._guardar}" 
+	                    	rendered="#{bean.habilitaEditar}" partialSubmit="true"
+	                    	icon="ui-icon-disk" update=":#{frameId}:frmH, :#{frameId}:pnlHD" process="@this,:#{frameId}:frmH"/> 
+	                    <p:commandButton id="btnEliminar" value="#{msg.ebEliminar}" rendered="#{bean.habilitaEliminar}" process="@this"
+	                   		actionListener="#{bean._eliminar}" icon="ui-icon-trash" partialSubmit="true"
+	                   		onsuccess="#{wgtE}.hide();#{wgtBUI}.hide()"/>
 	                </p:toolbarGroup>
 	                <p:toolbarGroup align="right">
-	                    <p:commandButton id="btnActualizar" action="#{bean._actualizar}" icon="ui-icon-refresh" update="" title="#{msg.ebActualizar}" rendered="#{bean.habilitaActualizar}"/>
+	                    <p:commandButton id="btnActualizar" action="#{bean._actualizar}" icon="ui-icon-refresh" update=":#{frameId}:frmH, :#{frameId}:pnlHD" 
+	                    	title="#{msg.ebActualizar}" rendered="#{bean.habilitaActualizar}" partialSubmit="true"/>
 	                </p:toolbarGroup>
 	            </p:toolbar>                     
 	        </h:form>	
          </pe:layoutPane>
-         <pe:layoutPane id="lypCenter" position="center">
-         	<h:form id="frmH">
-	            <pe:layoutPane position="center" >
-	            	<ui:insert name="header"/>	        	
-		        </pe:layoutPane>
-	        </h:form>
+         <pe:layoutPane position="center">
+            <pe:layoutPane position="center" >
+	            <h:form id="frmH" >
+	            	<ui:insert name="header"/>
+            	</h:form>	        	
+	        </pe:layoutPane>
 	        <pe:layoutPane position="south">
-	        	<ui:insert name="detail"/>
+	        	<p:outputPanel id="pnlHD">
+	        		<ui:insert name="detail"/>
+	        	</p:outputPanel>
 	        </pe:layoutPane>
        	 </pe:layoutPane>
          <pe:layoutPane position="west" rendered="false">
          	
          </pe:layoutPane>
-         <pe:layoutPane position="east" rendered="false">
+         <pe:layoutPane position="east" rendered="false" minSize="180" maxSize="650" size="448">
 	        
          </pe:layoutPane>
-         <pe:layoutPane position="south">
+         <pe:layoutPane position="south" closable="true" size="31">
          	
          </pe:layoutPane>
     </pe:layout>

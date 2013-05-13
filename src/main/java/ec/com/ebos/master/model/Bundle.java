@@ -87,7 +87,7 @@ public class Bundle extends Master<Bundle>{
         public static final Map<String, Localidad> LABELED_MAP =
                 GenericUtils.buildLabeledEnumMap(Localidad.values());
         /**
-         * Lists para iteraciones
+         * Lists for iterations
          */
         public static final List<Localidad> LIST = Arrays.asList(Localidad.values());
 

@@ -86,6 +86,7 @@ public class BundleBean extends MasterBean<Bundle> {
     }            
     
     //////////////////////// DATALIST ///////////////////////////////
+    
     @Getter
     protected final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);
     

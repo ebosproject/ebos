@@ -26,8 +26,17 @@ public class LytOptions implements Serializable {
 	
 	public static final String BEAN_NAME = "lytOptions";
 	
-	@Getter @Setter
-	private String finder, master, transaction, report;
+	@Getter
+	private String finder;
+	
+	@Getter
+	private String master;
+	
+	@Getter
+	private String transaction;
+	
+	@Getter
+	private String report;
 
 	@PostConstruct
 	protected void initialize() {
