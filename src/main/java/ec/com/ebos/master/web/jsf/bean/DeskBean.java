@@ -130,7 +130,7 @@ public class DeskBean implements Serializable{
     }
     
     public Panel getPnlFrames(){
-		if(pnlFrames.getChildCount() == 0){
+		if(pnlFrames.getChildren().isEmpty()){
 			buildPnlFrameList();	
 		}
     	return pnlFrames;

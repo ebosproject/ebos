@@ -101,6 +101,9 @@
 		<h:panelGroup id="pngHome">
 			<p:outputPanel rendered="#{sessionBean.login}">
 				<ui:include src="desk.xhtml" />
+				<h:form>
+					<p:remoteCommand id="rmcUpdPnlFrames" name="rmcUpdPnlFrames" update=":pnlFrames" autoRun="true"/>
+				</h:form>
         	</p:outputPanel>
         </h:panelGroup>
         

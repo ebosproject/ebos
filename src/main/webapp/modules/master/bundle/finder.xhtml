@@ -10,10 +10,13 @@
     <ui:param name="optionName" value="#{msg.ebBundle}" />
     
     <ui:define name="filters">
-        <eb:panelGrid id="pnlFiltros">               
-	        <eb:inputText id="id" value="#{bean.entitySearch.id}" label="#{msg.ebId}" type="number"/>                    
-	        <eb:inputText id="codigo" value="#{bean.entitySearch.codigo}" label="#{msg.ebCodigo}"/>        
-	        <eb:inputText id="localidad" value="#{bean.entitySearch.localidad}" label="#{msg.ebLocalidad}"/>        
+        <eb:panelGrid id="pnlFiltros" columns="2">          
+        	<p:outputLabel for="id" value="#{msg.ebId}"/>     
+	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number"/>
+            <p:outputLabel for="codigo" value="#{msg.ebCodigo}"/>
+	        <eb:inputText id="codigo" value="#{bean.entitySearch.codigo}" />
+	        <p:outputLabel for="localidad" value="#{msg.ebLocalidad}"/>        
+	        <eb:inputText id="localidad" value="#{bean.entitySearch.localidad}" />        
 	    </eb:panelGrid>
     </ui:define>
 

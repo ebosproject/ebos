@@ -20,27 +20,10 @@
     </cc:interface>
 
     <cc:implementation>         
-        <ui:fragment rendered="#{not empty cc.attrs.label}">
-	        <h:outputLabel value="#{cc.attrs.label} #{cc.attrs.required?'*':''}" 
-	                       for="#{cc.attrs.id}_input" 
-	                       styleClass="ui-widget"/>
-	        <p:watermark for="#{cc.attrs.id}_input" value="#{cc.attrs.watermark}" 
+        <p:watermark for="#{cc.attrs.id}" value="#{cc.attrs.watermark}" 
 	       				 rendered="#{not empty cc.attrs.watermark}"/>
-	        <td>
-	            <p:inputText id="#{cc.attrs.id}" required="#{cc.attrs.required}" 
-	                         value="#{cc.attrs.value}" 
-	                         rendered="#{cc.attrs.rendered}"                         
-	                         maxlength="#{cc.attrs.maxlength}"                         
-	                         disabled="#{cc.attrs.disabled}"
-	                         label="#{cc.attrs.label}" 
-	                         type="#{cc.attrs.type}"
-	                         style="#{cc.attrs.style}"
-	                         requiredMessage="#{cc.attrs.requiredMessage}">
-	            	<f:validateLength minimum="#{cc.attrs.minlength}" />
-	            </p:inputText>            
-	        </td>
-        </ui:fragment>
-        <p:inputText id="#{cc.attrs.id}_input" required="#{cc.attrs.required}" 
+	        
+        <p:inputText id="#{cc.attrs.id}" required="#{cc.attrs.required}" 
                      value="#{cc.attrs.value}" 
                      rendered="#{empty cc.attrs.label}"                         
                      maxlength="#{cc.attrs.maxlength}"                         
