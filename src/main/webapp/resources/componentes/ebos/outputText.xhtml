@@ -7,24 +7,11 @@
 
     <cc:interface displayName="outputText" >
         <cc:attribute name="value" required="true" />
-        <cc:attribute name="label"/>
-        <cc:attribute name="required"/>                
     </cc:interface>
 
     <cc:implementation>                          
-        <ui:fragment rendered="#{not empty cc.attrs.label}">
-        	<h:outputLabel value="#{cc.attrs.label}" 
-                       for="#{cc.attrs.id}" 
-                       styleClass="ui-widget"/>
-	        <td>
-	            <h:outputText id="#{cc.attrs.id}" 
-	                          value="#{cc.attrs.value}"
-	                          styleClass="ui-widget"/>                 
-	        </td>
-        </ui:fragment>
-        <h:outputText id="#{cc.attrs.id}_out" 
+        <h:outputText id="#{cc.attrs.id}" 
                           value="#{cc.attrs.value}"
-                          rendered="#{empty cc.attrs.label}"
                           styleClass="ui-widget"/>
     </cc:implementation> 
 </html>

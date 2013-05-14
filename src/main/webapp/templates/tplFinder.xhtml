@@ -17,14 +17,14 @@
        		<h:form id="frmTF">
                  <p:toolbar style="overflow:hidden !important;">
 		           	<p:toolbarGroup align="left">
-			           	<p:commandButton id="btnSearch" value="#{msg.ebBuscar}" actionListener="#{bean._buscar}" 
+			           	<p:commandButton id="btnSearch" value="#{msg.ebBuscar}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Search" 
 			           		icon="ui-icon-search" update=":#{frameId}:frmR:dtR,:#{frameId}:pnlD" process="@this,:#{frameId}:frmF"/>
 		               	<p:separator />
-		               	<p:commandButton id="btnNuevo" value="#{msg.ebNuevo}" actionListener="#{bean._crear}"
+		               	<p:commandButton id="btnNew" value="#{msg.ebNuevo}" actionListener="#{bean._crear}"
 		                	update=":#{frameId}:pnlE" onsuccess="#{wgtBUI}.show();#{wgtE}.show()"  
 		                	rendered="#{bean.habilitaCrear}"  icon="ui-icon-document"/>
 		                	
-		                <p:commandButton id="btnEditar" value="#{msg.ebEditar}" actionListener="#{bean._editar}"
+		                <p:commandButton id="btnEdit" value="#{msg.ebEditar}" actionListener="#{bean._editar}" widgetVar="wgt#{frameId}Edit"
 		                	update=":#{frameId}:pnlE" onsuccess="#{wgtBUI}.show();#{wgtE}.show()"  
 		                	rendered="#{bean.habilitaEditar and not empty bean.dataTable}" icon="ui-icon-edit"/>
 	                </p:toolbarGroup>
@@ -65,7 +65,7 @@
 		            rowKey="#{reg.id}">
 		            
 					<p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" 
-						onsuccess="#{wgtBUI}.show();#{wgtE}.show()" update=":#{frameId}:pnlE"/>
+						onsuccess="wgt#{frameId}Edit.jq.click()"/>
 					<p:ajax event="rowSelect" update=":#{frameId}:pnlD" global="false"/>  
 	  
 		            <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
@@ -95,9 +95,12 @@
          </pe:layoutPane>
          <pe:layoutPane position="south" closable="true" size="31">
          	<h:panelGrid id="pnlD" columns="5" cellpadding="4">
-	    		<eb:outputText label="#{msg.ebId}" value="#{bean.activeEntity.id}" />
-		        <eb:outputDate label="#{msg.ebCreado}" value="#{reg.fechaCreacion}" title="#{msg.ebPor}: #{reg.usuarioCreacion.username}" rendered="#{reg.fechaCreacion ne null}"/>
-		        <eb:outputDate label="#{msg.ebModificado}" value="#{reg.fechaModificacion}" title="#{msg.ebPor}: #{reg.usuarioModificacion.username}" rendered="#{reg.fechaModificacion ne null}"/>
+         		<p:outputLabel for="id" value="#{msg.ebId}"/>
+	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" />
+	    		<p:outputLabel for="creado" value="#{msg.ebCreado}" rendered="#{reg.creado ne null}"/>
+		        <eb:outputDate id="creado" value="#{reg.creado}" title="#{msg.ebPor}: #{reg.creador.username}" rendered="#{reg.creado ne null}"/>
+		        <p:outputLabel for="modificado" value="#{msg.ebModificado}" rendered="#{reg.modificado ne null}"/>
+		        <eb:outputDate id="modificado" value="#{reg.modificado}" title="#{msg.ebPor}: #{reg.modificador.username}" rendered="#{reg.modificado ne null}"/>
 	    		<ui:insert name="details"/>
 	        </h:panelGrid>
          </pe:layoutPane>
@@ -106,7 +109,7 @@
     <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytFinder" />
     
 	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" height="350" width="600" appendToBody="true" 
-		showEffect="fade" hideEffect="fade" draggable="true" onHide="#{wgtBUI}.hide()">
+		showEffect="fade" hideEffect="fade" draggable="true" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
    		<p:outputPanel id="pnlE">
    			<p:outputPanel rendered="#{bean.activeEntity ne null}">
 				<ui:insert name="master"/>
