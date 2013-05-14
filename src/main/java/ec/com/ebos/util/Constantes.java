@@ -41,7 +41,11 @@ public class Constantes {
      * Suffix ".jsf"
      */
     public static final String JSF_SUFFIX = ".jsf";
-        
+    
+    /**
+     * Session theme, default 'aristo' 
+     */
+	public static final String THEME_KEY = "theme";
     
     /**
      * Session theme, default 'aristo' 

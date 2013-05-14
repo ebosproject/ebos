@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,6 +35,7 @@ import ec.com.ebos.security.model.field.RolOpcion_;
 import ec.com.ebos.security.model.field.Rol_;
 import ec.com.ebos.security.model.field.UsuarioRol_;
 import ec.com.ebos.security.model.field.Usuario_;
+import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.CryptoUtils;
 import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.StringUtils;
@@ -85,11 +88,11 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
             Date date = new Date();
             Entidad.Estado estadoActual = usuario.getEstado();
             if (GenericUtils.isPersistent(usuario)) {
-                usuario.setFechaModificacion(date);
+                usuario.setModificado(date);
             } else {
                 usuario.setPassword(CryptoUtils.computeHashSHA256(usuario.getPassword()));
-                usuario.setFechaCreacion(date);
-                usuario.setFechaModificacion(date);
+                usuario.setCreado(date);
+                usuario.setModificado(date);
                 usuario.setEstado(Entidad.Estado.ACTIVO);
             }
 
@@ -139,7 +142,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         if (usuarioRolList != null) {
             Date fecha = new Date();
             for (UsuarioRol usuarioRol : usuarioRolList) {
-                usuarioRol.setFechaModificacion(fecha);
+                usuarioRol.setModificado(fecha);
                 update(usuarioRol);
             }
         }
@@ -152,8 +155,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         usuarioRol.setUsuario(usuario);
         usuarioRol.setRol(rol);
         Date fecha = new Date();
-        usuarioRol.setFechaCreacion(fecha);
-        usuarioRol.setFechaModificacion(fecha);
+        usuarioRol.setCreado(fecha);
+        usuarioRol.setModificado(fecha);
         
         saveOrMerge(usuarioRol);
     }
@@ -177,7 +180,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         String sender = null;
         String subject = "eBos: Creacion Cuenta  " + usuario.getUsername(); //TODO (epa): Usar bundle
         String content = "Se creo correctamente cuenta para Usuario: " + usuario.getUsername()
-                + " con Contraseña: " + usuario.getPassword() + " el " + usuario.getFechaCreacion();
+                + " con Contraseña: " + usuario.getPassword() + " el " + usuario.getCreado();
         String to = usuario.getEmpresaPersona().getPersona().getMail();
         utilP.sendMail(subject, content, sender, to, null, null);            
     }
@@ -231,10 +234,10 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     public Rol saveRol(Rol rol) {
         Date date = new Date();
         if (GenericUtils.isPersistent(rol)) {
-            rol.setFechaModificacion(date);
+            rol.setModificado(date);
         } else {
-            rol.setFechaCreacion(date);
-            rol.setFechaModificacion(date);
+            rol.setCreado(date);
+            rol.setModificado(date);
             rol.setEstado(Entidad.Estado.ACTIVO);
         }
         rol = saveOrMerge(rol);
@@ -264,8 +267,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         RolOpcion rolOpcion = new RolOpcion();
         
         rolOpcion.setAuditoria(new Auditoria());
-        rolOpcion.setUsuarioCreacion(getSessionBean().getUsuario());
-        rolOpcion.setFechaCreacion(new Date());
+        rolOpcion.setCreador(getSessionBean().getUsuario());
+        rolOpcion.setCreado(new Date());
         
         rolOpcion.setRol(rol);
         rolOpcion.setOpcion(opcion);
@@ -284,8 +287,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         	Usuario usuario = getSessionBean().getUsuario();
             Date fecha = new Date();
             for (RolOpcion rolOpcion : rolOpcionList) {
-            	rolOpcion.setUsuarioModificacion(usuario);
-                rolOpcion.setFechaModificacion(fecha);
+            	rolOpcion.setModificador(usuario);
+                rolOpcion.setModificado(fecha);
                 update(rolOpcion);
             }
         }

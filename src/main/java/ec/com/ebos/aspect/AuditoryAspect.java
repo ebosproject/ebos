@@ -96,8 +96,8 @@ public class AuditoryAspect {
 	public void createEntity(JoinPoint joinPoint, Entidad<?> entity){		
 		entity.setAuditoria(new Auditoria());
 		Usuario usuario = securityS.getSesionBean().getUsuario();
-		entity.setUsuarioCreacion(usuario);
-		entity.setFechaCreacion(new Date());
+		entity.setCreador(usuario);
+		entity.setCreado(new Date());
 	}
 	
 	
@@ -108,11 +108,11 @@ public class AuditoryAspect {
 			Usuario usuario = securityS.getSesionBean().getUsuario();			
 			Date date = new Date();
 	        if (GenericUtils.isPersistent(entity)) {
-	        	entity.setUsuarioModificacion(usuario);
-	        	entity.setFechaModificacion(date);
+	        	entity.setModificador(usuario);
+	        	entity.setModificado(date);
 	        } else {
-	        	entity.setUsuarioCreacion(usuario);
-	            entity.setFechaCreacion(date);                       
+	        	entity.setCreador(usuario);
+	            entity.setCreado(date);                       
 	        }
 		}
 	}

@@ -143,8 +143,8 @@ public class SessionBean implements Serializable{
     
 	public String getTema() {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		if (params.containsKey("tema")) {
-			tema = params.get("tema");
+		if (params.containsKey(Constantes.THEME_KEY)) {
+			tema = params.get(Constantes.THEME_KEY);
 		} else {
 			tema = usuario.getTema() != null ? usuario.getTema() : Constantes.THEME;
 		}

@@ -102,7 +102,21 @@
 			<p:outputPanel rendered="#{sessionBean.login}">
 				<ui:include src="desk.xhtml" />
 				<h:form>
-					<p:remoteCommand id="rmcUpdPnlFrames" name="rmcUpdPnlFrames" update=":pnlFrames" autoRun="true"/>
+					<p:remoteCommand id="rmcUpdPnlFrames" name="rmcUpdPnlFrames" update=":pnlFrames" autoRun="true" onstart="changeTheme('#{sessionBean.usuario.tema}')"/>
+			        <script type="text/javascript">//<![CDATA[
+			            function changeTheme(newTheme) {
+				            if(newTheme && newTheme != '') {
+				                var themeLink = $('link[href*="javax.faces.resource/theme.css"]'),
+				                themeURL = themeLink.attr('href'),
+				                plainURL = themeURL.split('&')[0],
+				                oldTheme = plainURL.split('ln=')[1],
+				                newThemeURL = themeURL.replace(oldTheme, 'primefaces-' + newTheme);
+				
+				                themeLink.attr('href', newThemeURL);
+				            }
+				        }
+			          //]]>
+		    		</script>
 				</h:form>
         	</p:outputPanel>
         </h:panelGroup>

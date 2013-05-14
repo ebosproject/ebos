@@ -41,10 +41,10 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     public Parametros saveParametros(Parametros param) throws AdministracionException{
         Date fecha = new Date();
         if(GenericUtils.isPersistent(param)){
-            param.setFechaModificacion(fecha);
+            param.setModificado(fecha);
         }else{
-            param.setFechaCreacion(fecha);
-            param.setFechaModificacion(fecha);
+            param.setCreado(fecha);
+            param.setModificado(fecha);
             param.setEstado(Entidad.Estado.ACTIVO);
         }
         param = saveOrMerge(param);

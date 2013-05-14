@@ -27,7 +27,7 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     
 	private static final long serialVersionUID = 3205546315013216597L;
 	
-	public static final String BEAN_NAME = "usuarioMB";
+	public static final String BEAN_NAME = "usuarioBean";
 
     @Override
     public void getInit() {
@@ -53,7 +53,7 @@ public class UsuarioBean extends SecurityBean<Usuario> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/security/usuario/index.xhtml";
+        TARGET_ID = "/modules/security/usuario/finder.xhtml";
         TARGET_NEW_ID = "crearUsuario";
     }
     

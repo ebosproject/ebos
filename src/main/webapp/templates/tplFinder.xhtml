@@ -68,7 +68,7 @@
 						onsuccess="wgt#{frameId}Edit.jq.click()"/>
 					<p:ajax event="rowSelect" update=":#{frameId}:pnlD" global="false"/>  
 	  
-		            <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
+		            <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" resizable="false" >
 		                 <eb:outputText value="#{reg.id}" />
 		            </p:column>
 		             
@@ -94,13 +94,13 @@
 	        </pe:layoutPane>
          </pe:layoutPane>
          <pe:layoutPane position="south" closable="true" size="31">
-         	<h:panelGrid id="pnlD" columns="5" cellpadding="4">
-         		<p:outputLabel for="id" value="#{msg.ebId}"/>
-	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" />
-	    		<p:outputLabel for="creado" value="#{msg.ebCreado}" rendered="#{reg.creado ne null}"/>
-		        <eb:outputDate id="creado" value="#{reg.creado}" title="#{msg.ebPor}: #{reg.creador.username}" rendered="#{reg.creado ne null}"/>
-		        <p:outputLabel for="modificado" value="#{msg.ebModificado}" rendered="#{reg.modificado ne null}"/>
-		        <eb:outputDate id="modificado" value="#{reg.modificado}" title="#{msg.ebPor}: #{reg.modificador.username}" rendered="#{reg.modificado ne null}"/>
+         	<h:panelGrid id="pnlD" columns="6" cellpadding="4">
+         		<p:outputLabel for="id" value="#{msg.ebId}" rendered="#{bean.activeEntity.id ne null}"/>
+	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" rendered="#{bean.activeEntity.id ne null}"/>
+	    		<p:outputLabel for="creado" value="#{msg.ebCreado}" rendered="#{bean.activeEntity.creado ne null}"/>
+		        <eb:outputDate id="creado" value="#{bean.activeEntity.creado}" title="#{msg.ebPor}: #{bean.activeEntity.creador.username}" rendered="#{bean.activeEntity.creado ne null}"/>
+		        <p:outputLabel for="modificado" value="#{msg.ebModificado}" rendered="#{bean.activeEntity.modificado ne null}"/>
+		        <eb:outputDate id="modificado" value="#{bean.activeEntity.modificado}" title="#{msg.ebPor}: #{bean.activeEntity.modificador.username}" rendered="#{bean.activeEntity.modificado ne null}"/>
 	    		<ui:insert name="details"/>
 	        </h:panelGrid>
          </pe:layoutPane>
