@@ -45,7 +45,7 @@ public class EbosExceptionHandler extends ExceptionHandlerWrapper {
 
 				try {
 					navHandler.handleNavigation(context, null,
-							"home?faces-redirect=true&expired=true");
+							"welcome?faces-redirect=true&expired=true");
 				} finally {
 					it.remove();
 				}

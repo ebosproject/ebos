@@ -1,0 +1,33 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+	
+    <p:dialog id="dlgAbout" header="#{msg.systemAbout}"  height="430px" width="570px" closeOnEscape="true" 
+    	modal="true" draggable="false" widgetVar="wgtAbout" showEffect="fade" hideEffect="fade" resizable="true">
+		<h:form>
+			<h:panelGrid style="width:100%;text-align:center;">
+				<p:graphicImage value="resources/images/ebos.png" />
+		        <h:outputFormat value="#{msg.systemName} - &#169; 2013, #{technicalInfo.version}"/>
+				<h:outputText value="#{technicalInfo.spring},"/>
+				<h:outputText value="#{technicalInfo.hibernate},"/>
+				<h:outputText value="#{technicalInfo.jsfImpl},"/>
+		        <h:outputText value="#{technicalInfo.primeFaces},"/>
+		        <h:outputText value="#{technicalInfo.primeFacesExt},"/>
+		        <h:outputText value="#{technicalInfo.server},"/>
+		        <h:outputText value="#{technicalInfo.buildTime}"/>
+			</h:panelGrid>
+			<h:panelGrid>
+				<h:outputText value="#{msg.ebAuthors}" style="color:black; font-size:13px; text-decoration:underline;"/>
+				<h:outputText value="#{msg.devEPA}"/>
+				<h:outputText value="#{msg.devVVC}"/>
+			</h:panelGrid>
+			<h:panelGrid style="width:100%; text-align:center;">	
+				<h:outputText value="#{msg.systemCopyright}" />
+				<p:commandButton type="button" value="OK" onclick="wgtAbout.hide()" />
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+	
+</ui:composition>

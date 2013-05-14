@@ -29,7 +29,7 @@
 *   Override styles del componente personalizado layout
 *   ly:layout
 */
-
+/*
 .ui-layout-north{
     z-index:300 !important;
     overflow:visible !important;
@@ -42,7 +42,7 @@
 .ui-layout-pane-center{
 	overflow: hidden !important;
 }
-
+*/
 /*
     p:panelMenu
 */
@@ -113,4 +113,7 @@
 			
 .ui-dashboard-column {
 	width:220px;
+}
+
+.eb-frame{	
 }

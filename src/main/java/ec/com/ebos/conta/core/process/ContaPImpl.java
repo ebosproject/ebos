@@ -75,6 +75,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		criteria.addGE(Periodo_.fechaInicial, periodo.getFechaInicial());
 		criteria.addEquals(Ejercicio_.empresa, getSessionBean().getEmpresa());
 		criteria.addOrderAsc(Periodo_.fechaInicial);
+		criteria.addNotEquals(Periodo_.estado, Periodo.Estado.PENDIENTE);
 		return findByCriteria(criteria, true);
 	}
 
@@ -120,10 +121,12 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		//Ejercicio ejercicio = getEjercicio(asiento.getEmpresa(),  asiento.getDocumento().getEmitido());
 		Periodo periodoAsiento = getPeriodo(asiento.getPeriodo().getId());
 		//Validar estados de periodos
-		if(periodoAsiento.getEstado().isActivo()){
+		if(periodoAsiento.getEstado().isCerrado()){
 			
 		}
-		
+		if(periodoAsiento.getEstado().isPendiente()){
+			
+		}
 		
 		List<AsientoDetalle> saldos = listAsientoDetalle(asiento);
 		//Este mapa alamcenara temporalemten todas las cuentas, padres e hijas usadas en el asiento
@@ -137,6 +140,9 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		List<Periodo> periodoList = listPeriodosPosteriores(periodoAsiento);
 		for (AsientoDetalle detalle : saldos) {
 			for (Periodo periodo : periodoList) {
+				if(periodo.getEstado().isCerrado()) {
+					// error
+				}
 				actualizarSaldosCuentasContbables(cuentasDeAsiento, saldosCuentaMap, periodo, detalle, signo);
 				//actualizarSaldosCentrosCostos();
 				actualizarSaldosCentrosCosto(centrosDeAsiento, saldosCentroMap, periodo, detalle, signo);

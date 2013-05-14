@@ -72,7 +72,7 @@ public class FacesUtils {
 	 * @return id generado
 	 */
     public static final String getRandomId() {
-        return "id_" + ("" + Math.random()).substring(2);
+        return ("" + Math.random()).substring(2);
     }
     
     /**
@@ -110,6 +110,14 @@ public class FacesUtils {
         FacesContext context = FacesContext.getCurrentInstance();
         return new MethodExpressionActionListener(context.getApplication().getExpressionFactory()
             .createMethodExpression(context.getELContext(), actionListenerExpression, null, new Class[] {ActionEvent.class}));
+    }
+    
+    /**
+     * Remueve un bean ViewScope del ViewRoot
+     * @param beanName
+     */
+    public static void removeViewScopedBean(String beanName){
+      FacesContext.getCurrentInstance().getViewRoot().getViewMap().remove(beanName);
     }
 
 }

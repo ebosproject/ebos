@@ -1,8 +1,11 @@
 package ec.com.ebos.conta.model;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -19,6 +22,7 @@ import javax.persistence.Temporal;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
@@ -28,6 +32,12 @@ import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
 import ec.com.ebos.conta.model.field.SaldoRetencion_;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.resources.RootMensajes;
+import ec.com.ebos.util.Constantes;
+import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.type.StringValuedEnum;
+import ec.com.ebos.util.type.StringValuedEnumReflect;
+import ec.com.ebos.util.type.StringValuedEnumType;
 
 
 /**
@@ -107,7 +117,7 @@ public class Periodo extends Contabilidad<Periodo> {
 	 */
 	@Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado = Estado.ACTIVO;
+    private Periodo.Estado estado = Estado.PENDIENTE;
 	
 	
 	@OneToMany(mappedBy = SaldoCentroCosto_.periodo, fetch = FetchType.LAZY)
@@ -121,4 +131,71 @@ public class Periodo extends Contabilidad<Periodo> {
 	
 	@OneToMany(mappedBy = SaldoRetencion_.periodo, fetch = FetchType.LAZY)
     private Set<SaldoRetencion> saldoRetencionList = new HashSet<SaldoRetencion>(0);
+
+    /**
+     * <strong>Estado A/I para cualquier Entidad</strong> <br>
+     * <table border="1">
+     * <tr><th valign="top"> Estados </th>
+     * <tr><td valign="top"> A: Activo<br> I: Inactivo<br> </td></tr>
+     * </table>
+     *
+     * @author Eduardo Plua Alay
+     *
+     */
+    public enum Estado implements StringValuedEnum<Estado> {
+
+        PENDIENTE("P"),
+        VIGENTE("V"),
+        ABIERTO("A"),
+        CERRADO("C"),
+        ;
+
+        public static class Type extends StringValuedEnumType<Estado> {
+        }
+        
+        public static final String TYPE = Constantes.DOMAIN_NAME+".root.model.Periodo$Estado$Type";
+        
+        @Getter
+        private String value;
+        private String labelKey;
+        
+        private Estado(String value) {
+            this.value = value;
+            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
+        }
+        
+        public static final Map<String, Estado> LABELED_MAP =
+                GenericUtils.buildLabeledEnumMap(Estado.values());
+        /**
+         * Lists para iteraciones
+         */
+        public static final List<Estado> LIST = Arrays.asList(Estado.values());
+
+        @Override
+        public String getLabel() {
+            return RootMensajes.getString(labelKey);
+        }
+
+        @Override
+        public String getDescription() {
+            return getLabel();
+        }
+
+        public boolean isPendiente() {
+            return this.equals(PENDIENTE);
+        }
+
+        public boolean isVigente() {
+            return this.equals(VIGENTE);
+        }
+
+        public boolean isCerrado() {
+            return this.equals(CERRADO);
+        }
+
+        public boolean isAbierto() {
+            return this.equals(ABIERTO);
+        }
+    }
+
 }

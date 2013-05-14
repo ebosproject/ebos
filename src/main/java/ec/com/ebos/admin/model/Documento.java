@@ -55,9 +55,6 @@ public class Documento extends Administracion<Documento> {
 	
 	@Column
 	Date emitido;
-	
-	@Column
-	Long emisor;
 
 	@Column
 	Date vencimiento;

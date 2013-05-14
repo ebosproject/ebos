@@ -5,7 +5,7 @@
                 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
 
     <namespace>http://ebos.com.ec/ui</namespace>
-
+<!-- 
     <tag>
         <description>
             <![CDATA[Page Layout component. Client behavior events: open - fires after a layout pane gets opened (org.primefaces.extensions.event.OpenEvent), close - fires after a layout pane gets closed (org.primefaces.extensions.event.CloseEvent), resize - fires after a layout pane gets resized (org.primefaces.extensions.event.ResizeEvent).]]>
@@ -103,5 +103,5 @@
             <required>true</required>
             <type>java.lang.String</type>
         </attribute>
-    </tag>
+    </tag> -->
 </facelet-taglib>

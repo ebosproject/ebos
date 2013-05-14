@@ -16,12 +16,12 @@ import ec.com.ebos.util.GenericUtils;
  * @since 2013-03-24
  */
 @ManagedBean(name = BundleBean.BEAN_NAME)
-//@SessionScoped
 @ViewScoped
 public class BundleBean extends MasterBean<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
 	
+	@Getter
 	public static final String BEAN_NAME = "bundleBean";
 
 	@Override
@@ -48,8 +48,7 @@ public class BundleBean extends MasterBean<Bundle> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/master/bundle/index.xhtml";
-        TARGET_NEW_ID = "crearBundle";
+        TARGET_ID = "/modules/master/bundle/finder.xhtml";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
@@ -87,6 +86,6 @@ public class BundleBean extends MasterBean<Bundle> {
     
     //////////////////////// DATALIST ///////////////////////////////
     @Getter
-    public final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);
+    protected final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);
     
 }

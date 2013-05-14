@@ -34,7 +34,7 @@ import ec.com.ebos.util.type.JsfMessage;
  *
  * @author Eduardo Plua Alay
  */
-    public abstract class RootBean<T extends Entidad<T>> implements Serializable, JsfMessage{
+public abstract class RootBean<T extends Entidad<T>> implements Serializable, JsfMessage{
 
 	private static final long serialVersionUID = 6416663507886628619L;
 
@@ -78,20 +78,20 @@ import ec.com.ebos.util.type.JsfMessage;
     
     @Getter @Setter
     protected Long paramId;
-                
+    
     public RootBean() {
         initTarget();
     }
     
     public void _buscar(){
-    	//TODO (epa): Limpiar numero de registros en el datalist para que funcione la busqueda del queryTemplate
+    	
     }
     
-    public String _crear(){
+    public void _crear(){
         crear();
         habilitaControles();
         habilitaEliminar = false;
-        return TARGET_NEW_ID;
+        //return TARGET_NEW_ID;
     }
     
     protected void crear(){        
@@ -146,55 +146,44 @@ import ec.com.ebos.util.type.JsfMessage;
     }
 
     @PostConstruct
-    public void postConstruct() {        
+    public void postConstruct() {
         setHabilitaCrear();
         setHabilitaEditar();
         setHabilitaExportar();
         getInit();
         habilitaControles();
     }
+	
+    public void destroy(String beanName){
+    	FacesUtils.removeViewScopedBean(beanName);
+    }
+     
     
-    @Getter //TODO (epa): Optimizar pagination en LazyDataModel
+    @Getter
     protected final LazyDataModel<T> dataTable = new LazyDataModel<T>() {                   
                         
 		private static final long serialVersionUID = -5130944051776981116L;
 
 		private Pagination pagination = new Pagination();
-		
 		private List<T> data = new ArrayList<T>();
-
+			
 		@Override
         public List<T> load(int first, int pageSize, String sortField,
                 SortOrder sortOrder, Map<String, String> filters) {
+			
 			pagination.setFirst(first);
 			pagination.setPageSize(pageSize);
 			pagination.setSortField(sortField);
 			pagination.setSortOrder(sortOrder);
 			pagination.setFilters(filters);
 			
-            data = loadDataTableCollection(entitySearch, pagination);
+			data = loadDataTableCollection(entitySearch, pagination);
+            
             this.setRowCount(pagination.getRowCount());
             if(data != null && !data.isEmpty()){
             	activeEntity = data.get(0);
-            }            
-            return data;
-            //rowCount  
-//            int dataSize = data.size();
-//            this.setRowCount(dataSize);
-              
-
-            //paginate  
-//            if(dataSize > pageSize) {  
-//                try {  
-//                    return data.subList(first, first + pageSize);  
-//                }  
-//                catch(IndexOutOfBoundsException e) {  
-//                    return data.subList(first, first + (dataSize % pageSize));  
-//                }  
-//            }  
-//            else {  
-//                return data;  
-//            }                          
+            }           
+            return data;                        
         }
         
         @Override
@@ -206,6 +195,14 @@ import ec.com.ebos.util.type.JsfMessage;
         public Object getRowKey(T entity) {
             return entity.getId();
         }
+        
+        @Override
+        public void setRowIndex(int rowIndex) {
+        	if ( rowIndex == -1 || getPageSize() == 0 ) {
+        	    super.setRowIndex( -1 );
+        	   } else
+    	    super.setRowIndex( rowIndex % getPageSize() );
+        };
     };
     
     protected List<T> loadDataTableCollection(T entity, Pagination pagination) {

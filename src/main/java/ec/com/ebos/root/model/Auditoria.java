@@ -38,10 +38,10 @@ public class Auditoria implements Serializable{
 	@Getter @Setter
 	@Column(name = "creacion", nullable = false)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date creacion;
+	private Date creado;
 	
 	@Getter @Setter
 	@Column(name = "modificacion")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-	private Date modificacion;
+	private Date modificado;
 }

@@ -219,7 +219,7 @@ body{
 	
 }
 
-#lyCenter{
+.fullPage{
 	margin: 0px; 
 	right: 0px; 
 	bottom: 0px; 
@@ -227,6 +227,7 @@ body{
 	width: 100%; 
 	position: absolute;
 }
+
 
 #lySouth{
 	position:absolute; 

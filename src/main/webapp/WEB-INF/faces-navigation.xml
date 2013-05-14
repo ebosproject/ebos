@@ -7,8 +7,8 @@
     <navigation-rule>
             <from-view-id>/*</from-view-id>
             <navigation-case>
-                    <from-outcome>home</from-outcome>
-                    <to-view-id>/home.jsf</to-view-id>
+	            <from-outcome>home</from-outcome>
+	            <to-view-id>/home.jsf</to-view-id>
             </navigation-case>
     </navigation-rule>
 
