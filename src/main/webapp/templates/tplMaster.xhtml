@@ -5,13 +5,16 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
                 xmlns:pe="http://primefaces.org/ui/extensions">
- 	<ui:remove>
- 		Se debe definir obligatoriamente este parametro en todos los archivos que implementen esta plantilla
-	 	<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
+
+	<ui:insert name="params">
+		<ui:remove>
+	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
+		</ui:remove>
+		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
 					'center':{'minHeight':60,'resizeWhileDragging':false,'closable':false,'minWidth':200,'resizable':false,
 						'childOptions':{'south':{'minSize':60,'size':'70%'},'center':{'minHeight':60}}}"/>
-	</ui:remove>               
- 
+	</ui:insert>
+	
 	<pe:layout id="lytMaster" fullPage="false" style="min-height:350px; min-width:500px; height:100%; width:100%;" 
 		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsMaster}}">
 		<pe:layoutPane position="north">
