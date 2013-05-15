@@ -2,13 +2,13 @@
 package ec.com.ebos.conta.exception;
 
 import ec.com.ebos.master.resources.MasterMensajes;
-import ec.com.ebos.root.core.exception.GenericException;
+import ec.com.ebos.root.core.exception.RootException;
 
 /**
  *
  * @author Victor Viejo Chabla
  */
-public class ContaException extends GenericException{
+public class ContaException extends RootException{
         
 
     /**

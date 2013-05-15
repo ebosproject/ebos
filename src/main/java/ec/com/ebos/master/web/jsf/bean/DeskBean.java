@@ -24,6 +24,7 @@ import org.primefaces.event.CloseEvent;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 
+import ec.com.ebos.master.exception.MasterException;
 import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.util.FacesUtils;
@@ -57,7 +58,6 @@ public class DeskBean implements Serializable{
 	private String COMPONENT_LIBRARY = "componentes/ebos";
 	private String PNGFRAME_PREFIX = "png_";
 	private String FRAME_PREFIX = "fra_";
-	private String WIDGET_PREFIX = "wgtOption_";
 	private String FRAME_RESOURCE = "frame.xhtml";
 		
 	@PostConstruct
@@ -89,11 +89,13 @@ public class DeskBean implements Serializable{
                     
                     if (pantallaOp.getPadre() != null) {
                         if (pantallaOp.getPadre() == modulo) {
-                            MenuItem item = new MenuItem();                                                                              
+                            MenuItem item = new MenuItem();                                                               
                             item.setValue(pantallaOp.getEtiqueta());
                             String actionExpression = String.format("#{%s.openFrame('%d')}",BEAN_NAME,pantallaOp.getId());
                             item.setActionExpression(FacesUtils.createMethodExpression(actionExpression, null, Long.class));
-                            item.setOncomplete("jsUpdPngFrame(xhr, status, args)");
+                            item.setOnstart("wgtAS.show();");
+                            item.setOncomplete("jsUpdPngFrame(xhr, status, args);wgtAS.hide();");
+                            
                             String iconoPantalla = pantallaOp.getIcono();
                             if(iconoPantalla != null && !iconoPantalla.isEmpty()){
                             	item.setStyle(String.format(style, iconoPantalla));
@@ -128,7 +130,7 @@ public class DeskBean implements Serializable{
     }
     
     public Panel getPnlFrames(){
-		if(pnlFrames.getChildCount() == 0){
+		if(pnlFrames.getChildren().isEmpty()){
 			buildPnlFrameList();	
 		}
     	return pnlFrames;
@@ -159,18 +161,18 @@ public class DeskBean implements Serializable{
     	UIComponent pngFrame = getPngFrame();
     	if(pngFrame != null){
     		pngFrame = context.getViewRoot().findComponent(pngFrame.getId());
-//            try{
+            try{
             	Map<String, Object> attrs = new TreeMap<String, Object>();
-	    		attrs.put("widgetVar", WIDGET_PREFIX+pngFrame);
+	    		//attrs.put("widgetVar", WIDGET_PREFIX+pngFrame.getId());
 	            attrs.put("src", option.getTarget());
 	            attrs.put("header", option.getEtiqueta());
 	            attrs.put("parentId", pngFrame.getId());
         		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, FRAME_PREFIX+context.getViewRoot().createUniqueId(), attrs);
         		requestContext.addCallbackParam("pngFrameId",pngFrame.getId());
-//            } catch(Exception ex){
-//            	pngFrame.getChildren().clear();
-//            	sessionBean.putError("desktop.summary.loadoption", ex.getMessage());
-//            }
+            } catch(Exception ex){
+            	pngFrame.getChildren().clear();
+            	throw new MasterException(ex.getCause());
+            }
     	}
     }
 	

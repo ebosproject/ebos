@@ -1,13 +1,13 @@
 package ec.com.ebos.security.exception;
 
-import ec.com.ebos.root.core.exception.GenericException;
+import ec.com.ebos.root.core.exception.RootException;
 import ec.com.ebos.security.resources.SecurityMensajes;
 
 /**
  * 
  * @author Eduardo Plua Alay
  */
-public class SecurityException extends GenericException {
+public class SecurityException extends RootException {
 
 	private static final long serialVersionUID = -4778046922922740413L;
 

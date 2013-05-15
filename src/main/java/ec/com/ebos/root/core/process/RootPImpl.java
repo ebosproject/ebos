@@ -46,9 +46,11 @@ import ec.com.ebos.orm.crud.FinderService;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.orm.crud.PaginationParams;
+import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.security.resources.SecurityMensajes;
+import ec.com.ebos.util.GenericUtils;
 import ec.com.ebos.util.HTTPUtils;
 import ec.com.ebos.util.ObjectUtils;
 import ec.com.ebos.util.core.process.UtilPImpl;
@@ -100,10 +102,18 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
 	//////////////// Acceso Generico a FinderService ////////////////////
 	
 	/**
-	 * Llama a {@link FinderService#findAll(Class, int)}
+	 * Llama a {@link FinderService#load(Class, Serializable)}
 	 */
-	protected <T extends X> T findById(Serializable id, Class<T> entityType) {
-		T obj = finder.findById(id, entityType);
+	protected <T extends X> T load(Serializable id, Class<T> entityType) {
+		T obj = finder.load(entityType, id);
+		return obj;
+	} 
+	
+	/**
+	 * Llama a {@link FinderService#get(Serializable, Class)}
+	 */
+	protected <T extends X> T get(Serializable id, Class<T> entityType) {
+		T obj = finder.get(id, entityType);
 		return obj;
 	}
 	
@@ -432,6 +442,23 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
 		validateUniqueness(entity);
 		// guardar
 		crud.saveOrUpdate(entity);
+		return entity;
+	}
+	
+	/**
+	 * Llama a {@link Crud#Save(Object) || Crud#merge(Object)}
+	 * @param 
+	 */
+	protected <T extends X> T saveOrMerge(T entity) {
+		// validar indices
+		validateUniqueness(entity);
+		// guardar o merge(retached object in ssession)
+		if(GenericUtils.isPersistent((Entidad<?>) entity)){
+			crud.merge(entity);
+		} else {
+			crud.save(entity);
+		}
+		
 		return entity;
 	}
 

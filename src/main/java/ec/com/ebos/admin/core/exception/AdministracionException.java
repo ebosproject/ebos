@@ -1,13 +1,13 @@
 package ec.com.ebos.admin.core.exception;
 
 import ec.com.ebos.admin.resources.AdminMensajes;
-import ec.com.ebos.root.core.exception.GenericException;
+import ec.com.ebos.root.core.exception.RootException;
 
 /**
  *
  * @author Eduardo Plua Alay
  */
-public class AdministracionException extends GenericException{
+public class AdministracionException extends RootException{
         
      /**
 	 * 

@@ -16,98 +16,96 @@
             <meta http-equiv="cache-control" content="no-cache"/>
             <meta http-equiv="expires" content="0"/>
         </f:facet>
-		<script type="text/javascript">//<![CDATA[
+        <script type="text/javascript">//<![CDATA[
 		    window.history.forward(1);            
 		    var $ = jQuery.noConflict();  
 
 		 // IE Evitar seleccion de texto
 		 document.onselectstart=function(){
-		 if (event.srcElement.type != "text" && event.srcElement.type != "textarea" && event.srcElement.type != "password")
-		 return false
-		 else return true;
+			 return !(event.srcElement.type != "text" && event.srcElement.type != "textarea" && event.srcElement.type != "password");
 		 };
 		 // FIREFOX Evitar seleccion de texto
 		 if (window.sidebar){
-		 document.onmousedown=function(e){
-		 var obj=e.target;
-		 if (obj.tagName.toUpperCase() == "INPUT" || obj.tagName.toUpperCase() == "TEXTAREA" || obj.tagName.toUpperCase() == "PASSWORD")
-		 return true;
-		 /*else if (obj.tagName=="BUTTON"){
-		 return true;
-		 }*/
-		 else
-		 return false;
-		 }
+		 	document.onmousedown=function(e){
+			 	var obj=e.target;
+			 	return (obj.tagName.toUpperCase() == "INPUT" || obj.tagName.toUpperCase() == "TEXTAREA" || obj.tagName.toUpperCase() == "PASSWORD");
+		 	}
 		 }
 		//]]>
 		</script>
-		<style type="text/css">
-			#ajaxErrorHandlerDialog\:modal {
+        <style type="text/css">
+			#eBosErrorHandler\:modal {
                 background: #f60;
             }
         </style>
 	</pe:head>
     <h:body>
-   		<ui:include id="loading" src="loading.xhtml" />
-        <h:panelGroup id="pngWelcome">
-       		<ui:fragment rendered="#{not sessionBean.login}">
-       			<ui:include src="login.xhtml" />
-          	</ui:fragment>
-		</h:panelGroup>
-	
-		<h:panelGroup id="pngHome">
-			<ui:fragment rendered="#{sessionBean.login}">
-				<ui:include src="desk.xhtml" />	            
-        	</ui:fragment>
-        </h:panelGroup>
-        
-        <h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
-        <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
-        <h:outputScript library="primefaces" name="jquery/jquery.js" />
-        <h:outputScript library="js" name="scripts.js" />
+        <h:outputStylesheet library="css" name="componentes.css" />            
+        <h:outputStylesheet library="css" name="estilos.css" />
         <h:outputStylesheet library="css" name="global.css"/>
 	    <h:outputStylesheet library="css" name="layout.css"/>
 	    <h:outputStylesheet library="css" name="usecases.css"/>
 	    <h:outputStylesheet library="css" name="themeSwitcher.css"/>
+	    <h:outputStylesheet library="syntaxhighlighter" name="styles/syntaxhighlighter.css"/>
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="head"/>
 	    <h:outputScript library="js" name="menu.js" target="head"/>
-        <h:outputStylesheet library="syntaxhighlighter" name="styles/syntaxhighlighter.css"/>
+	    <h:outputScript library="js" name="scripts.js" target="head"/>
         <h:outputScript library="syntaxhighlighter" name="scripts/shCore.js" target="body"/>
         <h:outputScript library="syntaxhighlighter" name="scripts/shBrushXml.js" target="body"/>
         <h:outputScript library="syntaxhighlighter" name="scripts/shBrushJava.js" target="body"/>
         <h:outputScript library="syntaxhighlighter" name="scripts/shBrushCss.js" target="body"/>
-        <h:outputScript library="syntaxhighlighter" name="scripts/shBrushJScript.js" target="body"/>
         <h:outputScript id="syntaxhighlighterInit" target="body">
             dp.SyntaxHighlighter.ClipboardSwf = '#{request.contextPath}/resources/syntaxhighlighter/scripts/clipboard.swf';
             dp.SyntaxHighlighter.HighlightAll('code');
         </h:outputScript>
         
-        <pe:ajaxErrorHandler button="#{msg.systemCloseWarning}" widgetVar="myAjaxErrorHandler" buttonOnclick="myAjaxErrorHandler.hide(); return false;">
+        <pe:ajaxErrorHandler button="#{msg.systemCloseWarning}" widgetVar="eBosViewExpired" type="javax.faces.application.ViewExpiredException" 
+        	onerror="window.location.href='welcome.jsf?expired=true';"/>
+        <pe:ajaxErrorHandler button="#{msg.systemCloseWarning}" widgetVar="eBosErrorHandler" 
+        	buttonOnclick="eBosErrorHandler.hide(); return false;" >
 		    <div>
 		        <h2 class="ui-dialog-titlebar" style="border-bottom: 2px solid blue; border-top: 2px solid blue;padding: 15px; text-align:center;background:#ccc;">
 		            Error <span style="color: red;">{error-name}</span>
 		        </h2>
 				<div class="ui-dialog-content">
-					<p:panel header="Base information" toggleable="true">
+					<p:panel header="#{msg.systemBaseInformation}" toggleable="true" style="min-width:460px;">
 						<h:panelGrid columns="2">
-							<h:outputLabel value="Error message:" />
+							<h:outputLabel value="#{msg.systemErrorMessage}:" />
 							<h:outputText value="{error-message}" style="font-size: 1.2em;color:navy;" />
 		
-							<h:outputLabel value="Server name:" />
+							<h:outputLabel value="#{msg.systemServerName}:" />
 							<h:outputText value="{error-hostname}"  style="font-size: 1.2em;color:navy;"/>
 						</h:panelGrid>
 					</p:panel>
-					<p:panel header="Exception details" toggleable="true">
+					<p:panel header="#{msg.systemExceptionDetails}" toggleable="true" collapsed="true" style="min-width:460px;">
 						<div style="overflow: auto; height: 300px; width: 440px;">
 							{error-stacktrace}
 						</div>
 					</p:panel>
 		
-					<div style="text-align  :center; padding: 5px;">
+					<div style="text-align:center; padding: 5px;">
 						<p:commandButton onclick="window.location.href=window.location.href; return false;" value="#{msg.systemReload}"/>
-						<p:commandButton onclick="myAjaxErrorHandler.hide(); return false;" value="{msg.systemClose}"/>
+						<p:commandButton onclick="eBosErrorHandler.hide(); return false;" value="#{msg.systemClose}"/>
 					</div>
 				</div>
 		    </div>
 		</pe:ajaxErrorHandler>
+        
+        <ui:include id="loading" src="loading.xhtml" />
+        <h:panelGroup id="pngWelcome">
+       		<p:outputPanel rendered="#{not sessionBean.login}">
+       			<ui:include src="login.xhtml" />
+          	</p:outputPanel>
+		</h:panelGroup>
+	
+		<h:panelGroup id="pngHome">
+			<p:outputPanel rendered="#{sessionBean.login}">
+				<ui:include src="desk.xhtml" />
+				<h:form>
+					<p:remoteCommand id="rmcUpdPnlFrames" name="rmcUpdPnlFrames" update=":pnlFrames" autoRun="true"/>
+				</h:form>
+        	</p:outputPanel>
+        </h:panelGroup>
+        
      </h:body>
 </f:view>

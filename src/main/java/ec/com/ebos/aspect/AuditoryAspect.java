@@ -93,7 +93,7 @@ public class AuditoryAspect {
 	
 	@AfterReturning(pointcut = "execution(* ec.com.ebos.*.core.service.*S.create*(..))",
 			returning= "entity")
-	public void obtenerNuevoEntity(JoinPoint joinPoint, Entidad<?> entity){		
+	public void createEntity(JoinPoint joinPoint, Entidad<?> entity){		
 		entity.setAuditoria(new Auditoria());
 		Usuario usuario = securityS.getSesionBean().getUsuario();
 		entity.setUsuarioCreacion(usuario);
@@ -102,17 +102,19 @@ public class AuditoryAspect {
 	
 	
 	@Before("execution(* ec.com.ebos.*.core.service.*S.save*(..))")	
-	public void guardarEntity(JoinPoint joinPoint){
+	public void saveEntity(JoinPoint joinPoint){
 		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
-		Usuario usuario = securityS.getSesionBean().getUsuario();			
-		Date date = new Date();
-        if (GenericUtils.isPersistent(entity)) {
-        	entity.setUsuarioModificacion(usuario);
-        	entity.setFechaModificacion(date);
-        } else {
-        	entity.setUsuarioCreacion(usuario);
-            entity.setFechaCreacion(date);                       
-        }        
+		if(entity.isAuditable()){
+			Usuario usuario = securityS.getSesionBean().getUsuario();			
+			Date date = new Date();
+	        if (GenericUtils.isPersistent(entity)) {
+	        	entity.setUsuarioModificacion(usuario);
+	        	entity.setFechaModificacion(date);
+	        } else {
+	        	entity.setUsuarioCreacion(usuario);
+	            entity.setFechaCreacion(date);                       
+	        }
+		}
 	}
 
 }

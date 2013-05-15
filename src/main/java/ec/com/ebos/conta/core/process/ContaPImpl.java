@@ -121,12 +121,10 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		//Ejercicio ejercicio = getEjercicio(asiento.getEmpresa(),  asiento.getDocumento().getEmitido());
 		Periodo periodoAsiento = getPeriodo(asiento.getPeriodo().getId());
 		//Validar estados de periodos
-		if(periodoAsiento.getEstado().isCerrado()){
-			
-		}
-		if(periodoAsiento.getEstado().isPendiente()){
-			
-		}
+//		if(periodoAsiento.getEstado().isActivo()){ TODO (vvc): descomentar estas lineas y verificar la existencia de metodo isActivo()
+//			
+//		}
+		
 		
 		List<AsientoDetalle> saldos = listAsientoDetalle(asiento);
 		//Este mapa alamcenara temporalemten todas las cuentas, padres e hijas usadas en el asiento

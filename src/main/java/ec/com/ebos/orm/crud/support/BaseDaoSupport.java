@@ -48,7 +48,7 @@ public class BaseDaoSupport implements DaoSupport {
 	}
 
 	public void deleteById(Serializable id) throws CrudException, FinderException {
-        crud.delete(finder.findById(id, getEntityType()));
+        crud.delete(finder.get(id, getEntityType()));
     }
 
     public void create(Object entity) throws CrudException {
@@ -72,7 +72,7 @@ public class BaseDaoSupport implements DaoSupport {
     }
 
     public Object findById(Serializable id) throws FinderException {
-        return finder.findById(id, getEntityType());
+        return finder.get(id, getEntityType());
     }
 
     public Collection<?> findByNamedQuery(String queryName) throws FinderException {

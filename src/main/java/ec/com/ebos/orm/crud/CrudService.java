@@ -30,6 +30,14 @@ public interface CrudService extends SessionExpuestos{
     public void saveOrUpdate(Object entity) throws CrudException;
 
     /**
+     * Guarda una entidad.
+     * 
+     * @param entity
+     * @throws CrudException
+     */
+    public void save(Object entity) throws CrudException;
+    
+    /**
      * Actualiza entidad.
      * 
      * @param entity

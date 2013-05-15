@@ -16,8 +16,9 @@
         </resource-bundle>
     </application>
     
-    <factory>
-        <exception-handler-factory>ec.com.ebos.util.web.jsf.handler.EbosExceptionHandlerFactory</exception-handler-factory>
+    <factory>    
+    	<exception-handler-factory>ec.com.ebos.util.web.jsf.handler.EbosExceptionHandlerFactory</exception-handler-factory>
+    	<exception-handler-factory>org.primefaces.extensions.component.ajaxerrorhandler.AjaxExceptionHandlerFactory</exception-handler-factory>
     </factory>  
     
 </faces-config>     

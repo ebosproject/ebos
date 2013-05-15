@@ -1,13 +1,13 @@
 package ec.com.ebos.util.exception;
 
-import ec.com.ebos.root.core.exception.GenericException;
+import ec.com.ebos.root.core.exception.RootException;
 import ec.com.ebos.util.resources.UtilMensajes;
 
 /**
  *
  * @author Eduardo Plua Alay
  */
-public class UtilException extends GenericException{
+public class UtilException extends RootException{
         
     private static final long serialVersionUID = -4778046922922740413L;
 

@@ -33,7 +33,8 @@ import ec.com.ebos.security.model.field.UsuarioRol_;
  */
 @Entity
 @Table(name = Usuario.TABLE_NAME, schema = Security.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
+@Data @EqualsAndHashCode(callSuper=false)
+@org.hibernate.annotations.Entity(dynamicUpdate = true)
 public class Usuario extends Security<Usuario> {
 
 	private static final long serialVersionUID = 5615088107461153660L;

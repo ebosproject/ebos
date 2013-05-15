@@ -22,11 +22,13 @@ public interface MasterP {
 	
 	public List<String> getCodeMessageResourceList(Localidad localidad);
 	
-	public Bundle saveBundle(Bundle messageResource);
-
 	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination);
 
 	public Bundle buildBundle();
+	
+	public Bundle loadBundle(Long id);
+	
+	public Bundle saveBundle(Bundle messageResource);
 
 	public void deleteBundle(Bundle activeEntity);
 	

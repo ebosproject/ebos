@@ -6,14 +6,12 @@ import java.io.PrintStream;
 import org.apache.commons.lang.StringUtils;
 
 
-
-
 /**
- * Superclase para el manejo de errores de toda la aplicaci&oacute;n
+ * Superclase para el manejo de errores de toda la plataforma
  * 
  * @author Eduardo Plua Alay
  */
-public abstract class GenericException extends RuntimeException {
+public abstract class RootException extends RuntimeException {
 
 	private static final long serialVersionUID = -6368553756451514439L;
 
@@ -46,7 +44,7 @@ public abstract class GenericException extends RuntimeException {
 	 * @return Este mismo error convertido en fatal
 	 */
 	@SuppressWarnings("unchecked")
-	public <E extends GenericException> E fatal() {
+	public <E extends RootException> E fatal() {
 		this.fatal = true;
 		return (E) this;
 	}
@@ -56,7 +54,7 @@ public abstract class GenericException extends RuntimeException {
 	 * @param stackTraceLevel
 	 */
 	@SuppressWarnings("unchecked")
-	public <E extends GenericException> E setStackTrace(StackTraceLevel stackTraceLevel) {
+	public <E extends RootException> E setStackTrace(StackTraceLevel stackTraceLevel) {
 		this.stackTraceLevel = stackTraceLevel;
 		return (E) this;
 	}
@@ -65,7 +63,7 @@ public abstract class GenericException extends RuntimeException {
 	 * No imprimir stackTrace de la causa
 	 */
 	@SuppressWarnings("unchecked")
-	public <E extends GenericException> E noStackTrace() {
+	public <E extends RootException> E noStackTrace() {
 		this.stackTraceLevel = StackTraceLevel.NONE;
 		return (E) this;
 	}
@@ -74,7 +72,7 @@ public abstract class GenericException extends RuntimeException {
 	 * Imprimir stackTrace resumido de la causa
 	 */
 	@SuppressWarnings("unchecked")
-	public <E extends GenericException> E briefStackTrace() {
+	public <E extends RootException> E briefStackTrace() {
 		this.stackTraceLevel = StackTraceLevel.BRIEF;
 		return (E) this;
 	}
@@ -83,7 +81,7 @@ public abstract class GenericException extends RuntimeException {
 	 * Imprimir stackTrace completo de la causa
 	 */
 	@SuppressWarnings("unchecked")
-	public <E extends GenericException> E fullStackTrace() {
+	public <E extends RootException> E fullStackTrace() {
 		this.stackTraceLevel = StackTraceLevel.FULL;
 		return (E) this;
 	}
@@ -91,7 +89,7 @@ public abstract class GenericException extends RuntimeException {
 	/**
 	 * Constructor por defecto. 
 	 */
-	public GenericException() {
+	public RootException() {
 		super();
 		this.key = StringUtils.EMPTY;
 	}
@@ -100,7 +98,7 @@ public abstract class GenericException extends RuntimeException {
 	 * Constructor en base a un mensaje.
 	 * @param message Mensaje de error.
 	 */
-	public GenericException(String message) {
+	public RootException(String message) {
 		super(message);
 		this.key = StringUtils.EMPTY;
 	}
@@ -109,7 +107,7 @@ public abstract class GenericException extends RuntimeException {
 	 * Constructor en base a un mensaje.
 	 * @param message Mensaje de error.
 	 */
-	public GenericException(String message, String key) {
+	public RootException(String message, String key) {
 		super(message);
 		this.key = key;
 	}
@@ -118,7 +116,7 @@ public abstract class GenericException extends RuntimeException {
 	 * Constructor en base a un objeto de causa.
 	 * @param cause Causa del Error.
 	 */
-	public GenericException(Throwable cause) {
+	public RootException(Throwable cause) {
 		super(cause);
 		this.key = StringUtils.EMPTY;
 	}
@@ -137,7 +135,7 @@ public abstract class GenericException extends RuntimeException {
 					if (!ObjectUtils.isEmpty(trace)) {
 						for (StackTraceElement stackTraceElement : trace) {
 							String string = stackTraceElement.toString();
-							if (string.startsWith("ec.com.ciscnet.")) {
+							if (string.startsWith("ec.com.ebos.")) {
 								s.println("\tat " + string);
 							}
 						}

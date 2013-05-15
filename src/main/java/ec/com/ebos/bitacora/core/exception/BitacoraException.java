@@ -2,7 +2,7 @@
 package ec.com.ebos.bitacora.core.exception;
 
 import ec.com.ebos.master.resources.MasterMensajes;
-import ec.com.ebos.root.core.exception.GenericException;
+import ec.com.ebos.root.core.exception.RootException;
 
 /**
  * 
@@ -10,7 +10,7 @@ import ec.com.ebos.root.core.exception.GenericException;
  * @since 2013-03-12
  * 
  */
-public class BitacoraException extends GenericException{
+public class BitacoraException extends RootException{
         
 	private static final long serialVersionUID = 7814015326508437254L;
 

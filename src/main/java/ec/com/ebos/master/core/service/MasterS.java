@@ -45,6 +45,8 @@ public interface MasterS extends Serializable {
 	
 	public Bundle createBundle();
 	
+	public Bundle loadBundle(Long id);
+	
 	/**
 	 * Guarda un {@link Bundle} entity en la base de datos y descarga la cacheBundle
 	 * para que la entidad guardada vuelva a ser cargada por las pantallas que lo utilicen 

@@ -2,13 +2,13 @@
 package ec.com.ebos.master.exception;
 
 import ec.com.ebos.master.resources.MasterMensajes;
-import ec.com.ebos.root.core.exception.GenericException;
+import ec.com.ebos.root.core.exception.RootException;
 
 /**
  *
  * @author Eduardo Plua Alay
  */
-public class MasterException extends GenericException{
+public class MasterException extends RootException{
         
     private static final long serialVersionUID = -4778046922922740413L;
 
@@ -18,6 +18,13 @@ public class MasterException extends GenericException{
     public MasterException(){
             super();
     }
+    
+    /**
+     * Constructor por defecto 
+     */
+	 public MasterException(Throwable cause){
+	         super(cause);
+	 }
 
     /**
         * Constructor en base a un mensaje

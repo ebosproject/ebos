@@ -29,6 +29,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = Rol.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@org.hibernate.annotations.Entity(dynamicUpdate = true)
 public class Rol extends Security<Rol> {
     
 	private static final long serialVersionUID = 1684996463596485829L;
