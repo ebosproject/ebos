@@ -8,14 +8,18 @@
                 
     <ui:param name="showAuditoria" value="true" />
     <ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
-    <ui:param name="wgtE" value="wgtE#{frameId}" />            
+    <ui:param name="wgtE" value="wgtE#{frameId}" />
+    <ui:param name="optionsFinder" value="'north':{'closable':false,'resizable':false,'size':50},
+				'south':{'closable':true, 'size':35},
+				'west':{'minSize':180, 'maxSize':500, 'size':210, 'resizable':true},
+				'east':{'minSize':80, 'maxSize':80, 'size':80},
+				'center':{'minHeight':60, 'resizeWhileDragging':false, 'closable':false, 'minWidth':200, 'resizable':false}"/>            
 	
 	<pe:layout id="lytFinder" fullPage="false" style="min-height:450px; min-width:700px; height:100%; width:100%;" 
-		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},
-				'north':{'closable':false,'spacing_open':0,'resizable':false,'size':50}}">
+		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsFinder}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTF">
-                 <p:toolbar style="overflow:hidden !important;">
+                 <p:toolbar id="tbrTF" style="overflow:hidden !important;">
 		           	<p:toolbarGroup align="left">
 			           	<p:commandButton id="btnSearch" value="#{msg.ebBuscar}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Search" 
 			           		icon="ui-icon-search" update=":#{frameId}:frmR:dtR,:#{frameId}:pnlD" process="@this,:#{frameId}:frmF"/>
@@ -47,7 +51,7 @@
        		<!-- <p:hotkey bind="ctrl+shift+f" handler="alert('Hola');" /> -->
             </h:form>
          </pe:layoutPane>
-         <pe:layoutPane position="center" minHeight="60" resizeWhileDragging="false" closable="false" minWidth="200" resizable="false">
+         <pe:layoutPane position="center">
             <h:form id="frmR">
 	        	<p:dataTable id="dtR" 
 	        		var="reg" 
@@ -77,26 +81,18 @@
 		     	<p:blockUI block="dtR" trigger=":#{frameId}:frmTF:btnSearch" />
 		    </h:form> 	
        	 </pe:layoutPane>
-         <pe:layoutPane position="west" minSize="180" maxSize="500" size="210" resizable="true">
+         <pe:layoutPane position="west">
          	<h:form id="frmF">
         		<ui:insert name="filters"/>
         	</h:form>
          </pe:layoutPane>
-         <pe:layoutPane position="east" rendered="false" minSize="180" maxSize="650" size="448">
-	        <pe:layoutPane position="center">
-	        	<f:facet name="header">
-	            	<h:outputText value="Use Cases"/>
-            	</f:facet>
-	        	<ui:insert name="useCases"/>
-	        </pe:layoutPane>
-	        <pe:layoutPane position="south">
-	        	<ui:insert name="docuTable"/>
-	        </pe:layoutPane>
+         <pe:layoutPane position="east" rendered="false">
+	        
          </pe:layoutPane>
-         <pe:layoutPane position="south" closable="true" size="31">
+         <pe:layoutPane position="south">
          	<h:panelGrid id="pnlD" columns="6" cellpadding="4">
-         		<p:outputLabel for="id" value="#{msg.ebId}"/>
-	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" />
+         		<p:outputLabel for="id" value="#{msg.ebId}" rendered="#{bean.activeEntity.id ne null}"/>
+	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" rendered="#{bean.activeEntity.id ne null}"/>
 	    		<p:outputLabel for="creado" value="#{msg.ebCreado}" rendered="#{bean.activeEntity.creado ne null}"/>
 		        <eb:outputDate id="creado" value="#{bean.activeEntity.creado}" title="#{msg.ebPor}: #{bean.activeEntity.creador.username}" rendered="#{bean.activeEntity.creado ne null}"/>
 		        <p:outputLabel for="modificado" value="#{msg.ebModificado}" rendered="#{bean.activeEntity.modificado ne null}"/>

@@ -7,13 +7,17 @@
                 xmlns:pe="http://primefaces.org/ui/extensions"
                 template="/templates/tplMaster.xhtml">
 
+	<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
+				'center':{'resizeWhileDragging':true,'closable':false,
+					'childOptions':{'south':{},'center':{'maxHeight':80}}}"/>
+
     <ui:define name="header">
         <ui:param name="usuario" value="#{bean.activeEntity}" />    
 	
 	    <h:panelGrid id="pnlUsuario" columns="4">        
 	                
 	       	<p:outputLabel for="id" value="#{msg.ebId}"/>         
-	       	<eb:outputText id="id" value="#{bundle.id}"/>
+	       	<eb:outputText id="id" value="#{usuario.id}"/>
 	       
 			<p:outputLabel for="estado" value="#{msg.ebEstado}"/>
 	        <eb:outputText id="estado" value="#{usuario.estado.label}"/>     
@@ -45,7 +49,7 @@
     </ui:define>
     	
     <ui:define name="detail">
-       <!-- <ui:include src="usuarioRolList.xhtml"/> -->
+       <ui:include src="usuarioRolList.xhtml"/>
     </ui:define>
 
 </ui:composition>

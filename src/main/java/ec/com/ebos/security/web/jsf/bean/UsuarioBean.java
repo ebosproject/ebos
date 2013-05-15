@@ -108,17 +108,17 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     @Getter @Setter
     private Rol selectedRol;    
 
-    public void agregarUsuarioRol(){        
+    public void addUsuarioRol(){        
         securityS.generateUsuarioRol(activeEntity, selectedRol);
         usuarioRolList.clear();
     }
     
-    public void guardarUsuarioRolList(){                
+    public void saveUsuarioRolList(){                
         securityS.saveUsuarioRolList(Arrays.asList(selectedUsuarioRolList));                
         usuarioRolList.clear();
     }
     
-    public void eliminarUsuarioRolList(){
+    public void deleteUsuarioRolList(){
         List<UsuarioRol> list = Arrays.asList(selectedUsuarioRolList);        
         securityS.deleteUsuarioRolList(list);        
         usuarioRolList.removeAll(list);

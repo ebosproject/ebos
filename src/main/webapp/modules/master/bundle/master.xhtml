@@ -1,26 +1,34 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"                
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.org.ui"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pe="http://primefaces.org/ui/extensions"
                 template="/templates/tplMaster.xhtml">
 
     <ui:define name="header">
-        <ui:param name="bundle" value="${bean.activeEntity}" />    
+        <ui:param name="bundle" value="#{bean.activeEntity}" />    
 	
-	    <eb:panelGrid id="pnlBundle" columns="2">        
+	    <h:panelGrid id="pnlBundle" columns="4">        
 	                
-	       <eb:outputText id="id" value="#{bundle.id}" label="#{msg.ebId}"/>                
-	       <eb:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" label="#{msg.ebLocalidad}" required="true">
-	            <f:selectItem itemLabel ="#{msg.ebSeleccionaUno}" itemValue="" />
-	            <f:selectItems value="#{bunbleBean.localidadList}" var="opc"
+	       <p:outputLabel for="id" value="#{msg.ebId}"/>         
+	       <eb:outputText id="id" value="#{bundle.id}"/>
+	       
+	       <p:outputLabel for="codigo" value="#{msg.ebCodigo}"/>
+	       <eb:inputText id="codigo" value="#{bundle.codigo}" required="true" maxlength="50"/>
+	       
+	       <p:outputLabel for="valor" value="#{msg.ebValor}"/>
+	       <eb:inputText id="valor" value="#{bundle.valor}" required="true" maxlength="500"/>
+	               
+	       <p:outputLabel for="localidad" value="#{msg.ebLocale}"/>
+	       <p:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" required="true">
+	            <f:selectItem itemLabel ="#{msg.ebSelectOne}" itemValue="" />
+	            <f:selectItems value="#{bean.localidadList}" var="opc"
 	                itemLabel="#{opc.label}" itemValue="#{opc}"/>
-	        </eb:selectOneMenu>
-	       <eb:inputText id="codigo" value="#{bundle.codigo}" label="#{msg.ebCodigo}" required="true" maxlength="50"/>
-	       <eb:inputText id="valor" value="#{bundle.valor}" label="#{msg.ebValor}" required="true" maxlength="500"/>        
+           </p:selectOneMenu>         
 	                
-	    </eb:panelGrid>   
+	    </h:panelGrid>   
 
     </ui:define>
             
