@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
 import lombok.Setter;
+import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;
@@ -58,6 +59,9 @@ public class SessionBean implements Serializable{
     @Getter @Setter
     private Usuario usuario;
            
+    @Getter @Setter
+    private Organizacion empresa;
+
     @Getter @Setter
     private boolean login;
     

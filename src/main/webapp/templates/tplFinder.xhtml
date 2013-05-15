@@ -95,8 +95,8 @@
          </pe:layoutPane>
          <pe:layoutPane position="south" closable="true" size="31">
          	<h:panelGrid id="pnlD" columns="6" cellpadding="4">
-         		<p:outputLabel for="id" value="#{msg.ebId}" rendered="#{bean.activeEntity.id ne null}"/>
-	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" rendered="#{bean.activeEntity.id ne null}"/>
+         		<p:outputLabel for="id" value="#{msg.ebId}"/>
+	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" />
 	    		<p:outputLabel for="creado" value="#{msg.ebCreado}" rendered="#{bean.activeEntity.creado ne null}"/>
 		        <eb:outputDate id="creado" value="#{bean.activeEntity.creado}" title="#{msg.ebPor}: #{bean.activeEntity.creador.username}" rendered="#{bean.activeEntity.creado ne null}"/>
 		        <p:outputLabel for="modificado" value="#{msg.ebModificado}" rendered="#{bean.activeEntity.modificado ne null}"/>

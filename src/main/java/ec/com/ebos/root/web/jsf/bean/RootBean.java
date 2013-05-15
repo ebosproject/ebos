@@ -79,14 +79,12 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     @Getter @Setter
     protected Long paramId;
     
-    private boolean loaded = true;
-    
     public RootBean() {
         initTarget();
     }
     
     public void _buscar(){
-    	loaded = false;
+    	
     }
     
     public void _crear(){
@@ -179,9 +177,7 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
 			pagination.setSortOrder(sortOrder);
 			pagination.setFilters(filters);
 			
-			if(!loaded){
-				data = loadDataTableCollection(entitySearch, pagination);
-			}
+			data = loadDataTableCollection(entitySearch, pagination);
             
             this.setRowCount(pagination.getRowCount());
             if(data != null && !data.isEmpty()){
