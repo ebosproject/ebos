@@ -6,9 +6,9 @@
 
     <application>
         <locale-config>
-            <default-locale>es</default-locale>
-            <supported-locale>es</supported-locale>
-            <!-- <supported-locale>en</supported-locale> -->
+            <default-locale>es_EC</default-locale>
+            <supported-locale>es_EC</supported-locale>
+            <supported-locale>en_US</supported-locale>
         </locale-config>
         <resource-bundle>
             <base-name>ec.com.ebos.master.web.resources.DatabaseDrivenResourceBundle</base-name>

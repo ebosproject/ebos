@@ -10,7 +10,7 @@ import javax.faces.context.FacesContext;
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 
 /**
@@ -38,7 +38,7 @@ public class ParametrosBean extends AdministracionBean<Parametros>{
         setHabilitaGuardar();
         setHabilitaEliminar(false);
 
-        if (GenericUtils.isPersistent(activeEntity)) {
+        if (EntityUtils.isPersistent(activeEntity)) {
         }
     }
 

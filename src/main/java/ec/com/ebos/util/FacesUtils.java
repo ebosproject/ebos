@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import javax.el.MethodExpression;
+import javax.el.ValueExpression;
 import javax.faces.FacesException;
 import javax.faces.application.Application;
 import javax.faces.application.Resource;
@@ -98,7 +99,20 @@ public class FacesUtils {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         return facesContext.getApplication().getExpressionFactory().createMethodExpression(
             facesContext.getELContext(), expression, returnType, parameterTypes);
-    }  
+    }
+    
+    /**
+     * Create un valueExpression para agregar en un componente jsf
+     * @param expression
+     * @param returnType
+     * @param parameterTypes
+     * @return
+     */
+    public static ValueExpression createValueExpression(String expression, Class<?> parameterType) {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        return facesContext.getApplication().getExpressionFactory().createValueExpression(
+            facesContext.getELContext(), expression, parameterType);
+    }
 
     /**
      * CRea un MethodExpressionActionListener para ser asignado en {@link UIComponent} como EL

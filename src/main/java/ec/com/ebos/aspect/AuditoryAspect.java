@@ -17,7 +17,7 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 /**
  * Aspectos de Auditoria
@@ -107,7 +107,7 @@ public class AuditoryAspect {
 		if(entity.isAuditable()){
 			Usuario usuario = securityS.getSesionBean().getUsuario();			
 			Date date = new Date();
-	        if (GenericUtils.isPersistent(entity)) {
+	        if (EntityUtils.isPersistent(entity)) {
 	        	entity.setModificador(usuario);
 	        	entity.setModificado(date);
 	        } else {

@@ -25,23 +25,21 @@
 		               	<p:separator />
 		               	<p:commandButton id="btnNew" value="#{msg.ebNuevo}" actionListener="#{bean._crear}"
 		                	update=":#{frameId}:pnlE" onsuccess="#{wgtBUI}.show();#{wgtE}.show()"  
-		                	rendered="#{bean.habilitaCrear}"  icon="ui-icon-document"/>
-		                	
+		                	rendered="#{bean.habilitaCrear}" icon="ui-icon-document"/>
 		                <p:commandButton id="btnEdit" value="#{msg.ebEditar}" actionListener="#{bean._editar}" widgetVar="wgt#{frameId}Edit"
 		                	update=":#{frameId}:pnlE" onsuccess="#{wgtBUI}.show();#{wgtE}.show()"  
 		                	rendered="#{bean.habilitaEditar and not empty bean.dataTable}" icon="ui-icon-edit"/>
 	                </p:toolbarGroup>
 	                <p:separator />
-					<p:toolbarGroup align="right">
-						<p:commandButton id="btnExport" value="#{msg.ebExportar}" 
-		                	rendered="#{bean.habilitaExportar}">
-		                    <p:dataExporter type="xls" target="" fileName="Report"/>
-		                </p:commandButton>
+					<p:toolbarGroup align="right">	                    
 						<p:menuButton value="#{msg.ebOptions}">
-							<p:menuitem value="Opc 1" url="#" />
+							<p:menuitem value="#{msg.ebExportar}" rendered="#{bean.habilitaExportar}" ajax="false">
+								<p:dataExporter type="pdf" target=":#{frameId}:frmR:dtR" fileName="Report"/>	
+							</p:menuitem>
 							<p:menuitem value="Opc 2" url="#" />
 							<ui:insert name="options"/>
 						</p:menuButton>
+						<p:commandButton id="btnRefr" onclick="#{wgtFrame}.loadContents()" icon="ui-icon-refresh"/>
 					</p:toolbarGroup>
 	             </p:toolbar>
              	 <ui:remove><p:remoteCommand id="fnEditar" actionListener="#{bean._editar}" name="fnEditar"

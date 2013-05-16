@@ -3,6 +3,7 @@ package ec.com.ebos.master.web.jsf.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -13,10 +14,13 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
 import lombok.Setter;
+import ec.com.ebos.master.model.Bundle.Localidad;
+import ec.com.ebos.master.model.Bundle;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.security.core.service.SecurityS;
@@ -55,6 +59,9 @@ public class SessionBean implements Serializable{
     protected AdminBean admin;
     
 	private String tema = null;
+	
+	@Getter @Setter
+	private Localidad localidad;
     
     @Getter @Setter
     private Usuario usuario;
@@ -82,7 +89,10 @@ public class SessionBean implements Serializable{
     }
     
     public void iniciarSesion(){                
-        login = securityS.authLogin(this);
+        if(login = securityS.authLogin(this)){
+        	localidad = usuario.getLocalidad();
+        	changeLocale();
+        }
         usuario.setPassword(null);
         defineSessionTimeout();
     }
@@ -116,6 +126,14 @@ public class SessionBean implements Serializable{
     public static final int EXPORT_ACTION_ID = 4;
     
     
+    /**
+     * Metodo que verifica los permisos que el usuario actual tiene sobre
+     * las opciones asignadas
+     *  
+     * @param target
+     * @param accion
+     * @return
+     */
     public boolean verificaAcceso(String target, int accion){
         boolean flag = false;
         for(RolOpcion rolOpcion : rolOpcionList){            
@@ -154,12 +172,47 @@ public class SessionBean implements Serializable{
 		}
 		return tema;
 	}
-	
-	public void guardarTema(String tema){
-		this.tema = tema;
-		usuario.setTema(tema);
+		
+	/**
+	 * Guarda el tema seleccionado por el usuario actual
+	 * @param theme
+	 */
+	public void saveTheme(String theme){
+		this.tema = theme;
+		usuario.setTema(theme);
 		securityS.saveUserPreferences(usuario);
 	}
+	
+	/**
+	 * Realiza el cambio de localidad(languaje  y pais) del usuario actual,
+	 * default = 'es_EC' //TODO (epa): Parametrizar localidad por defecto
+	 */
+	private void changeLocale(){
+		String language = "es", country = "EC";
+		if(localidad != null){
+			String newLocaleValue = localidad.getValue();
+			language = newLocaleValue.substring(0, 2);
+			country = newLocaleValue.substring(3, 5);
+		}
+		FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(language, country));
+	}
+	
+	/**
+	 * Guarda la nueva localidad del usuario actual
+	 */
+	public void saveLocale(){
+		changeLocale();
+		usuario.setLocalidad(localidad);
+		securityS.saveUserPreferences(usuario);
+	}
+	
+    //////////////////////// LISTS ///////////////////////////////
+	
+	@Getter
+    protected final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);
+	
+	
+    //////////////////////// MESSAGES ///////////////////////////////
 	
     private void putMessage(FacesMessage.Severity severity, String keySummary, String detail, Object... args){
     	String summary = RootMensajes.getString(keySummary, args);

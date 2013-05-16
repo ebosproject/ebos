@@ -15,7 +15,7 @@ import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author Eduardo Plua Alay
@@ -43,7 +43,7 @@ public class RolBean extends SecurityBean<Rol> {
         setHabilitaGuardar();
         setHabilitaEliminar();
         
-        if(GenericUtils.isPersistent(activeEntity)){
+        if(EntityUtils.isPersistent(activeEntity)){
             
         }
     }

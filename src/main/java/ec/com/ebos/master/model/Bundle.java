@@ -21,7 +21,7 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.master.model.field.Bundle_;
 import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -69,8 +69,8 @@ public class Bundle extends Master<Bundle>{
      */
     public enum Localidad implements StringValuedEnum<Localidad> {
 
-        es("es"),
-        en("en");
+        es_EC("es_EC"),
+        en_US("en_US");
 
         public static class Type extends StringValuedEnumType<Localidad> {
         }
@@ -85,7 +85,7 @@ public class Bundle extends Master<Bundle>{
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
         public static final Map<String, Localidad> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(Localidad.values());
+                EntityUtils.buildLabeledEnumMap(Localidad.values());
         /**
          * Lists for iterations
          */

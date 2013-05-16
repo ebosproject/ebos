@@ -26,7 +26,7 @@ import ec.com.ebos.conta.resources.ContaMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -139,7 +139,7 @@ public class SaldoCentroCosto extends Contabilidad<SaldoCentroCosto> {
         }
         
         public static final Map<String, TipoSaldo> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoSaldo.values());
+                EntityUtils.buildLabeledEnumMap(TipoSaldo.values());
         /**
          * Lists para iteraciones
          */

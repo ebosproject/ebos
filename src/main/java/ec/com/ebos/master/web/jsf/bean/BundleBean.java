@@ -9,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 import lombok.Getter;
 import ec.com.ebos.master.model.Bundle;
 import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -37,7 +37,7 @@ public class BundleBean extends MasterBean<Bundle> {
         setHabilitaGuardar();
         setHabilitaEliminar();
         
-        if(GenericUtils.isPersistent(activeEntity)){
+        if(EntityUtils.isPersistent(activeEntity)){
             
         } else {
         	setHabilitaEliminar(false);
@@ -85,7 +85,7 @@ public class BundleBean extends MasterBean<Bundle> {
         masterS.deleteBundle(activeEntity);                
     }            
     
-    //////////////////////// DATALIST ///////////////////////////////
+    //////////////////////// LISTS ///////////////////////////////
     
     @Getter
     protected final List<Bundle.Localidad> localidadList = new ArrayList<Bundle.Localidad>(Bundle.Localidad.LIST);

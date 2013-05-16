@@ -11,7 +11,7 @@ import lombok.Getter;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Objeto;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -39,7 +39,7 @@ public class ObjetoBean extends SecurityBean<Objeto> {
         setHabilitaGuardar();
         setHabilitaEliminar();
         
-        if(GenericUtils.isPersistent(activeEntity)){
+        if(EntityUtils.isPersistent(activeEntity)){
             
         }
     }

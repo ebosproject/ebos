@@ -16,7 +16,11 @@
             <p:outputLabel for="codigo" value="#{msg.ebCodigo}"/>
 	        <eb:inputText id="codigo" value="#{bean.entitySearch.codigo}" />
 	        <p:outputLabel for="localidad" value="#{msg.ebLocalidad}"/>        
-	        <eb:inputText id="localidad" value="#{bean.entitySearch.localidad}" />        
+	        <p:selectOneMenu id="localidad" value="#{bean.entitySearch.localidad}" efect="fade">
+	            <f:selectItem itemLabel ="#{msg.ebSelectOne}" itemValue="" />
+	            <f:selectItems value="#{bean.localidadList}" var="opc"
+	                itemLabel="#{opc.label}" itemValue="#{opc}"/>
+            </p:selectOneMenu>        
 	    </eb:panelGrid>
     </ui:define>
 

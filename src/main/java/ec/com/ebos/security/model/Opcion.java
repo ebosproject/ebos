@@ -62,7 +62,7 @@ public class Opcion extends Security<Opcion> {
     @Column(name="descripcion", length=500)
     private String descripcion;
     
-    @Column(name="etiqueta", length=20, nullable=false)
+    @Column(name="etiqueta", length=30, nullable=false)
     private String etiqueta;
     
     @Column(name="target", length=200, nullable=false)

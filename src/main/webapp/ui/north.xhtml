@@ -13,7 +13,7 @@
 		</p:submenu>
 		<p:menuitem value="#{msg.ebAbout}" url="javascript:void(0)" onclick="wgtAbout.show()" icon="ui-icon ui-icon-info"/>
 		<f:facet name="options">
-			<h:panelGrid id="pngOptions" columns="9">
+			<h:panelGrid id="pngOptions" columns="10">
 				<form id="frmUpdDesk">
 					<p:commandButton icon="ui-icon-refresh" update="pnlFrames" title="#{msg.ebUpdateDesk}" immediate="true"/>
 				</form>
@@ -25,12 +25,12 @@
 				<p:spacer width="5"/>
 				
 				<h:form id="frmThemeSwitcher">
-					<p:themeSwitcher  id="themeSwitcher" value="#{themeSwitcherBean.tema}" var="t" 
+					<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherBean.tema}" var="t" 
 						style="width:175px;" effect="fade" >
 						<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
 						<f:selectItems value="#{themeSwitcherBean.temasAvanzados}"
 							var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
-						<p:ajax listener="#{themeSwitcherBean.guardarTema}" />
+						<p:ajax listener="#{themeSwitcherBean.saveTheme}" />
 						<p:column>
 							<h:graphicImage name="images/themes/#{t.imagen}" />
 						</p:column>
@@ -39,7 +39,13 @@
 			            </p:column>
 					</p:themeSwitcher>
 				</h:form>
-			
+				<h:form id="frmLang">
+					<p:selectOneMenu id="locale" value="#{sessionBean.localidad}" effect="fade">
+			   			<f:selectItems value="#{sessionBean.localidadList}" var="loc"
+	                		itemLabel="#{loc.label}" itemValue="#{loc}"/> 
+	                	<p:ajax listener="#{sessionBean.saveLocale}" update="@all"/>	
+			   		</p:selectOneMenu>			   		
+				</h:form>			
 				<h:form id="frmLogout" prependId="false">
 					<p:commandButton value="#{msg.ebSalir} (#{sessionBean.usuario.username})"
 						actionListener="#{sessionBean.cerrarSesion}" icon="ui-icon-extlink" onstart="wgtAS.show();wgtLogger.hide();" update=":pngHome, :pngWelcome"/>

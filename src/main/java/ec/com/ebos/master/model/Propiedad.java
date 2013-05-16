@@ -26,7 +26,7 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -121,7 +121,7 @@ public class Propiedad extends Master<Propiedad> {
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
         public static final Map<String, TipoDato> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoDato.values());
+                EntityUtils.buildLabeledEnumMap(TipoDato.values());
         /**
          * Lists para iteraciones
          */

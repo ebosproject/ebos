@@ -125,8 +125,8 @@ public class ThemeSwitcherBean implements Serializable{
         temas.put("Vader", "vader");
     }
     
-    public void guardarTema() {
-        sessionBean.guardarTema(tema);
+    public void saveTheme() {
+        sessionBean.saveTheme(tema);
     }
 
 }

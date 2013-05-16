@@ -9,7 +9,7 @@ import javax.faces.bean.SessionScoped;
 import lombok.Getter;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -35,7 +35,7 @@ public class PersonaBean extends MasterBean<Persona> {
         setHabilitaGuardar();
         setHabilitaEliminar();
         
-        if(GenericUtils.isPersistent(activeEntity)){
+        if(EntityUtils.isPersistent(activeEntity)){
             
         } else {
         	setHabilitaEliminar(false);

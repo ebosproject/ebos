@@ -37,7 +37,7 @@ import ec.com.ebos.security.model.field.UsuarioRol_;
 import ec.com.ebos.security.model.field.Usuario_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.CryptoUtils;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
 import ec.com.ebos.util.core.process.UtilP;
 
@@ -87,7 +87,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         if (isUsuarioValido(usuario)) {
             Date date = new Date();
             Entidad.Estado estadoActual = usuario.getEstado();
-            if (GenericUtils.isPersistent(usuario)) {
+            if (EntityUtils.isPersistent(usuario)) {
                 usuario.setModificado(date);
             } else {
                 usuario.setPassword(CryptoUtils.computeHashSHA256(usuario.getPassword()));
@@ -233,7 +233,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     @Override
     public Rol saveRol(Rol rol) {
         Date date = new Date();
-        if (GenericUtils.isPersistent(rol)) {
+        if (EntityUtils.isPersistent(rol)) {
             rol.setModificado(date);
         } else {
             rol.setCreado(date);
@@ -364,7 +364,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 
     @Override
     public Opcion saveOpcion(Opcion opcion) {
-        if (!GenericUtils.isPersistent(opcion)) {
+        if (!EntityUtils.isPersistent(opcion)) {
             opcion.setEstado(Entidad.Estado.ACTIVO);
         }
         opcion = saveOrMerge(opcion);
@@ -426,7 +426,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 
     @Override
     public Objeto saveObjeto(Objeto objeto) {
-        if (!GenericUtils.isPersistent(objeto)) {
+        if (!EntityUtils.isPersistent(objeto)) {
             objeto.setEstado(Entidad.Estado.ACTIVO);
         }
         objeto = saveOrMerge(objeto);
@@ -500,7 +500,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     public void saveUserPreferences(Usuario usuario){
     	Usuario oldUsuario = getUsuario(usuario.getId());
     	//Definir preferencias a guardar    	
-    	oldUsuario.setTema(usuario.getTema());    	
+    	oldUsuario.setTema(usuario.getTema());
+    	oldUsuario.setLocalidad(usuario.getLocalidad());
     	update(oldUsuario);    	
     	putSuccess("usuario.success.guardarPreferencias");
     }

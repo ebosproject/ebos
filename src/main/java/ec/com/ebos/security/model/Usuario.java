@@ -21,6 +21,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Bundle;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
@@ -65,6 +66,10 @@ public class Usuario extends Security<Usuario> {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
     
+    @Column(name = "localidad", length = 5)
+    @Type(type = Bundle.Localidad.TYPE)
+    private Bundle.Localidad localidad;
+    
     @Column(name = "tema", length = 50)
     private String tema;
     
@@ -78,6 +83,6 @@ public class Usuario extends Security<Usuario> {
     private String newpassword;
     
     @Transient
-    private String confpassword;	
+    private String confpassword;
     
 }

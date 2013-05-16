@@ -13,7 +13,7 @@ import ec.com.ebos.admin.model.field.Parametros_;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -40,7 +40,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @Override
     public Parametros saveParametros(Parametros param) throws AdministracionException{
         Date fecha = new Date();
-        if(GenericUtils.isPersistent(param)){
+        if(EntityUtils.isPersistent(param)){
             param.setModificado(fecha);
         }else{
             param.setCreado(fecha);

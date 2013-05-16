@@ -22,7 +22,7 @@ import ec.com.ebos.util.type.StringValuedEnum;
  * Utilidades para trabajar sobre objetos que implementan {@link Entidad} y sus subinterfaces
  * @update <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public class GenericUtils {
+public class EntityUtils {
 
 	/**
 	 * Verifica que el entity dado sea persistente, es decir que no sea null y su id no sea null
@@ -72,7 +72,7 @@ public class GenericUtils {
 	 * Verifica que ninguno de los entity dados sea persistente, es decir que sean null o sus id sean null
 	 * @param entities
 	 * @return true si ninguno de los entity dados es persistente, false en caso contrario
-	 * @see GenericUtils#isAnyPersistent(IEntidad...)
+	 * @see EntityUtils#isAnyPersistent(IEntidad...)
 	 */
 	public static boolean areAllNotPersistent(Entidad<?>... entities) {
 		return !isAnyPersistent(entities);

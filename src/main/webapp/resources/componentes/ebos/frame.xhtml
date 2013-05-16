@@ -33,16 +33,16 @@
 
     <cc:implementation>
         <p:dialog id="dlg"
+        	widgetVar="wgt#{cc.attrs.id}"
         	maximizable="#{cc.attrs.maximizable}"
         	minimizable="#{cc.attrs.minimizable}"
         	resizable="#{cc.attrs.resizable}"
         	onHide="#{cc.attrs.onHide}"
         	onShow="#{cc.attrs.onShow}"
         	oncomplete="#{cc.attrs.oncomplete}"
-        	widgetVar="wgt#{cc.attrs.id}"
         	width="#{cc.attrs.width}"
         	height="#{cc.attrs.height}"
-        	header="#{cc.attrs.header}"
+        	header="#{msg[cc.attrs.header]}"
         	visible="#{cc.attrs.visible}"
         	dynamic="#{cc.attrs.dynamic}"        	
         	hideEffect="#{cc.attrs.hideEffect}"
@@ -52,6 +52,7 @@
         	
 			<ui:include src="#{cc.attrs.src}">
 				<ui:param name="frameId" value="#{cc.attrs.id}"/>
+				<ui:param name="wgtFrame" value="wgt#{cc.attrs.id}"/>
 			</ui:include>
 			
 			<p:ajax event="close" listener="#{deskBean.closeFrame}" />

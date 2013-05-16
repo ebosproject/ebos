@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import ec.com.ebos.admin.model.Configuracion;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 
 /**
@@ -34,7 +34,7 @@ public class ConfiguracionBean extends AdministracionBean<Configuracion>{
         setHabilitaEliminar(false);        
         setHabilitaCerrar(false);
         
-        if (GenericUtils.isPersistent(configuracionActual)) {
+        if (EntityUtils.isPersistent(configuracionActual)) {
             
         }
     }
@@ -61,7 +61,7 @@ public class ConfiguracionBean extends AdministracionBean<Configuracion>{
     //Setters and Getters
 
     public Configuracion getConfiguracionActual() {
-        if(!GenericUtils.isPersistent(configuracionActual)){
+        if(!EntityUtils.isPersistent(configuracionActual)){
             configuracionActual = administracionS.getConfiguracion();
         }            
         return configuracionActual;

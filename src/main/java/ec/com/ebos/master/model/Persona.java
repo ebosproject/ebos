@@ -26,7 +26,7 @@ import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -122,7 +122,7 @@ public class Persona extends Master<Persona>{
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
         public static final Map<String, TipoIdentificacion> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoIdentificacion.values());
+                EntityUtils.buildLabeledEnumMap(TipoIdentificacion.values());
         /**
          * Lists para iteraciones
          */
@@ -176,7 +176,7 @@ public class Persona extends Master<Persona>{
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
         public static final Map<String, TipoPersona> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoPersona.values());
+                EntityUtils.buildLabeledEnumMap(TipoPersona.values());
         /**
          * Lists para iteraciones
          */

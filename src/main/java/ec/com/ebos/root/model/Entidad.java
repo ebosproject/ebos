@@ -13,7 +13,7 @@ import lombok.Setter;
 import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -155,7 +155,7 @@ public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Seriali
         }
         
         public static final Map<String, Estado> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(Estado.values());
+                EntityUtils.buildLabeledEnumMap(Estado.values());
         /**
          * Lists para iteraciones
          */

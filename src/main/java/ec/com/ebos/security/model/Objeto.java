@@ -26,7 +26,7 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.resources.SecurityMensajes;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -100,7 +100,7 @@ public class Objeto extends Security<Objeto> {
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
         public static final Map<String, TipoObjeto> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoObjeto.values());
+                EntityUtils.buildLabeledEnumMap(TipoObjeto.values());
 
         /**
          * Listas para iteraciones

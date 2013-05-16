@@ -36,7 +36,7 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -190,7 +190,7 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
         }
         
         public static final Map<String, Naturaleza> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(Naturaleza.values());
+                EntityUtils.buildLabeledEnumMap(Naturaleza.values());
         /**
          * Lists para iteraciones
          */
@@ -247,7 +247,7 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
         }
         
         public static final Map<String, TipoProceso> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoProceso.values());
+                EntityUtils.buildLabeledEnumMap(TipoProceso.values());
         /**
          * Lists para iteraciones
          */

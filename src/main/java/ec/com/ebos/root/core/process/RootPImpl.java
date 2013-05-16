@@ -50,7 +50,7 @@ import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.security.resources.SecurityMensajes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.HTTPUtils;
 import ec.com.ebos.util.ObjectUtils;
 import ec.com.ebos.util.core.process.UtilPImpl;
@@ -453,7 +453,7 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
 		// validar indices
 		validateUniqueness(entity);
 		// guardar o merge(retached object in ssession)
-		if(GenericUtils.isPersistent((Entidad<?>) entity)){
+		if(EntityUtils.isPersistent((Entidad<?>) entity)){
 			crud.merge(entity);
 		} else {
 			crud.save(entity);

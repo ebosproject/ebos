@@ -29,7 +29,7 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.bitacora.resources.BitacoraMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -142,7 +142,7 @@ public class Evento extends Bitacora<Evento>{
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
         public static final Map<String, EstadoEvento> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(EstadoEvento.values());
+                EntityUtils.buildLabeledEnumMap(EstadoEvento.values());
         /**
          * Lists para iteraciones
          */
@@ -204,7 +204,7 @@ public class Evento extends Bitacora<Evento>{
             this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
         }
         public static final Map<String, TipoEvento> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(TipoEvento.values());
+                EntityUtils.buildLabeledEnumMap(TipoEvento.values());
         /**
          * Lists para iteraciones
          */

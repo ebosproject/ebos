@@ -15,7 +15,7 @@ import javax.faces.convert.ConverterException;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Opcion;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
 
 /**
@@ -43,7 +43,7 @@ public class OpcionBean extends SecurityBean<Opcion> {
         setHabilitaGuardar();
         setHabilitaEliminar();
         
-        if(GenericUtils.isPersistent(activeEntity)){
+        if(EntityUtils.isPersistent(activeEntity)){
             
         }
     }

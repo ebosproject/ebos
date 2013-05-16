@@ -25,7 +25,7 @@ import ec.com.ebos.conta.model.field.CuentaContable_;
 import ec.com.ebos.conta.resources.ContaMensajes;
 import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -116,7 +116,7 @@ public class TipoCuenta extends Contabilidad<TipoCuenta> {
         }
         
         public static final Map<String, Tipo> LABELED_MAP =
-                GenericUtils.buildLabeledEnumMap(Tipo.values());
+                EntityUtils.buildLabeledEnumMap(Tipo.values());
         /**
          * Lists para iteraciones
          */

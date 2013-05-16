@@ -78,7 +78,8 @@ public class DeskBean implements Serializable{
             Submenu submenu = new Submenu();
             Opcion modulo = rolOpcion.getOpcion();
             if (modulo.getPadre() == null) {
-                submenu.setLabel(modulo.getEtiqueta());
+            	String labelExpression = String.format("#{msg.%s}",modulo.getEtiqueta());
+            	submenu.setValueExpression("label", FacesUtils.createValueExpression(labelExpression, String.class));
                 String iconoModulo = modulo.getIcono();
                 if(iconoModulo != null && !iconoModulo.isEmpty()){
                 	submenu.setStyle(String.format(style, iconoModulo));                	
@@ -90,12 +91,12 @@ public class DeskBean implements Serializable{
                     if (pantallaOp.getPadre() != null) {
                         if (pantallaOp.getPadre() == modulo) {
                             MenuItem item = new MenuItem();                                                               
-                            item.setValue(pantallaOp.getEtiqueta());
+                            String valueExpression = String.format("#{msg.%s}",pantallaOp.getEtiqueta()); 
+                            item.setValueExpression("value", FacesUtils.createValueExpression(valueExpression, String.class));
                             String actionExpression = String.format("#{%s.openFrame('%d')}",BEAN_NAME,pantallaOp.getId());
                             item.setActionExpression(FacesUtils.createMethodExpression(actionExpression, null, Long.class));
                             item.setOnstart("wgtAS.show();");
                             item.setOncomplete("jsUpdPngFrame(xhr, status, args);wgtAS.hide();");
-                            
                             String iconoPantalla = pantallaOp.getIcono();
                             if(iconoPantalla != null && !iconoPantalla.isEmpty()){
                             	item.setStyle(String.format(style, iconoPantalla));
@@ -123,7 +124,6 @@ public class DeskBean implements Serializable{
     	int maxOptions = sessionBean.getUsuario().getMaxOptions();
     	for (int i = 0; i < maxOptions; i++) {
     		HtmlPanelGroup pngFrame = new HtmlPanelGroup();
-    		//pngFrame.setId(PNGFRAME_PREFIX+FacesUtils.getRandomId());
     		pngFrame.setId(PNGFRAME_PREFIX+context.getViewRoot().createUniqueId());
     		pnlFrames.getChildren().add(pngFrame);
 		}
@@ -143,6 +143,7 @@ public class DeskBean implements Serializable{
      * @param optionId
      * @throws IOException
      */
+    @SuppressWarnings("el-syntax")
     public void openFrame(Long optionId) throws IOException{
     	FacesContext context = FacesContext.getCurrentInstance();
     	RequestContext requestContext = RequestContext.getCurrentInstance();
@@ -163,7 +164,6 @@ public class DeskBean implements Serializable{
     		pngFrame = context.getViewRoot().findComponent(pngFrame.getId());
             try{
             	Map<String, Object> attrs = new TreeMap<String, Object>();
-	    		//attrs.put("widgetVar", WIDGET_PREFIX+pngFrame.getId());
 	            attrs.put("src", option.getTarget());
 	            attrs.put("header", option.getEtiqueta());
 	            attrs.put("parentId", pngFrame.getId());

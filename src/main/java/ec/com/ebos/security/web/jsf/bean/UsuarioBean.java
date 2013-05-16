@@ -16,7 +16,7 @@ import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.UsuarioRol;
-import ec.com.ebos.util.GenericUtils;
+import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -46,7 +46,7 @@ public class UsuarioBean extends SecurityBean<Usuario> {
         setHabilitaGuardar();
         setHabilitaEliminar();
         
-        if(GenericUtils.isPersistent(activeEntity)){
+        if(EntityUtils.isPersistent(activeEntity)){
             
         }
     }
