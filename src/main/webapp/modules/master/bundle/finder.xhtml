@@ -19,7 +19,7 @@
 	        <p:selectOneMenu id="localidad" value="#{bean.entitySearch.localidad}" efect="fade">
 	            <f:selectItem itemLabel ="#{msg.ebSelectOne}" itemValue="" />
 	            <f:selectItems value="#{bean.localidadList}" var="opc"
-	                itemLabel="#{opc.label}" itemValue="#{opc}"/>
+	                itemLabel="#{msg[opc.label]}" itemValue="#{opc}"/>
             </p:selectOneMenu>        
 	    </eb:panelGrid>
     </ui:define>

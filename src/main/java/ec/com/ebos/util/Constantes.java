@@ -1,5 +1,7 @@
 package ec.com.ebos.util;
 
+import ec.com.ebos.master.web.resources.DatabaseDrivenResourceBundle;
+
 
 /**
  * <p>Clase que cotiene el valor de variables globales para toda la plataforma</p>
@@ -66,5 +68,10 @@ public class Constantes {
 	 * Growl component widget name into north.xhtml
 	 */
 	public static final String wgtGrowlHome = "wgtGrwHome";
+
+	/**
+	 * Nombre de variable de {@link DatabaseDrivenResourceBundle} del contexto jsf
+	 */
+	public static final String RESOURCE_BUNDLE_VAR = "msg";
 	
 }

@@ -32,13 +32,8 @@ import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
 
 import ec.com.ebos.admin.core.exception.AdministracionException;
 import ec.com.ebos.admin.core.process.AdministracionPImpl;
-import ec.com.ebos.admin.resources.AdminMensajes;
 import ec.com.ebos.aspect.annotation.UniqueIndex;
 import ec.com.ebos.aspect.annotation.UniqueIndexes;
-import ec.com.ebos.bitacora.core.process.BitacoraPImpl;
-import ec.com.ebos.bitacora.resources.BitacoraMensajes;
-import ec.com.ebos.master.core.process.MasterPImpl;
-import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Crud;
 import ec.com.ebos.orm.crud.CrudService;
@@ -49,12 +44,11 @@ import ec.com.ebos.orm.crud.PaginationParams;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
-import ec.com.ebos.security.resources.SecurityMensajes;
 import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.util.FacesUtils;
 import ec.com.ebos.util.HTTPUtils;
+import ec.com.ebos.util.MessageUtils;
 import ec.com.ebos.util.ObjectUtils;
-import ec.com.ebos.util.core.process.UtilPImpl;
-import ec.com.ebos.util.resources.UtilMensajes;
 import ec.com.ebos.util.type.JsfMessage;
 
 
@@ -995,19 +989,7 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
 	 * @return
 	 */
 	private String buildMessage(String key, Object... args) {
-		String message = "";
-		if (this instanceof AdministracionPImpl) {
-			message = AdminMensajes.getString(key, args);
-		} else if (this instanceof SecurityPImpl) {
-			message = SecurityMensajes.getString(key, args);
-		} else if (this instanceof BitacoraPImpl){
-			message = BitacoraMensajes.getString(key, args);
-		} else if (this instanceof MasterPImpl){
-			message = MasterMensajes.getString(key, args);
-		} else if (this instanceof UtilPImpl){
-			message = UtilMensajes.getString(key, args);
-		}
-		return message;
+		return MessageUtils.getFormattedMessage(FacesUtils.getLabel(key), args);
 	}
 	
     public void putSuccess(String key, Object... args) {        

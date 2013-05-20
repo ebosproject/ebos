@@ -9,7 +9,7 @@
     <!-- <ui:param name="update" value=":frmRol:dtUsuarioRolList"/> -->
     <ui:param name="update" value=""/>    
 
-    <h:form id="frmRols">
+    <h:form id="frmRoles">
         <p:toolbar id="tbrRols">
             <p:toolbarGroup align="right">
                 <p:commandButton id="btnAddRol" value="#{msg.ebAdd}" rendered="#{bean.habilitaCrear}"/>
@@ -35,9 +35,10 @@
                 </p:column>                               
             </p:dataTable>
         </p:overlayPanel>
-
+        <ui:remove>
         <p:dataTable id="dtUsuarioRolList" var="reg" value="#{bean.usuarioRolList}" 
                      rowKey="#{reg.id}" selection="#{bean.selectedUsuarioRolList}">
+
 
             <p:column selectionMode="multiple" rendered="#{bean.habilitaEliminar or bean.habilitaEditar}"/>
 
@@ -62,7 +63,7 @@
             </p:column>
 
         </p:dataTable>
-
+        </ui:remove>
     </h:form>   
 </ui:composition>
 

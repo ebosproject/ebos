@@ -2,6 +2,7 @@ package ec.com.ebos.util;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.el.MethodExpression;
 import javax.el.ValueExpression;
@@ -14,6 +15,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.MethodExpressionActionListener;
 import javax.faces.view.facelets.FaceletContext;
+
+import ec.com.ebos.master.web.resources.DatabaseDrivenResourceBundle;
 
 /**
  * Utilidades para JSF
@@ -134,4 +137,28 @@ public class FacesUtils {
       FacesContext.getCurrentInstance().getViewRoot().getViewMap().remove(beanName);
     }
 
+    /**
+     * Obtiene una etiqueta desde contexto del sistema por su key
+     * @param key
+     * @return
+     */
+    public static String getLabelBundle(String key){
+    	FacesContext context = FacesContext.getCurrentInstance();
+    	ResourceBundle bundle = context.getApplication().getResourceBundle(context, Constantes.RESOURCE_BUNDLE_VAR);
+    	return bundle.getString(key);
+    }
+    
+    /**
+     * Obtiene una etiqueta desde el contexto del sistema basado en la evaluacion
+     * de un expresion(Expression Language)
+     * @param key
+     * @return
+     */
+    public static String getLabel(String key){
+    	FacesContext context = FacesContext.getCurrentInstance();
+    	String el = String.format("#{%s['%s']}", Constantes.RESOURCE_BUNDLE_VAR,key);
+        return context.getApplication().evaluateExpressionGet(context, el, String.class);
+    }
+    
+    
 }

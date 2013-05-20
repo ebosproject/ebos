@@ -42,7 +42,7 @@
 				<h:form id="frmLang">
 					<p:selectOneMenu id="locale" value="#{sessionBean.localidad}" effect="fade">
 			   			<f:selectItems value="#{sessionBean.localidadList}" var="loc"
-	                		itemLabel="#{loc.label}" itemValue="#{loc}"/> 
+	                		itemLabel="#{msg[loc.label]}" itemValue="#{loc}"/> 
 	                	<p:ajax listener="#{sessionBean.saveLocale}" update="@all"/>	
 			   		</p:selectOneMenu>			   		
 				</h:form>			

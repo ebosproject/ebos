@@ -10,6 +10,8 @@
 		<ui:remove>
 	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
 		</ui:remove>
+		<ui:param name="renderedSouth" value="false"/>
+		<ui:param name="renderedCenterSouth" value="false"/>
 		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
 					'center':{'minHeight':60,'resizeWhileDragging':false,'closable':false,'minWidth':200,'resizable':false,
 						'childOptions':{'south':{'minSize':60,'size':'70%'},'center':{'minHeight':60}}}"/>
@@ -44,7 +46,7 @@
 	            	<ui:insert name="header"/>
             	</h:form>	        	
 	        </pe:layoutPane>
-	        <pe:layoutPane position="south">
+	        <pe:layoutPane position="south" rendered="#{renderedCenterSouth}">
 	        	<p:outputPanel id="pnlHD">
 	        		<ui:insert name="detail"/>
 	        	</p:outputPanel>
@@ -56,7 +58,7 @@
          <pe:layoutPane position="east" rendered="false" minSize="180" maxSize="650" size="448">
 	        
          </pe:layoutPane>
-         <pe:layoutPane position="south" rendered="false">
+         <pe:layoutPane position="south" rendered="#{renderedSouth}">
          	
          </pe:layoutPane>
     </pe:layout>

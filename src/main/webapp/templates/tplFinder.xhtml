@@ -8,11 +8,16 @@
                 
     <ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
     <ui:param name="wgtE" value="wgtE#{frameId}" />
-    <ui:param name="optionsFinder" value="'north':{'closable':false,'resizable':false,'size':50},
+    <ui:insert name="params">
+		<ui:remove>
+	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
+		</ui:remove>
+		<ui:param name="optionsFinder" value="'north':{'closable':false,'resizable':false,'size':50},
 				'south':{'closable':true, 'size':35},
 				'west':{'minSize':180, 'maxSize':500, 'size':210, 'resizable':true},
 				'east':{'minSize':80, 'maxSize':80, 'size':80},
-				'center':{'minHeight':60, 'resizeWhileDragging':false, 'closable':false, 'minWidth':200, 'resizable':false}"/>            
+				'center':{'minHeight':60, 'resizeWhileDragging':false, 'closable':false, 'minWidth':200, 'resizable':false}"/>
+	</ui:insert>
 	
 	<pe:layout id="lytFinder" fullPage="false" style="min-height:450px; min-width:700px; height:100%; width:100%;" 
 		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsFinder}}">

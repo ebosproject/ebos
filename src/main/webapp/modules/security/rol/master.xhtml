@@ -8,7 +8,6 @@
                 template="/templates/tplMaster.xhtml">
 
 	<ui:define name="params">
-		<ui:param name="renderedCenterSouth" value="true"/>
 		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
 				'center':{'resizeWhileDragging':true,'closable':false,
 					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}"/>
@@ -52,11 +51,7 @@
     </ui:define>
     	
     <ui:define name="detail">
-    	<p:outputPanel id="pnlDetail">
-    		<ui:fragment rendered="#{bean.activeEntity.id ne null}">	
-    			<ui:include src="usuarioRolList.xhtml"/>
-       		</ui:fragment>
-       	</p:outputPanel>
+       <ui:include src="usuarioRolList.xhtml"/>
     </ui:define>
 
 </ui:composition>
