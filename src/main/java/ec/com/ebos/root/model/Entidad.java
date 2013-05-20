@@ -10,7 +10,6 @@ import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
@@ -163,7 +162,7 @@ public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Seriali
 
         @Override
         public String getLabel() {
-            return RootMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

@@ -18,7 +18,6 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Entidad_;
@@ -112,7 +111,7 @@ public class TipoImpuesto extends Entidad<TipoImpuesto>{
 
         @Override
         public String getLabel() {
-            return MasterMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

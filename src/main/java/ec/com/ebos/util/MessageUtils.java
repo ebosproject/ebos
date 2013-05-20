@@ -10,9 +10,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang.StringUtils;
 
-import ec.com.ebos.root.resources.RootMensajes;
-import ec.com.ebos.util.resources.UtilMensajes;
-
 /**
  * Utilidades para trabajar con mensajes en base a claves y valores de archivos de recursos.
  * Incluye tambien mensajes para JSF.
@@ -137,31 +134,31 @@ public class MessageUtils {
 
 	////////////////////// (Simple) Labeled Faces Messages //////////////////////
 
-	public static void addLabeledFacesMessage(FacesContext facesContext, UIComponent component, String message, FacesMessage.Severity severity) {
-		FacesMessage fm = new FacesMessage();
-		String msg = UtilMensajes.getString("LabeledMessage",
-				getLabel(facesContext, component), message);
-		configureSimpleFacesMessage(fm, msg, severity);
-		facesContext.addMessage(null, fm);
-	}
+//	public static void addLabeledFacesMessage(FacesContext facesContext, UIComponent component, String message, FacesMessage.Severity severity) {
+//		FacesMessage fm = new FacesMessage();
+//		String msg = UtilMensajes.getString("LabeledMessage",
+//				getLabel(facesContext, component), message);
+//		configureSimpleFacesMessage(fm, msg, severity);
+//		facesContext.addMessage(null, fm);
+//	}
 
-	public static void addLabeledFacesMessageToComponent(FacesContext facesContext, UIComponent component, String message, FacesMessage.Severity severity) {
-		FacesMessage fm = new FacesMessage();
-		String msg = RootMensajes.getString("LabeledMessage",
-				getLabel(facesContext, component), message);
-		configureSimpleFacesMessage(fm, msg, severity);
-		facesContext.addMessage(component.getClientId(facesContext), fm);
-	}
+//	public static void addLabeledFacesMessageToComponent(FacesContext facesContext, UIComponent component, String message, FacesMessage.Severity severity) {
+//		FacesMessage fm = new FacesMessage();
+//		String msg = RootMensajes.getString("LabeledMessage",
+//				getLabel(facesContext, component), message);
+//		configureSimpleFacesMessage(fm, msg, severity);
+//		facesContext.addMessage(component.getClientId(facesContext), fm);
+//	}
 
-	public static void addLabeledFacesMessageToComponent(UIComponent component, String message, FacesMessage.Severity severity) {
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		addLabeledFacesMessageToComponent(facesContext, component, message, severity);
-	}
+//	public static void addLabeledFacesMessageToComponent(UIComponent component, String message, FacesMessage.Severity severity) {
+//		FacesContext facesContext = FacesContext.getCurrentInstance();
+//		addLabeledFacesMessageToComponent(facesContext, component, message, severity);
+//	}
 
-	public static void addLabeledFacesMessage(UIComponent component, String message, FacesMessage.Severity severity) {
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		addLabeledFacesMessage(facesContext, component, message, severity);
-	}
+//	public static void addLabeledFacesMessage(UIComponent component, String message, FacesMessage.Severity severity) {
+//		FacesContext facesContext = FacesContext.getCurrentInstance();
+//		addLabeledFacesMessage(facesContext, component, message, severity);
+//	}
 
 	/**
 	 * Gets the "label" property from the component.

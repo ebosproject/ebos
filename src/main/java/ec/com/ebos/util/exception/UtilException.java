@@ -1,7 +1,8 @@
 package ec.com.ebos.util.exception;
 
 import ec.com.ebos.root.core.exception.RootException;
-import ec.com.ebos.util.resources.UtilMensajes;
+import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.MessageUtils;
 
 /**
  *
@@ -23,8 +24,8 @@ public class UtilException extends RootException{
         * 
         * @param keySummary Mensaje de error
         */
-    public UtilException(String keySummary, Object ... params){
-            super(UtilMensajes.getString(keySummary, params), keySummary);
+    public UtilException(String keySummary, Object ... args){
+        super(MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args));
     }
 
 }

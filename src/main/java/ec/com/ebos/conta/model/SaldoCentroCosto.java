@@ -22,7 +22,6 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.conta.resources.ContaMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
@@ -147,7 +146,7 @@ public class SaldoCentroCosto extends Contabilidad<SaldoCentroCosto> {
 
         @Override
         public String getLabel() {
-            return ContaMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

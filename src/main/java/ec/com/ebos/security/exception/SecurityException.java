@@ -1,7 +1,8 @@
 package ec.com.ebos.security.exception;
 
 import ec.com.ebos.root.core.exception.RootException;
-import ec.com.ebos.security.resources.SecurityMensajes;
+import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.MessageUtils;
 
 /**
  * 
@@ -24,8 +25,8 @@ public class SecurityException extends RootException {
 	 * @param keySummary
 	 *            Mensaje de error
 	 */
-	public SecurityException(String keySummary, Object... params) {
-		super(SecurityMensajes.getString(keySummary, params), keySummary);
+	public SecurityException(String keySummary, Object... args) {
+		super(MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args));
 	}
 
 }

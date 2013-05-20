@@ -22,7 +22,6 @@ import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.conta.model.field.CuentaContable_;
-import ec.com.ebos.conta.resources.ContaMensajes;
 import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
@@ -124,7 +123,7 @@ public class TipoCuenta extends Contabilidad<TipoCuenta> {
 
         @Override
         public String getLabel() {
-            return ContaMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

@@ -1,8 +1,9 @@
 
 package ec.com.ebos.conta.exception;
 
-import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.core.exception.RootException;
+import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.MessageUtils;
 
 /**
  *
@@ -28,8 +29,8 @@ public class ContaException extends RootException{
         * 
         * @param keySummary Mensaje de error
         */
-    public ContaException(String keySummary, Object ... params){
-            super(MasterMensajes.getString(keySummary, params), keySummary);
+    public ContaException(String keySummary, Object ... args){
+            super(MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args));
     }
 
 }

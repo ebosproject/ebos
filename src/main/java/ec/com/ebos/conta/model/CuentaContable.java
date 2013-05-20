@@ -31,7 +31,6 @@ import ec.com.ebos.conta.model.field.CuentaContable_;
 import ec.com.ebos.conta.model.field.Ejercicio_;
 import ec.com.ebos.conta.model.field.SaldoCuentaCentro_;
 import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
-import ec.com.ebos.conta.resources.ContaMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Entidad_;
@@ -198,7 +197,7 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
 
         @Override
         public String getLabel() {
-            return ContaMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override
@@ -255,7 +254,7 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
 
         @Override
         public String getLabel() {
-            return ContaMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

@@ -20,7 +20,6 @@ import org.springframework.jdbc.support.lob.LobHandler;
 import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 
-import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.orm.crud.CrudService;
 import ec.com.ebos.orm.crud.FinderSQLService;
 import ec.com.ebos.orm.crud.FinderService;
@@ -76,7 +75,7 @@ public class RepositoryConfig {
 		try{
 			return (DataSource) new InitialContext().lookup(ebosJndi);
 		} catch(Exception ex){
-			MasterMensajes.getString("Error en creacion de DataSource: ", ex.getMessage());
+			ex.getStackTrace();
 			return (DataSource) new InitialContext().lookup(ebosJndi);
 		}		
 	}

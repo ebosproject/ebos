@@ -23,7 +23,6 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
@@ -129,7 +128,7 @@ public class Propiedad extends Master<Propiedad> {
 
         @Override
         public String getLabel() {
-            return MasterMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

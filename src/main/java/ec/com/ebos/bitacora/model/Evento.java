@@ -26,7 +26,6 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.bitacora.resources.BitacoraMensajes;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
@@ -150,7 +149,7 @@ public class Evento extends Bitacora<Evento>{
 
         @Override
         public String getLabel() {
-            return BitacoraMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override
@@ -212,7 +211,7 @@ public class Evento extends Bitacora<Evento>{
 
         @Override
         public String getLabel() {
-            return BitacoraMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

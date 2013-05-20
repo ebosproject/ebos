@@ -1,7 +1,8 @@
 package ec.com.ebos.admin.core.exception;
 
-import ec.com.ebos.admin.resources.AdminMensajes;
 import ec.com.ebos.root.core.exception.RootException;
+import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.MessageUtils;
 
 /**
  *
@@ -26,8 +27,8 @@ public class AdministracionException extends RootException{
         * 
         * @param keySummary Mensaje de error
         */
-    public AdministracionException(String keySummary, Object ... params){
-            super(AdminMensajes.getString(keySummary, params), keySummary);
+    public AdministracionException(String keySummary, Object ... args){
+            super(MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args));
     }
 
 }

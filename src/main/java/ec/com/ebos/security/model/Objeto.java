@@ -24,7 +24,6 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.resources.SecurityMensajes;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -109,7 +108,7 @@ public class Objeto extends Security<Objeto> {
 
         @Override
         public String getLabel() {
-            return SecurityMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

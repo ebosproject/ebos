@@ -1,8 +1,9 @@
 
 package ec.com.ebos.master.exception;
 
-import ec.com.ebos.master.resources.MasterMensajes;
 import ec.com.ebos.root.core.exception.RootException;
+import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.MessageUtils;
 
 /**
  *
@@ -31,8 +32,8 @@ public class MasterException extends RootException{
         * 
         * @param keySummary Mensaje de error
         */
-    public MasterException(String keySummary, Object ... params){
-            super(MasterMensajes.getString(keySummary, params), keySummary);
+    public MasterException(String keySummary, Object ... args){
+        super(MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args));
     }
 
 }

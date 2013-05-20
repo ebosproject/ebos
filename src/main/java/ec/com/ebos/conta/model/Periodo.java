@@ -32,7 +32,6 @@ import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
 import ec.com.ebos.conta.model.field.SaldoRetencion_;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Entidad_;
-import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -173,7 +172,7 @@ public class Periodo extends Contabilidad<Periodo> {
 
         @Override
         public String getLabel() {
-            return RootMensajes.getString(labelKey);
+            return labelKey;
         }
 
         @Override

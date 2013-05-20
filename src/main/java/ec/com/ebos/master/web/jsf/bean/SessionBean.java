@@ -14,19 +14,19 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
 import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.master.model.Bundle.Localidad;
 import ec.com.ebos.master.model.Bundle;
+import ec.com.ebos.master.model.Bundle.Localidad;
 import ec.com.ebos.master.model.Organizacion;
-import ec.com.ebos.root.resources.RootMensajes;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
+import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.MessageUtils;
 
 /**
  * Bean para datos de sesion del usuario
@@ -215,7 +215,7 @@ public class SessionBean implements Serializable{
     //////////////////////// MESSAGES ///////////////////////////////
 	
     private void putMessage(FacesMessage.Severity severity, String keySummary, String detail, Object... args){
-    	String summary = RootMensajes.getString(keySummary, args);
+    	String summary = MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args);
 		putMessage(severity, summary, (detail != null && !detail.isEmpty()) ? detail : "");
     }
     

@@ -14,19 +14,12 @@ import lombok.Setter;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
-import ec.com.ebos.admin.resources.AdminMensajes;
-import ec.com.ebos.admin.web.jsf.bean.AdministracionBean;
-import ec.com.ebos.bitacora.resources.BitacoraMensajes;
-import ec.com.ebos.bitacora.web.jsf.bean.BitacoraBean;
-import ec.com.ebos.master.resources.MasterMensajes;
-import ec.com.ebos.master.web.jsf.bean.MasterBean;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
-import ec.com.ebos.security.resources.SecurityMensajes;
-import ec.com.ebos.security.web.jsf.bean.SecurityBean;
 import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.MessageUtils;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.type.JsfMessage;
 
@@ -245,18 +238,8 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
 	 * @param params
 	 * @return
 	 */
-	private String buildMessage(String keySummary, Object... params) {
-		String message = "";
-		if (this instanceof AdministracionBean) {
-			message = AdminMensajes.getString(keySummary, params);
-		} else if (this instanceof SecurityBean) {
-			message = SecurityMensajes.getString(keySummary, params);
-		} else if (this instanceof BitacoraBean){
-			message = BitacoraMensajes.getString(keySummary, params);
-		} else if (this instanceof MasterBean){
-			message = MasterMensajes.getString(keySummary, params);
-		}
-		return message;
+	private String buildMessage(String keySummary, Object... args) {
+		return MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args);
 	}
 	
     public void putSuccess(String key, Object... args) {        

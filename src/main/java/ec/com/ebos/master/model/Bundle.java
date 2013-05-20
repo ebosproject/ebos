@@ -3,9 +3,7 @@ package ec.com.ebos.master.model;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
 
-import javax.faces.context.FacesContext;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,11 +19,8 @@ import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.master.model.field.Bundle_;
-import ec.com.ebos.master.resources.MasterMensajes;
-import ec.com.ebos.master.web.resources.DatabaseDrivenResourceBundle;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.FacesUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
@@ -96,11 +91,8 @@ public class Bundle extends Master<Bundle>{
         public static final List<Localidad> LIST = Arrays.asList(Localidad.values());
 
         @Override
-        public String getLabel() {
-//        	FacesContext context = FacesContext.getCurrentInstance();
-//        	String value = context.getApplication().evaluateExpressionGet(context, String.format("#{msg['%s']}", labelKey), String.class);
+        public String getLabel() {        	
         	return labelKey;
-        	//return FacesUtils.getLabel(labelKey);
         }
 
         @Override
