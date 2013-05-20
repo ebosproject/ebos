@@ -98,8 +98,8 @@ public class StringValuedEnumReflect {
 			T enumInstance) {
 		Class<T> enumClass = enumInstance.getDeclaringClass();
 		Class<?> parentClass = enumClass.getDeclaringClass();
-		return (parentClass != null ? parentClass.getSimpleName() : "") +
-				"." + enumClass.getSimpleName() +
+		return ((parentClass != null ? parentClass.getSimpleName() : "") +
+				"." + enumClass.getSimpleName()).toLowerCase() +
 				"." + enumInstance.name();
 	}
 
