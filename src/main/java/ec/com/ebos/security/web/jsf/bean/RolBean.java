@@ -50,8 +50,7 @@ public class RolBean extends SecurityBean<Rol> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/security/rol/index.jsf";
-        TARGET_NEW_ID = "crearRol";
+        TARGET_ID = "/modules/security/rol/finder.xhtml";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
