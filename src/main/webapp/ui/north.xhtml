@@ -7,9 +7,10 @@
 	<p:log id="logger" widgetVar="wgtLogger" rendered="#{sessionBean.usuario.username eq 'admin'}"/>
 	<p:draggable for="logger" opacity="0.5" dragOnly="true" containment="#center" handle=".ui-log-header"/>
 	<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
-		<p:menuitem value="#{msg.ebOpciones}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star" process="@none"/>
-		<p:submenu label="#{msg.ebCuenta}">
-			<p:menuitem value="#{msg.ebCambiarPassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
+		<p:menuitem value="#{msg.options}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star" process="@none"/>
+		<p:submenu label="#{msg.account}">
+			<p:menuitem value="#{msg.changePassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
+			<p:menuitem value="#{msg.controlPanel}" url="javascript:void(0)" onclick="wgtCtrlPnl.show()"/>
 		</p:submenu>
 		<p:menuitem value="#{msg.ebAbout}" url="javascript:void(0)" onclick="wgtAbout.show()" icon="ui-icon ui-icon-info"/>
 		<f:facet name="options">
@@ -57,5 +58,8 @@
 	<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
 	<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" /> 
     <ui:include id="secAbout" src="about.xhtml" /> 
+	
+	<eb:frame id="ctrlPnl" widgetVar="wgtCtrlPnl" iframe="true" visible="false"
+   		header="controlPanel"/>
 	
 </ui:composition>

@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -50,8 +49,7 @@ public class OpcionBean extends SecurityBean<Opcion> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/security/opcion/index.jsf";
-        TARGET_NEW_ID = "crearOpcion";
+        TARGET_ID = "/modules/security/opcion/finder.xhtml";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
@@ -94,14 +92,21 @@ public class OpcionBean extends SecurityBean<Opcion> {
 
             @Override
             public Object getAsObject(FacesContext context, UIComponent component, String submittedValue) throws ConverterException {
-                if(submittedValue == null || submittedValue.trim().equals("")){
+                if(submittedValue.trim().equals("")){
                     return null;
+                } else {
+                	try{
+                        //return securityS.getOpcion(Long.parseLong(submittedValue));
+                		for(Opcion opc : getOpcionList()){
+                			if(opc.getId().equals(Long.parseLong(submittedValue))){
+                				return opc;
+                			}
+                		}
+                    } catch(NumberFormatException exception) {
+                    	throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid object"));
+                    }
                 }
-                try{
-                    return securityS.getOpcion(Long.parseLong(submittedValue));
-                } catch(NumberFormatException exception) {
-                	throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid objet"));
-                }
+                return null;
             }
 
             @Override

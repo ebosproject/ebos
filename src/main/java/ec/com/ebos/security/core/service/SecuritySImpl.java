@@ -174,7 +174,8 @@ public class SecuritySImpl implements SecurityS{
     
     @Override
     public Opcion getOpcion(Long id) {
-        return securityP.getOpcion(id);
+    	Opcion opc = securityP.getOpcion(id); 
+        return opc;
     }
 
     @Override

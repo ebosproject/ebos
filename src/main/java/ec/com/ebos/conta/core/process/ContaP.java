@@ -2,10 +2,7 @@ package ec.com.ebos.conta.core.process;
 
 import java.util.List;
 
-import ec.com.ebos.master.model.Bundle;
-import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.master.model.Propiedad;
-import ec.com.ebos.master.model.Bundle.Localidad;
+import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -15,5 +12,14 @@ import ec.com.ebos.orm.crud.Pagination;
  */
 public interface ContaP {
 
+	//
+	// TipoCuenta
+	//
+	public List<TipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination);
 	
+	public TipoCuenta createTipoCuenta();
+	
+	public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta);
+	
+	public void deleteTipoCuenta(TipoCuenta tipoCuenta);
 }

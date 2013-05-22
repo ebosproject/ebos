@@ -19,7 +19,7 @@ import ec.com.ebos.util.EntityUtils;
  */
 @ManagedBean(name = ParametrosBean.BEAN_NAME)
 @SessionScoped
-public class ParametrosBean extends AdministracionBean<Parametros>{
+public class ParametrosBean extends AdminBean<Parametros>{
 
 	private static final long serialVersionUID = -8810452745934111969L;
 	

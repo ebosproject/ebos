@@ -243,3 +243,47 @@ body{
     margin-bottom: 0;
     margin-top: -3px;
 }
+
+.width10{
+	width:10% !important;
+}
+
+.width20{
+	width:20% !important;
+}
+
+.width25{
+	width:25% !important;
+}
+
+.width30{
+	width:30% !important;
+}
+
+.width50{
+	width:50% !important;
+}
+
+.width75{
+	width:75% !important;
+}
+
+.width80{
+	width:80% !important;
+}
+
+.width100{
+	width:100% !important;
+}
+
+.width10px{
+	width:10px !important;
+}
+
+.width20px{
+	width:20px !important;
+}
+
+.width30px{
+	width:30px !important;
+}

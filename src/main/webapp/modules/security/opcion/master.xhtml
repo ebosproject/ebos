@@ -14,44 +14,47 @@
 	</ui:define>
 
     <ui:define name="header">
-        <ui:param name="usuario" value="#{bean.activeEntity}" />    
-	
-	    <h:panelGrid id="pnlUsuario" columns="4">        
+        <ui:param name="opcion" value="#{bean.activeEntity}" />    
+	 
+	    <h:panelGrid id="pnlOpcion" columns="4">        
+                
+           <p:outputLabel for="id" value="#{msg.id}"/>
+	       <eb:outputText id="id" value="#{opcion.id}"/>
+	       <p:outputLabel for="estado" value="#{msg.status}"/>                
+	       <eb:outputText id="estado" value="#{opcion.estado.label}"/>                
+	        
+	       <p:outputLabel for="creado" value="#{msg.created}"/>
+	       <eb:outputDate id="creado" value="#{opcion.creado}" title="#{msg.by}: {opcion.creador}"/>               
+	       <p:outputLabel for="modificado" value="#{msg.modified}"/>
+	       <eb:outputDate id="modificado" value="#{opcion.modificado}" title="#{msg.by}: {opcion.modificador}"/>
+	               
+           <p:outputLabel for="nombre" value="#{msg.name}"/>
+	       <eb:inputText id="nombre" value="#{opcion.nombre}" required="true"/>
+	       <p:outputLabel for="descripcion" value="#{msg.description}"/>
+	       <eb:inputText id="descripcion" value="#{opcion.descripcion}"/>        
+	               
+	       <p:outputLabel for="etiqueta" value="#{msg.label}"/>
+	       <eb:inputText id="etiqueta" value="#{opcion.etiqueta}" required="true" maxlength="20"/>
+	       <p:outputLabel for="target" value="#{msg.target}"/>               
+	       <eb:inputText id="target" value="#{opcion.target}" required="true" maxlength="200"/> 
+
+		   <p:outputLabel for="icono" value="#{msg.icon}"/>	               
+	       <eb:inputText id="icono" value="#{opcion.icono}"/>
+	       <p:outputLabel for="padre" value="#{msg.parent}"/>        
+	       <p:selectOneMenu id="padre" value="#{opcionBean.activeEntity.padre}" efect="fade" converter="#{bean.opcionConverter}">
+	            <f:selectItem itemLabel ="#{msg.selectOne}" itemValue="" />
+	            <f:selectItems value="#{opcionBean.opcionList}" var="opc"
+	                itemLabel="#{msg[opc.etiqueta]}" itemValue="#{opc}"/>
+	       </p:selectOneMenu>
 	                
-	       	<p:outputLabel for="id" value="#{msg.ebId}"/>         
-	       	<eb:outputText id="id" value="#{usuario.id}"/>
-	       
-			<p:outputLabel for="estado" value="#{msg.ebEstado}"/>
-	        <eb:outputText id="estado" value="#{usuario.estado.label}"/>     
-	        
-	        <p:outputLabel for="creado" value="#{msg.ebCreado}"/>
-	        <eb:outputDate id="creado" value="#{usuario.creado}"/>                 
-	        
-	        <p:outputLabel for="modificado" value="#{msg.ebModificado}"/>
-	        <eb:outputDate id="modificado" value="#{usuario.modificado}"/>                
-	        
-	        <p:outputLabel for="password" value="#{msg.ebPassword}" rendered="#{usuario.id eq null}"/>
-	        <eb:password id="password" value="#{usuario.password}"  feedback="true" required="true" 
-	                      rendered="#{usuario.id eq null}"/>        
-	        
-	        <p:outputLabel for="username" value="#{msg.ebUsuario}"/>              
-	        <eb:inputText id="username" value="#{usuario.username}" required="true"/>                
-	        
-	        <p:outputLabel for="nombres" value="#{msg.ebNombres}"/>
-	        <eb:inputText id="nombres" value="#{usuario.empresaPersona.persona.nombres}" required="true"/>
-	        
-	        <p:outputLabel for="apellidos" value="#{msg.ebApellidos}"/>                       
-	        <eb:inputText id="apellidos" value="#{usuario.empresaPersona.persona.apellidos}" />                
-	        
-	        <p:outputLabel for="email" value="#{msg.ebEmail}"/>
-	        <eb:inputText id="email" value="#{usuario.empresaPersona.persona.mail}" required="true" maxlength="100"/>
-					                
 	    </h:panelGrid>   
 
     </ui:define>
     	
+<ui:remove>	
     <ui:define name="detail">
-       <ui:include src="usuarioRolList.xhtml"/>
+       <ui:include src="*.xhtml"/>
     </ui:define>
+</ui:remove>
 
 </ui:composition>

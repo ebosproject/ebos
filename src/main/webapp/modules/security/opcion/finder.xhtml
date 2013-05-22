@@ -6,43 +6,50 @@
             template="/templates/tplFinder.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html">
 
-   	<ui:param name="bean" value="#{usuarioBean}" />
-    <ui:param name="optionName" value="#{msg.ebUsuario}" />
+   	<ui:param name="bean" value="#{opcionBean}" />
+    <ui:param name="optionName" value="#{msg.option}" />
     
     <ui:define name="filters">
         <eb:panelGrid id="pnlFiltros" columns="2">          
         	<p:outputLabel for="id" value="#{msg.ebId}"/>     
 	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number"/>
 	        
-            <p:outputLabel for="usuario" value="#{msg.ebUsuario}"/>
-            <eb:inputText id="usuario" value="#{bean.entitySearch.username}"/>
+            <p:outputLabel for="name" value="#{msg.name}"/>
+            <eb:inputText id="name" value="#{bean.entitySearch.nombre}"/>
             
-            <p:outputLabel for="nombres" value="#{msg.ebNombres}"/>       
-	        <eb:inputText id="nombres" value="#{bean.entitySearch.password}"/>
+            <p:outputLabel for="description" value="#{msg.description}"/>       
+	        <eb:inputText id="description" value="#{bean.entitySearch.descripcion}"/>
 	        
-	        <p:outputLabel for="apellidos" value="#{msg.ebApellidos}"/>                   
-	        <eb:inputText id="apellidos" value="#{bean.entitySearch.empresaPersona.persona.apellidos}"/>
+	        <p:outputLabel for="label" value="#{msg.label}"/>                   
+	        <eb:inputText id="label" value="#{bean.entitySearch.etiqueta}"/>
+	        
+	        <p:outputLabel for="target" value="#{msg.target}"/>                   
+	        <eb:inputText id="target" value="#{bean.entitySearch.target}"/>
 	    </eb:panelGrid>
     </ui:define>
 
     <ui:define name="results">
     	<f:facet name="header">  
-	    	#{msg.ebResultUsuarioList}
+	    	#{msg.resultOptionList}
 	    </f:facet>               
-	    
-	    <p:column id="estado" headerText="#{msg.ebEstado}">
-	        <eb:outputText value="#{reg.estado.label}"/>
+	    <p:column id="etiquieta" headerText="#{msg.maintenance}">
+	        <eb:outputText value="#{msg[reg.etiqueta]}" />
+	    </p:column>            
+	    <p:column id="modulo" headerText="#{msg.module}">
+	        <eb:outputText value="#{reg.padre.nombre}" title="#{reg.padre.id}"/>
 	    </p:column>
-	    <p:column id="username" headerText="#{msg.ebUsername}">
-	        <eb:outputText value="#{reg.username}"/>
+	    <p:column id="nombre" headerText="#{msg.name}">
+	        <eb:outputText value="#{reg.nombre}" />
 	    </p:column>
-	    <p:column id="nombres" headerText="#{msg.ebNombres}">
-	        <eb:outputText value="#{reg.empresaPersona.persona.nombres} #{reg.empresaPersona.persona.apellidos}"/>
+	    <p:column id="estado" headerText="#{msg.status}">
+	        <eb:outputText value="#{msg[reg.estado.label]}" />
+	    </p:column>    
+	    <p:column id="descripcion" headerText="#{msg.description}">
+	        <eb:outputText value="#{reg.descripcion}"/>            
 	    </p:column>
-	    <p:column id="mail" headerText="#{msg.ebMail}">
-	        <eb:outputText value="#{reg.empresaPersona.persona.mail}"/>
-	    </p:column> 
-	    
+	    <p:column id="target" headerText="#{msg.target}">
+	        <eb:outputText value="#{reg.target}" />
+	    </p:column>
     </ui:define>
 	    
     <ui:define name="master">

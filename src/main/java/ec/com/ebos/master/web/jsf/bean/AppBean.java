@@ -5,14 +5,16 @@ import java.util.*;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import lombok.Getter;
+
 /**
  * Bean de administracion de sesiones de usuarios
  * 
  * @author Eduardo Plua Alay
  */
-@ManagedBean(name = AdminBean.BEAN_NAME)
+@ManagedBean(name = AppBean.BEAN_NAME)
 @ApplicationScoped
-public class AdminBean implements Serializable{
+public class AppBean implements Serializable{
     
 	private static final long serialVersionUID = -3490701569635035883L;
 	
@@ -44,5 +46,8 @@ public class AdminBean implements Serializable{
             }
         }
     }
+    
+    @Getter
+    private String url = "http://www.google.com";
 
 }

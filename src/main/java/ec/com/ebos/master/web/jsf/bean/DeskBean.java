@@ -14,6 +14,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlPanelGroup;
 import javax.faces.context.FacesContext;
 
+import lombok.Getter;
 import lombok.Setter;
 
 import org.primefaces.component.menuitem.MenuItem;
@@ -183,17 +184,21 @@ public class DeskBean implements Serializable{
 	 */
 	public void closeFrame(CloseEvent event){
 		String pngFrameId = event.getComponent().getParent().getParent().getParent().getId();
+		boolean update = false;
 		try{
 			for(UIComponent pngFrame : pnlFrames.getChildren()){
 				if(pngFrame.getId().equals(pngFrameId)){
 					pngFrame.getChildren().clear();
-					//break;
+					update = true;
+					break;
 				}
 			}
 		} catch(Exception ex){
 			sessionBean.putError("desktop.summary.loadoption", ex.getMessage());
 		} finally{
-			RequestContext.getCurrentInstance().update(pngFrameId);
+			if(update){
+				RequestContext.getCurrentInstance().update(pngFrameId);
+			}
 		}
     }
 	
@@ -212,6 +217,9 @@ public class DeskBean implements Serializable{
 		sessionBean.putWarn("desktop.warn.maxloadoption","",sessionBean.getUsuario().getMaxOptions());
 		return null;
 	}
+		
+	@Getter @Setter
+	private String url = "";
 	 
 }
 

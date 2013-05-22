@@ -19,14 +19,17 @@ import ec.com.ebos.conta.model.Periodo;
 import ec.com.ebos.conta.model.SaldoCentroCosto;
 import ec.com.ebos.conta.model.SaldoCuentaCentro;
 import ec.com.ebos.conta.model.SaldoCuentaContable;
+import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.field.CentroCosto_;
 import ec.com.ebos.conta.model.field.CuentaContable_;
 import ec.com.ebos.conta.model.field.Ejercicio_;
 import ec.com.ebos.conta.model.field.Periodo_;
 import ec.com.ebos.conta.model.field.SaldoCentroCosto_;
 import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
+import ec.com.ebos.conta.model.field.TipoCuenta_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.orm.crud.GenericCriteria;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
 
 /**
@@ -36,10 +39,7 @@ import ec.com.ebos.root.core.process.RootPImpl;
 @Repository("contaP")
 public class ContaPImpl extends RootPImpl<Object, ContaException> implements ContaP {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6576805861066271522L;
+	private static final long serialVersionUID = -6982586050138698390L;
 
 	public Ejercicio getEjercicio(Organizacion empresa, Date fecha) {
 		return null;
@@ -243,4 +243,47 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			}
 		} while (continuar); 
 	}
+
+	//
+    // TipoCuenta
+    //
+    @Override
+    public List<TipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination) {
+        GenericCriteria<TipoCuenta> criteria = GenericCriteria.forClass(TipoCuenta.class);
+        
+        criteria.addEqualsIfNotZero(TipoCuenta_.id, tipoCuenta.getId());
+        if(criteria.isChanged()){
+        	return findByCriteria(criteria, pagination);
+        }
+        
+        criteria.addEqualsIfNotNull(TipoCuenta_.tipo, tipoCuenta.getTipo());
+        criteria.addEqualsIfNotNull(TipoCuenta_.naturaleza, tipoCuenta.getNaturaleza());
+        criteria.addLikeIfNotNull(TipoCuenta_.codigo, tipoCuenta.getCodigo());
+        criteria.addLikeIfNotNull(TipoCuenta_.descripcion, tipoCuenta.getDescripcion());        
+        
+        return findByCriteria(criteria, pagination);
+    }
+
+    @Override
+    public TipoCuenta createTipoCuenta() {
+        TipoCuenta tipoCuenta = new TipoCuenta();
+        Date date = new Date();
+        tipoCuenta.setFechaDesde(date);
+        tipoCuenta.setFechaHasta(date);
+        return tipoCuenta;
+    }
+
+    @Override
+    public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta) {
+        tipoCuenta = saveOrMerge(tipoCuenta);
+        putSuccess("tipoCuenta.success.save", tipoCuenta.getId());
+        return tipoCuenta;
+    }
+
+    @Override
+    public void deleteTipoCuenta(TipoCuenta tipoCuenta) {
+        Long id = tipoCuenta.getId();
+        delete(tipoCuenta);
+        putSuccess("tipoCuenta.success.delete",id);
+    }
 }

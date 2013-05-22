@@ -38,7 +38,8 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  */
 @Entity
 @Table(name = TipoCuenta.TABLE_NAME, schema = Contabilidad.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
+@Data @EqualsAndHashCode(callSuper=false)
+@org.hibernate.annotations.Entity(dynamicUpdate = true)
 public class TipoCuenta extends Contabilidad<TipoCuenta> {
 
 	private static final long serialVersionUID = 948691083807866461L;

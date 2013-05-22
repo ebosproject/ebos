@@ -56,7 +56,7 @@ public class SessionBean implements Serializable{
 
     @Getter @Setter
     @ManagedProperty(value = "#{adminMB}")
-    protected AdminBean admin;
+    protected AppBean admin;
     
 	private String tema = null;
 	
