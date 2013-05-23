@@ -4,7 +4,8 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
-                xmlns:pe="http://primefaces.org/ui/extensions">
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:jr="http://jasperreportjsf.sf.net/tld/jasperreports-jsf-1_3.tld">
                 
     <ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
     <ui:param name="wgtE" value="wgtE#{frameId}" />
@@ -23,6 +24,7 @@
 		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsFinder}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTF">
+       			 <jr:source id="eBosSource" type="jndi" value="java:comp/env/jdbc/ebosPostgres"/>
                  <p:toolbar id="tbrTF" style="overflow:hidden !important;">
 		           	<p:toolbarGroup align="left">
 			           	<p:commandButton id="btnSearch" value="#{msg.ebBuscar}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Search" 
@@ -36,25 +38,35 @@
 		                	rendered="#{bean.habilitaEditar and not empty bean.dataTable}" icon="ui-icon-edit"/>
 	                </p:toolbarGroup>
 	                <p:separator />
-					<p:toolbarGroup align="right">	                    
-						<p:menuButton value="#{msg.ebOptions}">
+					<p:toolbarGroup align="right">
+						 <h:panelGrid columns="3">
+				            <p:outputLabel for="reportFormat" value="#{msg['report.format.select']}" />
+				            <h:selectOneMenu id="reportFormat" value="#{bean.reportFormat}">
+				                <f:selectItems value="#{bean.reportFormats}" />
+				            </h:selectOneMenu>
+							<jr:reportLink id="reportLink" format="#{bean.reportFormat}"
+				                           target="blank" source="eBosSource"
+				                           value="/resources/reports/jasper/bundlelist.jasper"
+				                           resourceBundle="#{msg}">
+				                <h:outputText value="#{optionTitle}"/>
+				            </jr:reportLink>
+			            </h:panelGrid>	                    
+						<p:menuButton value="#{msg.ebOptions}">						
 							<p:menuitem value="#{msg.ebExportar}" rendered="#{bean.habilitaExportar}" ajax="false">
 								<p:dataExporter type="pdf" target=":#{frameId}:frmR:dtR" fileName="Report"/>	
 							</p:menuitem>
 							<p:menuitem value="Opc 2" url="#" />
 							<ui:insert name="options"/>
-						</p:menuButton>
+						</p:menuButton>						
 						<p:commandButton id="btnRefr" onclick="#{wgtFrame}.loadContents()" icon="ui-icon-refresh"/>
 					</p:toolbarGroup>
 	             </p:toolbar>
-             	 <ui:remove><p:remoteCommand id="fnEditar" actionListener="#{bean._editar}" name="fnEditar"
-	         		rendered="#{bean.habilitaEditar and not empty bean.dataTable}"/>
-	         		</ui:remove>
        		<!-- <p:hotkey bind="ctrl+shift+f" handler="alert('Hola');" /> -->
             </h:form>
          </pe:layoutPane>
          <pe:layoutPane position="center">
             <h:form id="frmR">
+            	
 	        	<p:dataTable id="dtR" 
 	        		var="reg" 
 	            	value="#{bean.dataTable}"

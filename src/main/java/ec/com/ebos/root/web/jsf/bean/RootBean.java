@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -71,6 +73,9 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     
     @Getter @Setter
     protected Long paramId;
+    
+    @Getter @Setter
+    private String reportFormat = "pdf";
     
     private boolean loaded = true;
     
@@ -269,5 +274,15 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     	return FacesUtils.getRandomId();
     }
     
+    ///////////////////////// REPORT //////////////////////////
+//    public List getReportFormats() {
+//        FacesContext context = FacesContext.getCurrentInstance();
+//        JRFacesContext jrContext = JRFacesContext.getInstance(context);
+//        List list = new ArrayList();
+//        for (String format : jrContext.getAvailableExportFormats()) {
+//            list.add(new SelectItem(format, format));
+//        }
+//        return list;
+//    }
 
 }

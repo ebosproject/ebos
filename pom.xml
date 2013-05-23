@@ -46,12 +46,6 @@
     </developers>
 
 	<repositories>
-        <!-- <repository>
-			<id>jboss-public-repository-group</id>
-			<name>JBoss Public Repository Group</name>
-			<url>http://repository.jboss.org/nexus/content/groups/public</url>
-			<layout>default</layout>
-		</repository> -->
 		<repository>
             <id>prime-repo-new</id>
             <name>PrimeFaces Maven Repository</name>
@@ -124,14 +118,6 @@
 					<packaging>${project.packaging}</packaging>
 				</configuration>
 			</plugin>
-		<!-- CORE LAYER-->
-			<!-- <plugin> <groupId>org.bsc.maven</groupId> <artifactId>maven-processor-plugin</artifactId> 
-				<version>1.3.1</version> <executions> <execution> <id>process</id> <goals> 
-				<goal>process</goal> </goals> <phase>clean</phase> <configuration> <outputDirectory>src/main/java/</outputDirectory> 
-				<processors> <processor> org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor 
-				</processor> </processors> </configuration> </execution> </executions> </plugin> -->
-			<!-- Hibernate 3 Plugin, used for schema creation Usage example: mvn clean 
-				compile hibernate3:hbm2ddl -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>hibernate3-maven-plugin</artifactId>
@@ -231,6 +217,20 @@
 						<resource>
 							<directory>${project.build.directory}/webapp-resources</directory>
 						</resource>
+						<resource>
+				        <directory>src/main/jasperreports</directory>
+					        <includes>
+					          <include>**/*.jrxml</include>
+					        </includes>
+					        <targetPath>resources/reports/sources</targetPath>
+				      </resource>
+				      <resource>
+					        <directory>target/jasperreports/jasper</directory>
+					        <includes>
+					          <include>**/*.jasper</include>
+					        </includes>
+					        <targetPath>resources/reports/jasper</targetPath>
+				      </resource>
 					</webResources>
 					<packagingExcludes>**/web-overwrite.xml,WEB-INF/web.xml</packagingExcludes>
 					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
@@ -314,6 +314,28 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+			  <artifactId>jasperreports-maven-plugin</artifactId>
+			  <version>1.0-beta-2</version>
+			  <executions>
+			    <execution>
+			      <goals>
+			        <goal>compile-reports</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			  <configuration>
+			    <outputDirectory>target/jasperreports/jasper</outputDirectory>
+			  </configuration>
+			  <!-- <dependencies>
+			    <dependency>
+			      <groupId>net.sf.jasperreports</groupId>
+			      <artifactId>jasperreports</artifactId>
+			      <version>4.5.1</version>
+			    </dependency>
+			  </dependencies> -->
 			</plugin>
 		</plugins>
 		<pluginManagement>
@@ -564,6 +586,25 @@
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											jasperreports-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.0-beta-2,)
+										</versionRange>
+										<goals>
+											<goal>compile-reports</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
@@ -715,50 +756,13 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
-			<version>3.7.6</version>
-			<exclusions>
-				<exclusion>
-					<groupId>eclipse</groupId>
-					<artifactId>jdtcore</artifactId>
-					<!--version>3.1.0</version-->
-				</exclusion>
-				<exclusion>
-					<groupId>xml-apis</groupId>
-					<artifactId>xml-apis</artifactId>
-					<!--version>1.3.02</version-->
-				</exclusion>
-				<exclusion>
-					<groupId>commons-digester</groupId>
-					<artifactId>commons-digester</artifactId>
-					<!--version>1.7</version-->
-				</exclusion>
-				<exclusion>
-					<groupId>commons-collections</groupId>
-					<artifactId>commons-collections</artifactId>
-					<!--version>2.1</version-->
-				</exclusion>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-					<!--version>1.0.2</version-->
-				</exclusion>
-				<exclusion>
-					<groupId>commons-beanutils</groupId>
-					<artifactId>commons-beanutils</artifactId>
-					<!--version>1.7.0</version-->
-				</exclusion>
-				<exclusion>
-					<groupId>bouncycastle</groupId>
-					<artifactId>bcmail-jdk14</artifactId>
-					<!--version>138</version-->
-				</exclusion>
-				<exclusion>
-					<groupId>bouncycastle</groupId>
-					<artifactId>bcprov-jdk14</artifactId>
-					<!--version>138</version-->
-				</exclusion>
-			</exclusions>
-		</dependency>				
+			<version>5.1.0</version>			
+		</dependency>
+		<!--  <dependency>
+            <groupId>net.sf.jasperreports.jsf</groupId>
+            <artifactId>jasperreports-jsf</artifactId>
+            <version>1.0</version>
+        </dependency>	-->			
 		<dependency>
 			<groupId>org.simpleframework</groupId>
 			<artifactId>simple-xml</artifactId>
