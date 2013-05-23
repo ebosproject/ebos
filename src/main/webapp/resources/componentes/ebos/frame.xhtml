@@ -75,7 +75,7 @@
 				</h:form>
 			</p:outputPanel>
 			
-			<p:ajax event="close" listener="#{deskBean.closeFrame}" />
+			<p:ajax event="close" listener="#{deskBean.closeFrame}" global="false"/>
 			
 			<p:draggable for="dlg" 
 		        opacity="0.2" 

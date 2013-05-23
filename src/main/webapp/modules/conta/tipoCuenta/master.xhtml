@@ -18,33 +18,33 @@
     <ui:define name="header">
         <ui:param name="tipoCuenta" value="#{bean.activeEntity}" />    
 	
-		<h:panelGrid id="pnlTipoCuenta" width="100%">
-			<h:panelGrid id="pnlOne" width="100%" columns="4">
+		<eb:panelGrid id="pnlTipoCuenta">
+			<eb:panelGrid id="pnlOne" columns="4" columnClasses="width10,witdh90,width10,witdh90">
 		       <p:outputLabel for="id" value="#{msg.id}"/>         
 		       <eb:outputText id="id" value="#{tipoCuenta.id}"/>
 		    
-		       <p:outputLabel for="codigo" value="#{msg.code}"/>
-		       <eb:inputText id="codigo" value="#{tipoCuenta.codigo}" required="true" maxlength="50"/>
-		       
 		       <p:outputLabel for="tipo" value="#{msg.type}"/>
-		       <p:selectOneMenu id="tipo" value="#{tipoCuenta.tipo}" efect="fade" required="true">
+		       <p:selectOneMenu id="tipo" value="#{tipoCuenta.tipo}" efect="fade" required="true" >
 		            <f:selectItem itemLabel ="#{msg.selectOne}" itemValue="" />
 		            <f:selectItems value="#{bean.tipoList}" var="opc"
 		                itemLabel="#{msg[opc.label]}" itemValue="#{opc}"/>
 	           </p:selectOneMenu>
 		    
+		       <p:outputLabel for="codigo" value="#{msg.code}"/>
+		       <eb:inputText id="codigo" value="#{tipoCuenta.codigo}" required="true" maxlength="20" styleClass="width90"/>
+		       
 		       <p:outputLabel for="naturaleza" value="#{msg.nature}"/>
 		       <p:selectOneMenu id="naturaleza" value="#{tipoCuenta.naturaleza}" efect="fade" required="true">
 		            <f:selectItem itemLabel ="#{msg.selectOne}" itemValue="" />
 		            <f:selectItems value="#{bean.naturalezaList}" var="opc"
 		                itemLabel="#{msg[opc.label]}" itemValue="#{opc}"/>
 	           </p:selectOneMenu>
-			</h:panelGrid>
-			<h:panelGrid id="pnlTwo" columns="2">
+			</eb:panelGrid>
+			<eb:panelGrid id="pnlTwo" columns="2" columnClasses="width10,witdh90">
 				<p:outputLabel for="descripcion" value="#{msg.description}"/>
-			    <eb:inputText id="descripcion" value="#{tipoCuenta.descripcion}" required="true" maxlength="500" styleClass="width100"/>
-		    </h:panelGrid>
-	    </h:panelGrid>
+			    <eb:inputText id="descripcion" value="#{tipoCuenta.descripcion}" required="true" maxlength="100" styleClass="width100"/>
+		    </eb:panelGrid>
+	    </eb:panelGrid>
     </ui:define>
             
     <ui:define name="detail">

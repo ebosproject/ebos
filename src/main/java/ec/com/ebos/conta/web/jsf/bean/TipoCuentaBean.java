@@ -29,6 +29,8 @@ public class TipoCuentaBean extends ContaBean<TipoCuenta> {
     public void getInit() {
         // Para busquedas
         entitySearch = new TipoCuenta();
+        entitySearch.setTipo(null);
+        entitySearch.setNaturaleza(null);
     }
 
     @Override

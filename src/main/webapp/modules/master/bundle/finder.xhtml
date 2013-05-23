@@ -13,8 +13,10 @@
         <eb:panelGrid id="pnlFiltros" columns="2">          
         	<p:outputLabel for="id" value="#{msg.ebId}"/>     
 	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number"/>
+            
             <p:outputLabel for="codigo" value="#{msg.ebCodigo}"/>
 	        <eb:inputText id="codigo" value="#{bean.entitySearch.codigo}" />
+	        
 	        <p:outputLabel for="localidad" value="#{msg.ebLocalidad}"/>        
 	        <p:selectOneMenu id="localidad" value="#{bean.entitySearch.localidad}" efect="fade">
 	            <f:selectItem itemLabel ="#{msg.ebSelectOne}" itemValue="" />

@@ -267,9 +267,6 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
     @Override
     public TipoCuenta createTipoCuenta() {
         TipoCuenta tipoCuenta = new TipoCuenta();
-        Date date = new Date();
-        tipoCuenta.setFechaDesde(date);
-        tipoCuenta.setFechaHasta(date);
         return tipoCuenta;
     }
 

@@ -11,8 +11,9 @@
         <cc:attribute name="value" required="true" />    
         <cc:attribute name="label"/>
         <cc:attribute name="required" type="java.lang.Boolean" default="false"/>
-        <cc:attribute name="maxlength" default="25"/>
+        <cc:attribute name="maxlength" default="20"/>
         <cc:attribute name="minlength" default="0"/>
+        <cc:attribute name="size" default="20"/>
         <cc:attribute name="disabled" type="java.lang.Boolean" default="false"/>
         <cc:attribute name="type" type="java.lang.String" default="text"/>
         <cc:attribute name="style" type="java.lang.String"/>
@@ -21,19 +22,19 @@
     </cc:interface>
 
     <cc:implementation>         
-        <p:watermark for="#{cc.attrs.id}" value="#{cc.attrs.watermark}" 
-	       				 rendered="#{not empty cc.attrs.watermark}"/>
-	        
-        <p:inputText id="#{cc.attrs.id}" required="#{cc.attrs.required}" 
+        <p:inputText id="input" required="#{cc.attrs.required}" 
                      value="#{cc.attrs.value}"                         
                      maxlength="#{cc.attrs.maxlength}"                         
                      disabled="#{cc.attrs.disabled}"
                      type="#{cc.attrs.type}"
                      style="#{cc.attrs.style}"
-                     styleClass="#{cc.attrs.styleClass}"
+                     size="#{cc.attrs.size}"
+                     styleClass="width100,#{cc.attrs.styleClass}"
                      requiredMessage="#{cc.attrs.requiredMessage}">
         	<f:validateLength minimum="#{cc.attrs.minlength}" />
-        </p:inputText> 
+        </p:inputText>
+        <p:watermark for="input" value="#{cc.attrs.watermark}" 
+	       				 rendered="#{not empty cc.attrs.watermark}"/> 
 
     </cc:implementation>  
 
