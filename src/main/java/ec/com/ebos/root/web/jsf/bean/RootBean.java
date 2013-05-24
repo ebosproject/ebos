@@ -74,9 +74,6 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     @Getter @Setter
     protected Long paramId;
     
-    @Getter @Setter
-    private String reportFormat = "pdf";
-    
     private boolean loaded = true;
     
     public RootBean() {
@@ -273,16 +270,5 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     public String getRandomId(){
     	return FacesUtils.getRandomId();
     }
-    
-    ///////////////////////// REPORT //////////////////////////
-//    public List getReportFormats() {
-//        FacesContext context = FacesContext.getCurrentInstance();
-//        JRFacesContext jrContext = JRFacesContext.getInstance(context);
-//        List list = new ArrayList();
-//        for (String format : jrContext.getAvailableExportFormats()) {
-//            list.add(new SelectItem(format, format));
-//        }
-//        return list;
-//    }
 
 }

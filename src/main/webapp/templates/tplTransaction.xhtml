@@ -2,108 +2,63 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+                xmlns:pe="http://primefaces.org/ui/extensions">
 
-	<ui:param name="westRendered" value="true" />
-    <ui:param name="showAuditoria" value="true" />
-
-	<h:form id="frmExplorer" prependId="false" style="height:100% !important;width:100% !important;">
-		<p:dialog id="dlgEdit" widgetVar="wgtEdit" modal="true" header="#{msg.ebEdit}" width="530" showEffect="fade" hideEffect="fade" visible="true">
-	    	<h:panelGrid id="pnlDisplay" columns="2" cellpadding="4">  
-	    		#{bean.activeEntity.id}
-	        </h:panelGrid>
-	    </p:dialog>
+	<ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
+    <ui:param name="wgtE" value="wgtE#{frameId}" />
+	<ui:insert name="params">
+		<ui:remove>
+	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
+		</ui:remove>
+		<ui:param name="optionsTransaction" value="'north':{'closable':false,'resizable':true,'size':50},
+				'south':{'closable':true, 'size':35},
+				'center':{'minHeight':60, 'resizeWhileDragging':true, 'closable':false, 'minWidth':200, 'resizable':true}"/>
+	</ui:insert>
 	
-		<p:layout id="indexLayout" style="min-width:200px;min-height:200px;height:100% !important;width:100% !important;">
-	        
-	        <p:layoutUnit position="north" size="40" style="padding: inherit !important;" resizable="false" closable="false" collapsible="false">
-            	<p:toolbar style="overflow:hidden !important;">
-	            	<p:toolbarGroup align="left">
-			           	<p:commandButton id="btnSearch" actionListener="#{bean._buscar}" value="#{msg.ebBuscar}" 
-				                	icon="ui-icon-search" update="dtResultados" process="@parent" />
-	                	<p:separator />
-	                	<p:commandButton id="btnNuevo" value="#{msg.ebNuevo}"
-		                	rendered="#{bean.habilitaCrear}" action="#{bean._crear}" icon="ui-icon-document"/>
-		                <p:commandButton id="btnEditar" value="#{msg.ebEditar}" 
-		                	action="#{bean._editar}" rendered="#{bean.habilitaEditar and not empty bean.dataTable}" icon="ui-icon-edit"/>
+	<pe:layout id="lytTransaction" fullPage="false" style="min-height:450px; min-width:700px; height:100%; width:100%;" 
+		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsTransaction}}">
+		<pe:layoutPane position="north">
+			<h:form id="frmTT">
+                 <p:toolbar id="tbrTT" style="overflow:hidden !important;">
+		           	<p:toolbarGroup align="left">
+			           	<p:commandButton id="btnOpen" value="#{msg.open}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Open" 
+			           		icon="ui-icon-search" update=":#{frameId}:pnlE" process="@this" onsuccess="#{wgtE}.show()"/>
+		               	<p:separator />
+		               	<p:commandButton id="btnNew" value="#{msg.ebNew}" actionListener="#{bean._crear}" widgetVar="wgt#{frameId}New"
+		                	update="" onsuccess=""  
+		                	rendered="#{bean.habilitaCrear}" icon="ui-icon-document"/>
+		                <p:commandButton id="btnEdit" value="#{msg.edit}" actionListener="#{bean._editar}" widgetVar="wgt#{frameId}Edit"
+		                	update="" onsuccess=""  
+		                	rendered="#{bean.habilitaEditar and not empty bean.dataTable}" icon="ui-icon-edit"/>
 	                </p:toolbarGroup>
-	                <p:separator />
-					<p:toolbarGroup align="right">
-						<p:commandButton id="btnExportar" value="#{msg.ebExportar}" 
-		                	rendered="#{bean.habilitaExportar}">
-		                    <p:dataExporter type="xls" target="dtResultados" fileName="Reporte"/>
-		                </p:commandButton>
-						<p:menuButton value="Navigate">
-							<p:menuitem value="Home" url="#" />
-							<p:menuitem value="Logout" url="#" />
-						</p:menuButton>
-					</p:toolbarGroup>
-                </p:toolbar>
-                
-                <p:remoteCommand id="fnEditar" action="#{bean._editar}" name="fnEditar" 
-	         		rendered="#{bean.habilitaEditar and not empty bean.dataTable}"/>
-	        </p:layoutUnit>
-	
-	        <p:layoutUnit position="west" size="220" header="#{msg.ebFilters}" resizable="true" closable="false" collapsible="true">
-	            <ui:insert name="filtros"/>
-	        </p:layoutUnit>
-	
-	        <p:layoutUnit position="south" size="40" resizable="true" closable="false" collapsible="true">
-	            <h:panelGrid id="pnlDetail" columns="2" cellpadding="4">  
-		    		<h:outputText value="#{bean.activeEntity.id}" />
-		    		<ui:insert name="details"/>
-		        </h:panelGrid>
-	        </p:layoutUnit>
-	        
-	        <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="fade" rendered="false">
-	            <h:outputText value="Layout content for Right" />
-	        </p:layoutUnit>
-	
-	        <p:layoutUnit position="center">
-			    <h:panelGrid>    
-		        	<p:dataTable id="dtResultados" 
-		        		var="reg" 
-		            	value="#{bean.dataTable}"
-			            lazy="true" 
-			            selectionMode="single"
-			            selection="#{bean.activeEntity}"
-			            paginator="true" 
-			            paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
-			            rowsPerPageTemplate="5,10,15,50"
-			            rows="10" 
-			            emptyMessage="#{msg.ebEmptyDataTable}"
-			            resizableColumns="true"
-			            scrollable="true"   
-			            rowKey="#{reg.id}">
-		
-						<p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" 
-							oncomplete="wgtEdit.show()" update="@(pnlDisplay)"/>
-						<p:ajax event="rowSelect" update="@(:pnlDetail)" />  
-		  
-			            <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" rendered="#{bean.habilitaEditar}" resizable="false" >
-			                 <p:commandLink id="cmlEditar" type="push" value="#{reg.id}" 
-			                 	action="#{bean._editar}" ajax="false" style="color:blue"
-			                     title="#{msg.ebVer}" onmouseup="jsPreventDefault(event,this);">
-			                     <f:setPropertyActionListener value="#{reg}" target="#{bean.activeEntity}"/>
-			                 </p:commandLink>
-			            </p:column>
-			             
-			            <ui:insert name="resultados" />
-			             
-					    <p:column id="creado" headerText="#{msg.ebCreado}" width="60" resizable="false" rendered="#{showAuditoria}">        
-					        <eb:outputDate value="#{reg.fechaCreacion}" title="#{msg.ebPor}: #{reg.usuarioCreacion.username}"/>
-					    </p:column>
-					    <p:column id="modificado" headerText="#{msg.ebModificado}" width="60" resizable="false" rendered="#{showAuditoria}">        
-					        <eb:outputDate value="#{reg.fechaModificacion}" title="#{msg.ebPor}: #{reg.usuarioModificacion.username}"/>
-					    </p:column>                    
-			     	</p:dataTable>
-			     	
-			     	<p:blockUI block="dtResultados" trigger="btnSearch" />
-				     	
-			    </h:panelGrid> 	
-	        </p:layoutUnit>
-	        
-	    </p:layout>
-    </h:form>
+	             </p:toolbar>
+       		<!-- <p:hotkey bind="ctrl+shift+f" handler="alert('Hola');" /> -->
+            </h:form>
+         </pe:layoutPane>
+         <pe:layoutPane position="center">
+            	
+         </pe:layoutPane>
+         <pe:layoutPane position="south">
+         	
+         </pe:layoutPane>
+    </pe:layout>
+    
+    <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytTransaction" />
+    
+	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" height="350" width="600" appendToBody="true" 
+		showEffect="fade" hideEffect="fade" draggable="true" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
+		<p:outputPanel id="pnlE">
+   			<p:outputPanel rendered="#{bean.activeEntity ne null}">
+   				<!-- <ui:include src="finder.xhtml"/> -->
+ 			</p:outputPanel>
+		</p:outputPanel>   		    		
+    </p:dialog>
+    
+    <p:draggable for="dlgE" 
+	        opacity="0.5" 
+	        dragOnly="true"
+	        handle=".ui-dialog-titlebar" 
+	        containment="#center"/>
            
 </ui:composition>

@@ -9,17 +9,17 @@
 	<h:form id="frmDashboard">
 		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;">
             <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}"/>
-			<p:panel id="bundle" header="#{msg.ebBundle}">
-				<p:commandButton value="#{msg.ebBundle}" onclick="alert('En desarrollo');"/>
+			<p:panel id="bundle" header="#{msg.bundle}">
+				<p:commandButton value="#{msg.bundle}" actionListener="#{deskBean.openFrame(37)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
 			</p:panel>
-			<p:panel id="usuario" header="#{msg.ebUsuario}">
-				<p:commandButton value="#{msg.ebOpcion}" onclick="alert('En desarrollo');"/>
+			<p:panel id="usuario" header="#{msg.user}">
+				<p:commandButton value="#{msg.user}" actionListener="#{deskBean.openFrame(2)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
 			</p:panel>
-			<p:panel id="rol" header="#{msg.ebRol}">
-               	<p:commandButton value="#{msg.ebRol}" onclick="alert('En desarrollo');"/>
+			<p:panel id="rol" header="#{msg.rol}">
+               	<p:commandButton value="#{msg.rol}" actionListener="#{deskBean.openFrame(4)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
 			</p:panel>
-			<p:panel id="opcion" header="#{msg.ebOpcion}">
-				<p:commandButton value="#{msg.ebOpcion}" onclick="alert('En desarrollo');"/>
+			<p:panel id="opcion" header="#{msg.option}">
+				<p:commandButton value="#{msg.option}" actionListener="#{deskBean.openFrame(3)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
 			</p:panel>
 		</p:dashboard>
 	</h:form> 

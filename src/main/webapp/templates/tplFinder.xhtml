@@ -24,7 +24,6 @@
 		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsFinder}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTF">
-       			 <jr:source id="eBosSource" type="jndi" value="java:comp/env/jdbc/ebosPostgres"/>
                  <p:toolbar id="tbrTF" style="overflow:hidden !important;">
 		           	<p:toolbarGroup align="left">
 			           	<p:commandButton id="btnSearch" value="#{msg.ebBuscar}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Search" 
@@ -39,18 +38,6 @@
 	                </p:toolbarGroup>
 	                <p:separator />
 					<p:toolbarGroup align="right">
-						 <h:panelGrid columns="3">
-				            <p:outputLabel for="reportFormat" value="#{msg['report.format.select']}" />
-				            <h:selectOneMenu id="reportFormat" value="#{bean.reportFormat}">
-				                <f:selectItems value="#{bean.reportFormats}" />
-				            </h:selectOneMenu>
-							<jr:reportLink id="reportLink" format="#{bean.reportFormat}"
-				                           target="blank" source="eBosSource"
-				                           value="/resources/reports/jasper/bundlelist.jasper"
-				                           resourceBundle="#{msg}">
-				                <h:outputText value="#{optionTitle}"/>
-				            </jr:reportLink>
-			            </h:panelGrid>	                    
 						<p:menuButton value="#{msg.ebOptions}">						
 							<p:menuitem value="#{msg.ebExportar}" rendered="#{bean.habilitaExportar}" ajax="false">
 								<p:dataExporter type="pdf" target=":#{frameId}:frmR:dtR" fileName="Report"/>	

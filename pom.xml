@@ -329,13 +329,6 @@
 			  <configuration>
 			    <outputDirectory>target/jasperreports/jasper</outputDirectory>
 			  </configuration>
-			  <!-- <dependencies>
-			    <dependency>
-			      <groupId>net.sf.jasperreports</groupId>
-			      <artifactId>jasperreports</artifactId>
-			      <version>4.5.1</version>
-			    </dependency>
-			  </dependencies> -->
 			</plugin>
 		</plugins>
 		<pluginManagement>
@@ -758,11 +751,6 @@
 			<artifactId>jasperreports</artifactId>
 			<version>5.1.0</version>			
 		</dependency>
-		<!--  <dependency>
-            <groupId>net.sf.jasperreports.jsf</groupId>
-            <artifactId>jasperreports-jsf</artifactId>
-            <version>1.0</version>
-        </dependency>	-->			
 		<dependency>
 			<groupId>org.simpleframework</groupId>
 			<artifactId>simple-xml</artifactId>
