@@ -1,0 +1,1351 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="objeto">
+    <column>id</column>
+    <column>creacion</column>
+    <column>modificacion</column>
+    <column>codigo</column>
+    <column>descripcion</column>
+    <column>estado</column>
+    <column>tipo</column>
+    <column>id_creador</column>
+    <column>id_modificador</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value>sesionUsuario</value>
+      <value><![CDATA[Bean de sesion de usuario]]></value>
+      <value>A</value>
+      <value>B</value>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>2</value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value>bundleBean</value>
+      <value><![CDATA[Bean de bundle]]></value>
+      <value>A</value>
+      <value>B</value>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>3</value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value>usuarioBean</value>
+      <value><![CDATA[Bean de usuario]]></value>
+      <value>A</value>
+      <value>B</value>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>4</value>
+      <value><![CDATA[2013-05-21 00:00:00.0]]></value>
+      <null/>
+      <value>tipoCuentaBean</value>
+      <value><![CDATA[Bean de tipoCuenta]]></value>
+      <value>A</value>
+      <value>B</value>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>5</value>
+      <value><![CDATA[2013-05-23 00:00:00.0]]></value>
+      <null/>
+      <value>cuentaContableBean</value>
+      <value><![CDATA[Bean de cuentaContable]]></value>
+      <value>A</value>
+      <value>B</value>
+      <value>1</value>
+      <null/>
+    </row>
+  </table>
+  <table name="opcion">
+    <column>id</column>
+    <column>creacion</column>
+    <column>modificacion</column>
+    <column>descripcion</column>
+    <column>estado</column>
+    <column>etiqueta</column>
+    <column>icono</column>
+    <column>nombre</column>
+    <column>target</column>
+    <column>id_creador</column>
+    <column>id_modificador</column>
+    <column>id_objeto</column>
+    <column>id_padre</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[2013-05-21 20:12:54.59]]></value>
+      <value><![CDATA[2013-05-21 20:18:24.074]]></value>
+      <value><![CDATA[Módulo de Seguridad]]></value>
+      <value>A</value>
+      <value>seguridad</value>
+      <value>icon.png</value>
+      <value>seguridad</value>
+      <value>/modules/security/</value>
+      <value>1</value>
+      <value>1</value>
+      <null/>
+      <null/>
+    </row>
+    <row>
+      <value>2</value>
+      <value><![CDATA[2012-08-08 20:54:01.0]]></value>
+      <value><![CDATA[2012-11-13 15:19:16.0]]></value>
+      <value><![CDATA[Mantenimiento de Usuarios]]></value>
+      <value>A</value>
+      <value>Usuario</value>
+      <value>user.png</value>
+      <value>usuario</value>
+      <value>/modules/security/usuario/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>3</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value><![CDATA[2012-08-09 01:26:45.0]]></value>
+      <value><![CDATA[2013-05-20 14:42:01.477]]></value>
+      <value><![CDATA[Mantenimiento de Opciones]]></value>
+      <value>A</value>
+      <value>Opcion</value>
+      <value>menu_item.png</value>
+      <value>Opcion</value>
+      <value>/modules/security/opcion/finder.xhtml</value>
+      <value>1</value>
+      <value>1</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>4</value>
+      <value><![CDATA[2012-08-09 01:27:15.0]]></value>
+      <value><![CDATA[2013-05-20 17:19:24.137]]></value>
+      <value><![CDATA[Mantenimiento de Roles]]></value>
+      <value>A</value>
+      <value>Rol</value>
+      <value>role.png</value>
+      <value>rol</value>
+      <value>/modules/security/rol/finder.xhtml</value>
+      <value>1</value>
+      <value>1</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>5</value>
+      <value><![CDATA[2012-08-09 16:50:09.0]]></value>
+      <value><![CDATA[2012-08-10 09:14:45.0]]></value>
+      <value><![CDATA[Modulo MensajerÃ­a]]></value>
+      <value>A</value>
+      <value>Mensajeria</value>
+      <null/>
+      <value>mensajeria</value>
+      <value>/modules/mensajeria/*</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>6</value>
+      <value><![CDATA[2012-08-09 16:51:19.0]]></value>
+      <value><![CDATA[2012-08-09 16:51:19.0]]></value>
+      <value>Enviados</value>
+      <value>A</value>
+      <value>Enviados</value>
+      <null/>
+      <value>enviados</value>
+      <value>/modules/mensajeria/enviados/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>7</value>
+      <value><![CDATA[2012-08-10 09:16:38.0]]></value>
+      <value><![CDATA[2012-08-10 09:16:38.0]]></value>
+      <value><![CDATA[Pantalla de recibidos]]></value>
+      <value>A</value>
+      <value>Recibidos</value>
+      <null/>
+      <value>recibidos</value>
+      <value>/modules/mensajeria/recibidos/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>8</value>
+      <value><![CDATA[2012-08-10 10:42:34.0]]></value>
+      <value><![CDATA[2013-03-30 01:14:24.727]]></value>
+      <value><![CDATA[Módulo Sincronización]]></value>
+      <value>A</value>
+      <value>Sincronizacion</value>
+      <value/>
+      <value>sincronizacion</value>
+      <value>/modules/sincronizacion/*</value>
+      <value>1</value>
+      <value>1</value>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>9</value>
+      <value><![CDATA[2012-08-10 10:43:24.0]]></value>
+      <value><![CDATA[2012-10-09 17:26:34.0]]></value>
+      <value><![CDATA[Pantalla de conexiÃ³n inicial para sincronizacion]]></value>
+      <value>A</value>
+      <value>ConexionInicial</value>
+      <value>connection.png</value>
+      <value><![CDATA[conexion inicial]]></value>
+      <value>/modules/sincronizacion/conexion/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>8</value>
+    </row>
+    <row>
+      <value>10</value>
+      <value><![CDATA[2012-09-02 12:33:52.0]]></value>
+      <value><![CDATA[2013-05-20 19:03:43.51]]></value>
+      <value><![CDATA[Módulo de Mantenimiento]]></value>
+      <value>A</value>
+      <value>Mantenimiento</value>
+      <value/>
+      <value>mantenimiento</value>
+      <value>/modules/mantenimiento/*</value>
+      <value>1</value>
+      <value>1</value>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>11</value>
+      <value><![CDATA[2012-09-02 12:35:14.0]]></value>
+      <value><![CDATA[2012-10-04 23:47:04.0]]></value>
+      <value><![CDATA[Mantenimiento de Alumnos]]></value>
+      <value>A</value>
+      <value>Alumno</value>
+      <value>user_student.png</value>
+      <value>alumno</value>
+      <value>/modules/mantenimiento/alumno/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>12</value>
+      <value><![CDATA[2012-09-02 14:42:04.0]]></value>
+      <value><![CDATA[2012-10-04 23:47:35.0]]></value>
+      <value><![CDATA[Mantenimiento de Materia]]></value>
+      <value>A</value>
+      <value>Materia</value>
+      <value>book.png</value>
+      <value>materia</value>
+      <value>/modules/mantenimiento/materia/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>13</value>
+      <value><![CDATA[2012-09-02 15:57:36.0]]></value>
+      <value><![CDATA[2012-10-04 23:50:54.0]]></value>
+      <value><![CDATA[Mantenimiento de Paralelos]]></value>
+      <value>A</value>
+      <value>Paralelo</value>
+      <value>blackboard.png</value>
+      <value>paralelo</value>
+      <value>/modules/mantenimiento/paralelo/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>14</value>
+      <value><![CDATA[2012-09-02 18:11:15.0]]></value>
+      <value><![CDATA[2012-10-04 23:59:17.0]]></value>
+      <value><![CDATA[Mantenimiento de MatrÃ­culas]]></value>
+      <value>A</value>
+      <value>Matricula</value>
+      <value>book_reg.png</value>
+      <value>matricula</value>
+      <value>/modules/mantenimiento/matricula/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>15</value>
+      <value><![CDATA[2012-09-02 19:43:54.0]]></value>
+      <value><![CDATA[2012-10-05 00:00:56.0]]></value>
+      <value><![CDATA[Mantenimiento de Niveles]]></value>
+      <value>A</value>
+      <value>Nivel</value>
+      <value>level.png</value>
+      <value>Nivel</value>
+      <value>/modules/mantenimiento/nivel/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>16</value>
+      <value><![CDATA[2012-09-02 20:19:59.0]]></value>
+      <value><![CDATA[2012-10-05 00:04:28.0]]></value>
+      <value><![CDATA[Mantenimiento de Horario]]></value>
+      <value>A</value>
+      <value>Horario</value>
+      <value>clock.png</value>
+      <value>horario</value>
+      <value>/modules/mantenimiento/horario/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value><![CDATA[2012-09-02 22:34:17.0]]></value>
+      <value><![CDATA[2012-10-05 00:29:00.0]]></value>
+      <value><![CDATA[Reporte de EnvÃ­o de Sms]]></value>
+      <value>A</value>
+      <value>RepEnvioSMS</value>
+      <value>report_go.png</value>
+      <value>enviohSms</value>
+      <value>/modules/reportes/enviohSms/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>20</value>
+    </row>
+    <row>
+      <value>18</value>
+      <value><![CDATA[2012-09-02 22:38:36.0]]></value>
+      <value><![CDATA[2012-10-05 00:29:13.0]]></value>
+      <value><![CDATA[Reporte de RecepciÃ³n de Sms]]></value>
+      <value>A</value>
+      <value>RepRecepcionSMS</value>
+      <value>report_disk.png</value>
+      <value>recibehSms</value>
+      <value>/modules/reportes/recibehSms/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>20</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value><![CDATA[2012-09-02 22:40:05.0]]></value>
+      <value><![CDATA[2012-10-05 00:29:40.0]]></value>
+      <value><![CDATA[Reporte de E-Mails]]></value>
+      <value>A</value>
+      <value>RepEMails</value>
+      <value>email_send.png</value>
+      <value>emailhSms</value>
+      <value>/modules/reportes/emailhSms/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>20</value>
+    </row>
+    <row>
+      <value>20</value>
+      <value><![CDATA[2012-09-04 11:56:20.0]]></value>
+      <value><![CDATA[2012-09-04 11:56:20.0]]></value>
+      <value><![CDATA[Modulo de reportes]]></value>
+      <value>A</value>
+      <value>Reportes</value>
+      <null/>
+      <value>reportes</value>
+      <value>/modules/reportes/*</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>21</value>
+      <value><![CDATA[2012-09-04 12:49:53.0]]></value>
+      <value><![CDATA[2012-10-04 23:43:02.0]]></value>
+      <value><![CDATA[Procesos de sincronizacion de tablas]]></value>
+      <value>A</value>
+      <value>Procesos</value>
+      <value>proceso_sync.png</value>
+      <value><![CDATA[procesos conexion]]></value>
+      <value>/modules/sincronizacion/procesos/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>8</value>
+    </row>
+    <row>
+      <value>22</value>
+      <value><![CDATA[2012-09-04 12:50:42.0]]></value>
+      <value><![CDATA[2012-10-04 23:43:18.0]]></value>
+      <value><![CDATA[Ejecucion de procesos de sincronizacion]]></value>
+      <value>A</value>
+      <value>Ejecucion</value>
+      <value>ejecucion_sync.png</value>
+      <value>ejecucion</value>
+      <value>/modules/sincronizacion/ejecucion/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>8</value>
+    </row>
+    <row>
+      <value>24</value>
+      <value><![CDATA[2012-09-04 23:19:10.0]]></value>
+      <value><![CDATA[2012-09-04 23:20:14.0]]></value>
+      <value><![CDATA[Modulo de Procesos]]></value>
+      <value>A</value>
+      <value>Procesos</value>
+      <null/>
+      <value>procesos</value>
+      <value>/modules/procesos/*</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>25</value>
+      <value><![CDATA[2012-09-04 23:21:07.0]]></value>
+      <value><![CDATA[2012-10-05 00:34:00.0]]></value>
+      <value><![CDATA[Definiciones de consultas Sms]]></value>
+      <value>A</value>
+      <value>DefinicionConsultas</value>
+      <value>dialog.png</value>
+      <value>definicion_sms</value>
+      <value>/modules/procesos/definicion/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>24</value>
+    </row>
+    <row>
+      <value>26</value>
+      <value><![CDATA[2012-09-05 22:33:32.0]]></value>
+      <value><![CDATA[2012-10-05 00:22:29.0]]></value>
+      <value><![CDATA[Mantenimiento de Consultas SMS]]></value>
+      <value>A</value>
+      <value>Consulta</value>
+      <value>question.png</value>
+      <value>mant_consultas</value>
+      <value>/modules/mantenimiento/consulta/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value><![CDATA[2012-09-06 01:31:09.0]]></value>
+      <value><![CDATA[2012-10-05 00:34:16.0]]></value>
+      <value><![CDATA[Envio masivo de Sms / Emails]]></value>
+      <value>A</value>
+      <value>EnvioMasivo</value>
+      <value>masivo.png</value>
+      <value><![CDATA[envio masivo]]></value>
+      <value>/modules/procesos/masivo/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>24</value>
+    </row>
+    <row>
+      <value>28</value>
+      <value><![CDATA[2012-09-18 16:23:55.0]]></value>
+      <value><![CDATA[2012-10-05 00:23:42.0]]></value>
+      <value><![CDATA[Mantenimiento de Deudas]]></value>
+      <value>A</value>
+      <value>Deuda</value>
+      <value>money.png</value>
+      <value>deudas</value>
+      <value>/modules/mantenimiento/deuda/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value><![CDATA[2012-09-21 17:04:37.0]]></value>
+      <value><![CDATA[2012-09-21 17:04:37.0]]></value>
+      <value><![CDATA[Modulo de administracion de la pagina]]></value>
+      <value>A</value>
+      <value>Administracion</value>
+      <null/>
+      <value>Administracion</value>
+      <value>/modules/admin/*</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>30</value>
+      <value><![CDATA[2012-09-21 17:07:12.0]]></value>
+      <value><![CDATA[2012-10-05 00:37:42.0]]></value>
+      <value><![CDATA[Parametros de Sms Server]]></value>
+      <value>A</value>
+      <value>Parametros</value>
+      <value>setting.png</value>
+      <value>Parametros</value>
+      <value>/modules/admin/parametros/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>29</value>
+    </row>
+    <row>
+      <value>31</value>
+      <value><![CDATA[2012-09-30 01:16:51.0]]></value>
+      <value><![CDATA[2012-10-05 00:25:59.0]]></value>
+      <value><![CDATA[Mantenimiento de personal administrativo]]></value>
+      <value>A</value>
+      <value>PersonalAdm</value>
+      <value>user_suit.png</value>
+      <value>personal</value>
+      <value>/modules/mantenimiento/personal/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>10</value>
+    </row>
+    <row>
+      <value>32</value>
+      <value><![CDATA[2012-09-30 21:56:37.0]]></value>
+      <value><![CDATA[2012-10-05 00:35:57.0]]></value>
+      <value><![CDATA[Envio masivo de Sms / Emails a personal administrativo]]></value>
+      <value>A</value>
+      <value>EnviosPersonalAd</value>
+      <value>masivo_pers.png</value>
+      <value><![CDATA[envio masivo personal]]></value>
+      <value>/modules/procesos/personal/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>24</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value><![CDATA[2012-10-09 17:25:55.0]]></value>
+      <value><![CDATA[2012-10-09 17:39:34.0]]></value>
+      <value><![CDATA[Parametros de conexion local para sincronizacion]]></value>
+      <value>A</value>
+      <value>ConexionLocal</value>
+      <value>database.png</value>
+      <value><![CDATA[conexion local]]></value>
+      <value>/modules/sincronizacion/conLocal/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>8</value>
+    </row>
+    <row>
+      <value>34</value>
+      <value><![CDATA[2012-10-31 10:21:52.0]]></value>
+      <value><![CDATA[2012-10-31 10:22:15.0]]></value>
+      <value>ConfiguraciÃ³n</value>
+      <value>A</value>
+      <value>Configuracion</value>
+      <value>setting.png</value>
+      <value>configuracion</value>
+      <value>/modules/admin/configuracion/contenedor.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>29</value>
+    </row>
+    <row>
+      <value>35</value>
+      <value><![CDATA[2013-03-24 15:54:01.258]]></value>
+      <null/>
+      <value>Objeto</value>
+      <value>A</value>
+      <value>Objeto</value>
+      <value>user.png</value>
+      <value>Objeto</value>
+      <value>/modules/security/objeto/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value><![CDATA[2013-03-24 17:49:00.731]]></value>
+      <null/>
+      <value><![CDATA[Módulo Aplicación]]></value>
+      <value>A</value>
+      <value>Aplicacion</value>
+      <value>user.png</value>
+      <value>Aplicacion</value>
+      <value>/modules/master/*</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>37</value>
+      <value><![CDATA[2013-03-24 17:49:39.96]]></value>
+      <null/>
+      <value>Bundle</value>
+      <value>A</value>
+      <value>optBundle</value>
+      <value>user.png</value>
+      <value>Bundle</value>
+      <value>/modules/master/bundle/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>2</value>
+      <value>36</value>
+    </row>
+    <row>
+      <value>38</value>
+      <value><![CDATA[2013-03-31 11:37:02.258]]></value>
+      <null/>
+      <value>Propiedad</value>
+      <value>A</value>
+      <value>Propiedad</value>
+      <value>question.png</value>
+      <value>propiedad</value>
+      <value>/modules/master/propiedad/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>36</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value><![CDATA[2013-04-01 00:14:46.236]]></value>
+      <null/>
+      <value><![CDATA[Módulo Bitácora]]></value>
+      <value>A</value>
+      <value>optBitacora</value>
+      <value>user.png</value>
+      <value>bitacora</value>
+      <value>/modules/bitacora/*</value>
+      <value>1</value>
+      <null/>
+      <null/>
+      <null/>
+    </row>
+    <row>
+      <value>40</value>
+      <value><![CDATA[2013-05-21 20:19:44.378]]></value>
+      <null/>
+      <value><![CDATA[Módulo de Contabilidad]]></value>
+      <value>A</value>
+      <value>contabilidad</value>
+      <value>icon.png</value>
+      <value>contabilidad</value>
+      <value>/modules/conta/tipoCuenta/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <null/>
+      <null/>
+    </row>
+    <row>
+      <value>41</value>
+      <value><![CDATA[2013-05-21 20:23:11.191]]></value>
+      <null/>
+      <value><![CDATA[Mantenimiento Tipo Cuenta]]></value>
+      <value>A</value>
+      <value>tipoCuenta</value>
+      <value>icon.png</value>
+      <value>tipoCuenta</value>
+      <value>/modules/conta/tipoCuenta/finder.xhtml</value>
+      <value>1</value>
+      <null/>
+      <value>4</value>
+      <value>40</value>
+    </row>
+    <row>
+      <value>42</value>
+      <value><![CDATA[2013-05-23 19:23:16.045]]></value>
+      <null/>
+      <value><![CDATA[Tr Cuentas Contables]]></value>
+      <value>A</value>
+      <value>cuentasContable</value>
+      <value>icon.png</value>
+      <value>cuentasContables</value>
+      <value>/modules/conta/cuentaContable/transaction.xhtml</value>
+      <value>1</value>
+      <null/>
+      <null/>
+      <value>40</value>
+    </row>
+  </table>
+  <table name="rol">
+    <column>id</column>
+    <column>creacion</column>
+    <column>modificacion</column>
+    <column>descripcion</column>
+    <column>estado</column>
+    <column>nombre</column>
+    <column>id_creador</column>
+    <column>id_modificador</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[2012-08-05 19:21:00.0]]></value>
+      <value><![CDATA[2012-10-16 21:06:27.0]]></value>
+      <value>Admin</value>
+      <value>A</value>
+      <value>Admin</value>
+      <value>1</value>
+      <null/>
+    </row>
+    <row>
+      <value>2</value>
+      <value><![CDATA[2013-04-01 00:05:05.98]]></value>
+      <value><![CDATA[2013-04-01 00:05:05.98]]></value>
+      <value><![CDATA[Rol para guardias de seguridad de garitas]]></value>
+      <value>A</value>
+      <value><![CDATA[Guardía garita]]></value>
+      <value>1</value>
+      <null/>
+    </row>
+  </table>
+  <table name="rol_opcion">
+    <column>id</column>
+    <column>creacion</column>
+    <column>modificacion</column>
+    <column>crear</column>
+    <column>editar</column>
+    <column>eliminar</column>
+    <column>estado</column>
+    <column>exportar</column>
+    <column>id_creador</column>
+    <column>id_modificador</column>
+    <column>id_opcion</column>
+    <column>id_rol</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[2013-03-24 15:56:32.946]]></value>
+      <value><![CDATA[2013-03-24 15:57:33.305]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>false</value>
+      <value>1</value>
+      <value>1</value>
+      <value>35</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>2</value>
+      <value><![CDATA[2012-08-08 20:56:31.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>2</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value><![CDATA[2012-08-09 01:32:20.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>3</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>4</value>
+      <value><![CDATA[2012-08-09 01:32:36.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>4</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>9</value>
+      <value><![CDATA[2012-08-09 16:59:05.0]]></value>
+      <value><![CDATA[2012-08-17 23:17:58.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>5</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>10</value>
+      <value><![CDATA[2012-08-09 17:00:01.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>6</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>13</value>
+      <value><![CDATA[2012-08-10 09:20:36.0]]></value>
+      <value><![CDATA[2012-08-10 09:20:36.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>7</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value><![CDATA[2012-08-10 10:43:39.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>8</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>18</value>
+      <value><![CDATA[2012-08-10 10:43:41.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>9</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value><![CDATA[2012-09-02 12:36:03.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>10</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>20</value>
+      <value><![CDATA[2012-09-02 12:36:14.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>11</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>21</value>
+      <value><![CDATA[2012-09-02 14:43:08.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>12</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>22</value>
+      <value><![CDATA[2012-09-02 15:58:15.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>13</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>23</value>
+      <value><![CDATA[2012-09-02 18:23:19.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>14</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>24</value>
+      <value><![CDATA[2012-09-02 19:44:31.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>15</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>25</value>
+      <value><![CDATA[2012-09-02 20:20:25.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>16</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>26</value>
+      <value><![CDATA[2012-09-02 22:40:18.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>17</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value><![CDATA[2012-09-02 22:40:20.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>18</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>28</value>
+      <value><![CDATA[2012-09-02 22:40:22.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>19</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value><![CDATA[2012-09-04 11:58:43.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>20</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>32</value>
+      <value><![CDATA[2012-09-04 12:51:08.0]]></value>
+      <value><![CDATA[2012-09-04 12:51:27.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>21</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value><![CDATA[2012-09-04 12:51:11.0]]></value>
+      <value><![CDATA[2012-09-04 12:51:27.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>22</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>34</value>
+      <value><![CDATA[2012-09-04 23:21:50.0]]></value>
+      <value><![CDATA[2012-09-04 23:22:20.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>24</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>35</value>
+      <value><![CDATA[2012-09-04 23:21:53.0]]></value>
+      <value><![CDATA[2012-09-04 23:22:20.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>25</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value><![CDATA[2012-09-05 22:33:59.0]]></value>
+      <value><![CDATA[2012-09-05 22:34:09.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>26</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>37</value>
+      <value><![CDATA[2012-09-06 01:31:33.0]]></value>
+      <value><![CDATA[2012-09-06 01:32:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>27</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>38</value>
+      <value><![CDATA[2012-09-18 16:24:28.0]]></value>
+      <value><![CDATA[2012-09-18 16:24:40.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>28</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value><![CDATA[2012-09-21 17:07:45.0]]></value>
+      <value><![CDATA[2012-09-21 17:08:02.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>29</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>40</value>
+      <value><![CDATA[2012-09-21 17:07:47.0]]></value>
+      <value><![CDATA[2012-09-21 17:08:02.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>30</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>41</value>
+      <value><![CDATA[2012-09-30 01:17:13.0]]></value>
+      <value><![CDATA[2012-09-30 14:13:11.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>31</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>42</value>
+      <value><![CDATA[2012-09-30 21:57:05.0]]></value>
+      <value><![CDATA[2012-09-30 21:57:16.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>32</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>44</value>
+      <value><![CDATA[2012-10-09 17:27:01.0]]></value>
+      <value><![CDATA[2012-10-09 17:27:13.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>33</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>45</value>
+      <value><![CDATA[2012-11-26 16:25:32.0]]></value>
+      <value><![CDATA[2012-11-26 16:25:50.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>34</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>100</value>
+      <value><![CDATA[2012-08-08 01:33:20.0]]></value>
+      <value><![CDATA[2012-09-04 12:11:10.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>101</value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>false</value>
+      <value>1</value>
+      <null/>
+      <value>36</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>102</value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>false</value>
+      <value>1</value>
+      <null/>
+      <value>37</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>103</value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value><![CDATA[2013-03-24 00:00:00.0]]></value>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>false</value>
+      <value>1</value>
+      <null/>
+      <value>38</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>104</value>
+      <value><![CDATA[2013-05-21 00:00:00.0]]></value>
+      <null/>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>40</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>105</value>
+      <value><![CDATA[2013-05-21 00:00:00.0]]></value>
+      <null/>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>41</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>106</value>
+      <value><![CDATA[2013-05-23 00:00:00.0]]></value>
+      <null/>
+      <value>true</value>
+      <value>true</value>
+      <value>true</value>
+      <value>A</value>
+      <value>true</value>
+      <value>1</value>
+      <null/>
+      <value>42</value>
+      <value>1</value>
+    </row>
+  </table>
+  <table name="usuario">
+    <column>id</column>
+    <column>creacion</column>
+    <column>modificacion</column>
+    <column>estado</column>
+    <column>maxoptions</column>
+    <column>password</column>
+    <column>tema</column>
+    <column>username</column>
+    <column>id_creador</column>
+    <column>id_modificador</column>
+    <column>id_empresapersona</column>
+    <column>localidad</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[2013-03-19 00:00:00.0]]></value>
+      <value><![CDATA[2013-05-15 15:45:56.183]]></value>
+      <value>A</value>
+      <value>10</value>
+      <value>8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918</value>
+      <value>redmond</value>
+      <value>admin</value>
+      <value>1</value>
+      <value>1</value>
+      <value>1</value>
+      <value>en_US</value>
+    </row>
+  </table>
+  <table name="usuario_rol">
+    <column>id</column>
+    <column>creacion</column>
+    <column>modificacion</column>
+    <column>estado</column>
+    <column>id_creador</column>
+    <column>id_modificador</column>
+    <column>id_rol</column>
+    <column>id_usuario</column>
+    <row>
+      <value>1</value>
+      <value><![CDATA[2012-08-09 06:19:53.0]]></value>
+      <value><![CDATA[2012-08-09 06:19:53.0]]></value>
+      <value>A</value>
+      <value>1</value>
+      <null/>
+      <value>1</value>
+      <value>1</value>
+    </row>
+  </table>
+</dataset>

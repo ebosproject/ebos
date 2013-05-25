@@ -124,18 +124,17 @@
 				<version>2.2</version>
 				<executions>
 					<execution>
-						<phase>generate-sources</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>hbm2ddl</goal>
 						</goals>
 					</execution>
 				</executions>
 				<dependencies>
-					<!--PostgreSql Driver -->
 					<dependency>
 						<groupId>postgresql</groupId>
 						<artifactId>postgresql</artifactId>
-						<version>9.0-801.jdbc4</version>
+						<version>${postgres.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>net.sourceforge.cobertura</groupId>
@@ -153,7 +152,7 @@
 					<componentProperties>
 						<drop>false</drop>
 						<jdk5>true</jdk5>
-						<skip>false</skip>
+						<skip>${skip.create}</skip>
 						<outputfilename>schema.sql</outputfilename>
 						<scan-classes>true</scan-classes>
 					</componentProperties>
@@ -163,47 +162,58 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>dbunit-maven-plugin</artifactId>
 				<version>1.0-beta-3</version>
-				<executions>
-					<execution>
-						<phase>clean</phase>						
-						<goals>
-							<goal>operation</goal>
-						</goals>
-						<configuration><!-- TODO (epa) Cambiar a Postgres DataTypeFactoryName -->
-							<dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dataTypeFactoryName>
-							<src>src/main/resources/sample-data.xml</src>
-							<type>CLEAN_INSERT</type>
-						</configuration>
-					</execution>
-					<execution>
-						<id>exporting</id>
-						<phase>test</phase>
-						<goals>
-							<goal>export</goal>
-						</goals>
-						<configuration>
-							<format>sql</format>
-							<dest>target/sample-data.sql</dest>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<driver>org.postgresql.Driver</driver>
-					<username>ebos</username>
-					<password>ebos</password>
-					<url>jdbc:postgresql://localhost:5432/ebos</url>
-					<schema>${dbunit.schema}</schema>
-					<skip>${maven.test.skip}</skip>
-					<skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>
-					<useQualifiedTableNames>false</useQualifiedTableNames>
-				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>postgresql</groupId>
 						<artifactId>postgresql</artifactId>
-						<version>9.0-801.jdbc4</version>
+						<version>${postgres.version}</version>
 					</dependency>
+					<dependency>
+				      <groupId>org.apache.ant</groupId>
+				      <artifactId>ant</artifactId>
+				      <version>1.8.2</version>
+				    </dependency>
 				</dependencies>
+				<configuration>
+					<driver>org.postgresql.Driver</driver>
+					<url>jdbc:postgresql://localhost:5432/${ebos.db}</url>
+					<username>ebos</username>
+					<password>ebos</password>
+					<dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory</dataTypeFactoryName>
+					<skip>${maven.skip.test}</skip>
+					<!-- <settingsKey>sensibleKey</settingsKey> -->
+					<!-- <schema>${dbunit.schema}</schema>
+					<skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>
+					<useQualifiedTableNames>false</useQualifiedTableNames>-->
+				</configuration>
+				<executions>
+					<execution>
+						<id>imp-ebosmast</id>
+						<phase>test-compile</phase>						
+						<goals>
+							<goal>operation</goal>
+						</goals>
+						<configuration>
+							<skip>${skip.import}</skip>
+							<schema>${ebos.schema}</schema>
+							<src>${ebos.schema}.xml</src>
+							<type>CLEAN_INSERT</type>
+						</configuration>
+					</execution>
+					<execution>
+						<id>exp-ebosadmi</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>export</goal>
+						</goals>
+						<configuration>
+							<skip>${skip.export}</skip>
+							<schema>${ebos.schema}</schema>							
+							<format>xml</format>
+							<dest>${ebos.schema}.xml</dest>
+						</configuration>						
+					</execution>
+				</executions>
 			</plugin>			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -217,20 +227,20 @@
 						<resource>
 							<directory>${project.build.directory}/webapp-resources</directory>
 						</resource>
-						<resource>
-				        <directory>src/main/jasperreports</directory>
+						<!-- <resource>
+				        	<directory>src/main/jasperreports</directory>
 					        <includes>
 					          <include>**/*.jrxml</include>
 					        </includes>
 					        <targetPath>resources/reports/sources</targetPath>
-				      </resource>
-				      <resource>
+					    </resource>
+				        <resource>
 					        <directory>target/jasperreports/jasper</directory>
 					        <includes>
 					          <include>**/*.jasper</include>
 					        </includes>
 					        <targetPath>resources/reports/jasper</targetPath>
-				      </resource>
+				        </resource> -->
 					</webResources>
 					<packagingExcludes>**/web-overwrite.xml,WEB-INF/web.xml</packagingExcludes>
 					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
@@ -315,7 +325,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 			  <groupId>org.codehaus.mojo</groupId>
 			  <artifactId>jasperreports-maven-plugin</artifactId>
 			  <version>1.0-beta-2</version>
@@ -329,7 +339,7 @@
 			  <configuration>
 			    <outputDirectory>target/jasperreports/jasper</outputDirectory>
 			  </configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -592,6 +602,26 @@
 										</versionRange>
 										<goals>
 											<goal>compile-reports</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											dbunit-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.0-beta-3,)
+										</versionRange>
+										<goals>
+											<goal>operation</goal>
+											<goal>export</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
@@ -1209,6 +1239,18 @@
             <version>4.8.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgres.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+	      <groupId>org.apache.ant</groupId>
+	      <artifactId>ant</artifactId>
+	      <version>1.8.2</version>
+	      <scope>test</scope>
+	    </dependency>
 	</dependencies>
 
 	<profiles>
@@ -1653,6 +1695,7 @@
         <primefaces.theme.version>1.0.9</primefaces.theme.version>
         <primefaces.version>3.5</primefaces.version>
         <primefaces-extensions.version>1.0.0-SNAPSHOT</primefaces-extensions.version>
+        <postgres.version>9.0-801.jdbc4</postgres.version>
     </properties>
 
 </project>
