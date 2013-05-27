@@ -21,7 +21,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Bundle;
+import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;

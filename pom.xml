@@ -124,6 +124,7 @@
 				<version>2.2</version>
 				<executions>
 					<execution>
+						<id>ebos-generatedb</id>
 						<phase>compile</phase>
 						<goals>
 							<goal>hbm2ddl</goal>
@@ -150,11 +151,12 @@
 						</component>
 					</components>
 					<componentProperties>
-						<drop>false</drop>
-						<jdk5>true</jdk5>
-						<skip>${skip.create}</skip>
-						<outputfilename>schema.sql</outputfilename>
+						<skip>${skip.generate}</skip>
+						<configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
 						<scan-classes>true</scan-classes>
+						<outputfilename>schema.sql</outputfilename>
+						<update>true</update>
+						<drop>false</drop>
 					</componentProperties>
 				</configuration>
 			</plugin>
@@ -188,7 +190,7 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>imp-ebosmast</id>
+						<id>ebos-importdb</id>
 						<phase>test-compile</phase>						
 						<goals>
 							<goal>operation</goal>
@@ -201,7 +203,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>exp-ebosadmi</id>
+						<id>ebos-exportdb</id>
 						<phase>test-compile</phase>
 						<goals>
 							<goal>export</goal>

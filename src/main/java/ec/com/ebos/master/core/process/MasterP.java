@@ -2,10 +2,8 @@ package ec.com.ebos.master.core.process;
 
 import java.util.List;
 
-import ec.com.ebos.master.model.Bundle;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.Propiedad;
-import ec.com.ebos.master.model.Bundle.Localidad;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -15,23 +13,6 @@ import ec.com.ebos.orm.crud.Pagination;
  */
 public interface MasterP {
 
-    //
-    // MessageResource
-    //
-	public Bundle getMessageResource(String codigo, Localidad localidad);
-	
-	public List<String> getCodeMessageResourceList(Localidad localidad);
-	
-	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination);
-
-	public Bundle buildBundle();
-	
-	public Bundle loadBundle(Long id);
-	
-	public Bundle saveBundle(Bundle messageResource);
-
-	public void deleteBundle(Bundle activeEntity);
-	
 	//
 	// Propiedad
 	//

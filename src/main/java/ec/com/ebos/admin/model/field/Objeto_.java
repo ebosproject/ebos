@@ -1,6 +1,6 @@
-package ec.com.ebos.security.model.field;
+package ec.com.ebos.admin.model.field;
 
-import ec.com.ebos.security.model.Objeto;
+import ec.com.ebos.admin.model.Objeto;
 
 
 
@@ -9,7 +9,7 @@ import ec.com.ebos.security.model.Objeto;
  * 
  * @author Eduardo Plua Alay
  */
-public abstract class Objeto_ extends Security_{
+public abstract class Objeto_ extends Administracion_{
 
 	public static String tipo = "tipo";
 

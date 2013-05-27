@@ -1,16 +1,15 @@
-package ec.com.ebos.security.web.jsf.bean;
+package ec.com.ebos.admin.web.jsf.bean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
+import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.Objeto;
 import ec.com.ebos.util.EntityUtils;
 
 /**
@@ -19,7 +18,7 @@ import ec.com.ebos.util.EntityUtils;
 @ManagedBean(name = ObjetoBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped
-public class ObjetoBean extends SecurityBean<Objeto> {
+public class ObjetoBean extends AdministracionBean<Objeto> {
     
 	private static final long serialVersionUID = 833763360386716739L;
 	
@@ -46,22 +45,21 @@ public class ObjetoBean extends SecurityBean<Objeto> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/security/objeto/index.jsf";
-        TARGET_NEW_ID = "crearObjeto";
+        TARGET_ID = "/modules/admin/objeto/index.jsf";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
     protected List<Objeto> loadDataTableCollection(Objeto objeto, Pagination pagination) {
-        return securityS.findObjetoList(objeto,pagination);
+        return administracionS.findObjetoList(objeto,pagination);
     }
         
     ////////////////////////// ACCIONES ////////////////////////
     
     @Override
     public void crear() {
-        activeEntity = securityS.createObjeto();
+        activeEntity = administracionS.createObjeto();
     }
 
     @Override
@@ -70,12 +68,12 @@ public class ObjetoBean extends SecurityBean<Objeto> {
         
     @Override
     public void guardar() {
-        activeEntity = securityS.saveObjeto(activeEntity);        
+        activeEntity = administracionS.saveObjeto(activeEntity);        
     }
 
     @Override
     public void eliminar() {
-        securityS.deleteObjeto(activeEntity);        
+        administracionS.deleteObjeto(activeEntity);        
     }
     
 	///////////////////////////LISTS ///////////////////////////

@@ -4,10 +4,9 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.security.model.Objeto;
-import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
@@ -80,35 +79,6 @@ public interface SecurityP {
     public RolOpcion saveRolOpcion(RolOpcion rolOpcion);
 
     public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList);
-
-    //
-    // Opcion
-    //
-    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination);
-
-    public Opcion createOpcion();
-
-    public Opcion saveOpcion(Opcion opcion);
-
-    public void deleteOpcion(Opcion opcion);
-
-    public Opcion getOpcion(Long id);
-
-    public List<Opcion> getOpcionPadreList();
-
-
-    //
-    // Objeto
-    //
-    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination);
-
-    public Objeto createObjeto();
-
-    public Objeto saveObjeto(Objeto objeto);
-
-    public void deleteObjeto(Objeto objeto);
-
-    public Objeto getObjeto(Long id);
 
     
     // 

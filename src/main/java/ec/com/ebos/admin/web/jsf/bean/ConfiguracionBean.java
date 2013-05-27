@@ -13,7 +13,7 @@ import ec.com.ebos.util.EntityUtils;
  */
 @ManagedBean(name = ConfiguracionBean.BEAN_NAME)
 @SessionScoped
-public class ConfiguracionBean extends AdminBean<Configuracion>{
+public class ConfiguracionBean extends AdministracionBean<Configuracion>{
 
 	private static final long serialVersionUID = -4050902280012061901L;
 	

@@ -1,4 +1,4 @@
-package ec.com.ebos.master.web.jsf.bean;
+package ec.com.ebos.admin.web.jsf.bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
-import ec.com.ebos.master.model.Bundle;
+import ec.com.ebos.admin.model.Bundle;
+import ec.com.ebos.admin.web.jsf.bean.AdministracionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
@@ -17,7 +18,7 @@ import ec.com.ebos.util.EntityUtils;
  */
 @ManagedBean(name = BundleBean.BEAN_NAME)
 @ViewScoped
-public class BundleBean extends MasterBean<Bundle> {
+public class BundleBean extends AdministracionBean<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
 	
@@ -48,21 +49,21 @@ public class BundleBean extends MasterBean<Bundle> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/modules/master/bundle/finder.xhtml";
+        TARGET_ID = "/modules/admin/bundle/finder.xhtml";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
     protected List<Bundle> loadDataTableCollection(Bundle bundle, Pagination pagination) {
-        return masterS.findBundleList(bundle, pagination);
+        return administracionS.findBundleList(bundle, pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = masterS.createBundle();
+        activeEntity = administracionS.createBundle();
     }
 
     @Override
@@ -77,12 +78,12 @@ public class BundleBean extends MasterBean<Bundle> {
 
     @Override
     public void guardar() {
-        activeEntity = masterS.saveBundle(activeEntity);                
+        activeEntity = administracionS.saveBundle(activeEntity);                
     }
 
     @Override
     public void eliminar() {
-        masterS.deleteBundle(activeEntity);                
+    	administracionS.deleteBundle(activeEntity);                
     }            
     
     //////////////////////// LISTS ///////////////////////////////

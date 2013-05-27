@@ -2,16 +2,11 @@ package ec.com.ebos.master.core.process;
 
 import java.util.List;
 
-import org.hibernate.event.LoadEventListener.LoadType;
 import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.master.exception.MasterException;
-import ec.com.ebos.master.model.Bundle;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.Propiedad;
-import ec.com.ebos.master.model.Bundle.Localidad;
-import ec.com.ebos.master.model.field.Bundle_;
-import ec.com.ebos.master.model.field.MessageResource_;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.master.model.field.Propiedad_;
 import ec.com.ebos.orm.crud.GenericCriteria;
@@ -27,64 +22,6 @@ import ec.com.ebos.root.model.Entidad.Estado;
 public class MasterPImpl extends RootPImpl<Object, MasterException> implements MasterP {
 
 	private static final long serialVersionUID = -7535155949566180920L;
-	
-    //
-    // Bundle
-    //
-	
-	@Override
-	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {
-		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
-
-		criteria.addEqualsIfNotZero(Bundle_.id, bundle.getId());
-		if(criteria.isChanged()){
-			return findByCriteria(criteria, pagination);
-		}
-		
-		criteria.addLikeIfNotNull(Bundle_.codigo, bundle.getCodigo());
-        criteria.addEqualsIfNotNull(Bundle_.localidad, bundle.getLocalidad());
-
-        return findByCriteria(criteria, pagination);
-	}
-	
-	@Override
-	public Bundle getMessageResource(String codigo,
-			Bundle.Localidad localidad) {
-		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
-		criteria.addEquals(MessageResource_.codigo, codigo);
-		criteria.addEquals(MessageResource_.localidad, localidad);
-		return findFirstByCriteria(criteria);
-	}
-
-	@Override
-	public List<String> getCodeMessageResourceList(Localidad localidad) {
-		return findByQuery("select m.codigo from Bundle m where m.localidad = :localidad", String.class, localidad);
-	}
-	
-	@Override
-	public Bundle buildBundle() {
-		Bundle bundle = new Bundle();
-        return bundle;
-	}
-	
-	@Override
-	public Bundle loadBundle(Long id) {
-        return load(id, Bundle.class);
-	}
-
-	@Override
-	public Bundle saveBundle(Bundle bundle) {
-		bundle = saveOrMerge(bundle);
-        putSuccess("bundle.success.guardar", bundle.getId());
-        return bundle;
-	}
-
-	@Override
-	public void deleteBundle(Bundle bundle) {
-		Long id = bundle.getId();
-        delete(bundle);
-        putSuccess("bundle.success.eliminar", id);
-	}
 	
 	//
 	// Propiedad

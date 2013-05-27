@@ -1,4 +1,4 @@
-package ec.com.ebos.security.model;
+package ec.com.ebos.admin.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +23,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.security.model.RolOpcion;
 
 /**
  *
@@ -30,14 +31,14 @@ import ec.com.ebos.root.model.Entidad;
  * 
  */
 @Entity
-@Table(name = Opcion.TABLE_NAME, schema = Security.SCHEMA)
+@Table(name = Opcion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
-public class Opcion extends Security<Opcion> {
+public class Opcion extends Administracion<Opcion> {
     
 	private static final long serialVersionUID = 6962443015587297421L;
 
 	protected static final String TABLE_NAME = "OPCION";
-	private static final String SEQUENCE = Security.SCHEMA+".S"+TABLE_NAME;
+	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id

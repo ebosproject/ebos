@@ -1,4 +1,4 @@
-package ec.com.ebos.security.model;
+package ec.com.ebos.admin.model;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -35,14 +35,14 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = Objeto.TABLE_NAME, schema = Security.SCHEMA)
+@Table(name = Objeto.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
-public class Objeto extends Security<Objeto> {
+public class Objeto extends Administracion<Objeto> {
     
 	private static final long serialVersionUID = -3052521057254508069L;
 
 	protected static final String TABLE_NAME = "OBJETO";
-	private static final String SEQUENCE = Security.SCHEMA+".S"+TABLE_NAME;
+	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id
@@ -88,7 +88,7 @@ public class Objeto extends Security<Objeto> {
         public static class Type extends StringValuedEnumType<TipoObjeto> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".security.model.Objeto$TipoObjeto$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".admin.model.Objeto$TipoObjeto$Type";
         
         @Getter
         private String value;

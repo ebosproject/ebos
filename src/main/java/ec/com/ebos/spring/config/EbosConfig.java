@@ -36,7 +36,7 @@ public class EbosConfig {
 	@Bean
 	public PropertyPlaceholderConfigurer propertyPlaceholderConfigurer(){
 		PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
-		ppc.setLocation(new ClassPathResource("ec/com/ebos/master/resources/ebosconfig.properties"));
+		ppc.setLocation(new ClassPathResource("ec/com/ebos/admin/resources/ebosconfig.properties"));
 		ppc.setIgnoreUnresolvablePlaceholders(true);
 		return ppc;
 	}

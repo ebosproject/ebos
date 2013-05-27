@@ -1,4 +1,4 @@
-package ec.com.ebos.security.web.jsf.bean;
+package ec.com.ebos.admin.web.jsf.bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
 
@@ -23,7 +23,7 @@ import ec.com.ebos.util.StringUtils;
 @ManagedBean(name = OpcionBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped
-public class OpcionBean extends SecurityBean<Opcion> {
+public class OpcionBean extends AdministracionBean<Opcion> {
     
 	private static final long serialVersionUID = 833763360386716739L;
 	
@@ -49,21 +49,21 @@ public class OpcionBean extends SecurityBean<Opcion> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/modules/security/opcion/finder.xhtml";
+        TARGET_ID = "/modules/admin/opcion/finder.xhtml";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
     protected List<Opcion> loadDataTableCollection(Opcion opcion, Pagination pagination) {
-        return securityS.findOpcionList(opcion,pagination);
+        return administracionS.findOpcionList(opcion,pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        activeEntity = securityS.createOpcion();
+        activeEntity = administracionS.createOpcion();
     }
 
     @Override
@@ -72,12 +72,12 @@ public class OpcionBean extends SecurityBean<Opcion> {
         
     @Override
     public void guardar() {
-        activeEntity = securityS.saveOpcion(activeEntity);        
+        activeEntity = administracionS.saveOpcion(activeEntity);        
     }
 
     @Override
     public void eliminar() {
-        securityS.deleteOpcion(activeEntity);        
+        administracionS.deleteOpcion(activeEntity);        
     }            
 
    
@@ -96,7 +96,7 @@ public class OpcionBean extends SecurityBean<Opcion> {
                     return null;
                 } else {
                 	try{
-                        //return securityS.getOpcion(Long.parseLong(submittedValue));
+                        //return administracionS.getOpcion(Long.parseLong(submittedValue));
                 		for(Opcion opc : getOpcionList()){
                 			if(opc.getId().equals(Long.parseLong(submittedValue))){
                 				return opc;
@@ -124,7 +124,7 @@ public class OpcionBean extends SecurityBean<Opcion> {
 
     public List<Opcion> getOpcionList() {
     	if(opcionList.isEmpty()){
-    		opcionList = securityS.getOpcionPadreList();
+    		opcionList = administracionS.getOpcionPadreList();
     	}
         return opcionList;
     }

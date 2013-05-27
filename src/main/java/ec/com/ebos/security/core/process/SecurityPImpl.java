@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.faces.context.FacesContext;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import ec.com.ebos.admin.model.Objeto;
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
@@ -23,19 +23,14 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Auditoria_;
 import ec.com.ebos.security.exception.SecurityException;
-import ec.com.ebos.security.model.Objeto;
-import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.UsuarioRol;
-import ec.com.ebos.security.model.field.Objeto_;
-import ec.com.ebos.security.model.field.Opcion_;
 import ec.com.ebos.security.model.field.RolOpcion_;
 import ec.com.ebos.security.model.field.Rol_;
 import ec.com.ebos.security.model.field.UsuarioRol_;
 import ec.com.ebos.security.model.field.Usuario_;
-import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.CryptoUtils;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
@@ -335,116 +330,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         return rolOpcionList;
     }
 
-    //
-    // Opcion
-    //
-    @Override
-    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
-        GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
-        criteria.addAliasedJoins(Auditoria_.creador);
-        criteria.addAliasedLeftJoins(Auditoria_.modificador, Opcion_.padre);
-        if (opcion != null) {
-	        criteria.addAliasedLeftJoins(Opcion_.padre);
-	        criteria.addLike(Opcion_.nombre, opcion.getNombre());
-	        criteria.addLike(Opcion_.descripcion, opcion.getDescripcion());
-	        criteria.addLike(Opcion_.etiqueta, opcion.getEtiqueta());
-	        criteria.addLike(Opcion_.target, opcion.getTarget());
-        }
-        
-        return findByCriteria(criteria, pagination);
-    }
-
-    @Override
-    public Opcion createOpcion() {
-        Opcion opcion = new Opcion();
-        opcion.setEstado(Usuario.Estado.INACTIVO);
-        return opcion;
-    }
-
-    @Override
-    public Opcion saveOpcion(Opcion opcion) {
-        if (!EntityUtils.isPersistent(opcion)) {
-            opcion.setEstado(Entidad.Estado.ACTIVO);
-        }
-        opcion = saveOrMerge(opcion);
-        putSuccess("Opcion " + opcion.getId() + " guardado correctamente");
-        return opcion;
-    }
-
-    @Override
-    public void deleteOpcion(Opcion opcion) {
-        Long id = opcion.getId();
-        delete(opcion);
-        putSuccess("Opcion " + id + " eliminada correctamente");
-    }
-
-    @Override
-    public Opcion getOpcion(Long id) {
-    	GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-    	criteria.addEquals("estado", Entidad.Estado.ACTIVO);
-        criteria.addAliasedJoins(Auditoria_.creador);
-        criteria.addAliasedLeftJoins(Auditoria_.modificador);
-        return findFirstByCriteria(criteria);
-    }
-
-    @Override
-    public List<Opcion> getOpcionPadreList() {
-        GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-        criteria.addEquals(Opcion_.estado, Entidad.Estado.ACTIVO);
-        criteria.addIsNull(Opcion_.padre);
-        criteria.addOrderAsc(Opcion_.padre);
-        return findByCriteria(criteria);
-    }
     
-    //
-    // Objeto
-    //
-    
-    @Override
-    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination) {
-        GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
-        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
-        criteria.addAliasedJoins(Auditoria_.creador);
-        criteria.addAliasedLeftJoins(Auditoria_.modificador);
-        if (objeto != null) {
-	        criteria.addLike(Objeto_.descripcion, objeto.getDescripcion());
-	        criteria.addLike(Objeto_.codigo, objeto.getCodigo());
-	        criteria.addLike(Objeto_.estado, objeto.getEstado().getValue());
-	        criteria.addLike(Objeto_.tipo, objeto.getTipo().getValue());
-        }
-        
-        return findByCriteria(criteria, pagination);
-    }
-
-    @Override
-    public Objeto createObjeto() {
-        Objeto opcion = new Objeto();
-        opcion.setEstado(Usuario.Estado.INACTIVO);
-        return opcion;
-    }
-
-    @Override
-    public Objeto saveObjeto(Objeto objeto) {
-        if (!EntityUtils.isPersistent(objeto)) {
-            objeto.setEstado(Entidad.Estado.ACTIVO);
-        }
-        objeto = saveOrMerge(objeto);
-        putSuccess("Objeto " + objeto.getId() + " guardado correctamente");
-        return objeto;
-    }
-
-    @Override
-    public void deleteObjeto(Objeto objeto) {
-        Long id = objeto.getId();
-    	delete(objeto);
-        putSuccess("Objeto " + id + " eliminado correctamente");
-    }
-
-    @Override
-    public Objeto getObjeto(Long id) {
-        return get(id, Objeto.class);
-    }
     
 
     //

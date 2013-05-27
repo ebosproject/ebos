@@ -1,6 +1,6 @@
-package ec.com.ebos.master.model.field;
+package ec.com.ebos.admin.model.field;
 
-import ec.com.ebos.master.model.Bundle;
+import ec.com.ebos.admin.model.Bundle;
 
 /**
  * Entity model attributes for {@link Bundle}
@@ -8,8 +8,7 @@ import ec.com.ebos.master.model.Bundle;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-24
  */
-public abstract class Bundle_ extends Master_{ // TODO (epa): Cambiar los modificadores de todos los 
-	//fields de todos los modulos por public static final
+public abstract class Bundle_ extends Administracion_{
 
 	public static final String localidad = "localidad";
 	public static final String valor = "valor";

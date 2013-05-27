@@ -6,9 +6,9 @@ import java.util.ResourceBundle;
 
 import javax.faces.context.FacesContext;
 
+import ec.com.ebos.admin.core.service.AdministracionS;
+import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.context.EbosContext;
-import ec.com.ebos.master.core.service.MasterS;
-import ec.com.ebos.master.model.Bundle;
 import ec.com.ebos.util.Constantes;
 
 
@@ -20,15 +20,15 @@ import ec.com.ebos.util.Constantes;
  */
 public class DatabaseDrivenResourceBundle extends ResourceBundle {
  
-    private MasterS masterS;
+    private AdministracionS administracionS;
  
     public DatabaseDrivenResourceBundle() {
-    	masterS = EbosContext.getBean("masterS", MasterS.class);
+    	administracionS = EbosContext.getBean(AdministracionS.BEAN_NAME, AdministracionS.class);
     }
     
     @Override
     protected Object handleGetObject(String key) {
-        final Bundle messageResource = masterS
+        final Bundle messageResource = administracionS
                 .getMessageResource(key, Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
                         .getViewRoot().getLocale().toString()));        
         
@@ -40,7 +40,7 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
  
     @Override
     public Enumeration<String> getKeys() {
-        return Collections.enumeration(masterS
+        return Collections.enumeration(administracionS
                 .getCodeMessageResourceList(Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
                         .getViewRoot().getLocale().toString())));
     }

@@ -25,8 +25,8 @@ import org.primefaces.event.CloseEvent;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.master.exception.MasterException;
-import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.util.FacesUtils;
 

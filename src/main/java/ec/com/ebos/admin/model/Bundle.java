@@ -1,4 +1,4 @@
-package ec.com.ebos.master.model;
+package ec.com.ebos.admin.model;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +18,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.field.Bundle_;
+import ec.com.ebos.admin.model.field.Bundle_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -29,16 +29,16 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = Bundle.TABLE_NAME, schema = Master.SCHEMA,
+@Table(name = Bundle.TABLE_NAME, schema = Administracion.SCHEMA,
 	uniqueConstraints = @UniqueConstraint(columnNames={Bundle_.codigo, Bundle_.localidad}))
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
-public class Bundle extends Master<Bundle>{
+public class Bundle extends Administracion<Bundle>{
 
 	private static final long serialVersionUID = -2896367216397132540L;
 	
 	protected static final String TABLE_NAME = "BUNDLE";
-	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
+	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
 	@Id
@@ -73,7 +73,7 @@ public class Bundle extends Master<Bundle>{
 
         public static class Type extends StringValuedEnumType<Localidad> {
         }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Bundle$Localidad$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".admin.model.Bundle$Localidad$Type";
         
         @Getter
         private String value;

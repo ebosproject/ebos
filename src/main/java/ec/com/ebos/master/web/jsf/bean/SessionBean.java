@@ -18,8 +18,8 @@ import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.master.model.Bundle;
-import ec.com.ebos.master.model.Bundle.Localidad;
+import ec.com.ebos.admin.model.Bundle;
+import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;

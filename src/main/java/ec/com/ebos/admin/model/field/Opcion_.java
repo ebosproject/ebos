@@ -1,13 +1,13 @@
-package ec.com.ebos.security.model.field;
+package ec.com.ebos.admin.model.field;
 
-import ec.com.ebos.security.model.Opcion;
+import ec.com.ebos.admin.model.Opcion;
 
 /**
  * Entity model attributes for {@link Opcion}
  * 
  * @author Eduardo Plua Alay
  */
-public abstract class Opcion_ extends Security_{
+public abstract class Opcion_ extends Administracion_{
 
 	public static String icono = "icono";
 	public static String target = "target";

@@ -7,12 +7,23 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.admin.core.exception.AdministracionException;
+import ec.com.ebos.admin.model.Bundle;
+import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.admin.model.Configuracion;
+import ec.com.ebos.admin.model.Objeto;
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
+import ec.com.ebos.admin.model.field.Bundle_;
+import ec.com.ebos.admin.model.field.Objeto_;
+import ec.com.ebos.admin.model.field.Opcion_;
 import ec.com.ebos.admin.model.field.Parametros_;
+import ec.com.ebos.master.model.field.MessageResource_;
 import ec.com.ebos.orm.crud.GenericCriteria;
+import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Auditoria_;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.EntityUtils;
 
 /**
@@ -22,6 +33,64 @@ import ec.com.ebos.util.EntityUtils;
 public class AdministracionPImpl extends RootPImpl<Object, AdministracionException> implements AdministracionP{
 
 	private static final long serialVersionUID = -5387275517395137673L;
+	
+	//
+    // Bundle
+    //
+	
+	@Override
+	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {
+		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
+
+		criteria.addEqualsIfNotZero(Bundle_.id, bundle.getId());
+		if(criteria.isChanged()){
+			return findByCriteria(criteria, pagination);
+		}
+		
+		criteria.addLikeIfNotNull(Bundle_.codigo, bundle.getCodigo());
+        criteria.addEqualsIfNotNull(Bundle_.localidad, bundle.getLocalidad());
+
+        return findByCriteria(criteria, pagination);
+	}
+	
+	@Override
+	public Bundle getMessageResource(String codigo,
+			Bundle.Localidad localidad) {
+		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
+		criteria.addEquals(MessageResource_.codigo, codigo);
+		criteria.addEquals(MessageResource_.localidad, localidad);
+		return findFirstByCriteria(criteria);
+	}
+
+	@Override
+	public List<String> getCodeMessageResourceList(Localidad localidad) {
+		return findByQuery("select m.codigo from Bundle m where m.localidad = :localidad", String.class, localidad);
+	}
+	
+	@Override
+	public Bundle buildBundle() {
+		Bundle bundle = new Bundle();
+        return bundle;
+	}
+	
+	@Override
+	public Bundle loadBundle(Long id) {
+        return load(id, Bundle.class);
+	}
+
+	@Override
+	public Bundle saveBundle(Bundle bundle) {
+		bundle = saveOrMerge(bundle);
+        putSuccess("bundle.success.guardar", bundle.getId());
+        return bundle;
+	}
+
+	@Override
+	public void deleteBundle(Bundle bundle) {
+		Long id = bundle.getId();
+        delete(bundle);
+        putSuccess("bundle.success.eliminar", id);
+	}
 	
 	//
     //Parametros
@@ -99,4 +168,115 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
         return hashParam;
     }
     
+    
+    //
+    // Opcion
+    //
+    @Override
+    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
+        GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
+        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
+        criteria.addAliasedJoins(Auditoria_.creador);
+        criteria.addAliasedLeftJoins(Auditoria_.modificador, Opcion_.padre);
+        if (opcion != null) {
+	        criteria.addAliasedLeftJoins(Opcion_.padre);
+	        criteria.addLike(Opcion_.nombre, opcion.getNombre());
+	        criteria.addLike(Opcion_.descripcion, opcion.getDescripcion());
+	        criteria.addLike(Opcion_.etiqueta, opcion.getEtiqueta());
+	        criteria.addLike(Opcion_.target, opcion.getTarget());
+        }
+        
+        return findByCriteria(criteria, pagination);
+    }
+
+    @Override
+    public Opcion createOpcion() {
+        Opcion opcion = new Opcion();
+        opcion.setEstado(Usuario.Estado.INACTIVO);
+        return opcion;
+    }
+
+    @Override
+    public Opcion saveOpcion(Opcion opcion) {
+        if (!EntityUtils.isPersistent(opcion)) {
+            opcion.setEstado(Entidad.Estado.ACTIVO);
+        }
+        opcion = saveOrMerge(opcion);
+        putSuccess("Opcion " + opcion.getId() + " guardado correctamente");
+        return opcion;
+    }
+
+    @Override
+    public void deleteOpcion(Opcion opcion) {
+        Long id = opcion.getId();
+        delete(opcion);
+        putSuccess("Opcion " + id + " eliminada correctamente");
+    }
+
+    @Override
+    public Opcion getOpcion(Long id) {
+    	GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
+    	criteria.addEquals("estado", Entidad.Estado.ACTIVO);
+        criteria.addAliasedJoins(Auditoria_.creador);
+        criteria.addAliasedLeftJoins(Auditoria_.modificador);
+        return findFirstByCriteria(criteria);
+    }
+
+    @Override
+    public List<Opcion> getOpcionPadreList() {
+        GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
+        criteria.addEquals(Opcion_.estado, Entidad.Estado.ACTIVO);
+        criteria.addIsNull(Opcion_.padre);
+        criteria.addOrderAsc(Opcion_.padre);
+        return findByCriteria(criteria);
+    }
+    
+    //
+    // Objeto
+    //
+    
+    @Override
+    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination) {
+        GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
+        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
+        criteria.addAliasedJoins(Auditoria_.creador);
+        criteria.addAliasedLeftJoins(Auditoria_.modificador);
+        if (objeto != null) {
+	        criteria.addLike(Objeto_.descripcion, objeto.getDescripcion());
+	        criteria.addLike(Objeto_.codigo, objeto.getCodigo());
+	        criteria.addLike(Objeto_.estado, objeto.getEstado().getValue());
+	        criteria.addLike(Objeto_.tipo, objeto.getTipo().getValue());
+        }
+        
+        return findByCriteria(criteria, pagination);
+    }
+
+    @Override
+    public Objeto createObjeto() {
+        Objeto opcion = new Objeto();
+        opcion.setEstado(Usuario.Estado.INACTIVO);
+        return opcion;
+    }
+
+    @Override
+    public Objeto saveObjeto(Objeto objeto) {
+        if (!EntityUtils.isPersistent(objeto)) {
+            objeto.setEstado(Entidad.Estado.ACTIVO);
+        }
+        objeto = saveOrMerge(objeto);
+        putSuccess("Objeto " + objeto.getId() + " guardado correctamente");
+        return objeto;
+    }
+
+    @Override
+    public void deleteObjeto(Objeto objeto) {
+        Long id = objeto.getId();
+    	delete(objeto);
+        putSuccess("Objeto " + id + " eliminado correctamente");
+    }
+
+    @Override
+    public Objeto getObjeto(Long id) {
+        return get(id, Objeto.class);
+    }
 }

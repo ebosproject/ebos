@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ec.com.ebos.master.core.process.MasterP;
-import ec.com.ebos.master.model.Bundle;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.Propiedad;
 import ec.com.ebos.orm.crud.Pagination;
@@ -28,45 +27,6 @@ public class MasterSImpl implements MasterS{
     @Autowired
     @Qualifier("masterP")
     private MasterP masterP;
-	
-	//
-    // Bundle
-    //
-	
-	@Override
-	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {		
-		return masterP.findBundleList(bundle, pagination);
-	}
-	
-	@Override
-	public Bundle getMessageResource(String codigo, Bundle.Localidad localidad){
-		return masterP.getMessageResource(codigo, localidad);
-	}
-
-	@Override
-	public List<String> getCodeMessageResourceList(Bundle.Localidad localidad) {
-		return masterP.getCodeMessageResourceList(localidad);
-	}
-	
-	@Override
-	public Bundle createBundle() {
-		return masterP.buildBundle();
-	}
-	
-	public Bundle loadBundle(Long id){
-		return masterP.loadBundle(id);
-	}
-	
-	@Override
-	public Bundle saveBundle(Bundle messageResource) {
-        return masterP.saveBundle(messageResource);
-	}
-
-	@Override
-	public void deleteBundle(Bundle bundle) {
-		masterP.deleteBundle(bundle);
-	}
-	
 	
 	//
     // Propiedad

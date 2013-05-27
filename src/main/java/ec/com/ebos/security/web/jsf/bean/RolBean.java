@@ -5,14 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import lombok.Setter;
+import ec.com.ebos.admin.core.service.AdministracionS;
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.util.EntityUtils;
@@ -28,6 +29,10 @@ public class RolBean extends SecurityBean<Rol> {
 	private static final long serialVersionUID = 5900425430487867980L;
 	
 	public static final String BEAN_NAME = "rolBean";
+	
+	@Getter @Setter
+    @ManagedProperty(value = AdministracionS.EL_BEAN_NAME)
+    protected AdministracionS administracionS;
 
     @Override
     public void getInit() {
@@ -132,7 +137,7 @@ public class RolBean extends SecurityBean<Rol> {
 
     public List<Opcion> getOpcionList() {
         if(opcionList.isEmpty()){
-            opcionList = securityS.findOpcionList(null, new Pagination()); // TODO (epa): Crear metodo sin pagination
+            opcionList = administracionS.findOpcionList(null, new Pagination()); // TODO (epa): Crear metodo sin pagination
         }        
         return opcionList;
     }

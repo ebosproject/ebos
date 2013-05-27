@@ -97,9 +97,9 @@ public class RepositoryConfig {
 		AnnotationSessionFactoryBean asfb = new AnnotationSessionFactoryBean();
 		
 		asfb.setPackagesToScan(new String[]{
+				Constantes.DOMAIN_NAME+".admin.model",
 				Constantes.DOMAIN_NAME+".master.model",
 				Constantes.DOMAIN_NAME+".security.model",
-				Constantes.DOMAIN_NAME+".admin.model",
 				Constantes.DOMAIN_NAME+".conta.model",
 				Constantes.DOMAIN_NAME+".logis.model"
 				});

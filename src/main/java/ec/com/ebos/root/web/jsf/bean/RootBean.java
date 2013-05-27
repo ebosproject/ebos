@@ -7,8 +7,6 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
 
 import lombok.Getter;
 import lombok.Setter;

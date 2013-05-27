@@ -11,8 +11,8 @@ import javax.faces.convert.ConverterException;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.security.core.service.SecurityS;
-import ec.com.ebos.security.model.Opcion;
+import ec.com.ebos.admin.core.service.AdministracionS;
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.util.StringUtils;
 
 @ManagedBean(name = OpcionConverter.BEAN_NAME)
@@ -22,8 +22,8 @@ public class OpcionConverter implements Converter {
 	public static final String BEAN_NAME = "opcionConverter";
 	
 	@Getter @Setter
-    @ManagedProperty(value = SecurityS.EL_BEAN_NAME)
-    protected SecurityS securityS;
+    @ManagedProperty(value = AdministracionS.EL_BEAN_NAME)
+    protected AdministracionS administracionS;
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component,
@@ -32,7 +32,7 @@ public class OpcionConverter implements Converter {
 			return null;
 		} else {
 			try {
-				return securityS.getOpcion(Long.parseLong(submittedValue));
+				return administracionS.getOpcion(Long.parseLong(submittedValue));
 			} catch (NumberFormatException exception) {
 				throw new ConverterException(new FacesMessage(
 						FacesMessage.SEVERITY_ERROR, "Conversion Error",

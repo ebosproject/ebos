@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.core.process.SecurityP;
-import ec.com.ebos.security.model.Objeto;
-import ec.com.ebos.security.model.Opcion;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
@@ -146,64 +145,6 @@ public class SecuritySImpl implements SecurityS{
     @Override
     public void deleteRolOpcionList(List<RolOpcion> rolOpcionList) {
         securityP.deleteRolOpcionList(rolOpcionList);
-    }
-    
-    //
-    // Opcion
-    //
-    
-    @Override
-    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
-        return securityP.findOpcionList(opcion, pagination);
-    }
-
-    @Override
-    public Opcion createOpcion() {
-        return securityP.createOpcion();
-    }
-
-    @Override
-    public Opcion saveOpcion(Opcion opcion) {
-        return securityP.saveOpcion(opcion);
-    }
-
-    @Override
-    public void deleteOpcion(Opcion opcion) {
-        securityP.deleteOpcion(opcion);
-    }
-    
-    @Override
-    public Opcion getOpcion(Long id) {
-    	Opcion opc = securityP.getOpcion(id); 
-        return opc;
-    }
-
-    @Override
-    public List<Opcion> getOpcionPadreList() {
-        return securityP.getOpcionPadreList();
-    }
-    
-    //
-    // Objeto
-    //
-    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination){
-    	return securityP.findObjetoList(objeto, pagination);
-    }
-
-    public Objeto createObjeto(){
-    	return securityP.createObjeto();
-    }
-
-    public Objeto saveObjeto(Objeto objeto){
-    	return securityP.saveObjeto(objeto);
-    }
-
-    public void deleteObjeto(Objeto objeto){
-    	securityP.deleteObjeto(objeto);
-    }
-
-    public Objeto getObjeto(Long id){
-    	return securityP.getObjeto(id);
     }
     
     //
