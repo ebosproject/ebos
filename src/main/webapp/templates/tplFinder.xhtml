@@ -105,7 +105,7 @@
     
     <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytFinder" />
     
-	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" height="350" width="600" appendToBody="true" 
+	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" height="350" width="600" appendToBody="false" 
 		showEffect="fade" hideEffect="fade" draggable="true" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
    		<p:outputPanel id="pnlE">
    			<p:outputPanel rendered="#{bean.activeEntity ne null}">
