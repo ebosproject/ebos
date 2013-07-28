@@ -87,7 +87,7 @@ public class TechnicalInfo {
 	protected void initialize() {
 		ResourceBundle rb;
 		try {
-			rb = ResourceBundle.getBundle(Constantes.DOMAIN_NAME+".master.resources.ebosconfig");
+			rb = ResourceBundle.getBundle(Constantes.DOMAIN_NAME+".admin.resources.ebosconfig");
 
 			String strAppProps = rb.getString("application.properties");
 			int lastBrace = strAppProps.indexOf("}");
