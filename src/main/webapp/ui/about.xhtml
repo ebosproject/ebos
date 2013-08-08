@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
 	
-    <p:dialog id="dlgAbout" header="#{msg.systemAbout}"  height="430px" width="570px" closeOnEscape="true" 
+    <p:dialog id="dlgAbout" header="#{msg.systemAbout}"  height="450px" width="570px" closeOnEscape="true" 
     	modal="true" draggable="false" widgetVar="wgtAbout" showEffect="fade" hideEffect="fade" resizable="false">
 		<h:form>
 			<h:panelGrid style="width:100%;text-align:center;">
@@ -19,8 +19,10 @@
 		        <h:outputText value="#{technicalInfo.buildTime}"/>
 			</h:panelGrid>
 			<h:panelGrid>
-				<h:outputText value="#{msg.ebAuthors}" style="color:black; font-size:13px; text-decoration:underline;"/>
+				<h:outputText value="#{msg.authors}" style="color:black; font-size:13px; text-decoration:underline;"/>
+				<h:outputText value="#{msg.devAMA}"/>
 				<h:outputText value="#{msg.devEPA}"/>
+				<h:outputText value="#{msg.devVIP}"/>
 				<h:outputText value="#{msg.devVVC}"/>
 			</h:panelGrid>
 			<h:panelGrid style="width:100%; text-align:center;">	

@@ -12,14 +12,14 @@
 			<p:menuitem value="#{msg.changePassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
 			<p:menuitem value="#{msg.controlPanel}" url="javascript:void(0)" onclick="wgtCtrlPnl.show()"/>
 		</p:submenu>
-		<p:menuitem value="#{msg.ebAbout}" url="javascript:void(0)" onclick="wgtAbout.show()" icon="ui-icon ui-icon-info"/>
+		<p:menuitem value="#{msg.about}" url="javascript:void(0)" onclick="wgtAbout.show()" icon="ui-icon ui-icon-info"/>
 		<f:facet name="options">
 			<h:panelGrid id="pngOptions" columns="10">
 				<form id="frmUpdDesk">
 					<p:commandButton icon="ui-icon-refresh" update="pnlFrames" title="#{msg.ebUpdateDesk}" immediate="true"/>
 				</form>
 				
-				<eb:inputText id="find" watermark="#{msg.ebFind}"/>
+				<eb:inputText id="find" watermark="#{msg.find}"/>
 			
 				<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
 			

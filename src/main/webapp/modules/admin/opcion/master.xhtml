@@ -31,7 +31,7 @@
            <p:outputLabel for="nombre" value="#{msg.name}"/>
 	       <eb:inputText id="nombre" value="#{opcion.nombre}" required="true"/>
 	       <p:outputLabel for="descripcion" value="#{msg.description}"/>
-	       <eb:inputText id="descripcion" value="#{opcion.descripcion}"/>        
+	       <eb:inputText id="descripcion" value="#{opcion.descripcion}" maxlength="500"/>        
 	               
 	       <p:outputLabel for="etiqueta" value="#{msg.label}"/>
 	       <eb:inputText id="etiqueta" value="#{opcion.etiqueta}" required="true" maxlength="20"/>

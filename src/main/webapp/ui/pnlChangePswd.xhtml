@@ -3,18 +3,18 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
     
-    <p:dialog id="dlgChangePwd" header="#{msg.ebCambiarPassword}" widgetVar="wgtChangePwd" resizable="false" 
+    <p:dialog id="dlgChangePwd" header="#{msg.changePassword}" widgetVar="wgtChangePwd" resizable="false" 
     	modal="true" closeOnEscape="true" style="z-index:100 !important;" appendToBody="false">
         <h:form id="frmChangePwd">
             <eb:panelGrid id="pnlChangePwd">
-                <eb:password id="actpassword" label="#{msg.ebPasswordActual}" value="#{sessionBean.usuario.password}" required="true"/>
-                <eb:password id="newpassword" label="#{msg.ebNuevoPassword}" value="#{sessionBean.usuario.newpassword}" required="true"/>
-                <eb:password id="confpassword" label="#{msg.ebConfirmarPassword}" value="#{sessionBean.usuario.confpassword}" required="true"/>                        
+                <eb:password id="actpassword" label="#{msg.actualPassword}" value="#{sessionBean.usuario.password}" required="true"/>
+                <eb:password id="newpassword" label="#{msg.newPassword}" value="#{sessionBean.usuario.newpassword}" required="true"/>
+                <eb:password id="confpassword" label="#{msg.confirmPassword}" value="#{sessionBean.usuario.confpassword}" required="true"/>                        
             </eb:panelGrid>   
             <br/>
             <div align="center">
-                <p:commandButton id="btnChangePwd" value="#{msg.ebCambiar}" actionListener="#{sessionBean.cambiarPassword}" oncomplete="wgtChangePwd.hide()" update="@form"/>
-                <p:commandButton id="btnCancel" value="#{msg.ebCancelar}" type="button" onclick="wgtChangePwd.hide()" update="@form"/>                        
+                <p:commandButton id="btnChangePwd" value="#{msg.change}" actionListener="#{sessionBean.cambiarPassword}" oncomplete="wgtChangePwd.hide()" update="@form"/>
+                <p:commandButton id="btnCancel" value="#{msg.cancel}" type="button" onclick="wgtChangePwd.hide()" update="@form"/>                        
             </div>
         </h:form>
     </p:dialog>
