@@ -55,7 +55,7 @@
 		 <repository>
             <id>prime-ext-repo</id>
             <name>Sonatype Maven Repository</name>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>http://oss.sonatype.org/content/repositories/releases</url>
             <layout>default</layout>
         </repository>				
 		<repository>
@@ -1696,7 +1696,7 @@
 		<jsf.version>2.1.18</jsf.version>
         <primefaces.theme.version>1.0.9</primefaces.theme.version>
         <primefaces.version>3.5</primefaces.version>
-        <primefaces-extensions.version>1.0.0-SNAPSHOT</primefaces-extensions.version>
+        <primefaces-extensions.version>0.7.1</primefaces-extensions.version>
         <postgres.version>9.0-801.jdbc4</postgres.version>
     </properties>
 
