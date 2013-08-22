@@ -9,9 +9,9 @@
 	<packaging>war</packaging>
 	<name>ebos</name>
 	<url>https://git.assembla.com/git/ebos</url>
-	
+
 	<description>eBos - Ecuadorian Business Operations System</description>
-	
+
 	<scm>
 		<url>https://git.assembla.com/ebos.git</url>
 		<connection>https://git.assembla.com/ebos.git</connection>
@@ -74,36 +74,36 @@
 
 	<repositories>
 		<repository>
-            <id>prime-repo-new</id>
-            <name>PrimeFaces Maven Repository</name>
-            <url>http://repository.primefaces.org</url>
-            <layout>default</layout>
-        </repository>
-		 <repository>
-            <id>prime-ext-repo</id>
-            <name>Sonatype Maven Repository</name>
-            <url>http://oss.sonatype.org/content/repositories/releases</url>
-            <layout>default</layout>
-        </repository>				
+			<id>prime-repo-new</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>prime-ext-repo</id>
+			<name>Sonatype Maven Repository</name>
+			<url>http://oss.sonatype.org/content/repositories/releases</url>
+			<layout>default</layout>
+		</repository>
 		<repository>
 			<id>java.net-maven2</id>
 			<name>java.net - Maven 2</name>
 			<url>http://repository.jboss.org/nexus/content/repositories/java.net-m2
 			</url>
 			<layout>default</layout>
-		</repository>				
+		</repository>
 		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net Repository for Maven</name>
 			<url>http://download.java.net/maven/2/</url>
-		</repository>				
+		</repository>
 		<repository>
 			<id>codehaus-release-repo</id>
 			<name>Codehaus Release Repo</name>
 			<url>http://repository.codehaus.org</url>
 		</repository>
 	</repositories>
-	
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>maven-annotation</id>
@@ -112,7 +112,7 @@
 			</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 	<build>
 		<!-- WEB LAYER -->
 		<finalName>ebos</finalName>
@@ -129,7 +129,7 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-		<plugins>		
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -1701,17 +1701,17 @@
 	<properties>
 		<ebos.version>${project.version}</ebos.version>
 		<java.version.compiler>1.6</java.version.compiler>
-        <java.version.source>1.6</java.version.source>
-        <java.version.target>1.6</java.version.target>
+		<java.version.source>1.6</java.version.source>
+		<java.version.target>1.6</java.version.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.1.1.RELEASE</spring.version>
 		<hibernate.version>3.2.7.ga</hibernate.version>
 		<jsf.version>2.1.18</jsf.version>
-        <primefaces.theme.version>1.0.9</primefaces.theme.version>
-        <primefaces.version>3.5</primefaces.version>
-        <!-- <primefaces-extensions.version>1.0.0-SNAPSHOT</primefaces-extensions.version> -->
-        <primefaces-extensions.version>0.7.1</primefaces-extensions.version>
-        <postgres.version>9.0-801.jdbc4</postgres.version>
-    </properties>
+		<primefaces.theme.version>1.0.9</primefaces.theme.version>
+		<primefaces.version>3.5</primefaces.version>
+		<!-- <primefaces-extensions.version>1.0.0-SNAPSHOT</primefaces-extensions.version> -->
+		<primefaces-extensions.version>0.7.1</primefaces-extensions.version>
+		<postgres.version>9.0-801.jdbc4</postgres.version>
+	</properties>
 
 </project>
