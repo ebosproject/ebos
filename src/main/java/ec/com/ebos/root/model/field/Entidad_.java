@@ -21,6 +21,7 @@ public abstract class Entidad_ {
 	public static final String modificado = "auditoria.modificado";
 	public static final String nombre = "nombre";
 	public static final String padre = "padre";
+	public static final String persona = "persona";
 	
 }
 

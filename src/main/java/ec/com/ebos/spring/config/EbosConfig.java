@@ -30,7 +30,8 @@ import org.springframework.core.io.ClassPathResource;
 	"ec.com.ebos.util",
 	"ec.com.ebos.admin",
 	"ec.com.ebos.conta",
-	"ec.com.ebos.logis"})
+	"ec.com.ebos.logis",
+	"ec.com.ebos.mse"})
 public class EbosConfig {
 	
 	@Bean

@@ -7,7 +7,7 @@
                 xmlns:c="http://java.sun.com/jstl/core">
 
 	<h:form id="frmDashboard">
-		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;">
+		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;" >
             <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}"/>
 			<p:panel id="bundle" header="#{msg.bundle}">
 				<p:commandButton value="#{msg.bundle}" actionListener="#{deskBean.openFrame(37)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
@@ -21,7 +21,14 @@
 			<p:panel id="opcion" header="#{msg.option}">
 				<p:commandButton value="#{msg.option}" actionListener="#{deskBean.openFrame(3)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
 			</p:panel>
+			<p:panel id="monaguillos" header="#{msg.monaguillos}">
+				<p:commandButton value="#{msg.monaguillos}" actionListener="#{deskBean.openFrame(45)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
+			</p:panel>
+			<p:panel id="grupos" header="#{msg.grupos}" >
+				<p:commandButton value="#{msg.grupos}" actionListener="#{deskBean.openFrame(46)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
+			</p:panel>
 		</p:dashboard>
+		
 	</h:form> 
 	
 	<p:imageSwitch id="imsBackg" widgetVar="wgtBackg" effect="fade" 

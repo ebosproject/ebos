@@ -7,15 +7,16 @@ package ec.com.ebos.master.model.field;
  */
 public abstract class Persona_ extends Master_{
 
-	public static String nombres = "nombres";
-	public static String apellidos = "apellidos";
-	public static String mail = "mail";
-	public static String tipoPersona = "tipoPersona";
-	public static String tipoIdentificacion = "tipoIdentificacion";
-	public static String usuario = "usuario";
-	public static String cliente = "cliente";
-	public static String proveedor = "proveedor";
-	public static String empleado = "empleado";
+	public static final String join = "id_persona";
+	public static final String nombres = "nombres";
+	public static final String apellidos = "apellidos";
+	public static final String mail = "mail";
+	public static final String tipoPersona = "tipoPersona";
+	public static final String tipoIdentificacion = "tipoIdentificacion";
+	public static final String usuario = "usuario";
+	public static final String cliente = "cliente";
+	public static final String proveedor = "proveedor";
+	public static final String empleado = "empleado";
 	
 }
 

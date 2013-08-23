@@ -27,7 +27,7 @@ public class Auditoria implements Serializable{
 
 	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "id_creador", nullable = false)
+    @JoinColumn(name = "id_creador", nullable = false, updatable=false)
 	private Usuario creador;
 	
 	@Getter @Setter
@@ -36,7 +36,7 @@ public class Auditoria implements Serializable{
 	private Usuario modificador;
 
 	@Getter @Setter
-	@Column(name = "creacion", nullable = false)
+	@Column(name = "creacion", nullable = false, updatable=false)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date creado;
 	
