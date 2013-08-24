@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:ui="http://java.sun.com/jsf/facelets"
+            xmlns:p="http://primefaces.org/ui"
+            xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+            xmlns:f="http://java.sun.com/jsf/core"
+            template="/templates/tplFinder.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+   	<ui:param name="bean" value="#{grupoBean}" />
+    <ui:param name="optionTitle" value="#{msg[grupo.title]}" />
+    
+    <ui:define name="filters">
+        <eb:panelGrid id="pnlFiltros" columns="2">          
+        	<p:outputLabel for="id" value="#{msg.ebId}"/>     
+	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number"/>
+	    </eb:panelGrid>
+    </ui:define>
+
+    <ui:define name="results">
+    	<f:facet name="header">  
+	    	#{msg.resultGrupoList}
+	    </f:facet>               
+	    
+    <ui:remove>
+	    <p:column id="localidad" headerText="#{msg.localidad}" width="50" resizable="false">
+	        <eb:outputText value="#{reg.localidad}" />
+	    </p:column>
+	    
+	    <p:column id="codigo" headerText="#{msg.ebCodigo}">
+	        <eb:outputText value="#{reg.codigo}" />
+	    </p:column>
+	    
+	    <p:column id="valor" headerText="#{msg.ebValor}">
+	        <eb:outputText value="#{reg.valor}"/>            
+	    </p:column>
+    </ui:remove>
+    </ui:define>
+	    
+    <ui:define name="master">
+       	<ui:remove> <ui:include src="master.xhtml" /></ui:remove>
+    </ui:define>
+    
+</ui:composition>

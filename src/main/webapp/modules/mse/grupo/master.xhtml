@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"                
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/templates/tplMaster.xhtml">
+
+	<ui:define name="params">
+		<ui:param name="renderedSouth" value="false"/>
+		<ui:param name="renderedCenterSouth" value="false"/>
+		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
+				'center':{'resizeWhileDragging':true,'closable':false,
+					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}"/>
+	</ui:define>
+
+    <ui:define name="header">
+        <ui:param name="bundle" value="#{bean.activeEntity}" />    
+	
+		<eb:panelGrid id="pnlBundle" columnClasses="width100">
+		    <eb:panelGrid id="pnlOne" columns="4" columnClasses="width10,width90,width10,width90">        
+		       <p:outputLabel for="id" value="#{msg.ebId}"/>         
+		       <eb:outputText id="id" value="#{bundle.id}"/>
+		       
+		       <p:outputLabel for="localidad" value="#{msg.ebLocale}"/>
+		       <p:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" required="true">
+		            <f:selectItem itemLabel ="#{msg.ebSelectOne}" itemValue="" />
+		            <f:selectItems value="#{bean.localidadList}" var="opc"
+		                itemLabel="#{msg[opc.label]}" itemValue="#{opc}"/>
+	           </p:selectOneMenu>
+		    </eb:panelGrid>
+		    <eb:panelGrid id="pnlTwo" columns="2" columnClasses="width10,width90">
+		       <p:outputLabel for="codigo" value="#{msg.ebCodigo}"/>
+		       <eb:inputText id="codigo" value="#{bundle.codigo}" required="true" maxlength="50"/>
+		       
+		       <p:outputLabel for="valor" value="#{msg.ebValor}"/>
+		       <eb:inputText id="valor" value="#{bundle.valor}" required="true" maxlength="500"/>
+		    </eb:panelGrid>   
+		</eb:panelGrid>
+    </ui:define>
+            
+    <ui:define name="detail">
+       
+
+    </ui:define>
+
+</ui:composition>

@@ -9,7 +9,5 @@ import ec.com.ebos.master.model.EmpresaPersona;
  */
 public abstract class EmpresaPersona_ extends Master_{
 
-	public static final String persona = "persona";
-	
 }
 

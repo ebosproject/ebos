@@ -41,6 +41,9 @@ public class DashboardBean implements Serializable {
 		column2.addWidget("rol");
 		column2.addWidget("opcion");
 		
+		column1.addWidget("grupos");
+		column1.addWidget("monaguillos");
+		
 		//column3.addWidget("other");
 
 		model.addColumn(column1);

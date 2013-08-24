@@ -22,6 +22,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.security.model.Usuario;
 
 /**
@@ -55,7 +56,7 @@ public class EmpresaPersona extends Master<EmpresaPersona>{
     @JoinColumn(name = "id_persona", nullable = false)
     private Persona persona;
 	
-	@Column(name = "estado", nullable = false, length = 1)
+	@Column(name = Entidad_.estado, nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	
