@@ -113,16 +113,16 @@ public class Persona extends Master<Persona>{
 	private String celular;
 	
 	@Column(name = "usuario", nullable = false)
-	private boolean usuario;
+	private boolean usuario = false;
 	
 	@Column(name = "cliente", nullable = false)
-	private boolean cliente;
+	private boolean cliente = false;
 	
 	@Column(name = "proveedor", nullable = false)
-	private boolean proveedor;
+	private boolean proveedor = false;
 	
 	@Column(name = "empleado", nullable = false)
-	private boolean empleado;
+	private boolean empleado = false;
 	
 	@Column(name = "tipoIdentificacion", nullable = false, length = 1)
     @Type(type = TipoIdentificacion.TYPE)

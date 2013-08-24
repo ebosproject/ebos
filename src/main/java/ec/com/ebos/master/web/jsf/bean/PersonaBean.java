@@ -3,10 +3,18 @@ package ec.com.ebos.master.web.jsf.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import lombok.Getter;
+import lombok.Setter;
+
+import org.primefaces.model.UploadedFile;
+
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
@@ -18,76 +26,100 @@ import ec.com.ebos.util.EntityUtils;
 @ManagedBean(name = PersonaBean.BEAN_NAME)
 @SessionScoped
 public class PersonaBean extends MasterBean<Persona> {
-    
+
 	private static final long serialVersionUID = 783070179851922363L;
-	
+
 	public static final String BEAN_NAME = "personaBean";
 
+	@Getter
+	@Setter
+	private UploadedFile image;
+
 	@Override
-    public void getInit() {
-        entitySearch = new Persona();
-    }
+	public void getInit() {
+		entitySearch = new Persona();
+	}
 
-    @Override
-    protected void habilitaControles() {
-        setHabilitaCrear();
-        setHabilitaEditar();
-        setHabilitaGuardar();
-        setHabilitaEliminar();
-        
-        if(EntityUtils.isPersistent(activeEntity)){
-            
-        } else {
-        	setHabilitaEliminar(false);
-        	//TODO (epa): La plataforma no debe permitir para todos las pantallas mostrar el boton eliminar si la 
-        	//entidad activa no esta persistida en la base de datos
-        }
-    }
+	@Override
+	protected void habilitaControles() {
+		setHabilitaCrear();
+		setHabilitaEditar();
+		setHabilitaGuardar();
+		setHabilitaEliminar();
 
-    @Override
-    protected void initTarget() {
-        TARGET_ID = "/master/persona/index.jsf";
-        TARGET_NEW_ID = "crearPersona";
-    }
-    
-    ///////////////////////// DATA MODEL ////////////////////////
+		if (EntityUtils.isPersistent(activeEntity)) {
 
-    @Override
-    protected List<Persona> loadDataTableCollection(Persona persona, Pagination pagination) {
-        return masterS.findPersonaList(persona, pagination);
-    }
-        
-    //////////////////// ACCIONES ////////////////////
-    
-    @Override
-    public void crear() {
-        activeEntity = masterS.createPersona();
-    }
+		} else {
+			setHabilitaEliminar(false);
+			// TODO (epa): La plataforma no debe permitir para todos las
+			// pantallas mostrar el boton eliminar si la
+			// entidad activa no esta persistida en la base de datos
+		}
+	}
 
-    @Override
-    public void editar() {        
-    }
-    
-    @Override
-    public void actualizar(){                        
-        editar();
-    }
+	@Override
+	protected void initTarget() {
+		TARGET_ID = "/modules/master/persona/index.jsf";
+	}
 
-    @Override
-    public void guardar() {
-        activeEntity = masterS.savePersona(activeEntity);                
-    }
+	// /////////////////////// DATA MODEL ////////////////////////
 
-    @Override
-    public void eliminar() {
-        masterS.deletePersona(activeEntity);                
-    }
-    
-	///////////////////////////LISTS ///////////////////////////
-    
-    @Getter
-	private List<Persona.TipoIdentificacion> tipoIdentificacionList = new ArrayList<Persona.TipoIdentificacion>(Persona.TipoIdentificacion.LIST);
-    
-    @Getter
-	private List<Persona.TipoPersona> tipoPersonaList = new ArrayList<Persona.TipoPersona>(Persona.TipoPersona.LIST);
+	@Override
+	protected List<Persona> loadDataTableCollection(Persona persona,
+			Pagination pagination) {
+		return masterS.findPersonaList(persona, pagination);
+	}
+
+	// ////////////////// ACCIONES ////////////////////
+
+	@Override
+	public void crear() {
+		activeEntity = masterS.createPersona();
+	}
+
+	@Override
+	public void editar() {
+	}
+
+	@Override
+	public void actualizar() {
+		editar();
+	}
+
+	@Override
+	public void guardar() {
+		activeEntity.setImagen(image.getContents());
+		activeEntity = masterS.savePersona(activeEntity);
+	}
+
+	@Override
+	public void eliminar() {
+		masterS.deletePersona(activeEntity);
+	}
+
+	// ///////////////////////// LISTS ///////////////////////////
+
+	@Getter
+	private List<Persona.TipoIdentificacion> tipoIdentificacionList = new ArrayList<Persona.TipoIdentificacion>(
+			Persona.TipoIdentificacion.LIST);
+
+	@Getter
+	private List<Persona.TipoPersona> tipoPersonaList = new ArrayList<Persona.TipoPersona>(
+			Persona.TipoPersona.LIST);
+
+	// ////////////////////// VALIDATORS ////////////////////////
+	public void validateFile(FacesContext ctx, UIComponent comp, Object value) {
+		List<FacesMessage> msgs = new ArrayList<FacesMessage>();
+		UploadedFile file = (UploadedFile) value;
+		int fileByte = file.getContents().length;
+		if (fileByte > 15360) {
+			msgs.add(new FacesMessage("Too big must be at most 15KB"));
+		}
+		if (!(file.getContentType().startsWith("image"))) {
+			msgs.add(new FacesMessage("not an Image file"));
+		}
+		if (!msgs.isEmpty()) {
+			throw new ValidatorException(msgs);
+		}
+	}
 }
