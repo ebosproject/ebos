@@ -17,6 +17,8 @@ public abstract class Persona_ extends Master_{
 	public static final String cliente = "cliente";
 	public static final String proveedor = "proveedor";
 	public static final String empleado = "empleado";
+	public static final String imagen = "imagen";
+	public static final String contentType = "contentType";
 	
 }
 

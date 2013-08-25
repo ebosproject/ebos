@@ -30,6 +30,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Organizacion_;
+import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.field.Monagillo_;
 import ec.com.ebos.root.model.Auditoria;
@@ -94,8 +95,11 @@ public class Persona extends Master<Persona>{
 	 *  
 	*/
 	@Lob //Postgres default oid type
-	@Column(name = "imagen")
+	@Column(name = Persona_.imagen)
 	private byte[] imagen;
+	
+	@Column(name = Persona_.contentType, length = 15)
+	private String contentType;
 	
 	@Column(name = "direccion", length = 100)
 	private String direccion;

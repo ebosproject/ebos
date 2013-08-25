@@ -22,7 +22,6 @@
 			<p:outputLabel for="id" value="#{msg.id}" />
 			<eb:outputText id="id" value="#{persona.id}" />
 
-
 			<p:outputLabel for="estado" value="#{msg.state}" />
 			<eb:outputText id="estado" value="#{persona.estado.label}" />
 
@@ -41,28 +40,39 @@
 				required="true" maxlength="50" />
 
 			<p:outputLabel for="nacimiento" value="#{msg.birthday}" />
-			<p:calendar id="nacimiento" value="#{persona.nacimiento}"
-				showOn="button" />
+			<eb:calendar id="nacimiento" value="#{persona.nacimiento}"/>
 
 			<p:outputLabel for="identificacion" value="#{msg.identification}" />
 			<eb:inputText id="identificacion" value="#{persona.identificacion}"
 				required="true" maxlength="20" />
+				
+			<p:outputLabel for="usuario" value="#{msg.usuario}" />
+			<p:selectBooleanCheckbox id="usuario" value="#{persona.usuario}" required="true"/>  
 
-			<p:outputLabel for="identificacion" value="#{msg.typeIdentificacion}" />
+			<p:outputLabel for="identificacion" value="#{msg.identificationType}" />
 			<p:selectOneMenu id="naturaleza"
 				value="#{persona.tipoIdentificacion}" efect="fade" required="true">
 				<f:selectItem itemLabel="#{msg.selectOne}" itemValue="" />
 				<f:selectItems value="#{bean.tipoIdentificacionList}" var="opc"
 					itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
 			</p:selectOneMenu>
-
+			
+			<p:outputLabel for="direccion" value="#{msg.address}" />
+			<eb:inputText id="direccion" value="#{persona.direccion}" maxlength="100" />
+		
+			<p:outputLabel for="facebook" value="#{msg.facebook}" />
+			<eb:inputText id="facebook" value="#{persona.facebook}" maxlength="30" />
+			
+			<p:outputLabel for="mail" value="#{msg.mail}" />
+			<eb:inputText id="mail" value="#{persona.mail}" maxlength="100" />
+			
 			<h:form enctype="multipart/form-data">
-				<p:messages showDetail="true" />
-				<p:fileUpload value="#{imageStoreBean.image}" mode="simple" />
-				<h:graphicImage id="image" alt="uploaded image" url="/image" />
+				<p:fileUpload fileUploadListener="#{bean.handleFileUpload}" mode="advanced"
+						update="image" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                <p:graphicImage id="image" value="#{imageBean.image}"/>
 			</h:form>
-
-		</h:panelGrid>
+			
+		</h:panelGrid>	
 
 	</ui:define>
 

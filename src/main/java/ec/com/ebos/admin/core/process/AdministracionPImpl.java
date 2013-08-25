@@ -70,6 +70,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 	@Override
 	public Bundle buildBundle() {
 		Bundle bundle = new Bundle();
+		bundle.setLocalidad(getSessionBean().getLocalidad());
         return bundle;
 	}
 	
