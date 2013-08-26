@@ -22,6 +22,8 @@
 			<p:outputLabel for="id" value="#{msg.id}" />
 			<eb:outputText id="id" value="#{persona.id}" />
 
+			<p:graphicImage id="image" value="#{imageBean.image}"/>
+
 			<p:outputLabel for="estado" value="#{msg.state}" />
 			<eb:outputText id="estado" value="#{persona.estado.label}" />
 
@@ -46,8 +48,17 @@
 			<eb:inputText id="identificacion" value="#{persona.identificacion}"
 				required="true" maxlength="20" />
 				
-			<p:outputLabel for="usuario" value="#{msg.usuario}" />
+			<p:outputLabel for="usuario" value="#{msg.user}" />
 			<p:selectBooleanCheckbox id="usuario" value="#{persona.usuario}" required="true"/>  
+			
+			<p:outputLabel for="cliente" value="#{msg.client}" />
+			<p:selectBooleanCheckbox id="cliente" value="#{persona.cliente}" required="true"/>
+			
+			<p:outputLabel for="proveedor" value="#{msg.provider}" />
+			<p:selectBooleanCheckbox id="proveedor" value="#{persona.proveedor}" required="true"/>
+			
+			<p:outputLabel for="empleado" value="#{msg.employee}" />
+			<p:selectBooleanCheckbox id="empleado" value="#{persona.empleado}" required="true"/>
 
 			<p:outputLabel for="identificacion" value="#{msg.identificationType}" />
 			<p:selectOneMenu id="naturaleza"
@@ -69,7 +80,6 @@
 			<h:form enctype="multipart/form-data">
 				<p:fileUpload fileUploadListener="#{bean.handleFileUpload}" mode="advanced"
 						update="image" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-                <p:graphicImage id="image" value="#{imageBean.image}"/>
 			</h:form>
 			
 		</h:panelGrid>	

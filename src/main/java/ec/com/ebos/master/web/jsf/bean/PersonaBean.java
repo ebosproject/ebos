@@ -110,6 +110,7 @@ public class PersonaBean extends MasterBean<Persona> {
 			activeEntity.setImagen(uploadImage.getContents());
 		}
 		activeEntity = masterS.savePersona(activeEntity);
+		image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
 	}
 
 	@Override
