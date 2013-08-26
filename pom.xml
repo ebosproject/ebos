@@ -9,9 +9,9 @@
 	<packaging>war</packaging>
 	<name>ebos</name>
 	<url>https://git.assembla.com/git/ebos</url>
-	
+
 	<description>eBos - Ecuadorian Business Operations System</description>
-	
+
 	<scm>
 		<url>https://git.assembla.com/ebos.git</url>
 		<connection>https://git.assembla.com/ebos.git</connection>
@@ -22,61 +22,88 @@
 		<name>eBos</name>
 		<url>www.ebos.com</url>
 	</organization>
-	
+
 	<developers>
-        <developer>
-            <id>eplua</id>
-            <name>Eduardo Plua Alay</name>
-            <email>eduardo.plua@gmail.com</email>
-            <roles>
-                <role>Buildmaster</role>
-                <role>Developer</role>
-            </roles>
-            <timezone>-5</timezone>
-        </developer>
-        <developer>
-            <id>vviejo</id>
-            <name>Victor Viejo Chabla</name>
-            <email>vipconsultoresaso@gmail.com</email>
-            <roles>
-                <role>Developer</role>
-            </roles>
-            <timezone>-5</timezone>
-        </developer>
-    </developers>
+		<developer>
+			<id>epa</id>
+			<name>Eduardo Plua Alay</name>
+			<email>eduardo.plua@gmail.com</email>
+			<roles>
+				<role>Buildmaster</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
+			<id>vvc</id>
+			<name>Victor Viejo Chabla</name>
+			<email>vipconsultoresaso@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
+			<id>vip</id>
+			<name>Victor Indacochea Pincay</name>
+			<email>vindacochea@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
+			<id>oha</id>
+			<name>Olga huilca Aguilar</name>
+			<email>olga.huilca@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
+			<id>jma</id>
+			<name>Jose Mendoza Alava</name>
+			<email>j.aleximendoza@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+	</developers>
 
 	<repositories>
 		<repository>
-            <id>prime-repo-new</id>
-            <name>PrimeFaces Maven Repository</name>
-            <url>http://repository.primefaces.org</url>
-            <layout>default</layout>
-        </repository>
-		 <repository>
-            <id>prime-ext-repo</id>
-            <name>Sonatype Maven Repository</name>
-            <url>http://oss.sonatype.org/content/repositories/releases</url>
-            <layout>default</layout>
-        </repository>				
+			<id>prime-repo-new</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>prime-ext-repo</id>
+			<name>Sonatype Maven Repository</name>
+			<url>http://oss.sonatype.org/content/repositories/releases</url>
+			<layout>default</layout>
+		</repository>
 		<repository>
 			<id>java.net-maven2</id>
 			<name>java.net - Maven 2</name>
 			<url>http://repository.jboss.org/nexus/content/repositories/java.net-m2
 			</url>
 			<layout>default</layout>
-		</repository>				
+		</repository>
 		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net Repository for Maven</name>
 			<url>http://download.java.net/maven/2/</url>
-		</repository>				
+		</repository>
 		<repository>
 			<id>codehaus-release-repo</id>
 			<name>Codehaus Release Repo</name>
 			<url>http://repository.codehaus.org</url>
 		</repository>
 	</repositories>
-	
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>maven-annotation</id>
@@ -85,7 +112,7 @@
 			</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 	<build>
 		<!-- WEB LAYER -->
 		<finalName>ebos</finalName>
@@ -102,7 +129,7 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-		<plugins>		
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -171,10 +198,10 @@
 						<version>${postgres.version}</version>
 					</dependency>
 					<dependency>
-				      <groupId>org.apache.ant</groupId>
-				      <artifactId>ant</artifactId>
-				      <version>1.8.2</version>
-				    </dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant</artifactId>
+						<version>1.8.2</version>
+					</dependency>
 				</dependencies>
 				<configuration>
 					<driver>org.postgresql.Driver</driver>
@@ -184,14 +211,13 @@
 					<dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory</dataTypeFactoryName>
 					<skip>${maven.skip.test}</skip>
 					<!-- <settingsKey>sensibleKey</settingsKey> -->
-					<!-- <schema>${dbunit.schema}</schema>
-					<skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>
-					<useQualifiedTableNames>false</useQualifiedTableNames>-->
+					<!-- <schema>${dbunit.schema}</schema> <skipOracleRecycleBinTables>true</skipOracleRecycleBinTables> 
+						<useQualifiedTableNames>false</useQualifiedTableNames> -->
 				</configuration>
 				<executions>
 					<execution>
 						<id>ebos-importdb</id>
-						<phase>test-compile</phase>						
+						<phase>test-compile</phase>
 						<goals>
 							<goal>operation</goal>
 						</goals>
@@ -210,13 +236,13 @@
 						</goals>
 						<configuration>
 							<skip>${skip.export}</skip>
-							<schema>${ebos.schema}</schema>							
+							<schema>${ebos.schema}</schema>
 							<format>xml</format>
 							<dest>${ebos.schema}.xml</dest>
-						</configuration>						
+						</configuration>
 					</execution>
 				</executions>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -229,20 +255,11 @@
 						<resource>
 							<directory>${project.build.directory}/webapp-resources</directory>
 						</resource>
-						<!-- <resource>
-				        	<directory>src/main/jasperreports</directory>
-					        <includes>
-					          <include>**/*.jrxml</include>
-					        </includes>
-					        <targetPath>resources/reports/sources</targetPath>
-					    </resource>
-				        <resource>
-					        <directory>target/jasperreports/jasper</directory>
-					        <includes>
-					          <include>**/*.jasper</include>
-					        </includes>
-					        <targetPath>resources/reports/jasper</targetPath>
-				        </resource> -->
+						<!-- <resource> <directory>src/main/jasperreports</directory> <includes> 
+							<include>**/*.jrxml</include> </includes> <targetPath>resources/reports/sources</targetPath> 
+							</resource> <resource> <directory>target/jasperreports/jasper</directory> 
+							<includes> <include>**/*.jasper</include> </includes> <targetPath>resources/reports/jasper</targetPath> 
+							</resource> -->
 					</webResources>
 					<packagingExcludes>**/web-overwrite.xml,WEB-INF/web.xml</packagingExcludes>
 					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
@@ -283,6 +300,13 @@
 						<configuration>
 							<outputDirectory>${project.build.directory}/webapp-resources/resources</outputDirectory>
 							<resources>
+								<resource>
+									<directory>${project.basedir}/src/main/java</directory>
+									<filtering>true</filtering>
+									<excludes>
+										<exclude>**/*.java</exclude>
+									</excludes>
+								</resource>
 								<resource>
 									<directory>${project.basedir}/src/main/webapp/resources</directory>
 									<filtering>true</filtering>
@@ -327,21 +351,10 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
 			</plugin>
-			<!-- <plugin>
-			  <groupId>org.codehaus.mojo</groupId>
-			  <artifactId>jasperreports-maven-plugin</artifactId>
-			  <version>1.0-beta-2</version>
-			  <executions>
-			    <execution>
-			      <goals>
-			        <goal>compile-reports</goal>
-			      </goals>
-			    </execution>
-			  </executions>
-			  <configuration>
-			    <outputDirectory>target/jasperreports/jasper</outputDirectory>
-			  </configuration>
-			</plugin> -->
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jasperreports-maven-plugin</artifactId> 
+				<version>1.0-beta-2</version> <executions> <execution> <goals> <goal>compile-reports</goal> 
+				</goals> </execution> </executions> <configuration> <outputDirectory>target/jasperreports/jasper</outputDirectory> 
+				</configuration> </plugin> -->
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -521,7 +534,7 @@
 						</execution>
 					</executions>
 				</plugin>
-			
+
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -636,11 +649,11 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		
+
 	</build>
 
 	<dependencies>
-		<!--HIBERNATE-->
+		<!--HIBERNATE -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate</artifactId>
@@ -649,17 +662,17 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-					<!--version>1.0.4</version-->
+					<!--version>1.0.4</version -->
 				</exclusion>
 				<exclusion>
 					<groupId>commons-collections</groupId>
 					<artifactId>commons-collections</artifactId>
-					<!--version>2.1.1</version-->
+					<!--version>2.1.1</version -->
 				</exclusion>
 				<exclusion>
 					<groupId>javax.transaction</groupId>
 					<artifactId>jta</artifactId>
-					<!--version>1.0.1B</version-->
+					<!--version>1.0.1B</version -->
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -671,7 +684,7 @@
 				<exclusion>
 					<groupId>org.hibernate</groupId>
 					<artifactId>hibernate</artifactId>
-					<!--version>3.2.1.ga</version-->
+					<!--version>3.2.1.ga</version -->
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -683,7 +696,7 @@
 				<exclusion>
 					<groupId>org.hibernate</groupId>
 					<artifactId>hibernate</artifactId>
-					<!--version>3.2.4.sp1</version-->
+					<!--version>3.2.4.sp1</version -->
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -706,12 +719,12 @@
 				<exclusion><!-- jboss-5.1.0.GA/lib/endorsed/xercesImpl.jar -->
 					<groupId>xml-apis</groupId>
 					<artifactId>xml-apis</artifactId>
-					<!--version>1.0.b2,1.3.02</version-->
+					<!--version>1.0.b2,1.3.02</version -->
 				</exclusion>
 				<exclusion>
 					<groupId>xerces</groupId>
 					<artifactId>xercesImpl</artifactId>
-					<!--version>2.6.2</version-->
+					<!--version>2.6.2</version -->
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -721,7 +734,7 @@
 			<version>1.0.0.Final</version>
 		</dependency>
 
-		<!--SPRING-->
+		<!--SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -748,19 +761,19 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.springframework.data</groupId>
-		    <artifactId>spring-data-jpa</artifactId>
-		    <version>1.1.0.RELEASE</version>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.1.0.RELEASE</version>
 		</dependency>
-		
+
 		<!-- EHCACHE -->
 		<dependency>
-	        <groupId>net.sf.ehcache</groupId>
-	        <artifactId>ehcache-core</artifactId>
-	        <version>2.4.2</version>
-	    </dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.4.2</version>
+		</dependency>
 
-		<!--ASPECTJ-->
+		<!--ASPECTJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -777,11 +790,11 @@
 			<version>2.1_3</version>
 		</dependency>
 
-		<!--JASPER REPORTS-->
+		<!--JASPER REPORTS -->
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
-			<version>5.1.0</version>			
+			<version>5.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.simpleframework</groupId>
@@ -801,7 +814,7 @@
 				<exclusion>
 					<groupId>xml-apis</groupId>
 					<artifactId>xml-apis</artifactId>
-					<!--version>1.3.02</version-->
+					<!--version>1.3.02</version -->
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -812,7 +825,7 @@
 		</dependency>
 
 
-		<!--LOGGING-->
+		<!--LOGGING -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -843,16 +856,16 @@
 			<version>1.6.1</version>
 		</dependency>
 
-	 	<!--LOMBOK-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>0.11.6</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        <!--JSF-->
-        <dependency>
+		<!--LOMBOK -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>0.11.6</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--JSF -->
+		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>${jsf.version}</version>
@@ -862,335 +875,335 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>${jsf.version}</version>
 		</dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.8</version>
-        </dependency>
-        <dependency>
-            <groupId>com.lowagie</groupId>
-            <artifactId>itext</artifactId>
-            <version>2.1.7</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>bouncycastle</groupId>
-                    <artifactId>bcmail-jdk14</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>bouncycastle</groupId>
-                    <artifactId>bcprov-jdk14</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.bouncycastle</groupId>
-                    <artifactId>bctsp-jdk14</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>el-api</artifactId>
-            <version>2.2</version>
-            <scope>provided</scope>
-        </dependency>
-       	<dependency>
-     		<groupId>com.sun.el</groupId>
-		    <artifactId>el-ri</artifactId>
-		    <version>1.0</version>
-	  	</dependency>
-	  	
-		<!--FILE UPLOAD-->
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>1.4</version>
-        </dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+			<exclusions>
+				<exclusion>
+					<groupId>bouncycastle</groupId>
+					<artifactId>bcmail-jdk14</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>bouncycastle</groupId>
+					<artifactId>bcprov-jdk14</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bctsp-jdk14</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.el</groupId>
+			<artifactId>el-ri</artifactId>
+			<version>1.0</version>
+		</dependency>
 
-		<!--FEEDREADER ADN MOBILE NEWS-->
-        <dependency>
-            <groupId>rome</groupId>
-            <artifactId>rome</artifactId>
-            <version>1.0</version>
-        </dependency>
+		<!--FILE UPLOAD -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
 
-		<!--DYNAMEC IMAGE-->
-        <dependency>
-            <groupId>net.sourceforge.barbecue</groupId>
-            <artifactId>barbecue</artifactId>
-            <version>1.5-beta1</version>
-        </dependency>
-        <dependency>
-            <groupId>jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        
-        <!--ATMOSPHERE-->
-        <dependency>
-            <groupId>org.atmosphere</groupId>
-            <artifactId>atmosphere-runtime</artifactId>
-            <version>1.0.0.RC1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ning</groupId>
-            <artifactId>async-http-client</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-        
-        <!--PRIMEFACES AND PRIME-EXTENSIONS-->
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>${primefaces.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.extensions</groupId>
-            <artifactId>primefaces-extensions</artifactId>
-            <version>${primefaces-extensions.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.extensions</groupId>
-            <artifactId>resources-codemirror</artifactId>
-            <version>0.6.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>afterdark</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>afternoon</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>afterwork</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>black-tie</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>blitzer</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>bluesky</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>casablanca</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>cupertino</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>dark-hive</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>dot-luv</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>eggplant</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>excite-bike</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>flick</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>glass-x</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>hot-sneaks</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>humanity</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>le-frog</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>midnight</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>mint-choc</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>overcast</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>pepper-grinder</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>redmond</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>rocket</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>sam</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>smoothness</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>south-street</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>start</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>sunny</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>swanky-purse</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>trontastic</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>ui-darkness</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>ui-lightness</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>vader</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>home</artifactId>
-            <version>${primefaces.theme.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        
-        <!--OTHERS-->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
+		<!--FEEDREADER ADN MOBILE NEWS -->
+		<dependency>
+			<groupId>rome</groupId>
+			<artifactId>rome</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!--DYNAMEC IMAGE -->
+		<dependency>
+			<groupId>net.sourceforge.barbecue</groupId>
+			<artifactId>barbecue</artifactId>
+			<version>1.5-beta1</version>
+		</dependency>
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!--ATMOSPHERE -->
+		<dependency>
+			<groupId>org.atmosphere</groupId>
+			<artifactId>atmosphere-runtime</artifactId>
+			<version>1.0.0.RC1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ning</groupId>
+			<artifactId>async-http-client</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<!--PRIMEFACES AND PRIME-EXTENSIONS -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>primefaces-extensions</artifactId>
+			<version>${primefaces-extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>resources-codemirror</artifactId>
+			<version>0.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>afterdark</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>afternoon</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>afterwork</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>black-tie</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>blitzer</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>bluesky</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>casablanca</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>cupertino</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>dark-hive</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>dot-luv</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>eggplant</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>excite-bike</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>flick</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>glass-x</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>hot-sneaks</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>humanity</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>le-frog</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>midnight</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>mint-choc</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>overcast</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>pepper-grinder</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>redmond</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>rocket</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>sam</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>smoothness</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>south-street</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>start</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>sunny</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>swanky-purse</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>trontastic</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>ui-darkness</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>ui-lightness</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>vader</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>home</artifactId>
+			<version>${primefaces.theme.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!--OTHERS -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.8.3</version>
@@ -1201,15 +1214,15 @@
 			<version>3.2.1</version>
 			<scope>runtime</scope>
 		</dependency>
-        
-    	<!--JAVA MAIL API-->
+
+		<!--JAVA MAIL API -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.4</version>
 		</dependency>
-        
-        <!--TESTING-->
+
+		<!--TESTING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -1219,485 +1232,486 @@
 				<exclusion>
 					<groupId>junit</groupId>
 					<artifactId>junit</artifactId>
-					<!--version>3.8.1</version-->
+					<!--version>3.8.1</version -->
 				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>2.19.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-            <version>1.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.19.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${postgres.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-	      <groupId>org.apache.ant</groupId>
-	      <artifactId>ant</artifactId>
-	      <version>1.8.2</version>
-	      <scope>test</scope>
-	    </dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.8.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<profiles>
-	    <profile>
-	        <id>mojarra</id>
-	        <activation>
-	            <activeByDefault>true</activeByDefault>
-	        </activation>
-	        <properties>
-	        	<jsf-impl>mojarra</jsf-impl>
-	            <jsfVersion>Mojarra-${jsf.version}</jsfVersion>
-	            <primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
-	        </properties>
-	        <dependencies>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces</artifactId>
-	                <version>${primefaces.version}</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces-mobile</artifactId>
-	                <version>1.0.0-SNAPSHOT</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.glassfish</groupId>
-	                <artifactId>javax.faces</artifactId>
-	                <version>${jsf.version}</version>
-	            </dependency>
-	        </dependencies>
-	    </profile>
+		<profile>
+			<id>mojarra</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<jsf-impl>mojarra</jsf-impl>
+				<jsfVersion>Mojarra-${jsf.version}</jsfVersion>
+				<primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces</artifactId>
+					<version>${primefaces.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces-mobile</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish</groupId>
+					<artifactId>javax.faces</artifactId>
+					<version>${jsf.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
 
-	    <profile>
-	        <id>myfaces</id>
-	        <properties>
-	            <jsfVersion>MyFaces-2.1.3</jsfVersion>
-	            <primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
-	        </properties>
-	        <dependencies>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces</artifactId>
-	                <version>${primefaces.version}</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces-mobile</artifactId>
-	                <version>1.0.0-SNAPSHOT</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.apache.myfaces.core</groupId>
-	                <artifactId>myfaces-api</artifactId>
-	                <version>2.1.3</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.apache.myfaces.core</groupId>
-	                <artifactId>myfaces-impl</artifactId>
-	                <version>2.1.3</version>
-	            </dependency>
-	        </dependencies>
-	    </profile>
+		<profile>
+			<id>myfaces</id>
+			<properties>
+				<jsfVersion>MyFaces-2.1.3</jsfVersion>
+				<primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces</artifactId>
+					<version>${primefaces.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces-mobile</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.myfaces.core</groupId>
+					<artifactId>myfaces-api</artifactId>
+					<version>2.1.3</version>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.myfaces.core</groupId>
+					<artifactId>myfaces-impl</artifactId>
+					<version>2.1.3</version>
+				</dependency>
+			</dependencies>
+		</profile>
 
-	    <profile>
-	        <id>appserver</id>
-	        <properties>
-	            <jsfVersion>Native JSF Implementation</jsfVersion>
-	            <primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
-	        </properties>
-	        <dependencies>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces</artifactId>
-	                <version>${primefaces.version}</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces-mobile</artifactId>
-	                <version>1.0.0-SNAPSHOT</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.glassfish</groupId>
-	                <artifactId>javax.faces</artifactId>
-	                <version>${jsf.version}</version>
-	                <scope>provided</scope>
-	            </dependency>
-	        </dependencies>
-	    </profile>
+		<profile>
+			<id>appserver</id>
+			<properties>
+				<jsfVersion>Native JSF Implementation</jsfVersion>
+				<primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces</artifactId>
+					<version>${primefaces.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces-mobile</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish</groupId>
+					<artifactId>javax.faces</artifactId>
+					<version>${jsf.version}</version>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
 
-	    <profile>
-	        <id>stable</id>
-	        <properties>
-	            <jsfVersion>Mojarra-${jsf.version}</jsfVersion>
-	            <primefacesVersion>PrimeFaces-3.4</primefacesVersion>
-	        </properties>
-	        <dependencies>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces</artifactId>
-	                <version>3.4</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces-mobile</artifactId>
-	                <version>1.0.0-SNAPSHOT</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.glassfish</groupId>
-	                <artifactId>javax.faces</artifactId>
-	                <version>${jsf.version}</version>
-	            </dependency>
-	        </dependencies>
-	    </profile>
+		<profile>
+			<id>stable</id>
+			<properties>
+				<jsfVersion>Mojarra-${jsf.version}</jsfVersion>
+				<primefacesVersion>PrimeFaces-3.4</primefacesVersion>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces</artifactId>
+					<version>3.4</version>
+				</dependency>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces-mobile</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish</groupId>
+					<artifactId>javax.faces</artifactId>
+					<version>${jsf.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
 
-	    <profile>
-	        <id>gae</id>
-	        <properties>
-	            <jsfVersion>Mojarra-${jsf.version}</jsfVersion>
-	            <primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
-	        </properties>
-	        <dependencies>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces</artifactId>
-	                <version>${primefaces.version}</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.primefaces</groupId>
-	                <artifactId>primefaces-mobile</artifactId>
-	                <version>1.0.0-SNAPSHOT</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.glassfish</groupId>
-	                <artifactId>javax.faces</artifactId>
-	                <version>${jsf.version}</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>xalan</groupId>
-	                <artifactId>serializer</artifactId>
-	                <version>2.7.1</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>xalan</groupId>
-	                <artifactId>xalan</artifactId>
-	                <version>2.7.1</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>xerces</groupId>
-	                <artifactId>xercesImpl</artifactId>
-	                <version>2.9.1</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>xml-apis</groupId>
-	                <artifactId>xml-apis</artifactId>
-	                <version>1.3.04</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>javax.el</groupId>
-	                <artifactId>el-api</artifactId>
-	                <version>2.2</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.glassfish.web</groupId>
-	                <artifactId>el-impl</artifactId>
-	                <version>2.2</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>javax.transaction</groupId>
-	                <artifactId>jta</artifactId>
-	                <version>1.1</version>
-	            </dependency>
-	        </dependencies>
-	
-	        <build>
-	            <plugins>
-	                <plugin>
-	                    <groupId>net.kindleit</groupId>
-	                    <artifactId>maven-gae-plugin</artifactId>
-	                    <version>0.7.3</version>
-	                    <configuration>
-	                        <serverId>appengine.google.com</serverId>
-	                        <sdkDir>${gae.sdkDir}</sdkDir>
-	                        <appDir>${project.build.directory}/${project.name}-${project.version}</appDir>
-	                    </configuration>
-	                </plugin>
-	            </plugins>
-	        </build>
-	    </profile>
+		<profile>
+			<id>gae</id>
+			<properties>
+				<jsfVersion>Mojarra-${jsf.version}</jsfVersion>
+				<primefacesVersion>PrimeFaces-${primefaces.version}</primefacesVersion>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces</artifactId>
+					<version>${primefaces.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces-mobile</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish</groupId>
+					<artifactId>javax.faces</artifactId>
+					<version>${jsf.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>xalan</groupId>
+					<artifactId>serializer</artifactId>
+					<version>2.7.1</version>
+				</dependency>
+				<dependency>
+					<groupId>xalan</groupId>
+					<artifactId>xalan</artifactId>
+					<version>2.7.1</version>
+				</dependency>
+				<dependency>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+					<version>2.9.1</version>
+				</dependency>
+				<dependency>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+					<version>1.3.04</version>
+				</dependency>
+				<dependency>
+					<groupId>javax.el</groupId>
+					<artifactId>el-api</artifactId>
+					<version>2.2</version>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish.web</groupId>
+					<artifactId>el-impl</artifactId>
+					<version>2.2</version>
+				</dependency>
+				<dependency>
+					<groupId>javax.transaction</groupId>
+					<artifactId>jta</artifactId>
+					<version>1.1</version>
+				</dependency>
+			</dependencies>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>net.kindleit</groupId>
+						<artifactId>maven-gae-plugin</artifactId>
+						<version>0.7.3</version>
+						<configuration>
+							<serverId>appengine.google.com</serverId>
+							<sdkDir>${gae.sdkDir}</sdkDir>
+							<appDir>${project.build.directory}/${project.name}-${project.version}</appDir>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
 
-    	<!-- MAC TESTS -->
-	    <profile>
-	        <id>integrationTest</id>
-	        <properties>
-	            <jsfVersion>Mojarra-${jsf.version}</jsfVersion>
-	            <primefacesVersion>4.0-SNAPSHOT</primefacesVersion>
-	        </properties>
-	        <dependencies>
-	            <dependency>
-                    <groupId>org.primefaces</groupId>
-                    <artifactId>primefaces</artifactId>
-                    <version>4.0-SNAPSHOT</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.primefaces</groupId>
-                    <artifactId>primefaces-mobile</artifactId>
-                    <version>1.0.0-SNAPSHOT</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <version>${jsf.version}</version>
-                </dependency>
-            </dependencies>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.mortbay.jetty</groupId>
-                        <artifactId>maven-jetty-plugin</artifactId>
-                        <version>6.1.16</version>
-                        <configuration>
-                            <scanIntervalSeconds>10</scanIntervalSeconds>
-                            <stopPort>9966</stopPort>
-                            <stopKey>foo</stopKey>
-                            <webAppConfig>
-                                <contextPath>/prime-showcase</contextPath>
-                            </webAppConfig>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>start-jetty</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <daemon>true</daemon>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>stop-jetty</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+		<!-- MAC TESTS -->
+		<profile>
+			<id>integrationTest</id>
+			<properties>
+				<jsfVersion>Mojarra-${jsf.version}</jsfVersion>
+				<primefacesVersion>4.0-SNAPSHOT</primefacesVersion>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces</artifactId>
+					<version>4.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces-mobile</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish</groupId>
+					<artifactId>javax.faces</artifactId>
+					<version>${jsf.version}</version>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mortbay.jetty</groupId>
+						<artifactId>maven-jetty-plugin</artifactId>
+						<version>6.1.16</version>
+						<configuration>
+							<scanIntervalSeconds>10</scanIntervalSeconds>
+							<stopPort>9966</stopPort>
+							<stopKey>foo</stopKey>
+							<webAppConfig>
+								<contextPath>/prime-showcase</contextPath>
+							</webAppConfig>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start-jetty</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<daemon>true</daemon>
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop-jetty</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.11</version>
-                        <configuration>
-                            <includes>
-                                <include>**/integration/**/IntegrationTest*.java</include>
-                                <include>**/integration/**/*IntegrationTest.java</include>
-                            </includes>
-                            <encoding>${project.build.sourceEncoding}</encoding>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>firefox</id>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                                <configuration>
-                                    <systemProperties>
-                                        <property>
-                                            <name>integrationTestsDriverType</name>
-                                            <value>firefox</value>
-                                        </property>
-                                    </systemProperties>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>chrome</id>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                                <configuration>
-                                    <systemProperties>
-                                        <property>
-                                            <name>integrationTestsDriverType</name>
-                                            <value>chrome</value>
-                                        </property>
-                                        <property>
-                                            <name>integrationTestsDriverPath</name>
-                                            <value>src/test/drivers/chromedriver</value>
-                                        </property>
-                                    </systemProperties>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        
-        
-        <!-- WINDOWS TESTS -->
-        <profile>
-            <id>integrationTestWindows</id>
-            <properties>
-                <jsfVersion>Mojarra-${jsf.version}</jsfVersion>
-                <primefacesVersion>4.0-SNAPSHOT</primefacesVersion>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.primefaces</groupId>
-                    <artifactId>primefaces</artifactId>
-                    <version>4.0-SNAPSHOT</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.primefaces</groupId>
-                    <artifactId>primefaces-mobile</artifactId>
-                    <version>1.0.0-SNAPSHOT</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <version>${jsf.version}</version>
-                </dependency>
-            </dependencies>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.mortbay.jetty</groupId>
-                        <artifactId>maven-jetty-plugin</artifactId>
-                        <version>6.1.16</version>
-                        <configuration>
-                            <scanIntervalSeconds>10</scanIntervalSeconds>
-                            <stopPort>9966</stopPort>
-                            <stopKey>foo</stopKey>
-                            <webAppConfig>
-                                <contextPath>/prime-showcase</contextPath>
-                            </webAppConfig>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>start-jetty</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <daemon>true</daemon>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>stop-jetty</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>2.11</version>
+						<configuration>
+							<includes>
+								<include>**/integration/**/IntegrationTest*.java</include>
+								<include>**/integration/**/*IntegrationTest.java</include>
+							</includes>
+							<encoding>${project.build.sourceEncoding}</encoding>
+						</configuration>
+						<executions>
+							<execution>
+								<id>firefox</id>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+								<configuration>
+									<systemProperties>
+										<property>
+											<name>integrationTestsDriverType</name>
+											<value>firefox</value>
+										</property>
+									</systemProperties>
+								</configuration>
+							</execution>
+							<execution>
+								<id>chrome</id>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+								<configuration>
+									<systemProperties>
+										<property>
+											<name>integrationTestsDriverType</name>
+											<value>chrome</value>
+										</property>
+										<property>
+											<name>integrationTestsDriverPath</name>
+											<value>src/test/drivers/chromedriver</value>
+										</property>
+									</systemProperties>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.11</version>
-                        <configuration>
-                            <includes>
-                                <include>**/integration/**/IntegrationTest*.java</include>
-                                <include>**/integration/**/*IntegrationTest.java</include>
-                            </includes>
-                            <encoding>${project.build.sourceEncoding}</encoding>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>win32ie</id>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                                <configuration>
-                                    <systemProperties>
-                                        <property>
-                                            <name>integrationTestsDriverType</name>
-                                            <value>win32ie</value>
-                                        </property>
-                                        <property>
-                                            <name>integrationTestsDriverPath</name>
-                                            <value>src/test/drivers/InternetExplorerDriver.exe</value>
-                                        </property>
-                                    </systemProperties>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>firefox</id>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                                <configuration>
-                                    <systemProperties>
-                                        <property>
-                                            <name>integrationTestsDriverType</name>
-                                            <value>firefox</value>
-                                        </property>
-                                    </systemProperties>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>chrome</id>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                                <configuration>
-                                    <systemProperties>
-                                        <property>
-                                            <name>integrationTestsDriverType</name>
-                                            <value>chrome</value>
-                                        </property>
-                                        <property>
-                                            <name>integrationTestsDriverPath</name>
-                                            <value>src/test/drivers/chromedriver.exe</value>
-                                        </property>
-                                    </systemProperties>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-	
+
+		<!-- WINDOWS TESTS -->
+		<profile>
+			<id>integrationTestWindows</id>
+			<properties>
+				<jsfVersion>Mojarra-${jsf.version}</jsfVersion>
+				<primefacesVersion>4.0-SNAPSHOT</primefacesVersion>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces</artifactId>
+					<version>4.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.primefaces</groupId>
+					<artifactId>primefaces-mobile</artifactId>
+					<version>1.0.0-SNAPSHOT</version>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish</groupId>
+					<artifactId>javax.faces</artifactId>
+					<version>${jsf.version}</version>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mortbay.jetty</groupId>
+						<artifactId>maven-jetty-plugin</artifactId>
+						<version>6.1.16</version>
+						<configuration>
+							<scanIntervalSeconds>10</scanIntervalSeconds>
+							<stopPort>9966</stopPort>
+							<stopKey>foo</stopKey>
+							<webAppConfig>
+								<contextPath>/prime-showcase</contextPath>
+							</webAppConfig>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start-jetty</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<daemon>true</daemon>
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop-jetty</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>2.11</version>
+						<configuration>
+							<includes>
+								<include>**/integration/**/IntegrationTest*.java</include>
+								<include>**/integration/**/*IntegrationTest.java</include>
+							</includes>
+							<encoding>${project.build.sourceEncoding}</encoding>
+						</configuration>
+						<executions>
+							<execution>
+								<id>win32ie</id>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+								<configuration>
+									<systemProperties>
+										<property>
+											<name>integrationTestsDriverType</name>
+											<value>win32ie</value>
+										</property>
+										<property>
+											<name>integrationTestsDriverPath</name>
+											<value>src/test/drivers/InternetExplorerDriver.exe</value>
+										</property>
+									</systemProperties>
+								</configuration>
+							</execution>
+							<execution>
+								<id>firefox</id>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+								<configuration>
+									<systemProperties>
+										<property>
+											<name>integrationTestsDriverType</name>
+											<value>firefox</value>
+										</property>
+									</systemProperties>
+								</configuration>
+							</execution>
+							<execution>
+								<id>chrome</id>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+								<configuration>
+									<systemProperties>
+										<property>
+											<name>integrationTestsDriverType</name>
+											<value>chrome</value>
+										</property>
+										<property>
+											<name>integrationTestsDriverPath</name>
+											<value>src/test/drivers/chromedriver.exe</value>
+										</property>
+									</systemProperties>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 	<properties>
 		<ebos.version>${project.version}</ebos.version>
 		<java.version.compiler>1.6</java.version.compiler>
-        <java.version.source>1.6</java.version.source>
-        <java.version.target>1.6</java.version.target>
+		<java.version.source>1.6</java.version.source>
+		<java.version.target>1.6</java.version.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.1.1.RELEASE</spring.version>
 		<hibernate.version>3.2.7.ga</hibernate.version>
 		<jsf.version>2.1.18</jsf.version>
-        <primefaces.theme.version>1.0.9</primefaces.theme.version>
-        <primefaces.version>3.5</primefaces.version>
-        <primefaces-extensions.version>0.7.1</primefaces-extensions.version>
-        <postgres.version>9.0-801.jdbc4</postgres.version>
-    </properties>
+		<primefaces.theme.version>1.0.9</primefaces.theme.version>
+		<primefaces.version>3.5</primefaces.version>
+		<!-- <primefaces-extensions.version>1.0.0-SNAPSHOT</primefaces-extensions.version> -->
+		<primefaces-extensions.version>0.7.1</primefaces-extensions.version>
+		<postgres.version>9.0-801.jdbc4</postgres.version>
+	</properties>
 
 </project>

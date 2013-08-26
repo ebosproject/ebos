@@ -1,57 +1,95 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"                
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.org/ui"
-                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:pe="http://primefaces.org/ui/extensions"
-                template="/templates/tplMaster.xhtml">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/templates/tplMaster.xhtml">
 
 	<ui:define name="params">
-		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
+		<ui:param name="optionsMaster"
+			value="'north':{'closable':false,'resizable':false,'size':50},
 				'center':{'resizeWhileDragging':true,'closable':false,
-					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}"/>
+					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}" />
 	</ui:define>
 
-    <ui:define name="header">
-        <ui:param name="usuario" value="#{bean.activeEntity}" />    
-	
-	    <h:panelGrid id="pnlUsuario" columns="4">        
-	                
-	       	<p:outputLabel for="id" value="#{msg.ebId}"/>         
-	       	<eb:outputText id="id" value="#{usuario.id}"/>
-	       
-			<p:outputLabel for="estado" value="#{msg.ebEstado}"/>
-	        <eb:outputText id="estado" value="#{usuario.estado.label}"/>     
-	        
-	        <p:outputLabel for="creado" value="#{msg.ebCreado}"/>
-	        <eb:outputDate id="creado" value="#{usuario.creado}"/>                 
-	        
-	        <p:outputLabel for="modificado" value="#{msg.ebModificado}"/>
-	        <eb:outputDate id="modificado" value="#{usuario.modificado}"/>                
-	        
-	        <p:outputLabel for="password" value="#{msg.ebPassword}" rendered="#{usuario.id eq null}"/>
-	        <eb:password id="password" value="#{usuario.password}"  feedback="true" required="true" 
-	                      rendered="#{usuario.id eq null}"/>        
-	        
-	        <p:outputLabel for="username" value="#{msg.ebUsuario}"/>              
-	        <eb:inputText id="username" value="#{usuario.username}" required="true"/>                
-	        
-	        <p:outputLabel for="nombres" value="#{msg.ebNombres}"/>
-	        <eb:inputText id="nombres" value="#{usuario.empresaPersona.persona.nombres}" required="true"/>
-	        
-	        <p:outputLabel for="apellidos" value="#{msg.ebApellidos}"/>                       
-	        <eb:inputText id="apellidos" value="#{usuario.empresaPersona.persona.apellidos}" />                
-	        
-	        <p:outputLabel for="email" value="#{msg.ebEmail}"/>
-	        <eb:inputText id="email" value="#{usuario.empresaPersona.persona.mail}" required="true" maxlength="100"/>
-					                
-	    </h:panelGrid>   
+	<ui:define name="header">
+		<ui:param name="persona" value="#{bean.activeEntity}" />
 
-    </ui:define>
-    	
-    <ui:define name="detail">
-       <ui:include src="usuarioRolList.xhtml"/>
-    </ui:define>
+		<h:panelGrid id="pnlPersona" columns="4">
+
+			<p:outputLabel for="id" value="#{msg.id}" />
+			<eb:outputText id="id" value="#{persona.id}" />
+
+			<p:graphicImage id="image" value="#{imageBean.image}"/>
+
+			<p:outputLabel for="estado" value="#{msg.state}" />
+			<eb:outputText id="estado" value="#{persona.estado.label}" />
+
+			<p:outputLabel for="creado" value="#{msg.created}" />
+			<eb:outputDate id="creado" value="#{persona.creado}" />
+
+			<p:outputLabel for="modificado" value="#{msg.modified}" />
+			<eb:outputDate id="modificado" value="#{persona.modificado}" />
+
+			<p:outputLabel for="nombres" value="#{msg.firstName}" />
+			<eb:inputText id="nombres" value="#{persona.nombres}" required="true"
+				maxlength="50" />
+
+			<p:outputLabel for="apellidos" value="#{msg.lastName}" />
+			<eb:inputText id="apellidos" value="#{persona.apellidos}"
+				required="true" maxlength="50" />
+
+			<p:outputLabel for="nacimiento" value="#{msg.birthday}" />
+			<eb:calendar id="nacimiento" value="#{persona.nacimiento}"/>
+
+			<p:outputLabel for="identificacion" value="#{msg.identification}" />
+			<eb:inputText id="identificacion" value="#{persona.identificacion}"
+				required="true" maxlength="20" />
+				
+			<p:outputLabel for="usuario" value="#{msg.user}" />
+			<p:selectBooleanCheckbox id="usuario" value="#{persona.usuario}" required="true"/>  
+			
+			<p:outputLabel for="cliente" value="#{msg.client}" />
+			<p:selectBooleanCheckbox id="cliente" value="#{persona.cliente}" required="true"/>
+			
+			<p:outputLabel for="proveedor" value="#{msg.provider}" />
+			<p:selectBooleanCheckbox id="proveedor" value="#{persona.proveedor}" required="true"/>
+			
+			<p:outputLabel for="empleado" value="#{msg.employee}" />
+			<p:selectBooleanCheckbox id="empleado" value="#{persona.empleado}" required="true"/>
+
+			<p:outputLabel for="identificacion" value="#{msg.identificationType}" />
+			<p:selectOneMenu id="naturaleza"
+				value="#{persona.tipoIdentificacion}" efect="fade" required="true">
+				<f:selectItem itemLabel="#{msg.selectOne}" itemValue="" />
+				<f:selectItems value="#{bean.tipoIdentificacionList}" var="opc"
+					itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="direccion" value="#{msg.address}" />
+			<eb:inputText id="direccion" value="#{persona.direccion}" maxlength="100" />
+		
+			<p:outputLabel for="facebook" value="#{msg.facebook}" />
+			<eb:inputText id="facebook" value="#{persona.facebook}" maxlength="30" />
+			
+			<p:outputLabel for="mail" value="#{msg.mail}" />
+			<eb:inputText id="mail" value="#{persona.mail}" maxlength="100" />
+			
+			<h:form enctype="multipart/form-data">
+				<p:fileUpload fileUploadListener="#{bean.handleFileUpload}" mode="advanced"
+						update="image" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+			</h:form>
+			
+		</h:panelGrid>	
+
+	</ui:define>
+
+	<ui:define name="detail">
+		<ui:remove>
+			<ui:include src="usuarioRolList.xhtml" />
+		</ui:remove>
+	</ui:define>
 
 </ui:composition>

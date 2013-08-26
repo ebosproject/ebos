@@ -20,21 +20,21 @@
 	
 		<eb:panelGrid id="pnlBundle" columnClasses="width100">
 		    <eb:panelGrid id="pnlOne" columns="4" columnClasses="width10,width90,width10,width90">        
-		       <p:outputLabel for="id" value="#{msg.ebId}"/>         
+		       <p:outputLabel for="id" value="#{msg.id}"/>         
 		       <eb:outputText id="id" value="#{bundle.id}"/>
 		       
-		       <p:outputLabel for="localidad" value="#{msg.ebLocale}"/>
+		       <p:outputLabel for="localidad" value="#{msg.locale}"/>
 		       <p:selectOneMenu id="localidad" value="#{bundle.localidad}" efect="fade" required="true">
-		            <f:selectItem itemLabel ="#{msg.ebSelectOne}" itemValue="" />
+		            <f:selectItem itemLabel ="#{msg.selectOne}" itemValue="" />
 		            <f:selectItems value="#{bean.localidadList}" var="opc"
 		                itemLabel="#{msg[opc.label]}" itemValue="#{opc}"/>
 	           </p:selectOneMenu>
 		    </eb:panelGrid>
 		    <eb:panelGrid id="pnlTwo" columns="2" columnClasses="width10,width90">
-		       <p:outputLabel for="codigo" value="#{msg.ebCodigo}"/>
+		       <p:outputLabel for="codigo" value="#{msg.code}"/>
 		       <eb:inputText id="codigo" value="#{bundle.codigo}" required="true" maxlength="50"/>
 		       
-		       <p:outputLabel for="valor" value="#{msg.ebValor}"/>
+		       <p:outputLabel for="valor" value="#{msg.value}"/>
 		       <eb:inputText id="valor" value="#{bundle.valor}" required="true" maxlength="500"/>
 		    </eb:panelGrid>   
 		</eb:panelGrid>

@@ -55,7 +55,7 @@ public class SessionBean implements Serializable{
     protected SecurityS securityS;
 
     @Getter @Setter
-    @ManagedProperty(value = "#{adminMB}")
+    @ManagedProperty(value = AppBean.EL_BEAN_NAME)
     protected AppBean admin;
     
 	private String tema = null;

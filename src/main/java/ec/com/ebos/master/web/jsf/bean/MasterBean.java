@@ -15,7 +15,7 @@ import ec.com.ebos.root.web.jsf.bean.RootBean;
 public abstract class MasterBean<T extends Entidad<T>> extends RootBean<T> {
 
 	private static final long serialVersionUID = -5560084142240463124L;
-
+	
 	@Getter @Setter
     @ManagedProperty(value = "#{masterS}")
     protected MasterS masterS;

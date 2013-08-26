@@ -73,7 +73,8 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 	
 	public List<Persona> findPersonaList(Persona persona, Pagination pagination){
 		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
-
+		criteria.addAliasedJoins(Persona_.creador);
+		
 		criteria.addEqualsIfNotZero(Persona_.id, persona.getId());
 		if(criteria.isChanged()){
 			return findByCriteria(criteria, pagination);

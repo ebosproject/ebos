@@ -43,6 +43,7 @@ public class DashboardBean implements Serializable {
 		
 		column1.addWidget("grupos");
 		column1.addWidget("monaguillos");
+		column1.addWidget("personas");
 		
 		//column3.addWidget("other");
 
