@@ -10,79 +10,103 @@
 	<ui:define name="params">
 		<ui:param name="optionsMaster"
 			value="'north':{'closable':false,'resizable':false,'size':50},
-				'center':{'resizeWhileDragging':true,'closable':false,
+				'center':{'resizeWhileDragging':true,'closable':false,'size':1000,
 					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}" />
 	</ui:define>
 
 	<ui:define name="header">
 		<ui:param name="persona" value="#{bean.activeEntity}" />
 
-		<h:panelGrid id="pnlPersona" columns="4">
+		<eb:panelGrid id="pnlPersona" columns="3">
 
-			<p:outputLabel for="id" value="#{msg.id}" />
-			<eb:outputText id="id" value="#{persona.id}" />
-
-			<p:graphicImage id="image" value="#{imageBean.image}"/>
-
-			<p:outputLabel for="estado" value="#{msg.state}" />
-			<eb:outputText id="estado" value="#{persona.estado.label}" />
-
-			<p:outputLabel for="creado" value="#{msg.created}" />
-			<eb:outputDate id="creado" value="#{persona.creado}" />
-
-			<p:outputLabel for="modificado" value="#{msg.modified}" />
-			<eb:outputDate id="modificado" value="#{persona.modificado}" />
-
-			<p:outputLabel for="nombres" value="#{msg.firstName}" />
-			<eb:inputText id="nombres" value="#{persona.nombres}" required="true"
-				maxlength="50" />
-
-			<p:outputLabel for="apellidos" value="#{msg.lastName}" />
-			<eb:inputText id="apellidos" value="#{persona.apellidos}"
-				required="true" maxlength="50" />
-
-			<p:outputLabel for="nacimiento" value="#{msg.birthday}" />
-			<eb:calendar id="nacimiento" value="#{persona.nacimiento}"/>
-
-			<p:outputLabel for="identificacion" value="#{msg.identification}" />
-			<eb:inputText id="identificacion" value="#{persona.identificacion}"
-				required="true" maxlength="20" />
+			<eb:panelGrid id="pnlLeft" columns="2">
+				<p:outputLabel for="id" value="#{msg.id}" />
+				<eb:outputText id="id" value="#{persona.id}" />
 				
-			<p:outputLabel for="usuario" value="#{msg.user}" />
-			<p:selectBooleanCheckbox id="usuario" value="#{persona.usuario}" required="true"/>  
+				<p:outputLabel for="creado" value="#{msg.created}" />
+				<eb:outputDate id="creado" value="#{persona.creado}" />
+				
+				<p:outputLabel for="tipoPersona" value="#{msg.personType}" />
+				<p:selectOneMenu id="tipoPersona"
+					value="#{persona.tipoPersona}" efect="fade" required="true">
+					<f:selectItem itemLabel="#{msg.selectOne}" itemValue="" />
+					<f:selectItems value="#{bean.tipoPersonaList}" var="opc"
+						itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="tipoIdentificacion" value="#{msg.identificationType}" />
+				<p:selectOneMenu id="tipoIdentificacion"
+					value="#{persona.tipoIdentificacion}" efect="fade" required="true">
+					<f:selectItem itemLabel="#{msg.selectOne}" itemValue="" />
+					<f:selectItems value="#{bean.tipoIdentificacionList}" var="opc"
+						itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="nombres" value="#{msg.firstName}" />
+				<eb:inputText id="nombres" value="#{persona.nombres}" required="true"
+					maxlength="50" />
+					
+				<p:outputLabel for="nacimiento" value="#{msg.birthday}" />
+				<eb:calendar id="nacimiento" value="#{persona.nacimiento}"/>
+				
+				<p:outputLabel for="mail" value="#{msg.mail}" />
+				<eb:inputText id="mail" value="#{persona.mail}" maxlength="100" />
+				
+				<p:outputLabel for="usuario" value="#{msg.user}" />
+				<p:selectBooleanCheckbox id="usuario" value="#{persona.usuario}" disabled="true"/>
+				
+				<p:outputLabel for="empleado" value="#{msg.employee}" />
+				<p:selectBooleanCheckbox id="empleado" value="#{persona.empleado}" disabled="true"/>
+					
+			</eb:panelGrid>
 			
-			<p:outputLabel for="cliente" value="#{msg.client}" />
-			<p:selectBooleanCheckbox id="cliente" value="#{persona.cliente}" required="true"/>
+			<eb:panelGrid id="pnlCenter" columns="2">
+				<p:outputLabel for="estado" value="#{msg.state}" />
+				<eb:outputText id="estado" value="#{msg[persona.estado.label]}" />
+				
+				<p:outputLabel for="modificado" value="#{msg.modified}" />
+				<eb:outputDate id="modificado" value="#{persona.modificado}" />
+				
+				<p:outputLabel for="genero" value="#{msg.gender}" />
+				<p:selectOneMenu id="genero"
+					value="#{persona.genero}" efect="fade" required="true">
+					<f:selectItem itemLabel="#{msg.selectOne}" itemValue="" />
+					<f:selectItems value="#{bean.generoList}" var="opc"
+						itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="identificacion" value="#{msg.identification}" />
+				<eb:inputText id="identificacion" value="#{persona.identificacion}"
+					required="true" maxlength="20" />
+					
+				<p:outputLabel for="apellidos" value="#{msg.lastName}" />
+				<eb:inputText id="apellidos" value="#{persona.apellidos}"
+					required="true" maxlength="50" />
+				
+				<p:outputLabel for="direccion" value="#{msg.address}" />
+				<eb:inputText id="direccion" value="#{persona.direccion}" maxlength="100" />		
+				
+				<p:outputLabel for="facebook" value="#{msg.facebook}" />
+				<eb:inputText id="facebook" value="#{persona.facebook}" maxlength="30" />
+				
+				<p:outputLabel for="cliente" value="#{msg.client}" />
+				<p:selectBooleanCheckbox id="cliente" value="#{persona.cliente}" disabled="true"/>
+				
+				<p:outputLabel for="proveedor" value="#{msg.provider}" />
+				<p:selectBooleanCheckbox id="proveedor" value="#{persona.proveedor}" disabled="true"/>
+			</eb:panelGrid>
 			
-			<p:outputLabel for="proveedor" value="#{msg.provider}" />
-			<p:selectBooleanCheckbox id="proveedor" value="#{persona.proveedor}" required="true"/>
-			
-			<p:outputLabel for="empleado" value="#{msg.employee}" />
-			<p:selectBooleanCheckbox id="empleado" value="#{persona.empleado}" required="true"/>
-
-			<p:outputLabel for="identificacion" value="#{msg.identificationType}" />
-			<p:selectOneMenu id="naturaleza"
-				value="#{persona.tipoIdentificacion}" efect="fade" required="true">
-				<f:selectItem itemLabel="#{msg.selectOne}" itemValue="" />
-				<f:selectItems value="#{bean.tipoIdentificacionList}" var="opc"
-					itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
-			</p:selectOneMenu>
-			
-			<p:outputLabel for="direccion" value="#{msg.address}" />
-			<eb:inputText id="direccion" value="#{persona.direccion}" maxlength="100" />
-		
-			<p:outputLabel for="facebook" value="#{msg.facebook}" />
-			<eb:inputText id="facebook" value="#{persona.facebook}" maxlength="30" />
-			
-			<p:outputLabel for="mail" value="#{msg.mail}" />
-			<eb:inputText id="mail" value="#{persona.mail}" maxlength="100" />
-			
-			<h:form enctype="multipart/form-data">
-				<p:fileUpload fileUploadListener="#{bean.handleFileUpload}" mode="advanced"
-						update="image" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-			</h:form>
-			
-		</h:panelGrid>	
+			<eb:panelGrid id="pnlRight">
+				<h:form id="frmImage" enctype="multipart/form-data">
+					<p:graphicImage id="image" value="#{imageBean.image}" rendered="#{imageBean.image ne null}"
+						height="128" width="128"/>
+					<p:graphicImage id="imageDefault" name="#{persona.genero.femenino?'female.png':'male.png'}" library="images" rendered="#{imageBean.image eq null}"/>
+					<p:fileUpload id="fupImage" label="#{msg.chooseImage}" fileUploadListener="#{bean.handleFileUpload}" mode="advanced"
+							update="image" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(jpe?g|png)$/"/>
+					<p:tooltip for="fupImage" value="#{msg['persona.tip.image']}" showEffect="fade" hideEffect="fade" />
+				</h:form>
+			</eb:panelGrid>
+		</eb:panelGrid>	
 
 	</ui:define>
 

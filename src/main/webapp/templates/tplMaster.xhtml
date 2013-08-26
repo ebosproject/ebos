@@ -17,25 +17,25 @@
 						'childOptions':{'south':{'minSize':60,'size':'70%'},'center':{'minHeight':60}}}"/>
 	</ui:insert>
 	
-	<pe:layout id="lytMaster" fullPage="false" style="min-height:350px; min-width:500px; height:100%; width:100%;" 
+	<pe:layout id="lytMaster" fullPage="false" style="width:700px; height:220px; min-height:450px; min-width:700px;" 
 		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsMaster}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTM">            
 	            <p:toolbar id="tbrTM" style="overflow:hidden !important;">
 	                <p:toolbarGroup align="left">
-	                    <p:commandButton id="btnNuevo" rendered="#{bean.habilitaCrear}" update=":#{frameId}:frmH, :#{frameId}:pnlHD" 
-                 			process="@this" partialSubmit="true" value="#{msg.ebNuevo}" 
+	                    <p:commandButton id="btnNuevo" value="#{msg['new']}" rendered="#{bean.habilitaCrear}" update=":#{frameId}:frmH, :#{frameId}:pnlHD, frmTM" 
+                 			process="@this" partialSubmit="true" 
                  			actionListener="#{bean._crear}" icon="ui-icon-document" />
-	                    <p:commandButton id="btnGuardar" value="#{msg.ebGuardar}" action="#{bean._guardar}" 
+	                    <p:commandButton id="btnGuardar" value="#{msg.save}" action="#{bean._guardar}" 
 	                    	rendered="#{bean.habilitaEditar}" partialSubmit="true"
 	                    	icon="ui-icon-disk" update=":#{frameId}:frmH, :#{frameId}:pnlHD" process="@this,:#{frameId}:frmH"/> 
-	                    <p:commandButton id="btnEliminar" value="#{msg.ebEliminar}" rendered="#{bean.habilitaEliminar}" process="@this"
+	                    <p:commandButton id="btnEliminar" value="#{msg.delete}" rendered="#{bean.habilitaEliminar}" process="@this"
 	                   		actionListener="#{bean._eliminar}" icon="ui-icon-trash" partialSubmit="true"
 	                   		onsuccess="#{wgtE}.hide();#{wgtBUI}.hide()"/>
 	                </p:toolbarGroup>
 	                <p:toolbarGroup align="right">
 	                    <p:commandButton id="btnActualizar" action="#{bean._actualizar}" icon="ui-icon-refresh" update=":#{frameId}:frmH, :#{frameId}:pnlHD" 
-	                    	title="#{msg.ebActualizar}" rendered="#{bean.habilitaActualizar}" partialSubmit="true"/>
+	                    	title="#{msg.update}" rendered="#{bean.habilitaActualizar}" partialSubmit="true"/>
 	                </p:toolbarGroup>
 	            </p:toolbar>                     
 	        </h:form>	

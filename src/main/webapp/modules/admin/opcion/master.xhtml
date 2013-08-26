@@ -16,12 +16,12 @@
     <ui:define name="header">
         <ui:param name="opcion" value="#{bean.activeEntity}" />    
 	 
-	    <h:panelGrid id="pnlOpcion" columns="4">        
+	    <eb:panelGrid id="pnlOpcion" columns="4">        
                 
            <p:outputLabel for="id" value="#{msg.id}"/>
 	       <eb:outputText id="id" value="#{opcion.id}"/>
 	       <p:outputLabel for="estado" value="#{msg.status}"/>                
-	       <eb:outputText id="estado" value="#{opcion.estado.label}"/>                
+	       <eb:outputText id="estado" value="#{msg[opcion.estado.label]}"/>                
 	        
 	       <p:outputLabel for="creado" value="#{msg.created}"/>
 	       <eb:outputDate id="creado" value="#{opcion.creado}" title="#{msg.by}: {opcion.creador}"/>               
@@ -46,8 +46,15 @@
 	            <f:selectItems value="#{opcionBean.opcionList}" var="opc"
 	                itemLabel="#{msg[opc.etiqueta]}" itemValue="#{opc}"/>
 	       </p:selectOneMenu>
-	                
-	    </h:panelGrid>   
+	       
+	       <p:outputLabel for="width" value="#{msg.width}"/>
+	       <pe:inputNumber id="width" value="#{opcion.width}" symbol=" px" 
+	       		minValue="0" maxValue="1000" symbolPosition="s" decimalSeparator="," thousandSeparator="."/>
+	       
+	       <p:outputLabel for="height" value="#{msg.height}"/>
+	       <pe:inputNumber id="height" value="#{opcion.height}" symbol=" px" 
+	       		minValue="0" maxValue="1000" symbolPosition="s" decimalSeparator="," thousandSeparator="."/>
+	    </eb:panelGrid>   
 
     </ui:define>
     	

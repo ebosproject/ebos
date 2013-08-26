@@ -92,11 +92,14 @@ public class PersonaBean extends MasterBean<Persona> {
 	@Override
 	public void crear() {
 		activeEntity = masterS.createPersona();
+		image = null;
 	}
 
 	@Override
 	public void editar() {
-		image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
+		if(activeEntity.getImagen() != null){
+			image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
+		}
 	}
 
 	@Override
@@ -142,6 +145,9 @@ public class PersonaBean extends MasterBean<Persona> {
 	@Getter
 	private List<Persona.TipoPersona> tipoPersonaList = new ArrayList<Persona.TipoPersona>(
 			Persona.TipoPersona.LIST);
+	
+	@Getter
+	private List<Persona.Genero> generoList = new ArrayList<Persona.Genero>(Persona.Genero.LIST);
 
 	//////////////////////// VALIDATORS ////////////////////////
 	public void validateFile(FacesContext ctx, UIComponent comp, Object value) {

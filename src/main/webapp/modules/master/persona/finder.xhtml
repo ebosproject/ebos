@@ -3,8 +3,8 @@
             xmlns:p="http://primefaces.org/ui"
             xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
             xmlns:f="http://java.sun.com/jsf/core"
-            template="/templates/tplFinder.xhtml"
-                xmlns:h="http://java.sun.com/jsf/html">
+            xmlns:h="http://java.sun.com/jsf/html"
+            template="/templates/tplFinder.xhtml">
 
    	<ui:param name="bean" value="#{personaBean}" />
     <ui:param name="optionName" value="#{msg.persona}" />
@@ -12,7 +12,19 @@
     <ui:define name="filters">
         <eb:panelGrid id="pnlFiltros" columns="2">          
         	<p:outputLabel for="id" value="#{msg.id}"/>     
-	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number"/>
+	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number" size="10" maxlength="10"/>
+	        
+	        <p:outputLabel for="usuario" value="#{msg.user}" />
+			<p:selectBooleanCheckbox id="usuario" value="#{bean.entitySearch.usuario}"/>  
+			
+			<p:outputLabel for="cliente" value="#{msg.client}" />
+			<p:selectBooleanCheckbox id="cliente" value="#{bean.entitySearch.cliente}"/>
+			
+			<p:outputLabel for="proveedor" value="#{msg.provider}" />
+			<p:selectBooleanCheckbox id="proveedor" value="#{bean.entitySearch.proveedor}"/>
+			
+			<p:outputLabel for="empleado" value="#{msg.employee}" />
+			<p:selectBooleanCheckbox id="empleado" value="#{bean.entitySearch.empleado}"/>
 	    </eb:panelGrid>
     </ui:define>
 
@@ -22,8 +34,20 @@
 	    </f:facet>               
 	    
 	    <p:column id="estado" headerText="#{msg.state}">
-	        <eb:outputText value="#{reg.estado.label}"/>
+	        <eb:outputText value="#{msg[reg.estado.label]}"/>
 	    </p:column>
+	    
+	    <p:column id="fullName" headerText="#{msg.fullName}">
+			<eb:outputText value="#{reg.nombres} #{reg.apellidos}"/>
+		</p:column>
+
+		<p:column id="mail" headerText="#{msg.mail}">
+			<eb:outputText value="#{reg.mail}"/>
+		</p:column>
+		
+		<p:column id="facebook" headerText="#{msg.facebook}">
+			<eb:outputText value="#{reg.facebook}"/>
+		</p:column>
     </ui:define>
 	    
     <ui:define name="master">

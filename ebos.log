@@ -1358,3 +1358,1227 @@
 2013-08-23 15:27:56,268 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] schema update complete
 2013-08-23 15:27:56,269 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos
 2013-08-23 15:27:56,436 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos
+2013-08-26 16:35:17,919 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-08-26 16:35:17,986 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-08-26 16:35:17,990 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-08-26 16:35:17,994 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-08-26 16:35:17,998 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-08-26 16:35:18,049 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-08-26 16:35:18,094 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/media/DATA/work/workspace/ec.com.ebos/src/main/resources/hibernate.cfg.xml
+2013-08-26 16:35:18,229 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-08-26 16:35:18,299 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-08-26 16:35:18,327 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:35:18,380 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-08-26 16:35:18,381 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-08-26 16:35:18,421 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-08-26 16:35:18,422 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-08-26 16:35:18,466 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-08-26 16:35:18,467 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-08-26 16:35:18,514 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-08-26 16:35:18,515 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-08-26 16:35:18,530 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-08-26 16:35:18,531 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-08-26 16:35:18,540 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-08-26 16:35:18,541 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-08-26 16:35:18,547 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-08-26 16:35:18,548 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-08-26 16:35:18,559 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-08-26 16:35:18,560 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-08-26 16:35:18,573 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-08-26 16:35:18,574 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-08-26 16:35:18,577 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-08-26 16:35:18,578 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-08-26 16:35:18,591 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-08-26 16:35:18,591 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-08-26 16:35:18,605 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-08-26 16:35:18,605 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-08-26 16:35:18,610 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-08-26 16:35:18,611 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-08-26 16:35:18,636 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-08-26 16:35:18,639 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-08-26 16:35:18,675 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-08-26 16:35:18,676 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-08-26 16:35:18,687 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-08-26 16:35:18,688 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-08-26 16:35:18,700 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-08-26 16:35:18,701 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-08-26 16:35:18,711 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-08-26 16:35:18,711 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-08-26 16:35:18,724 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-08-26 16:35:18,725 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-08-26 16:35:18,733 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-08-26 16:35:18,733 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-08-26 16:35:18,749 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-08-26 16:35:18,750 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-08-26 16:35:18,762 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-08-26 16:35:18,763 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-08-26 16:35:18,773 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-08-26 16:35:18,774 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-08-26 16:35:18,788 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-08-26 16:35:18,788 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-08-26 16:35:18,811 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-08-26 16:35:18,812 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-08-26 16:35:18,821 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-08-26 16:35:18,821 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-08-26 16:35:18,826 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-08-26 16:35:18,826 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-08-26 16:35:18,865 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-08-26 16:35:18,866 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-08-26 16:35:18,875 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-08-26 16:35:18,876 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-08-26 16:35:18,884 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-08-26 16:35:18,885 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-08-26 16:35:18,889 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-08-26 16:35:18,890 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-08-26 16:35:18,899 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-08-26 16:35:18,900 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-08-26 16:35:18,903 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-08-26 16:35:18,903 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-08-26 16:35:18,909 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-08-26 16:35:18,909 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-08-26 16:35:18,915 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-08-26 16:35:18,916 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-08-26 16:35:18,921 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-08-26 16:35:18,922 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-08-26 16:35:18,938 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-08-26 16:35:18,938 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-08-26 16:35:18,945 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-08-26 16:35:18,946 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-08-26 16:35:18,953 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-08-26 16:35:18,954 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-08-26 16:35:18,959 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-08-26 16:35:18,959 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-08-26 16:35:18,972 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.mse.model.Grupo
+2013-08-26 16:35:18,973 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.mse.model.Grupo on table NOMBRE
+2013-08-26 16:35:18,978 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.mse.model.Monaguillo
+2013-08-26 16:35:18,978 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.mse.model.Monaguillo on table MONAGILLO
+2013-08-26 16:35:18,985 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-08-26 16:35:18,986 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-08-26 16:35:18,994 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-08-26 16:35:18,994 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-08-26 16:35:19,009 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-08-26 16:35:19,010 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-08-26 16:35:19,021 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-08-26 16:35:19,022 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-08-26 16:35:19,034 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-08-26 16:35:19,034 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-08-26 16:35:19,054 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-08-26 16:35:19,055 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-08-26 16:35:19,059 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-08-26 16:35:19,060 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-08-26 16:35:19,078 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Opcion
+2013-08-26 16:35:19,079 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Opcion on table OPCION
+2013-08-26 16:35:19,097 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-08-26 16:35:19,097 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-08-26 16:35:19,110 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Bundle
+2013-08-26 16:35:19,112 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Bundle on table BUNDLE
+2013-08-26 16:35:19,117 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Objeto
+2013-08-26 16:35:19,118 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Objeto on table OBJETO
+2013-08-26 16:35:19,222 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-08-26 16:35:19,224 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:35:19,225 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-08-26 16:35:19,226 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoRetencionList -> SALDO_RETENCION
+2013-08-26 16:35:19,227 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:35:19,228 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-08-26 16:35:19,228 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-08-26 16:35:19,229 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-08-26 16:35:19,230 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-08-26 16:35:19,231 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-08-26 16:35:19,232 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:35:19,233 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:35:19,233 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-08-26 16:35:19,234 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:35:19,235 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-08-26 16:35:19,236 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList -> PERIODO
+2013-08-26 16:35:19,236 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList2 -> PERIODO
+2013-08-26 16:35:19,237 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCuenta.cuentaContableList -> CUENTA_CONTABLE
+2013-08-26 16:35:19,238 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoAsiento.asientoList -> ASIENTO
+2013-08-26 16:35:19,239 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:35:19,239 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroCostoList -> CENTRO_COSTO
+2013-08-26 16:35:19,240 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-08-26 16:35:19,241 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:35:19,242 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:35:19,242 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:35:19,243 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:35:19,244 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-08-26 16:35:19,245 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.ejercicioList -> EJERCICIO
+2013-08-26 16:35:19,246 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:35:19,246 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-08-26 16:35:19,249 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> ACTIVO_CUSTODIO
+2013-08-26 16:35:19,250 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> PROPIEDAD
+2013-08-26 16:35:19,251 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> PROPIEDAD_VALOR
+2013-08-26 16:35:19,251 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.divisionGeograficaList -> DIVISION_GEOGRAFICA
+2013-08-26 16:35:19,252 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.periodoFiscalPaisList -> PERIODO_FISCAL_PAIS
+2013-08-26 16:35:19,253 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> ACTIVO_CUSTODIO
+2013-08-26 16:35:19,253 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> USUARIO
+2013-08-26 16:35:19,254 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.activoList -> ACTIVO
+2013-08-26 16:35:19,255 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-08-26 16:35:19,255 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:35:19,256 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:35:19,257 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.ejercicioList -> EJERCICIO
+2013-08-26 16:35:19,257 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.empresaPersonaList -> EMPRESA_PERSONA
+2013-08-26 16:35:19,258 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.sucursalList -> SUCURSAL
+2013-08-26 16:35:19,259 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> ACTIVO
+2013-08-26 16:35:19,259 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> CATEGORIA
+2013-08-26 16:35:19,260 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> ORGANIZACION
+2013-08-26 16:35:19,260 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> EMPRESA_PERSONA
+2013-08-26 16:35:19,261 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.monagilloList -> MONAGILLO
+2013-08-26 16:35:19,262 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.TipoDocumento.asientoList -> ASIENTO
+2013-08-26 16:35:19,262 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-08-26 16:35:19,263 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.mse.model.Grupo.monagilloList -> MONAGILLO
+2013-08-26 16:35:19,264 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.mse.model.Monaguillo.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:35:19,264 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Usuario.usuarioRolList -> USUARIO_ROL
+2013-08-26 16:35:19,265 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.rolOpcionList -> ROL_OPCION
+2013-08-26 16:35:19,265 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.usuarioRolList -> USUARIO_ROL
+2013-08-26 16:35:19,266 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-08-26 16:35:19,267 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Opcion.opcionList -> OPCION
+2013-08-26 16:35:19,267 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Opcion.rolOpcionList -> ROL_OPCION
+2013-08-26 16:35:19,268 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:35:19,269 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-08-26 16:35:19,269 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:35:19,270 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Objeto.opcionList -> OPCION
+2013-08-26 16:35:19,294 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-08-26 16:35:19,445 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-08-26 16:35:19,451 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] Running hbm2ddl schema update
+2013-08-26 16:35:19,451 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] fetching database metadata
+2013-08-26 16:35:19,453 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Using Hibernate built-in connection pool (not for production use!)
+2013-08-26 16:35:19,454 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Hibernate connection pool size: 20
+2013-08-26 16:35:19,454 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] autocommit mode: false
+2013-08-26 16:35:19,492 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/ebos
+2013-08-26 16:35:19,492 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] connection properties: {user=ebos, password=ebos}
+2013-08-26 16:35:19,643 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] updating schema
+2013-08-26 16:35:20,293 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.bundle
+2013-08-26 16:35:20,294 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, localidad, valor]
+2013-08-26 16:35:20,294 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:20,294 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [bundle_codigo_localidad_key, bundle_pkey]
+2013-08-26 16:35:20,384 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.configuracion
+2013-08-26 16:35:20,385 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [usr_gateway, correo_mail, is_autenticar_mail, app_id_gateway, modificacion, is_httpgateway, baudio_sms, is_sms, codcentralsms, pwd_gateway, url_gateway, com_sms, password_mail, id, servidor_mail, port_smtp, id_modificador, id_creador, usuario_mail, is_tls_mail, creacion, is_email]
+2013-08-26 16:35:20,385 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk2ce9d2876e7a9d23, fk2ce9d287d5aca0c6]
+2013-08-26 16:35:20,385 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [configuracion_pkey]
+2013-08-26 16:35:20,415 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.documento
+2013-08-26 16:35:20,415 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, enviado, contabilizado, autorizado, emitido, vencimiento, procesado]
+2013-08-26 16:35:20,416 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:20,416 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [documento_pkey]
+2013-08-26 16:35:20,441 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.objeto
+2013-08-26 16:35:20,442 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_modificador, modificacion, tipo, descripcion, id_creador, creacion]
+2013-08-26 16:35:20,442 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk8a9399496e7a9d23, fk8a939949d5aca0c6]
+2013-08-26 16:35:20,442 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [objeto_codigo_key, objeto_pkey]
+2013-08-26 16:35:20,472 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.opcion
+2013-08-26 16:35:20,472 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [modificacion, descripcion, id, nombre, estado, id_modificador, icono, id_objeto, target, id_padre, id_creador, creacion, etiqueta]
+2013-08-26 16:35:20,472 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk8b55c226d5aca0c6, fk8b55c2266e7a9d23, fk8b55c22680b2960a, fk8b55c226a6bbe3dc]
+2013-08-26 16:35:20,472 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [opcion_nombre_key, opcion_pkey]
+2013-08-26 16:35:20,496 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.parametros
+2013-08-26 16:35:20,496 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, grupo, estado, id_modificador, valor, modificacion, id_creador, creacion, clave]
+2013-08-26 16:35:20,496 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk3841de5a6e7a9d23, fk3841de5ad5aca0c6]
+2013-08-26 16:35:20,496 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [parametros_pkey, parametros_clave_key]
+2013-08-26 16:35:20,515 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.tipo_retencion
+2013-08-26 16:35:20,515 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id]
+2013-08-26 16:35:20,515 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:20,516 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_retencion_pkey]
+2013-08-26 16:35:20,540 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.evento
+2013-08-26 16:35:20,540 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [integrantes, id, observacion, estado, fechafin, id_modificador, tipoevento, modificacion, descripcion, id_creador, creacion, fechainicio]
+2013-08-26 16:35:20,541 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7a9ad515d5aca0c6, fk7a9ad5156e7a9d23]
+2013-08-26 16:35:20,541 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [evento_pkey]
+2013-08-26 16:35:20,564 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.evento_log
+2013-08-26 16:35:20,565 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, descripcion, id_creador, creacion, id_evento]
+2013-08-26 16:35:20,565 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk587c98fa6e371242, fk587c98fa6e7a9d23, fk587c98fad5aca0c6]
+2013-08-26 16:35:20,565 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [evento_log_pkey]
+2013-08-26 16:35:20,588 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.inspeccion
+2013-08-26 16:35:20,588 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:35:20,588 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk854d3f25d5aca0c6, fk854d3f256e7a9d23]
+2013-08-26 16:35:20,588 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [inspeccion_pkey]
+2013-08-26 16:35:20,609 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.inspeccion_detalle
+2013-08-26 16:35:20,609 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:35:20,610 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk41b67a3d6e7a9d23, fk41b67a3dd5aca0c6]
+2013-08-26 16:35:20,610 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [inspeccion_detalle_pkey]
+2013-08-26 16:35:20,632 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.ruta
+2013-08-26 16:35:20,632 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:35:20,632 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk268ff0d5aca0c6, fk268ff06e7a9d23]
+2013-08-26 16:35:20,632 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ruta_pkey]
+2013-08-26 16:35:20,664 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.ruta_log
+2013-08-26 16:35:20,665 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:35:20,665 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk69a96e556e7a9d23, fk69a96e55d5aca0c6]
+2013-08-26 16:35:20,665 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ruta_log_pkey]
+2013-08-26 16:35:20,687 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.turno
+2013-08-26 16:35:20,687 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:35:20,687 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk4c79772d5aca0c6, fk4c797726e7a9d23]
+2013-08-26 16:35:20,688 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [turno_pkey]
+2013-08-26 16:35:20,709 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.visitante
+2013-08-26 16:35:20,710 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, id_modificador, apellidos, modificacion, id_creador, creacion, cedula]
+2013-08-26 16:35:20,710 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk162883096e7a9d23, fk16288309d5aca0c6]
+2013-08-26 16:35:20,710 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [visitante_pkey, visitante_cedula_key]
+2013-08-26 16:35:20,751 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.asiento
+2013-08-26 16:35:20,752 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, id_tipo_asiento, secuencia, id_documento, cuadrado, id_punto_venta, id_tipo_documento, descripcion, id_periodo, id_empresa, comentario]
+2013-08-26 16:35:20,752 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk3c87bb983c2e4c, fk3c87bb89f22544, fk3c87bbd1c1d70a, fk3c87bb5ce23612, fk3c87bbce7806f0, fk3c87bb92793147]
+2013-08-26 16:35:20,752 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [asiento_pkey]
+2013-08-26 16:35:20,798 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.asiento_detalle
+2013-08-26 16:35:20,799 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id_cuenta_contable, id_subcentro_costo, id_documento, modificacion, descripcion, id_centro_costo, id, valor_debe, id_modificador, id_creador, creacion, id_asiento]
+2013-08-26 16:35:20,799 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7cf6ccd3d5aca0c6, fk7cf6ccd397944aad, fk7cf6ccd3ce7806f0, fk7cf6ccd36e7a9d23, fk7cf6ccd3c1c6f9ab, fk7cf6ccd382bee27, fk7cf6ccd3726ce035, fk7cf6ccd385bd975e]
+2013-08-26 16:35:20,799 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [asiento_detalle_pkey]
+2013-08-26 16:35:20,828 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_costo
+2013-08-26 16:35:20,828 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [pide_subcentro_costo, modificacion, descripcion, id, codigo, estado, id_tipo_centro_costo, id_modificador, codigo_formato, id_padre, id_creador, creacion, nivel, terminante]
+2013-08-26 16:35:20,828 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7915b7486e7a9d23, fk7915b748f8f3a0b, fk7915b748173cd6c4, fk7915b748d5aca0c6]
+2013-08-26 16:35:20,828 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_costo_pkey, centro_costo_codigo_key]
+2013-08-26 16:35:20,849 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_costo_empresa
+2013-08-26 16:35:20,849 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_padre, id_empresa]
+2013-08-26 16:35:20,849 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk893e6272d1c1d70a, fk893e6272f8f3a0b]
+2013-08-26 16:35:20,850 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_costo_empresa_pkey]
+2013-08-26 16:35:20,873 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_subcentro
+2013-08-26 16:35:20,873 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_subcentro_costo, estado, id_tipo_centro_costo, id_centro_costo]
+2013-08-26 16:35:20,873 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk10324e2b173cd6c4, fk10324e2b97944aad, fk10324e2b726ce035]
+2013-08-26 16:35:20,873 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_subcentro_pkey]
+2013-08-26 16:35:20,900 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_centro
+2013-08-26 16:35:20,900 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_cuenta_contable, estado, id_tipo_centro_costo, id_modificador, modificacion, id_creador, creacion, id_empresa]
+2013-08-26 16:35:20,900 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka8a1d1bc6e7a9d23, fka8a1d1bcd5aca0c6, fka8a1d1bc173cd6c4, fka8a1d1bc82bee27, fka8a1d1bcd1c1d70a]
+2013-08-26 16:35:20,900 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_centro_pkey]
+2013-08-26 16:35:20,931 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_contable
+2013-08-26 16:35:20,931 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [tipo_proceso, modificacion, descripcion, pide_centro_costo, id, codigo, id_tipo_cuenta, estado, id_modificador, id_padre, codigo_formato, id_creador, creacion, nivel, naturaleza, terminante]
+2013-08-26 16:35:20,931 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk186ac1a3d153b18a, fk186ac1a3d5aca0c6, fk186ac1a36e7a9d23, fk186ac1a38fe300df]
+2013-08-26 16:35:20,931 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_contable_pkey, cuenta_contable_codigo_key]
+2013-08-26 16:35:20,951 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_contable_empresa
+2013-08-26 16:35:20,951 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_cuenta_contable, id_empresa]
+2013-08-26 16:35:20,952 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk643ce1cd82bee27, fk643ce1cdd1c1d70a]
+2013-08-26 16:35:20,952 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_contable_empresa_pkey]
+2013-08-26 16:35:20,980 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.documento_distribucion
+2013-08-26 16:35:20,980 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_subcentro_costo, estado, id_documento, id_modificador, valor, modificacion, id_creador, creacion, id_centro_costo]
+2013-08-26 16:35:20,980 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkfdb15400ce7806f0, fkfdb15400d5aca0c6, fkfdb1540097944aad, fkfdb154006e7a9d23, fkfdb15400726ce035]
+2013-08-26 16:35:20,980 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [documento_distribucion_pkey]
+2013-08-26 16:35:21,003 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.ejercicio
+2013-08-26 16:35:21,003 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, fecha_inicial, fecha_final, estado, id_cuenta_utilidad, valor, descripcion, id_empresa]
+2013-08-26 16:35:21,003 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkcf5699b1558af01b, fkcf5699b1d1c1d70a]
+2013-08-26 16:35:21,003 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ejercicio_pkey]
+2013-08-26 16:35:21,026 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.periodo
+2013-08-26 16:35:21,026 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, fecha_inicial, fecha_final, estado, id_periodo_fiscal_pais, id_ejercicio, descripcion, valor_utilidad]
+2013-08-26 16:35:21,027 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk256ceae5500e144, fk256ceaee4ef694a]
+2013-08-26 16:35:21,027 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [periodo_pkey]
+2013-08-26 16:35:21,047 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.periodo_fiscal_pais
+2013-08-26 16:35:21,048 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id_division_geografica, codigo, id, descripcion]
+2013-08-26 16:35:21,048 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk2faae4ab7e2bbfc8]
+2013-08-26 16:35:21,048 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [periodo_fiscal_pais_pkey]
+2013-08-26 16:35:21,074 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_centro_costo
+2013-08-26 16:35:21,074 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id, tiposaldo, valor_debe, estado, id_modificador, modificacion, id_periodo, id_creador, creacion, id_centro_costo, saldo_inicial]
+2013-08-26 16:35:21,074 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkbb2a1efe89f22544, fkbb2a1efe726ce035, fkbb2a1efed5aca0c6, fkbb2a1efe6e7a9d23]
+2013-08-26 16:35:21,074 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_centro_costo_pkey]
+2013-08-26 16:35:21,106 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_cuenta_centro
+2013-08-26 16:35:21,106 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id_cuenta_contable, id_subcentro_costo, modificacion, id_periodo, saldo, id_centro_costo, id, valor_debe, estado, id_modificador, id_creador, creacion, saldo_inicial]
+2013-08-26 16:35:21,106 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka91a60c6726ce035, fka91a60c697944aad, fka91a60c66e7a9d23, fka91a60c689f22544, fka91a60c6d5aca0c6, fka91a60c682bee27]
+2013-08-26 16:35:21,106 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_cuenta_centro_pkey]
+2013-08-26 16:35:21,133 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_cuenta_contable
+2013-08-26 16:35:21,134 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id, id_cuenta_contable, valor_debe, estado, id_modificador, modificacion, id_periodo, id_creador, creacion, saldo, saldo_inicial]
+2013-08-26 16:35:21,134 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkdcfbb62d82bee27, fkdcfbb62d6e7a9d23, fkdcfbb62d89f22544, fkdcfbb62dd5aca0c6]
+2013-08-26 16:35:21,134 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_cuenta_contable_pkey]
+2013-08-26 16:35:21,159 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_retencion
+2013-08-26 16:35:21,159 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, base_imponible, id_modificador, modificacion, id_periodo, id_creador, valor_retenido, creacion, id_tipo_retencion]
+2013-08-26 16:35:21,159 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk42aed8b989f22544, fk42aed8b96e837ecf, fk42aed8b9d5aca0c6, fk42aed8b96e7a9d23]
+2013-08-26 16:35:21,159 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_retencion_pkey]
+2013-08-26 16:35:21,182 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_asiento
+2013-08-26 16:35:21,182 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_modificador, distribucion, modificacion, descripcion, id_creador, formato_referencia, creacion]
+2013-08-26 16:35:21,182 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka05f05b06e7a9d23, fka05f05b0d5aca0c6]
+2013-08-26 16:35:21,183 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_asiento_pkey]
+2013-08-26 16:35:21,203 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_centro_costo
+2013-08-26 16:35:21,204 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, distribucion, descripcion]
+2013-08-26 16:35:21,204 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:21,204 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_centro_costo_pkey]
+2013-08-26 16:35:21,224 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_cuenta
+2013-08-26 16:35:21,224 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, tipo, descripcion, naturaleza]
+2013-08-26 16:35:21,224 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:21,224 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_cuenta_pkey]
+2013-08-26 16:35:21,248 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.activo
+2013-08-26 16:35:21,248 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_categoria, estado, id_modificador, modificacion, descripcion, id_creador, creacion, id_empresa]
+2013-08-26 16:35:21,248 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk72c27310d5aca0c6, fk72c27310d1c1d70a, fk72c273103e234921, fk72c273106e7a9d23]
+2013-08-26 16:35:21,249 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [activo_pkey]
+2013-08-26 16:35:21,274 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.activo_custodio
+2013-08-26 16:35:21,274 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, id_creador, creacion, id_activo, id_empresapersona]
+2013-08-26 16:35:21,274 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk22127edd81ba6945, fk22127eddd5aca0c6, fk22127edd6e7a9d23, fk22127edd16c4340b]
+2013-08-26 16:35:21,274 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [activo_custodio_pkey]
+2013-08-26 16:35:21,294 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.categoria
+2013-08-26 16:35:21,294 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_padre, descripcion]
+2013-08-26 16:35:21,294 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk36cf113d6199bf4]
+2013-08-26 16:35:21,294 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [categoria_pkey, categoria_codigo_key]
+2013-08-26 16:35:21,317 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.division_geografica
+2013-08-26 16:35:21,317 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id_division_geografica, codigo, id, descripcion, nivel, terminante]
+2013-08-26 16:35:21,317 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkd91dd0987e2bbfc8]
+2013-08-26 16:35:21,317 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [division_geografica_pkey]
+2013-08-26 16:35:21,350 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.empresa_persona
+2013-08-26 16:35:21,350 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, id_persona, id_creador, creacion, id_empresa]
+2013-08-26 16:35:21,351 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb17155b6d1c1d70a, fkb17155b6d5aca0c6, fkb17155b66e7a9d23, fkb17155b6ef3198d3]
+2013-08-26 16:35:21,351 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [empresa_persona_pkey]
+2013-08-26 16:35:21,375 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.organizacion
+2013-08-26 16:35:21,375 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, imagen, estado, id_modificador, modificacion, id_persona, descripcion, id_creador, creacion]
+2013-08-26 16:35:21,376 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkd05c1ae46e7a9d23, fkd05c1ae4ef3198d3, fkd05c1ae4d5aca0c6]
+2013-08-26 16:35:21,376 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [organizacion_pkey]
+2013-08-26 16:35:21,405 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.persona
+2013-08-26 16:35:21,405 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [direccion, mail, tipopersona, usuario, apellidos, empleado, nacimiento, modificacion, telefono, id, identificacion, imagen, id_ciudad, estado, nombres, id_modificador, cliente, facebook, id_creador, tipoidentificacion, creacion, proveedor, celular]
+2013-08-26 16:35:21,405 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk25b5b8c9bf91450, fk25b5b8cd5aca0c6, fk25b5b8c6e7a9d23]
+2013-08-26 16:35:21,405 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [persona_identificacion_key, persona_pkey]
+2013-08-26 16:35:21,429 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.producto_base
+2013-08-26 16:35:21,429 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id]
+2013-08-26 16:35:21,429 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:21,429 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [producto_base_pkey]
+2013-08-26 16:35:21,451 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.propiedad
+2013-08-26 16:35:21,451 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, tipodato, id_categoria, estado, valor, lista, longitud, id_activo, valordefecto, requerido]
+2013-08-26 16:35:21,451 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7b3823483e234921, fk7b38234881ba6945]
+2013-08-26 16:35:21,451 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [propiedad_pkey]
+2013-08-26 16:35:21,471 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.propiedad_valor
+2013-08-26 16:35:21,471 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, valor, id_propiedad]
+2013-08-26 16:35:21,472 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk330988ed2db9ad8b]
+2013-08-26 16:35:21,472 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [propiedad_valor_pkey]
+2013-08-26 16:35:21,495 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.sucursal
+2013-08-26 16:35:21,495 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, descripcion, id_creador, creacion, id_empresa]
+2013-08-26 16:35:21,496 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb59c3e806e7a9d23, fkb59c3e80d1c1d70a, fkb59c3e80d5aca0c6]
+2013-08-26 16:35:21,496 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [sucursal_pkey]
+2013-08-26 16:35:21,515 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tema
+2013-08-26 16:35:21,515 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, imagen, estado]
+2013-08-26 16:35:21,515 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:21,515 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tema_pkey, tema_nombre_key]
+2013-08-26 16:35:21,538 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tipo_documento
+2013-08-26 16:35:21,538 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, impresion_automatica, contabiliza, id_tipo_documento_reserva, contable, pide_preimpreso]
+2013-08-26 16:35:21,538 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkffd037497f6284c5]
+2013-08-26 16:35:21,538 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_documento_pkey]
+2013-08-26 16:35:21,562 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tipo_impuesto
+2013-08-26 16:35:21,562 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, id_modificador, modificacion, descripcion, id_creador, clase, creacion]
+2013-08-26 16:35:21,562 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk79f4fdfd6e7a9d23, fk79f4fdfdd5aca0c6]
+2013-08-26 16:35:21,562 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_impuesto_pkey]
+2013-08-26 16:35:21,584 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmse.monagillo
+2013-08-26 16:35:21,584 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_persona, representates, centroestudio, id_grupo]
+2013-08-26 16:35:21,584 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk382e24f85a90d68a, fk382e24f8ef3198d3]
+2013-08-26 16:35:21,584 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [monagillo_pkey]
+2013-08-26 16:35:21,604 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmse.nombre
+2013-08-26 16:35:21,604 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id]
+2013-08-26 16:35:21,604 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:35:21,604 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [nombre_pkey]
+2013-08-26 16:35:21,626 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.rol
+2013-08-26 16:35:21,626 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, estado, id_modificador, modificacion, descripcion, id_creador, creacion]
+2013-08-26 16:35:21,626 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk13daf6e7a9d23, fk13dafd5aca0c6]
+2013-08-26 16:35:21,626 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [rol_pkey, rol_nombre_key]
+2013-08-26 16:35:21,652 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.rol_opcion
+2013-08-26 16:35:21,653 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, exportar, id_opcion, id_modificador, modificacion, editar, id_creador, crear, creacion, id_rol, eliminar]
+2013-08-26 16:35:21,653 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk4438eb66e7a9d23, fk4438eb621e1adf7, fk4438eb68236e7c4, fk4438eb6d5aca0c6]
+2013-08-26 16:35:21,653 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [rol_opcion_pkey]
+2013-08-26 16:35:21,678 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.usuario
+2013-08-26 16:35:21,678 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, localidad, username, estado, id_modificador, modificacion, tema, id_creador, creacion, password, maxoptions, id_empresapersona]
+2013-08-26 16:35:21,678 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk22e07f0ed5aca0c6, fk22e07f0e6e7a9d23, fk22e07f0e16c4340b]
+2013-08-26 16:35:21,678 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [usuario_username_key, usuario_pkey]
+2013-08-26 16:35:21,702 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.usuario_rol
+2013-08-26 16:35:21,702 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_usuario, id_modificador, modificacion, id_creador, creacion, id_rol]
+2013-08-26 16:35:21,702 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb17ab4fed5aca0c6, fkb17ab4fe29414c35, fkb17ab4fe6e7a9d23, fkb17ab4fe21e1adf7]
+2013-08-26 16:35:21,703 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [usuario_rol_pkey]
+2013-08-26 16:35:22,346 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] schema update complete
+2013-08-26 16:35:22,349 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos
+2013-08-26 16:35:22,781 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos
+2013-08-26 16:37:12,454 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-08-26 16:37:12,464 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-08-26 16:37:12,467 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-08-26 16:37:12,471 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-08-26 16:37:12,475 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-08-26 16:37:12,518 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-08-26 16:37:12,556 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/media/DATA/work/workspace/ec.com.ebos/src/main/resources/hibernate.cfg.xml
+2013-08-26 16:37:12,605 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-08-26 16:37:12,662 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-08-26 16:37:12,691 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:37:12,744 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-08-26 16:37:12,745 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-08-26 16:37:12,785 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-08-26 16:37:12,786 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-08-26 16:37:12,832 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-08-26 16:37:12,832 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-08-26 16:37:12,881 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-08-26 16:37:12,881 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-08-26 16:37:12,897 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-08-26 16:37:12,898 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-08-26 16:37:12,909 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-08-26 16:37:12,910 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-08-26 16:37:12,916 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-08-26 16:37:12,917 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-08-26 16:37:12,928 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-08-26 16:37:12,928 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-08-26 16:37:12,940 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-08-26 16:37:12,941 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-08-26 16:37:12,944 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-08-26 16:37:12,946 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-08-26 16:37:12,958 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-08-26 16:37:12,959 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-08-26 16:37:12,972 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-08-26 16:37:12,972 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-08-26 16:37:12,977 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-08-26 16:37:12,978 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-08-26 16:37:13,009 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-08-26 16:37:13,012 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-08-26 16:37:13,048 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-08-26 16:37:13,048 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-08-26 16:37:13,058 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-08-26 16:37:13,059 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-08-26 16:37:13,071 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-08-26 16:37:13,072 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-08-26 16:37:13,082 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-08-26 16:37:13,083 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-08-26 16:37:13,095 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-08-26 16:37:13,096 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-08-26 16:37:13,104 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-08-26 16:37:13,104 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-08-26 16:37:13,117 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-08-26 16:37:13,118 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-08-26 16:37:13,130 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-08-26 16:37:13,131 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-08-26 16:37:13,141 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-08-26 16:37:13,142 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-08-26 16:37:13,155 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-08-26 16:37:13,156 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-08-26 16:37:13,178 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-08-26 16:37:13,179 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-08-26 16:37:13,188 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-08-26 16:37:13,189 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-08-26 16:37:13,193 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-08-26 16:37:13,194 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-08-26 16:37:13,230 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-08-26 16:37:13,231 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-08-26 16:37:13,246 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-08-26 16:37:13,247 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-08-26 16:37:13,256 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-08-26 16:37:13,256 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-08-26 16:37:13,261 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-08-26 16:37:13,261 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-08-26 16:37:13,271 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-08-26 16:37:13,272 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-08-26 16:37:13,274 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-08-26 16:37:13,275 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-08-26 16:37:13,281 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-08-26 16:37:13,282 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-08-26 16:37:13,288 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-08-26 16:37:13,289 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-08-26 16:37:13,295 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-08-26 16:37:13,296 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-08-26 16:37:13,313 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-08-26 16:37:13,314 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-08-26 16:37:13,323 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-08-26 16:37:13,324 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-08-26 16:37:13,332 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-08-26 16:37:13,333 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-08-26 16:37:13,341 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-08-26 16:37:13,342 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-08-26 16:37:13,348 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.mse.model.Grupo
+2013-08-26 16:37:13,349 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.mse.model.Grupo on table NOMBRE
+2013-08-26 16:37:13,354 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.mse.model.Monaguillo
+2013-08-26 16:37:13,354 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.mse.model.Monaguillo on table MONAGILLO
+2013-08-26 16:37:13,362 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-08-26 16:37:13,363 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-08-26 16:37:13,372 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-08-26 16:37:13,373 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-08-26 16:37:13,391 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-08-26 16:37:13,392 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-08-26 16:37:13,403 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-08-26 16:37:13,404 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-08-26 16:37:13,416 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-08-26 16:37:13,416 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-08-26 16:37:13,437 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-08-26 16:37:13,437 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-08-26 16:37:13,441 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-08-26 16:37:13,442 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-08-26 16:37:13,451 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Opcion
+2013-08-26 16:37:13,451 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Opcion on table OPCION
+2013-08-26 16:37:13,468 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-08-26 16:37:13,468 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-08-26 16:37:13,481 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Bundle
+2013-08-26 16:37:13,481 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Bundle on table BUNDLE
+2013-08-26 16:37:13,486 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Objeto
+2013-08-26 16:37:13,486 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Objeto on table OBJETO
+2013-08-26 16:37:13,542 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-08-26 16:37:13,544 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:37:13,545 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-08-26 16:37:13,546 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoRetencionList -> SALDO_RETENCION
+2013-08-26 16:37:13,547 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:37:13,547 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-08-26 16:37:13,548 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-08-26 16:37:13,548 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-08-26 16:37:13,549 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-08-26 16:37:13,549 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-08-26 16:37:13,550 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:37:13,550 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:37:13,551 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-08-26 16:37:13,552 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:37:13,553 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-08-26 16:37:13,554 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList -> PERIODO
+2013-08-26 16:37:13,554 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList2 -> PERIODO
+2013-08-26 16:37:13,555 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCuenta.cuentaContableList -> CUENTA_CONTABLE
+2013-08-26 16:37:13,556 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoAsiento.asientoList -> ASIENTO
+2013-08-26 16:37:13,557 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:37:13,557 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroCostoList -> CENTRO_COSTO
+2013-08-26 16:37:13,558 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-08-26 16:37:13,558 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:37:13,559 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:37:13,560 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:37:13,561 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:37:13,562 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-08-26 16:37:13,562 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.ejercicioList -> EJERCICIO
+2013-08-26 16:37:13,563 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:37:13,564 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-08-26 16:37:13,564 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> ACTIVO_CUSTODIO
+2013-08-26 16:37:13,565 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> PROPIEDAD
+2013-08-26 16:37:13,566 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> PROPIEDAD_VALOR
+2013-08-26 16:37:13,566 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.divisionGeograficaList -> DIVISION_GEOGRAFICA
+2013-08-26 16:37:13,567 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.periodoFiscalPaisList -> PERIODO_FISCAL_PAIS
+2013-08-26 16:37:13,567 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> ACTIVO_CUSTODIO
+2013-08-26 16:37:13,568 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> USUARIO
+2013-08-26 16:37:13,569 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.activoList -> ACTIVO
+2013-08-26 16:37:13,569 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-08-26 16:37:13,570 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:37:13,571 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:37:13,571 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.ejercicioList -> EJERCICIO
+2013-08-26 16:37:13,572 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.empresaPersonaList -> EMPRESA_PERSONA
+2013-08-26 16:37:13,573 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.sucursalList -> SUCURSAL
+2013-08-26 16:37:13,573 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> ACTIVO
+2013-08-26 16:37:13,574 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> CATEGORIA
+2013-08-26 16:37:13,575 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> ORGANIZACION
+2013-08-26 16:37:13,575 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> EMPRESA_PERSONA
+2013-08-26 16:37:13,576 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.monagilloList -> MONAGILLO
+2013-08-26 16:37:13,577 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.TipoDocumento.asientoList -> ASIENTO
+2013-08-26 16:37:13,577 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-08-26 16:37:13,578 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.mse.model.Grupo.monagilloList -> MONAGILLO
+2013-08-26 16:37:13,579 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.mse.model.Monaguillo.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:37:13,579 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Usuario.usuarioRolList -> USUARIO_ROL
+2013-08-26 16:37:13,580 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.rolOpcionList -> ROL_OPCION
+2013-08-26 16:37:13,581 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.usuarioRolList -> USUARIO_ROL
+2013-08-26 16:37:13,581 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-08-26 16:37:13,582 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Opcion.opcionList -> OPCION
+2013-08-26 16:37:13,583 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Opcion.rolOpcionList -> ROL_OPCION
+2013-08-26 16:37:13,583 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:37:13,584 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-08-26 16:37:13,585 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:37:13,585 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Objeto.opcionList -> OPCION
+2013-08-26 16:37:13,611 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-08-26 16:37:13,761 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-08-26 16:37:13,767 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] Running hbm2ddl schema update
+2013-08-26 16:37:13,767 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] fetching database metadata
+2013-08-26 16:37:13,769 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Using Hibernate built-in connection pool (not for production use!)
+2013-08-26 16:37:13,770 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Hibernate connection pool size: 20
+2013-08-26 16:37:13,770 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] autocommit mode: false
+2013-08-26 16:37:13,776 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/ebos
+2013-08-26 16:37:13,777 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] connection properties: {user=ebos, password=ebos}
+2013-08-26 16:37:13,844 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] updating schema
+2013-08-26 16:37:13,951 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.bundle
+2013-08-26 16:37:13,951 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, localidad, valor]
+2013-08-26 16:37:13,951 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:13,951 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [bundle_codigo_localidad_key, bundle_pkey]
+2013-08-26 16:37:13,982 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.configuracion
+2013-08-26 16:37:13,982 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [usr_gateway, correo_mail, is_autenticar_mail, app_id_gateway, modificacion, is_httpgateway, baudio_sms, is_sms, codcentralsms, pwd_gateway, url_gateway, com_sms, password_mail, id, servidor_mail, port_smtp, id_modificador, id_creador, usuario_mail, is_tls_mail, creacion, is_email]
+2013-08-26 16:37:13,983 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk2ce9d2876e7a9d23, fk2ce9d287d5aca0c6]
+2013-08-26 16:37:13,983 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [configuracion_pkey]
+2013-08-26 16:37:14,009 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.documento
+2013-08-26 16:37:14,009 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, enviado, contabilizado, autorizado, emitido, vencimiento, procesado]
+2013-08-26 16:37:14,010 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:14,010 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [documento_pkey]
+2013-08-26 16:37:14,035 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.objeto
+2013-08-26 16:37:14,035 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_modificador, modificacion, tipo, descripcion, id_creador, creacion]
+2013-08-26 16:37:14,035 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk8a9399496e7a9d23, fk8a939949d5aca0c6]
+2013-08-26 16:37:14,036 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [objeto_codigo_key, objeto_pkey]
+2013-08-26 16:37:14,065 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.opcion
+2013-08-26 16:37:14,065 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [modificacion, width, descripcion, id, nombre, height, estado, id_modificador, icono, id_objeto, target, id_padre, id_creador, creacion, etiqueta]
+2013-08-26 16:37:14,066 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk8b55c226d5aca0c6, fk8b55c2266e7a9d23, fk8b55c22680b2960a, fk8b55c226a6bbe3dc]
+2013-08-26 16:37:14,066 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [opcion_nombre_key, opcion_pkey]
+2013-08-26 16:37:14,089 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.parametros
+2013-08-26 16:37:14,089 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, grupo, estado, id_modificador, valor, modificacion, id_creador, creacion, clave]
+2013-08-26 16:37:14,089 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk3841de5a6e7a9d23, fk3841de5ad5aca0c6]
+2013-08-26 16:37:14,090 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [parametros_pkey, parametros_clave_key]
+2013-08-26 16:37:14,110 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.tipo_retencion
+2013-08-26 16:37:14,110 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id]
+2013-08-26 16:37:14,110 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:14,110 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_retencion_pkey]
+2013-08-26 16:37:14,138 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.evento
+2013-08-26 16:37:14,138 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [integrantes, id, observacion, estado, fechafin, id_modificador, tipoevento, modificacion, descripcion, id_creador, creacion, fechainicio]
+2013-08-26 16:37:14,138 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7a9ad515d5aca0c6, fk7a9ad5156e7a9d23]
+2013-08-26 16:37:14,138 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [evento_pkey]
+2013-08-26 16:37:14,162 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.evento_log
+2013-08-26 16:37:14,162 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, descripcion, id_creador, creacion, id_evento]
+2013-08-26 16:37:14,162 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk587c98fa6e371242, fk587c98fa6e7a9d23, fk587c98fad5aca0c6]
+2013-08-26 16:37:14,163 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [evento_log_pkey]
+2013-08-26 16:37:14,184 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.inspeccion
+2013-08-26 16:37:14,185 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:37:14,185 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk854d3f25d5aca0c6, fk854d3f256e7a9d23]
+2013-08-26 16:37:14,185 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [inspeccion_pkey]
+2013-08-26 16:37:14,209 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.inspeccion_detalle
+2013-08-26 16:37:14,209 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:37:14,209 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk41b67a3d6e7a9d23, fk41b67a3dd5aca0c6]
+2013-08-26 16:37:14,210 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [inspeccion_detalle_pkey]
+2013-08-26 16:37:14,231 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.ruta
+2013-08-26 16:37:14,232 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:37:14,232 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk268ff0d5aca0c6, fk268ff06e7a9d23]
+2013-08-26 16:37:14,233 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ruta_pkey]
+2013-08-26 16:37:14,255 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.ruta_log
+2013-08-26 16:37:14,256 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:37:14,256 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk69a96e556e7a9d23, fk69a96e55d5aca0c6]
+2013-08-26 16:37:14,256 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ruta_log_pkey]
+2013-08-26 16:37:14,279 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.turno
+2013-08-26 16:37:14,279 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:37:14,279 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk4c79772d5aca0c6, fk4c797726e7a9d23]
+2013-08-26 16:37:14,279 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [turno_pkey]
+2013-08-26 16:37:14,303 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.visitante
+2013-08-26 16:37:14,303 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, id_modificador, apellidos, modificacion, id_creador, creacion, cedula]
+2013-08-26 16:37:14,303 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk162883096e7a9d23, fk16288309d5aca0c6]
+2013-08-26 16:37:14,303 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [visitante_pkey, visitante_cedula_key]
+2013-08-26 16:37:14,331 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.asiento
+2013-08-26 16:37:14,332 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, id_tipo_asiento, secuencia, id_documento, cuadrado, id_punto_venta, id_tipo_documento, descripcion, id_periodo, id_empresa, comentario]
+2013-08-26 16:37:14,332 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk3c87bb983c2e4c, fk3c87bb89f22544, fk3c87bbd1c1d70a, fk3c87bb5ce23612, fk3c87bbce7806f0, fk3c87bb92793147]
+2013-08-26 16:37:14,332 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [asiento_pkey]
+2013-08-26 16:37:14,368 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.asiento_detalle
+2013-08-26 16:37:14,369 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id_cuenta_contable, id_subcentro_costo, id_documento, modificacion, descripcion, id_centro_costo, id, valor_debe, id_modificador, id_creador, creacion, id_asiento]
+2013-08-26 16:37:14,369 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7cf6ccd3d5aca0c6, fk7cf6ccd397944aad, fk7cf6ccd3ce7806f0, fk7cf6ccd36e7a9d23, fk7cf6ccd3c1c6f9ab, fk7cf6ccd39a0a2b44, fk7cf6ccd382bee27, fk7cf6ccd3726ce035, fk7cf6ccd385bd975e]
+2013-08-26 16:37:14,369 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [asiento_detalle_pkey]
+2013-08-26 16:37:14,397 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_costo
+2013-08-26 16:37:14,397 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [pide_subcentro_costo, modificacion, descripcion, id, codigo, estado, id_tipo_centro_costo, id_modificador, codigo_formato, id_padre, id_creador, creacion, nivel, terminante]
+2013-08-26 16:37:14,398 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7915b7486e7a9d23, fk7915b748f8f3a0b, fk7915b748173cd6c4, fk7915b748d5aca0c6]
+2013-08-26 16:37:14,398 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_costo_pkey, centro_costo_codigo_key]
+2013-08-26 16:37:14,419 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_costo_empresa
+2013-08-26 16:37:14,419 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_padre, id_empresa]
+2013-08-26 16:37:14,420 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk893e6272d1c1d70a, fk893e6272f8f3a0b]
+2013-08-26 16:37:14,420 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_costo_empresa_pkey]
+2013-08-26 16:37:14,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_subcentro
+2013-08-26 16:37:14,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_subcentro_costo, estado, id_tipo_centro_costo, id_centro_costo]
+2013-08-26 16:37:14,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk10324e2b173cd6c4, fk10324e2b97944aad, fk10324e2b726ce035]
+2013-08-26 16:37:14,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_subcentro_pkey]
+2013-08-26 16:37:14,470 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_centro
+2013-08-26 16:37:14,470 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_cuenta_contable, estado, id_tipo_centro_costo, id_modificador, modificacion, id_creador, creacion, id_empresa]
+2013-08-26 16:37:14,471 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka8a1d1bc6e7a9d23, fka8a1d1bcd5aca0c6, fka8a1d1bc173cd6c4, fka8a1d1bc82bee27, fka8a1d1bcd1c1d70a]
+2013-08-26 16:37:14,471 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_centro_pkey]
+2013-08-26 16:37:14,501 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_contable
+2013-08-26 16:37:14,501 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [tipo_proceso, modificacion, descripcion, pide_centro_costo, id, codigo, id_tipo_cuenta, estado, id_modificador, id_padre, codigo_formato, id_creador, creacion, nivel, naturaleza, terminante]
+2013-08-26 16:37:14,501 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk186ac1a3d153b18a, fk186ac1a3d5aca0c6, fk186ac1a36e7a9d23, fk186ac1a38fe300df]
+2013-08-26 16:37:14,501 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_contable_pkey, cuenta_contable_codigo_key]
+2013-08-26 16:37:14,522 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_contable_empresa
+2013-08-26 16:37:14,522 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_cuenta_contable, id_empresa]
+2013-08-26 16:37:14,523 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk643ce1cd82bee27, fk643ce1cdd1c1d70a]
+2013-08-26 16:37:14,523 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_contable_empresa_pkey]
+2013-08-26 16:37:14,550 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.documento_distribucion
+2013-08-26 16:37:14,551 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_subcentro_costo, estado, id_documento, id_modificador, valor, modificacion, id_creador, creacion, id_centro_costo]
+2013-08-26 16:37:14,552 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkfdb15400ce7806f0, fkfdb15400d5aca0c6, fkfdb1540097944aad, fkfdb154006e7a9d23, fkfdb15400726ce035]
+2013-08-26 16:37:14,552 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [documento_distribucion_pkey]
+2013-08-26 16:37:14,574 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.ejercicio
+2013-08-26 16:37:14,575 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, fecha_inicial, fecha_final, estado, id_cuenta_utilidad, valor, descripcion, id_empresa]
+2013-08-26 16:37:14,575 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkcf5699b1558af01b, fkcf5699b1d1c1d70a]
+2013-08-26 16:37:14,575 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ejercicio_pkey]
+2013-08-26 16:37:14,597 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.periodo
+2013-08-26 16:37:14,598 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, fecha_inicial, fecha_final, estado, id_periodo_fiscal_pais, id_ejercicio, descripcion, valor_utilidad]
+2013-08-26 16:37:14,598 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk256ceae5500e144, fk256ceaee4ef694a]
+2013-08-26 16:37:14,598 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [periodo_pkey]
+2013-08-26 16:37:14,618 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.periodo_fiscal_pais
+2013-08-26 16:37:14,619 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id_division_geografica, codigo, id, descripcion]
+2013-08-26 16:37:14,619 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk2faae4ab7e2bbfc8]
+2013-08-26 16:37:14,619 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [periodo_fiscal_pais_pkey]
+2013-08-26 16:37:14,646 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_centro_costo
+2013-08-26 16:37:14,646 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id, tiposaldo, valor_debe, estado, id_modificador, modificacion, id_periodo, id_creador, creacion, id_centro_costo, saldo_inicial]
+2013-08-26 16:37:14,647 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkbb2a1efe89f22544, fkbb2a1efe726ce035, fkbb2a1efed5aca0c6, fkbb2a1efe6e7a9d23]
+2013-08-26 16:37:14,647 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_centro_costo_pkey]
+2013-08-26 16:37:14,678 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_cuenta_centro
+2013-08-26 16:37:14,678 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id_cuenta_contable, id_subcentro_costo, modificacion, id_periodo, saldo, id_centro_costo, id, valor_debe, estado, id_modificador, id_creador, creacion, saldo_inicial]
+2013-08-26 16:37:14,679 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka91a60c6726ce035, fka91a60c697944aad, fka91a60c66e7a9d23, fka91a60c689f22544, fka91a60c6d5aca0c6, fka91a60c682bee27]
+2013-08-26 16:37:14,679 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_cuenta_centro_pkey]
+2013-08-26 16:37:14,705 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_cuenta_contable
+2013-08-26 16:37:14,706 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id, id_cuenta_contable, valor_debe, estado, id_modificador, modificacion, id_periodo, id_creador, creacion, saldo, saldo_inicial]
+2013-08-26 16:37:14,706 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkdcfbb62d82bee27, fkdcfbb62d6e7a9d23, fkdcfbb62d89f22544, fkdcfbb62dd5aca0c6]
+2013-08-26 16:37:14,706 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_cuenta_contable_pkey]
+2013-08-26 16:37:14,730 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_retencion
+2013-08-26 16:37:14,731 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, base_imponible, id_modificador, modificacion, id_periodo, id_creador, valor_retenido, creacion, id_tipo_retencion]
+2013-08-26 16:37:14,731 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk42aed8b989f22544, fk42aed8b96e837ecf, fk42aed8b9d5aca0c6, fk42aed8b96e7a9d23]
+2013-08-26 16:37:14,731 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_retencion_pkey]
+2013-08-26 16:37:14,754 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_asiento
+2013-08-26 16:37:14,755 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_modificador, distribucion, modificacion, descripcion, id_creador, formato_referencia, creacion]
+2013-08-26 16:37:14,755 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka05f05b06e7a9d23, fka05f05b0d5aca0c6]
+2013-08-26 16:37:14,755 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_asiento_pkey]
+2013-08-26 16:37:14,774 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_centro_costo
+2013-08-26 16:37:14,774 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, distribucion, descripcion]
+2013-08-26 16:37:14,774 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:14,774 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_centro_costo_pkey]
+2013-08-26 16:37:14,794 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_cuenta
+2013-08-26 16:37:14,795 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, tipo, descripcion, naturaleza]
+2013-08-26 16:37:14,795 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:14,795 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_cuenta_pkey]
+2013-08-26 16:37:14,821 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.activo
+2013-08-26 16:37:14,821 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_categoria, estado, id_modificador, modificacion, descripcion, id_creador, creacion, id_empresa]
+2013-08-26 16:37:14,822 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk72c27310d5aca0c6, fk72c27310d1c1d70a, fk72c273103e234921, fk72c273106e7a9d23]
+2013-08-26 16:37:14,822 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [activo_pkey]
+2013-08-26 16:37:14,847 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.activo_custodio
+2013-08-26 16:37:14,848 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, id_creador, creacion, id_activo, id_empresapersona]
+2013-08-26 16:37:14,848 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk22127edd81ba6945, fk22127eddd5aca0c6, fk22127edd6e7a9d23, fk22127edd16c4340b]
+2013-08-26 16:37:14,848 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [activo_custodio_pkey]
+2013-08-26 16:37:14,870 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.categoria
+2013-08-26 16:37:14,870 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_padre, descripcion]
+2013-08-26 16:37:14,871 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk36cf113d6199bf4]
+2013-08-26 16:37:14,871 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [categoria_pkey, categoria_codigo_key]
+2013-08-26 16:37:14,890 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.division_geografica
+2013-08-26 16:37:14,890 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id_division_geografica, codigo, id, descripcion, nivel, terminante]
+2013-08-26 16:37:14,891 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkd91dd0987e2bbfc8]
+2013-08-26 16:37:14,891 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [division_geografica_pkey]
+2013-08-26 16:37:14,916 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.empresa_persona
+2013-08-26 16:37:14,916 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, id_persona, id_creador, creacion, id_empresa]
+2013-08-26 16:37:14,917 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb17155b6d1c1d70a, fkb17155b6d5aca0c6, fkb17155b66e7a9d23, fkb17155b6ef3198d3]
+2013-08-26 16:37:14,917 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [empresa_persona_pkey]
+2013-08-26 16:37:14,941 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.organizacion
+2013-08-26 16:37:14,942 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, imagen, estado, id_modificador, modificacion, id_persona, descripcion, id_creador, creacion]
+2013-08-26 16:37:14,942 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkd05c1ae46e7a9d23, fkd05c1ae4ef3198d3, fkd05c1ae4d5aca0c6]
+2013-08-26 16:37:14,942 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [organizacion_pkey]
+2013-08-26 16:37:14,979 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.persona
+2013-08-26 16:37:14,979 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [direccion, tipopersona, usuario, modificacion, contenttype, id, nombres, id_ciudad, id_modificador, facebook, tipoidentificacion, id_creador, proveedor, mail, empleado, apellidos, nacimiento, telefono, identificacion, imagen, genero, estado, cliente, creacion, celular]
+2013-08-26 16:37:14,979 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk25b5b8c9bf91450, fk25b5b8cd5aca0c6, fk25b5b8c6e7a9d23]
+2013-08-26 16:37:14,979 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [persona_identificacion_key, persona_pkey]
+2013-08-26 16:37:14,998 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.producto_base
+2013-08-26 16:37:14,998 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id]
+2013-08-26 16:37:14,998 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:14,998 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [producto_base_pkey]
+2013-08-26 16:37:15,021 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.propiedad
+2013-08-26 16:37:15,021 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, tipodato, id_categoria, estado, valor, lista, longitud, id_activo, valordefecto, requerido]
+2013-08-26 16:37:15,021 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7b3823483e234921, fk7b38234881ba6945]
+2013-08-26 16:37:15,022 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [propiedad_pkey]
+2013-08-26 16:37:15,041 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.propiedad_valor
+2013-08-26 16:37:15,041 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, valor, id_propiedad]
+2013-08-26 16:37:15,041 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk330988ed2db9ad8b]
+2013-08-26 16:37:15,041 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [propiedad_valor_pkey]
+2013-08-26 16:37:15,066 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.sucursal
+2013-08-26 16:37:15,066 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, descripcion, id_creador, creacion, id_empresa]
+2013-08-26 16:37:15,066 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb59c3e806e7a9d23, fkb59c3e80d1c1d70a, fkb59c3e80d5aca0c6]
+2013-08-26 16:37:15,066 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [sucursal_pkey]
+2013-08-26 16:37:15,085 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tema
+2013-08-26 16:37:15,085 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, imagen, estado]
+2013-08-26 16:37:15,085 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:15,085 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tema_pkey, tema_nombre_key]
+2013-08-26 16:37:15,107 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tipo_documento
+2013-08-26 16:37:15,107 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, impresion_automatica, contabiliza, id_tipo_documento_reserva, contable, pide_preimpreso]
+2013-08-26 16:37:15,107 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkffd037497f6284c5]
+2013-08-26 16:37:15,107 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_documento_pkey]
+2013-08-26 16:37:15,131 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tipo_impuesto
+2013-08-26 16:37:15,132 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, id_modificador, modificacion, descripcion, id_creador, clase, creacion]
+2013-08-26 16:37:15,132 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk79f4fdfd6e7a9d23, fk79f4fdfdd5aca0c6]
+2013-08-26 16:37:15,132 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_impuesto_pkey]
+2013-08-26 16:37:15,154 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmse.monagillo
+2013-08-26 16:37:15,154 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_persona, representates, centroestudio, id_grupo]
+2013-08-26 16:37:15,155 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk382e24f85a90d68a, fk382e24f8ef3198d3]
+2013-08-26 16:37:15,155 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [monagillo_pkey]
+2013-08-26 16:37:15,176 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmse.nombre
+2013-08-26 16:37:15,176 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id]
+2013-08-26 16:37:15,176 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:37:15,176 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [nombre_pkey]
+2013-08-26 16:37:15,199 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.rol
+2013-08-26 16:37:15,199 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, estado, id_modificador, modificacion, descripcion, id_creador, creacion]
+2013-08-26 16:37:15,199 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk13daf6e7a9d23, fk13dafd5aca0c6]
+2013-08-26 16:37:15,199 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [rol_pkey, rol_nombre_key]
+2013-08-26 16:37:15,226 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.rol_opcion
+2013-08-26 16:37:15,227 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, exportar, id_opcion, id_modificador, modificacion, editar, id_creador, crear, creacion, id_rol, eliminar]
+2013-08-26 16:37:15,227 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk4438eb66e7a9d23, fk4438eb621e1adf7, fk4438eb68236e7c4, fk4438eb6d5aca0c6]
+2013-08-26 16:37:15,227 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [rol_opcion_pkey]
+2013-08-26 16:37:15,251 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.usuario
+2013-08-26 16:37:15,251 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, localidad, username, estado, id_modificador, modificacion, tema, id_creador, creacion, password, maxoptions, id_empresapersona]
+2013-08-26 16:37:15,252 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk22e07f0ed5aca0c6, fk22e07f0e6e7a9d23, fk22e07f0e16c4340b]
+2013-08-26 16:37:15,252 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [usuario_username_key, usuario_pkey]
+2013-08-26 16:37:15,277 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.usuario_rol
+2013-08-26 16:37:15,278 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_usuario, id_modificador, modificacion, id_creador, creacion, id_rol]
+2013-08-26 16:37:15,278 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb17ab4fed5aca0c6, fkb17ab4fe29414c35, fkb17ab4fe6e7a9d23, fkb17ab4fe21e1adf7]
+2013-08-26 16:37:15,278 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [usuario_rol_pkey]
+2013-08-26 16:37:15,294 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] schema update complete
+2013-08-26 16:37:15,295 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos
+2013-08-26 16:37:15,443 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ebos
+2013-08-26 16:44:09,239 INFO  [org.hibernate.cfg.annotations.Version] Hibernate Annotations 3.4.0.GA
+2013-08-26 16:44:09,250 INFO  [org.hibernate.cfg.Environment] Hibernate 3.3.1.GA
+2013-08-26 16:44:09,252 INFO  [org.hibernate.cfg.Environment] hibernate.properties not found
+2013-08-26 16:44:09,258 INFO  [org.hibernate.cfg.Environment] Bytecode provider name : javassist
+2013-08-26 16:44:09,261 INFO  [org.hibernate.cfg.Environment] using JDK 1.4 java.sql.Timestamp handling
+2013-08-26 16:44:09,306 INFO  [org.hibernate.annotations.common.Version] Hibernate Commons Annotations 3.1.0.GA
+2013-08-26 16:44:09,347 INFO  [org.hibernate.cfg.Configuration] configuring from url: file:/media/DATA/work/workspace/ec.com.ebos/src/main/resources/hibernate.cfg.xml
+2013-08-26 16:44:09,397 INFO  [org.hibernate.cfg.Configuration] Configured SessionFactory: 
+2013-08-26 16:44:09,454 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContableEmpresa
+2013-08-26 16:44:09,481 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContableEmpresa on table CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:44:09,532 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaContable
+2013-08-26 16:44:09,533 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaContable on table SALDO_CUENTA_CONTABLE
+2013-08-26 16:44:09,574 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Periodo
+2013-08-26 16:44:09,575 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Periodo on table PERIODO
+2013-08-26 16:44:09,622 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCosto
+2013-08-26 16:44:09,623 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCosto on table CENTRO_COSTO
+2013-08-26 16:44:09,672 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Ejercicio
+2013-08-26 16:44:09,673 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Ejercicio on table EJERCICIO
+2013-08-26 16:44:09,688 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCuenta
+2013-08-26 16:44:09,689 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCuenta on table TIPO_CUENTA
+2013-08-26 16:44:09,698 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroSubcentro
+2013-08-26 16:44:09,699 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroSubcentro on table CENTRO_SUBCENTRO
+2013-08-26 16:44:09,706 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaCentro
+2013-08-26 16:44:09,707 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaCentro on table CUENTA_CENTRO
+2013-08-26 16:44:09,717 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCentroCosto
+2013-08-26 16:44:09,718 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCentroCosto on table SALDO_CENTRO_COSTO
+2013-08-26 16:44:09,730 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CentroCostoEmpresa
+2013-08-26 16:44:09,731 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CentroCostoEmpresa on table CENTRO_COSTO_EMPRESA
+2013-08-26 16:44:09,734 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoAsiento
+2013-08-26 16:44:09,736 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoAsiento on table TIPO_ASIENTO
+2013-08-26 16:44:09,748 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.Asiento
+2013-08-26 16:44:09,749 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.Asiento on table ASIENTO
+2013-08-26 16:44:09,763 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.PeriodoFiscalPais
+2013-08-26 16:44:09,764 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.PeriodoFiscalPais on table PERIODO_FISCAL_PAIS
+2013-08-26 16:44:09,769 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.TipoCentroCosto
+2013-08-26 16:44:09,770 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.TipoCentroCosto on table TIPO_CENTRO_COSTO
+2013-08-26 16:44:09,810 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.CuentaContable
+2013-08-26 16:44:09,812 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.CuentaContable on table CUENTA_CONTABLE
+2013-08-26 16:44:09,844 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoRetencion
+2013-08-26 16:44:09,845 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoRetencion on table SALDO_RETENCION
+2013-08-26 16:44:09,856 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.AsientoDetalle
+2013-08-26 16:44:09,856 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.AsientoDetalle on table ASIENTO_DETALLE
+2013-08-26 16:44:09,872 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.DocumentoDistribucion
+2013-08-26 16:44:09,872 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.DocumentoDistribucion on table DOCUMENTO_DISTRIBUCION
+2013-08-26 16:44:09,883 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.conta.model.SaldoCuentaCentro
+2013-08-26 16:44:09,883 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.conta.model.SaldoCuentaCentro on table SALDO_CUENTA_CENTRO
+2013-08-26 16:44:09,897 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Sucursal
+2013-08-26 16:44:09,897 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Sucursal on table SUCURSAL
+2013-08-26 16:44:09,906 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Activo
+2013-08-26 16:44:09,907 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Activo on table ACTIVO
+2013-08-26 16:44:09,921 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Propiedad
+2013-08-26 16:44:09,921 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Propiedad on table PROPIEDAD
+2013-08-26 16:44:09,934 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.DivisionGeografica
+2013-08-26 16:44:09,934 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.DivisionGeografica on table DIVISION_GEOGRAFICA
+2013-08-26 16:44:09,945 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.EmpresaPersona
+2013-08-26 16:44:09,946 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.EmpresaPersona on table EMPRESA_PERSONA
+2013-08-26 16:44:09,958 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Organizacion
+2013-08-26 16:44:09,959 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Organizacion on table ORGANIZACION
+2013-08-26 16:44:09,982 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Categoria
+2013-08-26 16:44:09,983 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Categoria on table CATEGORIA
+2013-08-26 16:44:09,993 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Tema
+2013-08-26 16:44:09,993 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Tema on table TEMA
+2013-08-26 16:44:09,998 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.Persona
+2013-08-26 16:44:09,999 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.Persona on table PERSONA
+2013-08-26 16:44:10,034 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoDocumento
+2013-08-26 16:44:10,036 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoDocumento on table TIPO_DOCUMENTO
+2013-08-26 16:44:10,046 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.ActivoCustodio
+2013-08-26 16:44:10,046 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.ActivoCustodio on table ACTIVO_CUSTODIO
+2013-08-26 16:44:10,056 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.PropiedadValor
+2013-08-26 16:44:10,057 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.PropiedadValor on table PROPIEDAD_VALOR
+2013-08-26 16:44:10,061 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.master.model.TipoImpuesto
+2013-08-26 16:44:10,061 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.master.model.TipoImpuesto on table TIPO_IMPUESTO
+2013-08-26 16:44:10,072 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.logis.model.ProductoBase
+2013-08-26 16:44:10,072 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.logis.model.ProductoBase on table PRODUCTO_BASE
+2013-08-26 16:44:10,075 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Turno
+2013-08-26 16:44:10,075 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Turno on table TURNO
+2013-08-26 16:44:10,082 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.RutaLog
+2013-08-26 16:44:10,082 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.RutaLog on table RUTA_LOG
+2013-08-26 16:44:10,090 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Inspeccion
+2013-08-26 16:44:10,091 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Inspeccion on table INSPECCION
+2013-08-26 16:44:10,098 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Evento
+2013-08-26 16:44:10,098 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Evento on table EVENTO
+2013-08-26 16:44:10,117 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.EventoLog
+2013-08-26 16:44:10,118 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.EventoLog on table EVENTO_LOG
+2013-08-26 16:44:10,126 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Visitante
+2013-08-26 16:44:10,127 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Visitante on table VISITANTE
+2013-08-26 16:44:10,138 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.InspeccionDetalle
+2013-08-26 16:44:10,139 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.InspeccionDetalle on table INSPECCION_DETALLE
+2013-08-26 16:44:10,146 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.bitacora.model.Ruta
+2013-08-26 16:44:10,147 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.bitacora.model.Ruta on table RUTA
+2013-08-26 16:44:10,154 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.mse.model.Grupo
+2013-08-26 16:44:10,154 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.mse.model.Grupo on table NOMBRE
+2013-08-26 16:44:10,160 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.mse.model.Monaguillo
+2013-08-26 16:44:10,161 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.mse.model.Monaguillo on table MONAGILLO
+2013-08-26 16:44:10,169 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.UsuarioRol
+2013-08-26 16:44:10,169 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.UsuarioRol on table USUARIO_ROL
+2013-08-26 16:44:10,178 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Usuario
+2013-08-26 16:44:10,179 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Usuario on table USUARIO
+2013-08-26 16:44:10,197 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.RolOpcion
+2013-08-26 16:44:10,198 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.RolOpcion on table ROL_OPCION
+2013-08-26 16:44:10,211 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.security.model.Rol
+2013-08-26 16:44:10,212 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.security.model.Rol on table ROL
+2013-08-26 16:44:10,224 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Configuracion
+2013-08-26 16:44:10,225 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Configuracion on table CONFIGURACION
+2013-08-26 16:44:10,245 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.TipoRetencion
+2013-08-26 16:44:10,245 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.TipoRetencion on table TIPO_RETENCION
+2013-08-26 16:44:10,249 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Parametros
+2013-08-26 16:44:10,250 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Parametros on table PARAMETROS
+2013-08-26 16:44:10,258 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Opcion
+2013-08-26 16:44:10,259 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Opcion on table OPCION
+2013-08-26 16:44:10,278 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Documento
+2013-08-26 16:44:10,278 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Documento on table DOCUMENTO
+2013-08-26 16:44:10,291 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Bundle
+2013-08-26 16:44:10,291 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Bundle on table BUNDLE
+2013-08-26 16:44:10,296 INFO  [org.hibernate.cfg.AnnotationBinder] Binding entity from annotated class: ec.com.ebos.admin.model.Objeto
+2013-08-26 16:44:10,296 INFO  [org.hibernate.cfg.annotations.EntityBinder] Bind entity ec.com.ebos.admin.model.Objeto on table OBJETO
+2013-08-26 16:44:10,354 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-08-26 16:44:10,357 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:44:10,357 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-08-26 16:44:10,358 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Periodo.saldoRetencionList -> SALDO_RETENCION
+2013-08-26 16:44:10,359 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:44:10,359 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.asientoDetalleList2 -> ASIENTO_DETALLE
+2013-08-26 16:44:10,360 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-08-26 16:44:10,361 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroCostoList -> CENTRO_COSTO
+2013-08-26 16:44:10,361 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-08-26 16:44:10,362 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.centroSubcentroList2 -> CENTRO_SUBCENTRO
+2013-08-26 16:44:10,363 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:44:10,364 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.documentoDistribucionList2 -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:44:10,364 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCentroCostoList -> SALDO_CENTRO_COSTO
+2013-08-26 16:44:10,365 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:44:10,366 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CentroCosto.saldoCuentaCentroList2 -> SALDO_CUENTA_CENTRO
+2013-08-26 16:44:10,366 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList -> PERIODO
+2013-08-26 16:44:10,367 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Ejercicio.periodoList2 -> PERIODO
+2013-08-26 16:44:10,368 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCuenta.cuentaContableList -> CUENTA_CONTABLE
+2013-08-26 16:44:10,368 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoAsiento.asientoList -> ASIENTO
+2013-08-26 16:44:10,369 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.Asiento.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:44:10,370 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroCostoList -> CENTRO_COSTO
+2013-08-26 16:44:10,370 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.centroSubcentroList -> CENTRO_SUBCENTRO
+2013-08-26 16:44:10,371 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.TipoCentroCosto.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:44:10,372 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:44:10,373 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:44:10,373 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:44:10,374 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.cuentaContableList -> CUENTA_CONTABLE
+2013-08-26 16:44:10,375 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.ejercicioList -> EJERCICIO
+2013-08-26 16:44:10,375 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaCentroList -> SALDO_CUENTA_CENTRO
+2013-08-26 16:44:10,376 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.conta.model.CuentaContable.saldoCuentaContableList -> SALDO_CUENTA_CONTABLE
+2013-08-26 16:44:10,377 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.activoCustodioList -> ACTIVO_CUSTODIO
+2013-08-26 16:44:10,377 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Activo.propiedadList -> PROPIEDAD
+2013-08-26 16:44:10,378 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Propiedad.propiedadValorList -> PROPIEDAD_VALOR
+2013-08-26 16:44:10,379 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.divisionGeograficaList -> DIVISION_GEOGRAFICA
+2013-08-26 16:44:10,380 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.DivisionGeografica.periodoFiscalPaisList -> PERIODO_FISCAL_PAIS
+2013-08-26 16:44:10,380 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.activoCustodioList -> ACTIVO_CUSTODIO
+2013-08-26 16:44:10,381 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.EmpresaPersona.usuarioList -> USUARIO
+2013-08-26 16:44:10,382 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.activoList -> ACTIVO
+2013-08-26 16:44:10,382 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.centroCostoEmpresaList -> CENTRO_COSTO_EMPRESA
+2013-08-26 16:44:10,383 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaCentroList -> CUENTA_CENTRO
+2013-08-26 16:44:10,384 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.cuentaContableEmpresaList -> CUENTA_CONTABLE_EMPRESA
+2013-08-26 16:44:10,384 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.ejercicioList -> EJERCICIO
+2013-08-26 16:44:10,385 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.empresaPersonaList -> EMPRESA_PERSONA
+2013-08-26 16:44:10,386 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Organizacion.sucursalList -> SUCURSAL
+2013-08-26 16:44:10,386 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.activoList -> ACTIVO
+2013-08-26 16:44:10,387 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Categoria.categoriaList -> CATEGORIA
+2013-08-26 16:44:10,388 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaList -> ORGANIZACION
+2013-08-26 16:44:10,388 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.empresaPersonaList -> EMPRESA_PERSONA
+2013-08-26 16:44:10,389 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.Persona.monagilloList -> MONAGILLO
+2013-08-26 16:44:10,389 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.master.model.TipoDocumento.asientoList -> ASIENTO
+2013-08-26 16:44:10,390 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.bitacora.model.Evento.eventoLogList -> EVENTO_LOG
+2013-08-26 16:44:10,391 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.mse.model.Grupo.monagilloList -> MONAGILLO
+2013-08-26 16:44:10,391 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.mse.model.Monaguillo.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:44:10,392 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Usuario.usuarioRolList -> USUARIO_ROL
+2013-08-26 16:44:10,393 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.rolOpcionList -> ROL_OPCION
+2013-08-26 16:44:10,393 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.security.model.Rol.usuarioRolList -> USUARIO_ROL
+2013-08-26 16:44:10,394 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.TipoRetencion.saldoRetencionList -> SALDO_RETENCION
+2013-08-26 16:44:10,394 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Opcion.opcionList -> OPCION
+2013-08-26 16:44:10,396 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Opcion.rolOpcionList -> ROL_OPCION
+2013-08-26 16:44:10,397 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoDetalleList -> ASIENTO_DETALLE
+2013-08-26 16:44:10,397 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.asientoList -> ASIENTO
+2013-08-26 16:44:10,398 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Documento.documentoDistribucionList -> DOCUMENTO_DISTRIBUCION
+2013-08-26 16:44:10,399 INFO  [org.hibernate.cfg.annotations.CollectionBinder] Mapping collection: ec.com.ebos.admin.model.Objeto.opcionList -> OPCION
+2013-08-26 16:44:10,427 INFO  [org.hibernate.validator.Version] Hibernate Validator 3.0.0.GA
+2013-08-26 16:44:10,582 INFO  [org.hibernate.dialect.Dialect] Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2013-08-26 16:44:10,588 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] Running hbm2ddl schema update
+2013-08-26 16:44:10,588 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] fetching database metadata
+2013-08-26 16:44:10,590 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Using Hibernate built-in connection pool (not for production use!)
+2013-08-26 16:44:10,591 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] Hibernate connection pool size: 20
+2013-08-26 16:44:10,591 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] autocommit mode: false
+2013-08-26 16:44:10,597 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] using driver: org.postgresql.Driver at URL: jdbc:postgresql://localhost:5432/ec.com.ebos-1.1.0.BETA
+2013-08-26 16:44:10,597 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] connection properties: {user=ebos, password=ebos}
+2013-08-26 16:44:10,668 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] updating schema
+2013-08-26 16:44:10,831 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.bundle
+2013-08-26 16:44:10,831 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, localidad, valor]
+2013-08-26 16:44:10,831 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:10,831 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [bundle_codigo_localidad_key, bundle_pkey]
+2013-08-26 16:44:10,861 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.configuracion
+2013-08-26 16:44:10,862 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [usr_gateway, correo_mail, is_autenticar_mail, app_id_gateway, modificacion, is_httpgateway, baudio_sms, is_sms, codcentralsms, pwd_gateway, url_gateway, com_sms, password_mail, id, servidor_mail, port_smtp, id_modificador, id_creador, usuario_mail, is_tls_mail, creacion, is_email]
+2013-08-26 16:44:10,862 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk2ce9d2876e7a9d23, fk2ce9d287d5aca0c6]
+2013-08-26 16:44:10,862 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [configuracion_pkey]
+2013-08-26 16:44:10,885 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.documento
+2013-08-26 16:44:10,885 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, enviado, contabilizado, autorizado, emitido, vencimiento, procesado]
+2013-08-26 16:44:10,885 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:10,885 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [documento_pkey]
+2013-08-26 16:44:10,908 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.objeto
+2013-08-26 16:44:10,908 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_modificador, modificacion, tipo, descripcion, id_creador, creacion]
+2013-08-26 16:44:10,909 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk8a9399496e7a9d23, fk8a939949d5aca0c6]
+2013-08-26 16:44:10,909 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [objeto_codigo_key, objeto_pkey]
+2013-08-26 16:44:10,937 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.opcion
+2013-08-26 16:44:10,937 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [modificacion, descripcion, id, nombre, estado, id_modificador, icono, id_objeto, target, id_padre, id_creador, creacion, etiqueta]
+2013-08-26 16:44:10,937 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk8b55c226d5aca0c6, fk8b55c2266e7a9d23, fk8b55c22680b2960a, fk8b55c226a6bbe3dc]
+2013-08-26 16:44:10,938 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [opcion_nombre_key, opcion_pkey]
+2013-08-26 16:44:10,962 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.parametros
+2013-08-26 16:44:10,962 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, grupo, estado, id_modificador, valor, modificacion, id_creador, creacion, clave]
+2013-08-26 16:44:10,962 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk3841de5a6e7a9d23, fk3841de5ad5aca0c6]
+2013-08-26 16:44:10,962 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [parametros_pkey, parametros_clave_key]
+2013-08-26 16:44:10,982 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosadmi.tipo_retencion
+2013-08-26 16:44:10,983 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id]
+2013-08-26 16:44:10,983 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:10,983 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_retencion_pkey]
+2013-08-26 16:44:11,007 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.evento
+2013-08-26 16:44:11,008 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [integrantes, id, observacion, estado, fechafin, id_modificador, tipoevento, modificacion, descripcion, id_creador, creacion, fechainicio]
+2013-08-26 16:44:11,008 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7a9ad515d5aca0c6, fk7a9ad5156e7a9d23]
+2013-08-26 16:44:11,008 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [evento_pkey]
+2013-08-26 16:44:11,032 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.evento_log
+2013-08-26 16:44:11,033 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, descripcion, id_creador, creacion, id_evento]
+2013-08-26 16:44:11,033 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk587c98fa6e371242, fk587c98fa6e7a9d23, fk587c98fad5aca0c6]
+2013-08-26 16:44:11,033 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [evento_log_pkey]
+2013-08-26 16:44:11,056 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.inspeccion
+2013-08-26 16:44:11,056 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:44:11,056 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk854d3f25d5aca0c6, fk854d3f256e7a9d23]
+2013-08-26 16:44:11,056 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [inspeccion_pkey]
+2013-08-26 16:44:11,079 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.inspeccion_detalle
+2013-08-26 16:44:11,079 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:44:11,079 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk41b67a3d6e7a9d23, fk41b67a3dd5aca0c6]
+2013-08-26 16:44:11,079 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [inspeccion_detalle_pkey]
+2013-08-26 16:44:11,103 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.ruta
+2013-08-26 16:44:11,103 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:44:11,103 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk268ff0d5aca0c6, fk268ff06e7a9d23]
+2013-08-26 16:44:11,103 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ruta_pkey]
+2013-08-26 16:44:11,125 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.ruta_log
+2013-08-26 16:44:11,125 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:44:11,125 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk69a96e556e7a9d23, fk69a96e55d5aca0c6]
+2013-08-26 16:44:11,125 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ruta_log_pkey]
+2013-08-26 16:44:11,148 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.turno
+2013-08-26 16:44:11,148 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_modificador, modificacion, id_creador, creacion]
+2013-08-26 16:44:11,148 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk4c79772d5aca0c6, fk4c797726e7a9d23]
+2013-08-26 16:44:11,148 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [turno_pkey]
+2013-08-26 16:44:11,172 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosbita.visitante
+2013-08-26 16:44:11,172 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, id_modificador, apellidos, modificacion, id_creador, creacion, cedula]
+2013-08-26 16:44:11,172 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk162883096e7a9d23, fk16288309d5aca0c6]
+2013-08-26 16:44:11,172 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [visitante_pkey, visitante_cedula_key]
+2013-08-26 16:44:11,204 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.asiento
+2013-08-26 16:44:11,204 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, id_tipo_asiento, secuencia, id_documento, cuadrado, id_punto_venta, id_tipo_documento, descripcion, id_periodo, id_empresa, comentario]
+2013-08-26 16:44:11,205 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk3c87bb983c2e4c, fk3c87bb89f22544, fk3c87bbd1c1d70a, fk3c87bb5ce23612, fk3c87bbce7806f0, fk3c87bb92793147]
+2013-08-26 16:44:11,205 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [asiento_pkey]
+2013-08-26 16:44:11,259 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.asiento_detalle
+2013-08-26 16:44:11,259 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id_cuenta_contable, id_subcentro_costo, id_documento, modificacion, descripcion, id_centro_costo, id, valor_debe, id_modificador, id_creador, creacion, id_asiento]
+2013-08-26 16:44:11,260 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7cf6ccd3d5aca0c6, fk7cf6ccd397944aad, fk7cf6ccd3ce7806f0, fk7cf6ccd36e7a9d23, fk7cf6ccd3c1c6f9ab, fk7cf6ccd382bee27, fk7cf6ccd3726ce035, fk7cf6ccd385bd975e]
+2013-08-26 16:44:11,260 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [asiento_detalle_pkey]
+2013-08-26 16:44:11,288 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_costo
+2013-08-26 16:44:11,288 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [pide_subcentro_costo, modificacion, descripcion, id, codigo, estado, id_tipo_centro_costo, id_modificador, codigo_formato, id_padre, id_creador, creacion, nivel, terminante]
+2013-08-26 16:44:11,289 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7915b7486e7a9d23, fk7915b748f8f3a0b, fk7915b748173cd6c4, fk7915b748d5aca0c6]
+2013-08-26 16:44:11,289 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_costo_pkey, centro_costo_codigo_key]
+2013-08-26 16:44:11,309 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_costo_empresa
+2013-08-26 16:44:11,309 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_padre, id_empresa]
+2013-08-26 16:44:11,309 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk893e6272d1c1d70a, fk893e6272f8f3a0b]
+2013-08-26 16:44:11,309 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_costo_empresa_pkey]
+2013-08-26 16:44:11,334 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.centro_subcentro
+2013-08-26 16:44:11,334 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_subcentro_costo, estado, id_tipo_centro_costo, id_centro_costo]
+2013-08-26 16:44:11,334 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk10324e2b173cd6c4, fk10324e2b97944aad, fk10324e2b726ce035]
+2013-08-26 16:44:11,335 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [centro_subcentro_pkey]
+2013-08-26 16:44:11,361 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_centro
+2013-08-26 16:44:11,362 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_cuenta_contable, estado, id_tipo_centro_costo, id_modificador, modificacion, id_creador, creacion, id_empresa]
+2013-08-26 16:44:11,362 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka8a1d1bc6e7a9d23, fka8a1d1bcd5aca0c6, fka8a1d1bc173cd6c4, fka8a1d1bc82bee27, fka8a1d1bcd1c1d70a]
+2013-08-26 16:44:11,362 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_centro_pkey]
+2013-08-26 16:44:11,391 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_contable
+2013-08-26 16:44:11,391 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [tipo_proceso, modificacion, descripcion, pide_centro_costo, id, codigo, id_tipo_cuenta, estado, id_modificador, id_padre, codigo_formato, id_creador, creacion, nivel, naturaleza, terminante]
+2013-08-26 16:44:11,391 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk186ac1a3d153b18a, fk186ac1a3d5aca0c6, fk186ac1a36e7a9d23, fk186ac1a38fe300df]
+2013-08-26 16:44:11,391 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_contable_pkey, cuenta_contable_codigo_key]
+2013-08-26 16:44:11,414 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.cuenta_contable_empresa
+2013-08-26 16:44:11,414 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_cuenta_contable, id_empresa]
+2013-08-26 16:44:11,414 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk643ce1cd82bee27, fk643ce1cdd1c1d70a]
+2013-08-26 16:44:11,415 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [cuenta_contable_empresa_pkey]
+2013-08-26 16:44:11,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.documento_distribucion
+2013-08-26 16:44:11,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_subcentro_costo, estado, id_documento, id_modificador, valor, modificacion, id_creador, creacion, id_centro_costo]
+2013-08-26 16:44:11,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkfdb15400ce7806f0, fkfdb15400d5aca0c6, fkfdb1540097944aad, fkfdb154006e7a9d23, fkfdb15400726ce035]
+2013-08-26 16:44:11,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [documento_distribucion_pkey]
+2013-08-26 16:44:11,467 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.ejercicio
+2013-08-26 16:44:11,467 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, fecha_inicial, fecha_final, estado, id_cuenta_utilidad, valor, descripcion, id_empresa]
+2013-08-26 16:44:11,467 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkcf5699b1558af01b, fkcf5699b1d1c1d70a]
+2013-08-26 16:44:11,467 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [ejercicio_pkey]
+2013-08-26 16:44:11,491 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.periodo
+2013-08-26 16:44:11,491 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, fecha_inicial, fecha_final, estado, id_periodo_fiscal_pais, id_ejercicio, descripcion, valor_utilidad]
+2013-08-26 16:44:11,491 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk256ceae5500e144, fk256ceaee4ef694a]
+2013-08-26 16:44:11,491 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [periodo_pkey]
+2013-08-26 16:44:11,512 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.periodo_fiscal_pais
+2013-08-26 16:44:11,512 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id_division_geografica, codigo, id, descripcion]
+2013-08-26 16:44:11,512 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk2faae4ab7e2bbfc8]
+2013-08-26 16:44:11,513 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [periodo_fiscal_pais_pkey]
+2013-08-26 16:44:11,539 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_centro_costo
+2013-08-26 16:44:11,539 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id, tiposaldo, valor_debe, estado, id_modificador, modificacion, id_periodo, id_creador, creacion, id_centro_costo, saldo_inicial]
+2013-08-26 16:44:11,540 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkbb2a1efe89f22544, fkbb2a1efe726ce035, fkbb2a1efed5aca0c6, fkbb2a1efe6e7a9d23]
+2013-08-26 16:44:11,540 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_centro_costo_pkey]
+2013-08-26 16:44:11,572 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_cuenta_centro
+2013-08-26 16:44:11,572 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id_cuenta_contable, id_subcentro_costo, modificacion, id_periodo, saldo, id_centro_costo, id, valor_debe, estado, id_modificador, id_creador, creacion, saldo_inicial]
+2013-08-26 16:44:11,572 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka91a60c6726ce035, fka91a60c697944aad, fka91a60c66e7a9d23, fka91a60c689f22544, fka91a60c6d5aca0c6, fka91a60c682bee27]
+2013-08-26 16:44:11,573 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_cuenta_centro_pkey]
+2013-08-26 16:44:11,600 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_cuenta_contable
+2013-08-26 16:44:11,600 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [valor_haber, id, id_cuenta_contable, valor_debe, estado, id_modificador, modificacion, id_periodo, id_creador, creacion, saldo, saldo_inicial]
+2013-08-26 16:44:11,601 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkdcfbb62d82bee27, fkdcfbb62d6e7a9d23, fkdcfbb62d89f22544, fkdcfbb62dd5aca0c6]
+2013-08-26 16:44:11,601 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_cuenta_contable_pkey]
+2013-08-26 16:44:11,626 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.saldo_retencion
+2013-08-26 16:44:11,627 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, base_imponible, id_modificador, modificacion, id_periodo, id_creador, valor_retenido, creacion, id_tipo_retencion]
+2013-08-26 16:44:11,627 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk42aed8b989f22544, fk42aed8b96e837ecf, fk42aed8b9d5aca0c6, fk42aed8b96e7a9d23]
+2013-08-26 16:44:11,627 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [saldo_retencion_pkey]
+2013-08-26 16:44:11,649 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_asiento
+2013-08-26 16:44:11,649 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_modificador, distribucion, modificacion, descripcion, id_creador, formato_referencia, creacion]
+2013-08-26 16:44:11,650 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fka05f05b06e7a9d23, fka05f05b0d5aca0c6]
+2013-08-26 16:44:11,650 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_asiento_pkey]
+2013-08-26 16:44:11,683 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_centro_costo
+2013-08-26 16:44:11,684 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, distribucion, descripcion]
+2013-08-26 16:44:11,684 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:11,685 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_centro_costo_pkey]
+2013-08-26 16:44:11,714 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: eboscont.tipo_cuenta
+2013-08-26 16:44:11,714 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, tipo, descripcion, naturaleza]
+2013-08-26 16:44:11,714 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:11,714 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_cuenta_pkey]
+2013-08-26 16:44:11,740 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.activo
+2013-08-26 16:44:11,741 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_categoria, estado, id_modificador, modificacion, descripcion, id_creador, creacion, id_empresa]
+2013-08-26 16:44:11,741 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk72c27310d5aca0c6, fk72c27310d1c1d70a, fk72c273103e234921, fk72c273106e7a9d23]
+2013-08-26 16:44:11,741 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [activo_pkey]
+2013-08-26 16:44:11,768 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.activo_custodio
+2013-08-26 16:44:11,768 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, id_creador, creacion, id_activo, id_empresapersona]
+2013-08-26 16:44:11,768 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk22127edd81ba6945, fk22127eddd5aca0c6, fk22127edd6e7a9d23, fk22127edd16c4340b]
+2013-08-26 16:44:11,769 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [activo_custodio_pkey]
+2013-08-26 16:44:11,788 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.categoria
+2013-08-26 16:44:11,789 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, estado, id_padre, descripcion]
+2013-08-26 16:44:11,789 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk36cf113d6199bf4]
+2013-08-26 16:44:11,789 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [categoria_pkey, categoria_codigo_key]
+2013-08-26 16:44:11,812 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.division_geografica
+2013-08-26 16:44:11,812 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id_division_geografica, codigo, id, descripcion, nivel, terminante]
+2013-08-26 16:44:11,812 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkd91dd0987e2bbfc8]
+2013-08-26 16:44:11,812 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [division_geografica_pkey]
+2013-08-26 16:44:11,839 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.empresa_persona
+2013-08-26 16:44:11,840 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, id_persona, id_creador, creacion, id_empresa]
+2013-08-26 16:44:11,840 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb17155b6d1c1d70a, fkb17155b6d5aca0c6, fkb17155b66e7a9d23, fkb17155b6ef3198d3]
+2013-08-26 16:44:11,840 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [empresa_persona_pkey]
+2013-08-26 16:44:11,866 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.organizacion
+2013-08-26 16:44:11,866 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, imagen, estado, id_modificador, modificacion, id_persona, descripcion, id_creador, creacion]
+2013-08-26 16:44:11,866 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkd05c1ae46e7a9d23, fkd05c1ae4ef3198d3, fkd05c1ae4d5aca0c6]
+2013-08-26 16:44:11,866 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [organizacion_pkey]
+2013-08-26 16:44:11,902 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.persona
+2013-08-26 16:44:11,902 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [direccion, tipopersona, usuario, modificacion, contenttype, id, nombres, id_ciudad, id_modificador, facebook, tipoidentificacion, id_creador, proveedor, mail, empleado, apellidos, nacimiento, telefono, identificacion, imagen, genero, estado, cliente, creacion, celular]
+2013-08-26 16:44:11,902 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk25b5b8c9bf91450, fk25b5b8cd5aca0c6, fk25b5b8c6e7a9d23]
+2013-08-26 16:44:11,902 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [persona_identificacion_key, persona_pkey]
+2013-08-26 16:44:11,923 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.producto_base
+2013-08-26 16:44:11,923 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id]
+2013-08-26 16:44:11,923 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:11,923 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [producto_base_pkey]
+2013-08-26 16:44:11,946 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.propiedad
+2013-08-26 16:44:11,946 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, tipodato, id_categoria, estado, valor, lista, longitud, id_activo, valordefecto, requerido]
+2013-08-26 16:44:11,946 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk7b3823483e234921, fk7b38234881ba6945]
+2013-08-26 16:44:11,947 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [propiedad_pkey]
+2013-08-26 16:44:11,966 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.propiedad_valor
+2013-08-26 16:44:11,966 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, valor, id_propiedad]
+2013-08-26 16:44:11,966 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk330988ed2db9ad8b]
+2013-08-26 16:44:11,967 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [propiedad_valor_pkey]
+2013-08-26 16:44:11,991 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.sucursal
+2013-08-26 16:44:11,992 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_modificador, modificacion, descripcion, id_creador, creacion, id_empresa]
+2013-08-26 16:44:11,992 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb59c3e806e7a9d23, fkb59c3e80d1c1d70a, fkb59c3e80d5aca0c6]
+2013-08-26 16:44:11,992 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [sucursal_pkey]
+2013-08-26 16:44:12,012 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tema
+2013-08-26 16:44:12,012 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, imagen, estado]
+2013-08-26 16:44:12,012 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:12,012 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tema_pkey, tema_nombre_key]
+2013-08-26 16:44:12,034 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tipo_documento
+2013-08-26 16:44:12,034 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, impresion_automatica, contabiliza, id_tipo_documento_reserva, contable, pide_preimpreso]
+2013-08-26 16:44:12,034 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkffd037497f6284c5]
+2013-08-26 16:44:12,034 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_documento_pkey]
+2013-08-26 16:44:12,057 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmast.tipo_impuesto
+2013-08-26 16:44:12,057 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [codigo, id, id_modificador, modificacion, descripcion, id_creador, clase, creacion]
+2013-08-26 16:44:12,057 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk79f4fdfd6e7a9d23, fk79f4fdfdd5aca0c6]
+2013-08-26 16:44:12,058 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [tipo_impuesto_pkey]
+2013-08-26 16:44:12,080 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmse.monagillo
+2013-08-26 16:44:12,080 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, id_persona, representates, centroestudio, id_grupo]
+2013-08-26 16:44:12,081 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk382e24f85a90d68a, fk382e24f8ef3198d3]
+2013-08-26 16:44:12,081 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [monagillo_pkey]
+2013-08-26 16:44:12,099 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebosmse.nombre
+2013-08-26 16:44:12,100 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id]
+2013-08-26 16:44:12,100 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: []
+2013-08-26 16:44:12,100 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [nombre_pkey]
+2013-08-26 16:44:12,125 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.rol
+2013-08-26 16:44:12,125 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [nombre, id, estado, id_modificador, modificacion, descripcion, id_creador, creacion]
+2013-08-26 16:44:12,125 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk13daf6e7a9d23, fk13dafd5aca0c6]
+2013-08-26 16:44:12,126 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [rol_pkey, rol_nombre_key]
+2013-08-26 16:44:12,152 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.rol_opcion
+2013-08-26 16:44:12,153 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, exportar, id_opcion, id_modificador, modificacion, editar, id_creador, crear, creacion, id_rol, eliminar]
+2013-08-26 16:44:12,153 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk4438eb66e7a9d23, fk4438eb621e1adf7, fk4438eb68236e7c4, fk4438eb6d5aca0c6]
+2013-08-26 16:44:12,153 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [rol_opcion_pkey]
+2013-08-26 16:44:12,181 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.usuario
+2013-08-26 16:44:12,181 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, localidad, username, estado, id_modificador, modificacion, tema, id_creador, creacion, password, maxoptions, id_empresapersona]
+2013-08-26 16:44:12,181 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fk22e07f0ed5aca0c6, fk22e07f0e6e7a9d23, fk22e07f0e16c4340b]
+2013-08-26 16:44:12,182 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [usuario_username_key, usuario_pkey]
+2013-08-26 16:44:12,207 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] table found: ebossecu.usuario_rol
+2013-08-26 16:44:12,207 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] columns: [id, estado, id_usuario, id_modificador, modificacion, id_creador, creacion, id_rol]
+2013-08-26 16:44:12,207 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] foreign keys: [fkb17ab4fed5aca0c6, fkb17ab4fe29414c35, fkb17ab4fe6e7a9d23, fkb17ab4fe21e1adf7]
+2013-08-26 16:44:12,207 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] indexes: [usuario_rol_pkey]
+2013-08-26 16:44:12,382 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] schema update complete
+2013-08-26 16:44:12,383 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ec.com.ebos-1.1.0.BETA
+2013-08-26 16:44:12,542 INFO  [org.hibernate.connection.DriverManagerConnectionProvider] cleaning up connection pool: jdbc:postgresql://localhost:5432/ec.com.ebos-1.1.0.BETA

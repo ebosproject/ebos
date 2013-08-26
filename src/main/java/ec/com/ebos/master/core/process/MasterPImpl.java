@@ -81,9 +81,12 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 		}
 		criteria.addLikeIfNotNull(Persona_.apellidos, persona.getApellidos());
 		criteria.addLikeIfNotNull(Persona_.nombres, persona.getNombres());
-        criteria.addEqualsIfNotNull(Persona_.cliente, persona.isCliente());
-        criteria.addEqualsIfNotNull(Persona_.empleado, persona.isEmpleado());
-        criteria.addEqualsIfNotNull(Persona_.proveedor, persona.isProveedor());
+		
+		criteria.addEqualsIsTrue(Persona_.usuario, persona.isUsuario());
+		criteria.addEqualsIsTrue(Persona_.cliente, persona.isCliente());
+    	criteria.addEqualsIsTrue(Persona_.empleado, persona.isEmpleado());
+    	criteria.addEqualsIsTrue(Persona_.proveedor, persona.isProveedor());
+    	
         criteria.addEqualsIfNotNull(Persona_.estado, persona.getEstado());
         criteria.addEqualsIfNotNull(Persona_.tipoIdentificacion, persona.getTipoIdentificacion());
         criteria.addEqualsIfNotNull(Persona_.tipoPersona, persona.getTipoPersona());

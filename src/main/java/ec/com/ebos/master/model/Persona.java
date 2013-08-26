@@ -74,6 +74,10 @@ public class Persona extends Master<Persona>{
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date nacimiento;
 
+	@Column(name = "genero", nullable = false, length = 1)
+    @Type(type = Genero.TYPE)
+    private Genero genero;
+	
 	@Column(name = "identificacion", unique = true, nullable = false, length = 20)
 	private String identificacion;
 	
@@ -260,6 +264,63 @@ public class Persona extends Master<Persona>{
 
         public boolean isJuridica() {
             return this.equals(JURIDICA);
+        }
+    }
+    
+    /**
+     * <strong>Genero de una Persona</strong> <br>
+     * <table border="1">
+     * <tr><th valign="top"> Generos </th>
+     * <tr><td valign="top"> M: Masculino<br> F: Femenino<br> O: Otro<br></td></tr>
+     * </table>
+     *
+     * @author Eduardo Plua Alay
+     *
+     */
+    public enum Genero implements StringValuedEnum<Genero> {
+        MASCULINO("M"),
+        FEMENINO("F"),
+        OTRO("O");
+
+        public static class Type extends StringValuedEnumType<Estado> {
+        }
+        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Persona$Genero$Type";
+
+        @Getter
+        private String value;
+        private String labelKey;
+
+        private Genero(String value) {
+            this.value = value;
+            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
+        }
+        public static final Map<String, Genero> LABELED_MAP =
+                EntityUtils.buildLabeledEnumMap(Genero.values());
+        /**
+         * Lists para iteraciones
+         */
+        public static final List<Genero> LIST = Arrays.asList(Genero.values());
+
+        @Override
+        public String getLabel() {
+            return labelKey;
+        }
+
+        @Override
+        public String getDescription() {
+            return getLabel();
+        }
+
+        public boolean isMasculino() {
+            return this.equals(MASCULINO);
+        }
+
+        public boolean isFemenino() {
+            return this.equals(FEMENINO);
+        }
+        
+        public boolean isOtro(){
+        	return this.equals(OTRO);
         }
     }
 

@@ -40,10 +40,8 @@ public class BundleBean extends AdministracionBean<Bundle> {
         
         if(EntityUtils.isPersistent(activeEntity)){
             
-        } else {
-        	setHabilitaEliminar(false);
-        	//TODO (epa): La plataforma no debe permitir para todos las pantallas mostrar el boton eliminar si la 
-        	//entidad activa no esta persistida en la base de datos
+        } else { 
+        	
         }
     }
 
@@ -69,11 +67,6 @@ public class BundleBean extends AdministracionBean<Bundle> {
     @Override
     public void editar() {        
     	//activeEntity = masterS.loadBundle(activeEntity.getId());
-    }
-    
-    @Override
-    public void actualizar(){                        
-        editar();
     }
 
     @Override

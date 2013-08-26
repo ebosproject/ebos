@@ -219,6 +219,13 @@ public class GenericCriteria<T> implements Serializable {
 	public GenericCriteria<T> addEquals(String propertyName, Object value) {
 		return addEquals(propertyName, value, false);
 	}
+	
+	/**
+	 * Adds an "equal" if only value == true
+	 */
+	public GenericCriteria<T> addEqualsIsTrue(String propertyName, boolean value) {
+		return value ? addEquals(propertyName, value, false) : this;
+	}
 
 	public GenericCriteria<T> addLT(String propertyName, Object value) {
 		criteria.add(Restrictions.lt(propertyName, value));

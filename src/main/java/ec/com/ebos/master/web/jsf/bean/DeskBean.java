@@ -168,6 +168,8 @@ public class DeskBean implements Serializable{
 	            attrs.put("src", option.getTarget());
 	            attrs.put("header", option.getEtiqueta());
 	            attrs.put("parentId", pngFrame.getId());
+	            attrs.put("width", option.getWidth());
+	            attrs.put("height", option.getHeight());
         		FacesUtils.includeCompositeComponent(context, pngFrame, COMPONENT_LIBRARY, FRAME_RESOURCE, FRAME_PREFIX+context.getViewRoot().createUniqueId(), attrs);
         		requestContext.addCallbackParam("pngFrameId",pngFrame.getId());
             } catch(Exception ex){

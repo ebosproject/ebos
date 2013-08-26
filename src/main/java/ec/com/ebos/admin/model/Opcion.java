@@ -21,6 +21,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.admin.model.field.Opcion_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.RolOpcion;
@@ -71,6 +72,12 @@ public class Opcion extends Administracion<Opcion> {
     
     @Column(name="icono", length=200)
     private String icono;
+
+    @Column(name=Opcion_.width, length=4)
+    private int width = 700;
+    
+    @Column(name=Opcion_.height, length=4)
+    private int height = 450;
     
     @Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)

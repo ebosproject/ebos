@@ -9,9 +9,11 @@ import ec.com.ebos.admin.model.Opcion;
  */
 public abstract class Opcion_ extends Administracion_{
 
-	public static String icono = "icono";
-	public static String target = "target";
-	public static String etiqueta = "etiqueta";
+	public static final String icono = "icono";
+	public static final String target = "target";
+	public static final String etiqueta = "etiqueta";
+	public static final String height = "height";
+	public static final String width = "width";
 
 }
 

@@ -18,6 +18,7 @@ import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.FacesUtils;
 import ec.com.ebos.util.MessageUtils;
 import ec.com.ebos.util.NumberUtils;
@@ -85,8 +86,8 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     public void _crear(){
         crear();
         habilitaControles();
-        habilitaEliminar = false;
-        //return TARGET_NEW_ID;
+        habilitaEliminar = false; 
+        habilitaActualizar = false;
     }
     
     protected void crear(){        
@@ -95,13 +96,17 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     public String _editar(){
         editar();
         habilitaControles();
+        habilitaActualizar = EntityUtils.isPersistent(activeEntity);
         return TARGET_NEW_ID;
     }
     
     protected void editar(){     
     }
     
-    public void _actualizar(){        
+    public void _actualizar(){
+    	if(EntityUtils.isPersistent(activeEntity)){
+    		editar();
+    	}
         actualizar();
         habilitaControles();
     }
