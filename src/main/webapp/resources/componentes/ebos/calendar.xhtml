@@ -10,10 +10,11 @@
     <cc:interface displayName="calendar" >
         <cc:attribute name="value" required="true" />    
         <cc:attribute name="showOn" type="java.lang.String" default="button"/>
+        <cc:attribute name="pattern" type="java.lang.String" default="dd-MMM-yyyy" />
     </cc:interface>
 
     <cc:implementation>         
-    	<p:calendar id="calendar" value="#{cc.attrs.value}" showOn="#{cc.attrs.showOn}" />
+    	<p:calendar id="calendar" value="#{cc.attrs.value}" showOn="#{cc.attrs.showOn}" pattern="#{cc.attrs.pattern}"/>
     </cc:implementation>  
 
 </html>

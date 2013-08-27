@@ -51,7 +51,7 @@
 					maxlength="50" />
 					
 				<p:outputLabel for="nacimiento" value="#{msg.birthday}" />
-				<eb:calendar id="nacimiento" value="#{persona.nacimiento}"/>
+				<eb:calendar id="nacimiento" value="#{persona.nacimiento}" pattern="dd-MMM-yyyy"/>
 				
 				<p:outputLabel for="mail" value="#{msg.mail}" />
 				<eb:inputText id="mail" value="#{persona.mail}" maxlength="100" />

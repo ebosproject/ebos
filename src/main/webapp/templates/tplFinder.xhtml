@@ -13,15 +13,15 @@
 		<ui:remove>
 	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
 		</ui:remove>
-		<ui:param name="optionsFinder" value="'north':{'closable':false,'resizable':false,'size':50},
-				'south':{'closable':true, 'size':35},
-				'west':{'minSize':215, 'maxSize':300, 'size':215, 'resizable':true},
-				'east':{'minSize':80, 'maxSize':80, 'size':80},
-				'center':{'minHeight':60, 'resizeWhileDragging':false, 'closable':false, 'minWidth':200, 'resizable':false}"/>
+		<ui:param name="optionsFinder" value="north:{size:'50'},
+				south:{closable:true, size:'35'},
+				west:{closable:true, size:'190', minSize:'190', resizable:true},
+				east:{},
+				center:{}"/>
 	</ui:insert>
 	
-	<pe:layout id="lytFinder" fullPage="false" style="min-height:450px; min-width:700px; height:100%; width:100%;" 
-		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsFinder}}">
+	<pe:layout id="lytFinder" fullPage="false" style="width:100% !important; height:100% !important;min-width:#{widthFrame ne null?widthFrame:450}px; min-height:#{heightFrame ne null?heightFrame:650}px;" 
+		options="{panes:{resizeWhileDragging:true,resizeWithWindow:true, resizable:false,closable:false},#{optionsFinder}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTF">
                  <p:toolbar id="tbrTF" style="overflow:hidden !important;">
@@ -51,7 +51,7 @@
        		<!-- <p:hotkey bind="ctrl+shift+f" handler="alert('Hola');" /> -->
             </h:form>
          </pe:layoutPane>
-         <pe:layoutPane position="center">
+         <pe:layoutPane position="center" >
             <h:form id="frmR">
             	
 	        	<p:dataTable id="dtR" 
