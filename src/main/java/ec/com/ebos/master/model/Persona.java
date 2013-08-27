@@ -150,20 +150,20 @@ public class Persona extends Master<Persona>{
 		return DateUtils.calcularEdad(nacimiento);
 	}
 	
-	@Transient
-	private StreamedContent imageStream;
-
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public StreamedContent getImageStream(){
-		if(imageStream == null){
-			imageStream = new DefaultStreamedContent(new ByteArrayInputStream(imagen), contentType);
-		} 
-		return imageStream;
-	}
+//	@Transient
+//	private StreamedContent imageStream;
+//
+//	/**
+//	 * 
+//	 * @param id
+//	 * @return
+//	 */
+//	public StreamedContent getImageStream(){
+//		if(imageStream == null){
+//			imageStream = new DefaultStreamedContent(new ByteArrayInputStream(imagen), contentType);
+//		} 
+//		return imageStream;
+//	}
 	
 	/**
 	 * Numero de cedula, ruc o codigo de indentificacion

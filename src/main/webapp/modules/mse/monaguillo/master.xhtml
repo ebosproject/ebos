@@ -26,15 +26,16 @@
 				<eb:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel value="#{msg.person}" for="atcPersona" />
 					<p:autoComplete value="#{monaguillo.persona}"
-						id="atcPersona" completeMethod="#{imageBean.completePersona}"
+						id="atcPersona" completeMethod="#{monaguilloBean.completePersona}"
 						var="p" itemLabel="#{p.nombres}" itemValue="#{p}"
-						converter="#{bean.personaConverter}" forceSelection="true">
+						converter="#{monaguilloBean.personaConverter}" forceSelection="true">
 
 						<f:facet name="itemtip">
 							<h:panelGrid columns="2" cellpadding="5">
 								<f:facet name="header">
-									<p:graphicImage id="image" value="#{p.imageStream}"
-										height="50" width="50"/>
+									<p:graphicImage id="image" value="#{imageBean.monaguilloImage}"
+										height="50" width="50" />
+										<f:param name="id" value="#{p.id}"/>
 								</f:facet>
 
 								<p:outputLabel for="fullName" value="#{msg.fullName}" />

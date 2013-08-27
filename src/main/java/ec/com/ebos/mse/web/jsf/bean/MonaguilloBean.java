@@ -152,5 +152,15 @@ public class MonaguilloBean extends MseBean<Monaguillo> {
 			}
 		};
 	}
+	
+	// ////////////////////// GETTERS /////////////////////////////////
+	public Persona getPersona(Long id){
+		for(Persona p : suggestionPersona){
+			if(p.getId().equals(id)){
+				return p;
+			}
+		}
+		return null;
+	}
 
 }

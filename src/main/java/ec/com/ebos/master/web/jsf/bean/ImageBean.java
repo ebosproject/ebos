@@ -1,16 +1,19 @@
 package ec.com.ebos.master.web.jsf.bean;
 
+import java.io.ByteArrayInputStream;
 import java.io.Serializable;
-import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.convert.Converter;
+import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
 import ec.com.ebos.master.model.Persona;
@@ -32,36 +35,47 @@ public class ImageBean implements Serializable{
     @ManagedProperty(value = MonaguilloBean.EL_BEAN_NAME)
 	protected MonaguilloBean monaguilloBean;
 	
+	@Setter
+	@ManagedProperty("#{param.id}")
+    private Long id;
+	
+	@Getter
+	private StreamedContent monaguilloImage;
+	
 	public ImageBean(){
-//		BufferedImage bufferedImg = new BufferedImage(100, 25, BufferedImage.TYPE_INT_RGB);  
-//	    Graphics2D g2 = bufferedImg.createGraphics();  
-//	    g2.drawString("This is a text", 0, 10);  
-//	    ByteArrayOutputStream os = new ByteArrayOutputStream();  
-//	    try {
-//			ImageIO.write(bufferedImg, "png", os);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}  
-//	    graphicText = new DefaultStreamedContent(new ByteArrayInputStream(os.toByteArray()), "image/png");
 	}
+	
+	@PostConstruct
+    public void init() {
+        if (FacesContext.getCurrentInstance().getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            // So, we're rendering the view. Return a stub StreamedContent so that it will generate right URL.
+        	monaguilloImage = new DefaultStreamedContent();
+        }
+        else {
+        	// So, browser is requesting the image. Return a real StreamedContent with the image bytes.
+        	Persona p = monaguilloBean.getPersona(id);
+        	monaguilloImage = new DefaultStreamedContent(new ByteArrayInputStream(p.getImagen()), p.getContentType()); 
+        }
+        
+    }
 	
 	public StreamedContent getPersonaImage(){
 		return personaBean.getImage();
 	}
 	
-	// ////////////////// AUTOCOMPLETES ///////////////////////////
-	public List<Persona> completePersona(String query){
-		return monaguilloBean.completePersona(query);
-	}
 	
-	public List<Persona> getSuggestionPersona(){
-		return monaguilloBean.getSuggestionPersona();
-	}
-	
-	/////////////////// CONVERTERS ////////////////////////////////
-	public Converter getPersonaConverter(){
-		return monaguilloBean.getPersonaConverter();
-	}
+//	// ////////////////// AUTOCOMPLETES ///////////////////////////
+//	public List<Persona> completePersona(String query){
+//		return monaguilloBean.completePersona(query);
+//	}
+//	
+//	public List<Persona> getSuggestionPersona(){
+//		return monaguilloBean.getSuggestionPersona();
+//	}
+//	
+//	/////////////////// CONVERTERS ////////////////////////////////
+//	public Converter getPersonaConverter(){
+//		return monaguilloBean.getPersonaConverter();
+//	}
 	
 }
