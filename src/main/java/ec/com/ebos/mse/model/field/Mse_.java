@@ -16,5 +16,6 @@ public abstract class Mse_ extends Entidad_{
 	public static final String periodo = "periodo";
 	public static final String subcentroCosto = "subcentroCosto";
 	public static final String tipoCentroCosto = "tipoCentroCosto";
+	public static final String grupo = "grupo";
 }
 

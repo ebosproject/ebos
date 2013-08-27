@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/templates/tplMaster.xhtml">
+
+	<ui:define name="params">
+		<ui:param name="renderedSouth" value="false" />
+		<ui:param name="renderedCenterSouth" value="false" />
+		<ui:param name="optionsMaster"
+			value="'north':{'closable':false,'resizable':false,'size':50},
+				'center':{'resizeWhileDragging':true,'closable':false,
+					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}" />
+	</ui:define>
+
+	<ui:define name="header">
+
+		<ui:param name="monaguillo" value="#{bean.activeEntity}" />
+
+		<eb:panelGrid id="pnlMonaguillo" columnClasses="width100">
+
+			<eb:panel header="">
+				<eb:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel value="#{msg.person}" for="atcPersona" />
+					<p:autoComplete value="#{monaguillo.persona}"
+						id="atcPersona" completeMethod="#{imageBean.completePersona}"
+						var="p" itemLabel="#{p.nombres}" itemValue="#{p}"
+						converter="#{bean.personaConverter}" forceSelection="true">
+
+						<f:facet name="itemtip">
+							<h:panelGrid columns="2" cellpadding="5">
+								<f:facet name="header">
+									<p:graphicImage id="image" value="#{p.imageStream}"
+										height="50" width="50"/>
+								</f:facet>
+
+								<p:outputLabel for="fullName" value="#{msg.fullName}" />
+								<eb:outputText id="fullName" value="#{p.nombres} #{p.apellidos}" />
+
+								<p:outputLabel for="edad" value="#{msg.years}" />
+								<eb:outputText id="edad" value="#{p.edad}" />
+							</h:panelGrid>
+						</f:facet>
+
+					</p:autoComplete>
+				</eb:panelGrid>
+			</eb:panel>
+
+			<p:outputLabel for="representantes" value="#{msg.representatives}" />
+			<eb:inputText id="representantes" value="#{monaguillo.representantes}" required="true" maxlength="200"/>
+
+			<p:outputLabel for="centroEstudio" value="#{msg.studyCenter}" />
+			<eb:inputText id="centroEstudio" value="#{monaguillo.centroEstudio}" required="true" maxlength="200"/>
+
+		</eb:panelGrid>
+	</ui:define>
+
+	<ui:define name="detail">
+
+
+	</ui:define>
+
+</ui:composition>

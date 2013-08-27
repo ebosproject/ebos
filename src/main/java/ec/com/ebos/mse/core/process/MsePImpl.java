@@ -8,7 +8,7 @@ import ec.com.ebos.conta.exception.ContaException;
 import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.field.Grupo_;
-import ec.com.ebos.mse.model.field.Monagillo_;
+import ec.com.ebos.mse.model.field.Monaguillo_;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
@@ -68,8 +68,8 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     @Override
     public List<Monaguillo> findMonagilloList(Monaguillo monagillo, Pagination pagination) {
         GenericCriteria<Monaguillo> criteria = GenericCriteria.forClass(Monaguillo.class);
-        
-        criteria.addEqualsIfNotZero(Monagillo_.id, monagillo.getId());
+        criteria.addAliasedJoins(Monaguillo_.persona);        
+        criteria.addEqualsIfNotZero(Monaguillo_.id, monagillo.getId());
         if(criteria.isChanged()){
         	return findByCriteria(criteria, pagination);
         }

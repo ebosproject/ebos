@@ -30,11 +30,14 @@ public interface MasterS extends Serializable {
 	//
 	
 	public List<Persona> findPersonaList(Persona persona, Pagination pagination);
+	
+	public List<Persona> findPersonaList(String query);
 
 	public Persona createPersona();
 
 	public Persona savePersona(Persona persona);
 
 	public void deletePersona(Persona persona);
+
 
 }

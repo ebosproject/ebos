@@ -19,5 +19,9 @@ public class StringUtils {
 		}
     	return value;
     }
+    
+    public static boolean isBlank(String value) {
+        return value == null || value.trim().length() == 0;
+    }
 
 }

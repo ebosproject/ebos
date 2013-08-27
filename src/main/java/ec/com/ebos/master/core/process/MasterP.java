@@ -31,11 +31,13 @@ public interface MasterP {
 	//
 	
 	public List<Persona> findPersonaList(Persona persona, Pagination pagination);
+	
+	public List<Persona> findPersonaList(String query);
 
 	public Persona buildPersona();
 
 	public Persona savePersona(Persona persona);
 
 	public void deletePersona(Persona persona);
-	
+
 }

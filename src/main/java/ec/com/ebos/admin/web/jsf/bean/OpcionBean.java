@@ -122,7 +122,7 @@ public class OpcionBean extends AdministracionBean<Opcion> {
     
     ///////////// GETTERS AND SETTERS //////////////////////////
 
-    public List<Opcion> getOpcionList() {
+    public List<Opcion> getOpcionList() { //TODO (epa): Cambiar por suggestions AutoCompleteItemTip
     	if(opcionList.isEmpty()){
     		opcionList = administracionS.getOpcionPadreList();
     	}

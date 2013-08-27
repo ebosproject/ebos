@@ -16,18 +16,16 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.conta.model.AsientoDetalle;
-import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.field.Persona_;
-import ec.com.ebos.mse.model.field.Grupo_;
-import ec.com.ebos.mse.model.field.Monagillo_;
+import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
+import ec.com.ebos.mse.model.field.Monaguillo_;
 
 /**
  * Monagillo
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * @author <a href="mailto:vipconsultoresaso@gmail.com">Victor Viejo</a>
+ * 
  * @since 2013/04/28
  */
 @Entity
@@ -50,21 +48,16 @@ public class Monaguillo extends Mse<Monaguillo> {
     private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = Persona_.join)
+	@JoinColumn(name = Persona_.join, nullable = false)
     private Persona persona;
 
-	@Column(name = Monagillo_.representantes, length = 200)
+	@Column(name = Monaguillo_.representantes, length = 200)
 	private String representantes;
 	
-	@Column(name = Monagillo_.centroEstudio, length = 200)
+	@Column(name = Monaguillo_.centroEstudio, length = 200)
 	private String centroEstudio;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = Grupo_.join)
-    private Grupo grupo;
-	
-	
-	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
-    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
+	@OneToMany(mappedBy = MonaguilloGrupo_.monaguillo, fetch = FetchType.LAZY)
+    private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
 	
 }

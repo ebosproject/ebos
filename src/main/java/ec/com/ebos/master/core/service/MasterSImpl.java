@@ -55,6 +55,10 @@ public class MasterSImpl implements MasterS{
 	public List<Persona> findPersonaList(Persona persona, Pagination pagination){
 		return masterP.findPersonaList(persona, pagination);
 	}
+	
+	public List<Persona> findPersonaList(String query){
+		return masterP.findPersonaList(query);
+	}
 
 	public Persona createPersona(){
 		return masterP.buildPersona();

@@ -22,7 +22,6 @@ public class BundleBean extends AdministracionBean<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
 	
-	@Getter
 	public static final String BEAN_NAME = "bundleBean";
 
 	@Override

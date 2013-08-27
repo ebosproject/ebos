@@ -14,14 +14,16 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.mse.model.field.Grupo_;
-import ec.com.ebos.mse.model.field.Monagillo_;
+import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 
 /**
  * Monagillo
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * @author <a href="mailto:vipconsultoresaso@gmail.com">Victor Viejo</a>
+ *
  * @since 2013/04/28
  */
 @Entity
@@ -31,7 +33,7 @@ public class Grupo extends Mse<Grupo> {
 	
 	private static final long serialVersionUID = 2824372366156085256L;
 	
-	protected static final String TABLE_NAME = "NOMBRE";
+	protected static final String TABLE_NAME = "GRUPO";
 	private static final String SEQUENCE = Mse.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
@@ -46,7 +48,10 @@ public class Grupo extends Mse<Grupo> {
 	@Column(name = Grupo_.nombre, length = 30)
 	private String nombre;
 	
-	@OneToMany(mappedBy = Monagillo_.grupo, fetch = FetchType.LAZY)
-    private Set<Monaguillo> monagilloList = new HashSet<Monaguillo>(0);
+	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
+    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
+	
+	@OneToMany(mappedBy = MonaguilloGrupo_.grupo, fetch = FetchType.LAZY)
+    private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
 	
 }

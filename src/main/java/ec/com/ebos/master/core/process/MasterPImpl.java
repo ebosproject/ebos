@@ -1,5 +1,6 @@
 package ec.com.ebos.master.core.process;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,8 @@ import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.Entidad.Estado;
+import ec.com.ebos.util.NumberUtils;
+import ec.com.ebos.util.StringUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -92,6 +95,30 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
         criteria.addEqualsIfNotNull(Persona_.tipoPersona, persona.getTipoPersona());
 
         return findByCriteria(criteria, pagination);
+	}
+	
+	/**
+	 * Obtiene una lista de Personas que cumplan el criterio de busqueda
+	 * @param query : String con criterios de busqueda
+	 */
+	public List<Persona> findPersonaList(String query){
+		if(StringUtils.isBlank(query)){
+			return new ArrayList<Persona>();
+		}
+	
+		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
+		criteria.addAliasedJoins(Persona_.creador);
+		
+		if(NumberUtils.tryParseLong(query)){
+			criteria.addEqualsIfNotZero(Persona_.id, NumberUtils.parseLong(query));
+			if(criteria.isChanged()){
+				return findByCriteria(criteria);
+			}
+		}
+		
+		criteria.addMultiLikeTokens(query, Persona_.nombres, Persona_.apellidos);
+
+		return findByCriteria(criteria);
 	}
 
 	public Persona buildPersona(){

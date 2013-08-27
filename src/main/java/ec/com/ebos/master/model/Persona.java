@@ -1,5 +1,6 @@
 package ec.com.ebos.master.model;
 
+import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
@@ -20,6 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,15 +29,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 import org.hibernate.annotations.Type;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Organizacion_;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.Monaguillo;
-import ec.com.ebos.mse.model.field.Monagillo_;
+import ec.com.ebos.mse.model.field.Monaguillo_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
+import ec.com.ebos.util.DateUtils;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
@@ -136,6 +141,30 @@ public class Persona extends Master<Persona>{
     @Type(type = TipoIdentificacion.TYPE)
     private TipoIdentificacion tipoIdentificacion;
 	
+	
+	/**
+	 * Obtiene la edad de la persona basada en su fecha de {@link #nacimiento} 
+	 * @return edad persona
+	 */
+	public int getEdad(){
+		return DateUtils.calcularEdad(nacimiento);
+	}
+	
+	@Transient
+	private StreamedContent imageStream;
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public StreamedContent getImageStream(){
+		if(imageStream == null){
+			imageStream = new DefaultStreamedContent(new ByteArrayInputStream(imagen), contentType);
+		} 
+		return imageStream;
+	}
+	
 	/**
 	 * Numero de cedula, ruc o codigo de indentificacion
 	 */
@@ -153,7 +182,7 @@ public class Persona extends Master<Persona>{
 	@OneToMany(mappedBy = EmpresaPersona_.persona, fetch= FetchType.LAZY)
     private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);
 	
-	@OneToMany(mappedBy = Monagillo_.persona, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = Monaguillo_.persona, fetch= FetchType.LAZY)
     private Set<Monaguillo> monagilloList = new HashSet<Monaguillo>(0);
 	
 	/**

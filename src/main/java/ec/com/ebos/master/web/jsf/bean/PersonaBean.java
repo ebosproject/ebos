@@ -1,21 +1,15 @@
 package ec.com.ebos.master.web.jsf.bean;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
-import javax.imageio.ImageIO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -67,10 +61,7 @@ public class PersonaBean extends MasterBean<Persona> {
 		if (EntityUtils.isPersistent(activeEntity)) {
 
 		} else {
-			setHabilitaEliminar(false);
-			// TODO (epa): La plataforma no debe permitir para todos las
-			// pantallas mostrar el boton eliminar si la
-			// entidad activa no esta persistida en la base de datos
+
 		}
 	}
 
