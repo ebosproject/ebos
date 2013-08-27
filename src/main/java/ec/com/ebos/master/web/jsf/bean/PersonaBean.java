@@ -97,9 +97,7 @@ public class PersonaBean extends MasterBean<Persona> {
 
 	@Override
 	public void editar() {
-		if(activeEntity.getImagen() != null){
-			image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
-		}
+		setImage();
 	}
 
 	@Override
@@ -113,7 +111,14 @@ public class PersonaBean extends MasterBean<Persona> {
 			activeEntity.setImagen(uploadImage.getContents());
 		}
 		activeEntity = masterS.savePersona(activeEntity);
-		image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
+		
+		setImage();
+	}
+	
+	private void setImage(){
+		if(activeEntity.getImagen() != null){
+			image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
+		}
 	}
 
 	@Override

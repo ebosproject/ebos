@@ -16,9 +16,9 @@ import ec.com.ebos.master.model.Master;
  * @update 2013/04/29 <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = ProductoBase.TABLE_NAME, schema = Master.SCHEMA)
+@Table(name = ProductoBase.TABLE_NAME, schema = Logistica.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
-public abstract class ProductoBase extends Logistica<ProductoBase> {
+public class ProductoBase extends Logistica<ProductoBase> {
 
 	private static final long serialVersionUID = -4664966746836596369L;
 	

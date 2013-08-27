@@ -8,10 +8,14 @@
 	template="/templates/tplMaster.xhtml">
 
 	<ui:define name="params">
-		<ui:param name="optionsMaster"
+		<!-- <ui:param name="optionsMaster"
 			value="'north':{'closable':false,'resizable':false,'size':50},
 				'center':{'resizeWhileDragging':true,'closable':false,'size':1000,
-					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}" />
+					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}" /> -->
+		<ui:param name="optionsMaster"
+			value="'north':{'closable':false,'resizable':false,'size':50},
+				'center':{'resizeWhileDragging':true,'closable':false,'size':300,
+					'childOptions':{'south':{'resizable':false},'center':{'size':200,'maxHeight':680, 'maxWidth':580}}}" />
 	</ui:define>
 
 	<ui:define name="header">

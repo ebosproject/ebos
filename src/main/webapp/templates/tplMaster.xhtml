@@ -17,7 +17,7 @@
 						'childOptions':{'south':{'minSize':60,'size':'70%'},'center':{'minHeight':60}}}"/>
 	</ui:insert>
 	
-	<pe:layout id="lytMaster" fullPage="false" style="width:700px; height:220px; min-height:450px; min-width:700px;" 
+	<pe:layout id="lytMaster" fullPage="false" style="width:#{widthDlgE ne null?widthDlgE:600}px; height:#{heightDlgE ne null?heightDlgE:400}px;" 
 		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsMaster}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTM">            
