@@ -128,7 +128,20 @@
 	<session-config>
 		<session-timeout>15</session-timeout>
 	</session-config>
+	
+	<!-- EBOS -->
+	<servlet>
+        <description></description>
+        <display-name>DisplayImage</display-name>
+        <servlet-name>DisplayImage</servlet-name>
+        <servlet-class>ec.com.ebos.master.web.servlet.DisplayImage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayImage</servlet-name>
+        <url-pattern>/DisplayImage</url-pattern>
+    </servlet-mapping>
 
+	<!-- PAGES -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>welcome.jsf</welcome-file>

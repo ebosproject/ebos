@@ -8,6 +8,8 @@
 
 	<ui:param name="bean" value="#{monaguilloBean}" />
 	<ui:param name="optionTitle" value="#{msg[monaguillo.title]}" />
+	<ui:param name="widthDlgE" value="550" />
+	<ui:param name="heightDlgE" value="250" />
 
 	<ui:define name="filters">
 		<eb:panelGrid id="pnlFiltros" columns="2">
@@ -18,7 +20,7 @@
 
 	<ui:define name="results">
 		<f:facet name="header">  
-	    	#{msg.ebResultMonaguilloList}
+	    	#{msg.resultMonaguilloList}
 	    </f:facet>
 
 		<p:column id="fullName" headerText="#{msg.fullName}">

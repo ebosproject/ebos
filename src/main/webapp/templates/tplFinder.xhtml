@@ -9,19 +9,22 @@
                 
     <ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
     <ui:param name="wgtE" value="wgtE#{frameId}" />
-    <ui:insert name="params">
-		<ui:remove>
-	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
-		</ui:remove>
-		<ui:param name="optionsFinder" value="north:{size:'50'},
+    
+	<ui:remove>
+ 		Parameters overridable
+ 		- optionsFinder : json format, default value in component
+		- widthDlgE : default value="600"
+		- heightDlgE : default value="400"
+	</ui:remove>
+	
+	<ui:param name="optionsFinderDefault" value="north:{size:'50'},
 				south:{closable:true, size:'35'},
 				west:{closable:true, size:'190', minSize:'190', resizable:true},
 				east:{},
-				center:{}"/>
-	</ui:insert>
+				center:{}}"/>
 	
 	<pe:layout id="lytFinder" fullPage="false" style="width:100% !important; height:100% !important;min-width:#{widthFrame ne null?widthFrame:450}px; min-height:#{heightFrame ne null?heightFrame:650}px;" 
-		options="{panes:{resizeWhileDragging:true,resizeWithWindow:true, resizable:false,closable:false},#{optionsFinder}}">
+		options="{panes:{resizeWhileDragging:true,resizeWithWindow:true, resizable:false,closable:false},#{optionsFinder ne null?optionsFinder:optionsFinderDefault}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTF">
                  <p:toolbar id="tbrTF" style="overflow:hidden !important;">

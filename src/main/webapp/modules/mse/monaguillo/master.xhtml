@@ -7,52 +7,51 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	template="/templates/tplMaster.xhtml">
 
-	<ui:define name="params">
-		<ui:param name="renderedSouth" value="false" />
-		<ui:param name="renderedCenterSouth" value="false" />
-		<ui:param name="optionsMaster"
-			value="'north':{'closable':false,'resizable':false,'size':50},
-				'center':{'resizeWhileDragging':true,'closable':false,
-					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}" />
-	</ui:define>
+	<ui:param name="optionsMaster"
+		value="'north':{'closable':false,'resizable':false,'size':50},
+			'center':{'resizeWhileDragging':true,'closable':false,'size':300,
+				'childOptions':{'south':{'resizable':false},'center':{'size':200,'maxHeight':680, 'maxWidth':580}}}" />
 
 	<ui:define name="header">
 
 		<ui:param name="monaguillo" value="#{bean.activeEntity}" />
 
-		<eb:panelGrid id="pnlMonaguillo" columnClasses="width100">
+		<eb:panelGrid id="pnlMonaguillo" columns="2" columnClasses="width100">
 
-			<eb:panel header="">
-				<eb:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel value="#{msg.person}" for="atcPersona" />
-					<p:autoComplete value="#{monaguillo.persona}"
-						id="atcPersona" completeMethod="#{monaguilloBean.completePersona}"
-						var="p" itemLabel="#{p.nombres}" itemValue="#{p}"
-						converter="#{monaguilloBean.personaConverter}" forceSelection="true">
+			<p:outputLabel value="#{msg.person}" for="atcPersona" />
+			<p:autoComplete value="#{monaguillo.persona}" id="atcPersona"
+				completeMethod="#{monaguilloBean.completePersona}" var="p"
+				itemLabel="#{p.nombres}" itemValue="#{p}"
+				converter="#{monaguilloBean.personaConverter}"
+				forceSelection="true">
 
-						<f:facet name="itemtip">
-							<h:panelGrid columns="2" cellpadding="5">
-								<f:facet name="header">
-									<p:graphicImage id="image" value="#{imageBean.monaguilloImage}"
-										height="50" width="50" />
-										<f:param name="id" value="#{p.id}"/>
-								</f:facet>
-								<p:outputLabel for="fullName" value="#{msg.fullName}" />
-								<eb:outputText id="fullName" value="#{p.nombres} #{p.apellidos}" />
-								<p:outputLabel for="edad" value="#{msg.years}" />
-								<eb:outputText id="edad" value="#{p.edad}" />
-							</h:panelGrid>
+				<f:facet name="itemtip">
+					<h:panelGrid columns="2" >
+						<f:facet name="header">
+							<ui:remove>
+								<p:graphicImage id="image"
+									value="#{imageBean.obtenerMonaguilloImage(p.id)}" height="50"
+									width="50" />
+							</ui:remove>
+							<p:graphicImage id="image" value="DisplayImage?Image_id=#{p.id}"
+								height="50" width="50" />
+
 						</f:facet>
-
-					</p:autoComplete>
-				</eb:panelGrid>
-			</eb:panel>
+						<p:outputLabel for="fullName" value="#{msg.fullName}" />
+						<eb:outputText id="fullName" value="#{p.nombres} #{p.apellidos}" />
+						<p:outputLabel for="edad" value="#{msg.years}" />
+						<eb:outputText id="edad" value="#{p.edad}" />
+					</h:panelGrid>
+				</f:facet>
+			</p:autoComplete>
 
 			<p:outputLabel for="representantes" value="#{msg.representatives}" />
-			<eb:inputText id="representantes" value="#{monaguillo.representantes}" required="true" maxlength="200"/>
+			<eb:inputText id="representantes" value="#{monaguillo.representantes}" 
+				required="true" maxlength="200" size="50"/>
 
 			<p:outputLabel for="centroEstudio" value="#{msg.studyCenter}" />
-			<eb:inputText id="centroEstudio" value="#{monaguillo.centroEstudio}" required="true" maxlength="200"/>
+			<eb:inputText id="centroEstudio" value="#{monaguillo.centroEstudio}"
+				required="true" maxlength="200" size="50"/>
 
 		</eb:panelGrid>
 	</ui:define>

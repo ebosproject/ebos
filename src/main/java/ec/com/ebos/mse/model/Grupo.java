@@ -45,7 +45,7 @@ public class Grupo extends Mse<Grupo> {
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 
-	@Column(name = Grupo_.nombre, length = 30)
+	@Column(name = Grupo_.nombre, length = 30, nullable = false)
 	private String nombre;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)

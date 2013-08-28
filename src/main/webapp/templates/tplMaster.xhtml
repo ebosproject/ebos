@@ -6,19 +6,19 @@
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
                 xmlns:pe="http://primefaces.org/ui/extensions">
 
-	<ui:insert name="params">
-		<ui:remove>
-	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
-		</ui:remove>
-		<ui:param name="renderedSouth" value="false"/>
-		<ui:param name="renderedCenterSouth" value="false"/>
-		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
-					'center':{'minHeight':60,'resizeWhileDragging':false,'closable':false,'minWidth':200,'resizable':false,
-						'childOptions':{'south':{'minSize':60,'size':'70%'},'center':{'minHeight':60}}}"/>
-	</ui:insert>
+	<ui:remove>
+ 		Parameters overridable
+ 		- optionsMaster : json format, default value in component
+ 		- enderedSouth : default value="false"
+ 		- renderedCenterSouth : default value="false"
+	</ui:remove>
+	
+	<ui:param name="optionsMasterDefault" value="north:{closable:false,resizable:false,size:'50'},
+					center:{minHeight:'60',resizeWhileDragging:false,closable:false,minWidth:'200',resizable:false,
+						childOptions:{south:{minSize:'60',size:'70%'},center:{minHeight:'60'}}}"/>
 	
 	<pe:layout id="lytMaster" fullPage="false" style="width:#{widthDlgE ne null?widthDlgE:600}px; height:#{heightDlgE ne null?heightDlgE:400}px;" 
-		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsMaster}}">
+		options="{panes:{resizeWhileDragging:true,slidable:false,resizeWithWindow:true},#{optionsMaster ne null?optionsMaster:optionsMasterDefault}}">
 		<pe:layoutPane position="north">
        		<h:form id="frmTM">            
 	            <p:toolbar id="tbrTM" style="overflow:hidden !important;">
@@ -46,7 +46,7 @@
 	            	<ui:insert name="header"/>
             	</h:form>	        	
 	        </pe:layoutPane>
-	        <pe:layoutPane position="south" rendered="#{renderedCenterSouth}">
+	        <pe:layoutPane position="south" rendered="#{renderedCenterSouth ne null?renderedCenterSouth:false}">
 	        	<p:outputPanel id="pnlHD">
 	        		<ui:insert name="detail"/>
 	        	</p:outputPanel>
@@ -58,7 +58,7 @@
          <pe:layoutPane position="east" rendered="false" minSize="180" maxSize="650" size="448">
 	        
          </pe:layoutPane>
-         <pe:layoutPane position="south" rendered="#{renderedSouth}">
+         <pe:layoutPane position="south" rendered="#{renderedSouth ne null?renderedSouth:false}">
          	
          </pe:layoutPane>
     </pe:layout>
