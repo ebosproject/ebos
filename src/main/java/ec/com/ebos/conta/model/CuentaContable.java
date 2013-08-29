@@ -24,6 +24,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.conta.model.field.CuentaCentro_;
 import ec.com.ebos.conta.model.field.CuentaContableEmpresa_;
@@ -50,6 +51,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Entity
 @Table(name = CuentaContable.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class CuentaContable extends Contabilidad<CuentaContable> {
 
 	private static final long serialVersionUID = 2646781225564626367L;

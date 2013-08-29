@@ -15,6 +15,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -28,6 +29,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = MonaguilloGrupo.TABLE_NAME, schema = Mse.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class MonaguilloGrupo extends Mse<MonaguilloGrupo> {
 	
 	

@@ -16,6 +16,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -27,6 +28,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = RolOpcion.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class RolOpcion extends Security<RolOpcion> {
 
 	private static final long serialVersionUID = -6703784659046763976L;

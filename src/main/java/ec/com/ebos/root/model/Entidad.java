@@ -54,10 +54,6 @@ public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Seriali
     
     /////////// METODOS PROXY PARA PROPIEDAD AUDITORIA ///////
     
-    public boolean isAuditable(){
-    	return (getAuditoria() != null);
-    }
-    
     @Transient
     public Usuario getCreador(){    	
     	return getAuditoria() != null ? getAuditoria().getCreador() : null;

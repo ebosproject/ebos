@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.SaldoRetencion;
 import ec.com.ebos.conta.model.field.SaldoRetencion_;
 
@@ -25,6 +26,7 @@ import ec.com.ebos.conta.model.field.SaldoRetencion_;
 @Entity
 @Table(name = TipoRetencion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class TipoRetencion extends Administracion<TipoRetencion> {
 
 	private static final long serialVersionUID = -6748190361672935897L;

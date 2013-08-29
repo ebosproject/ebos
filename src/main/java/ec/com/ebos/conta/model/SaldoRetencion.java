@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.TipoRetencion;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -27,7 +28,8 @@ import ec.com.ebos.root.model.Auditoria;
  */
 @Entity
 @Table(name = SaldoRetencion.TABLE_NAME, schema = Contabilidad.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
+@Data @EqualsAndHashCode(callSuper=false)
+@Auditable
 public class SaldoRetencion extends Contabilidad<SaldoRetencion> {
 
 	private static final long serialVersionUID = 8010531470490736331L;

@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -18,6 +19,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Entity
 @Table(name = RutaLog.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class RutaLog extends Bitacora<RutaLog>{
 
 	private static final long serialVersionUID = 6923351017759818531L;

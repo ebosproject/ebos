@@ -13,6 +13,7 @@ import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -21,6 +22,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Entity
 @Table(name = Configuracion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Configuracion extends Administracion<Configuracion> {
 
 	private static final long serialVersionUID = -6748190361672935897L;

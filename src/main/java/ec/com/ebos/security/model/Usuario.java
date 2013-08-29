@@ -22,6 +22,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Bundle;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
@@ -36,6 +37,7 @@ import ec.com.ebos.security.model.field.UsuarioRol_;
 @Table(name = Usuario.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
+@Auditable
 public class Usuario extends Security<Usuario> {
 
 	private static final long serialVersionUID = 5615088107461153660L;

@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.TipoDocumento;
@@ -32,6 +33,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Entity
 @Table(name = Asiento.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Asiento extends Contabilidad<Asiento> {
 
 	private static final long serialVersionUID = -1240240963222272900L;

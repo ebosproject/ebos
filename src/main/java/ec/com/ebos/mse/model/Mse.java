@@ -1,5 +1,6 @@
 package ec.com.ebos.mse.model;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Entidad;
 
 /**

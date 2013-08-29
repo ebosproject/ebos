@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
@@ -93,18 +94,22 @@ public class AuditoryAspect {
 	
 	@AfterReturning(pointcut = "execution(* ec.com.ebos.*.core.service.*S.create*(..))",
 			returning= "entity")
-	public void createEntity(JoinPoint joinPoint, Entidad<?> entity){		
-		entity.setAuditoria(new Auditoria());
-		Usuario usuario = securityS.getSesionBean().getUsuario();
-		entity.setCreador(usuario);
-		entity.setCreado(new Date());
+	public void createEntity(JoinPoint joinPoint, Entidad<?> entity){
+		
+		if(entity.getClass().getAnnotation(Auditable.class) != null){
+			entity.setAuditoria(new Auditoria());
+			Usuario usuario = securityS.getSesionBean().getUsuario();
+			entity.setCreador(usuario);
+			entity.setCreado(new Date());
+		}
 	}
 	
 	
 	@Before("execution(* ec.com.ebos.*.core.service.*S.save*(..))")	
 	public void saveEntity(JoinPoint joinPoint){
 		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
-		if(entity.isAuditable()){
+		
+		if(entity.getClass().getAnnotation(Auditable.class) != null && entity.getAuditoria() != null){
 			Usuario usuario = securityS.getSesionBean().getUsuario();			
 			Date date = new Date();
 	        if (EntityUtils.isPersistent(entity)) {

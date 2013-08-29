@@ -19,6 +19,7 @@ import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.field.Bundle_;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -33,6 +34,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 	uniqueConstraints = @UniqueConstraint(columnNames={Bundle_.codigo, Bundle_.localidad}))
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
+@Auditable
 public class Bundle extends Administracion<Bundle>{
 
 	private static final long serialVersionUID = -2896367216397132540L;
