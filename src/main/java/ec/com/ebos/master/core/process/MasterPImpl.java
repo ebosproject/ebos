@@ -122,7 +122,7 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 		return findByCriteria(criteria);
 	}
 
-	public Persona buildPersona(){
+	public Persona createPersona(){
 		Persona persona = new Persona();
 		persona.setEstado(Estado.INACTIVO);
 		return persona;

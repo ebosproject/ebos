@@ -28,14 +28,8 @@
 				<f:facet name="itemtip">
 					<h:panelGrid columns="2" >
 						<f:facet name="header">
-							<ui:remove>
-								<p:graphicImage id="image"
-									value="#{imageBean.obtenerMonaguilloImage(p.id)}" height="50"
-									width="50" />
-							</ui:remove>
 							<p:graphicImage id="image" value="DisplayImage?Image_id=#{p.id}"
 								height="50" width="50" />
-
 						</f:facet>
 						<p:outputLabel for="fullName" value="#{msg.fullName}" />
 						<eb:outputText id="fullName" value="#{p.nombres} #{p.apellidos}" />

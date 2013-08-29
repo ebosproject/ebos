@@ -61,7 +61,7 @@ public class MasterSImpl implements MasterS{
 	}
 
 	public Persona createPersona(){
-		return masterP.buildPersona();
+		return masterP.createPersona();
 	}
 
 	public Persona savePersona(Persona persona){

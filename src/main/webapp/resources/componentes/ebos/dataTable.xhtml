@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<cc:interface displayName="dataTable">
+
+	<cc:attribute name="renderedAdd" type="java.lang.Boolean" default="false"/>
+	<cc:attribute name="renderedEdit" type="java.lang.Boolean" default="false"/>
+	<cc:attribute name="renderedSave" type="java.lang.Boolean" default="false"/>
+	<cc:attribute name="renderedDelete" type="java.lang.Boolean" default="false"/>
+	<cc:attribute name="dataTable" type="ec.com.ebos.util.web.jsf.component.DataTable"/>
+	
+</cc:interface>
+
+<cc:implementation>
+
+	<h:form id="frmDT">
+		<p:toolbar id="tbrDT">
+			<p:toolbarGroup align="right">
+				<p:commandButton id="btnAdd" value="#{msg.add}"	rendered="#{cc.attrs.renderedAdd}" actionListener="#{cc.attrs.dataTable._add}"/>
+				<p:commandButton id="btnEdit" value="#{msg.edit}" rendered="#{cc.attrs.renderedEdit}" actionListener="#{cc.attrs.dataTable._edit}"/>
+				<p:commandButton id="btnDelete" value="#{msg.delete}" rendered="#{cc.attrs.renderedDelete}"	actionListener="#{cc.attrs.dataTable._delete}"/>
+			</p:toolbarGroup>
+		</p:toolbar>
+		
+		<p:overlayPanel for="btnAdd" hideEffect="fade" dynamic="true" my="left bottom" rendered="#{cc.attrs.renderedAdd}">
+			<cc:renderFacet name="overlay"/>
+		</p:overlayPanel>
+		
+		<p:dataTable id="dtt" var="reg"	binding="#{cc.attrs.dataTable}" rowKey="#{reg.id}" selection="#{cc.attrs.dataTable.selectedList}">
+
+			<p:column selectionMode="multiple"	rendered="#{cc.attrs.renderedDelete or cc.attrs.renderedEdit}" />
+
+			<cc:insertChildren/>
+
+		</p:dataTable>
+	</h:form>
+
+</cc:implementation>
+
+</html>

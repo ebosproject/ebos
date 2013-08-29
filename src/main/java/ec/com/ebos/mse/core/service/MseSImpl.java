@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import ec.com.ebos.mse.core.process.MseP;
 import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.Monaguillo;
+import ec.com.ebos.mse.model.MonaguilloGrupo;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -59,6 +60,15 @@ public class MseSImpl implements MseS{
 			Pagination pagination) {
 		return mseP.findMonaguilloList(monagillo, pagination);
 	}
+	
+	public List<Monaguillo> findMonaguilloList(String query){
+		return mseP.findMonaguilloList(query);
+	}
+	
+	@Override
+	public List<MonaguilloGrupo> getMonaguilloGrupoList(){
+		return mseP.getMonaguilloGrupoList();
+	}
 
 	@Override
 	public Monaguillo createMonaguillo() {
@@ -71,10 +81,23 @@ public class MseSImpl implements MseS{
 	}
 
 	@Override
-	public void deleteMonaguillo(Monaguillo monagillo) {
-		mseP.deleteMonaguillo(monagillo);
+	public void deleteMonaguillo(Monaguillo monaguillo) {
+		mseP.deleteMonaguillo(monaguillo);
 	}
 
+	@Override
+	public MonaguilloGrupo createMonaguilloGrupo(){
+		return mseP.createMonaguilloGrupo();
+	}
 	
+	@Override
+	public void saveMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
+		mseP.saveMonaguilloGrupo(monaguilloGrupo);
+	}
+	
+	@Override
+	public void deleteMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
+		mseP.deleteMonaguilloGrupo(monaguilloGrupo);
+	}
 	
 }

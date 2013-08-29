@@ -48,7 +48,7 @@ public class MonaguilloGrupo extends Mse<MonaguilloGrupo> {
 	private Auditoria auditoria;
 
 	@ManyToOne
-    @JoinColumn(name = "id_monagillo", nullable = false)
+    @JoinColumn(name = "id_monaguillo", nullable = false)
     private Monaguillo monaguillo;
 	
     @ManyToOne
