@@ -27,11 +27,11 @@ public interface MseP {
 	//
 	// Monagillo
 	//
-	public List<Monaguillo> findMonagilloList(Monaguillo monagillo, Pagination pagination);
+	public List<Monaguillo> findMonaguilloList(Monaguillo monaguillo, Pagination pagination);
 	
-	public Monaguillo createMonagillo();
+	public Monaguillo createMonaguillo();
 	
-	public Monaguillo saveMonagillo(Monaguillo monagillo);
+	public Monaguillo saveMonaguillo(Monaguillo monaguillo);
 	
-	public void deleteMonagillo(Monaguillo monagillo);
+	public void deleteMonaguillo(Monaguillo monaguillo);
 }

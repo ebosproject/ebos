@@ -28,7 +28,8 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     @Override
     public List<Grupo> findGrupoList(Grupo monagillo, Pagination pagination) {
         GenericCriteria<Grupo> criteria = GenericCriteria.forClass(Grupo.class);
-        
+        criteria.addAliasedJoins(Grupo_.creador);
+        criteria.addAliasedLeftJoins(Grupo_.modificador);
         criteria.addEqualsIfNotZero(Grupo_.id, monagillo.getId());
         if(criteria.isChanged()){
         	return findByCriteria(criteria, pagination);
@@ -44,21 +45,21 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
 
     @Override
     public Grupo createGrupo() {
-        Grupo monagillo = new Grupo();
-        return monagillo;
+        Grupo monaguillo = new Grupo();
+        return monaguillo;
     }
 
     @Override
-    public Grupo saveGrupo(Grupo monagillo) {
-        monagillo = saveOrMerge(monagillo);
-        putSuccess("monagillo.success.save", monagillo.getId());
-        return monagillo;
+    public Grupo saveGrupo(Grupo monaguillo) {
+        monaguillo = saveOrMerge(monaguillo);
+        putSuccess("monagillo.success.save", monaguillo.getId());
+        return monaguillo;
     }
 
     @Override
-    public void deleteGrupo(Grupo monagillo) {
-        Long id = monagillo.getId();
-        delete(monagillo);
+    public void deleteGrupo(Grupo monaguillo) {
+        Long id = monaguillo.getId();
+        delete(monaguillo);
         putSuccess("monagillo.success.delete",id);
     }
     
@@ -66,10 +67,11 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     // Monaguillo
     //
     @Override
-    public List<Monaguillo> findMonagilloList(Monaguillo monagillo, Pagination pagination) {
+    public List<Monaguillo> findMonaguilloList(Monaguillo monaguillo, Pagination pagination) {
         GenericCriteria<Monaguillo> criteria = GenericCriteria.forClass(Monaguillo.class);
-        criteria.addAliasedJoins(Monaguillo_.persona);        
-        criteria.addEqualsIfNotZero(Monaguillo_.id, monagillo.getId());
+        criteria.addAliasedJoins(Monaguillo_.persona);
+        criteria.addAliasedLeftJoins(Monaguillo_.modificador);
+        criteria.addEqualsIfNotZero(Monaguillo_.id, monaguillo.getId());
         if(criteria.isChanged()){
         	return findByCriteria(criteria, pagination);
         }
@@ -83,22 +85,22 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
 
     @Override
-    public Monaguillo createMonagillo() {
-        Monaguillo monagillo = new Monaguillo();
-        return monagillo;
+    public Monaguillo createMonaguillo() {
+        Monaguillo monaguillo = new Monaguillo();
+        return monaguillo;
     }
 
     @Override
-    public Monaguillo saveMonagillo(Monaguillo monagillo) {
-        monagillo = saveOrMerge(monagillo);
-        putSuccess("monagillo.success.save", monagillo.getId());
-        return monagillo;
+    public Monaguillo saveMonaguillo(Monaguillo monaguillo) {
+        monaguillo = saveOrMerge(monaguillo);
+        putSuccess("monagillo.success.save", monaguillo.getId());
+        return monaguillo;
     }
 
     @Override
-    public void deleteMonagillo(Monaguillo monagillo) {
-        Long id = monagillo.getId();
-        delete(monagillo);
+    public void deleteMonaguillo(Monaguillo monaguillo) {
+        Long id = monaguillo.getId();
+        delete(monaguillo);
         putSuccess("monagillo.success.delete",id);
     }
 }

@@ -23,8 +23,8 @@
 				<p:outputLabel for="id" value="#{msg.id}" />
 				<eb:outputText id="id" value="#{persona.id}" />
 				
-				<p:outputLabel for="creado" value="#{msg.created}" />
-				<eb:outputDate id="creado" value="#{persona.creado}" />
+				<p:outputLabel for="creado" value="#{msg.created}"/>
+		       	<eb:outputDate id="creado" value="#{persona.creado}" title="#{msg.by}: {persona.creador}"/>               
 				
 				<p:outputLabel for="tipoPersona" value="#{msg.personType}" />
 				<p:selectOneMenu id="tipoPersona"
@@ -64,8 +64,8 @@
 				<p:outputLabel for="estado" value="#{msg.state}" />
 				<eb:outputText id="estado" value="#{msg[persona.estado.label]}" />
 				
-				<p:outputLabel for="modificado" value="#{msg.modified}" />
-				<eb:outputDate id="modificado" value="#{persona.modificado}" />
+				<p:outputLabel for="modificado" value="#{msg.modified}"/>
+	      		<eb:outputDate id="modificado" value="#{persona.modificado}" title="#{msg.by}: {persona.modificador}"/>
 				
 				<p:outputLabel for="genero" value="#{msg.gender}" />
 				<p:selectOneMenu id="genero"

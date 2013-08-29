@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,12 +13,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.mse.model.field.Grupo_;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
+import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.root.model.Entidad;
 
 /**
  * Monagillo
@@ -44,9 +49,16 @@ public class Grupo extends Mse<Grupo> {
 	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
+	
+	@Embedded
+	private Auditoria auditoria;
 
 	@Column(name = Grupo_.nombre, length = 30, nullable = false)
 	private String nombre;
+	
+	@Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);

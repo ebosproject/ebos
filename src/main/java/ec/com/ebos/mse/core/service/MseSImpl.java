@@ -57,22 +57,22 @@ public class MseSImpl implements MseS{
 	@Override
 	public List<Monaguillo> findMonaguilloList(Monaguillo monagillo,
 			Pagination pagination) {
-		return mseP.findMonagilloList(monagillo, pagination);
+		return mseP.findMonaguilloList(monagillo, pagination);
 	}
 
 	@Override
 	public Monaguillo createMonaguillo() {
-		return mseP.createMonagillo();
+		return mseP.createMonaguillo();
 	}
 
 	@Override
 	public Monaguillo saveMonaguillo(Monaguillo monagillo) {
-		return mseP.saveMonagillo(monagillo);
+		return mseP.saveMonaguillo(monagillo);
 	}
 
 	@Override
 	public void deleteMonaguillo(Monaguillo monagillo) {
-		mseP.deleteMonagillo(monagillo);
+		mseP.deleteMonaguillo(monagillo);
 	}
 
 	
