@@ -5,17 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
 
 import ec.com.ebos.orm.crud.FinderSQLException;
 import ec.com.ebos.orm.crud.FinderSQLService;
@@ -26,7 +22,7 @@ import ec.com.ebos.orm.crud.support.StoreProcedureUtility;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-04
  */
-public class FinderSQLServiceImpl extends TransactionProxyFactoryBean implements FinderSQLService {
+public class FinderSQLServiceImpl implements FinderSQLService {
 
 	private static final long serialVersionUID = 1315613985673368485L;
 	
@@ -37,16 +33,8 @@ public class FinderSQLServiceImpl extends TransactionProxyFactoryBean implements
 	
 	private org.springframework.jdbc.core.JdbcTemplate jdbcTemplate = null;
 	
-	public FinderSQLServiceImpl(DataSource dataSource, Properties transactionAttributes) {
+	public FinderSQLServiceImpl(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		setTarget(this);
-		setTransactionAttributes(transactionAttributes);
-	}
-
-	@Override
-	@Autowired
-	public void setTransactionManager(PlatformTransactionManager transactionManager) {
-		super.setTransactionManager(transactionManager);
 	}
 	
 

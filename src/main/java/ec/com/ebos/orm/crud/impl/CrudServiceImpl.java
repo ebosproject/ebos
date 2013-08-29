@@ -1,14 +1,10 @@
 package ec.com.ebos.orm.crud.impl;
 
 import java.util.Collection;
-import java.util.Properties;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
 
 import ec.com.ebos.orm.crud.CrudException;
 import ec.com.ebos.orm.crud.CrudService;
@@ -17,23 +13,16 @@ import ec.com.ebos.orm.crud.CrudService;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-04
  */
-public class CrudServiceImpl extends TransactionProxyFactoryBean implements CrudService{
+public class CrudServiceImpl implements CrudService{
 
 	private static final long serialVersionUID = 7352744870068538629L;
 	
 	private HibernateTemplate hibernateTemplate = null;
 	
-	public CrudServiceImpl(SessionFactory sessionFactory, Properties transactionAttributes) {
+	public CrudServiceImpl(SessionFactory sessionFactory) {
 		hibernateTemplate = new HibernateTemplate(sessionFactory);
-		setTarget(this);
-		setTransactionAttributes(transactionAttributes);		
     }
-		
-	@Override
-	@Autowired
-	public void setTransactionManager(PlatformTransactionManager transactionManager) {		
-		super.setTransactionManager(transactionManager);
-	}
+	
 
     public void create(Object entity) throws CrudException {
         try {
