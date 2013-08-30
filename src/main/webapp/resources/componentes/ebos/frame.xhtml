@@ -8,6 +8,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <cc:interface displayName="frame" >
+    	<cc:attribute name="optionId" type="java.lang.String"/>
     	<cc:attribute name="parentId" type="java.lang.String"/>
         <cc:attribute name="maximizable" type="java.lang.Boolean" default="true"/>
         <cc:attribute name="minimizable" type="java.lang.Boolean" default="true"/>
@@ -77,7 +78,8 @@
 				</h:form>
 			</p:outputPanel>
 			
-			<p:ajax event="close" listener="#{deskBean.closeFrame}" global="false"/>
+			<f:attribute name="optionId" value="#{cc.attrs.optionId}"/>
+			<p:ajax event="close" listener="#{deskBean.closeFrame}" global="false" />
 			
 			<p:draggable for="dlg" 
 		        opacity="0.2" 

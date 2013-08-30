@@ -113,11 +113,11 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
     
     @Override
-    public List<MonaguilloGrupo> getMonaguilloGrupoList(){
+    public List<MonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo){
     	GenericCriteria<MonaguilloGrupo> criteria = GenericCriteria.forClass(MonaguilloGrupo.class);
         criteria.addAliasedJoins(MonaguilloGrupo_.monaguillo, MonaguilloGrupo_.monaguillo+"."+MonaguilloGrupo_.persona,MonaguilloGrupo_.creador);
         criteria.addAliasedLeftJoins(MonaguilloGrupo_.modificador);
-
+        criteria.addEquals(MonaguilloGrupo_.grupo, grupo);        
         return findByCriteria(criteria);
     }
     

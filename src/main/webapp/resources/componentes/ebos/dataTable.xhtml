@@ -14,6 +14,10 @@
 	<cc:attribute name="renderedSave" type="java.lang.Boolean" default="false"/>
 	<cc:attribute name="renderedDelete" type="java.lang.Boolean" default="false"/>
 	<cc:attribute name="dataTable" type="ec.com.ebos.util.web.jsf.component.DataTable"/>
+	<cc:attribute name="selection" type="java.lang.Object"/>
+	<cc:attribute name="selectionMode" type="java.lang.String" default="single" shortDescription="single, multiple" />
+	<cc:attribute name="columnsFile" type="java.lang.String" />
+	<cc:attribute name="emptyMessage" type="java.lang.String" default="#{msg.noRecordsFound}"/>
 	
 </cc:interface>
 
@@ -24,19 +28,30 @@
 			<p:toolbarGroup align="right">
 				<p:commandButton id="btnAdd" value="#{msg.add}"	rendered="#{cc.attrs.renderedAdd}" actionListener="#{cc.attrs.dataTable._add}"/>
 				<p:commandButton id="btnEdit" value="#{msg.edit}" rendered="#{cc.attrs.renderedEdit}" actionListener="#{cc.attrs.dataTable._edit}"/>
-				<p:commandButton id="btnDelete" value="#{msg.delete}" rendered="#{cc.attrs.renderedDelete}"	actionListener="#{cc.attrs.dataTable._delete}"/>
+				<p:commandButton id="btnDelete" value="#{msg.delete}" rendered="#{cc.attrs.renderedDelete}"	
+					actionListener="#{cc.attrs.dataTable._delete}" oncomplete="js#{cc.attrs.id}Delete()"/>
 			</p:toolbarGroup>
 		</p:toolbar>
 		
-		<p:overlayPanel for="btnAdd" hideEffect="fade" dynamic="true" my="left bottom" rendered="#{cc.attrs.renderedAdd}">
+		<h:panelGroup id="pngCmds">
+			<p:remoteCommand id="js#{cc.attrs.id}Add" name="js#{cc.attrs.id}Add" update="dtt"/>
+			<p:remoteCommand id="js#{cc.attrs.id}Delete" name="js#{cc.attrs.id}Delete" update="dtt"/>
+		</h:panelGroup>
+				
+		<p:overlayPanel id="ovlAdd" for="btnAdd" hideEffect="fade" dynamic="true" my="left bottom" rendered="#{cc.attrs.renderedAdd}">
 			<cc:renderFacet name="overlay"/>
 		</p:overlayPanel>
 		
-		<p:dataTable id="dtt" var="reg"	binding="#{cc.attrs.dataTable}" rowKey="#{reg.id}" selection="#{cc.attrs.dataTable.selectedList}">
+		<p:dataTable id="dtt" 
+			var="reg"	
+			binding="#{cc.attrs.dataTable}"
+			rowKey="#{reg.id}"
+			selection="#{cc.attrs.selection}"
+			emptyMessage="#{cc.attrs.emptyMessage}">
+			
+			<p:column selectionMode="#{cc.attrs.selectionMode}"	rendered="#{cc.attrs.renderedDelete or cc.attrs.renderedEdit}" />
 
-			<p:column selectionMode="multiple"	rendered="#{cc.attrs.renderedDelete or cc.attrs.renderedEdit}" />
-
-			<cc:insertChildren/>
+			<ui:include src="#{cc.attrs.columnsFile}"/>
 
 		</p:dataTable>
 	</h:form>

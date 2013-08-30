@@ -32,7 +32,7 @@ public interface MseS extends Serializable {
 	
 	public List<Monaguillo> findMonaguilloList(String query);
 	
-	public List<MonaguilloGrupo> getMonaguilloGrupoList();
+	public List<MonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo);
 	
 	public Monaguillo createMonaguillo();
 

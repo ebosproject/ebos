@@ -15,18 +15,19 @@ import ec.com.ebos.root.model.Entidad;
  */
 public abstract class DataTable<T extends Entidad<T>> extends org.primefaces.component.datatable.DataTable {
 	
-	@Getter @Setter
-    private List<T> list = new ArrayList<T>();
-           
     @Getter @Setter
     private T[] selectedList;
     
     @Getter @Setter
     private T selected;    
+        
+    public void load(){
+    	setValue(loadCollection());
+    }
+    
+    public abstract List<T> loadCollection();
     
         
-    public abstract List<T> load();
-    
     public void _add(){        
         selected = add();
     }
@@ -37,6 +38,7 @@ public abstract class DataTable<T extends Entidad<T>> extends org.primefaces.com
     
     public void _save(){                
     	save(selected);
+    	load();
     }
 
     public void save(T entity){                
@@ -53,6 +55,8 @@ public abstract class DataTable<T extends Entidad<T>> extends org.primefaces.com
     
     public void _delete(){
         delete(selected);
+        selected = null;
+        load();
     }
     
     public void delete(T entity){

@@ -66,8 +66,8 @@ public class MseSImpl implements MseS{
 	}
 	
 	@Override
-	public List<MonaguilloGrupo> getMonaguilloGrupoList(){
-		return mseP.getMonaguilloGrupoList();
+	public List<MonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo){
+		return mseP.getMonaguilloGrupoList(grupo);
 	}
 
 	@Override

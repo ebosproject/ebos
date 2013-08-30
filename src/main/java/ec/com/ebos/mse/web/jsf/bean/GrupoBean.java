@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -25,7 +25,7 @@ import ec.com.ebos.util.web.jsf.component.DataTable;
  * @since 2013-08-23
  */
 @ManagedBean(name = GrupoBean.BEAN_NAME)
-@ViewScoped
+@SessionScoped
 public class GrupoBean extends MseBean<Grupo> {
     	
 	private static final long serialVersionUID = 6778254758599296978L;
@@ -77,6 +77,7 @@ public class GrupoBean extends MseBean<Grupo> {
     @Override
     public void editar() {        
     	//activeEntity = mseS.loadGrupo(activeEntity.getId());
+    	monaguilloGrupoDataTable.load();
     }
     
     @Override
@@ -94,14 +95,14 @@ public class GrupoBean extends MseBean<Grupo> {
     	mseS.deleteGrupo(activeEntity);                
     }            
     
-    //////////////////////// DATLISTS ///////////////////////////////
+    //////////////////////// DATALISTS ///////////////////////////////
     
     @Getter @Setter
     protected DataTable<MonaguilloGrupo> monaguilloGrupoDataTable = new DataTable<MonaguilloGrupo>(){
 
 		@Override
-		public List<MonaguilloGrupo> load() {
-			return mseS.getMonaguilloGrupoList();
+		public List<MonaguilloGrupo> loadCollection() {
+			return mseS.getMonaguilloGrupoList(activeEntity);
 		}
 		
 		@Override
@@ -111,6 +112,7 @@ public class GrupoBean extends MseBean<Grupo> {
 		
 		@Override
 		public void save(MonaguilloGrupo entity) {
+			entity.setGrupo(activeEntity);
 			mseS.saveMonaguilloGrupo(entity);
 		}
 		
