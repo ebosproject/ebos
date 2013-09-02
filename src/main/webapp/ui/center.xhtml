@@ -9,8 +9,16 @@
 	<h:form id="frmDashboard">
 		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;" >
             <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}"/>
-			<p:panel id="bundle" header="#{msg.bundle}">
+			<p:panel id="bundle" header="#{msg.bundle}" footer="#{msg.bundle}" toggleable="true" closable="true" widgetVar="bundle">
 				<p:commandButton value="#{msg.bundle}" actionListener="#{deskBean.openFrame(37)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
+				<f:facet name="options">
+                    <p:menu>
+                        <p:submenu label="Settings">
+                            <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="bundle.toggle()"/>
+                            <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="bundle.close()"/>
+                        </p:submenu>
+                    </p:menu>
+                </f:facet>
 			</p:panel>
 			<p:panel id="usuario" header="#{msg.user}">
 				<p:commandButton value="#{msg.user}" actionListener="#{deskBean.openFrame(2)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
