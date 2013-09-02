@@ -28,6 +28,7 @@ import lombok.Setter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Organizacion_;
 import ec.com.ebos.master.model.field.Persona_;
@@ -48,6 +49,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Entity
 @Table(name = Persona.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Persona extends Master<Persona>{
 
 	private static final long serialVersionUID = -2896367216397132540L;

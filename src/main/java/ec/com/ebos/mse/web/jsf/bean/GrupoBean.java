@@ -49,9 +49,7 @@ public class GrupoBean extends MseBean<Grupo> {
         if(EntityUtils.isPersistent(activeEntity)){
             
         } else {
-        	setHabilitaEliminar(false);
-        	//TODO (epa): La plataforma no debe permitir para todos las pantallas mostrar el boton eliminar si la 
-        	//entidad activa no esta persistida en la base de datos
+
         }
     }
 
@@ -72,6 +70,7 @@ public class GrupoBean extends MseBean<Grupo> {
     @Override
     public void crear() {
         activeEntity = mseS.createGrupo();
+        monaguilloGrupoDataTable.unload();
     }
 
     @Override

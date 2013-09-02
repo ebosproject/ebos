@@ -20,6 +20,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -30,6 +31,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = Activo.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Activo extends Master<Activo>{
 
 	private static final long serialVersionUID = 7521526484197846192L;

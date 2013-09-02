@@ -28,7 +28,7 @@
                  			actionListener="#{bean._crear}" icon="ui-icon-document" />
 	                    <p:commandButton id="btnGuardar" value="#{msg.save}" action="#{bean._guardar}" 
 	                    	rendered="#{bean.habilitaEditar}" partialSubmit="true"
-	                    	icon="ui-icon-disk" update=":#{frameId}:frmH, :#{frameId}:pnlHD" process="@this,:#{frameId}:frmH"/> 
+	                    	icon="ui-icon-disk" update=":#{frameId}:frmH, :#{frameId}:pnlHD, frmTM" process="@this,:#{frameId}:frmH"/> 
 	                    <p:commandButton id="btnEliminar" value="#{msg.delete}" rendered="#{bean.habilitaEliminar}" process="@this"
 	                   		actionListener="#{bean._eliminar}" icon="ui-icon-trash" partialSubmit="true"
 	                   		onsuccess="#{wgtE}.hide();#{wgtBUI}.hide()"/>

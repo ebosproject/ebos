@@ -18,6 +18,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.field.Entidad_;
@@ -35,6 +36,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Entity
 @Table(name = TipoImpuesto.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class TipoImpuesto extends Entidad<TipoImpuesto>{
 
 	private static final long serialVersionUID = 3922934845182492539L;

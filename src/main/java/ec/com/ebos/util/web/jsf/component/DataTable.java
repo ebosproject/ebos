@@ -25,6 +25,10 @@ public abstract class DataTable<T extends Entidad<T>> extends org.primefaces.com
     	setValue(loadCollection());
     }
     
+    public void unload(){
+    	setValue(null);
+    }
+    
     public abstract List<T> loadCollection();
     
         

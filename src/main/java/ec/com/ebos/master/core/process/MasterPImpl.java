@@ -14,6 +14,7 @@ import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.Entidad.Estado;
+import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.StringUtils;
 
@@ -129,6 +130,9 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 	}
 
 	public Persona savePersona(Persona persona){
+		if(!EntityUtils.isPersistent(persona)){
+			persona.setEstado(Estado.ACTIVO);
+		}
 		persona = saveOrMerge(persona);
         putSuccess("persona.success.guardar", persona.getId());
         return persona;
