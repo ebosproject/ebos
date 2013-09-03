@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -19,6 +20,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Entity
 @Table(name = Visitante.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Visitante extends Bitacora<Visitante>{
 
 	private static final long serialVersionUID = -372384679228539239L;

@@ -19,6 +19,7 @@ import org.springframework.jdbc.support.lob.DefaultLobHandler;
 import org.springframework.jdbc.support.lob.LobHandler;
 import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
+import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 import ec.com.ebos.orm.crud.CrudService;
 import ec.com.ebos.orm.crud.FinderSQLService;
@@ -50,18 +51,8 @@ public class RepositoryConfig {
     
     @Value("${ebos.jndi}") private String ebosJndi;
     
-    @Value("${transaction.create}") private String transactionCreate;
-    @Value("${transaction.update}") private String transactionUpdate;
-	@Value("${transaction.delete}") private String transactionDelete;
-	@Value("${transaction.saveOrUpdate}") private String transactionSaveOrUpdate;
-	@Value("${transaction.load}") private String transactionLoad;
-	@Value("${transaction.bulkUpdate}") private String transactionBulkUpdate;
-	
-	@Value("${transaction.findByFuncionNoTx}") private String transactionFindByFuncionNoTx;
-	@Value("${transaction.findByProcedimientoNoTx}") private String transactionFindByProcedimiento;
-	@Value("${transaction.all}") private String transactionAll;
 	@Value("${transaction.maxRegistros}") private int transactionMaxRegistros;
-    
+	
 	@Value("${transaction.requiredAll}") private String transactionRequiredAll;
 	@Value("${transaction.findAll}") private String transactionFindAll;
 	@Value("${transaction.getAll}") private String transactionGetAll;
@@ -126,10 +117,17 @@ public class RepositoryConfig {
 		return properties;
 	}
 	
+	
 	@Bean
 	@Autowired
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
 		return new HibernateTransactionManager(sessionFactory);
+	}
+	
+	@Bean
+	@Autowired
+	public TransactionInterceptor transactionInterceptor(HibernateTransactionManager transactionManager){
+		return new TransactionInterceptor(transactionManager, transactionModulesAttributes()); 
 	}
 	
 	/**
@@ -142,7 +140,7 @@ public class RepositoryConfig {
 	@Bean
 	@Autowired 
 	public CrudService crudService(SessionFactory sessionFactory) throws NamingException{
-		return new CrudServiceImpl(sessionFactory, transactionCrudAttributes());
+		return new CrudServiceImpl(sessionFactory);
 	}
 	
 	/**
@@ -153,7 +151,7 @@ public class RepositoryConfig {
 	 */
 	@Bean
 	public FinderSQLService finderSQLService() throws NamingException{		
-		return new FinderSQLServiceImpl(dataSource(), transactionFinderAttributes());
+		return new FinderSQLServiceImpl(dataSource());
 	}
 
 	
@@ -167,38 +165,16 @@ public class RepositoryConfig {
 	@Bean
 	@Autowired
 	public FinderService finderService(SessionFactory sessionFactory) throws NamingException{
-		return new FinderServiceImpl(sessionFactory, transactionMaxRegistros, finderSQLService(), transactionFinderAttributes());
+		return new FinderServiceImpl(sessionFactory, transactionMaxRegistros, finderSQLService());
 	}
 	
-	
-	@Bean
-	public Properties transactionCrudAttributes(){
-		Properties properties = new Properties();
-		properties.setProperty("create", transactionCreate);
-		properties.setProperty("delete", transactionDelete);
-		properties.setProperty("update", transactionUpdate);
-		properties.setProperty("load", transactionLoad);
-		properties.setProperty("saveOrUpdate", transactionSaveOrUpdate);
-		properties.setProperty("bulkUpdate", transactionBulkUpdate);
-		return properties;
-	}
-	
-	@Bean
-	public Properties transactionFinderAttributes(){
-		Properties properties = new Properties();
-		properties.setProperty("findByFuncionNoTx", transactionFindByFuncionNoTx);
-		properties.setProperty("findByProcedimientoNoTx", transactionFindByProcedimiento);
-		properties.setProperty("*", transactionAll);
-		return properties;
-	}
-	
+
 	@Bean 
 	@Autowired
 	public BaseDaoSupport baseDaoSupport(CrudService crudService, FinderService finderService) throws NamingException{
 		return new BaseDaoSupport(crudService, finderService);
 	}
 	
-	@Bean
 	public Properties transactionModulesAttributes(){
 		Properties properties = new Properties();
 		properties.setProperty("*", transactionRequiredAll);

@@ -22,6 +22,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.Constantes;
@@ -39,7 +40,8 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  */
 @Entity
 @Table(name = SaldoCentroCosto.TABLE_NAME, schema = Contabilidad.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
+@Data @EqualsAndHashCode(callSuper=false)
+@Auditable
 public class SaldoCentroCosto extends Contabilidad<SaldoCentroCosto> {
 
 	private static final long serialVersionUID = 5615088107461153660L;

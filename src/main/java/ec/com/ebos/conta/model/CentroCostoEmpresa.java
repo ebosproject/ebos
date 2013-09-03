@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.Organizacion;
 
 /**
@@ -23,6 +24,7 @@ import ec.com.ebos.master.model.Organizacion;
 @Entity
 @Table(name = CentroCostoEmpresa.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class CentroCostoEmpresa extends Contabilidad<CentroCostoEmpresa> {
 
 

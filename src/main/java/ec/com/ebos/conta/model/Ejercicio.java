@@ -22,6 +22,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.field.Periodo_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.model.Entidad;
@@ -37,6 +38,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Entity
 @Table(name = Ejercicio.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Ejercicio extends Contabilidad<Ejercicio> {
 
 	private static final long serialVersionUID = 5615088107461153660L;

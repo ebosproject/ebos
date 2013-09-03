@@ -26,6 +26,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
@@ -40,6 +41,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Entity
 @Table(name = Evento.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Evento extends Bitacora<Evento>{
 
 	private static final long serialVersionUID = 3922934845182492539L;

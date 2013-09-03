@@ -13,6 +13,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlPanelGroup;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +30,8 @@ import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.master.exception.MasterException;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.util.FacesUtils;
+import ec.com.ebos.util.NumberUtils;
+import ec.com.ebos.util.StringUtils;
 
 /**
  * ManagedBean que maneja el menuOptions y los dialogs
@@ -150,14 +153,7 @@ public class DeskBean implements Serializable{
     	RequestContext requestContext = RequestContext.getCurrentInstance();
     	
 	    //Busca la opcion seleccionada en la lista de opciones del usuario actual
-    	Opcion option = null;
-    	for(RolOpcion rolOpcion : rolOptionList){
-    		Opcion opcionTMP = rolOpcion.getOpcion();
-    		if(opcionTMP.getId().equals(optionId)){
-    			option = opcionTMP;
-    			//break;
-    		}
-    	}
+    	Opcion option = getOption(optionId);
     	
     	//Crear y agrega el compositeComponent Frame en su contenedor pngFrame
     	UIComponent pngFrame = getPngFrame();
@@ -165,6 +161,7 @@ public class DeskBean implements Serializable{
     		pngFrame = context.getViewRoot().findComponent(pngFrame.getId());
             try{
             	Map<String, Object> attrs = new TreeMap<String, Object>();
+            	attrs.put("optionId", option.getId());
 	            attrs.put("src", option.getTarget());
 	            attrs.put("header", option.getEtiqueta());
 	            attrs.put("parentId", pngFrame.getId());
@@ -178,7 +175,7 @@ public class DeskBean implements Serializable{
             }
     	}
     }
-	
+
 	/**
 	 * Elimina el frame del contenedor pngFrame actual 
 	 * 
@@ -186,12 +183,22 @@ public class DeskBean implements Serializable{
 	 */
 	public void closeFrame(CloseEvent event){
 		String pngFrameId = event.getComponent().getParent().getParent().getParent().getId();
+		Long optionId = NumberUtils.parseLong(event.getComponent().getAttributes().get("optionId").toString());
 		boolean update = false;
 		try{
 			for(UIComponent pngFrame : pnlFrames.getChildren()){
 				if(pngFrame.getId().equals(pngFrameId)){
 					pngFrame.getChildren().clear();
 					update = true;
+					
+					String beanName = getOption(optionId).getBeanName();
+					if (!StringUtils.isBlank(beanName)) {
+						// Remueve bean de la session actual
+						HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+						if (session != null) {
+							session.removeAttribute(beanName);
+						}
+					}
 					break;
 				}
 			}
@@ -218,6 +225,22 @@ public class DeskBean implements Serializable{
 		}
 		sessionBean.putWarn("desktop.warn.maxloadoption","",sessionBean.getUsuario().getMaxOptions());
 		return null;
+	}
+	
+	/**
+	 * Obtiene una opcion de la lista de opciones del usuario actual
+	 * 
+	 * @param optionId
+	 * @return
+	 */
+	private Opcion getOption(Long optionId) {
+    	for(RolOpcion rolOpcion : rolOptionList){
+    		Opcion opcionTMP = rolOpcion.getOpcion();
+    		if(opcionTMP.getId().equals(optionId)){
+    			return opcionTMP;
+    		}
+    	}
+    	return null;
 	}
 		
 	@Getter @Setter

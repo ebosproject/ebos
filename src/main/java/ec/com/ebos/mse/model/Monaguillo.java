@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,12 +15,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 import ec.com.ebos.mse.model.field.Monaguillo_;
+import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.root.model.Entidad;
 
 /**
  * Monagillo
@@ -30,12 +36,13 @@ import ec.com.ebos.mse.model.field.Monaguillo_;
  */
 @Entity
 @Table(name = Monaguillo.TABLE_NAME, schema = Mse.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
+@Data @EqualsAndHashCode(callSuper=false)
+@Auditable
 public class Monaguillo extends Mse<Monaguillo> {
 
 	private static final long serialVersionUID = 8123939355501042044L;
 	
-	protected static final String TABLE_NAME = "MONAGILLO";
+	protected static final String TABLE_NAME = "MONAGUILLO";
 	private static final String SEQUENCE = Mse.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
@@ -46,6 +53,13 @@ public class Monaguillo extends Mse<Monaguillo> {
 	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
+	
+	@Embedded
+	private Auditoria auditoria;
+	
+	@Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = Persona_.join, nullable = false)

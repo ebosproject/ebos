@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import lombok.Setter;
 
@@ -26,12 +25,9 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.transform.AliasToBeanResultTransformer;
 import org.hibernate.transform.ResultTransformer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
 
 import ec.com.ebos.orm.crud.FinderException;
 import ec.com.ebos.orm.crud.FinderSQLException;
@@ -46,7 +42,7 @@ import ec.com.ebos.orm.crud.support.ParametrosProcedimiento;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-04
  */
-public class FinderServiceImpl extends TransactionProxyFactoryBean implements FinderService {
+public class FinderServiceImpl implements FinderService {
 
 	private static final long serialVersionUID = 7062230011964573755L;
 
@@ -58,19 +54,10 @@ public class FinderServiceImpl extends TransactionProxyFactoryBean implements Fi
 	private int maxRecords = 500;
 	
 	public FinderServiceImpl(SessionFactory sessionFactory,
-			int transactionMaxRegistros, FinderSQLService finderSQLService,
-			Properties transactionAttributes) {
+			int transactionMaxRegistros, FinderSQLService finderSQLService) {
 		hibernateTemplate = new HibernateTemplate(sessionFactory);		
 		setMaxRegistros(transactionMaxRegistros);
 		this.finderSql = finderSQLService;
-		setTarget(this);
-		setTransactionAttributes(transactionAttributes);
-	}
-
-	@Override
-	@Autowired
-	public void setTransactionManager(PlatformTransactionManager transactionManager) {
-		super.setTransactionManager(transactionManager);
 	}
 	
 

@@ -13,6 +13,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -22,6 +23,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = Parametros.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Parametros extends Administracion<Parametros>{
   
 	private static final long serialVersionUID = 7865213458933031067L;

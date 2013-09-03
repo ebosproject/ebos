@@ -11,11 +11,9 @@ import java.sql.Types;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
 import javax.annotation.PostConstruct;
 
-import lombok.Getter;
 import lombok.Setter;
 
 import org.apache.commons.lang.StringUtils;
@@ -26,9 +24,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Projections;
 import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
 
 import ec.com.ebos.admin.core.exception.AdministracionException;
 import ec.com.ebos.admin.core.process.AdministracionPImpl;
@@ -53,13 +51,13 @@ import ec.com.ebos.util.type.JsfMessage;
 
 
 /**
- * Superclase de las implementaciones de la capa G
+ * Superclase de las implementaciones de la capa Process
  * @param <X> tipo del Entity base del modulo
  * @param <E> tipo de la excepcion
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * 
  */
-public abstract class RootPImpl<X, E extends Exception> extends TransactionProxyFactoryBean implements RootP, Serializable, JsfMessage{
+public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean implements RootP, Serializable, JsfMessage{
 
 	private static final long serialVersionUID = -204770942577453524L;
 
@@ -77,19 +75,13 @@ public abstract class RootPImpl<X, E extends Exception> extends TransactionProxy
 	@Qualifier("finderService")
 	private FinderService finder;
 	
-	
-	@Getter @Setter
-	@Autowired
-	@Qualifier("transactionModulesAttributes")
-	private Properties transactionModulesAttributes;
-	    
 	/**
 	 * Inicializa target y attributes
 	 */
 	@PostConstruct
 	public void init(){
 		setTarget(this);
-		setTransactionAttributes(transactionModulesAttributes);
+		setInterceptorNames(new String[]{"transactionInterceptor"});
 	}
 		
 

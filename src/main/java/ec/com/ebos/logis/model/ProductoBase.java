@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.Master;
 
 
@@ -18,6 +19,7 @@ import ec.com.ebos.master.model.Master;
 @Entity
 @Table(name = ProductoBase.TABLE_NAME, schema = Logistica.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
+@Auditable
 public class ProductoBase extends Logistica<ProductoBase> {
 
 	private static final long serialVersionUID = -4664966746836596369L;

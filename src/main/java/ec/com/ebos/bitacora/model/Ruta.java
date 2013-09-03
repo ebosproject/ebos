@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -18,6 +19,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Entity
 @Table(name = Ruta.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Ruta extends Bitacora<Ruta>{
 
 	private static final long serialVersionUID = -4302893291410989102L;

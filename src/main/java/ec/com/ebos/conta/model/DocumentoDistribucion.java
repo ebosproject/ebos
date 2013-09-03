@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Documento;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -32,6 +33,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = DocumentoDistribucion.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class DocumentoDistribucion extends Contabilidad<DocumentoDistribucion> {
 
 	private static final long serialVersionUID = -1204172994571329360L;
@@ -47,6 +49,9 @@ public class DocumentoDistribucion extends Contabilidad<DocumentoDistribucion> {
 	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
+	
+	@Embedded
+	private Auditoria auditoria;
 	
 	/**
 	 * Centro de Costo
@@ -79,9 +84,5 @@ public class DocumentoDistribucion extends Contabilidad<DocumentoDistribucion> {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;
 	
-	@Embedded
-	private Auditoria auditoria;
-	
-		
     
 }

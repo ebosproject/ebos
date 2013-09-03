@@ -15,6 +15,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -25,6 +26,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = ActivoCustodio.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class ActivoCustodio extends Master<ActivoCustodio>{
 
 	private static final long serialVersionUID = 8578280108376775316L;

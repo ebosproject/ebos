@@ -9,14 +9,14 @@
 
 	<ui:param name="renderedCenterSouth" value="true" />
 	<ui:param name="optionsMaster"
-		value="'north':{'closable':false,'resizable':false,'size':50},
-			'center':{'resizeWhileDragging':true,'closable':false,
-				'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}" />
+		value="north:{closable:false,resizable:false,size:'50'},
+			center:{resizeWhileDragging:true,closable:false,
+				childOptions:{center:{},south:{resizable:false,size:'255',closable:false}}}" />
 
 	<ui:define name="header">
 		<ui:param name="grupo" value="#{bean.activeEntity}" />
 
-		<eb:panelGrid id="pnlGrupo" columns="2">
+		<eb:panelGrid id="pnlGrupo" columns="4">
 			<p:outputLabel for="nombre" value="#{msg.name}" />
 			<eb:inputText id="nombre" value="#{grupo.nombre}" required="true" maxlength="30" />
 
@@ -36,8 +36,8 @@
 	</ui:define>
 
 	<ui:define name="detail">
-		
-		
+
+		<ui:include src="masterDetail.xhtml"/>
 		
 	</ui:define>
 

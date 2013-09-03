@@ -6,22 +6,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import ec.com.ebos.root.model.Entidad;
+
 /**
- * Anotacion para indicar que un  es sujeto de auditoria por modificaciones y eliminaciones.
- * Debe indicarse el tipo de la clase  que manejara la auditoria,
- * la cual debe extender de {@link AbstractAuditEntity}.
- * @see AuditAspectGImpl
+ * Anotacion para indicar que una {@link Entidad} es sujeto de auditoria por modificaciones y eliminaciones
+ * 
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ *
+ * @since 2013/08/29
  */
 @Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Auditable {
-
-//    /**
-//     * Tipo de la clase  que manejara la auditoria del  anotado.
-//     * Debe extender de {@link AbstractAudit}.
-//     */
-//	
-//    Class<? extends AbstractAudit<?, ?>> value();
     
 }

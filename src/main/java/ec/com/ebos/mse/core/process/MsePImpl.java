@@ -1,17 +1,25 @@
 package ec.com.ebos.mse.core.process;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.conta.exception.ContaException;
+import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.Monaguillo;
+import ec.com.ebos.mse.model.MonaguilloGrupo;
 import ec.com.ebos.mse.model.field.Grupo_;
+import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 import ec.com.ebos.mse.model.field.Monaguillo_;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
+import ec.com.ebos.root.model.Entidad.Estado;
+import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.util.NumberUtils;
+import ec.com.ebos.util.StringUtils;
 
 /**
  * @author <a href="mailto:vipconsultoresaso@gmail.com">VIP Consultores</a>
@@ -45,22 +53,26 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
 
     @Override
     public Grupo createGrupo() {
-        Grupo monaguillo = new Grupo();
-        return monaguillo;
+        Grupo grupo = new Grupo();
+        grupo.setEstado(Estado.INACTIVO);
+        return grupo;
     }
 
     @Override
-    public Grupo saveGrupo(Grupo monaguillo) {
-        monaguillo = saveOrMerge(monaguillo);
-        putSuccess("monagillo.success.save", monaguillo.getId());
-        return monaguillo;
+    public Grupo saveGrupo(Grupo grupo) {
+    	if(!EntityUtils.isPersistent(grupo)){
+    		grupo.setEstado(Estado.ACTIVO);
+    	}
+        grupo = saveOrMerge(grupo);
+        putSuccess("grupo.success.save", grupo.getId());
+        return grupo;
     }
 
     @Override
-    public void deleteGrupo(Grupo monaguillo) {
-        Long id = monaguillo.getId();
-        delete(monaguillo);
-        putSuccess("monagillo.success.delete",id);
+    public void deleteGrupo(Grupo grupo) {
+        Long id = grupo.getId();
+        delete(grupo);
+        putSuccess("grupo.success.delete",id);
     }
     
     //
@@ -69,7 +81,7 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     @Override
     public List<Monaguillo> findMonaguilloList(Monaguillo monaguillo, Pagination pagination) {
         GenericCriteria<Monaguillo> criteria = GenericCriteria.forClass(Monaguillo.class);
-        criteria.addAliasedJoins(Monaguillo_.persona);
+        criteria.addAliasedJoins(Monaguillo_.persona, Monaguillo_.creador);
         criteria.addAliasedLeftJoins(Monaguillo_.modificador);
         criteria.addEqualsIfNotZero(Monaguillo_.id, monaguillo.getId());
         if(criteria.isChanged()){
@@ -83,17 +95,52 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
         
         return findByCriteria(criteria, pagination);
     }
+    
+    public List<Monaguillo> findMonaguilloList(String query){
+    	if(StringUtils.isBlank(query)){
+			return new ArrayList<Monaguillo>();
+		}
+	
+		GenericCriteria<Monaguillo> criteria = GenericCriteria.forClass(Monaguillo.class);
+		criteria.addAliasedJoins(Monaguillo_.persona);
+		
+		if(NumberUtils.tryParseLong(query)){
+			criteria.addEqualsIfNotZero(Monaguillo_.id, NumberUtils.parseLong(query));
+			if(criteria.isChanged()){
+				return findByCriteria(criteria);
+			}
+		}
+		
+		criteria.addMultiLikeTokens(query, Monaguillo_.persona+"."+Persona_.nombres, Monaguillo_.persona+"."+Persona_.apellidos);
 
+		return findByCriteria(criteria);
+    }
+    
     @Override
+    public List<MonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo){
+    	GenericCriteria<MonaguilloGrupo> criteria = GenericCriteria.forClass(MonaguilloGrupo.class);
+        criteria.addAliasedJoins(MonaguilloGrupo_.monaguillo, MonaguilloGrupo_.monaguillo+"."+MonaguilloGrupo_.persona,MonaguilloGrupo_.creador);
+        criteria.addAliasedLeftJoins(MonaguilloGrupo_.modificador);
+        criteria.addEquals(MonaguilloGrupo_.grupo, grupo);        
+        return findByCriteria(criteria);
+    }
+    
+       @Override
     public Monaguillo createMonaguillo() {
         Monaguillo monaguillo = new Monaguillo();
+        monaguillo.setEstado(Estado.INACTIVO);
         return monaguillo;
     }
 
     @Override
     public Monaguillo saveMonaguillo(Monaguillo monaguillo) {
-        monaguillo = saveOrMerge(monaguillo);
-        putSuccess("monagillo.success.save", monaguillo.getId());
+        
+        if(!EntityUtils.isPersistent(monaguillo)){
+        	monaguillo.setEstado(Estado.ACTIVO);
+        }
+        		        		
+		monaguillo = saveOrMerge(monaguillo);
+        putSuccess("monaguillo.success.save", monaguillo.getId());
         return monaguillo;
     }
 
@@ -101,6 +148,26 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     public void deleteMonaguillo(Monaguillo monaguillo) {
         Long id = monaguillo.getId();
         delete(monaguillo);
-        putSuccess("monagillo.success.delete",id);
+        putSuccess("monaguillo.success.delete",id);
+    }
+    
+    @Override
+    public MonaguilloGrupo createMonaguilloGrupo(){
+    	MonaguilloGrupo monaguilloGrupo = new MonaguilloGrupo();
+        monaguilloGrupo.setEstado(Estado.INACTIVO);
+        return monaguilloGrupo;
+    }
+
+    @Override
+	public void saveMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
+    	 monaguilloGrupo = saveOrMerge(monaguilloGrupo);
+         putSuccess("monaguilloGrupo.success.save", monaguilloGrupo.getId());
+    }
+
+    @Override
+	public void deleteMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
+    	Long id = monaguilloGrupo.getId();
+        delete(monaguilloGrupo);
+        putSuccess("monaguilloGrupo.success.delete",id);
     }
 }

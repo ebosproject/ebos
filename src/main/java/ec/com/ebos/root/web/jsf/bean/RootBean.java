@@ -117,6 +117,7 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     public void _guardar(){
         guardar();
         habilitaControles();
+        habilitaActualizar = EntityUtils.isPersistent(activeEntity);
     }
 
     protected void guardar(){        

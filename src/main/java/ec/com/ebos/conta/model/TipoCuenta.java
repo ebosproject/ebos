@@ -21,6 +21,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.field.CuentaContable_;
 import ec.com.ebos.root.model.field.Entidad_;
 import ec.com.ebos.util.Constantes;
@@ -40,6 +41,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Table(name = TipoCuenta.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
+@Auditable
 public class TipoCuenta extends Contabilidad<TipoCuenta> {
 
 	private static final long serialVersionUID = 948691083807866461L;

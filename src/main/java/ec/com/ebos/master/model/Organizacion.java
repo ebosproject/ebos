@@ -20,6 +20,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.CentroCostoEmpresa;
 import ec.com.ebos.conta.model.CuentaCentro;
 import ec.com.ebos.conta.model.CuentaContableEmpresa;
@@ -41,6 +42,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = Organizacion.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
 public class Organizacion extends Master<Organizacion>{
 
 	private static final long serialVersionUID = 7508531917964868788L;

@@ -34,7 +34,7 @@ public interface MasterP {
 	
 	public List<Persona> findPersonaList(String query);
 
-	public Persona buildPersona();
+	public Persona createPersona();
 
 	public Persona savePersona(Persona persona);
 

@@ -17,6 +17,7 @@ import org.hibernate.annotations.Type;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.mse.model.field.Grupo_;
@@ -33,7 +34,8 @@ import ec.com.ebos.root.model.Entidad;
  */
 @Entity
 @Table(name = Grupo.TABLE_NAME, schema = Mse.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
+@Data @EqualsAndHashCode(callSuper=false)
+@Auditable
 public class Grupo extends Mse<Grupo> {
 	
 	private static final long serialVersionUID = 2824372366156085256L;
