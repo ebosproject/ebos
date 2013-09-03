@@ -61,19 +61,19 @@
 	    </f:facet>               
 	    
 	    <p:column id="estado" headerText="#{msg.state}">
-	        <eb:outputText value="#{msg[reg.estado.label]}"/>
+	        <h:outputText value="#{msg[reg.estado.label]}"/>
 	    </p:column>
 	    
 	    <p:column id="fullName" headerText="#{msg.fullName}">
-			<eb:outputText value="#{reg.nombres} #{reg.apellidos}"/>
+			<h:outputText value="#{reg.nombres} #{reg.apellidos}"/>
 		</p:column>
 
 		<p:column id="mail" headerText="#{msg.mail}">
-			<eb:outputText value="#{reg.mail}"/>
+			<h:outputText value="#{reg.mail}"/>
 		</p:column>
 		
 		<p:column id="facebook" headerText="#{msg.facebook}">
-			<eb:outputText value="#{reg.facebook}"/>
+			<h:outputText value="#{reg.facebook}"/>
 		</p:column>
     </ui:define>
 	    

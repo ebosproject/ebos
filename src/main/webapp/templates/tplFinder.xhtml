@@ -34,20 +34,20 @@
        		<h:form id="frmTF">
                  <p:toolbar id="tbrTF" style="overflow:hidden !important;">
 		           	<p:toolbarGroup align="left">
-			           	<p:commandButton id="btnSearch" value="#{msg.ebBuscar}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Search" 
+			           	<p:commandButton id="btnSearch" value="#{msg.search}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Search" 
 			           		icon="ui-icon-search" update=":#{frameId}:frmR:dtR,:#{frameId}:pnlD" process="@this,:#{frameId}:frmF"/>
 		               	<p:separator />
-		               	<p:commandButton id="btnNew" value="#{msg.ebNuevo}" actionListener="#{bean._crear}"
+		               	<p:commandButton id="btnNew" value="#{msg['new']}" actionListener="#{bean._crear}"
 		                	update=":#{frameId}:pnlE" onsuccess="#{wgtBUI}.show();#{wgtE}.show()"  
 		                	rendered="#{bean.habilitaCrear}" icon="ui-icon-document"/>
-		                <p:commandButton id="btnEdit" value="#{msg.ebEditar}" actionListener="#{bean._editar}" widgetVar="wgt#{frameId}Edit"
+		                <p:commandButton id="btnEdit" value="#{msg.edit}" actionListener="#{bean._editar}" widgetVar="wgt#{frameId}Edit"
 		                	update=":#{frameId}:pnlE" onsuccess="#{wgtBUI}.show();#{wgtE}.show()"  
 		                	rendered="#{bean.habilitaEditar and not empty bean.dataTable}" icon="ui-icon-edit"/>
 	                </p:toolbarGroup>
 	                <p:separator />
 					<p:toolbarGroup align="right">
-						<p:menuButton value="#{msg.ebOptions}">						
-							<p:menuitem value="#{msg.ebExportar}" rendered="#{bean.habilitaExportar}" ajax="false">
+						<p:menuButton value="#{msg.options}">						
+							<p:menuitem value="#{msg.export}" rendered="#{bean.habilitaExportar}" ajax="false">
 								<p:dataExporter type="pdf" target=":#{frameId}:frmR:dtR" fileName="Report"/>	
 							</p:menuitem>
 							<p:menuitem value="Opc 2" url="#" />
@@ -69,20 +69,22 @@
 		            selectionMode="single"
 		            selection="#{bean.activeEntity}"
 		            paginator="true" 
-		            paginatorTemplate="{FirstPageLink} {PreviousPageLink} {RowsPerPageDropdown} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+		            paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
 		            rowsPerPageTemplate="10,25,50,100"
 		            rows="50" 
-		            emptyMessage="#{msg.ebEmptyDataTable}"
-		            resizableColumns="true"
-		            scrollable="true"   
+		            emptyMessage="#{msg.emptyDataTable}"
+		            resizableColumns="true"  
 		            rowKey="#{reg.id}">
 		            
 					<p:ajax event="rowDblselect" disabled="#{not(bean.habilitaEditar and not empty bean.dataTable)}" 
 						onsuccess="wgt#{frameId}Edit.jq.click()"/>
 					<p:ajax event="rowSelect" update=":#{frameId}:pnlD" global="false"/>  
-	  
-		            <p:column headerText="#{msg.ebId}" width="30" style="text-align:center" resizable="false" >
-		                 <eb:outputText value="#{reg.id}" />
+  					
+		            <p:column width="30" style="text-align:center" resizable="false" >
+		                 <f:facet name="header">  
+				            <h:outputText value="#{msg.id}" />  
+				        </f:facet>
+		                 <h:outputText value="#{reg.id}" />
 		            </p:column>
 		             
 		            <ui:insert name="results" />
