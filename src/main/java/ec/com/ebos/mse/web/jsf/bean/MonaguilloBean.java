@@ -46,6 +46,7 @@ public class MonaguilloBean extends MseBean<Monaguillo> {
 	public void getInit() {
 		// Para busquedas
 		entitySearch = new Monaguillo();
+		entitySearch.setPersona(new Persona());
 	}
 
 	@Override

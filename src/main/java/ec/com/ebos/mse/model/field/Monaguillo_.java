@@ -8,7 +8,7 @@ package ec.com.ebos.mse.model.field;
  */
 public abstract class Monaguillo_ extends Mse_{
 
-	public static final String representantes = "representates";
+	public static final String representantes = "representantes";
 	public static final String centroEstudio = "centroEstudio";
 	
 }

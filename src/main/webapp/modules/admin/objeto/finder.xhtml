@@ -12,7 +12,7 @@
     <ui:define name="filters">
         <eb:panelGrid id="pnlFiltros" columns="2">          
         	<p:outputLabel for="id" value="#{msg.ebId}"/>     
-	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number"/>
+	        <eb:inputNumber id="id" value="#{bean.entitySearch.id}" />
 	        
             <p:outputLabel for="usuario" value="#{msg.ebUsuario}"/>
             <eb:inputText id="usuario" value="#{bean.entitySearch.username}"/>

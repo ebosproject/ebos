@@ -10,11 +10,36 @@
     <ui:param name="optionName" value="#{msg.persona}" />
  	<ui:param name="widthDlgE" value="700" />
 	<ui:param name="heightDlgE" value="310" />
+    <ui:param name="westSize" value="250" />
+    <ui:param name="westMinSize" value="250" />
     
     <ui:define name="filters">
         <eb:panelGrid id="pnlFiltros" columns="2">          
-        	<p:outputLabel for="id" value="#{msg.id}"/>     
-	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number" size="10" maxlength="10"/>
+        	<p:outputLabel for="id" value="#{msg.id}"/>
+    		<eb:inputNumber id="id" value="#{bean.entitySearch.id}"/>     
+	        
+  			<p:outputLabel for="identificacion" value="#{msg.identification}" />
+			<eb:inputText id="identificacion" value="#{bean.entitySearch.identificacion}" maxlength="20" />
+			
+			<p:outputLabel for="nombres" value="#{msg.firstName}" />
+			<eb:inputText id="nombres" value="#{bean.entitySearch.nombres}"	maxlength="50" />	
+				
+			<p:outputLabel for="apellidos" value="#{msg.lastName}" />
+			<eb:inputText id="apellidos" value="#{bean.entitySearch.apellidos}" maxlength="50" />
+				
+			<p:outputLabel for="genero" value="#{msg.gender}" />
+			<p:selectOneMenu id="genero"
+				value="#{bean.entitySearch.genero}" efect="fade">
+				<f:selectItem itemLabel="#{msg.selectOne}" itemValue="" />
+				<f:selectItems value="#{bean.generoList}" var="opc"
+					itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="direccion" value="#{msg.address}" />
+			<eb:inputText id="direccion" value="#{bean.entitySearch.direccion}" maxlength="100" />
+	        
+	        <p:outputLabel for="estado" value="#{msg.state}" />
+			<eb:outputText id="estado" value="#{msg[bean.entitySearch.estado.label]}" />
 	        
 	        <p:outputLabel for="usuario" value="#{msg.user}" />
 			<p:selectBooleanCheckbox id="usuario" value="#{bean.entitySearch.usuario}"/>  

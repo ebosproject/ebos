@@ -34,19 +34,17 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     // Grupo
     //
     @Override
-    public List<Grupo> findGrupoList(Grupo monagillo, Pagination pagination) {
+    public List<Grupo> findGrupoList(Grupo grupo, Pagination pagination) {
         GenericCriteria<Grupo> criteria = GenericCriteria.forClass(Grupo.class);
         criteria.addAliasedJoins(Grupo_.creador);
         criteria.addAliasedLeftJoins(Grupo_.modificador);
-        criteria.addEqualsIfNotZero(Grupo_.id, monagillo.getId());
+        criteria.addEqualsIfNotZero(Grupo_.id, grupo.getId());
+       
         if(criteria.isChanged()){
         	return findByCriteria(criteria, pagination);
         }
         
-//        criteria.addEqualsIfNotNull(Grupo_.tipo, monagillo.getTipo());
-//        criteria.addEqualsIfNotNull(Grupo_.naturaleza, monagillo.getNaturaleza());
-//        criteria.addLikeIfNotNull(Grupo_.codigo, monagillo.getCodigo());
-//        criteria.addLikeIfNotNull(Grupo_.descripcion, monagillo.getDescripcion());        
+        criteria.addLikeTokens(Grupo_.nombre, grupo.getNombre());
         
         return findByCriteria(criteria, pagination);
     }
@@ -83,15 +81,16 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
         GenericCriteria<Monaguillo> criteria = GenericCriteria.forClass(Monaguillo.class);
         criteria.addAliasedJoins(Monaguillo_.persona, Monaguillo_.creador);
         criteria.addAliasedLeftJoins(Monaguillo_.modificador);
+        
         criteria.addEqualsIfNotZero(Monaguillo_.id, monaguillo.getId());
         if(criteria.isChanged()){
         	return findByCriteria(criteria, pagination);
         }
         
-//        criteria.addEqualsIfNotNull(Monagillo_.tipo, monagillo.getTipo());
-//        criteria.addEqualsIfNotNull(Monagillo_.naturaleza, monagillo.getNaturaleza());
-//        criteria.addLikeIfNotNull(Monagillo_.codigo, monagillo.getCodigo());
-//        criteria.addLikeIfNotNull(Monagillo_.descripcion, monagillo.getDescripcion());        
+        criteria.addLikeTokens(Monaguillo_.persona+"."+Persona_.nombres,monaguillo.getPersona().getNombres());
+        criteria.addLikeTokens(Monaguillo_.persona+"."+Persona_.apellidos, monaguillo.getPersona().getApellidos());
+        criteria.addLikeTokens(Monaguillo_.centroEstudio, monaguillo.getCentroEstudio());
+        criteria.addLikeTokens(Monaguillo_.representantes, monaguillo.getRepresentantes());
         
         return findByCriteria(criteria, pagination);
     }

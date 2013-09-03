@@ -66,26 +66,26 @@ public class Persona extends Master<Persona>{
 	@Embedded
 	private Auditoria auditoria;
 		
-	@Column(name = "nombres", nullable = false, length = 50)
+	@Column(name = Persona_.nombres, nullable = false, length = 50)
 	private String nombres;
 
-	@Column(name = "apellidos", nullable = false, length = 50)
+	@Column(name = Persona_.apellidos, nullable = false, length = 50)
 	private String apellidos;
 	
 	@Getter @Setter
-	@Column(name = "nacimiento", nullable = false)
+	@Column(name = Persona_.nacimiento, nullable = false)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date nacimiento;
 
-	@Column(name = "genero", nullable = false, length = 1)
+	@Column(name = Persona_.genero, nullable = false, length = 1)
     @Type(type = Genero.TYPE)
     private Genero genero;
 	
-	@Column(name = "identificacion", unique = true, nullable = false, length = 20)
+	@Column(name = Persona_.identificacion, unique = true, nullable = false, length = 20)
 	private String identificacion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ciudad")
+	@JoinColumn(name = Persona_.id_ciudad)
     private DivisionGeografica ciudad;
 	
 	/**
@@ -108,34 +108,34 @@ public class Persona extends Master<Persona>{
 	@Column(name = Persona_.contentType, length = 15)
 	private String contentType;
 	
-	@Column(name = "direccion", length = 100)
+	@Column(name = Persona_.direccion, length = 100)
 	private String direccion;
 	
-	@Column(name = "mail", length = 100)
+	@Column(name = Persona_.mail, length = 100)
 	private String mail;
 	
-	@Column(name = "facebook", length = 30)
+	@Column(name = Persona_.facebook, length = 30)
 	private String facebook;
 
-	@Column(name = "telefono", length = 25)
+	@Column(name = Persona_.telefono, length = 25)
 	private String telefono;
 	
-	@Column(name = "celular", length = 25)
+	@Column(name = Persona_.celular, length = 25)
 	private String celular;
 	
-	@Column(name = "usuario", nullable = false)
+	@Column(name = Persona_.usuario, nullable = false)
 	private boolean usuario = false;
 	
-	@Column(name = "cliente", nullable = false)
+	@Column(name = Persona_.cliente, nullable = false)
 	private boolean cliente = false;
 	
-	@Column(name = "proveedor", nullable = false)
+	@Column(name = Persona_.proveedor, nullable = false)
 	private boolean proveedor = false;
 	
-	@Column(name = "empleado", nullable = false)
+	@Column(name = Persona_.empleado, nullable = false)
 	private boolean empleado = false;
 	
-	@Column(name = "tipoIdentificacion", nullable = false, length = 1)
+	@Column(name = Persona_.tipoIdentificacion, nullable = false, length = 1)
     @Type(type = TipoIdentificacion.TYPE)
     private TipoIdentificacion tipoIdentificacion;
 	
@@ -166,11 +166,11 @@ public class Persona extends Master<Persona>{
 	/**
 	 * Numero de cedula, ruc o codigo de indentificacion
 	 */
-	@Column(name = "tipoPersona", nullable = false, length = 1)
+	@Column(name = Persona_.tipoPersona, nullable = false, length = 1)
 	@Type(type = TipoPersona.TYPE)
     private TipoPersona tipoPersona;
 	
-	@Column(name = "estado", nullable = false, length = 1)
+	@Column(name = Persona_.estado, nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	

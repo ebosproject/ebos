@@ -84,17 +84,18 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 		if(criteria.isChanged()){
 			return findByCriteria(criteria, pagination);
 		}
-		criteria.addLikeIfNotNull(Persona_.apellidos, persona.getApellidos());
-		criteria.addLikeIfNotNull(Persona_.nombres, persona.getNombres());
+		criteria.addLikeIfNotNull(Persona_.identificacion, persona.getIdentificacion());
+		criteria.addEqualsIfNotNull(Persona_.genero, persona.getGenero());
+		criteria.addEqualsIfNotNull(Persona_.estado, persona.getEstado());
+		criteria.addLikeTokens(Persona_.nombres, persona.getNombres());
+		criteria.addLikeTokens(Persona_.apellidos, persona.getApellidos());
+		criteria.addLikeTokens(Persona_.direccion, persona.getDireccion());
 		
 		criteria.addEqualsIsTrue(Persona_.usuario, persona.isUsuario());
 		criteria.addEqualsIsTrue(Persona_.cliente, persona.isCliente());
     	criteria.addEqualsIsTrue(Persona_.empleado, persona.isEmpleado());
     	criteria.addEqualsIsTrue(Persona_.proveedor, persona.isProveedor());
-    	
-        criteria.addEqualsIfNotNull(Persona_.estado, persona.getEstado());
-        criteria.addEqualsIfNotNull(Persona_.tipoIdentificacion, persona.getTipoIdentificacion());
-        criteria.addEqualsIfNotNull(Persona_.tipoPersona, persona.getTipoPersona());
+    	        
 
         return findByCriteria(criteria, pagination);
 	}

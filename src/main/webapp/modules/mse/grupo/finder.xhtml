@@ -9,10 +9,16 @@
    	<ui:param name="bean" value="#{grupoBean}" />
     <ui:param name="optionTitle" value="#{msg[grupo.title]}" />
     
+    <ui:param name="westSize" value="215" />
+    <ui:param name="westMaxSize" value="215" />
+    
     <ui:define name="filters">
         <eb:panelGrid id="pnlFiltros" columns="2">          
         	<p:outputLabel for="id" value="#{msg.id}"/>     
-	        <eb:inputText id="id" value="#{bean.entitySearch.id}" type="number"/>
+	        <eb:inputNumber id="id" value="#{bean.entitySearch.id}" />
+	        
+	        <p:outputLabel for="nombre" value="#{msg.name}" />
+			<eb:inputText id="nombre" value="#{bean.entitySearch.nombre}" maxlength="30" />
 	    </eb:panelGrid>
     </ui:define>
 

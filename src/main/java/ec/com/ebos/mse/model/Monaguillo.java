@@ -62,7 +62,7 @@ public class Monaguillo extends Mse<Monaguillo> {
     private Entidad.Estado estado;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = Persona_.join, nullable = false)
+	@JoinColumn(name = Persona_.id_persona, nullable = false)
     private Persona persona;
 
 	@Column(name = Monaguillo_.representantes, length = 200)

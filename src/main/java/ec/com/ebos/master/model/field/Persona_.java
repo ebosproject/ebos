@@ -7,7 +7,7 @@ package ec.com.ebos.master.model.field;
  */
 public abstract class Persona_ extends Master_{
 
-	public static final String join = "id_persona";
+	public static final String id_persona = "id_persona";
 	public static final String nombres = "nombres";
 	public static final String apellidos = "apellidos";
 	public static final String mail = "mail";
@@ -19,6 +19,14 @@ public abstract class Persona_ extends Master_{
 	public static final String empleado = "empleado";
 	public static final String imagen = "imagen";
 	public static final String contentType = "contentType";
+	public static final String identificacion = "identificacion";
+	public static final String nacimiento = "nacimiento";
+	public static final String genero = "genero";
+	public static final String id_ciudad = "id_ciudad";
+	public static final String direccion = "direccion";
+	public static final String facebook = "facebook";
+	public static final String telefono = "telefono";
+	public static final String celular = "celular";
 	
 }
 

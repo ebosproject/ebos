@@ -21,9 +21,9 @@
 			<p:outputLabel value="#{msg.person}" for="atcPersona" />
 			<p:autoComplete value="#{monaguillo.persona}" id="atcPersona"
 				completeMethod="#{monaguilloBean.completePersona}" var="p"
-				itemLabel="#{p.nombres}" itemValue="#{p}"
+				itemLabel="#{p.nombres} #{p.apellidos}" itemValue="#{p}"
 				converter="#{monaguilloBean.personaConverter}"
-				forceSelection="true">
+				forceSelection="true" minQueryLength="3" size="50">
 
 				<f:facet name="itemtip">
 					<h:panelGrid columns="2" >
@@ -51,7 +51,6 @@
 	</ui:define>
 
 	<ui:define name="detail">
-
 
 	</ui:define>
 

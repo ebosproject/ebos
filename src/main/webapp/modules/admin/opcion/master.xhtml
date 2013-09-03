@@ -4,7 +4,6 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:pe="http://primefaces.org/ui/extensions"
                 template="/templates/tplMaster.xhtml">
 
 	<ui:define name="params">
@@ -48,12 +47,10 @@
 	       </p:selectOneMenu>
 	       
 	       <p:outputLabel for="width" value="#{msg.width}"/>
-	       <pe:inputNumber id="width" value="#{opcion.width}" symbol=" px" 
-	       		minValue="0" maxValue="1000" symbolPosition="s" decimalSeparator="," thousandSeparator="."/>
+	       <eb:inputNumber id="width" value="#{opcion.width}" symbol=" px"	minValue="0" maxValue="1000"/>
 	       
 	       <p:outputLabel for="height" value="#{msg.height}"/>
-	       <pe:inputNumber id="height" value="#{opcion.height}" symbol=" px" 
-	       		minValue="0" maxValue="1000" symbolPosition="s" decimalSeparator="," thousandSeparator="."/>
+	       <eb:inputNumber id="height" value="#{opcion.height}" symbol=" px" minValue="0" maxValue="1000"/>
 	    </eb:panelGrid>   
 
     </ui:define>
