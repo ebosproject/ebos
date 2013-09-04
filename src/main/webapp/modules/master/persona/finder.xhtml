@@ -60,19 +60,31 @@
 	    	#{msg.resultPersonaList}
 	    </f:facet>               
 	    
-	    <p:column id="estado" headerText="#{msg.state}">
+	    <p:column id="estado">
+	    	<f:facet name="header">
+	    		<h:outputText value="#{msg.state}"/>
+	    	</f:facet>
 	        <h:outputText value="#{msg[reg.estado.label]}"/>
 	    </p:column>
 	    
-	    <p:column id="fullName" headerText="#{msg.fullName}">
+	    <p:column id="fullName">
+	   		<f:facet name="header">
+	    		<h:outputText value="#{msg.fullName}"/>
+	    	</f:facet>
 			<h:outputText value="#{reg.nombres} #{reg.apellidos}"/>
 		</p:column>
 
-		<p:column id="mail" headerText="#{msg.mail}">
+		<p:column id="mail">
+			<f:facet name="header">
+	    		<h:outputText value="#{msg.mail}"/>
+	    	</f:facet>
 			<h:outputText value="#{reg.mail}"/>
 		</p:column>
 		
-		<p:column id="facebook" headerText="#{msg.facebook}">
+		<p:column id="facebook">
+			<f:facet name="header">
+	    		<h:outputText value="#{msg.facebook}"/>
+	    	</f:facet>
 			<h:outputText value="#{reg.facebook}"/>
 		</p:column>
     </ui:define>
