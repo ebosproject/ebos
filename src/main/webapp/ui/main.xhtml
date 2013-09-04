@@ -31,6 +31,35 @@
 			 	return (obj.tagName.toUpperCase() == "INPUT" || obj.tagName.toUpperCase() == "TEXTAREA" || obj.tagName.toUpperCase() == "PASSWORD");
 		 	}
 		 }
+
+		 //FULL-SCREEN
+		 var pfx = ["webkit", "moz", "ms", "o", ""];
+		 function RunPrefixMethod(obj, method) {
+			var p = 0, m, t;
+			while (p < pfx.length && !obj[m]) {
+				m = method;
+				if (pfx[p] == "") {
+					m = m.substr(0,1).toLowerCase() + m.substr(1);
+				}
+				m = pfx[p] + m;
+				t = typeof obj[m];
+				if (t != "undefined") {
+					pfx = [pfx[p]];
+					return (t == "function" ? obj[m]() : obj[m]);
+				}
+				p++;
+			}
+		 }
+
+		 function fullscreen() {
+		 	if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+		 		RunPrefixMethod(document, "CancelFullScreen");
+		 	}
+		 	else {
+			 	var desk = document.getElementById("desk");
+		 		RunPrefixMethod(desk, "RequestFullScreen");
+		 	}
+		 }
 		//]]>
 		</script>
         <style type="text/css">
@@ -102,7 +131,8 @@
 			<p:outputPanel rendered="#{sessionBean.login}">
 				<ui:include src="desk.xhtml" />
 				<h:form>
-					<p:remoteCommand id="rmcUpdPnlFrames" name="rmcUpdPnlFrames" update=":pnlFrames" autoRun="true" onstart="changeTheme('#{sessionBean.usuario.tema}')"/>
+					<p:remoteCommand id="rmcUpdPnlFrames" name="rmcUpdPnlFrames" update=":pnlFrames" autoRun="true" 
+						onstart="changeTheme('#{sessionBean.usuario.tema}')"/>
 			        <script type="text/javascript">//<![CDATA[
 			            function changeTheme(newTheme) {
 				            if(newTheme && newTheme != '') {

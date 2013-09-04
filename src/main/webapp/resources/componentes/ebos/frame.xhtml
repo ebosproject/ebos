@@ -18,6 +18,7 @@
         <cc:attribute name="modal" type="java.lang.Boolean" default="false"/>
         <cc:attribute name="draggable" type="java.lang.Boolean" default="false"/>
         <cc:attribute name="iframe" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="appendToBody" type="java.lang.Boolean" default="false"/>
         <cc:attribute name="src" type="java.lang.String"/>
         <cc:attribute name="url" type="java.lang.String"/>
         <cc:attribute name="onHide" type="java.lang.String"/>
@@ -51,7 +52,8 @@
         	hideEffect="#{cc.attrs.hideEffect}"
         	showEffect="#{cc.attrs.showEffect}"
         	modal="#{cc.attrs.modal}" 
-        	draggable="#{cc.attrs.draggable}">
+        	draggable="#{cc.attrs.draggable}"
+        	appendToBody="#{cc.attrs.appendToBody}">
         	
         	<p:outputPanel rendered="#{not cc.attrs.iframe}">
 				<ui:include src="#{cc.attrs.src}">
