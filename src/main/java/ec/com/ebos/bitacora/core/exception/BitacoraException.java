@@ -2,7 +2,6 @@
 package ec.com.ebos.bitacora.core.exception;
 
 import ec.com.ebos.root.core.exception.RootException;
-import ec.com.ebos.util.FacesUtils;
 import ec.com.ebos.util.MessageUtils;
 
 /**
@@ -28,7 +27,7 @@ public class BitacoraException extends RootException{
         * @param keySummary Mensaje de error
         */
     public BitacoraException(String keySummary, Object ... args){
-            super(MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args));
+            super(MessageUtils.getLabel(keySummary, args));
     }
 
 }

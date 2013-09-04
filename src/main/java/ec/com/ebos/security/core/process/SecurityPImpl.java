@@ -319,7 +319,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
                 if (tmp != null) {
                 	for (RolOpcion rolOpcion : tmp) {
                 		Objeto obj = rolOpcion.getOpcion().getObjeto();
-						String beanName = obj != null ? obj.getCodigo() : StringUtils.empty;
+						String beanName = obj != null ? obj.getCodigo() : StringUtils.EMPTY;
 						rolOpcion.getOpcion().setBeanName(beanName);
 					}                	
                     rolOpcionList.addAll(tmp);

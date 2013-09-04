@@ -892,86 +892,6 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
 		}
 	}
 
-//    
-//    @Autowired
-//    public void setJpaEMF(@Qualifier("emf") EntityManagerFactory emf) {
-//        super.setEntityManagerFactory(emf);
-//    }
-//
-//    protected <T extends X> T saveOrUpdate(T entity) {
-//        return getJpaTemplate().merge(entity);
-//    }
-//
-//    protected <T extends X> T update(T entity) {
-//        return getJpaTemplate().merge(entity);
-//    }
-//
-//    protected <T extends X> void save(T entity) {
-//        getJpaTemplate().persist(entity);
-//    }
-//
-//    protected <T extends X> T find(Class<T> clazz, Long id) {
-//        return getJpaTemplate().find(clazz, id);
-//    }
-//
-//    protected <T extends X> void delete(T entity) {
-//        try {
-//            getJpaTemplate().remove(getJpaTemplate().getReference(entity.getClass(), ((Generic) entity).getId()));
-//        } catch (Exception e) {
-//        }
-//
-//    }
-//
-//    protected <T extends X> void deleteAll(List<T> entityList) {
-//        for (T entity : entityList) {
-//            delete(entity);
-//        }
-//    }
-//
-//    protected <T extends X> List<T> find(String jpqlString, Object... params) {
-//        return getJpaTemplate().find(jpqlString, params);
-//    }
-//
-//    protected <T extends X> List<T> find(String jpqlString) {
-//        return getJpaTemplate().find(jpqlString);
-//    }
-//
-//    protected <T extends X> List<T> find(String jpqlString, Map<String, ?> params) {
-//        return getJpaTemplate().findByNamedParams(jpqlString, params);
-//    }
-//
-//    protected Query createQuery(String jpqlString) {
-//        return getJpaTemplate().getEntityManagerFactory().createEntityManager().createQuery(jpqlString);
-//    }
-//
-//    protected <T extends X> List<T> findByQuery(GenericQuery query) {
-//        List lista = getJpaTemplate().findByNamedParams(query.getQryString(), query.getParams());
-//        return (lista != null) ? lista : new ArrayList();
-//    }
-//
-//    protected List findByQuerySt(String query) {
-//        return getJpaTemplate().find(query);
-//    }
-//
-//    protected int countByQuery(GenericQuery query) {
-//        List lista = getJpaTemplate().findByNamedParams(query.getQryString(), query.getParams());
-//        if (lista != null) {
-//            return lista.size();
-//        } else {
-//            return 0;
-//        }
-//    }
-//
-//    protected <T extends X> T findFirstByQuery(GenericQuery query) {
-//        List<T> usuarios = getJpaTemplate().findByNamedParams(query.getQryString(), query.getParams());
-//        if (usuarios != null) {
-//            if (!usuarios.isEmpty()) {
-//                return usuarios.get(0);
-//            }
-//        }
-//        return null;
-//    }
-//
 	
 	/**
 	 * Construye un mensaje utilizando el archivo de propiedades
@@ -999,7 +919,7 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
     public void putFatal(String key, Object... args) {
     	getSessionBean().putFatal(buildMessage(key, args));        
     }
-//
+
     /**
      * Devuelve el {@link SessionBean} del hilo de ejecucion actual
      *

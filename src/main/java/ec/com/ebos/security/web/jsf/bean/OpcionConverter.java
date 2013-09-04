@@ -45,7 +45,7 @@ public class OpcionConverter implements Converter {
 	public String getAsString(FacesContext context, UIComponent component,
 			Object value) throws ConverterException {
 		if (value == null || value.equals("")) {
-			return StringUtils.empty;
+			return StringUtils.EMPTY;
 		} else {
 			return String.valueOf(((Opcion) value).getId());
 		}

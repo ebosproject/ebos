@@ -1,6 +1,10 @@
-package ec.com.ebos.aspect;
+package ec.com.ebos.aspect.core.process;
 
-import java.util.Date;
+import java.util.Map;
+
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,34 +12,33 @@ import lombok.Setter;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.util.Constantes;
+import ec.com.ebos.util.DateUtils;
+import ec.com.ebos.util.HTTPUtils;
 
 /**
- * Aspectos de Auditoria
+ * Security aspects
  * 
  * @author Eduardo Plua Alay
  * @since 2013/02/13
  */
 @Aspect
 @Component
-public class AuditoryAspect {
-
+public class SecurityAspectPImpl {
+	
 	@Getter @Setter
     @Autowired
     @Qualifier(SecurityS.BEAN_NAME)
     private SecurityS securityS;
 
-	
 	/*@Before("execution(* com.mkyong.customer.bo.CustomerBo.addCustomer(..))")
 	public void logBefore(JoinPoint joinPoint) {
 
@@ -92,33 +95,32 @@ public class AuditoryAspect {
 //
 //	}
 	
-	@AfterReturning(pointcut = "execution(* ec.com.ebos.*.core.service.*S.create*(..))",
-			returning= "entity")
-	public void createEntity(JoinPoint joinPoint, Entidad<?> entity){
+	@AfterReturning(pointcut="execution(* ec.com.ebos.security.core.process.SecurityP.iniciarSesion(..))",
+			returning= "result")
+	public void login(JoinPoint joinPoint, boolean result) throws Throwable {
+		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 		
-		if(entity.getClass().getAnnotation(Auditable.class) != null){
-			entity.setAuditoria(new Auditoria());
-			Usuario usuario = securityS.getSesionBean().getUsuario();
-			entity.setCreador(usuario);
-			entity.setCreado(new Date());
-		}
-	}
-	
-	
-	@Before("execution(* ec.com.ebos.*.core.service.*S.save*(..))")	
-	public void saveEntity(JoinPoint joinPoint){
-		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
+		try {
+			Usuario usuario = ((SessionBean) joinPoint.getArgs()[0]).getUsuario();
+
+			Persona persona = usuario.getEmpresaPersona().getPersona();
+			System.out.println(DateUtils.getFormattedTimestamp()
+					+ " (" + HTTPUtils.getRemoteAddr(((HttpServletRequest) context
+					.getRequest())) + ")" + " --> LOGIN " + (result?"OK ":"FAILED ")
+					+ usuario.getId() + "::" + persona.getNombres() + " "
+					+ persona.getApellidos());
+			
+		} catch (Exception ex) {
 		
-		if(entity.getClass().getAnnotation(Auditable.class) != null && entity.getAuditoria() != null){
-			Usuario usuario = securityS.getSesionBean().getUsuario();			
-			Date date = new Date();
-	        if (EntityUtils.isPersistent(entity)) {
-	        	entity.setModificador(usuario);
-	        	entity.setModificado(date);
-	        } else {
-	        	entity.setCreador(usuario);
-	            entity.setCreado(date);                       
-	        }
+			result = false;
+			securityS.putError("sesion.error.app", ex.getMessage());
+			System.err.println(ex);
+		
+		} finally {
+			if (result) {
+				Map<String, Object> sessionMap = context.getSessionMap();
+				sessionMap.put(Constantes.SESSION_ATTR_CURRENTUSER, Boolean.TRUE);
+			}
 		}
 	}
 

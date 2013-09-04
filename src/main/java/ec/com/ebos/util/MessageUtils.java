@@ -160,24 +160,29 @@ public class MessageUtils {
 //		addLabeledFacesMessage(facesContext, component, message, severity);
 //	}
 
-	/**
-	 * Gets the "label" property from the component.
-	 * Copied from {@link javax.faces.component.MessageFactory#getLabel(FacesContext,UIComponent)}
-	 * @param context
-	 * @param component
-	 * @return
-	 */
-	@SuppressWarnings("deprecation")
-	private static Object getLabel(FacesContext context, UIComponent component) {
-		Object o = component.getAttributes().get("label");
-		if (o == null || (o instanceof String && ((String) o).length() == 0)) {
-			o = component.getValueBinding("label");
-		}
-		// Use the "clientId" if there was no label specified.
-		if (o == null) {
-			o = component.getClientId(context);
-		}
-		return o;
+//	/**
+//	 * Gets the "label" property from the component.
+//	 * Copied from {@link javax.faces.component.MessageFactory#getLabel(FacesContext,UIComponent)}
+//	 * @param context
+//	 * @param component
+//	 * @return
+//	 */
+//	@SuppressWarnings("deprecation")
+//	private static Object getLabel(FacesContext context, UIComponent component) {
+//		Object o = component.getAttributes().get("label");
+//		if (o == null || (o instanceof String && ((String) o).length() == 0)) {
+//			o = component.getValueBinding("label");
+//		}
+//		// Use the "clientId" if there was no label specified.
+//		if (o == null) {
+//			o = component.getClientId(context);
+//		}
+//		return o;
+//	}
+	
+	public static String getLabel(String key, Object... params){
+		return getFormattedMessage(FacesUtils.getLabel(key), params);
 	}
-
+	
+ 
 }
