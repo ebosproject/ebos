@@ -81,23 +81,23 @@ public class PersonaBean extends MasterBean<Persona> {
 	// ////////////////// ACCIONES ////////////////////
 
 	@Override
-	public void crear() {
+	protected void crear() {
 		activeEntity = masterS.createPersona();
 		image = null;
 	}
 
 	@Override
-	public void editar() {
+	protected void editar() {
 		setImage();
 	}
 
 	@Override
-	public void actualizar() {
+	protected void actualizar() {
 		editar();
 	}
 
 	@Override
-	public void guardar() {
+	protected void guardar() {
 		if(uploadImage != null){
 			activeEntity.setImagen(uploadImage.getContents());
 		}
@@ -113,7 +113,7 @@ public class PersonaBean extends MasterBean<Persona> {
 	}
 
 	@Override
-	public void eliminar() {
+	protected void eliminar() {
 		masterS.deletePersona(activeEntity);
 	}
 	

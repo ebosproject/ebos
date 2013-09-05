@@ -35,6 +35,8 @@ public interface SecurityP {
 	//
 	
 	public void putError(String key, Object... args);
+	
+	public void putError(Throwable e);
 
     //
     //Usuario
@@ -92,5 +94,6 @@ public interface SecurityP {
     public SessionBean getSessionBean();
 
 	public void saveUserPreferences(Usuario usuario);
+
 
 }

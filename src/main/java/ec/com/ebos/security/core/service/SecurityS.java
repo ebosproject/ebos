@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
@@ -38,6 +37,7 @@ public interface SecurityS extends Serializable {
 	
 	public void putError(String key, Object... args);
     
+	public void putError(Throwable t);
     //
     // Usuario
     //
@@ -91,7 +91,7 @@ public interface SecurityS extends Serializable {
 
     public void changePassword(Usuario usuario);
     
-    public SessionBean getSesionBean();
+    public SessionBean getSessionBean();
 
 	public void saveUserPreferences(Usuario usuario);
 

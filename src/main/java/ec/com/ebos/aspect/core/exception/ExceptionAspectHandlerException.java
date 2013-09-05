@@ -1,7 +1,6 @@
 package ec.com.ebos.aspect.core.exception;
 
 import ec.com.ebos.root.core.exception.RootException;
-import ec.com.ebos.util.MessageUtils;
 
 public class ExceptionAspectHandlerException extends RootException {
 
@@ -17,11 +16,11 @@ public class ExceptionAspectHandlerException extends RootException {
 	/**
 	 * Constructor en base a un mensaje
 	 * 
-	 * @param keySummary
+	 * @param summary
 	 *            Mensaje de error
 	 */
-	public ExceptionAspectHandlerException(String keySummary, Object... args) {
-		super(MessageUtils.getLabel(keySummary, args));
+	public ExceptionAspectHandlerException(String summary, Object... args) {
+		super(summary, args.toString());
 	}
 
 }

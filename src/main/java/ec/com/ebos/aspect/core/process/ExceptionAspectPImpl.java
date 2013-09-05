@@ -1,6 +1,9 @@
 package ec.com.ebos.aspect.core.process;
 
-import java.util.Arrays;
+import javax.servlet.http.HttpServletRequest;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,6 +14,8 @@ import org.hibernate.LazyInitializationException;
 import org.hibernate.PropertyValueException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.exception.SQLGrammarException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessResourceUsageException;
@@ -18,11 +23,13 @@ import org.springframework.stereotype.Component;
 
 import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.aspect.core.exception.SecurityAspectException;
+import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.orm.crud.CrudException;
 import ec.com.ebos.orm.crud.FinderException;
 import ec.com.ebos.root.core.exception.RootException;
 import ec.com.ebos.root.web.jsf.bean.RootBean;
-import ec.com.ebos.util.DateUtils;
+import ec.com.ebos.security.core.service.SecurityS;
+import ec.com.ebos.util.HTTPUtils;
 import ec.com.ebos.util.MessageUtils;
 import ec.com.ebos.util.StringUtils;
 
@@ -35,110 +42,36 @@ import ec.com.ebos.util.StringUtils;
 @Aspect
 @Component
 public class ExceptionAspectPImpl {
+	
+	@Getter @Setter
+    @Autowired
+    @Qualifier(SecurityS.BEAN_NAME)
+    private SecurityS securityS;
 
 	
 	private static final Logger logger = Logger.getLogger(ExceptionAspectPImpl.class);
 
-	@Pointcut("execution(public * *(..))")
-	public void anyPublicMethodExecution() {
-	}
+
+	@Pointcut("execution(* ec.com.ebos.*.core.service.*S.*(..))")
+	public void eBosServiceLayerMethods() {}
 	
-
-//	@Pointcut("call(* get*(..)) || call(* is*(..))")
-//	public void anyGetterMethod() {}
-
-//	@Pointcut("execution(new(..))")
-//	public void anyConstructorExecution() {}
-
-//	@Pointcut("execution(* set*(..))")
-//	public void anySetterMethodExecution() {}
-
-//	@Pointcut("call(* ec.com.ecuaquimica.swiss..*(..))")
-//	public void anySwissMethod() {}
-
-	@Pointcut("execution(public * ec.com.ebos.*.web.jsf.bean.*Bean.*(..))")
-	public void anyBeanPublicMethodExecution() {}
-
-//	/**
-//	 * Encapsula posibles excepciones lanzadas durante la ejecucion de metodos
-//	 * publicos de beans que sean subclase de {@link RootBean}. No se
-//	 * intercepta constructores ni metodos que retornen Entities que sean subclases
-//	 * de {@link Entidad}.
-//	 * 
-//	 * @see #handleException(RootBean, Throwable)
-//	 * @param pjp
-//	 *            {@link ProceedingJoinPoint}
-//	 * @param bean
-//	 *            {@link RootBean}
-//	 * @return Object
-//	 */
-//	@Around("anyPublicMethodExecution() && this(bean)")
-//	public Object interceptUnhandledExceptionsOnMBMethod(
-//			ProceedingJoinPoint pjp, RootBean<?> bean) {
-//		try {
-//			if(logger.isDebugEnabled()){
-//				logger.debug(bean);
-//			}
-//			if(logger.isInfoEnabled()){
-//				logger.info(bean);
-//			}
-//			if(logger.isTraceEnabled()){
-//				logger.trace(bean);
-//			}
-//			return pjp.proceed();
-//		} catch (Throwable t) {
-//			handleException(bean, t);
-//			return null;
-//		}
-//	}
-
 	
-	@Around("anyBeanPublicMethodExecution()")
-	public void loginAround(ProceedingJoinPoint joinPoint) {
-
+	@Around("eBosServiceLayerMethods()")
+	public Object exceptionInterceptor(ProceedingJoinPoint pjp) {
+		boolean error = false; 
 		try{
-			System.out.println("logAround() is running!");
-			System.out.println("hijacked method : " + joinPoint.getSignature().getName());
-			System.out.println("hijacked arguments : " + Arrays.toString(joinPoint.getArgs()));
-			
-			System.out.println("Around before is running!");
-			
-			joinPoint.proceed();
-			
-			System.out.println("Around after is running!");
-			
-			System.out.println("******");
-
+			return pjp.proceed();
 		} catch(Throwable t){
-			//handleException(bean, t);
+			handleException(t,securityS);
+			error = true;
+			return null;
+		} finally {
+			EbosContext.addCallbackParam("error", error);
 		}
 		
 	}
 	
-//	/**
-//	 * Encapsula posibles excepciones lanzadas durante la ejecucion de metodos
-//	 * publicos de objetos tipo DataList. No se intercepta constructores ni
-//	 * metodos que retornen Entities que sean subclases de {@link Entidad}.
-//	 * 
-//	 * @see #handleException(RootBean, Throwable)
-//	 * @param pjp
-//	 *            {@link ProceedingJoinPoint}
-//	 * @param dataTable
-//	 *            {@link DataList}
-//	 * @return Object
-//	 */
-//	@Around("anyPublicMethodExecution() && this(dataList) && !cflow(adviceexecution())")
-//	public Object interceptUnhandledExceptionsOnDataListMethod(
-//			ProceedingJoinPoint pjp, DataTable<?> dataTable) {
-//		try {
-//			return pjp.proceed();
-//		} catch (Throwable t) {
-//			handleException(dataTable.getBean(), t);
-//			return null;
-//		}
-//	}
-
-
+	
 	/**
 	 * Encapsula una excepcion en un mensaje de error inesperado en un bean que
 	 * sea subclase de {@link RootBean}.
@@ -149,7 +82,7 @@ public class ExceptionAspectPImpl {
 	 *            Throwable
 	 * @return Throwable
 	 */
-	static Throwable handleException(RootBean<?> bean, Throwable t) {
+	static Throwable handleException(Throwable t, SecurityS securityS) {
 		String message = null;
 		RootException.StackTraceLevel stackTraceLevel = RootException.StackTraceLevel.FULL;
 		if (t instanceof SecurityAspectException) {
@@ -233,12 +166,13 @@ public class ExceptionAspectPImpl {
 				e.fatal();
 			}
 		}
-		bean.putError(e);
 		
-		System.out.println(DateUtils.getFormattedTimestamp()
-				+ " [" + bean.getSessionBean() + " "
-				+ bean.getClass().getSimpleName() + "] "
-				+ ">>> EXCEPTION HANDLED: " + key + e.getLocalizedMessage());
+		securityS.putError(e);
+		
+		logger.error("(" + HTTPUtils.getRemoteAddr(((HttpServletRequest) EbosContext.webContext().getRequest())) 
+				+ ") [" + securityS.getSessionBean() + " "
+				+ securityS.getSessionBean().getClass().getSimpleName() + "] --> EXCEPTION HANDLED: " + key + e.getLocalizedMessage());
+		
 		return e;
 	}
 

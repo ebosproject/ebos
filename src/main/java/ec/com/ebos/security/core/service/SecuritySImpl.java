@@ -43,6 +43,10 @@ public class SecuritySImpl implements SecurityS{
 	public void putError(String key, Object... args){
 		securityP.putError(key, args);
 	}
+	
+	public void putError(Throwable e){
+		securityP.putError(e);
+	}
     
     //
     // Usuario
@@ -152,8 +156,8 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public boolean authLogin(SessionBean aThis) {        
-        return securityP.authLogin(aThis);
+    public boolean authLogin(SessionBean sessionBean) {        
+        return securityP.authLogin(sessionBean);
     }      
     
     @Override
@@ -163,7 +167,7 @@ public class SecuritySImpl implements SecurityS{
     
     
     @Override
-    public SessionBean getSesionBean() {
+    public SessionBean getSessionBean() {
     	return securityP.getSessionBean();
     }    
     

@@ -13,6 +13,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.application.FacesMessage.Severity;
+import javax.faces.context.FacesContext;
 
 import lombok.Setter;
 
@@ -32,6 +35,7 @@ import ec.com.ebos.admin.core.exception.AdministracionException;
 import ec.com.ebos.admin.core.process.AdministracionPImpl;
 import ec.com.ebos.aspect.annotation.UniqueIndex;
 import ec.com.ebos.aspect.annotation.UniqueIndexes;
+import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Crud;
 import ec.com.ebos.orm.crud.CrudService;
@@ -39,6 +43,7 @@ import ec.com.ebos.orm.crud.FinderService;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.orm.crud.PaginationParams;
+import ec.com.ebos.root.core.exception.RootException;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
@@ -916,6 +921,19 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
     	getSessionBean().putError(buildMessage(key, args));        
     }
     
+	public void putError(Throwable t) {
+		getSessionBean().setSuccess(false);
+		
+		t.printStackTrace();
+		MessageUtils.clearFacesMessages(FacesMessage.SEVERITY_WARN);
+		
+		if (t instanceof RootException && !((RootException) t).isFatal()) {
+			getSessionBean().putError(t.getMessage());
+		} else {
+			getSessionBean().putFatal(t.getMessage());
+		}
+	}
+    
     public void putFatal(String key, Object... args) {
     	getSessionBean().putFatal(buildMessage(key, args));        
     }
@@ -936,5 +954,6 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
         }
         return sesionUsuario;
     }
+
 
 }

@@ -98,7 +98,7 @@ public class AuditoryAspectPImpl {
 		
 		if(entity.getClass().getAnnotation(Auditable.class) != null){
 			entity.setAuditoria(new Auditoria());
-			Usuario usuario = securityS.getSesionBean().getUsuario();
+			Usuario usuario = securityS.getSessionBean().getUsuario();
 			entity.setCreador(usuario);
 			entity.setCreado(new Date());
 		}
@@ -110,7 +110,7 @@ public class AuditoryAspectPImpl {
 		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
 		
 		if(entity.getClass().getAnnotation(Auditable.class) != null && entity.getAuditoria() != null){
-			Usuario usuario = securityS.getSesionBean().getUsuario();			
+			Usuario usuario = securityS.getSessionBean().getUsuario();			
 			Date date = new Date();
 	        if (EntityUtils.isPersistent(entity)) {
 	        	entity.setModificador(usuario);

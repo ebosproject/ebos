@@ -60,7 +60,12 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 	public void putError(String key, Object... args){
 		super.putError(key, args);
 	}
-    
+
+	public void putError(Throwable t){
+		super.putError(t);
+	}
+	
+	
     //
     //Usuario
     //
@@ -331,29 +336,27 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     
-    
-
     //
     // Session Usuario
     //
     
     @Override
-    public boolean authLogin(SessionBean aThis) {
+    public boolean authLogin(SessionBean sessionBean) {
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
         criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
         criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
-        criteria.addEquals(Usuario_.username, aThis.getUsuario().getUsername());
-        criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(aThis.getUsuario().getPassword()));
+        criteria.addEquals(Usuario_.username, sessionBean.getUsuario().getUsername());
+        criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(sessionBean.getUsuario().getPassword()));
 
         Usuario usuario = findFirstByCriteria(criteria);        
         if (usuario != null) {        	
-        	aThis.setUsuario(usuario);
+        	sessionBean.setUsuario(usuario);
         } else {
             putError("sesion.error.usuarioPassIncorrecta");
             return false;
         }
         List<RolOpcion> rolOpcionList = obtenerRolOpcionList(usuario);
-        aThis.setRolOpcionList(rolOpcionList);
+        sessionBean.setRolOpcionList(rolOpcionList);
         return true;
     }
     

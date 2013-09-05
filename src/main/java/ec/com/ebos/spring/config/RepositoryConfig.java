@@ -21,6 +21,9 @@ import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
+import ec.com.ebos.aspect.core.process.AuditoryAspectPImpl;
+import ec.com.ebos.aspect.core.process.ExceptionAspectPImpl;
+import ec.com.ebos.aspect.core.process.SecurityAspectPImpl;
 import ec.com.ebos.orm.crud.CrudService;
 import ec.com.ebos.orm.crud.FinderSQLService;
 import ec.com.ebos.orm.crud.FinderService;
@@ -175,6 +178,11 @@ public class RepositoryConfig {
 		return new BaseDaoSupport(crudService, finderService);
 	}
 	
+	/**
+	 * Propiedades de transaccion para todos los modulos de la plataforma
+	 * 
+	 * @return properties
+	 */
 	public Properties transactionModulesAttributes(){
 		Properties properties = new Properties();
 		properties.setProperty("*", transactionRequiredAll);
@@ -206,4 +214,22 @@ public class RepositoryConfig {
 		cacheManager.setCacheManager(ehcache().getObject());
 		return cacheManager;
 	}
+	
+	////////////////// ASPECTS /////////////////////
+	
+//	@Bean
+//	public ExceptionAspectPImpl exceptionAspect(){
+//		return new ExceptionAspectPImpl();
+//	}
+//	
+//	@Bean
+//	public SecurityAspectPImpl securityAspect(){
+//		return new SecurityAspectPImpl();
+//	}
+//	
+//	@Bean
+//	public AuditoryAspectPImpl auditoryAspect(){
+//		return new AuditoryAspectPImpl();
+//	}
+//	
 }

@@ -1,7 +1,6 @@
 package ec.com.ebos.aspect.core.exception;
 
 import ec.com.ebos.root.core.exception.RootException;
-import ec.com.ebos.util.MessageUtils;
 
 public class SecurityAspectException extends RootException {
 
@@ -17,10 +16,10 @@ public class SecurityAspectException extends RootException {
 	/**
 	 * Constructor en base a un mensaje
 	 * 
-	 * @param keySummary
+	 * @param summary
 	 *            Mensaje de error
 	 */
-	public SecurityAspectException(String keySummary, Object... args) {
-		super(MessageUtils.getLabel(keySummary, args));
+	public SecurityAspectException(String summary, Object... args) {
+		super(summary, args.toString());
 	}
 }
