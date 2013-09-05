@@ -3,8 +3,8 @@
             xmlns:p="http://primefaces.org/ui"
             xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
             xmlns:f="http://java.sun.com/jsf/core"
-            template="/templates/tplFinder.xhtml"
-                xmlns:h="http://java.sun.com/jsf/html">
+            xmlns:h="http://java.sun.com/jsf/html"
+            template="/templates/tplFinder.xhtml">
 
    	<ui:param name="bean" value="#{bundleBean}" />
     <ui:param name="optionTitle" value="#{msg[bundle.title]}" />
@@ -14,12 +14,12 @@
         	<p:outputLabel for="id" value="#{msg.id}"/>     
 	        <eb:inputNumber id="id" value="#{bean.entitySearch.id}" />
             
-            <p:outputLabel for="codigo" value="#{msg.ebCodigo}"/>
+            <p:outputLabel for="codigo" value="#{msg.code}"/>
 	        <eb:inputText id="codigo" value="#{bean.entitySearch.codigo}" />
 	        
-	        <p:outputLabel for="localidad" value="#{msg.ebLocalidad}"/>        
+	        <p:outputLabel for="localidad" value="#{msg.locale}"/>        
 	        <p:selectOneMenu id="localidad" value="#{bean.entitySearch.localidad}" efect="fade">
-	            <f:selectItem itemLabel ="#{msg.ebSelectOne}" itemValue="" />
+	            <f:selectItem itemLabel ="#{msg.selectOne}" itemValue="" />
 	            <f:selectItems value="#{bean.localidadList}" var="opc"
 	                itemLabel="#{msg[opc.label]}" itemValue="#{opc}"/>
             </p:selectOneMenu>        
@@ -28,7 +28,7 @@
 
     <ui:define name="results">
     	<f:facet name="header">  
-	    	#{msg.ebResultBundleList}
+	    	#{msg.resultBundleList}
 	    </f:facet>               
 	    
 	    <p:column id="localidad" width="50" resizable="false">

@@ -102,12 +102,12 @@
          </pe:layoutPane>
          <pe:layoutPane position="south">
          	<h:panelGrid id="pnlD" columns="6" cellpadding="4">
-         		<p:outputLabel for="id" value="#{msg.ebId}" rendered="#{bean.activeEntity.id ne null}"/>
+         		<p:outputLabel for="id" value="#{msg.id}" rendered="#{bean.activeEntity.id ne null}"/>
 	    		<eb:outputText id="id" value="#{bean.activeEntity.id}" rendered="#{bean.activeEntity.id ne null}"/>
 	    		<p:outputLabel for="creado" value="#{msg.ebCreado}" rendered="#{bean.activeEntity.creado ne null}"/>
-		        <eb:outputDate id="creado" value="#{bean.activeEntity.creado}" title="#{msg.ebPor}: #{bean.activeEntity.creador.username}" rendered="#{bean.activeEntity.creado ne null}"/>
+		        <eb:outputDate id="creado" value="#{bean.activeEntity.creado}" title="#{msg.by}: #{bean.activeEntity.creador.username}" rendered="#{bean.activeEntity.creado ne null}"/>
 		        <p:outputLabel for="modificado" value="#{msg.ebModificado}" rendered="#{bean.activeEntity.modificado ne null}"/>
-		        <eb:outputDate id="modificado" value="#{bean.activeEntity.modificado}" title="#{msg.ebPor}: #{bean.activeEntity.modificador.username}" rendered="#{bean.activeEntity.modificado ne null}"/>
+		        <eb:outputDate id="modificado" value="#{bean.activeEntity.modificado}" title="#{msg.by}: #{bean.activeEntity.modificador.username}" rendered="#{bean.activeEntity.modificado ne null}"/>
 	    		<ui:insert name="details"/>
 	        </h:panelGrid>
          </pe:layoutPane>
@@ -115,20 +115,19 @@
     
     <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytFinder" />
     
-	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" width="#{widthDlgE ne null?widthDlgE:600}" height="#{heightDlgE ne null?heightDlgE:400}" appendToBody="true" resizable="false"
-		showEffect="fade" hideEffect="fade" draggable="true" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
+	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" width="#{widthDlgE ne null?widthDlgE:600}" height="#{heightDlgE ne null?heightDlgE:400}" appendToBody="false" resizable="false"
+		showEffect="fade" hideEffect="fade" draggable="false" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
    		<p:outputPanel id="pnlE">
    			<p:outputPanel rendered="#{bean.activeEntity ne null}">
 				<ui:insert name="master"/>
 			</p:outputPanel>
 		</p:outputPanel>    		
     </p:dialog>
-    
+
     <p:draggable for="dlgE" 
 	        opacity="0.5" 
 	        dragOnly="true"
-	        handle=".ui-dialog-titlebar" 
-	        containment="#center"/>
-	        <!-- handle=".ui-dialog-titlebar" -->
+	        handle=".ui-dialog-titlebar"
+	        containment="#lytFinder"/>
 	
 </ui:composition>
