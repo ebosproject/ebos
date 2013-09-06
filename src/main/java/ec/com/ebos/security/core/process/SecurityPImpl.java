@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
@@ -61,8 +62,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 		super.putError(key, args);
 	}
 
-	public void putError(Throwable t){
-		super.putError(t);
+	public void putError(ExceptionAspectHandlerException e){
+		super.putError(e);
 	}
 	
 	

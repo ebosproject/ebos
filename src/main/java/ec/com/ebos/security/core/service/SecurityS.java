@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.model.Rol;
@@ -37,7 +38,7 @@ public interface SecurityS extends Serializable {
 	
 	public void putError(String key, Object... args);
     
-	public void putError(Throwable t);
+	public void putError(ExceptionAspectHandlerException e);
     //
     // Usuario
     //

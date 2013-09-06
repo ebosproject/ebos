@@ -7,12 +7,12 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	template="/templates/tplMaster.xhtml">
 
-	<ui:define name="params">
-		<ui:param name="optionsMaster"
-			value="'north':{'closable':false,'resizable':false,'size':50},
-				'center':{'resizeWhileDragging':true,'closable':false,'size':300,
-					'childOptions':{'south':{'resizable':false},'center':{'size':200,'maxHeight':680, 'maxWidth':580}}}" />
-	</ui:define>
+<ui:remove>
+	<ui:param name="optionsMaster"
+		value="'north':{'closable':false,'resizable':false,'size':50},
+			'center':{'resizeWhileDragging':true,'closable':false,'size':300,
+				'childOptions':{'south':{'resizable':false},'center':{'size':200,'maxHeight':680, 'maxWidth':580}}}" />
+</ui:remove>
 
 	<ui:define name="header">
 		<ui:param name="persona" value="#{bean.activeEntity}" />

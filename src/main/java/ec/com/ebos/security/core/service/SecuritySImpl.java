@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.core.process.SecurityP;
@@ -44,7 +45,7 @@ public class SecuritySImpl implements SecurityS{
 		securityP.putError(key, args);
 	}
 	
-	public void putError(Throwable e){
+	public void putError(ExceptionAspectHandlerException e){
 		securityP.putError(e);
 	}
     

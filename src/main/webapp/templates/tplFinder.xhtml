@@ -12,19 +12,21 @@
     
 	<ui:remove>
  		Parameters overridable
+ 		<!-- Frame -->
  		- optionsFinder : json format, default value in component
  		- widthFrame	: default value="450"
  		- heightFrame 	: default value="650"
+		<!-- West Pane Frame-->
+		- westSize 		: default value="215"
+		- westMinSize 	: default value="215"
+		<!-- Edit panel -->
 		- widthDlgE 	: default value="600"
 		- heightDlgE 	: default value="400"
-		<!-- West Pane -->
-		- westSize 		: default value="190"
-		- westMinSize 	: default value="190"
 	</ui:remove>
 	
 	<ui:param name="optionsFinderDefault" value="north:{size:'50'},
 				south:{closable:true, size:'35'},
-				west:{closable:true, size:#{westSize ne null?westSize:190}, minSize:#{westMinSize ne null?westMinSize:190}, maxSize:#{westMaxSize ne null?westMaxSize:250} , resizable:true},
+				west:{closable:true, size:#{westSize ne null?westSize:215}, minSize:#{westMinSize ne null?westMinSize:215}, maxSize:#{westMaxSize ne null?westMaxSize:250} , resizable:true},
 				east:{},
 				center:{}}"/>
 	

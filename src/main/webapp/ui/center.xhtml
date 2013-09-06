@@ -6,6 +6,8 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:c="http://java.sun.com/jstl/core">
 
+	<p:growl id="grwHome" autoUpdate="true" sticky="true" widgetVar="wgtGrwHome" life="5000" showDetail="true"/>
+	
 	<h:form id="frmDashboard">
 		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;" >
             <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}"/>

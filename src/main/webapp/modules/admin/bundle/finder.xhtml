@@ -6,8 +6,9 @@
             xmlns:h="http://java.sun.com/jsf/html"
             template="/templates/tplFinder.xhtml">
 
-   	<ui:param name="bean" value="#{bundleBean}" />
-    <ui:param name="optionTitle" value="#{msg[bundle.title]}" />
+   	<ui:param name="bean" value="#{bundleBean}" />    
+ 	<ui:param name="widthDlgE" value="500" />
+	<ui:param name="heightDlgE" value="200" />
     
     <ui:define name="filters">
         <eb:panelGrid id="pnlFiltros" columns="2">          

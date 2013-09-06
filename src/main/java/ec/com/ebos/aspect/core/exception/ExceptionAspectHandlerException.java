@@ -16,11 +16,11 @@ public class ExceptionAspectHandlerException extends RootException {
 	/**
 	 * Constructor en base a un mensaje
 	 * 
-	 * @param summary
+	 * @param message
 	 *            Mensaje de error
 	 */
-	public ExceptionAspectHandlerException(String summary, Object... args) {
-		super(summary, args.toString());
+	public ExceptionAspectHandlerException(String message, String key) {
+		super(message, key);
 	}
 
 }

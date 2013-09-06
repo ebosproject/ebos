@@ -51,12 +51,15 @@ public class ExceptionAspectPImpl {
 	
 	private static final Logger logger = Logger.getLogger(ExceptionAspectPImpl.class);
 
+	
 
 	@Pointcut("execution(* ec.com.ebos.*.core.service.*S.*(..))")
-	public void eBosServiceLayerMethods() {}
+	private void eBosServiceLayerMethods() {}
 	
+	@Pointcut("execution(* ec.com.ebos.admin.core.service.AdministracionS.getMessageResource(..))")
+	private void messageResourceMethod() {}
 	
-	@Around("eBosServiceLayerMethods()")
+	@Around("eBosServiceLayerMethods() && !messageResourceMethod()")
 	public Object exceptionInterceptor(ProceedingJoinPoint pjp) {
 		boolean error = false; 
 		try{
@@ -73,38 +76,36 @@ public class ExceptionAspectPImpl {
 	
 	
 	/**
-	 * Encapsula una excepcion en un mensaje de error inesperado en un bean que
-	 * sea subclase de {@link RootBean}.
+	 * Encapsula una excepcion en un mensaje de error para los {@link #eBosServiceLayerMethods()}
 	 * 
-	 * @param bean
-	 *            {@link RootBean}
-	 * @param t
-	 *            Throwable
+	 * @param securityS {@link SecurityS}
+	 * @param t Throwable
 	 * @return Throwable
 	 */
 	static Throwable handleException(Throwable t, SecurityS securityS) {
-		String message = null;
+		String message = null, errorKey = null;
+		
 		RootException.StackTraceLevel stackTraceLevel = RootException.StackTraceLevel.FULL;
 		if (t instanceof SecurityAspectException) {
 			message = t.getMessage();
 		} else {
-			String errorKey = null;
+			
 			if (t instanceof CrudException || t instanceof FinderException) { // si es CRUD o FINDER, usar causa
 				t = t.getCause();
 			}
 			if (t instanceof DataAccessException) { // si es error de acceso a BD, verificar causa
 				if (t instanceof DataIntegrityViolationException) { // restriccion
-					errorKey = "ExceptionAspect.RestriccionViolada";
+					errorKey = "ec.com.ebos.aspect.DataIntegrityViolationException";
 				} else if (t instanceof InvalidDataAccessResourceUsageException) { // error SQL
-					errorKey = "ExceptionAspect.ErrorAccesoDatos";
+					errorKey = "ec.com.ebos.aspect.InvalidDataAccessResourceUsageException";
 				} else {
-					errorKey = "ExceptionAspect.ErrorAccesoDatos";
+					errorKey = "ec.com.ebos.aspect.DataAccessException";
 				}
 				t = ((DataAccessException) t).getCause();
 			}
 			if (t instanceof ConstraintViolationException) { // constraint
 				stackTraceLevel = RootException.StackTraceLevel.BRIEF;
-				errorKey = "ExceptionAspect.RestriccionViolada";
+				errorKey = "ec.com.ebos.aspect.ConstraintViolationException";
 				String constraintName = ((ConstraintViolationException) t)
 						.getConstraintName();
 				if (constraintName != null) {
@@ -127,9 +128,7 @@ public class ExceptionAspectPImpl {
 						}
 					}
 				}
-			} else if (t instanceof PropertyValueException) { // null or
-																// transient
-																// value
+			} else if (t instanceof PropertyValueException) { // null or transient value
 				message = MessageUtils.getLabel(t.getClass().getName()
 						,StringUtils.substringAfterLast(((PropertyValueException) t).getEntityName(),".")
 						,((PropertyValueException) t).getPropertyName());
@@ -147,13 +146,12 @@ public class ExceptionAspectPImpl {
 				}
 			}
 			if (errorKey == null) {
-				errorKey = (t instanceof RootException ? "ExceptionAspect.Error"
-						: "ExceptionAspect.UnexpectedError");
+				errorKey = (t instanceof RootException ? "ec.com.ebos.aspect.RootException"
+						: "ec.com.ebos.aspect.UnexpectedException");
 			}
-			message = MessageUtils.getLabel(errorKey, message);
+			//message = MessageUtils.getLabel(errorKey, message);
 		}
-		ExceptionAspectHandlerException e = new ExceptionAspectHandlerException(
-				message);
+		ExceptionAspectHandlerException e = new ExceptionAspectHandlerException(message, errorKey);
 		e.initCause(t);
 		e.setStackTrace(stackTraceLevel);
 		String key = StringUtils.EMPTY;
@@ -171,7 +169,7 @@ public class ExceptionAspectPImpl {
 		
 		logger.error("(" + HTTPUtils.getRemoteAddr(((HttpServletRequest) EbosContext.webContext().getRequest())) 
 				+ ") [" + securityS.getSessionBean() + " "
-				+ securityS.getSessionBean().getClass().getSimpleName() + "] --> EXCEPTION HANDLED: " + key + e.getLocalizedMessage());
+				+ securityS.getSessionBean().getClass().getSimpleName() + "] --> EXCEPTION HANDLED: " + e.getKey() + ": " + e.getLocalizedMessage());
 		
 		return e;
 	}
