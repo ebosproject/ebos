@@ -50,6 +50,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 		criteria.addLikeIfNotNull(Bundle_.codigo, bundle.getCodigo());
         criteria.addEqualsIfNotNull(Bundle_.localidad, bundle.getLocalidad());
 
+        //criteria.addOrderAsc(Bundle_.codigo); //TODO (epa): Ordenar por codigo y evitar grupo by por uso de funcion de agrupacion en la paginacion
+        
         return findByCriteria(criteria, pagination);
 	}
 	

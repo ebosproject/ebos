@@ -28,7 +28,7 @@ import ec.com.ebos.util.EntityUtils;
  */
 @Aspect
 @Component
-public class AuditoryAspectPImpl {
+public class AuditoryAspect {
 
 	@Getter @Setter
     @Autowired

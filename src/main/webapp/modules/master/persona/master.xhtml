@@ -42,7 +42,7 @@
 						itemLabel="#{msg[opc.label]}" itemValue="#{opc}" />
 				</p:selectOneMenu>
 				
-				<p:outputLabel for="nombres" value="#{msg.firstName}" />
+				<p:outputLabel for="nombres:input" value="#{msg.firstName}" />
 				<eb:inputText id="nombres" value="#{persona.nombres}" required="true"
 					maxlength="50" />
 					
@@ -98,11 +98,11 @@
 			
 			<eb:panelGrid id="pnlRight">
 				<h:form id="frmImage" enctype="multipart/form-data">
-					<p:graphicImage id="image" value="#{imageBean.personaImage}" rendered="#{imageBean.personaImage ne null}"
+					<p:graphicImage id="image" value="#{imageBean.personaImage}" rendered="#{bean.image ne null}"
 						height="128" width="128"/>
-					<p:graphicImage id="imageDefault" name="#{persona.genero.femenino?'female.png':'male.png'}" library="images" rendered="#{imageBean.personaImage eq null}"/>
+					<p:graphicImage id="imageDefault" name="#{persona.genero.femenino?'female.png':'male.png'}" library="images" rendered="#{bean.image eq null}"/>
 					<p:fileUpload id="fupImage" label="#{msg.chooseImage}" fileUploadListener="#{bean.handleFileUpload}" mode="advanced"
-							update="image" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(jpe?g|png)$/"/>
+							auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(jpe?g|png|gif)$/" update="image, imageDefault"/>
 					<p:tooltip for="fupImage" value="#{msg['persona.tip.image']}" showEffect="fade" hideEffect="fade" />
 				</h:form>
 			</eb:panelGrid>

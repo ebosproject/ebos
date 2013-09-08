@@ -41,7 +41,7 @@ import ec.com.ebos.util.StringUtils;
  */
 @Aspect
 @Component
-public class ExceptionAspectPImpl {
+public class ExceptionAspect {
 	
 	@Getter @Setter
     @Autowired
@@ -49,7 +49,7 @@ public class ExceptionAspectPImpl {
     private SecurityS securityS;
 
 	
-	private static final Logger logger = Logger.getLogger(ExceptionAspectPImpl.class);
+	private static final Logger logger = Logger.getLogger(ExceptionAspect.class);
 
 	
 

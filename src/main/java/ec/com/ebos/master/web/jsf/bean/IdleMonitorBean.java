@@ -13,6 +13,8 @@ import lombok.Setter;
 
 import org.primefaces.context.RequestContext;
 
+import ec.com.ebos.context.EbosContext;
+
 @ManagedBean(name = IdleMonitorBean.BEAN_NAME)
 @RequestScoped
 public class IdleMonitorBean implements Serializable{
@@ -31,9 +33,7 @@ public class IdleMonitorBean implements Serializable{
 				.getNavigationHandler();
 		sessionBean.cerrarSesion();
 
-		RequestContext requestContext = RequestContext.getCurrentInstance();
-		requestContext.update(":pngWelcome");
-		requestContext.update(":pngHome");
+		EbosContext.updateComponent(":pngWelcome", "pnHome");
 		
 //		context.addMessage(
 //				null,

@@ -117,8 +117,9 @@
     
     <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytFinder" />
     
-	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" width="#{widthDlgE ne null?widthDlgE:600}" height="#{heightDlgE ne null?heightDlgE:400}" appendToBody="false" resizable="false"
-		showEffect="fade" hideEffect="fade" draggable="false" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
+    <!-- NOTA: Por cuestiones desconocidas, si se define el atributo resizable="true", el frame padre no se puede redimensionar -->
+	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" width="#{widthDlgE ne null?widthDlgE:600}" height="#{heightDlgE ne null?heightDlgE:400}" appendToBody="false"
+		showEffect="fade" hideEffect="fade" draggable="false" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()" resizable="false"> 
    		<p:outputPanel id="pnlE">
    			<p:outputPanel rendered="#{bean.activeEntity ne null}">
 				<ui:insert name="master"/>

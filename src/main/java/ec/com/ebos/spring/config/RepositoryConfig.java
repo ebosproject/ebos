@@ -21,9 +21,9 @@ import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
-import ec.com.ebos.aspect.core.process.AuditoryAspectPImpl;
-import ec.com.ebos.aspect.core.process.ExceptionAspectPImpl;
-import ec.com.ebos.aspect.core.process.SecurityAspectPImpl;
+import ec.com.ebos.aspect.core.process.AuditoryAspect;
+import ec.com.ebos.aspect.core.process.ExceptionAspect;
+import ec.com.ebos.aspect.core.process.SecurityAspect;
 import ec.com.ebos.orm.crud.CrudService;
 import ec.com.ebos.orm.crud.FinderSQLService;
 import ec.com.ebos.orm.crud.FinderService;

@@ -32,9 +32,9 @@ import org.apache.log4j.Logger;
  */
 @Aspect
 @Component
-public class SecurityAspectPImpl {
+public class SecurityAspect {
 	
-	private static final Logger logger = Logger.getLogger(SecurityAspectPImpl.class);
+	private static final Logger logger = Logger.getLogger(SecurityAspect.class);
 	
 //	@Getter @Setter
 //    @Autowired

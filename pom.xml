@@ -115,7 +115,7 @@
 
 	<build>
 		<!-- WEB LAYER -->
-		<finalName>ebos</finalName>
+		<finalName>ec.com.ebos</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

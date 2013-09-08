@@ -78,4 +78,11 @@ public class EbosContext implements Serializable{
     public static ExternalContext webContext(){
     	 return FacesContext.getCurrentInstance().getExternalContext();
     }
+
+	public static void updateComponent(String... ids) {
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		for(String id : ids){
+			requestContext.update(id);
+		}
+	}
 }
