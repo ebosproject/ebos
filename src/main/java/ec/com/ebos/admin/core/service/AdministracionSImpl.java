@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import ec.com.ebos.admin.core.process.AdministracionP;
@@ -41,11 +43,28 @@ public class AdministracionSImpl implements AdministracionS{
 		return administracionP.findBundleList(bundle, pagination);
 	}
 	
+	
+	/**
+	 * Obtiene un unique {@link Bundle} entity por su codigo y localidad.
+	 * 
+	 * La entidad obtenida es almacenada en cache para uso de todas las pantallas que lo requieran
+	 * 
+	 * @param codigo
+	 * @param localidad
+	 * @return
+	 */
 	@Override
-	public Bundle getMessageResource(String codigo, Bundle.Localidad localidad){
-		return administracionP.getMessageResource(codigo, localidad);
+	@Cacheable(value="cacheBundle", key="#bundle.keyCache")
+	public Bundle getMessageResource(Bundle bundle){
+		return administracionP.getMessageResource(bundle.getCodigo(), bundle.getLocalidad());
 	}
 
+	/**
+	 * Obtiene el listado de codigos de los {@link Bundle} entities existentes por localidad
+	 * 
+	 * @param localidad
+	 * @return
+	 */
 	@Override
 	public List<String> getCodeMessageResourceList(Bundle.Localidad localidad) {
 		return administracionP.getCodeMessageResourceList(localidad);
@@ -60,12 +79,26 @@ public class AdministracionSImpl implements AdministracionS{
 		return administracionP.loadBundle(id);
 	}
 	
+	/**
+	 * Guarda un {@link Bundle} entity en la base de datos y descarga la cacheBundle
+	 * para que la entidad guardada vuelva a ser cargada por las pantallas que lo utilicen 
+	 * 
+	 * @param bundle
+	 * @return
+	 */
 	@Override
-	public Bundle saveBundle(Bundle messageResource) {
-        return administracionP.saveBundle(messageResource);
+	@CacheEvict(value="cacheBundle", key="#bundle.keyCache", beforeInvocation = true)
+	@Cacheable(value="cacheBundle", key="#bundle.keyCache")
+	public Bundle saveBundle(Bundle bundle) {
+        return administracionP.saveBundle(bundle);
 	}
-
+	
+	/**
+	 * Elimina un {@link Bundle} y descarga la cacheBundle
+	 * @param activeEntity
+	 */
 	@Override
+	@CacheEvict(value="cacheBundle", key="#{bundle.keyCache}")
 	public void deleteBundle(Bundle bundle) {
 		administracionP.deleteBundle(bundle);
 	}

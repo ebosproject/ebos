@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import lombok.Data;
@@ -55,6 +56,10 @@ public class Bundle extends Administracion<Bundle>{
 
 	@Column(name = "valor", nullable = false, length = 500)
 	private String valor;
+	
+	public String getKeyCache(){
+		return codigo+localidad.getValue();
+	}
 	
 	/**
      * <strong>Localidades(es[_EC]) que soporta el sistema</strong> <br> <table border="1">

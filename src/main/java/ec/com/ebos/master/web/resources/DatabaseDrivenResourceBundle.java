@@ -28,9 +28,11 @@ public class DatabaseDrivenResourceBundle extends ResourceBundle {
     
     @Override
     protected Object handleGetObject(String key) {
-        final Bundle messageResource = administracionS
-                .getMessageResource(key, Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
-                        .getViewRoot().getLocale().toString()));        
+    	Bundle bundle = new Bundle();
+    	bundle.setCodigo(key);
+    	bundle.setLocalidad(Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
+                        .getViewRoot().getLocale().toString()));
+        final Bundle messageResource = administracionS.getMessageResource(bundle);        
         
         if (messageResource != null) {
             return messageResource.getValor();

@@ -8,7 +8,6 @@ import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.web.jsf.bean.AdministracionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
@@ -70,7 +69,8 @@ public class BundleBean extends AdministracionBean<Bundle> {
 
     @Override
     public void guardar() {
-        activeEntity = administracionS.saveBundle(activeEntity);                
+//        administracionS.evictBundle(activeEntity.getCodigo(), activeEntity.getLocalidad());
+        activeEntity = administracionS.saveBundle(activeEntity);
     }
 
     @Override
