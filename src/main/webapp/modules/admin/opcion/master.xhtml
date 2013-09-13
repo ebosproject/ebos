@@ -40,9 +40,9 @@
 		   <p:outputLabel for="icono" value="#{msg.icon}"/>	               
 	       <eb:inputText id="icono" value="#{opcion.icono}"/>
 	       <p:outputLabel for="padre" value="#{msg.parent}"/>        
-	       <p:selectOneMenu id="padre" value="#{opcionBean.activeEntity.padre}" efect="fade" converter="#{bean.opcionConverter}">
+	       <p:selectOneMenu id="padre" value="#{opcion.padre}" efect="fade" converter="#{opcionBean.opcionConverter}">
 	            <f:selectItem itemLabel ="#{msg.selectOne}" itemValue="" />
-	            <f:selectItems value="#{opcionBean.opcionList}" var="opc"
+	            <f:selectItems value="#{bean.opcionList}" var="opc"
 	                itemLabel="#{msg[opc.etiqueta]}" itemValue="#{opc}"/>
 	       </p:selectOneMenu>
 	       

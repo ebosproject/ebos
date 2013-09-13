@@ -84,7 +84,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 	@Override
 	public Bundle saveBundle(Bundle bundle) {
 		bundle = saveOrMerge(bundle);
-        putSuccess("bundle.success.guardar", bundle.getId());
+        putSuccess("bundle.success.save", bundle.getId());
         return bundle;
 	}
 
@@ -92,7 +92,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 	public void deleteBundle(Bundle bundle) {
 		Long id = bundle.getId();
         delete(bundle);
-        putSuccess("bundle.success.eliminar", id);
+        putSuccess("bundle.success.delete", id);
 	}
 	
 	//
@@ -124,7 +124,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
         //Actualiza lista de parametros en el bean de aplicacion
         //getApp().getConfiguracion().setParametros(buildParametrosHash(obtenerParametrosList(null)));
         //TODO (epa): refrescar parametros en Master Spring Bean
-        putSuccess("Parametro "+param.getId()+" guardado correctamente");
+        putSuccess("param.success.save",+param.getId());
         return param;
     }
 
@@ -146,7 +146,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
                 
         if(configuracion.isEnviarSmsPrx() && configuracion.isEnviarSmsGatewayPrx()){            
             configuracion.setEnviarSmsGatewayPrx(false);
-            putWarning("Sólo se puede habilitar una opción de envío de mensajes, por default es Sms");            
+            putWarning("Solo se puede habilitar una opcion de envio de mensajes, por default es Sms");            
         }        
         configuracion = update(configuracion);      
         
@@ -181,13 +181,12 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
         criteria.addEquals("estado", Entidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador, Opcion_.padre);
-        if (opcion != null) {
-	        criteria.addAliasedLeftJoins(Opcion_.padre);
-	        criteria.addLike(Opcion_.nombre, opcion.getNombre());
-	        criteria.addLike(Opcion_.descripcion, opcion.getDescripcion());
-	        criteria.addLike(Opcion_.etiqueta, opcion.getEtiqueta());
-	        criteria.addLike(Opcion_.target, opcion.getTarget());
-        }
+        
+        criteria.addAliasedLeftJoins(Opcion_.padre);
+        criteria.addLikeIfNotNull(Opcion_.nombre, opcion.getNombre());
+        criteria.addLikeIfNotNull(Opcion_.descripcion, opcion.getDescripcion());
+        criteria.addLikeIfNotNull(Opcion_.etiqueta, opcion.getEtiqueta());
+        criteria.addLikeIfNotNull(Opcion_.target, opcion.getTarget());
         
         return findByCriteria(criteria, pagination);
     }
@@ -205,7 +204,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
             opcion.setEstado(Entidad.Estado.ACTIVO);
         }
         opcion = saveOrMerge(opcion);
-        putSuccess("Opcion " + opcion.getId() + " guardado correctamente");
+        putSuccess("opcion.success.save",opcion.getId());
         return opcion;
     }
 
@@ -213,7 +212,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     public void deleteOpcion(Opcion opcion) {
         Long id = opcion.getId();
         delete(opcion);
-        putSuccess("Opcion " + id + " eliminada correctamente");
+        putSuccess("opcion.success.delete",id);
     }
 
     @Override
@@ -267,7 +266,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
             objeto.setEstado(Entidad.Estado.ACTIVO);
         }
         objeto = saveOrMerge(objeto);
-        putSuccess("Objeto " + objeto.getId() + " guardado correctamente");
+        putSuccess("objeto.success.save",objeto.getId());
         return objeto;
     }
 
@@ -275,7 +274,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     public void deleteObjeto(Objeto objeto) {
         Long id = objeto.getId();
     	delete(objeto);
-        putSuccess("Objeto " + id + " eliminado correctamente");
+    	putSuccess("objeto.success.delete",id);
     }
 
     @Override
