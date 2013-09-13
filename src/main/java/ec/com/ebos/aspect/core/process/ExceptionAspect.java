@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -65,7 +66,7 @@ public class ExceptionAspect {
 		try{
 			return pjp.proceed();
 		} catch(Throwable t){
-			handleException(t,securityS);
+			handleException(t,securityS, pjp.getSignature());
 			error = true;
 			return null;
 		} finally {
@@ -82,7 +83,7 @@ public class ExceptionAspect {
 	 * @param t Throwable
 	 * @return Throwable
 	 */
-	static Throwable handleException(Throwable t, SecurityS securityS) {
+	static Throwable handleException(Throwable t, SecurityS securityS, Signature sig) {
 		String message = null, errorKey = null;
 		
 		RootException.StackTraceLevel stackTraceLevel = RootException.StackTraceLevel.FULL;
@@ -168,8 +169,8 @@ public class ExceptionAspect {
 		securityS.putError(e);
 		
 		logger.error("(" + HTTPUtils.getRemoteAddr(((HttpServletRequest) EbosContext.webContext().getRequest())) 
-				+ ") [" + securityS.getSessionBean() + " "
-				+ securityS.getSessionBean().getClass().getSimpleName() + "] --> EXCEPTION HANDLED: " + e.getKey() + ": " + e.getLocalizedMessage());
+				+ ") ["	+ sig.getDeclaringType().getName() +" "+ sig.getName() + "]"
+				+ " --> EXCEPTION HANDLED: " + e.getKey() + ": " + e.getLocalizedMessage());
 		
 		return e;
 	}
