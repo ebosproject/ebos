@@ -12,19 +12,21 @@
     
 	<ui:remove>
  		Parameters overridable
+ 		<!-- Frame -->
  		- optionsFinder : json format, default value in component
  		- widthFrame	: default value="450"
  		- heightFrame 	: default value="650"
+		<!-- West Pane Frame-->
+		- westSize 		: default value="215"
+		- westMinSize 	: default value="215"
+		<!-- Edit panel -->
 		- widthDlgE 	: default value="600"
 		- heightDlgE 	: default value="400"
-		<!-- West Pane -->
-		- westSize 		: default value="190"
-		- westMinSize 	: default value="190"
 	</ui:remove>
 	
 	<ui:param name="optionsFinderDefault" value="north:{size:'50'},
 				south:{closable:true, size:'35'},
-				west:{closable:true, size:#{westSize ne null?westSize:190}, minSize:#{westMinSize ne null?westMinSize:190}, maxSize:#{westMaxSize ne null?westMaxSize:250} , resizable:true},
+				west:{closable:true, size:#{westSize ne null?westSize:215}, minSize:#{westMinSize ne null?westMinSize:215}, maxSize:#{westMaxSize ne null?westMaxSize:250} , resizable:true},
 				east:{},
 				center:{}}"/>
 	
@@ -115,8 +117,9 @@
     
     <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytFinder" />
     
-	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" width="#{widthDlgE ne null?widthDlgE:600}" height="#{heightDlgE ne null?heightDlgE:400}" appendToBody="false" resizable="false"
-		showEffect="fade" hideEffect="fade" draggable="false" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
+    <!-- NOTA: Por cuestiones desconocidas, si se define el atributo resizable="true", el frame padre no se puede redimensionar -->
+	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" width="#{widthDlgE ne null?widthDlgE:600}" height="#{heightDlgE ne null?heightDlgE:400}" appendToBody="false"
+		showEffect="fade" hideEffect="fade" draggable="false" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()" resizable="false"> 
    		<p:outputPanel id="pnlE">
    			<p:outputPanel rendered="#{bean.activeEntity ne null}">
 				<ui:insert name="master"/>

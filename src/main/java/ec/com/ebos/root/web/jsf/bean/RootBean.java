@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.application.FacesMessage.Severity;
 import javax.faces.bean.ManagedProperty;
 
 import lombok.Getter;
@@ -16,6 +18,7 @@ import org.primefaces.model.SortOrder;
 
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.root.core.exception.RootException;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.util.EntityUtils;
@@ -274,5 +277,18 @@ public abstract class RootBean<T extends Entidad<T>> implements Serializable, Js
     public String getRandomId(){
     	return FacesUtils.getRandomId();
     }
+
+	public void putError(Throwable e) {
+		if (sessionBean != null) {
+			sessionBean.setSuccess(false);
+		}
+		Severity severity = FacesMessage.SEVERITY_FATAL;
+		e.printStackTrace();
+		if (e instanceof RootException && !((RootException) e).isFatal()) {
+			severity = FacesMessage.SEVERITY_ERROR;
+		}
+		MessageUtils.clearFacesMessages(FacesMessage.SEVERITY_WARN);
+		MessageUtils.addSimpleFacesMessage(e.getMessage(), severity);
+	}
 
 }

@@ -3,10 +3,13 @@ package ec.com.ebos.context;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -66,4 +69,20 @@ public class EbosContext implements Serializable{
     public static <T> T getBean(Class<T> beanClass) {
         return (T) applicationContext.getBean(beanClass);
     }
+    
+    public static void addCallbackParam(String name, Object value){
+    	RequestContext context = RequestContext.getCurrentInstance();
+    	context.addCallbackParam(name, value);
+    }
+    
+    public static ExternalContext webContext(){
+    	 return FacesContext.getCurrentInstance().getExternalContext();
+    }
+
+	public static void updateComponent(String... ids) {
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		for(String id : ids){
+			requestContext.update(id);
+		}
+	}
 }

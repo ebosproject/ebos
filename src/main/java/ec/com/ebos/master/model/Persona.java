@@ -141,29 +141,6 @@ public class Persona extends Master<Persona>{
 	
 	
 	/**
-	 * Obtiene la edad de la persona basada en su fecha de {@link #nacimiento} 
-	 * @return edad persona
-	 */
-	public int getEdad(){
-		return DateUtils.calcularEdad(nacimiento);
-	}
-	
-//	@Transient
-//	private StreamedContent imageStream;
-//
-//	/**
-//	 * 
-//	 * @param id
-//	 * @return
-//	 */
-//	public StreamedContent getImageStream(){
-//		if(imageStream == null){
-//			imageStream = new DefaultStreamedContent(new ByteArrayInputStream(imagen), contentType);
-//		} 
-//		return imageStream;
-//	}
-	
-	/**
 	 * Numero de cedula, ruc o codigo de indentificacion
 	 */
 	@Column(name = Persona_.tipoPersona, nullable = false, length = 1)
@@ -183,6 +160,18 @@ public class Persona extends Master<Persona>{
 	@OneToMany(mappedBy = Monaguillo_.persona, fetch= FetchType.LAZY)
     private Set<Monaguillo> monagilloList = new HashSet<Monaguillo>(0);
 	
+	
+	/**
+	 * Obtiene la edad de la persona basada en su fecha de {@link #nacimiento} 
+	 * @return edad persona
+	 */
+	public int getEdad(){
+		return DateUtils.calcularEdad(nacimiento);
+	}
+	
+	public String getFullName(){
+		return nombres +" "+ apellidos;
+	}
 	/**
      * <strong>Tipo Identificacion para una Persona</strong> <br>
      * <table border="1">

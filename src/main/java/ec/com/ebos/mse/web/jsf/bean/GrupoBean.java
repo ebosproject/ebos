@@ -167,7 +167,7 @@ public class GrupoBean extends MseBean<Grupo> {
  					UIComponent component, Object value)
  					throws ConverterException {
  				if (value == null || value.equals("")) {
- 					return StringUtils.empty;
+ 					return StringUtils.EMPTY;
  				} else {
  					return String.valueOf(((Monaguillo) value).getId());
  				}

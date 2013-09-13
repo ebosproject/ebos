@@ -7,13 +7,15 @@
                 xmlns:pe="http://primefaces.org/ui/extensions"
                 template="/templates/tplMaster.xhtml">
 
-	<ui:define name="params">
-		<ui:param name="renderedSouth" value="false"/>
-		<ui:param name="renderedCenterSouth" value="false"/>
-		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
-				'center':{'resizeWhileDragging':true,'closable':false,
-					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}"/>
-	</ui:define>
+<ui:remove>
+	<ui:param name="renderedSouth" value="false"/>
+	<ui:param name="renderedCenterSouth" value="false"/>
+	
+	<ui:param name="optionsMaster"
+		value="north:{closable:false,resizable:false,size:'50'},
+			center:{resizeWhileDragging:true,closable:false,
+				childOptions:{center:{},south:{resizable:false,size:'255',closable:false}}}" />
+				</ui:remove>
 
     <ui:define name="header">
         <ui:param name="bundle" value="#{bean.activeEntity}" />    
@@ -32,10 +34,10 @@
 		    </eb:panelGrid>
 		    <eb:panelGrid id="pnlTwo" columns="2" columnClasses="width10,width90">
 		       <p:outputLabel for="codigo" value="#{msg.code}"/>
-		       <eb:inputText id="codigo" value="#{bundle.codigo}" required="true" maxlength="50"/>
+		       <eb:inputText id="codigo" value="#{bundle.codigo}" required="true" maxlength="50" size="40"/>
 		       
 		       <p:outputLabel for="valor" value="#{msg.value}"/>
-		       <eb:inputText id="valor" value="#{bundle.valor}" required="true" maxlength="500"/>
+		       <eb:inputText id="valor" value="#{bundle.valor}" required="true" maxlength="500" size="60"/>
 		    </eb:panelGrid>   
 		</eb:panelGrid>
     </ui:define>

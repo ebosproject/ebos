@@ -9,7 +9,7 @@
 	<ui:remove>
  		Parameters overridable
  		- optionsMaster : json format, default value in component
- 		- enderedSouth : default value="false"
+ 		- renderedSouth : default value="false"
  		- renderedCenterSouth : default value="false"
 	</ui:remove>
 	
@@ -26,18 +26,27 @@
 	                    <p:commandButton id="btnNuevo" value="#{msg['new']}" rendered="#{bean.habilitaCrear}" update=":#{frameId}:frmH, :#{frameId}:pnlHD, frmTM" 
                  			process="@this" partialSubmit="true" 
                  			actionListener="#{bean._crear}" icon="ui-icon-document" />
+                 			
 	                    <p:commandButton id="btnGuardar" value="#{msg.save}" action="#{bean._guardar}" 
 	                    	rendered="#{bean.habilitaEditar}" partialSubmit="true"
-	                    	icon="ui-icon-disk" update=":#{frameId}:frmH, :#{frameId}:pnlHD, frmTM" process="@this,:#{frameId}:frmH"/> 
-	                    <p:commandButton id="btnEliminar" value="#{msg.delete}" rendered="#{bean.habilitaEliminar}" process="@this"
+	                    	icon="ui-icon-disk" update=":#{frameId}:frmH, :#{frameId}:pnlHD, frmTM" process="@this,:#{frameId}:frmH"/>
+	                    	 
+	                   	<p:commandButton id="btnEliminar" value="#{msg.delete}" rendered="#{bean.habilitaEliminar}" process="@this"
 	                   		actionListener="#{bean._eliminar}" icon="ui-icon-trash" partialSubmit="true"
-	                   		onsuccess="#{wgtE}.hide();#{wgtBUI}.hide()"/>
+	                   		oncomplete="handleBtnEliminar(xhr, status, args)"/>
 	                </p:toolbarGroup>
 	                <p:toolbarGroup align="right">
 	                    <p:commandButton id="btnActualizar" action="#{bean._actualizar}" icon="ui-icon-refresh" update=":#{frameId}:frmH, :#{frameId}:pnlHD" 
 	                    	title="#{msg.update}" rendered="#{bean.habilitaActualizar}" partialSubmit="true"/>
 	                </p:toolbarGroup>
-	            </p:toolbar>                     
+	            </p:toolbar>  
+	            <script type="text/javascript">
+	            	function handleBtnEliminar(xhr, status, args) {
+						if(!args.error){
+							#{wgtE}.hide();#{wgtBUI}.hide();
+						}
+					}
+	            </script>                   
 	        </h:form>	
          </pe:layoutPane>
          <pe:layoutPane position="center">

@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 
 import lombok.Setter;
 
@@ -32,6 +33,7 @@ import ec.com.ebos.admin.core.exception.AdministracionException;
 import ec.com.ebos.admin.core.process.AdministracionPImpl;
 import ec.com.ebos.aspect.annotation.UniqueIndex;
 import ec.com.ebos.aspect.annotation.UniqueIndexes;
+import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Crud;
 import ec.com.ebos.orm.crud.CrudService;
@@ -39,6 +41,7 @@ import ec.com.ebos.orm.crud.FinderService;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.orm.crud.PaginationParams;
+import ec.com.ebos.root.core.exception.RootException;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
@@ -892,86 +895,6 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
 		}
 	}
 
-//    
-//    @Autowired
-//    public void setJpaEMF(@Qualifier("emf") EntityManagerFactory emf) {
-//        super.setEntityManagerFactory(emf);
-//    }
-//
-//    protected <T extends X> T saveOrUpdate(T entity) {
-//        return getJpaTemplate().merge(entity);
-//    }
-//
-//    protected <T extends X> T update(T entity) {
-//        return getJpaTemplate().merge(entity);
-//    }
-//
-//    protected <T extends X> void save(T entity) {
-//        getJpaTemplate().persist(entity);
-//    }
-//
-//    protected <T extends X> T find(Class<T> clazz, Long id) {
-//        return getJpaTemplate().find(clazz, id);
-//    }
-//
-//    protected <T extends X> void delete(T entity) {
-//        try {
-//            getJpaTemplate().remove(getJpaTemplate().getReference(entity.getClass(), ((Generic) entity).getId()));
-//        } catch (Exception e) {
-//        }
-//
-//    }
-//
-//    protected <T extends X> void deleteAll(List<T> entityList) {
-//        for (T entity : entityList) {
-//            delete(entity);
-//        }
-//    }
-//
-//    protected <T extends X> List<T> find(String jpqlString, Object... params) {
-//        return getJpaTemplate().find(jpqlString, params);
-//    }
-//
-//    protected <T extends X> List<T> find(String jpqlString) {
-//        return getJpaTemplate().find(jpqlString);
-//    }
-//
-//    protected <T extends X> List<T> find(String jpqlString, Map<String, ?> params) {
-//        return getJpaTemplate().findByNamedParams(jpqlString, params);
-//    }
-//
-//    protected Query createQuery(String jpqlString) {
-//        return getJpaTemplate().getEntityManagerFactory().createEntityManager().createQuery(jpqlString);
-//    }
-//
-//    protected <T extends X> List<T> findByQuery(GenericQuery query) {
-//        List lista = getJpaTemplate().findByNamedParams(query.getQryString(), query.getParams());
-//        return (lista != null) ? lista : new ArrayList();
-//    }
-//
-//    protected List findByQuerySt(String query) {
-//        return getJpaTemplate().find(query);
-//    }
-//
-//    protected int countByQuery(GenericQuery query) {
-//        List lista = getJpaTemplate().findByNamedParams(query.getQryString(), query.getParams());
-//        if (lista != null) {
-//            return lista.size();
-//        } else {
-//            return 0;
-//        }
-//    }
-//
-//    protected <T extends X> T findFirstByQuery(GenericQuery query) {
-//        List<T> usuarios = getJpaTemplate().findByNamedParams(query.getQryString(), query.getParams());
-//        if (usuarios != null) {
-//            if (!usuarios.isEmpty()) {
-//                return usuarios.get(0);
-//            }
-//        }
-//        return null;
-//    }
-//
 	
 	/**
 	 * Construye un mensaje utilizando el archivo de propiedades
@@ -996,10 +919,23 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
     	getSessionBean().putError(buildMessage(key, args));        
     }
     
+	public void putError(ExceptionAspectHandlerException e) {
+		getSessionBean().setSuccess(false);
+		
+		e.printStackTrace();
+		MessageUtils.clearFacesMessages(FacesMessage.SEVERITY_WARN);
+		
+		if (e instanceof RootException && !((RootException) e).isFatal()) {
+			getSessionBean().putError(e.getKey(), e.getMessage());
+		} else {
+			getSessionBean().putFatal(e.getKey(), e.getMessage());
+		}
+	}
+    
     public void putFatal(String key, Object... args) {
     	getSessionBean().putFatal(buildMessage(key, args));        
     }
-//
+
     /**
      * Devuelve el {@link SessionBean} del hilo de ejecucion actual
      *
@@ -1016,5 +952,6 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
         }
         return sesionUsuario;
     }
+
 
 }

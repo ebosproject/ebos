@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
@@ -60,7 +61,12 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 	public void putError(String key, Object... args){
 		super.putError(key, args);
 	}
-    
+
+	public void putError(ExceptionAspectHandlerException e){
+		super.putError(e);
+	}
+	
+	
     //
     //Usuario
     //
@@ -319,7 +325,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
                 if (tmp != null) {
                 	for (RolOpcion rolOpcion : tmp) {
                 		Objeto obj = rolOpcion.getOpcion().getObjeto();
-						String beanName = obj != null ? obj.getCodigo() : StringUtils.empty;
+						String beanName = obj != null ? obj.getCodigo() : StringUtils.EMPTY;
 						rolOpcion.getOpcion().setBeanName(beanName);
 					}                	
                     rolOpcionList.addAll(tmp);
@@ -331,29 +337,27 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     
-    
-
     //
     // Session Usuario
     //
     
     @Override
-    public boolean authLogin(SessionBean aThis) {
+    public boolean authLogin(SessionBean sessionBean) {
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
         criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
         criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
-        criteria.addEquals(Usuario_.username, aThis.getUsuario().getUsername());
-        criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(aThis.getUsuario().getPassword()));
+        criteria.addEquals(Usuario_.username, sessionBean.getUsuario().getUsername());
+        criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(sessionBean.getUsuario().getPassword()));
 
         Usuario usuario = findFirstByCriteria(criteria);        
         if (usuario != null) {        	
-        	aThis.setUsuario(usuario);
+        	sessionBean.setUsuario(usuario);
         } else {
             putError("sesion.error.usuarioPassIncorrecta");
             return false;
         }
         List<RolOpcion> rolOpcionList = obtenerRolOpcionList(usuario);
-        aThis.setRolOpcionList(rolOpcionList);
+        sessionBean.setRolOpcionList(rolOpcionList);
         return true;
     }
     

@@ -214,6 +214,9 @@ public class SessionBean implements Serializable{
 	
     //////////////////////// MESSAGES ///////////////////////////////
 	
+	@Getter @Setter
+	private boolean success;
+	
     private void putMessage(FacesMessage.Severity severity, String keySummary, String detail, Object... args){
     	String summary = MessageUtils.getFormattedMessage(FacesUtils.getLabel(keySummary), args);
 		putMessage(severity, summary, (detail != null && !detail.isEmpty()) ? detail : "");
@@ -224,11 +227,23 @@ public class SessionBean implements Serializable{
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
-    public void putSuccess(String keySummary, String detail, Object... args) {        
+    public void putInfo(String keySummary, String detail, Object... args) {
+    	success = false;
         putMessage(FacesMessage.SEVERITY_INFO, keySummary, detail, args);
     }
     
-    public void putSuccess(String summary) {        
+    public void putInfo(String summary) {
+    	success = false;
+        putMessage(FacesMessage.SEVERITY_INFO, summary, "");
+    }
+    
+    public void putSuccess(String keySummary, String detail, Object... args) {
+    	success = true;
+        putMessage(FacesMessage.SEVERITY_INFO, keySummary, detail, args);
+    }
+    
+    public void putSuccess(String summary) {
+    	success = true;
         putMessage(FacesMessage.SEVERITY_INFO, summary, "");
     }
 
@@ -255,4 +270,5 @@ public class SessionBean implements Serializable{
     public void putFatal(String summary) {
         putMessage(FacesMessage.SEVERITY_FATAL, summary, "");        
     }
+
 }

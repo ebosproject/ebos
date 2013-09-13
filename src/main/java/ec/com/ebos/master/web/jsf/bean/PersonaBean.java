@@ -19,6 +19,7 @@ import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
+import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
@@ -81,26 +82,26 @@ public class PersonaBean extends MasterBean<Persona> {
 	// ////////////////// ACCIONES ////////////////////
 
 	@Override
-	public void crear() {
+	protected void crear() {
 		activeEntity = masterS.createPersona();
 		image = null;
 	}
 
 	@Override
-	public void editar() {
+	protected void editar() {
 		setImage();
 	}
 
 	@Override
-	public void actualizar() {
+	protected void actualizar() {
 		editar();
 	}
 
 	@Override
-	public void guardar() {
-		if(uploadImage != null){
-			activeEntity.setImagen(uploadImage.getContents());
-		}
+	protected void guardar() {
+//		if(uploadImage != null){
+//			activeEntity.setImagen(uploadImage.getContents());
+//		}
 		activeEntity = masterS.savePersona(activeEntity);
 		
 		setImage();
@@ -113,23 +114,26 @@ public class PersonaBean extends MasterBean<Persona> {
 	}
 
 	@Override
-	public void eliminar() {
+	protected void eliminar() {
 		masterS.deletePersona(activeEntity);
 	}
 	
-	public void upload() {
-        if(uploadImage != null) {
-            FacesMessage msg = new FacesMessage("Succesful", uploadImage.getFileName() + " is uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-        }
-    }
+//	public void upload() {
+//        if(uploadImage != null) {
+//            FacesMessage msg = new FacesMessage("Succesful", uploadImage.getFileName() + " is uploaded.");
+//            FacesContext.getCurrentInstance().addMessage(null, msg);
+//        }
+//    }
 	
 	public void handleFileUpload(FileUploadEvent event) {
-		FacesMessage msg = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
+		//FacesMessage msg = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
 		activeEntity.setImagen(event.getFile().getContents());
 		activeEntity.setContentType(event.getFile().getContentType());
-		image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		//image = new DefaultStreamedContent(new ByteArrayInputStream(activeEntity.getImagen()),activeEntity.getContentType());
+		setImage();
+		//FacesContext.getCurrentInstance().addMessage(null, msg);
+		putSuccess("image.success.uploaded", event.getFile().getFileName());
+		//EbosContext.updateComponent("image");
 	}
 
 	/////////////////////////// LISTS ///////////////////////////
