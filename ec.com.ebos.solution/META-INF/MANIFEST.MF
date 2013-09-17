@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Application-SymbolicName: greenpages
+Application-Version: 3.0.0.RELEASE
+Application-Name: Greenpages PAR
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <cc:interface displayName="inputText" >
+    	<cc:editableValueHolder name="forName" targets="input"/>
+    	<cc:attribute name="watermark" type="java.lang.String"/>
+        <cc:attribute name="value" required="#{empty cc.attrs.watermark}" />    
+        <cc:attribute name="required" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="maxlength" default="20"/>
+        <cc:attribute name="minlength" default="0"/>
+        <cc:attribute name="size" default="20"/>
+        <cc:attribute name="disabled" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="type" type="java.lang.String" default="text"/>
+        <cc:attribute name="style" type="java.lang.String"/>
+        <cc:attribute name="styleClass" type="java.lang.String"/>
+        <cc:attribute name="label" />
+    </cc:interface>
+
+    <cc:implementation>         
+        <p:inputText id="input" required="#{cc.attrs.required}" 
+                     value="#{cc.attrs.value}"                         
+                     maxlength="#{cc.attrs.maxlength}"                         
+                     disabled="#{cc.attrs.disabled}"
+                     type="#{cc.attrs.type}"
+                     style="#{cc.attrs.style}"
+                     size="#{cc.attrs.size}"
+                     styleClass="width100,#{cc.attrs.styleClass}"
+                     requiredMessage="#{cc.attrs.requiredMessage}"
+                     label="#{cc.attrs.label}">
+        	<f:validateLength minimum="#{cc.attrs.minlength}" />
+        </p:inputText>
+        <p:watermark for="input" value="#{cc.attrs.watermark}" 
+	       				 rendered="#{not empty cc.attrs.watermark}"/> 
+
+    </cc:implementation>  
+
+</html>

@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/templates/tplMaster.xhtml">
+
+	<ui:param name="renderedCenterSouth" value="true" />
+	<ui:param name="optionsMaster"
+		value="north:{closable:false,resizable:false,size:'50'},
+			center:{resizeWhileDragging:true,closable:false,
+				childOptions:{center:{},south:{resizable:false,size:'255',closable:false}}}" />
+
+	<ui:define name="header">
+		<ui:param name="grupo" value="#{bean.activeEntity}" />
+
+		<eb:panelGrid id="pnlGrupo" columns="4">
+			<p:outputLabel for="nombre" value="#{msg.name}" />
+			<eb:inputText id="nombre" value="#{grupo.nombre}" required="true" maxlength="30" />
+
+			<p:outputLabel for="id" value="#{msg.id}" />
+			<eb:outputText id="id" value="#{grupo.id}" />
+
+			<p:outputLabel for="creado" value="#{msg.created}"/>
+	       	<eb:outputDate id="creado" value="#{grupo.creado}" title="#{msg.by}: {grupo.creador}"/>
+
+			<p:outputLabel for="estado" value="#{msg.state}" />
+			<eb:outputText id="estado" value="#{msg[grupo.estado.label]}" />
+
+			<p:outputLabel for="modificado" value="#{msg.modified}"/>
+      		<eb:outputDate id="modificado" value="#{grupo.modificado}" title="#{msg.by}: {grupo.modificador}"/>
+
+		</eb:panelGrid>
+	</ui:define>
+
+	<ui:define name="detail">
+
+		<ui:include src="masterDetail.xhtml"/>
+		
+	</ui:define>
+
+</ui:composition>

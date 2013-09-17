@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+		xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>ec.com.ebos</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.4.0.SNAPSHOT</version>
+		<relativePath>../ec.com.ebos.parent</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<name>eBos.par</name>
+	<artifactId>ebos</artifactId>
+	<packaging>par</packaging>
+	<description>eBos PAR</description>
+
+	<dependencies>
+		<!-- <dependency>
+			<groupId>org.eclipse.virgo</groupId>
+			<artifactId>greenpages.core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.virgo</groupId>
+			<artifactId>greenpages.jpa</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.virgo</groupId>
+			<artifactId>greenpages.db</artifactId>
+			<version>${project.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>ec.com.ebos</groupId>
+			<artifactId>web</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Needs to be included in the PAR so that its classes are loadable via the PAR's synthetic context class loader -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>com.springsource.org.h2</artifactId>
+		</dependency>
+		<!-- Required for the web bundle as dependencies are not propagated up from war build types -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>com.springsource.freemarker</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit</groupId>
+			<artifactId>com.springsource.org.junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-par-plugin</artifactId>
+				<version>1.0.0.RELEASE</version>
+				<configuration>
+					<applicationSymbolicName>solution</applicationSymbolicName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${project.build.directory}/par-provided</outputDirectory>
+					<overWriteIfNewer>true</overWriteIfNewer>
+					<excludeGroupIds>ec.com.ebos,org.apache.log4j,com.h2database</excludeGroupIds>
+				</configuration>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+  
+</project>

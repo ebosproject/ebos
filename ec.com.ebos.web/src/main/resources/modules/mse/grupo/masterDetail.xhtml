@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<eb:dataTable id="dttMonaguilloGrupo"
+		dataTable="#{bean.monaguilloGrupoDataTable}"
+		renderedAdd="true"
+		renderedEdit="true"
+		renderedDelete="true"
+		renderedSave="true"
+		rendered="#{bean.activeEntity.id ne null}"
+		selection="#{bean.monaguilloGrupoDataTable.selected}"
+		selectionMode="single"
+		columnsFile="/modules/mse/grupo/columns.xhtml">
+		
+		<f:facet name="overlay">
+			<h:form id="frmDTd" prependId="false">
+				<eb:panelGrid columns="2">
+					<p:outputLabel value="#{msg.monaguillo}" for="atcMonaguillo" />
+					<p:autoComplete value="#{bean.monaguilloGrupoDataTable.selected.monaguillo}" id="atcMonaguillo"
+						completeMethod="#{bean.completeMonaguillo}" var="mon"
+						itemLabel="#{mon.persona.nombres}" itemValue="#{mon}"
+						converter="#{bean.monaguilloConverter}"
+						forceSelection="true">
+		
+						<f:facet name="itemtip">
+					 		<h:panelGrid columns="2" >
+							<ui:remove> 
+								<f:facet name="header">
+									<p:graphicImage id="image" value="DisplayImage?Image_id=#{mon.id}"
+										height="50" width="50" />
+								</f:facet> 
+							</ui:remove>
+								<p:outputLabel for="fullName" value="#{msg.fullName}" />
+								<eb:outputText id="fullName" value="#{mon.persona.nombres} #{mon.persona.apellidos}" />
+								<p:outputLabel for="edad" value="#{msg.years}" />
+								<eb:outputText id="edad" value="#{mon.persona.edad}" />
+							</h:panelGrid>
+						</f:facet>
+					</p:autoComplete>
+					<f:facet name="south">
+						<p:commandButton id="btnSave" value="#{msg.save}" rendered="true" actionListener="#{bean.monaguilloGrupoDataTable._save}" oncomplete="jsdttMonaguilloGrupoAdd()"/>
+					</f:facet>
+				</eb:panelGrid>
+			</h:form>
+		</f:facet>
+
+	</eb:dataTable>
+
+</ui:composition>
+
