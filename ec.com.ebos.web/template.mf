@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ec.com.ebos.web
-Bundle-SymbolicName: ec.com.ebos.web2
+Bundle-SymbolicName: ec.com.ebos.web
 Bundle-Version: 0.4.0.SNAPSHOT
 Bundle-ClassPath: .,WEB-INF/classes
 Web-ContextPath: ebos
@@ -37,11 +37,16 @@ Import-Bundle:
  com.springsource.org.hamcrest.core;version="[1.1.0,1.1.0]",
  com.springsource.org.hamcrest;version="[1.1.0,1.1.0]",
  com.springsource.org.apache.tools.ant;version="[1.8.3,1.8.3]",
- com.springsource.javax.persistence;version="[1.0.0,1.0.0]"
+ com.springsource.javax.persistence;version="[1.0.0,1.0.0]",
+ org.primefaces;version="[3.5.0,3.5.0]",
+ org.primefaces.extensions;version="[0.0.0,1.0.0)",
+ com.springsource.org.hibernate;version="[3.2.6.ga,3.2.6.ga]",
+ com.springsource.org.hibernate.annotations;version="[3.3.0.ga,3.3.0.ga]",
+ com.springsource.org.hibernate.annotations.common;version="[3.3.0.ga,3.3.0.ga]",
+ com.springsource.org.aspectj.runtime;version="[1.6.1,1.6.1]",
+ com.springsource.org.aspectj.weaver;version="[1.6.12.RELEASE,1.6.12.RELEASE]"
 Import-Library: 
- org.springframework.spring;version="[3.0, 3.5)",
- org.hibernate.ejb;version="[3.3.1.ga,3.3.1.ga]",
- org.aspectj;version="[1.6.1,1.6.1]"
+ org.springframework.spring;version="[3.0, 3.5)"
 Excluded-Exports: 
  ec,
  ec.com.ebos,
