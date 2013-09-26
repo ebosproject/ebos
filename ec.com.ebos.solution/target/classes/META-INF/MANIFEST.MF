@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Bundle-Version: 0.4.0.SNAPSHOT
-Tool: Bundlor 1.0.0.RELEASE
-Bundle-ManifestVersion: 2
-Bundle-SymbolicName: ebos
-

@@ -3,7 +3,7 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>web</artifactId>
-	<name>ebos</name>
+	<name>ec.com.ebos.web</name>
 	<url>https://git.assembla.com/git/ebos</url>
 
 	<description>eBos - Ecuadorian Business Operations System</description>
@@ -87,7 +87,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>org.springframework.spring-library</artifactId>
 			<type>libd</type>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.freemarker</groupId>
@@ -104,11 +103,6 @@
 			<artifactId>com.springsource.org.junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.test</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>org.springframework.aspects</artifactId> 
 			<scope>test</scope> </dependency> -->
 		<dependency>
@@ -123,34 +117,30 @@
 		</dependency>
 	
 		<!-- HIBERNATE BUNDLE -->
-		<!-- <dependency>
+		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>org.hibernate.ejb-library</artifactId>
 		    <type>libd</type>
-		</dependency> -->
-		<dependency>
+		</dependency>
+		<!-- <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>com.springsource.org.hibernate</artifactId>
-			<version>3.2.6.ga</version>
+			<version>3.3.1.GA</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>com.springsource.org.hibernate.annotations</artifactId>
-			<version>3.3.0.ga</version>
+			<version>3.3.1.ga</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>com.springsource.org.hibernate.annotations.common</artifactId>
 			<version>3.3.0.ga</version>
-		</dependency>
-		<dependency>
+		</dependency> --> 
+		<dependency> 
 			<groupId>javax.persistence</groupId>
 			<artifactId>com.springsource.javax.persistence</artifactId>
-		</dependency>
-		<!-- <dependency>
-		    <groupId>javax.persistence</groupId>
-		    <artifactId>com.springsource.javax.persistence</artifactId>
-		    </dependency> -->
+		</dependency> 
 		<!--HIBERNATE -->
 		<!-- <dependency>
 			<groupId>org.hibernate</groupId>
@@ -272,21 +262,19 @@
 		</dependency> -->
 
 		<!-- ASPECTJ BUNDLE -->
-		<!-- <dependency>
+		 <dependency>
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>org.aspectj-library</artifactId>
 		    <type>libd</type>
-		    <version>1.6.1</version>
-		</dependency> -->
-		<dependency>
+		</dependency>
+		<!-- <dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>com.springsource.org.aspectj.weaver</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>com.springsource.org.aspectj.runtime</artifactId>
-			<version>1.6.1</version>
-		</dependency>
+		</dependency> -->
 		<!-- ASPECTJ -->
 		<!-- <dependency>
 			<groupId>org.aspectj</groupId>
@@ -313,7 +301,7 @@
 		</dependency> -->
 
 		<!--JASPER REPORTS -->
-		<dependency>
+		<!-- <dependency> // TODO (epa): Buscar reemplazo de Bundle para estas dependencias
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>5.1.0</version>
@@ -322,7 +310,7 @@
 			<groupId>org.simpleframework</groupId>
 			<artifactId>simple-xml</artifactId>
 			<version>2.3.6</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
@@ -336,7 +324,6 @@
 				<exclusion>
 					<groupId>xml-apis</groupId>
 					<artifactId>xml-apis</artifactId>
-					<!--version>1.3.02</version -->
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -344,7 +331,7 @@
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
 			<version>3.8.0.GA</version>
-		</dependency>
+		</dependency>  
 
 		<!-- LOGGING BUNDLE -->
 		<dependency>
@@ -427,7 +414,7 @@
 			<scope>provided</scope>
 		</dependency> -->
 		
-		<!-- COMMOMS LOGGING BUNDLE -->
+		<!-- COMMONS LOGGING BUNDLE -->
 		<dependency>
 		    <groupId>org.apache.commons</groupId>
 		    <artifactId>com.springsource.org.apache.commons.logging</artifactId>
@@ -440,12 +427,19 @@
 			<version>1.1.1</version>
 		</dependency> -->
 		
-		<!-- JSTL BUNDLE -->
+		<!-- COMMONS CODEC -->
 		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.codec</artifactId>
+		    <version>1.6.0</version>
+		</dependency>
+		
+		<!-- JSTL BUNDLE -->
+		<!-- <dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>com.springsource.javax.servlet.jsp.jstl</artifactId>
 		    <version>1.2.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- JSTL -->
 		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
@@ -599,15 +593,25 @@
 			<artifactId>primefaces</artifactId>
 			<version>${primefaces.version}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>primefaces-extensions</artifactId>
 			<version>${primefaces-extensions.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>ec.com.ebos</groupId>
+			<artifactId>thirdparty</artifactId>
+			<version>0.4.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>resources-codemirror</artifactId>
 			<version>0.6.2</version>
+		</dependency>
+		<dependency>  
+		    <groupId>org.primefaces.themes</groupId>  
+		    <artifactId>all-themes</artifactId>  
+		    <version>1.0.10</version>  
 		</dependency>
 		<!-- <dependency>
 			<groupId>org.primefaces.themes</groupId>
@@ -913,12 +917,12 @@
 		</dependency>
 		
 		<!-- HAMCREST -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-all</artifactId>
 			<version>1.1</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 		<!-- <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -1396,7 +1400,7 @@
 	<parent>
 		<groupId>ec.com.ebos</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.4.0.SNAPSHOT</version>
+		<version>0.4.0-SNAPSHOT</version>
 		<relativePath>../ec.com.ebos.parent</relativePath>
 	</parent>
 </project>

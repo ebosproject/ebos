@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>ec.com.ebos</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.4.0.SNAPSHOT</version>
+		<version>0.4.0-SNAPSHOT</version>
 		<relativePath>../ec.com.ebos.parent</relativePath>
 	</parent>
 
@@ -72,7 +72,7 @@
 				<configuration>
 					<outputDirectory>${project.build.directory}/par-provided</outputDirectory>
 					<overWriteIfNewer>true</overWriteIfNewer>
-					<excludeGroupIds>ec.com.ebos,org.apache.log4j,com.h2database</excludeGroupIds>
+					<excludeGroupIds>ec.com.ebos</excludeGroupIds>
 				</configuration>
 				<executions>
 					<execution>
