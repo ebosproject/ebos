@@ -599,9 +599,9 @@
 			<version>${primefaces-extensions.version}</version>
 		</dependency> -->
 		<dependency>
-			<groupId>ec.com.ebos</groupId>
-			<artifactId>thirdparty</artifactId>
-			<version>0.4.0-SNAPSHOT</version>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
+			<version>0.7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
