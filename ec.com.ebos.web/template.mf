@@ -36,7 +36,7 @@ Import-Bundle:
  com.springsource.org.apache.tools.ant;version="[1.8.3,1.8.3]",
  com.springsource.com.sun.syndication;version="[1.0.0,1.0.0]",
  org.primefaces;version="[3.5.0,3.5.0]",
- ec.com.ebos.thirdparty;version="0.4.0-SNAPSHOT"
+ ec.com.ebos.primefaces-extensions;version="[0.7.1,0.7.1]"
 Import-Library:
  org.springframework.spring;version="[3.1.0.RELEASE,3.1.0.RELEASE]",
  org.hibernate.ejb;version="[3.4.0.GA-A,3.4.0.GA-A]",

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ec.com.ebos.thirdparty
-Bundle-SymbolicName: ec.com.ebos.thirdparty
-Bundle-Version: 0.4.0
+Bundle-Name: ec.com.ebos.primefaces-extensions
+Bundle-SymbolicName: ec.com.ebos.primefaces-extensions
+Bundle-Version: 0.7.1
 Bundle-Vendor: eBos

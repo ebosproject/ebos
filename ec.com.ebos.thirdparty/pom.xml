@@ -21,7 +21,7 @@
 					<groupId>org.eclipse.virgo.bundlor</groupId>
 					<artifactId>org.eclipse.virgo.bundlor.maven</artifactId>
 					<configuration>
-						<failOnWarnings>true</failOnWarnings>
+						<failOnWarnings>false</failOnWarnings>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -32,7 +32,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>2.3.1</version>
+					<version>2.4</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -48,7 +48,6 @@
 				<version>2.4.1</version>
 				<configuration>
 					<filesets>
-						<!-- clean old generated MANIFEST.MF files on clean -->
 						<fileset>
 							<directory>${basedir}/src/main/resources/META-INF</directory>
 							<includes>

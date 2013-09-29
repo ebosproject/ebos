@@ -190,8 +190,8 @@ Import-Bundle: com.springsource.javax.persistence;version="[1.99.0,1.9
  on="[3.2.1,3.2.1]",com.springsource.javax.mail;version="[1.4.5,1.4.5]
  ",com.springsource.org.apache.tools.ant;version="[1.8.3,1.8.3]",com.s
  pringsource.com.sun.syndication;version="[1.0.0,1.0.0]",org.primeface
- s;version="[3.5.0,3.5.0]",ec.com.ebos.thirdparty;version="0.4.0-SNAPS
- HOT"
+ s;version="[3.5.0,3.5.0]",ec.com.ebos.primefaces-extensions;version="
+ [0.7.1,0.7.1]"
 Bundle-ClassPath: .,WEB-INF/classes
 Bundle-Version: 0.4.0
 Tool: Bundlor 1.1.2.RELEASE
