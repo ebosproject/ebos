@@ -11,9 +11,9 @@
 	<name>eBos App Build</name>
 	<packaging>pom</packaging>
 	<modules>
+		<module>ec.com.ebos.thirdparty</module>
 		<module>ec.com.ebos.parent</module>
 		<module>ec.com.ebos.web</module>
 		<module>ec.com.ebos.solution</module>
-		<module>ec.com.ebos.thirdparty</module>
 	</modules>
 </project>

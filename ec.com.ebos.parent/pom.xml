@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ec.com.ebos</groupId>
-	<artifactId>parent</artifactId>
+	<artifactId>ec.com.ebos.parent</artifactId>
 	<version>0.4.0-SNAPSHOT</version>
 	<name>ec.com.ebos.parent</name>
 	<packaging>pom</packaging>
@@ -179,6 +179,7 @@
 	</pluginRepositories>
 
 	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

@@ -49,6 +49,7 @@ Excluded-Exports:
  jasperreports,
  resources
 Excluded-Imports:
+ lombok.libs.org.objectweb.asm.tree.analysis,
  com.sun.enterprise.web.connector.grizzly.comet,
  org.springframework.test.*,
  org.junit.*

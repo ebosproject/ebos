@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ec.com.ebos</groupId>
-	<artifactId>thirdparty</artifactId>
+	<artifactId>ec.com.ebos.thirdparty</artifactId>
 	<version>2.4.0.BUILD-SNAPSHOT</version>
 	<name>ec.com.ebos.thirdparty</name>
 	<description>Repackaged 3rd Party dependencies</description>
