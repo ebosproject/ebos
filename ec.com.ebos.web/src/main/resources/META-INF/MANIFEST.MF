@@ -174,24 +174,24 @@ Export-Package: ec.com.ebos.admin.core.exception;version="0.4.0";uses:
 Import-Bundle: com.springsource.javax.persistence;version="[1.99.0,1.9
  9.0]",com.springsource.org.apache.taglibs.standard;version="[1.1.2,2.
  0)",com.springsource.net.sf.ehcache;version="[2.2.0,2.2.0]",com.sprin
- gsource.net.sf.cglib;version="[2.2.0,2.2.0]",com.springsource.slf4j.l
- og4j;version="[1.6.1,1.6.1]",com.springsource.org.apache.log4j;versio
- n="[1.2.15,1.2.15]",org.glassfish.javax.faces;version="[2.1.18,2.1.18
- ]",com.springsource.javax.servlet;version="[2.5.0,2.5.0]",com.springs
- ource.org.apache.commons.logging;version="[1.1.1,1.1.1]",com.springso
- urce.org.apache.poi;version="[3.9.0.FINAL,3.9.0.FINAL]",com.springsou
- rce.com.lowagie.text;version="[2.0.8,2.0.8]",com.springsource.javax.e
- l;version="[2.1.0,2.1.0]",com.springsource.org.apache.commons.codec;v
- ersion="[1.6.0,1.6.0]",com.springsource.org.apache.commons.fileupload
- ;version="[1.2.1,1.2.1]",com.springsource.org.apache.commons.io;versi
- on="[1.4.0,1.4.0]",com.springsource.org.apache.commons.lang;version="
- [2.6.0,2.6.0]",com.springsource.org.apache.commons.beanutils;version=
- "[1.8.3,1.8.3]",com.springsource.org.apache.commons.collections;versi
- on="[3.2.1,3.2.1]",com.springsource.javax.mail;version="[1.4.5,1.4.5]
- ",com.springsource.org.apache.tools.ant;version="[1.8.3,1.8.3]",com.s
- pringsource.com.sun.syndication;version="[1.0.0,1.0.0]",org.primeface
- s;version="[3.5.0,3.5.0]",ec.com.ebos.primefaces-extensions;version="
- [0.7.1,0.7.1]"
+ gsource.net.sf.cglib;version="[2.2.0,2.2.0]",com.springsource.org.apa
+ che.log4j;version="[1.2.15,1.2.15]",org.glassfish.javax.faces;version
+ ="[2.1.18,2.1.18]",com.springsource.javax.servlet;version="[2.5.0,2.5
+ .0]",com.springsource.org.apache.commons.logging;version="[1.1.1,1.1.
+ 1]",com.springsource.org.apache.poi;version="[3.9.0.FINAL,3.9.0.FINAL
+ ]",com.springsource.com.lowagie.text;version="[2.0.8,2.0.8]",com.spri
+ ngsource.javax.el;version="[2.1.0,2.1.0]",com.springsource.org.apache
+ .commons.codec;version="[1.6.0,1.6.0]",com.springsource.org.apache.co
+ mmons.fileupload;version="[1.2.1,1.2.1]",com.springsource.org.apache.
+ commons.io;version="[1.4.0,1.4.0]",com.springsource.org.apache.common
+ s.lang;version="[2.6.0,2.6.0]",com.springsource.org.apache.commons.be
+ anutils;version="[1.8.3,1.8.3]",com.springsource.org.apache.commons.c
+ ollections;version="[3.2.1,3.2.1]",com.springsource.javax.mail;versio
+ n="[1.4.5,1.4.5]",com.springsource.org.apache.tools.ant;version="[1.8
+ .3,1.8.3]",com.springsource.com.sun.syndication;version="[1.0.0,1.0.0
+ ]",org.primefaces;version="[3.5.0,3.5.0]",ec.com.ebos.primefaces-exte
+ nsions;version="[0.7.1,0.7.1]",ec.com.ebos.lombok;version="[0.11.6,0.
+ 11.6]"
 Bundle-ClassPath: .,WEB-INF/classes
 Bundle-Version: 0.4.0
 Tool: Bundlor 1.1.2.RELEASE
@@ -208,47 +208,47 @@ Import-Package: com.sun.faces.config,freemarker.cache;version="[2.3.18
  ent,javax.faces.lifecycle,javax.faces.validator,javax.faces.view.face
  lets,javax.faces.webapp,javax.mail.internet,javax.naming,javax.persis
  tence,javax.servlet;version="[2.5.0,2.5.0]",javax.servlet.http,javax.
- servlet.jsp.jstl.core;version="[1.2.0, 2.0.0)",javax.sql,lombok,net.s
- f.ehcache,org.aopalliance.intercept,org.apache.commons.beanutils,org.
- apache.commons.lang,org.apache.commons.lang.time,org.apache.commons.l
- ogging,org.apache.log4j,org.aspectj.lang,org.aspectj.lang.annotation,
- org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",org.hibernate,org.h
- ibernate.annotations,org.hibernate.cfg,org.hibernate.classic,org.hibe
- rnate.criterion,org.hibernate.engine,org.hibernate.exception,org.hibe
- rnate.impl,org.hibernate.metadata,org.hibernate.persister.entity,org.
- hibernate.transform,org.hibernate.type,org.hibernate.usertype,org.pri
- mefaces.component.datatable,org.primefaces.component.menuitem,org.pri
- mefaces.component.panel,org.primefaces.component.submenu,org.primefac
- es.context,org.primefaces.event,org.primefaces.extensions.model.layou
- t,org.primefaces.model,org.primefaces.webapp.filter,org.springframewo
- rk.aop.framework;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springfr
- amework.beans.factory;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.spr
- ingframework.beans.factory.annotation;version="[3.1.0.RELEASE,3.1.0.R
- ELEASE]",org.springframework.beans.factory.config;version="[3.1.0.REL
- EASE,3.1.0.RELEASE]",org.springframework.cache.annotation;version="[3
- .1.0.RELEASE,3.1.0.RELEASE]",org.springframework.cache.ehcache;versio
- n="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.context;version
- ="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.context.annotati
- on;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.core.i
- o;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.dao;ver
- sion="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.jdbc.core;ve
- rsion="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.jdbc.object
- ;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.jdbc.sup
- port;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.jdbc
- .support.lob;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframew
- ork.mail;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.
- mail.javamail;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframe
- work.orm.hibernate3;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.sprin
- gframework.orm.hibernate3.annotation;version="[3.1.0.RELEASE,3.1.0.RE
- LEASE]",org.springframework.scheduling.annotation;version="[3.1.0.REL
- EASE,3.1.0.RELEASE]",org.springframework.stereotype;version="[3.1.0.R
- ELEASE,3.1.0.RELEASE]",org.springframework.transaction.annotation;ver
- sion="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.transaction.
- interceptor;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframewo
- rk.web.context;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springfram
- ework.web.context.request;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org
- .springframework.web.context.support;version="[3.1.0.RELEASE,3.1.0.RE
- LEASE]"
+ servlet.jsp.jstl.core;version="[1.2.0, 2.0.0)",javax.sql,lombok,lombo
+ k.core.debug;version="[0.11.6,0.11.6]",net.sf.ehcache,org.aopalliance
+ .intercept,org.apache.commons.beanutils,org.apache.commons.lang,org.a
+ pache.commons.lang.time,org.apache.commons.logging,org.apache.log4j,o
+ rg.aspectj.lang,org.aspectj.lang.annotation,org.eclipse.virgo.web.dm;
+ version="[3.0.0, 4.0.0)",org.hibernate,org.hibernate.annotations,org.
+ hibernate.cfg,org.hibernate.classic,org.hibernate.criterion,org.hiber
+ nate.engine,org.hibernate.exception,org.hibernate.impl,org.hibernate.
+ metadata,org.hibernate.persister.entity,org.hibernate.transform,org.h
+ ibernate.type,org.hibernate.usertype,org.primefaces.component.datatab
+ le,org.primefaces.component.menuitem,org.primefaces.component.panel,o
+ rg.primefaces.component.submenu,org.primefaces.context,org.primefaces
+ .event,org.primefaces.extensions.model.layout,org.primefaces.model,or
+ g.primefaces.webapp.filter,org.springframework.aop.framework;version=
+ "[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.beans.factory;ver
+ sion="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.beans.factor
+ y.annotation;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframew
+ ork.beans.factory.config;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.
+ springframework.cache.annotation;version="[3.1.0.RELEASE,3.1.0.RELEAS
+ E]",org.springframework.cache.ehcache;version="[3.1.0.RELEASE,3.1.0.R
+ ELEASE]",org.springframework.context;version="[3.1.0.RELEASE,3.1.0.RE
+ LEASE]",org.springframework.context.annotation;version="[3.1.0.RELEAS
+ E,3.1.0.RELEASE]",org.springframework.core.io;version="[3.1.0.RELEASE
+ ,3.1.0.RELEASE]",org.springframework.dao;version="[3.1.0.RELEASE,3.1.
+ 0.RELEASE]",org.springframework.jdbc.core;version="[3.1.0.RELEASE,3.1
+ .0.RELEASE]",org.springframework.jdbc.object;version="[3.1.0.RELEASE,
+ 3.1.0.RELEASE]",org.springframework.jdbc.support;version="[3.1.0.RELE
+ ASE,3.1.0.RELEASE]",org.springframework.jdbc.support.lob;version="[3.
+ 1.0.RELEASE,3.1.0.RELEASE]",org.springframework.mail;version="[3.1.0.
+ RELEASE,3.1.0.RELEASE]",org.springframework.mail.javamail;version="[3
+ .1.0.RELEASE,3.1.0.RELEASE]",org.springframework.orm.hibernate3;versi
+ on="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.orm.hibernate3
+ .annotation;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframewo
+ rk.scheduling.annotation;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.
+ springframework.stereotype;version="[3.1.0.RELEASE,3.1.0.RELEASE]",or
+ g.springframework.transaction.annotation;version="[3.1.0.RELEASE,3.1.
+ 0.RELEASE]",org.springframework.transaction.interceptor;version="[3.1
+ .0.RELEASE,3.1.0.RELEASE]",org.springframework.web.context;version="[
+ 3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.web.context.request
+ ;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springframework.web.cont
+ ext.support;version="[3.1.0.RELEASE,3.1.0.RELEASE]"
 Bundle-SymbolicName: ec.com.ebos.web
 Web-ContextPath: ebos
 

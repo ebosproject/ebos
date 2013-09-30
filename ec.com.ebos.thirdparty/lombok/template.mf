@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ec.com.ebos.lombok
+Bundle-SymbolicName: ec.com.ebos.lombok
+Bundle-Version: 0.11.6
+Bundle-Vendor: eBos
+Excluded-Imports: lombok.libs.org.objectweb.asm.tree.analysis,
+ org.eclipse.*

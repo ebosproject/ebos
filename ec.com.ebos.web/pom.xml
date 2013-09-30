@@ -374,13 +374,19 @@
 			<version>1.6.1</version>
 		</dependency> -->
 
-		<!--LOMBOK -->
+		<!-- LOMBOK BUNDLE -->
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>ec.com.ebos.lombok</artifactId>
+			<version>0.11.6</version>
+		</dependency>
+		<!-- LOMBOK -->
+		<!-- <dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>0.11.6</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency>-->
 
 		<!-- SUN JSF BUNDLE -->
 		<dependency>

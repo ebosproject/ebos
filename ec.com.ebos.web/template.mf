@@ -12,13 +12,13 @@ Import-Package:
  javax.servlet.jsp.jstl.core;version="[1.2.0, 2.0.0)",
  javax.servlet;version="[2.5.0,2.5.0]",
  org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",
- freemarker.cache;version="[2.3.18,2.3.18]"
+ freemarker.cache;version="[2.3.18,2.3.18]",
+ lombok.core.debug;version="[0.11.6,0.11.6]"
 Import-Bundle:
  com.springsource.javax.persistence;version="[1.99.0,1.99.0]",
  com.springsource.org.apache.taglibs.standard;version="[1.1.2,2.0)",
  com.springsource.net.sf.ehcache;version="[2.2.0,2.2.0]",
  com.springsource.net.sf.cglib;version="[2.2.0,2.2.0]",
- com.springsource.slf4j.log4j;version="[1.6.1,1.6.1]",
  com.springsource.org.apache.log4j;version="[1.2.15,1.2.15]",
  org.glassfish.javax.faces;version="[2.1.18,2.1.18]",
  com.springsource.javax.servlet;version="[2.5.0,2.5.0]",
@@ -36,7 +36,8 @@ Import-Bundle:
  com.springsource.org.apache.tools.ant;version="[1.8.3,1.8.3]",
  com.springsource.com.sun.syndication;version="[1.0.0,1.0.0]",
  org.primefaces;version="[3.5.0,3.5.0]",
- ec.com.ebos.primefaces-extensions;version="[0.7.1,0.7.1]"
+ ec.com.ebos.primefaces-extensions;version="[0.7.1,0.7.1]",
+ ec.com.ebos.lombok;version="[0.11.6,0.11.6]"
 Import-Library:
  org.springframework.spring;version="[3.1.0.RELEASE,3.1.0.RELEASE]",
  org.hibernate.ejb;version="[3.4.0.GA-A,3.4.0.GA-A]",
@@ -47,6 +48,7 @@ Excluded-Exports:
  ec.com.ebos,
  jasperreports,
  resources
-Excluded-Imports: 
+Excluded-Imports:
+ com.sun.enterprise.web.connector.grizzly.comet,
  org.springframework.test.*,
  org.junit.*

@@ -4,3 +4,4 @@ Bundle-Name: ec.com.ebos.primefaces-extensions
 Bundle-SymbolicName: ec.com.ebos.primefaces-extensions
 Bundle-Version: 0.7.1
 Bundle-Vendor: eBos
+Excluded-Imports: org.apache.poi.xssf.usermodel
