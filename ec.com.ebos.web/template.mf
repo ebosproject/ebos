@@ -11,9 +11,11 @@ Import-Template:
  lombok.*;version="[0.11.6,0.11.6]"
 Import-Package: 
  javax.servlet.jsp.jstl.core;version="[1.2.0, 2.0.0)",
- javax.servlet;version="[2.5.0,2.5.0]",
  org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",
- freemarker.cache;version="[2.3.18,2.3.18]"
+ freemarker.cache;version="[2.3.18,2.3.18]",
+ org.springframework.remoting.jaxrpc;version="[3.1.1.RELEASE,3.1.1.RELEASE]",
+ com.sun.faces.el;version="[2.1.0,2.1.0]",
+ javax.faces.convert;version="[2.1.0,2.1.0]"
 Import-Bundle:
  com.springsource.javax.persistence;version="[1.99.0,1.99.0]",
  com.springsource.org.apache.taglibs.standard;version="[1.1.2,2.0)",
@@ -21,7 +23,7 @@ Import-Bundle:
  com.springsource.net.sf.cglib;version="[2.2.0,2.2.0]",
  com.springsource.org.apache.log4j;version="[1.2.15,1.2.15]",
  org.glassfish.javax.faces;version="[2.1.18,2.1.18]",
- com.springsource.javax.servlet;version="[2.5.0,2.5.0]",
+ javax.servlet;version="[3.0.0.v201112011016,3.0.0.v201112011016]",
  com.springsource.org.apache.commons.logging;version="[1.1.1,1.1.1]",
  com.springsource.org.apache.poi;version="[3.9.0.FINAL,3.9.0.FINAL]",
  com.springsource.com.lowagie.text;version="[2.0.8,2.0.8]",
@@ -37,11 +39,11 @@ Import-Bundle:
  com.springsource.com.sun.syndication;version="[1.0.0,1.0.0]",
  org.primefaces;version="[3.5.0,3.5.0]",
  ec.com.ebos.primefaces-extensions;version="[0.7.1,0.7.1]",
- ec.com.ebos.lombok;version="[0.11.6,0.11.6]"
+ ec.com.ebos.lombok;version="[0.11.6,0.11.6]",
+ com.springsource.org.aspectj.weaver;version="[1.6.12.RELEASE,1.6.12.RELEASE]"
 Import-Library:
  org.springframework.spring;version="[3.1.1.RELEASE,3.1.1.RELEASE]",
  org.hibernate.ejb;version="[3.4.0.GA-A,3.4.0.GA-A]",
- org.aspectj;version="[1.6.1,1.6.1]",
  org.jfree.chart;version="[1.0.9,1.0.9]"
 Excluded-Exports: 
  ec.com.ebos*,
@@ -52,7 +54,6 @@ Excluded-Exports:
  templates*,
  ui*
 Excluded-Imports:
- org.springframework.remoting.jaxrpc,
  org.springframework.test.*,
  org.junit.*
 Bundle-Vendor: eBos

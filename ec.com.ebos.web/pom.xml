@@ -266,7 +266,7 @@
 		</dependency> -->
 
 		<!-- ASPECTJ BUNDLE -->
-		 <dependency>
+ 		 <dependency>
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>org.aspectj-library</artifactId>
 		    <type>libd</type>
@@ -411,11 +411,11 @@
 		</dependency> -->
 		
 		<!-- JAVA SERVLET API BUNDLE -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>com.springsource.javax.servlet</artifactId>
 		    <version>2.5.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- JAVA SERVLET API-->
 		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
