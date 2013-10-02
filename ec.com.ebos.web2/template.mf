@@ -1,25 +1,12 @@
 Manifest-Version: 1.0
+Bundle-ClassPath: .,WEB-INF/classes
 Bundle-ManifestVersion: 2
 Bundle-Name: ec.com.ebos.web2
-Bundle-SymbolicName: ec.com.ebos.web2
-Bundle-Version: 0.4.0
-Bundle-ClassPath: .,WEB-INF/classes
-Web-ContextPath: ebos
-Import-Template: 
- org.springframework.*;version="[3.1.1.RELEASE,3.1.1.RELEASE]"
-Import-Bundle:
- org.glassfish.javax.faces;version="[2.1.18,2.1.18]",
- javax.servlet;version="[3.0.0.v201112011016,3.0.0.v201112011016]",
- org.primefaces;version="[3.5.0,3.5.0]"
-Import-Library:
- org.springframework.spring;version="[3.1.1.RELEASE,3.1.1.RELEASE]"
-Excluded-Exports: 
- jasperreports,
- resources*,
- modules*,
- templates*,
- ui*
-Excluded-Imports:
- org.springframework.test.*,
- org.junit.*
 Bundle-Vendor: eBos
+Bundle-Version: 0.4.0
+Bundle-SymbolicName: ec.com.ebos.web2
+Web-ContextPath: ebos
+Import-Bundle:
+ org.glassfish.javax.faces;version="[2.1.18,2.1.18]"
+Excluded-Imports: 
+ resources
