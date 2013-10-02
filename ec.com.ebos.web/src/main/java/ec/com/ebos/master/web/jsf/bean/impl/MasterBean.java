@@ -1,10 +1,10 @@
-package ec.com.ebos.conta.web.jsf.bean;
+package ec.com.ebos.master.web.jsf.bean.impl;
 
 import javax.faces.bean.ManagedProperty;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.conta.core.service.ContaS;
+import ec.com.ebos.master.core.service.MasterS;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.web.jsf.bean.impl.RootBeanImpl;
 
@@ -12,15 +12,15 @@ import ec.com.ebos.root.web.jsf.bean.impl.RootBeanImpl;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-24 
  */
-public abstract class ContaBean<T extends Entidad<T>> extends RootBeanImpl<T> {
+public abstract class MasterBean<T extends Entidad<T>> extends RootBeanImpl<T> {
 
 	private static final long serialVersionUID = -5560084142240463124L;
-
-	@Getter @Setter
-    @ManagedProperty(value = "#{contaS}")
-    protected ContaS contaS;
 	
-	public ContaBean() {
+	@Getter @Setter
+    @ManagedProperty(value = "#{masterS}")
+    protected MasterS masterS;
+	
+	public MasterBean() {
         super();
     }
 	

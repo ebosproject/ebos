@@ -81,6 +81,12 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>ec.com.ebos</groupId>
+			<artifactId>ec.com.ebos.core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<!-- SPRING DM -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -90,7 +96,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>org.springframework.aspects</artifactId>
-			<version>3.1.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.freemarker</groupId>
@@ -1391,21 +1396,6 @@
 			</build>
 		</profile>
 	</profiles>
-
-	<properties>
-		<ebos.version>${project.version}</ebos.version>
-		<java.version.compiler>1.6</java.version.compiler>
-		<java.version.source>1.6</java.version.source>
-		<java.version.target>1.6</java.version.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.1.1.RELEASE</spring.version>
-		<hibernate.version>3.2.7.ga</hibernate.version>
-		<jsf.version>2.1.18</jsf.version>
-		<primefaces.theme.version>1.0.9</primefaces.theme.version>
-		<primefaces.version>3.5</primefaces.version>
-		<primefaces-extensions.version>0.7.1</primefaces-extensions.version>
-		<postgres.version>9.0-801.jdbc4</postgres.version>
-	</properties>
 
 	<parent>
 		<groupId>ec.com.ebos</groupId>

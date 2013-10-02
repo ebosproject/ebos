@@ -64,10 +64,6 @@
 				<type>libd</type>
 				<version>1.6.1</version>
 			</dependency>
-			<!-- <dependency> <groupId>org.aspectj</groupId> <artifactId>com.springsource.org.aspectj.weaver</artifactId> 
-				<version>1.6.1</version>org.springframework.spring-library </dependency> 
-				<dependency> <groupId>org.aspectj</groupId> <artifactId>com.springsource.org.aspectj.runtime</artifactId> 
-				<version>1.6.1</version> </dependency> -->
 			<dependency>
 				<groupId>org.freemarker</groupId>
 				<artifactId>com.springsource.freemarker</artifactId>
@@ -86,8 +82,11 @@
 				<version>3.1.0.RELEASE</version>
 				<scope>test</scope>
 			</dependency>
-			<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>org.springframework.aspects</artifactId> 
-				<version>3.0.5.RELEASE</version> <scope>test</scope> </dependency> -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>org.springframework.aspects</artifactId>
+				<version>3.1.1.RELEASE</version>
+			</dependency>
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet</artifactId>
@@ -208,7 +207,7 @@
 				<version>2.4</version>
 				<configuration>
 					<archive>
-						 <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile> 
+						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
 					</archive>
 				</configuration>
 			</plugin>
@@ -247,21 +246,16 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-			        <groupId>org.eclipse.virgo.bundlor</groupId>
-			        <artifactId>org.eclipse.virgo.bundlor.maven</artifactId>
-			        <configuration>
-						<failOnWarnings>false</failOnWarnings>
-					</configuration>
-	      		</plugin>
-				<!-- <plugin>
-					<groupId>com.springsource.bundlor</groupId>
-					<artifactId>com.springsource.bundlor.maven</artifactId>
-					<version>1.0.0.RELEASE</version>
+					<groupId>org.eclipse.virgo.bundlor</groupId>
+					<artifactId>org.eclipse.virgo.bundlor.maven</artifactId>
 					<configuration>
 						<failOnWarnings>false</failOnWarnings>
 					</configuration>
-				</plugin> -->
-				
+				</plugin>
+				<!-- <plugin> <groupId>com.springsource.bundlor</groupId> <artifactId>com.springsource.bundlor.maven</artifactId> 
+					<version>1.0.0.RELEASE</version> <configuration> <failOnWarnings>false</failOnWarnings> 
+					</configuration> </plugin> -->
+
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -319,6 +313,18 @@
 
 	<properties>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<ebos.version>${project.version}</ebos.version>
+		<java.version.compiler>1.6</java.version.compiler>
+		<java.version.source>1.6</java.version.source>
+		<java.version.target>1.6</java.version.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.1.1.RELEASE</spring.version>
+		<hibernate.version>3.2.7.ga</hibernate.version>
+		<jsf.version>2.1.18</jsf.version>
+		<primefaces.theme.version>1.0.9</primefaces.theme.version>
+		<primefaces.version>3.5</primefaces.version>
+		<primefaces-extensions.version>0.7.1</primefaces-extensions.version>
+		<postgres.version>9.0-801.jdbc4</postgres.version>
 	</properties>
 
 </project>
