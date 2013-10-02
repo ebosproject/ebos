@@ -1,0 +1,87 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"                
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">    
+    <ui:param name="update" value=""/>        
+    <h:form id="frmOpcion">                        
+        <p:toolbar id="toolBarDetalle">
+            <p:toolbarGroup align="right">
+                <p:commandButton id="agregarOpcionBtn" value="Agregar" type="button" rendered="#{bean.habilitaCrear}"/>
+                <p:commandButton id="guardarRolOpcionBtn" value="Guardar" type="push" rendered="#{bean.habilitaEditar}"
+                                 action="#{bean.guardarRolOpcionList}" update="#{update}"/>
+                <p:commandButton id="eliminarRolOpcionBtn" value="Eliminar" type="push" rendered="#{bean.habilitaEliminar}"
+                                 action="#{bean.eliminarRolOpcionList}" update="#{update}"/>
+            </p:toolbarGroup>
+        </p:toolbar>
+        <p:overlayPanel for="agregarOpcionBtn" dynamic="true" my="left bottom" >
+            <p:dataTable id="opcionList" var="reg" value="#{bean.opcionList}" paginator="true" rows="10">
+                <p:column id="id" headerText="#{msg.ebSel}">
+                    <h:commandLink value="#{reg.id}" action="#{bean.agregarRolOpcion}" id="cmlEditar">
+                        <f:setPropertyActionListener value="#{reg}" target="#{bean.selectedOpcion}"/>
+                        <p:ajax update="#{update}" />
+                    </h:commandLink>
+                </p:column>
+
+                <p:column id="nombre" headerText="#{msg.name}">
+                    <eb:outputText value="#{reg.nombre}" />
+                </p:column>
+                <p:column id="descripcion" headerText="#{msg.description}">
+                    <eb:outputText value="#{reg.descripcion}"/>            
+                </p:column>
+                <p:column id="etiqueta" headerText="#{msg.label}">
+                    <eb:outputText value="#{reg.etiqueta}" />
+                </p:column>
+                <p:column id="target" headerText="#{msg.target}">
+                    <eb:outputText value="#{reg.target}" />
+                </p:column>
+            </p:dataTable>
+        </p:overlayPanel>
+
+        <p:dataTable id="dtRolOpcionList" var="reg" value="#{bean.rolOpcionList}" 
+                     rowKey="#{reg.id}" selection="#{bean.selectedRolOpcionList}" paginator="true" rows="12">
+
+            <p:column selectionMode="multiebe" rendered="#{bean.habilitaEliminar or bean.habilitaEditar}"/>
+
+            <p:column id="opcion" headerText="#{msg.option}">
+                <eb:outputText value="#{reg.opcion.etiqueta}" />
+            </p:column>
+
+            <p:column id="padre" headerText="#{msg.parent}">
+                <eb:outputText value="#{reg.opcion.padre.etiqueta}" />
+            </p:column>
+
+            <p:column id="estado" headerText="#{msg.status}">
+                <eb:outputText value="#{reg.estado.label}" />
+            </p:column>
+
+            <p:column id="crear" headerText="#{msg.create}">
+                <p:selectBooleanCheckbox value="#{reg.crear}"/>
+            </p:column>
+
+            <p:column id="editar" headerText="#{msg.edit}">
+                <p:selectBooleanCheckbox value="#{reg.editar}"/>
+            </p:column>
+
+            <p:column id="eliminar" headerText="#{msg.delete}">
+                <p:selectBooleanCheckbox value="#{reg.eliminar}"/>
+            </p:column>
+
+            <p:column id="exportar" headerText="#{msg.export}">
+                <p:selectBooleanCheckbox value="#{reg.exportar}"/>
+            </p:column>
+
+            <p:column id="creado" headerText="#{msg.created}">
+                <eb:outputDate value="#{reg.creado}" />
+            </p:column>
+
+            <p:column id="modificado" headerText="#{msg.modified}">
+                <eb:outputDate value="#{reg.modificado}" />
+            </p:column>
+
+        </p:dataTable>
+
+    </h:form>   
+</ui:composition>
+

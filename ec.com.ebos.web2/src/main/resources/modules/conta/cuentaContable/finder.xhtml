@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:ui="http://java.sun.com/jsf/facelets"
+            xmlns:p="http://primefaces.org/ui"
+            xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+            xmlns:f="http://java.sun.com/jsf/core"
+            template="/templates/tplFinder.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+   	<ui:param name="bean" value="#{cuentaContableBean}" />
+    <ui:param name="optionTitle" value="#{msg.cuentaContable}" />
+    
+    <ui:define name="filters">
+        
+    </ui:define>
+
+    <ui:define name="results">
+    	<f:facet name="header">  
+	    	#{msg.cuentaContableList}
+	    </f:facet>  
+	                 
+    </ui:define>
+    
+</ui:composition>

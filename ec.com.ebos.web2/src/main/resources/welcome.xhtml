@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<!-- xmlns:p="http://primefaces.org/ui" -->
+	
+	
+	<h:head>
+		<f:facet name="first">
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>            
+          <title>msg.systemName</title>
+       	</f:facet> 
+       	<h:outputStylesheet id="componentes" library="css" name="componentes.css" />            
+        <h:outputStylesheet id="estilos" library="css" name="estilos.css" />
+        <!-- <h:outputScript library="js" name="jquery-1.7.2.js" /> -->
+        <!-- <h:outputScript library="primefaces" name="jquery/jquery.js" /> -->
+        <link rel="shortcut icon" href="resources/images/ebos-ico.png" />
+		<script type="text/javascript">//<![CDATA[
+			window.history.forward(1); 
+		    var $ = jQuery.noConflict();
+		    function sendHome(){
+			    location.href="./home.jsf";
+		    }   
+		//]]>
+		</script>
+		<style type="text/css">
+		    .div-welcome{
+		        background:url(resources/images/ebos.png) no-repeat center center;
+		        overflow: hidden !important;
+	        	margin: 0px; 
+				right: 0px; 
+				bottom: 0px; 
+				height: 100%; 
+				width: 100%; 
+				position: absolute;
+				cursor: pointer;
+		    }
+		</style>
+	</h:head> 
+	<h:body>
+		<div class="div-welcome" title="msg.systemName" onclick="javascript:sendHome();"/>
+		<!-- <ui:include id="pnlViewExpired" src="/ui/pnlViewExpired.xhtml" /> -->
+	</h:body> 
+</html>

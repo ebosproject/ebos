@@ -35,7 +35,7 @@
 		</dependency> -->
 		<dependency>
 			<groupId>ec.com.ebos</groupId>
-			<artifactId>ec.com.ebos.web</artifactId>
+			<artifactId>ec.com.ebos.web2</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<!-- Needs to be included in the PAR so that its classes are loadable via the PAR's synthetic context class loader -->

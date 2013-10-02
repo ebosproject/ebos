@@ -1,6 +1,0 @@
-Library-SymbolicName: org.jfree.chart
-Library-Version: 1.0.9
-Library-Name: JFreeChart
-Import-Bundle: 
- com.springsource.org.jfree.chart;version="[1.0.9, 1.0.9]",
- com.springsource.org.jfree;version="[1.0.12, 1.0.12]"

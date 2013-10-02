@@ -1,0 +1,66 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+		
+	<p:log id="logger" widgetVar="wgtLogger" rendered="#{sessionBean.usuario.username eq 'admin'}"/>
+	<p:draggable for="logger" opacity="0.5" dragOnly="true" containment="#center" handle=".ui-log-header"/>
+	<p:menubar id="menubar" autoDisplay="false" showEffect="slide">
+		<p:menuitem value="#{msg.options}" url="javascript:void(0)" onclick="wgtMain.show()" icon="ui-icon-star" process="@none"/>
+		<p:submenu label="#{msg.account}">
+			<p:menuitem value="#{msg.changePassword}" url="javascript:void(0)" onclick="wgtChangePwd.show()"/>
+			<p:menuitem value="#{msg.controlPanel}" url="javascript:void(0)" onclick="wgtCtrlPnl.show()"/>
+		</p:submenu>
+		<p:menuitem value="#{msg.about}" url="javascript:void(0)" onclick="wgtAbout.show()" icon="ui-icon ui-icon-info"/>
+		<p:menuitem value="#{msg.fullscreen}" url="javascript:void(0)" onclick="fullscreen()"/>
+		<f:facet name="options">
+			<h:panelGrid id="pngOptions" columns="10">
+				<form id="frmUpdDesk">
+					<p:commandButton icon="ui-icon-refresh" update="pnlFrames,frmDashboard" title="#{msg.updateDesk}" immediate="true"/>
+				</form>
+				
+				<eb:inputText id="find" watermark="#{msg.find}" />
+			
+				<p:clock autoSync="true" mode="server" pattern="HH:mm"/>
+			
+				<p:spacer width="5"/>
+				
+				<h:form id="frmThemeSwitcher">
+					<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherBean.tema}" var="t" 
+						style="width:175px;" effect="fade" >
+						<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
+						<f:selectItems value="#{themeSwitcherBean.temasAvanzados}"
+							var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
+						<p:ajax listener="#{themeSwitcherBean.saveTheme}" />
+						<p:column>
+							<h:graphicImage name="images/themes/#{t.imagen}" />
+						</p:column>
+						<p:column>
+			           		#{t.nombre}
+			            </p:column>
+					</p:themeSwitcher>
+				</h:form>
+				<h:form id="frmLang">
+					<p:selectOneMenu id="locale" value="#{sessionBean.localidad}" effect="fade">
+			   			<f:selectItems value="#{sessionBean.localidadList}" var="loc"
+	                		itemLabel="#{msg[loc.label]}" itemValue="#{loc}"/> 
+	                	<p:ajax listener="#{sessionBean.saveLocale}" update="@all"/>	
+			   		</p:selectOneMenu>			   		
+				</h:form>			
+				<h:form id="frmLogout" prependId="false">
+					<p:commandButton value="#{msg.ebSalir} (#{sessionBean.usuario.username})"
+						actionListener="#{sessionBean.cerrarSesion}" icon="ui-icon-extlink" onstart="wgtAS.show();wgtLogger.hide();" update=":pngHome, :pngWelcome"/>
+				</h:form>
+			</h:panelGrid>	
+		</f:facet>					
+	</p:menubar>
+	<!-- <p:growl id="grwHome" autoUpdate="true" sticky="true" widgetVar="wgtGrwHome" life="5000" showDetail="true"/>-->
+	<ui:include id="pnlTimeout" src="pnlTimeout.xhtml" />
+	<ui:include id="pnlChangePwd" src="pnlChangePswd.xhtml" /> 
+    <ui:include id="secAbout" src="about.xhtml" /> 
+	
+	<eb:frame id="ctrlPnl" widgetVar="wgtCtrlPnl" iframe="true" visible="false"
+   		header="controlPanel"/>
+	
+</ui:composition>

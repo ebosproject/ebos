@@ -15,6 +15,7 @@
 		<module>ec.com.ebos.parent</module>
 		<module>ec.com.ebos.core</module>
 		<module>ec.com.ebos.web</module>
+		<module>ec.com.ebos.web2</module>
 		<module>ec.com.ebos.solution</module>
 	</modules>
 </project>

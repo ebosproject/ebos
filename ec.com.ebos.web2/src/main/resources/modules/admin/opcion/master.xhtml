@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"                
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/templates/tplMaster.xhtml">
+
+	<ui:define name="params">
+		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
+				'center':{'resizeWhileDragging':true,'closable':false,
+					'childOptions':{'south':{'resizable':false},'center':{'maxHeight':80}}}"/>
+	</ui:define>
+
+    <ui:define name="header">
+        <ui:param name="opcion" value="#{bean.activeEntity}" />    
+	 
+	    <eb:panelGrid id="pnlOpcion" columns="4">        
+                
+           <p:outputLabel for="id" value="#{msg.id}"/>
+	       <eb:outputText id="id" value="#{opcion.id}"/>
+	       <p:outputLabel for="estado" value="#{msg.status}"/>                
+	       <eb:outputText id="estado" value="#{msg[opcion.estado.label]}"/>                
+	        
+	       <p:outputLabel for="creado" value="#{msg.created}"/>
+	       <eb:outputDate id="creado" value="#{opcion.creado}" title="#{msg.by}: {opcion.creador}"/>               
+	       <p:outputLabel for="modificado" value="#{msg.modified}"/>
+	       <eb:outputDate id="modificado" value="#{opcion.modificado}" title="#{msg.by}: {opcion.modificador}"/>
+	               
+           <p:outputLabel for="nombre" value="#{msg.name}"/>
+	       <eb:inputText id="nombre" value="#{opcion.nombre}" required="true"/>
+	       <p:outputLabel for="descripcion" value="#{msg.description}"/>
+	       <eb:inputText id="descripcion" value="#{opcion.descripcion}" maxlength="500"/>        
+	               
+	       <p:outputLabel for="etiqueta" value="#{msg.label}"/>
+	       <eb:inputText id="etiqueta" value="#{opcion.etiqueta}" required="true" maxlength="20"/>
+	       <p:outputLabel for="target" value="#{msg.target}"/>               
+	       <eb:inputText id="target" value="#{opcion.target}" required="true" maxlength="200"/> 
+
+		   <p:outputLabel for="icono" value="#{msg.icon}"/>	               
+	       <eb:inputText id="icono" value="#{opcion.icono}"/>
+	       <p:outputLabel for="padre" value="#{msg.parent}"/>        
+	       <p:selectOneMenu id="padre" value="#{opcion.padre}" efect="fade" converter="#{opcionBean.opcionConverter}">
+	            <f:selectItem itemLabel ="#{msg.selectOne}" itemValue="" />
+	            <f:selectItems value="#{bean.opcionList}" var="opc"
+	                itemLabel="#{msg[opc.etiqueta]}" itemValue="#{opc}"/>
+	       </p:selectOneMenu>
+	       
+	       <p:outputLabel for="width" value="#{msg.width}"/>
+	       <eb:inputNumber id="width" value="#{opcion.width}" symbol=" px"	minValue="0" maxValue="1000"/>
+	       
+	       <p:outputLabel for="height" value="#{msg.height}"/>
+	       <eb:inputNumber id="height" value="#{opcion.height}" symbol=" px" minValue="0" maxValue="1000"/>
+	    </eb:panelGrid>   
+
+    </ui:define>
+    	
+<ui:remove>	
+    <ui:define name="detail">
+       <ui:include src="*.xhtml"/>
+    </ui:define>
+</ui:remove>
+
+</ui:composition>

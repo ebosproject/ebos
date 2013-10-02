@@ -1,0 +1,16 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:eb="http://ebos.com.ec/ui">	
+
+	<div id="desk" style="left: 0px;">
+		<ui:include id="north" src="north.xhtml" />
+		<ui:include id="west" src="west.xhtml" />
+		<div id="center">
+			<ui:include id="center" src="center.xhtml" />
+		</div>
+		<div id="south" class="ui-menu ui-menubar ui-widget ui-widget-content ui-corner-all ui-helper-clearfix">
+			<ui:include id="south" src="south.xhtml" />
+		</div>
+	</div>	
+	
+</ui:composition>

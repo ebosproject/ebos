@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <cc:interface displayName="frame" >
+    	<cc:attribute name="optionId" type="java.lang.String"/>
+    	<cc:attribute name="parentId" type="java.lang.String"/>
+        <cc:attribute name="maximizable" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="minimizable" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="resizable" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="visible" type="java.lang.Boolean" default="true"/>
+        <cc:attribute name="dynamic" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="modal" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="draggable" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="iframe" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="appendToBody" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="src" type="java.lang.String"/>
+        <cc:attribute name="url" type="java.lang.String"/>
+        <cc:attribute name="onHide" type="java.lang.String"/>
+        <cc:attribute name="onShow" type="java.lang.String"/>
+        <cc:attribute name="oncomplete" type="java.lang.String" default="alert('Cargando..');"/>
+        <cc:attribute name="widgetVar" type="java.lang.String" default="wgt#{cc.attrs.id}"/>
+        <!-- <cc:attribute name="hideEffect" type="java.lang.String" default="drop"/>-->
+        <cc:attribute name="hideEffect" type="java.lang.String"/>
+        <cc:attribute name="showEffect" type="java.lang.String" default="fade"/>
+        <cc:attribute name="header" type="java.lang.String"/>
+        <cc:attribute name="update" type="java.lang.String"/>
+        <!-- <cc:attribute name="footer" /> -->
+        <cc:attribute name="width" default="700"/>
+        <cc:attribute name="height" default="450"/>
+    </cc:interface>
+
+    <cc:implementation>
+        <p:dialog id="dlg"
+        	widgetVar="#{cc.attrs.widgetVar}"
+        	maximizable="#{cc.attrs.maximizable}"
+        	minimizable="#{cc.attrs.minimizable}"
+        	resizable="#{cc.attrs.resizable}"
+        	onHide="#{cc.attrs.onHide}"
+        	onShow="#{cc.attrs.onShow}"
+        	oncomplete="#{cc.attrs.oncomplete}"
+        	width="#{cc.attrs.width}"
+        	height="#{cc.attrs.height}"
+        	header="#{msg[cc.attrs.header]}"
+        	visible="#{cc.attrs.visible}"
+        	dynamic="#{cc.attrs.dynamic}"        	
+        	hideEffect="#{cc.attrs.hideEffect}"
+        	showEffect="#{cc.attrs.showEffect}"
+        	modal="#{cc.attrs.modal}" 
+        	draggable="#{cc.attrs.draggable}"
+        	appendToBody="#{cc.attrs.appendToBody}">
+        	
+        	<p:outputPanel rendered="#{not cc.attrs.iframe}">
+				<ui:include src="#{cc.attrs.src}">
+					<ui:param name="frameId" value="#{cc.attrs.id}"/>
+					<ui:param name="wgtFrame" value="#{cc.attrs.widgetVar}"/>
+					<ui:param name="widthFrame" value="#{cc.attrs.width}" />
+					<ui:param name="heightFrame" value="#{cc.attrs.height}" />
+				</ui:include>
+			</p:outputPanel>
+			
+			<p:outputPanel rendered="#{cc.attrs.iframe}">
+				<h:form id="frmIframe" style="height:100%; width:100%">
+					<h:panelGrid cellpadding="7" width="100%" columns="3" columnClasses="width20px,,width20px">
+						<p:outputLabel for="url" value="#{msg.url}"/>
+						<p:inputText id="url" value="#{deskBean.url}" styleClass="width100"/>
+						<p:commandButton icon="ui-icon-refresh" partialSubmit="true" 
+							process="url" update="out"/>
+					</h:panelGrid>
+					<p:outputPanel id="out">
+						<iframe src="#{deskBean.url}" height="90%" width="100%" frameborder="0">
+							<p>Your browser does not support iframes.</p>
+						</iframe>
+					</p:outputPanel>
+				</h:form>
+			</p:outputPanel>
+			
+			<f:attribute name="optionId" value="#{cc.attrs.optionId}"/>
+			<p:ajax event="close" listener="#{deskBean.closeFrame}" global="false" />
+			
+			<p:draggable for="dlg" 
+		        opacity="0.2" 
+		        dragOnly="true"
+		        containment="#center"/>
+		        <!-- handle=".ui-dialog-titlebar" -->
+		    
+        </p:dialog>
+        
+    </cc:implementation>  
+
+</html>

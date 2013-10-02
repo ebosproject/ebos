@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <cc:interface displayName="inputText" >
+        <cc:attribute name="value" required="true" />    
+        <cc:attribute name="label" required="true"/>
+        <cc:attribute name="required" default="false" type="java.lang.Boolean"/>
+        <cc:attribute name="maxlength" default="25" />
+        <cc:attribute name="disabled" default="false" type="java.lang.Boolean"/>
+    </cc:interface>
+
+    <cc:implementation>         
+        <h:outputLabel value="#{cc.attrs.label} #{cc.attrs.required?'*':''}" 
+                       for="#{cc.attrs.id}" 
+                       rendered="#{not empty cc.attrs.label}" 
+                       styleClass="ui-widget"/>                        
+        <td>
+            <p:inputText required="#{cc.attrs.required}" 
+                         value="#{cc.attrs.value}" 
+                         rendered="#{cc.attrs.rendered}"                         
+                         maxlength="#{cc.attrs.maxlength}"
+                         disabled="#{cc.attrs.disabled}"
+                         label="#{cc.attrs.label}"/>            
+        </td>
+
+    </cc:implementation>  
+
+</html>

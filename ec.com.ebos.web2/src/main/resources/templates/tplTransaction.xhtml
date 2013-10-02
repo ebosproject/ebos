@@ -1,0 +1,64 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+                xmlns:pe="http://primefaces.org/ui/extensions">
+
+	<ui:param name="wgtBUI" value="wgtBUI#{frameId}" />
+    <ui:param name="wgtE" value="wgtE#{frameId}" />
+	<ui:insert name="params">
+		<ui:remove>
+	 		Se debe definir este parametro los archivos que implementen esta plantilla para sobreescribir el disenio del mismo
+		</ui:remove>
+		<ui:param name="optionsTransaction" value="'north':{'closable':false,'resizable':true,'size':50},
+				'south':{'closable':true, 'size':35},
+				'center':{'minHeight':60, 'resizeWhileDragging':true, 'closable':false, 'minWidth':200, 'resizable':true}"/>
+	</ui:insert>
+	
+	<pe:layout id="lytTransaction" fullPage="false" style="min-height:450px; min-width:700px; height:100%; width:100%;" 
+		options="{'panes':{'resizeWhileDragging':true,'slidable':false,'resizeWithWindow':true},#{optionsTransaction}}">
+		<pe:layoutPane position="north">
+			<h:form id="frmTT">
+                 <p:toolbar id="tbrTT" style="overflow:hidden !important;">
+		           	<p:toolbarGroup align="left">
+			           	<p:commandButton id="btnOpen" value="#{msg.open}" actionListener="#{bean._buscar}" widgetVar="wgt#{frameId}Open" 
+			           		icon="ui-icon-search" update=":#{frameId}:pnlE" process="@this" onsuccess="#{wgtE}.show()"/>
+		               	<p:separator />
+		               	<p:commandButton id="btnNew" value="#{msg.ebNew}" actionListener="#{bean._crear}" widgetVar="wgt#{frameId}New"
+		                	update="" onsuccess=""  
+		                	rendered="#{bean.habilitaCrear}" icon="ui-icon-document"/>
+		                <p:commandButton id="btnEdit" value="#{msg.edit}" actionListener="#{bean._editar}" widgetVar="wgt#{frameId}Edit"
+		                	update="" onsuccess=""  
+		                	rendered="#{bean.habilitaEditar and not empty bean.dataTable}" icon="ui-icon-edit"/>
+	                </p:toolbarGroup>
+	             </p:toolbar>
+       		<!-- <p:hotkey bind="ctrl+shift+f" handler="alert('Hola');" /> -->
+            </h:form>
+         </pe:layoutPane>
+         <pe:layoutPane position="center">
+            	
+         </pe:layoutPane>
+         <pe:layoutPane position="south">
+         	
+         </pe:layoutPane>
+    </pe:layout>
+    
+    <p:blockUI widgetVar="#{wgtBUI}" block=":#{frameId}:lytTransaction" />
+    
+	<p:dialog id="dlgE" widgetVar="#{wgtE}" header="#{msg.ebEdit}" height="350" width="600" appendToBody="true" 
+		showEffect="fade" hideEffect="fade" draggable="true" onHide="#{wgtBUI}.hide(); wgt#{frameId}Search.jq.click()">
+		<p:outputPanel id="pnlE">
+   			<p:outputPanel rendered="#{bean.activeEntity ne null}">
+   				<!-- <ui:include src="finder.xhtml"/> -->
+ 			</p:outputPanel>
+		</p:outputPanel>   		    		
+    </p:dialog>
+    
+    <p:draggable for="dlgE" 
+	        opacity="0.5" 
+	        dragOnly="true"
+	        handle=".ui-dialog-titlebar" 
+	        containment="#center"/>
+           
+</ui:composition>

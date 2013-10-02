@@ -40,21 +40,21 @@ Import-Package: com.sun.faces.config,com.sun.faces.el;version="[2.1.0,
  f.bean,ec.com.ebos.root.model,ec.com.ebos.security.core.service,ec.co
  m.ebos.security.model,ec.com.ebos.spring.config,ec.com.ebos.util,ec.c
  om.ebos.util.type,freemarker.cache;version="[2.3.18,2.3.18]",javax.an
- notation,javax.el,javax.faces,javax.faces.application,javax.faces.bea
- n,javax.faces.component,javax.faces.component.html,javax.faces.contex
- t,javax.faces.convert;version="[2.1.0,2.1.0]",javax.faces.el,javax.fa
- ces.event,javax.faces.lifecycle,javax.faces.validator,javax.faces.web
- app,javax.servlet,javax.servlet.http,javax.servlet.jsp.jstl.core;vers
- ion="[1.2.0, 2.0.0)",lombok;version="[0.11.6,0.11.6]",org.eclipse.vir
- go.web.dm;version="[3.0.0, 4.0.0)",org.primefaces.component.datatable
- ,org.primefaces.component.menuitem,org.primefaces.component.panel,org
- .primefaces.component.submenu,org.primefaces.context,org.primefaces.e
- vent,org.primefaces.extensions.model.layout,org.primefaces.model,org.
- primefaces.webapp.filter,org.springframework.remoting.jaxrpc;version=
- "[3.1.1.RELEASE,3.1.1.RELEASE]",org.springframework.web.context;versi
- on="[3.1.1.RELEASE,3.1.1.RELEASE]",org.springframework.web.context.re
- quest;version="[3.1.1.RELEASE,3.1.1.RELEASE]",org.springframework.web
- .context.support;version="[3.1.1.RELEASE,3.1.1.RELEASE]"
+ notation,javax.faces,javax.faces.application,javax.faces.bean,javax.f
+ aces.component,javax.faces.component.html,javax.faces.context,javax.f
+ aces.convert;version="[2.1.0,2.1.0]",javax.faces.event,javax.faces.li
+ fecycle,javax.faces.validator,javax.faces.webapp,javax.servlet,javax.
+ servlet.http,javax.servlet.jsp.jstl.core;version="[1.2.0, 2.0.0)",lom
+ bok;version="[0.11.6,0.11.6]",org.eclipse.virgo.web.dm;version="[3.0.
+ 0, 4.0.0)",org.primefaces.component.datatable,org.primefaces.componen
+ t.menuitem,org.primefaces.component.panel,org.primefaces.component.su
+ bmenu,org.primefaces.context,org.primefaces.event,org.primefaces.exte
+ nsions.model.layout,org.primefaces.model,org.primefaces.webapp.filter
+ ,org.springframework.remoting.jaxrpc;version="[3.1.1.RELEASE,3.1.1.RE
+ LEASE]",org.springframework.web.context;version="[3.1.1.RELEASE,3.1.1
+ .RELEASE]",org.springframework.web.context.request;version="[3.1.1.RE
+ LEASE,3.1.1.RELEASE]",org.springframework.web.context.support;version
+ ="[3.1.1.RELEASE,3.1.1.RELEASE]"
 Bundle-SymbolicName: ec.com.ebos.web
 Web-ContextPath: ebos
 
