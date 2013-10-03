@@ -12,9 +12,23 @@
 		<param-name>contextClass</param-name>
 		<param-value>org.eclipse.virgo.web.dm.ServerOsgiBundleXmlWebApplicationContext</param-value>
 	</context-param>
-
+	
+	<!-- SPRING -->
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+    	org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+    </param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>ec.com.ebos.spring.config.EbosConfig</param-value>
+	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
 
 	<!-- JSF -->
@@ -86,23 +100,6 @@
 		<servlet-name>Faces Servlet</servlet-name>
 	</filter-mapping>
 
-	<!-- SPRING -->
-	<context-param>
-		<param-name>contextClass</param-name>
-		<param-value>
-    	org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-    </param-value>
-	</context-param>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>ec.com.ebos.spring.config.EbosConfig</param-value>
-	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<listener>
-		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-	</listener>
 
 	<!-- FACES -->
 	<listener>

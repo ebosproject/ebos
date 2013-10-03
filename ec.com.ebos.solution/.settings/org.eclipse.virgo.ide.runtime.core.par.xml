@@ -3,5 +3,6 @@
   <!-- <bundle symbolicName="greenpages.core"/>
   <bundle symbolicName="greenpages.db"/>
   <bundle symbolicName="greenpages.jpa"/> -->
-  <bundle symbolicName="ec.com.ebos.web"/>
+  <!-- <bundle symbolicName="ec.com.ebos.web"/> -->
+  <bundle symbolicName="ec.com.ebos.web2"/>
 </org.eclipse.virgo.ide.par:Par>

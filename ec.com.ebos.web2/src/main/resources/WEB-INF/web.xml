@@ -43,13 +43,17 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	
 
 	<!-- PAGES -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>welcome.jsf</welcome-file>
 	</welcome-file-list>
-	<error-page>
+	<!-- <error-page>
 		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
 		<location>/welcome.jsf</location>
 	</error-page>
@@ -60,5 +64,5 @@
 	<error-page>
 		<error-code>500</error-code>
 		<location>/welcome.jsf</location>
-	</error-page>
+	</error-page> -->
 </web-app>
