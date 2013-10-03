@@ -6,7 +6,16 @@ Bundle-Vendor: eBos
 Bundle-Version: 0.4.0
 Bundle-SymbolicName: ec.com.ebos.web2
 Web-ContextPath: ebos
+Import-Library: 
+ org.springframework.spring;version="[3.0,3.5)"
 Import-Bundle:
- org.glassfish.javax.faces;version="[2.1.18,2.1.18]"
+ org.glassfish.javax.faces;version="[2.1.18,2.1.18]",
+ org.primefaces;version="[3.5.0,3.5.0]"
+Import-Template: 
+ org.primefaces.*;version="[3.5.0,3.5.0]",
+ org.springframework.*;version="[3.0,3.5)"
 Excluded-Imports: 
  resources
+Import-Package: 
+ javax.servlet;version="[3.0.0, 3.1.0)",
+ org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)"

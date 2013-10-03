@@ -1,14 +1,18 @@
 Manifest-Version: 1.0
 Export-Package: test;version="0.4.0";uses:="javax.faces.bean"
-Import-Bundle: org.glassfish.javax.faces;version="[2.1.18,2.1.18]"
-Bundle-Vendor: eBos
 Bundle-ClassPath: .,WEB-INF/classes
-Bundle-Version: 0.4.0
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.web2
-Bundle-ManifestVersion: 2
-Import-Package: com.sun.faces.config,javax.faces.bean,javax.faces.weba
- pp
-Bundle-SymbolicName: ec.com.ebos.web2
+Import-Library: org.springframework.spring;version="[3.0,3.5)"
 Web-ContextPath: ebos
+Import-Bundle: org.glassfish.javax.faces;version="[2.1.18,2.1.18]",org
+ .primefaces;version="[3.5.0,3.5.0]"
+Bundle-Vendor: eBos
+Bundle-Version: 0.4.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ec.com.ebos.web2
+Import-Package: com.sun.faces.config,javax.faces.application,javax.fac
+ es.bean,javax.faces.webapp,javax.servlet;version="[3.0.0, 3.1.0)",org
+ .eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",org.springframework.we
+ b.context;version="[3.0,3.5)"
 
