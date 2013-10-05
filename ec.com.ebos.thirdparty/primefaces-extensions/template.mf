@@ -4,4 +4,15 @@ Bundle-Name: ec.com.ebos.primefaces-extensions
 Bundle-SymbolicName: ec.com.ebos.primefaces-extensions
 Bundle-Version: 0.7.1
 Bundle-Vendor: eBos
-Excluded-Imports: org.apache.poi.xssf.usermodel
+Import-Template: 
+ org.primefaces.*;version="[3.5,3.5]",
+ javax.el.*;version="[2.1,2.2]",
+ javax.servlet.*;version="[3.0.0,3.1.0)",
+ org.apache.poi.*;version="[3.9.0.FINAL,3.9.0.FINAL]",
+ com.lowagie.text.*;version="[2.0.8,2.0.8]",
+ org.apache.commons.lang3.*;version="[3.1,3.1]"
+Import-Bundle: 
+ ec.com.ebos.commons-lang3;version="[3.1,3.1]",
+ com.springsource.org.apache.poi;version="[3.9.0.FINAL,3.9.0.FINAL]"
+Excluded-Imports: 
+ org.apache.poi.xssf.usermodel

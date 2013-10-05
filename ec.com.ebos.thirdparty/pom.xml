@@ -13,6 +13,7 @@
 	<modules>
 		<module>lombok</module>
 		<module>primefaces-extensions</module>
+		<module>commons-lang3</module>
 	</modules>
 
 	<build>

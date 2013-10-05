@@ -51,10 +51,42 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<!-- HIBERNATE -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>org.hibernate.ejb-library</artifactId>
+		    <type>libd</type>
+		</dependency>
+		
+		<!-- EHCACHE -->
+		<dependency>
+		    <groupId>net.sourceforge.ehcache</groupId>
+		    <artifactId>com.springsource.net.sf.ehcache</artifactId>
+		</dependency>
+		
+		<!-- JAVAX PERSISTENCE -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>com.springsource.javax.persistence</artifactId>
+		</dependency>
+		
 		<!-- LOMBOK -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>ec.com.ebos.lombok</artifactId>
+		</dependency>
+		
+		<!-- COMMONS CODEC -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.codec</artifactId>
+		</dependency>
+		
+		<!-- COMMONS-LANG3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>ec.com.ebos.commons-lang3</artifactId>
+			<version>3.1</version>
 		</dependency>
 
 	</dependencies>
