@@ -11,6 +11,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>lombok</module>
 		<module>primefaces-extensions</module>
 	</modules>
 
@@ -20,6 +21,7 @@
 				<plugin>
 					<groupId>org.eclipse.virgo.bundlor</groupId>
 					<artifactId>org.eclipse.virgo.bundlor.maven</artifactId>
+					<version>1.1.2.RELEASE</version>
 					<configuration>
 						<failOnWarnings>false</failOnWarnings>
 					</configuration>

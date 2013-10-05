@@ -31,24 +31,32 @@
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
-			<version>2.1.2</version>
 		</dependency>
 		
-		<!--PRIMEFACES -->
+		<!--PRIMEFACES && EXTENSIONS -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>3.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
 		</dependency>
 		
 		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>org.springframework.spring-library</artifactId>
-			<version>3.1.0.RELEASE</version>
 			<type>libd</type>
+			<scope>provided</scope>
 		</dependency>
 		
+		<!-- LOMBOK -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>ec.com.ebos.lombok</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>

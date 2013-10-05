@@ -39,12 +39,12 @@
 			<version>${project.version}</version>
 		</dependency>
 		<!-- Needs to be included in the PAR so that its classes are loadable via the PAR's synthetic context class loader -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>com.springsource.org.h2</artifactId>
-		</dependency>
+		</dependency> -->
 		<!-- Required for the web bundle as dependencies are not propagated up from war build types -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>com.springsource.freemarker</artifactId>
 			<scope>provided</scope>
@@ -53,7 +53,7 @@
 			<groupId>org.junit</groupId>
 			<artifactId>com.springsource.org.junit</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>

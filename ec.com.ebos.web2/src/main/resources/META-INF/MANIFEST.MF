@@ -1,20 +1,24 @@
 Manifest-Version: 1.0
-Export-Package: test;version="0.4.0";uses:="javax.faces.bean,org.sprin
- gframework.stereotype"
+Export-Package: test;version="0.4.0";uses:="javax.faces.bean,lombok,or
+ g.springframework.stereotype"
 Bundle-ClassPath: .,WEB-INF/classes
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.web2
-Import-Library: org.springframework.spring;version="[3.0,3.5)"
+Import-Library: org.springframework.spring;version="[3.1.0.RELEASE,3.1
+ .0.RELEASE]"
 Web-ContextPath: ebos
 Import-Bundle: org.glassfish.javax.faces;version="[2.1.18,2.1.18]",org
- .primefaces;version="[3.5.0,3.5.0]"
+ .primefaces;version="[3.5.0,3.5.0]",ec.com.ebos.primefaces-extensions
+ ;version="[0.7.1,0.7.1]",ec.com.ebos.lombok;version="[0.11.6,0.11.6]"
 Bundle-Vendor: eBos
 Bundle-Version: 0.4.0
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: ec.com.ebos.web2
 Import-Package: com.sun.faces.config,javax.faces.bean,javax.faces.weba
- pp,javax.servlet;version="[3.0.0, 3.1.0)",org.eclipse.virgo.web.dm;ve
- rsion="[3.0.0, 4.0.0)",org.springframework.stereotype;version="[3.0,3
- .5)",org.springframework.web.context;version="[3.0,3.5)",org.springfr
- amework.web.context.request;version="[3.0,3.5)"
+ pp,javax.servlet;version="[3.0.0, 3.1.0)",lombok;version="[0.11.6,0.1
+ 1.6]",org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",org.springfra
+ mework.stereotype;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.springf
+ ramework.web.context;version="[3.1.0.RELEASE,3.1.0.RELEASE]",org.spri
+ ngframework.web.context.request;version="[3.1.0.RELEASE,3.1.0.RELEASE
+ ]"
 

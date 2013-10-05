@@ -10,13 +10,42 @@
 	<packaging>pom</packaging>
 
 	<dependencyManagement>
+	
 		<dependencies>
+			<!-- JSF -->
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>javax.faces</artifactId>
+				<version>2.1.18</version>
+			</dependency>
+			
+			<!--PRIMEFACES && EXTENSIONS -->
+			<dependency>
+				<groupId>org.primefaces</groupId>
+				<artifactId>primefaces</artifactId>
+				<version>3.5</version>
+			</dependency>
+			<dependency>
+				<groupId>org.primefaces.extensions</groupId>
+				<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
+				<version>0.7.1</version>
+			</dependency>
+		
+			<!-- SPRING -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>org.springframework.spring-library</artifactId>
 				<type>libd</type>
-				<version>3.1.1.RELEASE</version>
+				<version>3.1.0.RELEASE</version>
 			</dependency>
+			
+			<!-- LOMBOK -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>ec.com.ebos.lombok</artifactId>
+				<version>0.11.6</version>
+			</dependency>
+			
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>com.springsource.org.apache.commons.dbcp</artifactId>
@@ -191,7 +220,6 @@
 			<plugin>
 				<groupId>org.eclipse.virgo.bundlor</groupId>
 				<artifactId>org.eclipse.virgo.bundlor.maven</artifactId>
-				<version>1.1.2.RELEASE</version>
 				<executions>
 					<execution>
 						<id>bundlor</id>
@@ -248,6 +276,7 @@
 				<plugin>
 					<groupId>org.eclipse.virgo.bundlor</groupId>
 					<artifactId>org.eclipse.virgo.bundlor.maven</artifactId>
+					<version>1.1.2.RELEASE</version>
 					<configuration>
 						<failOnWarnings>false</failOnWarnings>
 					</configuration>
