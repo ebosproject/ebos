@@ -27,6 +27,13 @@
 	</build>
 
 	<dependencies>
+		<!-- OSGi -->
+		<dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>org.springframework.osgi.core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+	 
 		<!-- JSF -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
@@ -53,10 +60,45 @@
 		
 		<!-- HIBERNATE -->
 		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>org.hibernate.ejb-library</artifactId>
-		    <type>libd</type>
-		</dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>ec.com.ebos.hibernate-core</artifactId>
+            <version>3.6.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>ec.com.ebos.javassist</artifactId>
+            <version>3.12.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>com.springsource.javax.transaction</artifactId>
+            <version>1.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>com.springsource.org.junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.instrument</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.aspects</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>org.aspectj-library</artifactId>
+            <type>libd</type>
+        </dependency>
 		
 		<!-- EHCACHE -->
 		<dependency>

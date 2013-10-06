@@ -1,27 +1,35 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>ec.com.ebos</groupId>
-		<artifactId>ec.com.ebos.thirdparty</artifactId>
-		<version>2.4.0.BUILD-SNAPSHOT</version>
-		<relativePath>..</relativePath>
-	</parent>
-	<groupId>org.projectlombok</groupId>
-	<artifactId>ec.com.ebos.lombok</artifactId>
-	<name>ec.com.ebos.lombok</name>
-	<description>Project Lombok</description>
-	<version>0.11.6</version>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>ec.com.ebos</groupId>
+        <artifactId>ec.com.ebos.thirdparty</artifactId>
+        <version>2.4.0.BUILD-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>0.11.6</version>
-		</dependency>
-	</dependencies>
-	
-	<build>
+    <groupId>javassist</groupId>
+    <artifactId>ec.com.ebos.javassist</artifactId>
+    <version>3.12.0.GA</version>
+    <name>ec.com.ebos.javassist</name>
+    <description>Javassist bundle</description>
+
+    <properties>
+        <wrapped.version>3.12.0.GA</wrapped.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${wrapped.version}</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -29,24 +37,24 @@
                 <version>1.4</version>
                 <executions>
                     <execution>
+                        <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
                         <configuration>
                             <createSourcesJar>true</createSourcesJar>
-                            <!-- <artifactSet>
-                                <excludes>
-                                	<exclude>org.primefaces:primefaces:*</exclude>
-                                	<exclude>org.apache.commons:commons-lang3:*</exclude>
-                                </excludes>
-                            </artifactSet> -->
+                            <artifactSet>
+                                <includes>
+                                    <include>javassist:*</include>
+                                </includes>
+                            </artifactSet>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.eclipse.virgo.bundlor</groupId>
-        		<artifactId>org.eclipse.virgo.bundlor.maven</artifactId>
+                <groupId>com.springsource.bundlor</groupId>
+                <artifactId>com.springsource.bundlor.maven</artifactId>
                 <executions>
                     <execution>
                         <id>build-manifest</id>
@@ -57,7 +65,7 @@
                         <configuration>
                             <inputPath>${project.build.directory}/${project.build.finalName}.${project.packaging}</inputPath>
                             <outputPath>${basedir}/src/main/resources</outputPath>
-                           <!--  used to properly set-up versions for system packages -->
+                            <!-- used to properly set-up versions for system packages -->
                             <osgiProfilePath>${basedir}/../../java6-server.profile</osgiProfilePath>
                         </configuration>
                     </execution>
@@ -78,5 +86,4 @@
             </plugin>
         </plugins>
     </build>
-	
 </project>

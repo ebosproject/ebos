@@ -14,6 +14,10 @@
 		<module>lombok</module>
 		<module>primefaces-extensions</module>
 		<module>commons-lang3</module>
+		<module>hibernate-core</module>
+		<module>javassist</module>
+		<module>hibernate-commons-annotations</module>
+		<module>asm</module>
 	</modules>
 
 	<build>
