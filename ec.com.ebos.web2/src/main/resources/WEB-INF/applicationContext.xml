@@ -1,16 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:osgi="http://www.springframework.org/schema/osgi"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
-		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+<!--
+	Application context definition for GreenPages JPA.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+
+	<bean id="dataSource" class="javax.sql.DataSource" 
+	 		p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/ec.com.ebos-0.3.0.BETA"
+	 		p:username="ebos" p:password="ebos" />
+
+
+    <!-- ========================= RESOURCE DEFINITIONS ========================= -->
+
+    <!--
+         Activates a load-time weaver for the context. Any bean within the context that
+         implements LoadTimeWeaverAware (such as LocalContainerEntityManagerFactoryBean)
+         will receive a reference to the autodetected load-time weaver.
+     -->
+    <context:load-time-weaver aspectj-weaving="on"/>
+
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"/>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <array>
+                <value>ec.com.ebos.admin.model</value>
+                <value>ec.com.ebos.master.model</value>
+                <value>ec.com.ebos.security.model</value>
+                <value>ec.com.ebos.conta.model</value>
+                <value>ec.com.ebos.logis.model</value>
+                <value>ec.com.ebos.mse.model</value>
+            </array>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="javax.persistence.validation.mode">NONE</prop>
+            </props>
+        </property>
+        <property name="lobHandler" ref="defaultLobHandler"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory"/>
+
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor" >
+		<property name="ptm" ref="transactionManager" />
+		<property name="name">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="is*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="create*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="search*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="build*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
 	
-	<!-- enable classpath scanning -->
-	<context:component-scan base-package="test" />
+	<bean id="crudService" class="ec.com.ebos.orm.crud.impl.CrudServiceImpl">
+		<constructor-arg>
+			<list>
+				<value>sessionFactory</value>
+			</list>
+		</constructor-arg>
+	</bean>
 	
-	<!-- import a service from OSGi implementing the Directory interface and make available as a bean called directory -->
-	<!-- <osgi:reference id="directory" interface="greenpages.Directory" /> -->
+	<bean id="finderSqlService" class="ec.com.ebos.orm.crud.impl.FinderSQLServiceImpl"/>		
+	
+	<bean id="finderService" class="ec.com.ebos.orm.crud.impl.FinderServiceImpl">
+		<constructor-arg>
+			<list>
+				<value>sessionFactory</value>
+				<value>500</value>
+				<value>findeSqlService</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="baseDaoSupport" class="ec.com.ebos.orm.crud.support.BaseDaoSupport">
+		<constructor-arg>
+			<list>
+				<value>crudService</value>
+				<value>finderService</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+    <!--
+        Instruct Spring to perform declarative transaction management
+        automatically on annotated classes.
+    -->
+    <tx:annotation-driven mode="aspectj"/>
+
+    
+    <!-- ========================= BUSINESS OBJECT DEFINITIONS ========================= -->
+
+    <context:component-scan base-package="greenpages.hibernate"/>
 
 </beans>

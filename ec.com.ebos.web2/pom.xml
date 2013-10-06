@@ -28,11 +28,11 @@
 
 	<dependencies>
 		<!-- OSGi -->
-		<dependency>
+		<!-- <dependency>
             <groupId>org.springframework.osgi</groupId>
             <artifactId>org.springframework.osgi.core</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency> -->
 	 
 		<!-- JSF -->
 		<dependency>
@@ -58,6 +58,12 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.aspects</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- HIBERNATE -->
 		<dependency>
             <groupId>org.hibernate</groupId>
