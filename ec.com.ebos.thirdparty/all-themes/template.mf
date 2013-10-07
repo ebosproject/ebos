@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ec.com.ebos.all-themes
+Bundle-SymbolicName: ec.com.ebos.all-themes
+Bundle-Version: 1.0.10
+Bundle-Vendor: eBos

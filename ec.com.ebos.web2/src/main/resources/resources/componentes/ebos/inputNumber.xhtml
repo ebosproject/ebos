@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <cc:interface displayName="inputNumber" >
+    
+        <cc:attribute name="value" required="true" />    
+        <cc:attribute name="required" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="symbol"/>
+        <cc:attribute name="symbolPosition" default="s"/>
+        <cc:attribute name="decimalPlaces" default="0"/>
+        <cc:attribute name="decimalSeparator" default="#{cc.attrs.decimalPlaces eq 0?'':','}"/>
+        <cc:attribute name="thousandSeparator" default="#{cc.attrs.decimalPlaces eq 0?'':'.'}"/>
+        <cc:attribute name="minValue" default="0#{cc.attrs.decimalSeparator}00"/>
+        <cc:attribute name="maxValue" default="99999999#{cc.attrs.decimalSeparator}99"/>
+        <cc:attribute name="maxlength" type="java.lang.Integer" default="10"/>
+        <cc:attribute name="disabled" type="java.lang.Boolean" default="false"/>
+        <cc:attribute name="style" type="java.lang.String"/>
+        <cc:attribute name="styleClass" type="java.lang.String"/>
+        
+    </cc:interface>
+
+    <cc:implementation>         
+        <pe:inputNumber id="input" 
+        		value="#{cc.attrs.value}" 
+	       		minValue="#{cc.attrs.minValue}" 
+	       		maxValue="#{cc.attrs.maxValue}" 
+	       		symbol="#{cc.attrs.symbol}"
+	       		symbolPosition="#{cc.attrs.symbolPosition}"
+	       		decimalPlaces="#{cc.attrs.decimalPlaces}" 
+	       		decimalSeparator="#{cc.attrs.decimalSeparator}" 
+	       		thousandSeparator="#{cc.attrs.thousandSeparator}"
+	       		required="#{cc.attrs.required}"
+	       		maxlength="#{cc.attrs.maxlength}"
+	       		disabled="#{cc.attrs.disabled}"
+	       		style="#{cc.attrs.style}"
+	       		styleClass="#{cc.attrs.styleClass}"/>
+
+    </cc:implementation>  
+
+</html>

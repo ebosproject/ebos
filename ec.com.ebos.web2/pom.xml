@@ -49,6 +49,16 @@
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>ec.com.ebos.resources-codemirror</artifactId>
+			<version>0.6.2</version>
+		</dependency>
+		<dependency>  
+		    <groupId>org.primefaces.themes</groupId>  
+		    <artifactId>ec.com.ebos.all-themes</artifactId>  
+		    <version>1.0.10</version>  
+		</dependency>
 		
 		<!-- SPRING -->
 		<dependency>
@@ -136,6 +146,61 @@
 			<artifactId>ec.com.ebos.commons-lang3</artifactId>
 			<version>3.1</version>
 		</dependency>
+		
+		<!-- EHCACHE -->
+		<dependency>
+		    <groupId>net.sourceforge.ehcache</groupId>
+		    <artifactId>com.springsource.net.sf.ehcache</artifactId>
+		</dependency>
+		
+		<!-- JAVA MAIL API -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>com.springsource.javax.mail</artifactId>
+		    <version>1.4.5</version>
+		</dependency>
+		
+		<!-- EL API -->
+		<dependency>
+		    <groupId>javax.el</groupId>
+		    <artifactId>com.springsource.javax.el</artifactId>
+		    <version>2.1.0</version>
+		</dependency>
+		
+		<!-- LOGGING -->
+		<dependency>
+		    <groupId>org.apache.log4j</groupId>
+		    <artifactId>com.springsource.org.apache.log4j</artifactId>
+		    <version>1.2.15</version>
+		</dependency>
+		
+		<!-- COMMONS LANG -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.lang</artifactId>
+		    <version>2.6.0</version>
+		</dependency>
+		
+		<!-- COMMONS BEANUTILS -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.beanutils</artifactId>
+		    <version>1.8.3</version>
+		</dependency>
+		
+		<!-- COMMONS COLLECTIONS -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.collections</artifactId>
+		    <version>3.2.1</version>
+		</dependency>
+		
+		<!-- COMMONS DBCP -->
+		<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.dbcp</artifactId>
+            <scope>compile</scope>
+        </dependency>
 
 	</dependencies>
 

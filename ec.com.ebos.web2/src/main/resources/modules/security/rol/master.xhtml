@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"                
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/templates/tplMaster.xhtml">
+
+	<ui:define name="params">
+		<ui:param name="renderedCenterSouth" value="true"/>
+		<ui:param name="optionsMaster" value="'north':{'closable':false,'resizable':false,'size':50},
+				'center':{'resizeWhileDragging':true,'closable':false,
+					'childOptions':{'south':{'resizable':false},'center':{'size':30}}}"/>
+	</ui:define>
+
+    <ui:define name="header">
+        <ui:param name="rol" value="#{bean.activeEntity}" />    
+	
+	    <h:panelGrid id="pnlRol" columns="4">        
+	                
+	       	<p:outputLabel for="id" value="#{msg.id}"/>         
+	       	<eb:outputText id="id" value="#{rol.id}"/>
+	       
+			<p:outputLabel for="estado" value="#{msg.status}"/>
+	        <eb:outputText id="estado" value="#{rol.estado.label}"/>     
+	        
+	        <p:outputLabel for="creado" value="#{msg.created}"/>
+	        <eb:outputDate id="creado" value="#{rol.creado}"/>                 
+	        
+	        <p:outputLabel for="modificado" value="#{msg.modified}"/>
+	        <eb:outputDate id="modificado" value="#{rol.modificado}"/>                
+	        
+	        <p:outputLabel for="nombre" value="#{msg.name}"/>
+	        <eb:inputText id="nombre" value="#{rol.nombre}"  required="true"/>        
+	        
+	        <p:outputLabel for="descripcion" value="#{msg.description}"/>              
+	        <eb:inputText id="descripcion" value="#{rol.descripcion}" required="true"/>                
+					                
+	    </h:panelGrid>   
+
+    </ui:define>
+    	
+    <ui:define name="detail">
+       <ui:include src="rolOpcionList.xhtml"/>
+    </ui:define>
+
+</ui:composition>

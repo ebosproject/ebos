@@ -13,6 +13,8 @@
 	<modules>
 		<module>lombok</module>
 		<module>primefaces-extensions</module>
+		<module>resources-codemirror</module>
+		<module>all-themes</module>
 		<module>commons-lang3</module>
 		<module>hibernate-core</module>
 		<module>javassist</module>

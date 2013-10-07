@@ -28,12 +28,52 @@
 		<param-value>Development</param-value>
 	</context-param>
 	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>
+        /WEB-INF/faces-config.xml,
+        /WEB-INF/faces-navigation.xml
+    </param-value>
+    </context-param>
+	<context-param>
+		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/WEB-INF/ebos.taglib.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>	
+	<context-param>
 		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
 		<param-value>resources.application</param-value>
 	</context-param>
+	
+	<!-- FACES -->
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
+	<context-param>
+		<param-name>com.sun.faces.enableMissingResourceLibraryDetection</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<security-constraint>
+		<display-name>Restrict raw documents</display-name>
+		<web-resource-collection>
+			<web-resource-name>XHTML</web-resource-name>
+			<url-pattern>*.xhtml</url-pattern>
+		</web-resource-collection>
+		<web-resource-collection>
+			<web-resource-name>XCSS</web-resource-name>
+			<url-pattern>*.xcss</url-pattern>
+		</web-resource-collection>
+		<web-resource-collection>
+			<web-resource-name>XML</web-resource-name>
+			<url-pattern>*.xml</url-pattern>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint>
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
 
 	<!-- SPRING -->
 	<context-param>
@@ -47,13 +87,59 @@
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
 	
+	<!-- PRIMEFACES AND PRIMEFACES-EXTENSIONS -->
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>#{sessionBean.tema}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+		<param-value>6LfwZwoAAAAAAEhRyntKF1PBzysAJLzqp2v-GMRR</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+		<param-value>6LfwZwoAAAAAAI-oUHpdvRnkMfu9fXQHxc0P7IBu</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.SUBMIT</param-name>
+		<param-value>partial</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.primefaces.extensions.WRAP_PRIME_FACES_RESOURCES</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.primefaces.extensions.DELIVER_UNCOMPRESSED_RESOURCES</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<filter>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
+	
+	
+	<!-- EBOS -->
+	<servlet>
+		<description></description>
+		<display-name>DisplayImage</display-name>
+		<servlet-name>DisplayImage</servlet-name>
+		<servlet-class>ec.com.ebos.master.web.servlet.DisplayImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayImage</servlet-name>
+		<url-pattern>/DisplayImage</url-pattern>
+	</servlet-mapping>
 
 	<!-- PAGES -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>welcome.jsf</welcome-file>
 	</welcome-file-list>
-	<!-- <error-page>
+	<error-page>
 		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
 		<location>/welcome.jsf</location>
 	</error-page>
@@ -64,5 +150,5 @@
 	<error-page>
 		<error-code>500</error-code>
 		<location>/welcome.jsf</location>
-	</error-page> -->
+	</error-page>
 </web-app>

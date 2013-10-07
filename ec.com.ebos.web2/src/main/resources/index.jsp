@@ -1,1 +1,4 @@
-<% response.sendRedirect("test.jsf"); %>
+<%
+    response.sendRedirect("welcome.jsf");
+    return;
+%>

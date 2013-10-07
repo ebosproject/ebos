@@ -1,26 +1,66 @@
 Manifest-Version: 1.0
-Export-Package: test;version="0.4.0";uses:="javax.faces.bean,lombok,or
- g.springframework.stereotype"
-Bundle-ClassPath: .,WEB-INF/classes
-Tool: Bundlor 1.1.2.RELEASE
-Bundle-Name: ec.com.ebos.web2
-Import-Library: org.springframework.spring;version="[3.0, 3.2)"
-Web-ContextPath: ebos
 Import-Bundle: org.glassfish.javax.faces;version="[2.1.18,2.1.18]",org
  .primefaces;version="[3.5.0,3.5.0]",ec.com.ebos.primefaces-extensions
- ;version="[0.7.1,0.7.1]",ec.com.ebos.lombok;version="[0.11.6,0.11.6]"
- ,com.springsource.org.apache.commons.codec;version="[1.6.0,1.6.0]",ec
- .com.ebos.commons-lang3;version="[3.1,3.1]",ec.com.ebos.hibernate-cor
- e;version="3.6.0.Final";import-scope:="application"
+ ;version="[0.7.1,0.7.1]",ec.com.ebos.resources-codemirror;version="[0
+ .6.2,0.6.2]",ec.com.ebos.all-themes;version="[1.0.10,1.0.10]",ec.com.
+ ebos.lombok;version="[0.11.6,0.11.6]",com.springsource.org.apache.com
+ mons.codec;version="[1.6.0,1.6.0]",com.springsource.org.apache.common
+ s.lang;version="[2.6.0,2.6.0]",com.springsource.org.apache.commons.be
+ anutils;version="[1.8.3,1.8.3]",com.springsource.org.apache.commons.c
+ ollections;version="[3.2.1,3.2.1]",ec.com.ebos.commons-lang3;version=
+ "[3.1,3.1]",ec.com.ebos.hibernate-core;version="3.6.0.Final";import-s
+ cope:="application",com.springsource.net.sf.ehcache;version="[2.2.0,2
+ .2.0]",com.springsource.javax.mail;version="[1.4.5,1.4.5]",com.spring
+ source.org.apache.log4j;version="[1.2.15,1.2.15]"
 Bundle-Vendor: eBos
+Bundle-ClassPath: .,WEB-INF/classes
 Bundle-Version: 0.4.0
+Tool: Bundlor 1.1.2.RELEASE
+Import-Library: org.springframework.spring;version="[3.0, 3.2)",org.as
+ pectj;version="[1.6.1,1.6.1]"
+Bundle-Name: ec.com.ebos.web2
 Bundle-ManifestVersion: 2
+Import-Package: com.sun.faces.config,javax.annotation,javax.el,javax.f
+ aces,javax.faces.application,javax.faces.bean,javax.faces.component,j
+ avax.faces.component.html,javax.faces.context,javax.faces.convert,jav
+ ax.faces.el,javax.faces.event,javax.faces.lifecycle,javax.faces.valid
+ ator,javax.faces.view.facelets,javax.faces.webapp,javax.mail.internet
+ ,javax.naming,javax.persistence;version="[1.0.0, 3.0.0)",javax.servle
+ t;version="[3.0.0, 3.1.0)",javax.servlet.http,javax.sql;version="0",l
+ ombok;version="[0.11.6,0.11.6]",net.sf.ehcache,org.aopalliance.interc
+ ept,org.apache.commons.beanutils,org.apache.commons.dbcp;version="[1.
+ 2.2.osgi, 1.2.2.osgi]",org.apache.commons.lang,org.apache.commons.lan
+ g.time,org.apache.commons.logging,org.apache.log4j,org.aspectj.lang,o
+ rg.aspectj.lang.annotation,org.eclipse.virgo.web.dm;version="[3.0.0, 
+ 4.0.0)",org.primefaces.component.datatable;version="[3.5.0,3.5.0]",or
+ g.primefaces.component.menuitem;version="[3.5.0,3.5.0]",org.primeface
+ s.component.panel;version="[3.5.0,3.5.0]",org.primefaces.component.su
+ bmenu;version="[3.5.0,3.5.0]",org.primefaces.context;version="[3.5.0,
+ 3.5.0]",org.primefaces.event;version="[3.5.0,3.5.0]",org.primefaces.e
+ xtensions.model.layout;version="[0.7.1,0.7.1]",org.primefaces.model;v
+ ersion="[3.5.0,3.5.0]",org.primefaces.webapp.filter;version="[3.5.0,3
+ .5.0]",org.springframework.aop.framework;version="[3.0, 3.2)",org.spr
+ ingframework.beans.factory;version="[3.0, 3.2)",org.springframework.b
+ eans.factory.annotation;version="[3.0, 3.2)",org.springframework.bean
+ s.factory.config;version="[3.0, 3.2)",org.springframework.cache.annot
+ ation;version="[3.0, 3.2)",org.springframework.cache.ehcache;version=
+ "[3.0, 3.2)",org.springframework.context;version="[3.0, 3.2)",org.spr
+ ingframework.context.annotation;version="[3.0, 3.2)",org.springframew
+ ork.context.weaving;version="[3.0, 3.2)",org.springframework.core.io;
+ version="[3.0, 3.2)",org.springframework.dao;version="[3.0, 3.2)",org
+ .springframework.jdbc.core;version="[3.0, 3.2)",org.springframework.j
+ dbc.object;version="[3.0, 3.2)",org.springframework.jdbc.support;vers
+ ion="[3.0, 3.2)",org.springframework.jdbc.support.lob;version="[3.0, 
+ 3.2)",org.springframework.mail;version="[3.0, 3.2)",org.springframewo
+ rk.mail.javamail;version="[3.0, 3.2)",org.springframework.orm.hiberna
+ te3;version="[3.0, 3.2)",org.springframework.orm.hibernate3.annotatio
+ n;version="[3.0, 3.2)",org.springframework.scheduling.annotation;vers
+ ion="[3.0, 3.2)",org.springframework.stereotype;version="[3.0, 3.2)",
+ org.springframework.transaction.annotation;version="[3.0, 3.2)",org.s
+ pringframework.transaction.aspectj;version="[3.0, 3.2)",org.springfra
+ mework.transaction.interceptor;version="[3.0, 3.2)",org.springframewo
+ rk.web.context;version="[3.0, 3.2)",org.springframework.web.context.r
+ equest;version="[3.0, 3.2)"
 Bundle-SymbolicName: ec.com.ebos.web2
-Import-Package: com.sun.faces.config,javax.faces.bean,javax.faces.weba
- pp,javax.servlet;version="[3.0.0, 3.1.0)",lombok;version="[0.11.6,0.1
- 1.6]",org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",org.springfra
- mework.context.weaving;version="[3.0, 3.2)",org.springframework.stere
- otype;version="[3.0, 3.2)",org.springframework.transaction.aspectj;ve
- rsion="[3.0, 3.2)",org.springframework.web.context;version="[3.0, 3.2
- )",org.springframework.web.context.request;version="[3.0, 3.2)"
+Web-ContextPath: ebos
 

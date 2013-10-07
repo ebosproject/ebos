@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:eb="http://java.sun.com/jsf/composite/componentes/ebos">
+		
+		<p:column id="id" headerText="#{msg.id}" resizable="false">
+	        <eb:outputText value="#{reg.id}" />
+	    </p:column>
+		<p:column id="monaguillo" headerText="#{msg.monaguillo}" resizable="false">
+	        <eb:outputText value="#{reg.monaguillo.persona.nombres} #{reg.monaguillo.persona.apellidos}" />
+	    </p:column>
+	    
+</ui:composition>
+

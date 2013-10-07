@@ -4,17 +4,18 @@
 -->
 <beans xmlns="http://www.springframework.org/schema/beans" 
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
-	<bean id="dataSource" class="javax.sql.DataSource" 
-	 		p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/ec.com.ebos-0.3.0.BETA"
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/ec.com.ebos-0.3.0.BETA"
 	 		p:username="ebos" p:password="ebos" />
 
 
@@ -70,32 +71,20 @@
 	</bean>
 	
 	<bean id="crudService" class="ec.com.ebos.orm.crud.impl.CrudServiceImpl">
-		<constructor-arg>
-			<list>
-				<value>sessionFactory</value>
-			</list>
-		</constructor-arg>
+		<constructor-arg ref="sessionFactory" />
 	</bean>
 	
 	<bean id="finderSqlService" class="ec.com.ebos.orm.crud.impl.FinderSQLServiceImpl"/>		
 	
 	<bean id="finderService" class="ec.com.ebos.orm.crud.impl.FinderServiceImpl">
-		<constructor-arg>
-			<list>
-				<value>sessionFactory</value>
-				<value>500</value>
-				<value>findeSqlService</value>
-			</list>
-		</constructor-arg>
+		<constructor-arg ref="sessionFactory" />
+		<constructor-arg value="500" />
+		<constructor-arg ref="finderSqlService" />
 	</bean>
 	
 	<bean id="baseDaoSupport" class="ec.com.ebos.orm.crud.support.BaseDaoSupport">
-		<constructor-arg>
-			<list>
-				<value>crudService</value>
-				<value>finderService</value>
-			</list>
-		</constructor-arg>
+		<constructor-arg ref="crudService" />
+		<constructor-arg ref="finderService" />
 	</bean>
 
     <!--
@@ -104,9 +93,28 @@
     -->
     <tx:annotation-driven mode="aspectj"/>
 
+	
+	<!-- Switch on the Caching -->
+   	<cache:annotation-driven />
+
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" 
+	  p:cacheManager-ref="ehcache"/>
+ 
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
+	     p:configLocation="classpath:ehcache.xml"  
+	     p:shared="true"/> 
     
     <!-- ========================= BUSINESS OBJECT DEFINITIONS ========================= -->
 
-    <context:component-scan base-package="greenpages.hibernate"/>
+    <context:component-scan 
+    	base-package="ec.com.ebos.context,
+	    	ec.com.ebos.master,
+	   		ec.com.ebos.aspect,
+	   		ec.com.ebos.security,
+	   		ec.com.ebos.util,
+	   		ec.com.ebos.admin,
+			ec.com.ebos.conta,
+			ec.com.ebos.logis,
+			ec.com.ebos.mse" />
 
 </beans>
