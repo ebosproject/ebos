@@ -20,6 +20,7 @@
 		<module>javassist</module>
 		<module>hibernate-commons-annotations</module>
 		<module>asm</module>
+		<module>postgresql</module>
 	</modules>
 
 	<build>

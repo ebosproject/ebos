@@ -56,8 +56,8 @@
           p:sessionFactory-ref="sessionFactory"/>
 
 	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor" >
-		<property name="ptm" ref="transactionManager" />
-		<property name="name">
+		<constructor-arg ref="transactionManager" />
+		<constructor-arg>
 			<props>
 				<prop key="*">PROPAGATION_REQUIRED</prop>
 				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
@@ -67,7 +67,7 @@
 				<prop key="search*">PROPAGATION_REQUIRED,readOnly</prop>
 				<prop key="build*">PROPAGATION_REQUIRED,readOnly</prop>
 			</props>
-		</property>
+		</constructor-arg>
 	</bean>
 	
 	<bean id="crudService" class="ec.com.ebos.orm.crud.impl.CrudServiceImpl">

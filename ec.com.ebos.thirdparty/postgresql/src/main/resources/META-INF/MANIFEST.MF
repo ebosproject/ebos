@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-Vendor: eBos
+Build-Jdk: 1.6.0_37
+Bundle-Version: 9.0
+Built-By: eduardo
+Tool: Bundlor 1.1.2.RELEASE
+Bundle-Name: ec.com.ebos.postgresql
+Created-By: Apache Maven 3.0.4
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ec.com.ebos.postgresql
+Archiver-Version: Plexus Archiver
+
