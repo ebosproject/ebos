@@ -7,6 +7,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.master.model.EmpresaPersona;
@@ -21,6 +23,7 @@ import ec.com.ebos.util.EntityUtils;
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
+//@Component
 @ManagedBean(name = UsuarioBean.BEAN_NAME)
 @ViewScoped
 public class UsuarioBean extends SecurityBean<Usuario> {

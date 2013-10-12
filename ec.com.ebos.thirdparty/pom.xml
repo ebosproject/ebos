@@ -21,6 +21,8 @@
 		<module>hibernate-commons-annotations</module>
 		<module>asm</module>
 		<module>postgresql</module>
+		<module>aspectjrt</module>
+		<module>aspectjweaver</module>
 	</modules>
 
 	<build>

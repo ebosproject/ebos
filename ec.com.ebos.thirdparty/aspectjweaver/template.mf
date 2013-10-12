@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ec.com.ebos.aspectjweaver
+Bundle-SymbolicName: ec.com.ebos.aspectjweaver
+Bundle-Version: 1.6.12.RELEASE
+Bundle-Vendor: eBos
+Excluded-Imports: com.bea.jvm
+Import-Package: org.apache.commons.logging;version="[1.1.1, 2.0.0)";resolution:="optional"

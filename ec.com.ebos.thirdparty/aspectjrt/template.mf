@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ec.com.ebos.aspectjrt
+Bundle-SymbolicName: ec.com.ebos.aspectjrt
+Bundle-Version: 1.6.11
+Bundle-Vendor: eBos

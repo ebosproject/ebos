@@ -110,13 +110,25 @@
             <artifactId>org.springframework.aspects</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        
+        <!-- ASPECJT -->
+       <!--  <dependency>
             <groupId>org.aspectj</groupId>
-            <artifactId>org.aspectj-library</artifactId>
-            <type>libd</type>
+            <artifactId>ec.com.ebos.aspectjrt</artifactId>
+            <version>1.6.11</version>
+        </dependency> -->
+        <!-- <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>ec.com.ebos.aspectjweaver</artifactId>
+            <version>1.6.12.RELEASE</version>
+        </dependency> -->
+        <dependency>
+        	<groupId>org.aspectj</groupId>
+        	<artifactId>com.springsource.org.aspectj.weaver</artifactId>
+        	<version>1.6.12.RELEASE</version>
         </dependency>
-		
-		<!-- EHCACHE -->
+
+        <!-- EHCACHE -->
 		<dependency>
 		    <groupId>net.sourceforge.ehcache</groupId>
 		    <artifactId>com.springsource.net.sf.ehcache</artifactId>

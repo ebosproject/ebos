@@ -112,7 +112,7 @@
 				<groupId>org.aspectj</groupId>
 				<artifactId>org.aspectj-library</artifactId>
 				<type>libd</type>
-				<version>1.6.1</version>
+				<version>1.6.12.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.freemarker</groupId>
