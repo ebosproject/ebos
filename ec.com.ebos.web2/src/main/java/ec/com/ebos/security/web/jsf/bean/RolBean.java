@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.admin.core.service.AdministracionS;
@@ -21,6 +23,8 @@ import ec.com.ebos.util.EntityUtils;
 /**
  * @author Eduardo Plua Alay
  */
+
+@Component
 @ManagedBean(name = RolBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped

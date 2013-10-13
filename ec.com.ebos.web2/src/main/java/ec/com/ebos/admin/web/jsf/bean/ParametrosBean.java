@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.springframework.stereotype.Component;
+
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
@@ -17,6 +19,7 @@ import ec.com.ebos.util.EntityUtils;
  *
  * @author Eduardo Plua Alay
  */
+@Component
 @ManagedBean(name = ParametrosBean.BEAN_NAME)
 @SessionScoped
 public class ParametrosBean extends AdministracionBean<Parametros>{

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.orm.crud.Pagination;
@@ -15,6 +17,7 @@ import ec.com.ebos.util.EntityUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-24
  */
+@Component
 @ManagedBean(name = BundleBean.BEAN_NAME)
 @ViewScoped
 public class BundleBean extends AdministracionBean<Bundle> {

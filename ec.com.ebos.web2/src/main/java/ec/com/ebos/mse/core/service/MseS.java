@@ -3,6 +3,7 @@ package ec.com.ebos.mse.core.service;
 import java.io.Serializable;
 import java.util.List;
 
+import ec.com.ebos.admin.core.service.AdministracionS;
 import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
@@ -14,6 +15,11 @@ import ec.com.ebos.orm.crud.Pagination;
  */
 public interface MseS extends Serializable {
     
+	/**
+	 * Nombre del Spring Bean para {@link MseS}
+	 */
+	public static final String BEAN_NAME = "mseS";
+	
 	//
 	// Grupo
 	//

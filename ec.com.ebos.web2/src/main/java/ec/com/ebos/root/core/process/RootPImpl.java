@@ -15,6 +15,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 
+import lombok.Getter;
 import lombok.Setter;
 
 import org.apache.commons.lang.StringUtils;
@@ -34,6 +35,7 @@ import ec.com.ebos.admin.core.process.AdministracionPImpl;
 import ec.com.ebos.aspect.annotation.UniqueIndex;
 import ec.com.ebos.aspect.annotation.UniqueIndexes;
 import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
+import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.web.jsf.bean.SessionBean;
 import ec.com.ebos.orm.crud.Crud;
 import ec.com.ebos.orm.crud.CrudService;
@@ -47,7 +49,6 @@ import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.FacesUtils;
-import ec.com.ebos.util.HTTPUtils;
 import ec.com.ebos.util.MessageUtils;
 import ec.com.ebos.util.ObjectUtils;
 import ec.com.ebos.util.type.JsfMessage;
@@ -936,21 +937,21 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
     	getSessionBean().putFatal(buildMessage(key, args));        
     }
 
-    /**
-     * Devuelve el {@link SessionBean} del hilo de ejecucion actual
-     *
-     * @return {@link SessionBean}
-     * @see
-     * http://stackoverflow.com/questions/3320674/spring-how-do-i-inject-an-httpservletrequest-into-a-request-scoped-bean
-     * @see org.springframework.web.context.request.RequestContextListener
-     * @see org.springframework.web.context.request.RequestContextHolder
-     */
+//    /**
+//     * Devuelve el {@link SessionBean} del hilo de ejecucion actual
+//     *
+//     * @return {@link SessionBean}
+//     * @see
+//     * http://stackoverflow.com/questions/3320674/spring-how-do-i-inject-an-httpservletrequest-into-a-request-scoped-bean
+//     * @see org.springframework.web.context.request.RequestContextListener
+//     * @see org.springframework.web.context.request.RequestContextHolder
+//     */
     protected SessionBean getSessionBean() {
-        SessionBean sesionUsuario = (SessionBean) HTTPUtils.getSessionAttribute(SessionBean.BEAN_NAME);
-        if (sesionUsuario == null) {
-            throw new SecurityException("sesion.error.sesionNoValida");
+    	SessionBean sessionBean = EbosContext.getBean(SessionBean.class);
+        if (sessionBean == null) {
+            throw new SecurityException("session.error.sessionNoValid");
         }
-        return sesionUsuario;
+        return sessionBean;
     }
 
 

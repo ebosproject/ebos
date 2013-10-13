@@ -3,6 +3,8 @@ package ec.com.ebos.admin.web.jsf.bean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.springframework.stereotype.Component;
+
 import ec.com.ebos.admin.model.Configuracion;
 import ec.com.ebos.util.EntityUtils;
 
@@ -11,6 +13,7 @@ import ec.com.ebos.util.EntityUtils;
  *
  * @author Eduardo Plua Alay
  */
+@Component
 @ManagedBean(name = ConfiguracionBean.BEAN_NAME)
 @SessionScoped
 public class ConfiguracionBean extends AdministracionBean<Configuracion>{

@@ -23,7 +23,7 @@ import ec.com.ebos.util.EntityUtils;
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-//@Component
+@Component
 @ManagedBean(name = UsuarioBean.BEAN_NAME)
 @ViewScoped
 public class UsuarioBean extends SecurityBean<Usuario> {

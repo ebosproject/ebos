@@ -11,6 +11,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.master.core.service.MasterS;
@@ -24,6 +26,7 @@ import ec.com.ebos.util.StringUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-08-23
  */
+@Component
 @ManagedBean(name = MonaguilloBean.BEAN_NAME)
 @SessionScoped
 public class MonaguilloBean extends MseBean<Monaguillo> {

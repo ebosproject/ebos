@@ -3,6 +3,7 @@ package ec.com.ebos.conta.core.service;
 import java.io.Serializable;
 import java.util.List;
 
+import ec.com.ebos.admin.core.service.AdministracionS;
 import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
@@ -12,6 +13,11 @@ import ec.com.ebos.orm.crud.Pagination;
  */
 public interface ContaS extends Serializable {
     
+	/**
+	 * Nombre del Spring Bean para {@link ContaS}
+	 */
+	public static final String BEAN_NAME = "contaS";
+	
 	//
     // TipoCuenta
     //

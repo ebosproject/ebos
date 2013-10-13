@@ -43,7 +43,8 @@
 		<!--PRIMEFACES && EXTENSIONS -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
+			<artifactId>ec.com.ebos.primefaces</artifactId>
+			<version>3.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>

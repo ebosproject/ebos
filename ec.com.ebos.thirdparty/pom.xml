@@ -12,6 +12,7 @@
 
 	<modules>
 		<module>lombok</module>
+		<module>primefaces</module>
 		<module>primefaces-extensions</module>
 		<module>resources-codemirror</module>
 		<module>all-themes</module>

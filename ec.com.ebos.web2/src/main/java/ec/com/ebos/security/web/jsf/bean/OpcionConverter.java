@@ -9,12 +9,15 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.admin.core.service.AdministracionS;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.util.StringUtils;
 
+@Component
 @ManagedBean(name = OpcionConverter.BEAN_NAME)
 @RequestScoped
 public class OpcionConverter implements Converter {

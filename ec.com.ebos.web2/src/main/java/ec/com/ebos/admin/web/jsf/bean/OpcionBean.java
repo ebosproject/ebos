@@ -11,6 +11,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
+import org.springframework.stereotype.Component;
+
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
@@ -20,6 +22,7 @@ import ec.com.ebos.util.StringUtils;
 /**
  * @author Eduardo Plua Alay
  */
+@Component
 @ManagedBean(name = OpcionBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped

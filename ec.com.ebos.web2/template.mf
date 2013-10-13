@@ -11,10 +11,9 @@ Import-Library:
 Import-Bundle:
  com.springsource.org.aspectj.weaver;version="[1.6.12.RELEASE,1.6.12.RELEASE]",
  org.glassfish.javax.faces;version="[2.1.18,2.1.18]",
- org.primefaces;version="[3.5.0,3.5.0]",
+ ec.com.ebos.primefaces;version="[3.5.0,3.5.0]",
  ec.com.ebos.primefaces-extensions;version="[0.7.1,0.7.1]",
  ec.com.ebos.resources-codemirror;version="[0.6.2,0.6.2]",
- ec.com.ebos.all-themes;version="[1.0.10,1.0.10]",
  ec.com.ebos.lombok;version="[0.11.6,0.11.6]",
  com.springsource.org.apache.commons.codec;version="[1.6.0,1.6.0]",
  com.springsource.org.apache.commons.lang;version="[2.6.0,2.6.0]",
@@ -41,19 +40,14 @@ Excluded-Imports:
  org.hibernate.*,
  org.springframework.test.*,
  org.junit.*, 
- resources,
  ec.com.ebos.security,
  ec.com.ebos.master,
  ec.com.ebos.admin,
  ec.com.ebos.mse,
  ec.com.ebos.logis,
  ec.com.ebos.conta,
- ec.com.ebos.aspect
-Excluded-Exports: 
- jasperreports,
- modules*,
- templates*,
- ui*
+ ec.com.ebos.aspect,
+ resources
 Import-Package: 
  javax.servlet;version="[3.0.0, 3.1.0)",
  org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",

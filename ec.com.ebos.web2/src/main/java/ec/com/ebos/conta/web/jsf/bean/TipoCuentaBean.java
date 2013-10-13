@@ -6,6 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.conta.model.TipoCuenta;
@@ -16,6 +18,7 @@ import ec.com.ebos.util.EntityUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-05-21
  */
+@Component
 @ManagedBean(name = TipoCuentaBean.BEAN_NAME)
 @ViewScoped
 public class TipoCuentaBean extends ContaBean<TipoCuenta> {

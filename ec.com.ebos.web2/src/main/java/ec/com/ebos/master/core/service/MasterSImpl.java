@@ -17,7 +17,7 @@ import ec.com.ebos.orm.crud.Pagination;
 /**
  * @author Eduardo Plua Alay
  */
-@Service("masterS")
+@Service(MasterS.BEAN_NAME)
 public class MasterSImpl implements MasterS{
     
 	private static final long serialVersionUID = 4753228280831766443L;

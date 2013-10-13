@@ -1,36 +1,33 @@
-package ec.com.ebos.conta.web.jsf.bean;
+package ec.com.ebos.master.web.jsf.bean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 import org.springframework.stereotype.Component;
 
-import lombok.Getter;
-import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.master.model.Propiedad;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * @since 2013-05-23
+ * @since 2013-03-31
  */
 @Component
-@ManagedBean(name = CuentaContableBean.BEAN_NAME)
-@ViewScoped
-public class CuentaContableBean extends ContaBean<CuentaContable> {
-    	
-	private static final long serialVersionUID = 4109617962842899097L;
+@ManagedBean(name = PropiedadBean.BEAN_NAME)
+@SessionScoped
+public class PropiedadBean extends MasterBean<Propiedad> {
+    
+	private static final long serialVersionUID = -8387498705417931654L;
 	
-	@Getter
-	public static final String BEAN_NAME = "cuentaContableBean";
+	public static final String BEAN_NAME = "propiedadBean";
 
 	@Override
     public void getInit() {
         // Para busquedas
-        entitySearch = new CuentaContable();
+        entitySearch = new Propiedad();
     }
 
     @Override
@@ -51,27 +48,26 @@ public class CuentaContableBean extends ContaBean<CuentaContable> {
 
     @Override
     protected void initTarget() {
-        TARGET_ID = "/modules/conta/cuentaContable/transaction.xhtml";
+        TARGET_ID = "/master/propiedad/index.jsf";
+        TARGET_NEW_ID = "crearPropiedad";
     }
     
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<CuentaContable> loadDataTableCollection(CuentaContable cuentaContable, Pagination pagination) {
-        //return contaS.findTipoCuentaList(cuentaContable, pagination);
-    	return new ArrayList<CuentaContable>();
+    protected List<Propiedad> loadDataTableCollection(Propiedad propiedad, Pagination pagination) {
+        return masterS.findPropiedadList(propiedad, pagination);
     }
         
     //////////////////// ACCIONES ////////////////////
     
     @Override
     public void crear() {
-        //activeEntity = contaS.createTipoCuenta();
+        activeEntity = masterS.createPropiedad();
     }
 
     @Override
     public void editar() {        
-    	//activeEntity = masterS.loadBundle(activeEntity.getId());
     }
     
     @Override
@@ -81,14 +77,12 @@ public class CuentaContableBean extends ContaBean<CuentaContable> {
 
     @Override
     public void guardar() {
-        //activeEntity = contaS.saveTipoCuenta(activeEntity);                
+        activeEntity = masterS.savePropiedad(activeEntity);                
     }
 
     @Override
     public void eliminar() {
-        //contaS.deleteTipoCuenta(activeEntity);                
+        masterS.deletePropiedad(activeEntity);                
     }            
-    
-    //////////////////////// LISTS ///////////////////////////////
     
 }

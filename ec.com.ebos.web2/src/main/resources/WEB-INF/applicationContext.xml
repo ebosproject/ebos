@@ -15,7 +15,7 @@
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/ec.com.ebos-0.3.0.BETA"
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/ec.com.ebos-0.4.0"
 	 		p:username="ebos" p:password="ebos" />
 
 

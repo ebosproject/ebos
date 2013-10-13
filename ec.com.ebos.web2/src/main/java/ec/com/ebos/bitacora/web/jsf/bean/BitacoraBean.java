@@ -6,14 +6,14 @@ import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.admin.core.service.AdministracionS;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.web.jsf.bean.impl.RootBeanImpl;
+import ec.com.ebos.root.web.jsf.bean.RootBean;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-12
  * 
  */
-public abstract class BitacoraBean<T extends Entidad<T>> extends RootBeanImpl<T> {
+public abstract class BitacoraBean<T extends Entidad<T>> extends RootBean<T> {
 	
 	private static final long serialVersionUID = -6616673494138961943L;
 
