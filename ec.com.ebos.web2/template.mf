@@ -51,7 +51,6 @@ Excluded-Imports:
  ec.com.ebos.aspect
 Excluded-Exports: 
  jasperreports,
- resources*,
  modules*,
  templates*,
  ui*
