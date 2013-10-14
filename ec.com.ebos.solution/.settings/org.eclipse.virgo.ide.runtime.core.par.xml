@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.eclipse.virgo.ide.par:Par xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.eclipse.virgo.ide.par="http://eclipse.org/virgo/par.ecore">
-  <!-- <bundle symbolicName="greenpages.core"/>
-  <bundle symbolicName="greenpages.db"/>
-  <bundle symbolicName="greenpages.jpa"/> -->
-  <!-- <bundle symbolicName="ec.com.ebos.web"/> -->
-  <bundle symbolicName="ec.com.ebos.web2"/>
+  <bundle symbolicName="ec.com.ebos.web"/>
 </org.eclipse.virgo.ide.par:Par>
