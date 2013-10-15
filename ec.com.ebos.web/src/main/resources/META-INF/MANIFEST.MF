@@ -179,7 +179,7 @@ Export-Package: ec.com.ebos.admin.core.exception;version="0.4.0";uses:
  sion="0.4.0"
 Bundle-ClassPath: .,WEB-INF/classes
 Tool: Bundlor 1.1.2.RELEASE
-Bundle-Name: ec.com.ebos.web2
+Bundle-Name: ec.com.ebos.web
 Import-Library: org.springframework.spring;version="[3.0, 3.2)"
 Web-ContextPath: ebos
 Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
@@ -199,7 +199,7 @@ Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
 Bundle-Vendor: eBos
 Bundle-Version: 0.4.0
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: ec.com.ebos.web2
+Bundle-SymbolicName: ec.com.ebos.web
 Import-Package: com.sun.faces.config,javax.annotation,javax.el,javax.f
  aces,javax.faces.application,javax.faces.bean,javax.faces.component,j
  avax.faces.component.html,javax.faces.context,javax.faces.convert,jav

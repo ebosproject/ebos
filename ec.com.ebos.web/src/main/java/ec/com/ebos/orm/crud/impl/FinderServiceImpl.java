@@ -547,15 +547,15 @@ public class FinderServiceImpl implements FinderService {
 		// obtener lista con el criteria con pagination
 		List<T> list = findByCriteria(criteria, pagination.getFirst(), pagination.getPageSize());
 		// obtener total de registros con el criteria, quitando pagination
-		Integer count = 0;
+		Long count = 0L;
 		if (criteria != null) {
 			criteria.setProjection(Projections.rowCount());
 			Criteria executableCriteria = criteria.getExecutableCriteria(getCurrentSession());
 			executableCriteria.setFirstResult(0);
 			executableCriteria.setMaxResults(1);
-			count = (Integer) executableCriteria.uniqueResult();
+			count = (Long) executableCriteria.uniqueResult();
 		}
-		pagination.setRowCount(count);
+		pagination.setRowCount(count.intValue());
 		return list;
 	}
 
