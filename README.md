@@ -1,9 +1,9 @@
 =========================================================
-=						eBos Project					=
+=		     eBos Project			=
 =========================================================
-= @Author: Eduardo Plúa Alay							=
-= @Description: eBos Project tasks and anothers notes	=
-= @Since: 2013-10-07									=
+= @Author: Eduardo Plúa Alay				=
+= @Description: eBos Project release notes		=
+= @Since: 2013-10-07					=
 =========================================================
 
 ---------------------------------------------------------
@@ -11,32 +11,48 @@ How it works
 ---------------------------------------------------------
 In the future...
 
+*****************************************
+* Version 1.0.0		2013-04-08	*
+*****************************************
+1. Versión con Tabs del sistema
 
 
 *****************************************
-* Version 0.4.0				2013-10-15	*
+* Version 2.0.0		2013-05-27	*
 *****************************************
+1. Versión Web OS en marcha
+1.1. Escritorio
+1.2. Ventanas
+1.3. About
 
-1. Migrar eBos a OSGI 
-	Estado actual de migración 50% :)
-
-2. Probar funcionamiento de eMacs para que sea editor de texto por default para el eBos
-
-3. Descargar libros en disco local para referencia
-
-4. Instalar GitLab puro y generar manual de instalación
-
-5. Probar plugin Maven Site
-
-6. Agregar un bundle con Implementación de al menos tres tipos diferentes motores de web services existentes en el mercado
-
-7. Instalar Jira o algún sistema de administración de incidencias opensource conocido, que disponga de integración con eclipse y generar manual de instalación
-
-8. Probar plugin Maven release notes o similar
+2. Módulos
+2.1. Seguridad
 
 
 *****************************************
-* Version 0.5.0				2013-11-01 	*
+* Version 2.1.0		2013-09-04	*
+*****************************************
+1. Módulos
+1.1. Mse(Monaguillos salecianos del Ecuador)
+
+
+*****************************************
+* Version 3.0.0		2013-10-15	*
+*****************************************
+
+1. Migración eBos a OSGI 100% :)
+
+2. Implementar plugin Maven Site
+
+*****************************************
+* Version 3.0.1		2013-10-	*
+*****************************************
+
+1. Error al leer permisos de acciones para todas las opciones. No se renderizan los botones de acciones
+
+
+*****************************************
+* Version 3.1.0		2013-11-01 	*
 *****************************************
 1. Definición de módulo contable
 1.1. Documentación de funcionalidades
@@ -45,14 +61,14 @@ In the future...
 
 
 *****************************************
-* Version 0.5.1				2013-12-01 	*
+* Version 3.2.0		2013-12-01 	*
 *****************************************
 1. Rediseño de módulo de seguridad
 1.1. El nuevo módulo debe permitir administrar los permisos del sistema en tiempo real 
 
 
 *****************************************
-* Version 0.6.0				2014-01-01 	*
+* Version 3.3.0		2014-01-01 	*
 *****************************************
 1. Diseño e implementación de un bundle de administración o panel de control
 1.1. Configuración de opciones por módulos
