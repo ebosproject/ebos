@@ -48,6 +48,16 @@ In the future...
 * Version 3.0.1		2013-10-	*
 *****************************************
 
+1. Dividir ec.com.ebos.web bundle en capas:
+	web
+	core
+	db
+
+
+*****************************************
+* Version 3.0.2		2013-10-	*
+*****************************************
+
 1. Error al leer permisos de acciones para todas las opciones. No se renderizan los botones de acciones
 
 

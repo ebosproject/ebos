@@ -10,7 +10,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -25,6 +24,7 @@ import org.springframework.stereotype.Component;
 
 import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.admin.model.Bundle.Localidad;
+import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;
@@ -55,19 +55,11 @@ public class SessionBean implements Serializable{
 	 */
 	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 	
-//    @Getter @Setter
-//    @ManagedProperty(value = SecurityS.EL_BEAN_NAME)
-//    protected SecurityS securityS;
-	
     @Getter @Setter
     @Autowired
     @Qualifier(SecurityS.BEAN_NAME)
     protected SecurityS securityS;
 
-//    @Getter @Setter
-//    @ManagedProperty(value = AppBean.EL_BEAN_NAME)
-//    protected AppBean admin;
-    
     @Getter @Setter
     @Autowired
     protected AppBean admin;
@@ -114,7 +106,7 @@ public class SessionBean implements Serializable{
     public void cerrarSesion() {                
         this.rolOpcionList.clear();        
         this.login = false;
-        ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
+        ExternalContext extContext = EbosContext.getExternalContext();
         
         // Invalida la sesion web actual, crear una nueva, y asocia el bean de sesion del usuario
         HttpSession session = (HttpSession) extContext.getSession(false);
@@ -168,14 +160,8 @@ public class SessionBean implements Serializable{
     * Define el timeout de la sesion actual
     */
     private void defineSessionTimeout() {
-    	ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
-    	extContext.setSessionMaxInactiveInterval(login ? Constantes.SESSION_TIMEOUT_LOGON : Constantes.SESSION_TIMEOUT_LOGOUT);
+    	EbosContext.getExternalContext().setSessionMaxInactiveInterval(login ? Constantes.SESSION_TIMEOUT_LOGON : Constantes.SESSION_TIMEOUT_LOGOUT);
     }
-    
-//
-//    public List<RolOpcion> getRolOpcionList() {
-//        return rolOpcionList == null ? new ArrayList<RolOpcion>() : rolOpcionList;
-//    }
     
 	public String getTema() {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();

@@ -75,7 +75,7 @@ public class EbosContext implements Serializable{
     	context.addCallbackParam(name, value);
     }
     
-    public static ExternalContext webContext(){
+    public static ExternalContext getExternalContext(){
     	 return FacesContext.getCurrentInstance().getExternalContext();
     }
 

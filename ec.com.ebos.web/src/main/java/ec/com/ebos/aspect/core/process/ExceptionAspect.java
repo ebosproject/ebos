@@ -167,7 +167,7 @@ public class ExceptionAspect {
 		
 		securityS.putError(e);
 		
-		logger.error("(" + HTTPUtils.getRemoteAddr(((HttpServletRequest) EbosContext.webContext().getRequest())) 
+		logger.error("(" + HTTPUtils.getRemoteAddr(((HttpServletRequest) EbosContext.getExternalContext().getRequest())) 
 				+ ") ["	+ sig.getDeclaringType().getName() +" "+ sig.getName() + "]"
 				+ " --> EXCEPTION HANDLED: " + e.getKey() + ": " + e.getLocalizedMessage());
 		

@@ -48,7 +48,7 @@ public class SecurityAspect {
 	@AfterReturning(value="authLogin(sessionBean)", returning="returnValue")
 	public void logAuthLogin(JoinPoint joinPoint, boolean returnValue, SessionBean sessionBean) throws Throwable {
 		
-		ExternalContext context = EbosContext.webContext();
+		ExternalContext context = EbosContext.getExternalContext();
 		
 		try {
 			Usuario usuario = sessionBean.getUsuario();
