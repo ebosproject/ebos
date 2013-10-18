@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Export-Package: ec.com.ebos.orm.crud;version="3.0.1";uses:="ec.com.ebo
+ s.orm.crud.support,lombok,org.hibernate,org.hibernate.criterion,org.h
+ ibernate.impl,org.hibernate.transform,org.hibernate.type,org.primefac
+ es.model,org.springframework.jdbc.core",ec.com.ebos.orm.crud.impl;ver
+ sion="3.0.1";uses:="ec.com.ebos.orm.crud,ec.com.ebos.orm.crud.support
+ ,javax.sql,lombok,org.hibernate,org.hibernate.criterion,org.springfra
+ mework.jdbc.core",ec.com.ebos.orm.crud.support;version="3.0.1";uses:=
+ "ec.com.ebos.orm.crud,javax.sql,lombok,org.hibernate,org.hibernate.cr
+ iterion,org.springframework.dao,org.springframework.jdbc.core,org.spr
+ ingframework.jdbc.object",ec.com.ebos.orm.service;version="3.0.1",ec.
+ com.ebos.orm.service.interceptor;version="3.0.1";uses:="ec.com.ebos.o
+ rm.service,org.aopalliance.intercept,org.hibernate",ec.com.ebos.root.
+ model;version="3.0.1",ec.com.ebos.util;version="3.0.1";uses:="ec.com.
+ ebos.root.model,javax.el,javax.faces.application,javax.faces.componen
+ t,javax.faces.context,javax.faces.convert,javax.faces.event,javax.ser
+ vlet.http",ec.com.ebos.util.type;version="3.0.1";uses:="ec.com.ebos.r
+ oot.model,lombok,org.hibernate.usertype"
+Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
+ LEASE,1.6.12.RELEASE]",org.glassfish.javax.faces;version="[2.1.18,2.1
+ .18]",ec.com.ebos.primefaces;version="[3.5.0,3.5.0]",ec.com.ebos.prim
+ efaces-extensions;version="[0.7.1,0.7.1]",ec.com.ebos.resources-codem
+ irror;version="[0.6.2,0.6.2]",ec.com.ebos.lombok;version="[0.11.6,0.1
+ 1.6]",com.springsource.org.apache.commons.codec;version="[1.6.0,1.6.0
+ ]",com.springsource.org.apache.commons.lang;version="[2.6.0,2.6.0]",c
+ om.springsource.org.apache.commons.beanutils;version="[1.8.3,1.8.3]",
+ com.springsource.org.apache.commons.collections;version="[3.2.1,3.2.1
+ ]",ec.com.ebos.commons-lang3;version="[3.1,3.1]",ec.com.ebos.hibernat
+ e-core;version="3.6.0.Final";import-scope:="application",com.springso
+ urce.net.sf.ehcache;version="[2.2.0,2.2.0]",com.springsource.javax.ma
+ il;version="[1.4.5,1.4.5]",com.springsource.org.apache.log4j;version=
+ "[1.2.15,1.2.15]",ec.com.ebos.postgresql;version="9.0"
+Bundle-Vendor: eBos
+Bundle-Version: 3.0.1
+Tool: Bundlor 1.1.2.RELEASE
+Import-Library: org.springframework.spring;version="[3.0, 3.2)"
+Bundle-Name: ec.com.ebos.core
+Bundle-ManifestVersion: 2
+Import-Package: javax.el,javax.faces,javax.faces.application,javax.fac
+ es.component,javax.faces.context,javax.faces.convert,javax.faces.even
+ t,javax.faces.view.facelets,javax.servlet;version="[3.0.0, 3.1.0)",ja
+ vax.servlet.http,javax.sql;version="0",lombok;version="[0.11.6,0.11.6
+ ]",org.aopalliance.intercept,org.apache.commons.beanutils,org.apache.
+ commons.dbcp;version="[1.2.2.osgi, 1.2.2.osgi]",org.apache.commons.la
+ ng,org.apache.commons.lang.time,org.apache.commons.logging,org.eclips
+ e.virgo.web.dm;version="[3.0.0, 4.0.0)",org.primefaces.model;version=
+ "[3.5.0,3.5.0]",org.springframework.cache.ehcache;version="[3.0, 3.2)
+ ",org.springframework.context.weaving;version="[3.0, 3.2)",org.spring
+ framework.dao;version="[3.0, 3.2)",org.springframework.jdbc.core;vers
+ ion="[3.0, 3.2)",org.springframework.jdbc.object;version="[3.0, 3.2)"
+ ,org.springframework.jdbc.support;version="[3.0, 3.2)",org.springfram
+ ework.jdbc.support.lob;version="[3.0, 3.2)",org.springframework.orm.h
+ ibernate3;version="[3.0, 3.2)",org.springframework.orm.hibernate3.ann
+ otation;version="[3.0, 3.2)",org.springframework.transaction.aspectj;
+ version="[3.0, 3.2)",org.springframework.transaction.interceptor;vers
+ ion="[3.0, 3.2)"
+Bundle-SymbolicName: ec.com.ebos.core
+

@@ -1,11 +1,9 @@
 Manifest-Version: 1.0
-Bundle-ClassPath: .,WEB-INF/classes
 Bundle-ManifestVersion: 2
-Bundle-Name: ec.com.ebos.web
+Bundle-Name: ec.com.ebos.core
 Bundle-Vendor: eBos
 Bundle-Version: 3.0.1
-Bundle-SymbolicName: ec.com.ebos.web
-Web-ContextPath: ebos
+Bundle-SymbolicName: ec.com.ebos.core
 Import-Library: 
  org.springframework.spring;version="[3.0, 3.2)"
 Import-Bundle:
@@ -33,21 +31,11 @@ Import-Template:
  javax.persistence;version="[1.0.0, 3.0.0)",
  org.apache.commons.dbcp.*;version="[1.2.2.osgi, 1.2.2.osgi]",
  javax.sql;version="0",
- org.aspectj.*;version="[1.6.12.RELEASE,1.6.12.RELEASE]",
- ec.com.ebos.orm.crud.impl.*;version="[0.4.0,0.5.0)",
- ec.com.ebos.*;version="[0.4.0,0.5.0)"
+ org.aspectj.*;version="[1.6.12.RELEASE,1.6.12.RELEASE]"
 Excluded-Imports:
  org.hibernate.*,
  org.springframework.test.*,
- org.junit.*, 
- ec.com.ebos.security,
- ec.com.ebos.master,
- ec.com.ebos.admin,
- ec.com.ebos.mse,
- ec.com.ebos.logis,
- ec.com.ebos.conta,
- ec.com.ebos.aspect,
- resources
+ org.junit.*
 Import-Package: 
  javax.servlet;version="[3.0.0, 3.1.0)",
  org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",
