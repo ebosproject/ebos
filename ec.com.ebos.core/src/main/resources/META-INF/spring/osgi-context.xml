@@ -9,9 +9,9 @@
 	
 	<osgi:service interface="ec.com.ebos.orm.crud.CrudService" ref="crudService"/>
 	
-	<!-- <osgi:service interface="ec.com.ebos.orm.crud.FinderSQLService" ref="finderSqlService "/>
+	<osgi:service interface="ec.com.ebos.orm.crud.FinderSQLService" ref="finderSqlService"/>
 	
-	<osgi:service interface="ec.com.ebos.orm.crud.FinderService" ref="finderService "/> -->
+	<osgi:service interface="ec.com.ebos.orm.crud.FinderService" ref="finderService"/>
 	
 	                                                                  
 </beans>
