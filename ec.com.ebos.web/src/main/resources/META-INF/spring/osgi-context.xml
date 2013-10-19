@@ -5,8 +5,10 @@
 		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd"
 	xmlns:osgi="http://www.springframework.org/schema/osgi">
 
-	<!-- uncomment the line below to publish the mock Directory into the OSGi service registry -->
+	<osgi:reference id="crudService" interface="ec.com.ebos.orm.crud.CrudService" />
 	
-	<!-- <osgi:service interface="" ref=""/> --> 
+	<osgi:reference id="finderSqlService" interface="ec.com.ebos.orm.crud.FinderSQLService" />
+	
+	<osgi:reference id="finderService" interface="ec.com.ebos.orm.crud.FinderService" />
 	                                                                  
 </beans>

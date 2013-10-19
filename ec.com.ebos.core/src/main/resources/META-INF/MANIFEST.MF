@@ -14,8 +14,8 @@ Export-Package: ec.com.ebos.orm.crud;version="3.0.1";uses:="ec.com.ebo
  model;version="3.0.1",ec.com.ebos.util;version="3.0.1";uses:="ec.com.
  ebos.root.model,javax.el,javax.faces.application,javax.faces.componen
  t,javax.faces.context,javax.faces.convert,javax.faces.event,javax.ser
- vlet.http",ec.com.ebos.util.type;version="3.0.1";uses:="ec.com.ebos.r
- oot.model,lombok,org.hibernate.usertype"
+ vlet.http",ec.com.ebos.util.type;version="3.0.1";uses:="lombok,org.hi
+ bernate.usertype"
 Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
  LEASE,1.6.12.RELEASE]",org.glassfish.javax.faces;version="[2.1.18,2.1
  .18]",ec.com.ebos.primefaces;version="[3.5.0,3.5.0]",ec.com.ebos.prim

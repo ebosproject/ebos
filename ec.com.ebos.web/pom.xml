@@ -27,6 +27,12 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>ec.com.ebos</groupId>
+			<artifactId>ec.com.ebos.core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<!-- OSGi -->
 		<!-- <dependency>
             <groupId>org.springframework.osgi</groupId>
@@ -224,5 +230,6 @@
 
 	</dependencies>
 
+	<version>3.0.1</version>
 </project>
 	

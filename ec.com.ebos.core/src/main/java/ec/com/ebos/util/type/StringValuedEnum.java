@@ -13,14 +13,13 @@ import ec.com.ebos.root.model.IEntidad;
  * @see ExampleEnum
  * @see http://community.jboss.org/wiki/Java5StringValuedEnumUserType
  */
-public interface StringValuedEnum<T extends Enum<T>> extends IEntidad {
+public interface StringValuedEnum<T extends Enum<T>> {
 
     /**
      * Etiqueta para este enumType
      *
      * @since 2008-06-28
      */
-    @Override
     public String getLabel();
 
     /**
@@ -28,7 +27,6 @@ public interface StringValuedEnum<T extends Enum<T>> extends IEntidad {
      *
      * @return string value.
      */
-    @Override
     public String getValue();
 
     /**
