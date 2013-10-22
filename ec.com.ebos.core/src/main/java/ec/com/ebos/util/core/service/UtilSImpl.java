@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service("utilS")
-public class UtilSImpl implements UtilS {
+public class UtilSImpl implements UtilS { //TODO (epa): Agregar BEAN_NAME en Interface
 
     //
     // Servicios modulos

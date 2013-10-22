@@ -35,7 +35,8 @@ Import-Template:
 Excluded-Imports:
  org.hibernate.*,
  org.springframework.test.*,
- org.junit.*
+ org.junit.*,
+ ec.com.ebos.*
 Import-Package: 
  javax.servlet;version="[3.0.0, 3.1.0)",
  org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",

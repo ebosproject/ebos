@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.master.web.jsf.bean.SessionBean;
+import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.HTTPUtils;

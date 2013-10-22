@@ -15,7 +15,7 @@ import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.context.EbosContext;
-import ec.com.ebos.master.web.jsf.bean.SessionBean;
+import ec.com.ebos.master.session.SessionBean;
 
 @Component
 @ManagedBean(name = IdleMonitorBean.BEAN_NAME)

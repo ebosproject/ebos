@@ -15,7 +15,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 
-import lombok.Getter;
 import lombok.Setter;
 
 import org.apache.commons.lang.StringUtils;
@@ -36,7 +35,7 @@ import ec.com.ebos.aspect.annotation.UniqueIndex;
 import ec.com.ebos.aspect.annotation.UniqueIndexes;
 import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.context.EbosContext;
-import ec.com.ebos.master.web.jsf.bean.SessionBean;
+import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.orm.crud.Crud;
 import ec.com.ebos.orm.crud.CrudService;
 import ec.com.ebos.orm.crud.FinderService;
@@ -947,7 +946,7 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
 //     * @see org.springframework.web.context.request.RequestContextHolder
 //     */
     protected SessionBean getSessionBean() {
-    	SessionBean sessionBean = EbosContext.getBean(SessionBean.class);
+    	SessionBean sessionBean = EbosContext.getBean(SessionBean.BEAN_NAME);
         if (sessionBean == null) {
             throw new SecurityException("session.error.sessionNoValid");
         }

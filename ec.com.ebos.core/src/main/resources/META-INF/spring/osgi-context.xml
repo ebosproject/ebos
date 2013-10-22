@@ -5,13 +5,16 @@
 		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd"
 	xmlns:osgi="http://www.springframework.org/schema/osgi">
 
-	<!-- uncomment the line below to publish the mock Directory into the OSGi service registry -->
+	<osgi:service interface="ec.com.ebos.admin.core.service.AdministracionS" ref="administracionS"/>
 	
-	<osgi:service interface="ec.com.ebos.orm.crud.CrudService" ref="crudService"/>
+	<osgi:service interface="ec.com.ebos.conta.core.service.ContaS" ref="contaS"/>
 	
-	<osgi:service interface="ec.com.ebos.orm.crud.FinderSQLService" ref="finderSqlService"/>
+	<osgi:service interface="ec.com.ebos.master.core.service.MasterS" ref="masterS"/>
 	
-	<osgi:service interface="ec.com.ebos.orm.crud.FinderService" ref="finderService"/>
+	<osgi:service interface="ec.com.ebos.mse.core.service.MseS" ref="mseS"/>
 	
-	                                                                  
+	<osgi:service interface="ec.com.ebos.security.core.service.SecurityS" ref="securityS"/>
+	
+	<osgi:service interface="ec.com.ebos.util.core.service.UtilS" ref="utilS"/>
+		                                                                  
 </beans>

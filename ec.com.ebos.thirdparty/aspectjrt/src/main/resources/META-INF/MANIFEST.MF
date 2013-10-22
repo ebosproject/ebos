@@ -1,12 +1,23 @@
 Manifest-Version: 1.0
+Export-Package: org.aspectj.internal.lang.annotation;version="1.6.11",
+ org.aspectj.internal.lang.reflect;version="1.6.11";uses:="org.aspectj
+ .lang.reflect",org.aspectj.lang;version="1.6.11";uses:="org.aspectj.l
+ ang.reflect,org.aspectj.runtime.internal",org.aspectj.lang.annotation
+ ;version="1.6.11",org.aspectj.lang.internal.lang;version="1.6.11",org
+ .aspectj.lang.reflect;version="1.6.11";uses:="org.aspectj.lang",org.a
+ spectj.runtime;version="1.6.11",org.aspectj.runtime.internal;version=
+ "1.6.11";uses:="org.aspectj.lang,org.aspectj.runtime,org.aspectj.runt
+ ime.internal.cflowstack",org.aspectj.runtime.internal.cflowstack;vers
+ ion="1.6.11",org.aspectj.runtime.reflect;version="1.6.11";uses:="org.
+ aspectj.lang,org.aspectj.lang.reflect,org.aspectj.runtime.internal"
 Bundle-Vendor: eBos
 Build-Jdk: 1.6.0_37
-Bundle-Version: 1.6.11
 Built-By: eduardo
+Bundle-Version: 1.6.11
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.aspectjrt
-Created-By: Apache Maven 3.0.4
 Bundle-ManifestVersion: 2
+Created-By: Apache Maven 3.0.4
 Bundle-SymbolicName: ec.com.ebos.aspectjrt
 Archiver-Version: Plexus Archiver
 

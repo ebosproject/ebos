@@ -70,6 +70,10 @@ public class EbosContext implements Serializable{
         return (T) applicationContext.getBean(beanClass);
     }
     
+    public static <T> T getBean(String beanName) {
+        return (T) applicationContext.getBean(beanName);
+    }
+    
     public static void addCallbackParam(String name, Object value){
     	RequestContext context = RequestContext.getCurrentInstance();
     	context.addCallbackParam(name, value);

@@ -26,6 +26,7 @@ import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
@@ -39,23 +40,13 @@ import ec.com.ebos.util.MessageUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Component
-@ManagedBean(name = SessionBean.BEAN_NAME)
+@ManagedBean(name = SessionBeanImpl.BEAN_NAME)
 @SessionScoped
-public class SessionBean implements Serializable{
+public class SessionBeanImpl implements Serializable, SessionBean{
 
 	private static final long serialVersionUID = 502301922012194259L;
 	
-	/**
-	 * Nombre del bean para {@link SessionBean}
-	 */
-	public static final String BEAN_NAME = "sessionBean";
-	
-	/**
-	 * Nombre del Bean como EL a ser referenciado para la inyeccion de una instancia de {@link SessionBean} en otro ManagedBean
-	 */
-	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
-	
-    @Getter @Setter
+	@Getter @Setter
     @Autowired
     @Qualifier(SecurityS.BEAN_NAME)
     protected SecurityS securityS;
@@ -124,13 +115,6 @@ public class SessionBean implements Serializable{
         usuario.setNewpassword(null);
         usuario.setConfpassword(null);
     }
-    
-    // Permisos de Seguridad
-    public static final int EDIT_ACTION_ID = 1;
-    public static final int CREATE_ACTION_ID = 2;
-    public static final int DELETE_ACTION_ID = 3;
-    public static final int EXPORT_ACTION_ID = 4;
-    
     
     /**
      * Metodo que verifica los permisos que el usuario actual tiene sobre
