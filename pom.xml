@@ -6,9 +6,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ec.com.ebos</groupId>
-	<artifactId>ebos-top-level</artifactId>
+	<artifactId>ec.com.ebos</artifactId>
 	<version>3.0.1-SNAPSHOT</version>
-	<name>eBos App Build</name>
+	<name>ec.com.ebos</name>
 	<packaging>pom</packaging>
 	<modules>
 		<module>ec.com.ebos.thirdparty</module>
@@ -17,4 +17,5 @@
 		<module>ec.com.ebos.web</module>
 		<module>ec.com.ebos.solution</module>
 	</modules>
+	<description>Ecuador Business Operation System</description>
 </project>

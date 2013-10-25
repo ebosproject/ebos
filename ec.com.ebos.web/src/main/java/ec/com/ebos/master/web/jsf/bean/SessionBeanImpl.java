@@ -39,7 +39,7 @@ import ec.com.ebos.util.MessageUtils;
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-@Component
+@Component(SessionBeanImpl.BEAN_NAME)
 @ManagedBean(name = SessionBeanImpl.BEAN_NAME)
 @SessionScoped
 public class SessionBeanImpl implements Serializable, SessionBean{
