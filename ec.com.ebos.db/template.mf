@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ec.com.ebos.db
+Bundle-Vendor: eBos
+Bundle-Version: 3.0.2
+Bundle-SymbolicName: ec.com.ebos.db
+Import-Bundle:
+ ec.com.ebos.postgresql;version="9.0"
+Import-Template: 
+ org.apache.commons.dbcp.*;version="[1.2.2.osgi, 1.2.2.osgi]",
+ javax.sql;version="0"

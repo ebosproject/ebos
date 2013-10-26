@@ -1,0 +1,50 @@
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ec.com.ebos.db</artifactId>
+	<name>ec.com.ebos.db</name>
+	<url>https://git.assembla.com/git/ebos</url>
+	<description>eBos db bundle</description>
+	
+	<parent>
+		<groupId>ec.com.ebos</groupId>
+		<artifactId>ec.com.ebos.parent</artifactId>
+		<version>3.0.1-SNAPSHOT</version>
+		<relativePath>../ec.com.ebos.parent</relativePath>
+	</parent>
+
+	<dependencies>
+		
+		<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.spring-library</artifactId>
+			<type>libd</type>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.aspects</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- COMMONS DBCP -->
+		<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.dbcp</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+		<!-- POSTGRESQL -->        
+        <dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>ec.com.ebos.postgresql</artifactId>
+			<version>9.0-801.jdbc4</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
+	

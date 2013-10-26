@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Import-Bundle: ec.com.ebos.postgresql;version="9.0"
+Bundle-Vendor: eBos
+Bundle-Version: 3.0.2
+Tool: Bundlor 1.1.2.RELEASE
+Bundle-Name: ec.com.ebos.db
+Bundle-ManifestVersion: 2
+Import-Package: javax.sql;version="0",org.apache.commons.dbcp;version=
+ "[1.2.2.osgi, 1.2.2.osgi]"
+Bundle-SymbolicName: ec.com.ebos.db
+
