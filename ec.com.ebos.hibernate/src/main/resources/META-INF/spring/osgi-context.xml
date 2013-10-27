@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd"
+	xmlns:osgi="http://www.springframework.org/schema/osgi">
+
+    <!-- import the DataSource from ec.com.ebos.db -->
+    <osgi:reference id="dataSource" interface="javax.sql.DataSource"/>
+
+	<!-- export the Service to ec.com.ebos.web-->
+	<osgi:service interface="ec.com.ebos.admin.core.service.AdministracionS" ref="administracionS"/>
+	
+	<osgi:service interface="ec.com.ebos.conta.core.service.ContaS" ref="contaS"/>
+	
+	<osgi:service interface="ec.com.ebos.master.core.service.MasterS" ref="masterS"/>
+	
+	<osgi:service interface="ec.com.ebos.mse.core.service.MseS" ref="mseS"/>
+	
+	<osgi:service interface="ec.com.ebos.security.core.service.SecurityS" ref="securityS"/>
+	
+	<osgi:service interface="ec.com.ebos.util.core.service.UtilS" ref="utilS"/>
+		                                                                  
+</beans>

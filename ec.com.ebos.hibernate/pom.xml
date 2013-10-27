@@ -1,0 +1,216 @@
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ec.com.ebos.hibernate</artifactId>
+	<name>ec.com.ebos.hibernate</name>
+	<url>https://git.assembla.com/git/ebos</url>
+	<description>eBos - Ecuadorian Business Operations System</description>
+	
+	<parent>
+		<groupId>ec.com.ebos</groupId>
+		<artifactId>ec.com.ebos.parent</artifactId>
+		<version>3.0.1-SNAPSHOT</version>
+		<relativePath>../ec.com.ebos.parent</relativePath>
+	</parent>
+
+	<dependencies>
+		<!-- OSGi -->
+		<!-- <dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>org.springframework.osgi.core</artifactId>
+            <scope>provided</scope>
+        </dependency> -->
+	 
+		<!-- JSF -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+		</dependency>
+		
+		<!--PRIMEFACES && EXTENSIONS -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>ec.com.ebos.primefaces</artifactId>
+			<version>3.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>ec.com.ebos.resources-codemirror</artifactId>
+			<version>0.6.2</version>
+		</dependency>
+		<dependency>  
+		    <groupId>org.primefaces.themes</groupId>  
+		    <artifactId>ec.com.ebos.all-themes</artifactId>  
+		    <version>1.0.10</version>  
+		</dependency>
+		
+		<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.spring-library</artifactId>
+			<type>libd</type>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.aspects</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- HIBERNATE -->
+		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>ec.com.ebos.hibernate-core</artifactId>
+            <version>3.6.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>ec.com.ebos.javassist</artifactId>
+            <version>3.12.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>com.springsource.javax.transaction</artifactId>
+            <version>1.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>com.springsource.org.junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.instrument</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.aspects</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- ASPECJT -->
+       <!--  <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>ec.com.ebos.aspectjrt</artifactId>
+            <version>1.6.11</version>
+        </dependency> -->
+        <!-- <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>ec.com.ebos.aspectjweaver</artifactId>
+            <version>1.6.12.RELEASE</version>
+        </dependency> -->
+        <dependency>
+        	<groupId>org.aspectj</groupId>
+        	<artifactId>com.springsource.org.aspectj.weaver</artifactId>
+        	<version>1.6.12.RELEASE</version>
+        </dependency>
+
+        <!-- EHCACHE -->
+		<dependency>
+		    <groupId>net.sourceforge.ehcache</groupId>
+		    <artifactId>com.springsource.net.sf.ehcache</artifactId>
+		</dependency>
+		
+		<!-- JAVAX PERSISTENCE -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>com.springsource.javax.persistence</artifactId>
+		</dependency>
+		
+		<!-- LOMBOK -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>ec.com.ebos.lombok</artifactId>
+		</dependency>
+		
+		<!-- COMMONS CODEC -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.codec</artifactId>
+		</dependency>
+		
+		<!-- COMMONS-LANG3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>ec.com.ebos.commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		
+		<!-- EHCACHE -->
+		<dependency>
+		    <groupId>net.sourceforge.ehcache</groupId>
+		    <artifactId>com.springsource.net.sf.ehcache</artifactId>
+		</dependency>
+		
+		<!-- JAVA MAIL API -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>com.springsource.javax.mail</artifactId>
+		    <version>1.4.5</version>
+		</dependency>
+		
+		<!-- EL API -->
+		<dependency>
+		    <groupId>javax.el</groupId>
+		    <artifactId>com.springsource.javax.el</artifactId>
+		    <version>2.1.0</version>
+		</dependency>
+		
+		<!-- LOGGING -->
+		<dependency>
+		    <groupId>org.apache.log4j</groupId>
+		    <artifactId>com.springsource.org.apache.log4j</artifactId>
+		    <version>1.2.15</version>
+		</dependency>
+		
+		<!-- COMMONS LANG -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.lang</artifactId>
+		    <version>2.6.0</version>
+		</dependency>
+		
+		<!-- COMMONS BEANUTILS -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.beanutils</artifactId>
+		    <version>1.8.3</version>
+		</dependency>
+		
+		<!-- COMMONS COLLECTIONS -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>com.springsource.org.apache.commons.collections</artifactId>
+		    <version>3.2.1</version>
+		</dependency>
+		
+		<!-- COMMONS DBCP -->
+		<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.dbcp</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+		<!-- POSTGRESQL -->        
+        <dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>ec.com.ebos.postgresql</artifactId>
+			<version>9.0-801.jdbc4</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
+	

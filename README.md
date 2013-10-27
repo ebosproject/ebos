@@ -1,10 +1,9 @@
-### Título ###
 =========================================================
-=		     eBos Project			=
+=		     eBos Project								=
 =========================================================
-= @Author: Eduardo Plúa Alay				=
-= @Description: eBos Project release notes		=
-= @Since: 2013-10-07					=
+= @Author: Eduardo Plúa Alay							=
+= @Description: eBos Project release notes				=
+= @Since: 2013-10-07									=
 =========================================================
 
 ---------------------------------------------------------
@@ -13,13 +12,13 @@ How it works
 In the future...
 
 *****************************************
-* Version 1.0.0		2013-04-08	*
+* Version 1.0.0		2013-04-08			*
 *****************************************
 1. Versión con Tabs del sistema
 
 
 *****************************************
-* Version 2.0.0		2013-05-27	*
+* Version 2.0.0		2013-05-27			*
 *****************************************
 1. Versión Web OS en marcha
 1.1. Escritorio
@@ -31,14 +30,14 @@ In the future...
 
 
 *****************************************
-* Version 2.1.0		2013-09-04	*
+* Version 2.1.0		2013-09-04			*
 *****************************************
 1. Módulos
 1.1. Mse(Monaguillos salecianos del Ecuador)
 
 
 *****************************************
-* Version 3.0.0		2013-10-15	*
+* Version 3.0.0		2013-10-15			*
 *****************************************
 
 1. Migración eBos a OSGI 100% :)
@@ -46,24 +45,40 @@ In the future...
 2. Implementar plugin Maven Site
 
 *****************************************
-* Version 3.0.1		2013-10-	*
+* Version 3.0.1		2013-10-24			*
 *****************************************
 
 1. Dividir ec.com.ebos.web bundle en capas:
 	web
 	core
-	db
+	
+*****************************************
+* Version 3.0.2		2013-10-25			*
+*****************************************
 
+1. Dividir ec.com.ebos.core bundle en capas:
+	core
+	db
+	
+*****************************************
+* Version 3.0.3		2013-10-			*
+*****************************************
+
+1. Dividir ec.com.ebos.core bundle en capas:
+	core
+	hibernate
+	
+2. Optimizar spring xml entries en todos los bundles	
 
 *****************************************
-* Version 3.0.2		2013-10-	*
+* Version 3.0.2		2013-10-			*
 *****************************************
 
 1. Error al leer permisos de acciones para todas las opciones. No se renderizan los botones de acciones
 
 
 *****************************************
-* Version 3.1.0		2013-11-01 	*
+* Version 3.1.0		2013-11-01 			*
 *****************************************
 1. Definición de módulo contable
 1.1. Documentación de funcionalidades
@@ -72,14 +87,14 @@ In the future...
 
 
 *****************************************
-* Version 3.2.0		2013-12-01 	*
+* Version 3.2.0		2013-12-01 			*
 *****************************************
 1. Rediseño de módulo de seguridad
 1.1. El nuevo módulo debe permitir administrar los permisos del sistema en tiempo real 
 
 
 *****************************************
-* Version 3.3.0		2014-01-01 	*
+* Version 3.3.0		2014-01-01 			*
 *****************************************
 1. Diseño e implementación de un bundle de administración o panel de control
 1.1. Configuración de opciones por módulos

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for ec.com.ebos.hibernate
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+
+    <!-- ========================= RESOURCE DEFINITIONS ========================= -->
+
+    <!--
+         Activates a load-time weaver for the context. Any bean within the context that
+         implements LoadTimeWeaverAware (such as LocalContainerEntityManagerFactoryBean)
+         will receive a reference to the autodetected load-time weaver.
+     -->
+    <context:load-time-weaver aspectj-weaving="on"/>
+
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"/>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <array>
+                <value>ec.com.ebos.admin.model</value>
+                <value>ec.com.ebos.master.model</value>
+                <value>ec.com.ebos.security.model</value>
+                <value>ec.com.ebos.conta.model</value>
+                <value>ec.com.ebos.logis.model</value>
+                <value>ec.com.ebos.mse.model</value>
+            </array>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="javax.persistence.validation.mode">NONE</prop>
+            </props>
+        </property>
+        <property name="lobHandler" ref="defaultLobHandler"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory"/>
+
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor" >
+		<constructor-arg ref="transactionManager" />
+		<constructor-arg>
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="is*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="create*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="search*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="build*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="crudService" class="ec.com.ebos.orm.crud.impl.CrudServiceImpl">
+		<constructor-arg ref="sessionFactory" />
+	</bean>
+	
+	<bean id="finderSqlService" class="ec.com.ebos.orm.crud.impl.FinderSQLServiceImpl"/>		
+	
+	<bean id="finderService" class="ec.com.ebos.orm.crud.impl.FinderServiceImpl">
+		<constructor-arg ref="sessionFactory" />
+		<constructor-arg value="500" />
+		<constructor-arg ref="finderSqlService" />
+	</bean>
+	
+	<bean id="baseDaoSupport" class="ec.com.ebos.orm.crud.support.BaseDaoSupport">
+		<constructor-arg ref="crudService" />
+		<constructor-arg ref="finderService" />
+	</bean>
+
+    <!--
+        Instruct Spring to perform declarative transaction management
+        automatically on annotated classes.
+    -->
+    <tx:annotation-driven mode="aspectj"/>
+
+	
+	<!-- Switch on the Caching -->
+   	<cache:annotation-driven />
+
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" 
+	  p:cacheManager-ref="ehcache"/>
+ 
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
+	     p:configLocation="classpath:ehcache.xml"  
+	     p:shared="true"/>
+	     
+    <context:component-scan 
+    	base-package="ec.com.ebos.context,
+	    	ec.com.ebos.master,
+	   		ec.com.ebos.aspect,
+	   		ec.com.ebos.security,
+	   		ec.com.ebos.util,
+	   		ec.com.ebos.admin,
+			ec.com.ebos.conta,
+			ec.com.ebos.logis,
+			ec.com.ebos.mse" />
+	           	       
+    
+</beans>
