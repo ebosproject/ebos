@@ -18,7 +18,5 @@
 	<osgi:service interface="ec.com.ebos.mse.core.service.MseS" ref="mseS"/>
 	
 	<osgi:service interface="ec.com.ebos.security.core.service.SecurityS" ref="securityS"/>
-	
-	<osgi:service interface="ec.com.ebos.util.core.service.UtilS" ref="utilS"/>
-		                                                                  
+
 </beans>

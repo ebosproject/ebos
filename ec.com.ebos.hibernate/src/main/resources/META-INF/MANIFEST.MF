@@ -1,131 +1,76 @@
 Manifest-Version: 1.0
-Export-Package: ec.com.ebos.admin.core.exception;version="3.0.1";uses:
- ="ec.com.ebos.root.core.exception",ec.com.ebos.admin.core.process;ver
- sion="3.0.1";uses:="ec.com.ebos.admin.core.exception,ec.com.ebos.admi
- n.model,ec.com.ebos.orm.crud,ec.com.ebos.root.core.process,org.spring
- framework.stereotype",ec.com.ebos.admin.core.service;version="3.0.1";
- uses:="ec.com.ebos.admin.core.process,ec.com.ebos.admin.model,ec.com.
- ebos.orm.crud,lombok,org.springframework.beans.factory.annotation,org
- .springframework.cache.annotation,org.springframework.stereotype",ec.
- com.ebos.admin.model;version="3.0.1";uses:="ec.com.ebos.aspect.annota
- tion,ec.com.ebos.root.model,ec.com.ebos.util.type,javax.persistence,l
- ombok,org.hibernate.annotations",ec.com.ebos.admin.model.field;versio
- n="3.0.1";uses:="ec.com.ebos.root.model.field",ec.com.ebos.aspect.ann
- otation;version="3.0.1",ec.com.ebos.aspect.core.exception;version="3.
- 0.1";uses:="ec.com.ebos.root.core.exception",ec.com.ebos.aspect.core.
- process;version="3.0.1";uses:="ec.com.ebos.master.session,ec.com.ebos
- .root.model,ec.com.ebos.security.core.service,lombok,org.aspectj.lang
- ,org.aspectj.lang.annotation,org.springframework.beans.factory.annota
- tion,org.springframework.stereotype",ec.com.ebos.bitacora.core.except
- ion;version="3.0.1";uses:="ec.com.ebos.root.core.exception",ec.com.eb
- os.bitacora.core.process;version="3.0.1";uses:="ec.com.ebos.root.core
- .process,org.springframework.stereotype",ec.com.ebos.bitacora.core.se
- rvice;version="3.0.1";uses:="org.springframework.stereotype",ec.com.e
- bos.bitacora.model;version="3.0.1";uses:="ec.com.ebos.aspect.annotati
- on,ec.com.ebos.root.model,ec.com.ebos.util.type,javax.persistence,lom
- bok,org.hibernate.annotations",ec.com.ebos.bitacora.model.field;versi
- on="3.0.1";uses:="ec.com.ebos.root.model.field",ec.com.ebos.conta.cor
- e.process;version="3.0.1";uses:="ec.com.ebos.conta.model,ec.com.ebos.
- master.model,ec.com.ebos.orm.crud,ec.com.ebos.root.core.process,org.s
- pringframework.stereotype",ec.com.ebos.conta.core.service;version="3.
- 0.1";uses:="ec.com.ebos.conta.core.process,ec.com.ebos.conta.model,ec
+Export-Package: ec.com.ebos.admin.core.process;version="3.0.3";uses:="
+ ec.com.ebos.admin.core.exception,ec.com.ebos.admin.model,ec.com.ebos.
+ orm.crud,ec.com.ebos.root.core.process,org.springframework.stereotype
+ ",ec.com.ebos.admin.core.service;version="3.0.3";uses:="ec.com.ebos.a
+ dmin.core.process,ec.com.ebos.admin.model,ec.com.ebos.orm.crud,lombok
+ ,org.springframework.beans.factory.annotation,org.springframework.cac
+ he.annotation,org.springframework.stereotype",ec.com.ebos.admin.model
+ ;version="3.0.3";uses:="ec.com.ebos.aspect.annotation,ec.com.ebos.roo
+ t.model,ec.com.ebos.util.type,javax.persistence,lombok,org.hibernate.
+ annotations",ec.com.ebos.admin.model.field;version="3.0.3";uses:="ec.
+ com.ebos.root.model.field",ec.com.ebos.bitacora.core.process;version=
+ "3.0.3";uses:="ec.com.ebos.root.core.process,org.springframework.ster
+ eotype",ec.com.ebos.bitacora.core.service;version="3.0.3";uses:="org.
+ springframework.stereotype",ec.com.ebos.bitacora.model;version="3.0.3
+ ";uses:="ec.com.ebos.aspect.annotation,ec.com.ebos.root.model,ec.com.
+ ebos.util.type,javax.persistence,lombok,org.hibernate.annotations",ec
+ .com.ebos.bitacora.model.field;version="3.0.3";uses:="ec.com.ebos.roo
+ t.model.field",ec.com.ebos.conta.core.process;version="3.0.3";uses:="
+ ec.com.ebos.conta.model,ec.com.ebos.master.model,ec.com.ebos.orm.crud
+ ,ec.com.ebos.root.core.process,org.springframework.stereotype",ec.com
+ .ebos.conta.core.service;version="3.0.3";uses:="ec.com.ebos.conta.cor
+ e.process,ec.com.ebos.conta.model,ec.com.ebos.orm.crud,lombok,org.spr
+ ingframework.beans.factory.annotation,org.springframework.stereotype"
+ ,ec.com.ebos.conta.model;version="3.0.3";uses:="ec.com.ebos.admin.mod
+ el,ec.com.ebos.aspect.annotation,ec.com.ebos.master.model,ec.com.ebos
+ .root.model,ec.com.ebos.util.type,javax.persistence,lombok,org.hibern
+ ate.annotations",ec.com.ebos.conta.model.field;version="3.0.3";uses:=
+ "ec.com.ebos.root.model.field",ec.com.ebos.logis.model;version="3.0.3
+ ";uses:="ec.com.ebos.aspect.annotation,ec.com.ebos.root.model,javax.p
+ ersistence,lombok",ec.com.ebos.logis.model.field;version="3.0.3",ec.c
+ om.ebos.master.core.process;version="3.0.3";uses:="ec.com.ebos.master
+ .model,ec.com.ebos.orm.crud,ec.com.ebos.root.core.process,org.springf
+ ramework.stereotype",ec.com.ebos.master.core.service;version="3.0.3";
+ uses:="ec.com.ebos.master.core.process,ec.com.ebos.master.model,ec.co
+ m.ebos.orm.crud,lombok,org.springframework.beans.factory.annotation,o
+ rg.springframework.stereotype",ec.com.ebos.master.model;version="3.0.
+ 3";uses:="ec.com.ebos.aspect.annotation,ec.com.ebos.root.model,ec.com
+ .ebos.util.type,javax.persistence,lombok,org.hibernate.annotations",e
+ c.com.ebos.master.model.field;version="3.0.3";uses:="ec.com.ebos.root
+ .model.field",ec.com.ebos.mse.core.process;version="3.0.3";uses:="ec.
+ com.ebos.mse.model,ec.com.ebos.orm.crud,ec.com.ebos.root.core.process
+ ,org.springframework.stereotype",ec.com.ebos.mse.core.service;version
+ ="3.0.3";uses:="ec.com.ebos.mse.core.process,ec.com.ebos.mse.model,ec
  .com.ebos.orm.crud,lombok,org.springframework.beans.factory.annotatio
- n,org.springframework.stereotype",ec.com.ebos.conta.exception;version
- ="3.0.1";uses:="ec.com.ebos.root.core.exception",ec.com.ebos.conta.mo
- del;version="3.0.1";uses:="ec.com.ebos.admin.model,ec.com.ebos.aspect
- .annotation,ec.com.ebos.master.model,ec.com.ebos.root.model,ec.com.eb
- os.util.type,javax.persistence,lombok,org.hibernate.annotations",ec.c
- om.ebos.conta.model.field;version="3.0.1";uses:="ec.com.ebos.root.mod
- el.field",ec.com.ebos.context;version="3.0.1";uses:="ec.com.ebos.admi
- n.core.process,ec.com.ebos.admin.model,javax.annotation,javax.faces.c
- ontext,lombok,org.springframework.beans.factory.annotation,org.spring
- framework.context,org.springframework.stereotype",ec.com.ebos.logis.m
- odel;version="3.0.1";uses:="ec.com.ebos.aspect.annotation,ec.com.ebos
- .root.model,javax.persistence,lombok",ec.com.ebos.logis.model.field;v
- ersion="3.0.1",ec.com.ebos.master.core.process;version="3.0.1";uses:=
- "ec.com.ebos.master.model,ec.com.ebos.orm.crud,ec.com.ebos.root.core.
- process,org.springframework.stereotype",ec.com.ebos.master.core.servi
- ce;version="3.0.1";uses:="ec.com.ebos.master.core.process,ec.com.ebos
- .master.model,ec.com.ebos.orm.crud,lombok,org.springframework.beans.f
- actory.annotation,org.springframework.stereotype",ec.com.ebos.master.
- exception;version="3.0.1";uses:="ec.com.ebos.root.core.exception",ec.
- com.ebos.master.model;version="3.0.1";uses:="ec.com.ebos.aspect.annot
- ation,ec.com.ebos.root.model,ec.com.ebos.util.type,javax.persistence,
- lombok,org.hibernate.annotations",ec.com.ebos.master.model.field;vers
- ion="3.0.1";uses:="ec.com.ebos.root.model.field",ec.com.ebos.master.s
- ession;version="3.0.1";uses:="ec.com.ebos.admin.model,ec.com.ebos.mas
- ter.model,ec.com.ebos.security.core.service,ec.com.ebos.security.mode
- l,javax.annotation",ec.com.ebos.mse.core.process;version="3.0.1";uses
- :="ec.com.ebos.mse.model,ec.com.ebos.orm.crud,ec.com.ebos.root.core.p
- rocess,org.springframework.stereotype",ec.com.ebos.mse.core.service;v
- ersion="3.0.1";uses:="ec.com.ebos.mse.core.process,ec.com.ebos.mse.mo
- del,ec.com.ebos.orm.crud,lombok,org.springframework.beans.factory.ann
- otation,org.springframework.stereotype",ec.com.ebos.mse.exception;ver
- sion="3.0.1";uses:="ec.com.ebos.root.core.exception",ec.com.ebos.mse.
- model;version="3.0.1";uses:="ec.com.ebos.aspect.annotation,ec.com.ebo
- s.master.model,ec.com.ebos.root.model,javax.persistence,lombok,org.hi
- bernate.annotations",ec.com.ebos.mse.model.field;version="3.0.1";uses
- :="ec.com.ebos.root.model.field",ec.com.ebos.orm.crud;version="3.0.1"
- ;uses:="ec.com.ebos.orm.crud.support,lombok,org.hibernate,org.hiberna
- te.criterion,org.hibernate.impl,org.hibernate.transform,org.hibernate
- .type,org.primefaces.model,org.springframework.jdbc.core",ec.com.ebos
- .orm.crud.impl;version="3.0.1";uses:="ec.com.ebos.orm.crud,ec.com.ebo
- s.orm.crud.support,javax.sql,lombok,org.hibernate,org.hibernate.crite
- rion,org.springframework.jdbc.core",ec.com.ebos.orm.crud.support;vers
- ion="3.0.1";uses:="ec.com.ebos.orm.crud,javax.sql,lombok,org.hibernat
- e,org.hibernate.criterion,org.springframework.dao,org.springframework
- .jdbc.core,org.springframework.jdbc.object",ec.com.ebos.orm.service;v
- ersion="3.0.1",ec.com.ebos.orm.service.interceptor;version="3.0.1";us
- es:="ec.com.ebos.orm.service,org.aopalliance.intercept,org.hibernate"
- ,ec.com.ebos.root.core.exception;version="3.0.1",ec.com.ebos.root.cor
- e.process;version="3.0.1";uses:="ec.com.ebos.aspect.core.exception,ec
- .com.ebos.master.session,ec.com.ebos.orm.crud,ec.com.ebos.security.ex
- ception,ec.com.ebos.util.type,javax.annotation,lombok,org.hibernate.e
- xception,org.springframework.aop.framework,org.springframework.beans.
- factory.annotation",ec.com.ebos.root.model;version="3.0.1";uses:="ec.
- com.ebos.security.model,ec.com.ebos.util.type,javax.persistence,lombo
- k",ec.com.ebos.root.model.field;version="3.0.1",ec.com.ebos.security.
- core.process;version="3.0.1";uses:="ec.com.ebos.admin.model,ec.com.eb
- os.aspect.core.exception,ec.com.ebos.master.session,ec.com.ebos.orm.c
- rud,ec.com.ebos.root.core.process,ec.com.ebos.security.model,ec.com.e
- bos.util.core.process,lombok,org.springframework.beans.factory.annota
- tion,org.springframework.stereotype,org.springframework.transaction.a
- nnotation",ec.com.ebos.security.core.service;version="3.0.1";uses:="e
- c.com.ebos.admin.model,ec.com.ebos.aspect.core.exception,ec.com.ebos.
- master.session,ec.com.ebos.orm.crud,ec.com.ebos.security.core.process
- ,ec.com.ebos.security.model,lombok,org.springframework.beans.factory.
- annotation,org.springframework.stereotype,org.springframework.transac
- tion.annotation",ec.com.ebos.security.exception;version="3.0.1";uses:
- ="ec.com.ebos.root.core.exception",ec.com.ebos.security.model;version
- ="3.0.1";uses:="ec.com.ebos.admin.model,ec.com.ebos.aspect.annotation
- ,ec.com.ebos.master.model,ec.com.ebos.root.model,javax.persistence,lo
- mbok,org.hibernate.annotations",ec.com.ebos.security.model.field;vers
- ion="3.0.1";uses:="ec.com.ebos.root.model.field",ec.com.ebos.spring.c
- onfig;version="3.0.1";uses:="ec.com.ebos.orm.crud,ec.com.ebos.orm.cru
- d.support,javax.naming,org.hibernate,org.springframework.beans.factor
- y.annotation,org.springframework.cache.annotation,org.springframework
- .cache.ehcache,org.springframework.context.annotation,org.springframe
- work.jdbc.support.lob,org.springframework.orm.hibernate3,org.springfr
- amework.orm.hibernate3.annotation,org.springframework.transaction.int
- erceptor",ec.com.ebos.util;version="3.0.1";uses:="ec.com.ebos.root.mo
- del,javax.el,javax.faces.application,javax.faces.component,javax.face
- s.context,javax.faces.convert,javax.faces.event,javax.servlet.http",e
- c.com.ebos.util.core.process;version="3.0.1";uses:="ec.com.ebos.root.
- core.process,ec.com.ebos.util.mail,lombok,org.springframework.beans.f
- actory.annotation,org.springframework.scheduling.annotation,org.sprin
- gframework.stereotype,org.springframework.transaction.annotation",ec.
- com.ebos.util.core.service;version="3.0.1";uses:="ec.com.ebos.util.co
- re.process,lombok,org.springframework.beans.factory.annotation,org.sp
- ringframework.scheduling.annotation,org.springframework.stereotype",e
- c.com.ebos.util.crypto;version="3.0.1",ec.com.ebos.util.exception;ver
- sion="3.0.1";uses:="ec.com.ebos.root.core.exception",ec.com.ebos.util
- .mail;version="3.0.1";uses:="ec.com.ebos.context,javax.mail.internet,
- lombok,org.springframework.beans.factory.annotation,org.springframewo
- rk.mail,org.springframework.mail.javamail,org.springframework.stereot
- ype",ec.com.ebos.util.sms;version="3.0.1";uses:="ec.com.ebos.context,
- javax.annotation,lombok,org.springframework.beans.factory.annotation,
- org.springframework.stereotype",ec.com.ebos.util.type;version="3.0.1"
- ;uses:="lombok,org.hibernate.usertype"
+ n,org.springframework.stereotype",ec.com.ebos.mse.model;version="3.0.
+ 3";uses:="ec.com.ebos.aspect.annotation,ec.com.ebos.master.model,ec.c
+ om.ebos.root.model,javax.persistence,lombok,org.hibernate.annotations
+ ",ec.com.ebos.mse.model.field;version="3.0.3";uses:="ec.com.ebos.root
+ .model.field",ec.com.ebos.orm.crud.impl;version="3.0.3";uses:="ec.com
+ .ebos.orm.crud,ec.com.ebos.orm.crud.support,javax.sql,lombok,org.hibe
+ rnate,org.hibernate.criterion,org.springframework.jdbc.core",ec.com.e
+ bos.root.core.process;version="3.0.3";uses:="ec.com.ebos.aspect.core.
+ exception,ec.com.ebos.master.session,ec.com.ebos.orm.crud,ec.com.ebos
+ .security.exception,ec.com.ebos.util.type,javax.annotation,lombok,org
+ .hibernate.exception,org.springframework.aop.framework,org.springfram
+ ework.beans.factory.annotation",ec.com.ebos.root.model;version="3.0.3
+ ";uses:="ec.com.ebos.security.model,ec.com.ebos.util.type,javax.persi
+ stence,lombok",ec.com.ebos.root.model.field;version="3.0.3",ec.com.eb
+ os.security.core.process;version="3.0.3";uses:="ec.com.ebos.admin.mod
+ el,ec.com.ebos.aspect.core.exception,ec.com.ebos.master.session,ec.co
+ m.ebos.orm.crud,ec.com.ebos.root.core.process,ec.com.ebos.security.mo
+ del,ec.com.ebos.util.core.process,lombok,org.springframework.beans.fa
+ ctory.annotation,org.springframework.stereotype",ec.com.ebos.security
+ .core.service;version="3.0.3";uses:="ec.com.ebos.admin.model,ec.com.e
+ bos.aspect.core.exception,ec.com.ebos.master.session,ec.com.ebos.orm.
+ crud,ec.com.ebos.security.core.process,ec.com.ebos.security.model,lom
+ bok,org.springframework.beans.factory.annotation,org.springframework.
+ stereotype",ec.com.ebos.security.model;version="3.0.3";uses:="ec.com.
+ ebos.admin.model,ec.com.ebos.aspect.annotation,ec.com.ebos.master.mod
+ el,ec.com.ebos.root.model,javax.persistence,lombok,org.hibernate.anno
+ tations",ec.com.ebos.security.model.field;version="3.0.3";uses:="ec.c
+ om.ebos.root.model.field"
 Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
  LEASE,1.6.12.RELEASE]",org.glassfish.javax.faces;version="[2.1.18,2.1
  .18]",ec.com.ebos.primefaces;version="[3.5.0,3.5.0]",ec.com.ebos.prim
@@ -141,43 +86,25 @@ Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
  il;version="[1.4.5,1.4.5]",com.springsource.org.apache.log4j;version=
  "[1.2.15,1.2.15]",ec.com.ebos.postgresql;version="9.0"
 Bundle-Vendor: eBos
-Bundle-Version: 3.0.1
+Bundle-Version: 3.0.3
 Tool: Bundlor 1.1.2.RELEASE
 Import-Library: org.springframework.spring;version="[3.0, 3.2)"
-Bundle-Name: ec.com.ebos.core
+Bundle-Name: ec.com.ebos.hibernate
 Bundle-ManifestVersion: 2
-Import-Package: javax.annotation,javax.el,javax.faces,javax.faces.appl
- ication,javax.faces.component,javax.faces.context,javax.faces.convert
- ,javax.faces.event,javax.faces.view.facelets,javax.mail.internet,java
- x.naming,javax.persistence;version="[1.0.0, 3.0.0)",javax.servlet;ver
- sion="[3.0.0, 3.1.0)",javax.servlet.http,javax.sql;version="0",lombok
- ;version="[0.11.6,0.11.6]",net.sf.ehcache,org.aopalliance.intercept,o
- rg.apache.commons.beanutils,org.apache.commons.dbcp;version="[1.2.2.o
- sgi, 1.2.2.osgi]",org.apache.commons.lang,org.apache.commons.lang.tim
- e,org.apache.commons.logging,org.apache.log4j,org.aspectj.lang;versio
- n="[1.6.12.RELEASE,1.6.12.RELEASE]",org.aspectj.lang.annotation;versi
- on="[1.6.12.RELEASE,1.6.12.RELEASE]",org.eclipse.virgo.web.dm;version
- ="[3.0.0, 4.0.0)",org.primefaces.context;version="[3.5.0,3.5.0]",org.
- primefaces.model;version="[3.5.0,3.5.0]",org.springframework.aop.fram
- ework;version="[3.0, 3.2)",org.springframework.beans.factory;version=
- "[3.0, 3.2)",org.springframework.beans.factory.annotation;version="[3
- .0, 3.2)",org.springframework.beans.factory.config;version="[3.0, 3.2
- )",org.springframework.cache.annotation;version="[3.0, 3.2)",org.spri
- ngframework.cache.ehcache;version="[3.0, 3.2)",org.springframework.co
- ntext;version="[3.0, 3.2)",org.springframework.context.annotation;ver
+Import-Package: javax.annotation,javax.faces.application,javax.persist
+ ence;version="[1.0.0, 3.0.0)",javax.servlet;version="[3.0.0, 3.1.0)",
+ javax.sql;version="0",lombok;version="[0.11.6,0.11.6]",org.apache.com
+ mons.lang,org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",org.sprin
+ gframework.aop.framework;version="[3.0, 3.2)",org.springframework.bea
+ ns.factory.annotation;version="[3.0, 3.2)",org.springframework.cache.
+ annotation;version="[3.0, 3.2)",org.springframework.cache.ehcache;ver
  sion="[3.0, 3.2)",org.springframework.context.weaving;version="[3.0, 
- 3.2)",org.springframework.core.io;version="[3.0, 3.2)",org.springfram
- ework.dao;version="[3.0, 3.2)",org.springframework.jdbc.core;version=
- "[3.0, 3.2)",org.springframework.jdbc.object;version="[3.0, 3.2)",org
- .springframework.jdbc.support;version="[3.0, 3.2)",org.springframewor
- k.jdbc.support.lob;version="[3.0, 3.2)",org.springframework.mail;vers
- ion="[3.0, 3.2)",org.springframework.mail.javamail;version="[3.0, 3.2
- )",org.springframework.orm.hibernate3;version="[3.0, 3.2)",org.spring
- framework.orm.hibernate3.annotation;version="[3.0, 3.2)",org.springfr
- amework.scheduling.annotation;version="[3.0, 3.2)",org.springframewor
- k.stereotype;version="[3.0, 3.2)",org.springframework.transaction.ann
- otation;version="[3.0, 3.2)",org.springframework.transaction.aspectj;
- version="[3.0, 3.2)",org.springframework.transaction.interceptor;vers
- ion="[3.0, 3.2)"
-Bundle-SymbolicName: ec.com.ebos.core
+ 3.2)",org.springframework.jdbc.core;version="[3.0, 3.2)",org.springfr
+ amework.jdbc.support;version="[3.0, 3.2)",org.springframework.jdbc.su
+ pport.lob;version="[3.0, 3.2)",org.springframework.orm.hibernate3;ver
+ sion="[3.0, 3.2)",org.springframework.orm.hibernate3.annotation;versi
+ on="[3.0, 3.2)",org.springframework.stereotype;version="[3.0, 3.2)",o
+ rg.springframework.transaction.aspectj;version="[3.0, 3.2)",org.sprin
+ gframework.transaction.interceptor;version="[3.0, 3.2)"
+Bundle-SymbolicName: ec.com.ebos.hibernate
 

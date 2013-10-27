@@ -15,8 +15,8 @@
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/ec.com.ebos-0.4.0"
-	 		p:username="ebos" p:password="ebos" />
+<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/ec.com.ebos-0.4.0"
+	 		p:username="ebos" p:password="ebos" /> -->
 
 
     <!-- ========================= RESOURCE DEFINITIONS ========================= -->
@@ -26,7 +26,7 @@
          implements LoadTimeWeaverAware (such as LocalContainerEntityManagerFactoryBean)
          will receive a reference to the autodetected load-time weaver.
      -->
-    <context:load-time-weaver aspectj-weaving="on"/>
+    <!-- <context:load-time-weaver aspectj-weaving="on"/>
 
 	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"/>
 
@@ -87,14 +87,14 @@
 		<constructor-arg ref="finderService" />
 	</bean>
 
-    <!--
+    
         Instruct Spring to perform declarative transaction management
         automatically on annotated classes.
-    -->
+   
     <tx:annotation-driven mode="aspectj"/>
 
 	
-	<!-- Switch on the Caching -->
+	Switch on the Caching
    	<cache:annotation-driven />
 
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" 
@@ -102,7 +102,7 @@
  
 	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
 	     p:configLocation="classpath:ehcache.xml"  
-	     p:shared="true"/>
+	     p:shared="true"/> -->
 	     
     <context:component-scan 
     	base-package="ec.com.ebos.context,

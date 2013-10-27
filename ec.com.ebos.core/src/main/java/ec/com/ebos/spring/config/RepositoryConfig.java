@@ -28,9 +28,9 @@ import ec.com.ebos.aspect.core.process.SecurityAspect;
 import ec.com.ebos.orm.crud.CrudService;
 import ec.com.ebos.orm.crud.FinderSQLService;
 import ec.com.ebos.orm.crud.FinderService;
-import ec.com.ebos.orm.crud.impl.CrudServiceImpl;
-import ec.com.ebos.orm.crud.impl.FinderSQLServiceImpl;
-import ec.com.ebos.orm.crud.impl.FinderServiceImpl;
+//import ec.com.ebos.orm.crud.impl.CrudServiceImpl;
+//import ec.com.ebos.orm.crud.impl.FinderSQLServiceImpl;
+//import ec.com.ebos.orm.crud.impl.FinderServiceImpl;
 import ec.com.ebos.orm.crud.support.BaseDaoSupport;
 import ec.com.ebos.util.Constantes;
 
@@ -158,11 +158,11 @@ public class RepositoryConfig {
 	 * @return
 	 * @throws NamingException
 	 */
-	@Bean
-	@Autowired 
-	public CrudService crudService(SessionFactory sessionFactory) throws NamingException{
-		return new CrudServiceImpl(sessionFactory);
-	}
+//	@Bean
+//	@Autowired 
+//	public CrudService crudService(SessionFactory sessionFactory) throws NamingException{
+//		return new CrudServiceImpl(sessionFactory);
+//	}
 	
 	/**
 	 * FinderSQLServiceBean
@@ -170,10 +170,10 @@ public class RepositoryConfig {
 	 * @return
 	 * @throws NamingException
 	 */
-	@Bean
-	public FinderSQLService finderSQLService() throws NamingException{		
-		return new FinderSQLServiceImpl();
-	}
+//	@Bean
+//	public FinderSQLService finderSQLService() throws NamingException{		
+//		return new FinderSQLServiceImpl();
+//	}
 
 	
 	/**
@@ -183,11 +183,11 @@ public class RepositoryConfig {
 	 * @return
 	 * @throws NamingException
 	 */
-	@Bean
-	@Autowired
-	public FinderService finderService(SessionFactory sessionFactory) throws NamingException{
-		return new FinderServiceImpl(sessionFactory, transactionMaxRegistros, finderSQLService());
-	}
+//	@Bean
+//	@Autowired
+//	public FinderService finderService(SessionFactory sessionFactory) throws NamingException{
+//		return new FinderServiceImpl(sessionFactory, transactionMaxRegistros, finderSQLService());
+//	}
 	
 
 	@Bean 
