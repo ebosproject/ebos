@@ -18,7 +18,7 @@ import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Asientos contables

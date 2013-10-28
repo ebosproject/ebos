@@ -1,7 +1,7 @@
 package ec.com.ebos.mse.model.field;
 
 import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Entity model attributes for {@link Contabilidad}

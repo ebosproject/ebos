@@ -1,4 +1,4 @@
-package ec.com.ebos.root.model;
+package ec.com.ebos.root.model.hibernate;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 
 import lombok.Getter;
 import lombok.Setter;
+import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.security.model.Usuario;
 
 /**
@@ -21,7 +22,7 @@ import ec.com.ebos.security.model.Usuario;
  * @since 2013-02-10
  */
 @Embeddable
-public class Auditoria implements Serializable{
+public class HibernateAuditoria implements Serializable, Auditoria{
 
 	private static final long serialVersionUID = -2195848600759541457L;
 

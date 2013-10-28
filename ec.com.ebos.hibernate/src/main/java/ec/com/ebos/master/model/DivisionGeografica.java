@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 import ec.com.ebos.conta.model.PeriodoFiscalPais;
 import ec.com.ebos.conta.model.field.PeriodoFiscalPais_;
 import ec.com.ebos.master.model.field.DivisionGeografica_;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Contiene la division geografica del pais

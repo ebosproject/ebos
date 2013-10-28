@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Import-Bundle: ec.com.ebos.postgresql;version="9.0"
 Bundle-Vendor: eBos
-Bundle-Version: 3.0.2
+Bundle-Version: 3.0.3
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.db
 Bundle-ManifestVersion: 2

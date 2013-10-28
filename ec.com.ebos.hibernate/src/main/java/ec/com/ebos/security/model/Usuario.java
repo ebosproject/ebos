@@ -25,7 +25,7 @@ import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.security.model.field.UsuarioRol_;
 
 /**
@@ -65,8 +65,8 @@ public class Usuario extends Security<Usuario> {
     private String password;
     
     @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
     
     @Column(name = "localidad", length = 5)
     @Type(type = Bundle.Localidad.TYPE)

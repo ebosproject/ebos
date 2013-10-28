@@ -21,8 +21,8 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.field.CentroCosto_;
 import ec.com.ebos.conta.model.field.CentroSubcentro_;
 import ec.com.ebos.conta.model.field.CuentaCentro_;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Tipos de centros de costo
@@ -73,8 +73,8 @@ public class TipoCentroCosto extends Contabilidad<TipoCentroCosto> {
 	 * Estado del {@link TipoCentroCosto}
 	 */
 	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado = Estado.ACTIVO;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado = Estado.ACTIVO;
 	
 	@OneToMany(mappedBy = CentroCosto_.tipoCentroCosto, fetch = FetchType.LAZY)
     private Set<CentroCosto> centroCostoList = new HashSet<CentroCosto>(0);

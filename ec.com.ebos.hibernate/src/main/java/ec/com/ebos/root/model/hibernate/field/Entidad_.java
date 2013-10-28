@@ -1,4 +1,4 @@
-package ec.com.ebos.root.model.field;
+package ec.com.ebos.root.model.hibernate.field;
 
 /**
  * Entity Root model attributes for AuditoriaEntity @Embeddable

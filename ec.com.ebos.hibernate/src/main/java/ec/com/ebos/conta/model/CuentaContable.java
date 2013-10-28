@@ -33,8 +33,8 @@ import ec.com.ebos.conta.model.field.Ejercicio_;
 import ec.com.ebos.conta.model.field.SaldoCuentaCentro_;
 import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -137,8 +137,8 @@ public class CuentaContable extends Contabilidad<CuentaContable> {
 	 * Estado de la {@link CuentaContable}
 	 */
 	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado = Estado.ACTIVO;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado = Estado.ACTIVO;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.cuentaContable, fetch = FetchType.LAZY)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);

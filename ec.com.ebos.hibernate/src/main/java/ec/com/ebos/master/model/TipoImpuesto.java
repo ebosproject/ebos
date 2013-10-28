@@ -20,8 +20,8 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -37,7 +37,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Table(name = TipoImpuesto.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class TipoImpuesto extends Entidad<TipoImpuesto>{
+public class TipoImpuesto extends HibernateEntidad<TipoImpuesto>{
 
 	private static final long serialVersionUID = 3922934845182492539L;
 	

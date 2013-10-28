@@ -23,7 +23,7 @@ import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -80,8 +80,8 @@ public class Propiedad extends Master<Propiedad> {
     private boolean lista;
 	
     @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
     
     @OneToMany(mappedBy = "propiedad", fetch= FetchType.LAZY)
     private Set<PropiedadValor> propiedadValorList = new HashSet<PropiedadValor>(0);

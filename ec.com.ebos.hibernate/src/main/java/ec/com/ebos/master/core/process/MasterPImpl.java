@@ -13,7 +13,7 @@ import ec.com.ebos.master.model.field.Propiedad_;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
-import ec.com.ebos.root.model.Entidad.Estado;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad.Estado;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.StringUtils;

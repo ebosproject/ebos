@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>ec.com.ebos</groupId>
 		<artifactId>ec.com.ebos.parent</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
+		<version>3.0.1-SNAPSHOT</version>
 		<relativePath>../ec.com.ebos.parent</relativePath>
 	</parent>
 
@@ -18,42 +18,26 @@
 	<description>eBos PAR</description>
 
 	<dependencies>
-		<!-- <dependency>
-			<groupId>org.eclipse.virgo</groupId>
-			<artifactId>greenpages.core</artifactId>
+		<dependency>
+			<groupId>ec.com.ebos</groupId>
+			<artifactId>ec.com.ebos.db</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.virgo</groupId>
-			<artifactId>greenpages.jpa</artifactId>
+			<groupId>ec.com.ebos</groupId>
+			<artifactId>ec.com.ebos.core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.virgo</groupId>
-			<artifactId>greenpages.db</artifactId>
+			<groupId>ec.com.ebos</groupId>
+			<artifactId>ec.com.ebos.hibernate</artifactId>
 			<version>${project.version}</version>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>ec.com.ebos</groupId>
 			<artifactId>ec.com.ebos.web</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<!-- Needs to be included in the PAR so that its classes are loadable via the PAR's synthetic context class loader -->
-		<!-- <dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>com.springsource.org.h2</artifactId>
-		</dependency> -->
-		<!-- Required for the web bundle as dependencies are not propagated up from war build types -->
-		<!-- <dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>com.springsource.freemarker</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit</groupId>
-			<artifactId>com.springsource.org.junit</artifactId>
-			<scope>test</scope>
-		</dependency> -->
 	</dependencies>
 
 	<build>

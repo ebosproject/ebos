@@ -20,7 +20,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
 /**
  *
@@ -55,8 +55,8 @@ public class Rol extends Security<Rol> {
     private String descripcion;
 
     @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
     
     @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)    
     private Set<RolOpcion> rolOpcionList = new HashSet<RolOpcion>(0);

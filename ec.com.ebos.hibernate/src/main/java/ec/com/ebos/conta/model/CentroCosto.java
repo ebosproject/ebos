@@ -29,8 +29,8 @@ import ec.com.ebos.conta.model.field.DocumentoDistribucion_;
 import ec.com.ebos.conta.model.field.SaldoCentroCosto_;
 import ec.com.ebos.conta.model.field.SaldoCuentaCentro_;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Se definen los centros de costo a usarse por el grupo de empresas
@@ -101,8 +101,8 @@ public class CentroCosto extends Contabilidad<CentroCosto> {
 	 * Estado del {@link CentroCosto}
 	 */
 	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado = Estado.ACTIVO;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado = Estado.ACTIVO;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.centroCosto, fetch = FetchType.LAZY)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);

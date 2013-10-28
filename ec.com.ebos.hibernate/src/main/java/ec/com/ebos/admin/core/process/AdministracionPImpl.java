@@ -21,8 +21,8 @@ import ec.com.ebos.master.model.field.MessageResource_;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Auditoria_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Auditoria_;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.EntityUtils;
 
@@ -117,7 +117,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
         }else{
             param.setCreado(fecha);
             param.setModificado(fecha);
-            param.setEstado(Entidad.Estado.ACTIVO);
+            param.setEstado(HibernateEntidad.Estado.ACTIVO);
         }
         param = saveOrMerge(param);
         
@@ -178,7 +178,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @Override
     public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
+        criteria.addEquals("estado", HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador, Opcion_.padre);
         
@@ -201,7 +201,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @Override
     public Opcion saveOpcion(Opcion opcion) {
         if (!EntityUtils.isPersistent(opcion)) {
-            opcion.setEstado(Entidad.Estado.ACTIVO);
+            opcion.setEstado(HibernateEntidad.Estado.ACTIVO);
         }
         opcion = saveOrMerge(opcion);
         putSuccess("opcion.success.save",opcion.getId());
@@ -218,7 +218,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @Override
     public Opcion getOpcion(Long id) {
     	GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-    	criteria.addEquals("estado", Entidad.Estado.ACTIVO);
+    	criteria.addEquals("estado", HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador);
         return findFirstByCriteria(criteria);
@@ -227,7 +227,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @Override
     public List<Opcion> getOpcionPadreList() {
         GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
-        criteria.addEquals(Opcion_.estado, Entidad.Estado.ACTIVO);
+        criteria.addEquals(Opcion_.estado, HibernateEntidad.Estado.ACTIVO);
         criteria.addIsNull(Opcion_.padre);
         criteria.addOrderAsc(Opcion_.padre);
         return findByCriteria(criteria);
@@ -240,7 +240,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @Override
     public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination) {
         GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
-        criteria.addEquals("estado", Entidad.Estado.ACTIVO);
+        criteria.addEquals("estado", HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador);
         if (objeto != null) {
@@ -263,7 +263,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     @Override
     public Objeto saveObjeto(Objeto objeto) {
         if (!EntityUtils.isPersistent(objeto)) {
-            objeto.setEstado(Entidad.Estado.ACTIVO);
+            objeto.setEstado(HibernateEntidad.Estado.ACTIVO);
         }
         objeto = saveOrMerge(objeto);
         putSuccess("objeto.success.save",objeto.getId());

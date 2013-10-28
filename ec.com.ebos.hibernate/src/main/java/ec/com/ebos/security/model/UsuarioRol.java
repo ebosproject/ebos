@@ -17,7 +17,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
 /**
  *
@@ -53,7 +53,7 @@ public class UsuarioRol extends Security<UsuarioRol> {
     private Rol rol;
 
     @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
     
 }

@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
 /**
  * Theme clase
@@ -43,8 +43,8 @@ public class Tema extends Master<Tema> {
     private String imagen;
 	
     @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
     
     public Tema(String nombre, String imagen) {
         this.nombre = nombre;

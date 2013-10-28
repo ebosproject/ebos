@@ -1,7 +1,7 @@
 package ec.com.ebos.security.model.field;
 
 import ec.com.ebos.admin.model.Opcion;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Entity model attributes for {@link Opcion}

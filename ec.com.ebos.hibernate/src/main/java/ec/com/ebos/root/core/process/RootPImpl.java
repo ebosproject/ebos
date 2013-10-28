@@ -43,7 +43,7 @@ import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.orm.crud.PaginationParams;
 import ec.com.ebos.root.core.exception.RootException;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.util.EntityUtils;
@@ -442,7 +442,7 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
 		// validar indices
 		validateUniqueness(entity);
 		// guardar o merge(retached object in ssession)
-		if(EntityUtils.isPersistent((Entidad<?>) entity)){
+		if(EntityUtils.isPersistent((HibernateEntidad<?>) entity)){
 			crud.merge(entity);
 		} else {
 			crud.save(entity);

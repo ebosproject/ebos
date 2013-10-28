@@ -20,9 +20,9 @@ import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Auditoria_;
+import ec.com.ebos.root.model.hibernate.HibernateAuditoria;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Auditoria_;
 import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
@@ -87,14 +87,14 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 
         if (isUsuarioValido(usuario)) {
             Date date = new Date();
-            Entidad.Estado estadoActual = usuario.getEstado();
+            HibernateEntidad.Estado estadoActual = usuario.getEstado();
             if (EntityUtils.isPersistent(usuario)) {
                 usuario.setModificado(date);
             } else {
                 usuario.setPassword(CryptoUtils.computeHashSHA256(usuario.getPassword()));
                 usuario.setCreado(date);
                 usuario.setModificado(date);
-                usuario.setEstado(Entidad.Estado.ACTIVO);
+                usuario.setEstado(HibernateEntidad.Estado.ACTIVO);
             }
 
             usuario = saveOrMerge(usuario);
@@ -134,7 +134,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         criteria.addLike(Usuario_.username, usuario.getUsername());
         criteria.addLike(EmpresaPersona_.persona+"."+Persona_.nombres, usuario.getEmpresaPersona().getPersona().getNombres());
         criteria.addLike(EmpresaPersona_.persona+"."+Persona_.apellidos, usuario.getEmpresaPersona().getPersona().getApellidos());
-        criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
+        criteria.addEquals(Usuario_.estado, HibernateEntidad.Estado.ACTIVO);
         return criteria;
     }
 
@@ -152,7 +152,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     @Override
     public void generateUsuarioRol(Usuario usuario, Rol rol) {
         UsuarioRol usuarioRol = new UsuarioRol();
-        usuarioRol.setEstado(Entidad.Estado.ACTIVO);
+        usuarioRol.setEstado(HibernateEntidad.Estado.ACTIVO);
         usuarioRol.setUsuario(usuario);
         usuarioRol.setRol(rol);
         Date fecha = new Date();
@@ -165,7 +165,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     @Override
     public List<UsuarioRol> getUsuarioRolList(Usuario usuario) {
         GenericCriteria<UsuarioRol> query = GenericCriteria.forClass(UsuarioRol.class);
-        query.addEquals(UsuarioRol_.estado, Entidad.Estado.ACTIVO);
+        query.addEquals(UsuarioRol_.estado, HibernateEntidad.Estado.ACTIVO);
         query.addEquals(UsuarioRol_.usuario, usuario);
 
         return findByCriteria(query);
@@ -211,7 +211,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     @Override
     public List<Rol> findRolList(Rol rol, Pagination pagination) {
         GenericCriteria<Rol> criteria = GenericCriteria.forClass(Rol.class);
-        criteria.addEquals(Rol_.estado, Entidad.Estado.ACTIVO);
+        criteria.addEquals(Rol_.estado, HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador);
         if(rol != null){
@@ -239,7 +239,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         } else {
             rol.setCreado(date);
             rol.setModificado(date);
-            rol.setEstado(Entidad.Estado.ACTIVO);
+            rol.setEstado(HibernateEntidad.Estado.ACTIVO);
         }
         rol = saveOrMerge(rol);
         putSuccess("rol.success.guardar",rol.getId());
@@ -257,7 +257,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     public List<RolOpcion> getRolOpcionList(Rol rol) {
         GenericCriteria<RolOpcion> query = GenericCriteria.forClass(RolOpcion.class);
 
-        query.addEquals(RolOpcion_.estado, Entidad.Estado.ACTIVO);
+        query.addEquals(RolOpcion_.estado, HibernateEntidad.Estado.ACTIVO);
         query.addEquals(RolOpcion_.rol, rol);
 
         return findByCriteria(query);
@@ -267,13 +267,13 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     public void generateRolOpcion(Rol rol, Opcion opcion) {
         RolOpcion rolOpcion = new RolOpcion();
         
-        rolOpcion.setAuditoria(new Auditoria());
+        rolOpcion.setAuditoria(new HibernateAuditoria());
         rolOpcion.setCreador(getSessionBean().getUsuario());
         rolOpcion.setCreado(new Date());
         
         rolOpcion.setRol(rol);
         rolOpcion.setOpcion(opcion);
-        rolOpcion.setEstado(Entidad.Estado.ACTIVO);
+        rolOpcion.setEstado(HibernateEntidad.Estado.ACTIVO);
         rolOpcion.setCrear(false);
         rolOpcion.setEditar(false);
         rolOpcion.setEliminar(false);
@@ -311,7 +311,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 
         GenericCriteria<UsuarioRol> criteria = GenericCriteria.forClass(UsuarioRol.class);
         criteria.addEquals(UsuarioRol_.usuario, usuario);
-        criteria.addEquals(UsuarioRol_.estado, Entidad.Estado.ACTIVO);
+        criteria.addEquals(UsuarioRol_.estado, HibernateEntidad.Estado.ACTIVO);
         List<UsuarioRol> usuarioRolList = findByCriteria(criteria);
 
         List<RolOpcion> rolOpcionList = new ArrayList<RolOpcion>();
@@ -319,7 +319,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         if (usuarioRolList != null) {
             for (UsuarioRol usuarioRol : usuarioRolList) {
                 GenericCriteria<RolOpcion> rolOpcCriteria = GenericCriteria.forClass(RolOpcion.class);
-                rolOpcCriteria.addEquals(RolOpcion_.estado, Entidad.Estado.ACTIVO);
+                rolOpcCriteria.addEquals(RolOpcion_.estado, HibernateEntidad.Estado.ACTIVO);
                 rolOpcCriteria.addEquals(RolOpcion_.rol, usuarioRol.getRol());
                 List<RolOpcion> tmp = findByCriteria(rolOpcCriteria);
                 if (tmp != null) {
@@ -345,7 +345,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     public boolean authLogin(SessionBean sessionBean) {
         GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
         criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
-        criteria.addEquals(Usuario_.estado, Entidad.Estado.ACTIVO);
+        criteria.addEquals(Usuario_.estado, HibernateEntidad.Estado.ACTIVO);
         criteria.addEquals(Usuario_.username, sessionBean.getUsuario().getUsername());
         criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(sessionBean.getUsuario().getPassword()));
 

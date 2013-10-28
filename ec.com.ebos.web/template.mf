@@ -3,7 +3,7 @@ Bundle-ClassPath: .,WEB-INF/classes
 Bundle-ManifestVersion: 2
 Bundle-Name: ec.com.ebos.web
 Bundle-Vendor: eBos
-Bundle-Version: 3.0.1
+Bundle-Version: 3.0.3
 Bundle-SymbolicName: ec.com.ebos.web
 Web-ContextPath: ebos
 Import-Library: 
@@ -25,7 +25,7 @@ Import-Bundle:
  com.springsource.javax.mail;version="[1.4.5,1.4.5]",
  com.springsource.org.apache.log4j;version="[1.2.15,1.2.15]",
  ec.com.ebos.postgresql;version="9.0",
- ec.com.ebos.core;version="[3.0.1,3.0.1]"
+ ec.com.ebos.core;version="[3.0.1,3.1.0)"
 Import-Template: 
  org.primefaces.*;version="[3.5.0,3.5.0]",
  org.primefaces.extensions.*;version="[0.7.1,0.7.1]",
@@ -35,7 +35,7 @@ Import-Template:
  org.apache.commons.dbcp.*;version="[1.2.2.osgi, 1.2.2.osgi]",
  javax.sql;version="0",
  org.aspectj.*;version="[1.6.12.RELEASE,1.6.12.RELEASE]",
- ec.com.ebos.*;version="[3.0.1,3.0.1]"
+ ec.com.ebos.*;version="[3.0.1,3.1.0)"
 Excluded-Imports:
  org.hibernate.*,
  org.springframework.test.*,

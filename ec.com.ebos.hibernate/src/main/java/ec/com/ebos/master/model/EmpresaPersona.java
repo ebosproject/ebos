@@ -22,8 +22,8 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 import ec.com.ebos.security.model.Usuario;
 
 /**
@@ -59,8 +59,8 @@ public class EmpresaPersona extends Master<EmpresaPersona>{
     private Persona persona;
 	
 	@Column(name = Entidad_.estado, nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
 	
 	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY)
     private Set<Usuario> usuarioList = new HashSet<Usuario>(0);

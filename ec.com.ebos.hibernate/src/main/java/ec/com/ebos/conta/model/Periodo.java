@@ -31,8 +31,8 @@ import ec.com.ebos.conta.model.field.SaldoCentroCosto_;
 import ec.com.ebos.conta.model.field.SaldoCuentaCentro_;
 import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
 import ec.com.ebos.conta.model.field.SaldoRetencion_;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -117,7 +117,7 @@ public class Periodo extends Contabilidad<Periodo> {
 	 * Estado del {@link Periodo}
 	 */
 	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
+    @Type(type = HibernateEntidad.Estado.TYPE)
     private Periodo.Estado estado = Estado.PENDIENTE;
 	
 	

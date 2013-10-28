@@ -33,7 +33,7 @@ import ec.com.ebos.master.model.field.Activo_;
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Sucursal_;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -70,8 +70,8 @@ public class Organizacion extends Master<Organizacion>{
     private Persona persona;
 	
 	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
 	
 	@OneToMany(mappedBy = EmpresaPersona_.empresa, fetch= FetchType.LAZY)
     private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);

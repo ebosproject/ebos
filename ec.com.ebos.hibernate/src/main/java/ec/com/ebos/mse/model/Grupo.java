@@ -23,7 +23,7 @@ import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.mse.model.field.Grupo_;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
 /**
  * Monagillo
@@ -59,8 +59,8 @@ public class Grupo extends Mse<Grupo> {
 	private String nombre;
 	
 	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);

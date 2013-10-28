@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
 /**
  * Theme clase
@@ -54,8 +54,8 @@ public class Categoria extends Master<Categoria> {
     private String descripcion;
 	
     @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
     
     @OneToMany(mappedBy = "categoria", fetch= FetchType.LAZY)
     private Set<Activo> activoList = new HashSet<Activo>(0);       

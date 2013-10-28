@@ -25,8 +25,8 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.field.Periodo_;
 import ec.com.ebos.master.model.Organizacion;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Ejercicio fiscal
@@ -93,8 +93,8 @@ public class Ejercicio extends Contabilidad<Ejercicio> {
 	 * Estado del {@link Ejercicio}
 	 */
 	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado = Estado.ACTIVO;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado = Estado.ACTIVO;
 	
 	/**
 	 * Codigo de la estructura organizacional

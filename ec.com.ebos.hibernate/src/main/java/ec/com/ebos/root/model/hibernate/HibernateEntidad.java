@@ -1,4 +1,4 @@
-package ec.com.ebos.root.model;
+package ec.com.ebos.root.model.hibernate;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -10,6 +10,8 @@ import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
+import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
@@ -22,7 +24,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Entidad<T extends Entidad<T>> implements IEntidad, Serializable {
+public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements Entidad, Serializable {
 
 	private static final long serialVersionUID = 2233398298735454479L;
 	

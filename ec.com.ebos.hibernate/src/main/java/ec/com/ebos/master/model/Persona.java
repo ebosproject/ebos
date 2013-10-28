@@ -35,7 +35,7 @@ import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.field.Monaguillo_;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.DateUtils;
 import ec.com.ebos.util.EntityUtils;
@@ -148,8 +148,8 @@ public class Persona extends Master<Persona>{
     private TipoPersona tipoPersona;
 	
 	@Column(name = Persona_.estado, nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+    @Type(type = HibernateEntidad.Estado.TYPE)
+    private HibernateEntidad.Estado estado;
 	
 	@OneToMany(mappedBy = Organizacion_.persona, fetch = FetchType.LAZY)
     private Set<Organizacion> empresaList = new HashSet<Organizacion>(0);

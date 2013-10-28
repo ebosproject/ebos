@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ec.com.ebos.core
 Bundle-Vendor: eBos
-Bundle-Version: 3.0.1
+Bundle-Version: 3.0.3
 Bundle-SymbolicName: ec.com.ebos.core
 Import-Library: 
  org.springframework.spring;version="[3.0, 3.2)"

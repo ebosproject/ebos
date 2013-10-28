@@ -21,7 +21,7 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.TipoDocumento;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Asientos contables

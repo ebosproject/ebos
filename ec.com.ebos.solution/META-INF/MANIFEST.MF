@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
-Application-SymbolicName: greenpages
-Application-Version: 3.0.0.RELEASE
-Application-Name: Greenpages PAR
+Application-SymbolicName: ec.com.ebos
+Application-Version: 3.0.3.RELEASE
+Application-Name: ec.com.ebos
+Application-Description: eBos Project
 
