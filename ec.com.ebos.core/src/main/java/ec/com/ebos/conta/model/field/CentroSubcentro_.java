@@ -1,10 +1,10 @@
 package ec.com.ebos.conta.model.field;
 
-import ec.com.ebos.conta.model.CentroSubcentro;
+import ec.com.ebos.conta.model.hibernate.HibernateCentroSubcentro;
 
 
 /**
- * Entity model attributes for {@link CentroSubcentro}
+ * Entity model attributes for {@link HibernateCentroSubcentro}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

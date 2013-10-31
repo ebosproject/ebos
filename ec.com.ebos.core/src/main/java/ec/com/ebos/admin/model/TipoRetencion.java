@@ -2,17 +2,17 @@ package ec.com.ebos.admin.model;
 
 import java.util.Set;
 
-import ec.com.ebos.conta.model.SaldoRetencion;
+import ec.com.ebos.conta.model.hibernate.HibernateSaldoRetencion;
 
 public interface TipoRetencion {
 
 	public Long getId();
 
-	public Set<SaldoRetencion> getSaldoRetencionList();
+	public Set<HibernateSaldoRetencion> getSaldoRetencionList();
 
 	public void setId(Long id);
 
-	public void setSaldoRetencionList(Set<SaldoRetencion> saldoRetencionList);
+	public void setSaldoRetencionList(Set<HibernateSaldoRetencion> saldoRetencionList);
 
 	public java.lang.String toString();
 

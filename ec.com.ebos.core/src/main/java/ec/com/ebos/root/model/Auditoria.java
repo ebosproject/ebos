@@ -2,17 +2,17 @@ package ec.com.ebos.root.model;
 
 import java.util.Date;
 
-import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 
 public interface Auditoria {
 
-	public Usuario getCreador();
+	public HibernateUsuario getCreador();
 
-	public void setCreador(Usuario creador);
+	public void setCreador(HibernateUsuario creador);
 
-	public Usuario getModificador();
+	public HibernateUsuario getModificador();
 
-	public void setModificador(Usuario modificador);
+	public void setModificador(HibernateUsuario modificador);
 
 	public Date getCreado();
 

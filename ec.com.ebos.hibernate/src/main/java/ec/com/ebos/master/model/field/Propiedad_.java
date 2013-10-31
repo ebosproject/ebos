@@ -1,9 +1,9 @@
 package ec.com.ebos.master.model.field;
 
-import ec.com.ebos.master.model.Propiedad;
+import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
 
 /**
- * Entity model attributes for {@link Propiedad}
+ * Entity model attributes for {@link HibernatePropiedad}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

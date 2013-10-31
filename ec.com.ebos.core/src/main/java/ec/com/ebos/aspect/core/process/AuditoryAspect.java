@@ -17,7 +17,7 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.core.service.SecurityS;
-import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 import ec.com.ebos.util.EntityUtils;
 
 /**
@@ -98,7 +98,7 @@ public class AuditoryAspect {
 		
 		if(entity.getClass().getAnnotation(Auditable.class) != null){
 			entity.setAuditoria(new Auditoria());
-			Usuario usuario = securityS.getSessionBean().getUsuario();
+			HibernateUsuario usuario = securityS.getSessionBean().getUsuario();
 			entity.setCreador(usuario);
 			entity.setCreado(new Date());
 		}
@@ -110,7 +110,7 @@ public class AuditoryAspect {
 		Entidad<?> entity = (Entidad<?>) joinPoint.getArgs()[0];
 		
 		if(entity.getClass().getAnnotation(Auditable.class) != null && entity.getAuditoria() != null){
-			Usuario usuario = securityS.getSessionBean().getUsuario();			
+			HibernateUsuario usuario = securityS.getSessionBean().getUsuario();			
 			Date date = new Date();
 	        if (EntityUtils.isPersistent(entity)) {
 	        	entity.setModificador(usuario);

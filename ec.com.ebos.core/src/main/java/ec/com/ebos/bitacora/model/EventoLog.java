@@ -1,50 +1,31 @@
 package ec.com.ebos.bitacora.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 
-/**
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * 
- */
-@Entity
-@Table(name = EventoLog.TABLE_NAME, schema = Bitacora.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@Auditable
-public class EventoLog extends Bitacora<EventoLog>{
+public interface EventoLog {
 
-	private static final long serialVersionUID = 4194216821641946007L;
+	public Auditoria getAuditoria();
 
-	protected static final String TABLE_NAME = "EVENTO_LOG";
-	private static final String SEQUENCE = Bitacora.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public String getDescripcion();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-	private Long id;
-			
-	@Embedded
-	private Auditoria auditoria;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_evento", nullable = false)
-    private Evento evento;
-	
-	@Column(name = "descripcion", nullable = false, length = 50)
-	private String descripcion;
-			
-	
+	public Evento getEvento();
+
+	public Long getId();
+
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setDescripcion(String descripcion);
+
+	public void setEvento(Evento evento);
+
+	public void setId(Long id);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

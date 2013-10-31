@@ -2,7 +2,7 @@ package ec.com.ebos.mse.model.field;
 
 
 /**
- * Entity model attributes for {@link Grupo}
+ * Entity model attributes for {@link HibernateGrupo}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

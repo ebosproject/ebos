@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 
 import ec.com.ebos.mse.core.process.MseP;
 import ec.com.ebos.mse.model.Grupo;
-import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -33,22 +35,22 @@ public class MseSImpl implements MseS{
     // Grupo
     //
 	@Override
-	public List<Grupo> findGrupoList(Grupo grupo, Pagination pagination) {
+	public List<HibernateGrupo> findGrupoList(HibernateGrupo grupo, Pagination pagination) {
 		return mseP.findGrupoList(grupo, pagination);
 	}
 
 	@Override
-	public Grupo createGrupo() {
+	public HibernateGrupo createGrupo() {
 		return mseP.createGrupo();
 	}
 
 	@Override
-	public Grupo saveGrupo(Grupo grupo) {
+	public HibernateGrupo saveGrupo(HibernateGrupo grupo) {
 		return mseP.saveGrupo(grupo);
 	}
 
 	@Override
-	public void deleteGrupo(Grupo grupo) {
+	public void deleteGrupo(HibernateGrupo grupo) {
 		mseP.deleteGrupo(grupo);
 	}
 
@@ -56,32 +58,32 @@ public class MseSImpl implements MseS{
     // Monaguillo
     //
 	@Override
-	public List<Monaguillo> findMonaguilloList(Monaguillo monagillo,
+	public List<HibernateMonaguillo> findMonaguilloList(HibernateMonaguillo monagillo,
 			Pagination pagination) {
 		return mseP.findMonaguilloList(monagillo, pagination);
 	}
 	
-	public List<Monaguillo> findMonaguilloList(String query){
+	public List<HibernateMonaguillo> findMonaguilloList(String query){
 		return mseP.findMonaguilloList(query);
 	}
 	
 	@Override
-	public List<MonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo){
+	public List<HibernateMonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo){
 		return mseP.getMonaguilloGrupoList(grupo);
 	}
 
 	@Override
-	public Monaguillo createMonaguillo() {
+	public HibernateMonaguillo createMonaguillo() {
 		return mseP.createMonaguillo();
 	}
 
 	@Override
-	public Monaguillo saveMonaguillo(Monaguillo monagillo) {
+	public HibernateMonaguillo saveMonaguillo(HibernateMonaguillo monagillo) {
 		return mseP.saveMonaguillo(monagillo);
 	}
 
 	@Override
-	public void deleteMonaguillo(Monaguillo monaguillo) {
+	public void deleteMonaguillo(HibernateMonaguillo monaguillo) {
 		mseP.deleteMonaguillo(monaguillo);
 	}
 
@@ -91,12 +93,12 @@ public class MseSImpl implements MseS{
 	}
 	
 	@Override
-	public void saveMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
+	public void saveMonaguilloGrupo(HibernateMonaguilloGrupo monaguilloGrupo){
 		mseP.saveMonaguilloGrupo(monaguilloGrupo);
 	}
 	
 	@Override
-	public void deleteMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
+	public void deleteMonaguilloGrupo(HibernateMonaguilloGrupo monaguilloGrupo){
 		mseP.deleteMonaguilloGrupo(monaguilloGrupo);
 	}
 	

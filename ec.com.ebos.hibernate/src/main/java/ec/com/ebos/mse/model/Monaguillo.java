@@ -24,6 +24,8 @@ import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 import ec.com.ebos.mse.model.field.Monaguillo_;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
@@ -35,10 +37,10 @@ import ec.com.ebos.root.model.hibernate.HibernateEntidad;
  * @since 2013/04/28
  */
 @Entity
-@Table(name = Monaguillo.TABLE_NAME, schema = Mse.SCHEMA)
+@Table(name = HibernateMonaguillo.TABLE_NAME, schema = Mse.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class Monaguillo extends Mse<Monaguillo> {
+public class Monaguillo extends Mse<HibernateMonaguillo> {
 
 	private static final long serialVersionUID = 8123939355501042044L;
 	
@@ -72,6 +74,6 @@ public class Monaguillo extends Mse<Monaguillo> {
 	private String centroEstudio;
 	
 	@OneToMany(mappedBy = MonaguilloGrupo_.monaguillo, fetch = FetchType.LAZY)
-    private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
+    private Set<HibernateMonaguilloGrupo> monaguilloGrupoList = new HashSet<HibernateMonaguilloGrupo>(0);
 	
 }

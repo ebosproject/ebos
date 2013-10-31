@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import ec.com.ebos.master.core.process.MasterP;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.Propiedad;
+import ec.com.ebos.master.model.hibernate.HibernatePersona;
+import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -32,15 +34,15 @@ public class MasterSImpl implements MasterS{
     // Propiedad
     //
 
-	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
+	public List<HibernatePropiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
 		return masterP.findPropiedadList(propiedad, pagination);
 	}
 	
-	public Propiedad createPropiedad(){
+	public HibernatePropiedad createPropiedad(){
 		return masterP.buildPropiedad();
 	}
 	
-	public Propiedad savePropiedad(Propiedad propiedad){
+	public HibernatePropiedad savePropiedad(HibernatePropiedad propiedad){
 		return masterP.savePropiedad(propiedad);
 	}
 	
@@ -52,23 +54,23 @@ public class MasterSImpl implements MasterS{
 	// Persona
 	//
 	
-	public List<Persona> findPersonaList(Persona persona, Pagination pagination){
+	public List<HibernatePersona> findPersonaList(Persona persona, Pagination pagination){
 		return masterP.findPersonaList(persona, pagination);
 	}
 	
-	public List<Persona> findPersonaList(String query){
+	public List<HibernatePersona> findPersonaList(String query){
 		return masterP.findPersonaList(query);
 	}
 
-	public Persona createPersona(){
+	public HibernatePersona createPersona(){
 		return masterP.createPersona();
 	}
 
-	public Persona savePersona(Persona persona){
+	public HibernatePersona savePersona(HibernatePersona persona){
 		return masterP.savePersona(persona);
 	}
 
-	public void deletePersona(Persona persona){
+	public void deletePersona(HibernatePersona persona){
 		masterP.deletePersona(persona);
 	}
 }

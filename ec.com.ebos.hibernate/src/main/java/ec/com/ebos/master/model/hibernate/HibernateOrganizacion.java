@@ -1,0 +1,99 @@
+package ec.com.ebos.master.model.hibernate;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Type;
+
+import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.hibernate.HibernateCentroCostoEmpresa;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaCentro;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaContableEmpresa;
+import ec.com.ebos.conta.model.hibernate.HibernateEjercicio;
+import ec.com.ebos.conta.model.hibernate.field.CentroCostoEmpresa_;
+import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
+import ec.com.ebos.conta.model.hibernate.field.CuentaContableEmpresa_;
+import ec.com.ebos.conta.model.hibernate.field.Ejercicio_;
+import ec.com.ebos.master.model.Master;
+import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.master.model.field.Activo_;
+import ec.com.ebos.master.model.field.EmpresaPersona_;
+import ec.com.ebos.master.model.field.Sucursal_;
+import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.root.model.Entidad;
+
+/**
+ * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
+ * 
+ */
+@Entity
+@Table(name = HibernateOrganizacion.TABLE_NAME, schema = Master.SCHEMA)
+@Data @EqualsAndHashCode(callSuper=false) 
+@Auditable
+public class HibernateOrganizacion extends Master<HibernateOrganizacion> implements Organizacion{
+
+	private static final long serialVersionUID = 7508531917964868788L;
+
+	protected static final String TABLE_NAME = "ORGANIZACION";
+	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
+	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+
+	@Id
+	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
+	@GeneratedValue(generator = GENERATOR)
+	private Long id;
+	
+	@Embedded
+	private Auditoria auditoria;
+		
+	@Column(name = "descripcion", nullable = false, length = 50)
+	private String descripcion;
+
+	@Column(name = "imagen", nullable = false, length = 50)
+	private String imagen;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_persona", nullable = false)
+    private Persona persona;
+	
+	@Column(name = "estado", nullable = false, length = 1)
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
+	
+	@OneToMany(mappedBy = EmpresaPersona_.empresa, fetch= FetchType.LAZY)
+    private Set<HibernateEmpresaPersona> empresaPersonaList = new HashSet<HibernateEmpresaPersona>(0);
+	
+	@OneToMany(mappedBy = Sucursal_.empresa, fetch= FetchType.LAZY)
+    private Set<HibernateSucursal> sucursalList = new HashSet<HibernateSucursal>(0);	
+	
+	@OneToMany(mappedBy = Activo_.empresa, fetch= FetchType.LAZY)
+    private Set<HibernateActivo> activoList = new HashSet<HibernateActivo>(0);
+	
+	@OneToMany(mappedBy = CentroCostoEmpresa_.empresa, fetch = FetchType.LAZY)
+    private Set<HibernateCentroCostoEmpresa> centroCostoEmpresaList = new HashSet<HibernateCentroCostoEmpresa>(0);
+	
+	@OneToMany(mappedBy = CuentaCentro_.empresa, fetch = FetchType.LAZY)
+    private Set<HibernateCuentaCentro> cuentaCentroList = new HashSet<HibernateCuentaCentro>(0);
+	
+	@OneToMany(mappedBy = CuentaContableEmpresa_.empresa, fetch = FetchType.LAZY)
+    private Set<HibernateCuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<HibernateCuentaContableEmpresa>(0);
+	
+	@OneToMany(mappedBy = Ejercicio_.empresa, fetch = FetchType.LAZY)
+    private Set<HibernateEjercicio> ejercicioList = new HashSet<HibernateEjercicio>(0);
+}

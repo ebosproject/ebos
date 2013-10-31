@@ -1,9 +1,9 @@
 package ec.com.ebos.master.model.field;
 
-import ec.com.ebos.master.model.Activo;
+import ec.com.ebos.master.model.hibernate.HibernateActivo;
 
 /**
- * Entity model attributes for {@link Activo}
+ * Entity model attributes for {@link HibernateActivo}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

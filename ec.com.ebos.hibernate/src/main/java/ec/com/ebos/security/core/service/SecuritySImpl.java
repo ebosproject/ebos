@@ -16,8 +16,10 @@ import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.core.process.SecurityP;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.security.model.UsuarioRol;
+import ec.com.ebos.security.model.hibernate.HibernateRol;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
 
 /**
  * @author Eduardo Plua Alay
@@ -54,47 +56,47 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public Usuario createUsuario() {
+    public HibernateUsuario createUsuario() {
         return securityP.createUsuario();
     }
     
     @Override
-    public Usuario getUsuario(Long id) {
+    public HibernateUsuario getUsuario(Long id) {
         return securityP.getUsuario(id);
     }
 
     @Override
-    public Usuario saveUsuario(Usuario usuario) {
+    public HibernateUsuario saveUsuario(HibernateUsuario usuario) {
         return securityP.saveUsuario(usuario);
     }
 
     @Override
-    public void deleteUsuario(Usuario usuario) {
+    public void deleteUsuario(HibernateUsuario usuario) {
         securityP.deleteUsuario(usuario);
     }
     
     @Override
-    public List<Usuario> findUsuarioList(Usuario entitySearch, Pagination pagination) {
+    public List<HibernateUsuario> findUsuarioList(HibernateUsuario entitySearch, Pagination pagination) {
         return securityP.findUsuarioList(entitySearch, pagination);
     }
     
     @Override
-    public void generateUsuarioRol(Usuario usuario, Rol rol) {
+    public void generateUsuarioRol(HibernateUsuario usuario, Rol rol) {
         securityP.generateUsuarioRol(usuario,rol);
     }
 
     @Override
-    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+    public void saveUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList) {
         securityP.saveUsuarioRolList(usuarioRolList);
     }
     
     @Override
-    public List<UsuarioRol> getUsuarioRolList(Usuario usuario) {
+    public List<HibernateUsuarioRol> getUsuarioRolList(HibernateUsuario usuario) {
         return securityP.getUsuarioRolList(usuario);
     }
     
     @Override
-    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+    public void deleteUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList) {
         securityP.deleteUsuarioRolList(usuarioRolList);
     }
     
@@ -108,27 +110,27 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public List<Rol> findRolList(Rol rol, Pagination pagination) {
+    public List<HibernateRol> findRolList(HibernateRol rol, Pagination pagination) {
         return securityP.findRolList(rol, pagination);
     }
 
     @Override
-    public Rol createRol() {
+    public HibernateRol createRol() {
         return securityP.createRol();
     }
 
     @Override
-    public Rol saveRol(Rol rol) {
+    public HibernateRol saveRol(HibernateRol rol) {
         return securityP.saveRol(rol);
     }
 
     @Override
-    public void deleteRol(Rol rol) {
+    public void deleteRol(HibernateRol rol) {
         securityP.eliminarRol(rol);
     }    
     
     @Override
-    public List<RolOpcion> getRolOpcionList(Rol rol) {
+    public List<HibernateRolOpcion> getRolOpcionList(Rol rol) {
         return securityP.getRolOpcionList(rol);
     }
     
@@ -138,17 +140,17 @@ public class SecuritySImpl implements SecurityS{
     }
     
     @Override
-    public void saveRolOpcionList(List<RolOpcion> rolOpcionList) {
+    public void saveRolOpcionList(List<HibernateRolOpcion> rolOpcionList) {
         securityP.saveRolOpcionList(rolOpcionList);
     }
     
     @Override
-    public RolOpcion saveRolOpcion(RolOpcion rolOpcion) {
+    public RolOpcion saveRolOpcion(HibernateRolOpcion rolOpcion) {
         return securityP.saveRolOpcion(rolOpcion);
     }
     
     @Override
-    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList) {
+    public void deleteRolOpcionList(List<HibernateRolOpcion> rolOpcionList) {
         securityP.deleteRolOpcionList(rolOpcionList);
     }
     
@@ -162,7 +164,7 @@ public class SecuritySImpl implements SecurityS{
     }      
     
     @Override
-    public void changePassword(Usuario usuario){
+    public void changePassword(HibernateUsuario usuario){
         securityP.changePassword(usuario);
     }
     
@@ -172,7 +174,7 @@ public class SecuritySImpl implements SecurityS{
     	return securityP.getSessionBean();
     }    
     
-    public void saveUserPreferences(Usuario usuario){
+    public void saveUserPreferences(HibernateUsuario usuario){
     	securityP.saveUserPreferences(usuario);
     }
     

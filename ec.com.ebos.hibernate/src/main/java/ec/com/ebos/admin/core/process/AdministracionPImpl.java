@@ -8,26 +8,26 @@ import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.admin.core.exception.AdministracionException;
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.HibernateBundle;
-import ec.com.ebos.admin.model.HibernateBundle.Localidad;
-import ec.com.ebos.admin.model.HibernateConfiguracion;
-import ec.com.ebos.admin.model.HibernateObjeto;
-import ec.com.ebos.admin.model.HibernateOpcion;
-import ec.com.ebos.admin.model.HibernateParametros;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
-import ec.com.ebos.admin.model.field.Bundle_;
-import ec.com.ebos.admin.model.field.Objeto_;
-import ec.com.ebos.admin.model.field.Opcion_;
-import ec.com.ebos.admin.model.field.Parametros_;
+import ec.com.ebos.admin.model.hibernate.HibernateBundle;
+import ec.com.ebos.admin.model.hibernate.HibernateConfiguracion;
+import ec.com.ebos.admin.model.hibernate.HibernateObjeto;
+import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
+import ec.com.ebos.admin.model.hibernate.HibernateParametros;
+import ec.com.ebos.admin.model.hibernate.HibernateBundle.Localidad;
+import ec.com.ebos.admin.model.hibernate.field.Bundle_;
+import ec.com.ebos.admin.model.hibernate.field.Objeto_;
+import ec.com.ebos.admin.model.hibernate.field.Opcion_;
+import ec.com.ebos.admin.model.hibernate.field.Parametros_;
 import ec.com.ebos.master.model.field.MessageResource_;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.root.model.hibernate.field.Auditoria_;
-import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 import ec.com.ebos.util.EntityUtils;
 
 /**

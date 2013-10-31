@@ -26,12 +26,14 @@ import ec.com.ebos.root.model.hibernate.field.Auditoria_;
 import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.security.model.UsuarioRol;
 import ec.com.ebos.security.model.field.RolOpcion_;
 import ec.com.ebos.security.model.field.Rol_;
 import ec.com.ebos.security.model.field.UsuarioRol_;
 import ec.com.ebos.security.model.field.Usuario_;
+import ec.com.ebos.security.model.hibernate.HibernateRol;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
 import ec.com.ebos.util.CryptoUtils;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
@@ -71,19 +73,19 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     //Usuario
     //
     @Override
-    public Usuario createUsuario() {
-        Usuario usuario = new Usuario();
+    public HibernateUsuario createUsuario() {
+        HibernateUsuario usuario = new HibernateUsuario();
         usuario.setEstado(Usuario.Estado.INACTIVO);
         return usuario;
     }
 
     @Override
-    public Usuario getUsuario(Long id) {
-        return get(id, Usuario.class);
+    public HibernateUsuario getUsuario(Long id) {
+        return get(id, HibernateUsuario.class);
     }
 
     @Override
-    public Usuario saveUsuario(Usuario usuario) {
+    public HibernateUsuario saveUsuario(HibernateUsuario usuario) {
 
         if (isUsuarioValido(usuario)) {
             Date date = new Date();
@@ -111,19 +113,19 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public void deleteUsuario(Usuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
+    public void deleteUsuario(HibernateUsuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
         Long id = usuario.getId();
         delete(usuario);
         putSuccess("usuario.success.eliminar", id);
     }
 
     @Override
-    public List<Usuario> findUsuarioList(Usuario usuario, Pagination pagination) {        
+    public List<HibernateUsuario> findUsuarioList(HibernateUsuario usuario, Pagination pagination) {        
         return findByCriteria(buildUsuarioCriteria(usuario), pagination);
     }
     
-    private GenericCriteria<Usuario> buildUsuarioCriteria(Usuario usuario){
-        GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
+    private GenericCriteria<HibernateUsuario> buildUsuarioCriteria(HibernateUsuario usuario){
+        GenericCriteria<HibernateUsuario> criteria = GenericCriteria.forClass(HibernateUsuario.class);
         
         criteria.addEqualsIfNotZero(Usuario_.id, usuario.getId());
 		if(criteria.isChanged()){
@@ -139,10 +141,10 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+    public void saveUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList) {
         if (usuarioRolList != null) {
             Date fecha = new Date();
-            for (UsuarioRol usuarioRol : usuarioRolList) {
+            for (HibernateUsuarioRol usuarioRol : usuarioRolList) {
                 usuarioRol.setModificado(fecha);
                 update(usuarioRol);
             }
@@ -150,8 +152,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public void generateUsuarioRol(Usuario usuario, Rol rol) {
-        UsuarioRol usuarioRol = new UsuarioRol();
+    public void generateUsuarioRol(HibernateUsuario usuario, Rol rol) {
+        HibernateUsuarioRol usuarioRol = new HibernateUsuarioRol();
         usuarioRol.setEstado(HibernateEntidad.Estado.ACTIVO);
         usuarioRol.setUsuario(usuario);
         usuarioRol.setRol(rol);
@@ -163,8 +165,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public List<UsuarioRol> getUsuarioRolList(Usuario usuario) {
-        GenericCriteria<UsuarioRol> query = GenericCriteria.forClass(UsuarioRol.class);
+    public List<HibernateUsuarioRol> getUsuarioRolList(HibernateUsuario usuario) {
+        GenericCriteria<HibernateUsuarioRol> query = GenericCriteria.forClass(HibernateUsuarioRol.class);
         query.addEquals(UsuarioRol_.estado, HibernateEntidad.Estado.ACTIVO);
         query.addEquals(UsuarioRol_.usuario, usuario);
 
@@ -172,12 +174,12 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+    public void deleteUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList) {
     	deleteAll(usuarioRolList);
     	putSuccess("Rol(es) removido(s) correctamente");
     }
 
-    private void buildSendMailCuentaUsuario(Usuario usuario) {      
+    private void buildSendMailCuentaUsuario(HibernateUsuario usuario) {      
         String sender = null;
         String subject = "eBos: Creacion Cuenta  " + usuario.getUsername(); //TODO (epa): Usar bundle
         String content = "Se creo correctamente cuenta para Usuario: " + usuario.getUsername()
@@ -186,10 +188,10 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         utilP.sendMail(subject, content, sender, to, null, null);            
     }
 
-    private boolean isUsuarioValido(Usuario usuario) {
+    private boolean isUsuarioValido(HibernateUsuario usuario) {
         String username = usuario.getUsername();
         
-        GenericCriteria<Usuario> query = GenericCriteria.forClass(Usuario.class);                        
+        GenericCriteria<HibernateUsuario> query = GenericCriteria.forClass(HibernateUsuario.class);                        
         query.addNotEqualsIfNotNull(Usuario_.id, usuario.getId());
         query.addEquals(Usuario_.username, username);        
 
@@ -202,15 +204,15 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     
     @Override
     public int getUsuarioCount(){                       
-        return countByCriteria(buildUsuarioCriteria(new Usuario()));
+        return countByCriteria(buildUsuarioCriteria(new HibernateUsuario()));
     }
 
     //
     // Rol
     //
     @Override
-    public List<Rol> findRolList(Rol rol, Pagination pagination) {
-        GenericCriteria<Rol> criteria = GenericCriteria.forClass(Rol.class);
+    public List<HibernateRol> findRolList(HibernateRol rol, Pagination pagination) {
+        GenericCriteria<HibernateRol> criteria = GenericCriteria.forClass(HibernateRol.class);
         criteria.addEquals(Rol_.estado, HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador);
@@ -225,14 +227,14 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public Rol createRol() {
-        Rol rol = new Rol();
+    public HibernateRol createRol() {
+        HibernateRol rol = new HibernateRol();
         rol.setEstado(Usuario.Estado.INACTIVO);
         return rol;
     }
 
     @Override
-    public Rol saveRol(Rol rol) {
+    public HibernateRol saveRol(HibernateRol rol) {
         Date date = new Date();
         if (EntityUtils.isPersistent(rol)) {
             rol.setModificado(date);
@@ -247,15 +249,15 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public void eliminarRol(Rol rol) {
+    public void eliminarRol(HibernateRol rol) {
         Long id = rol.getId();
     	delete(rol);
         putSuccess("rol.success.eliminar", id);        
     }
 
     @Override
-    public List<RolOpcion> getRolOpcionList(Rol rol) {
-        GenericCriteria<RolOpcion> query = GenericCriteria.forClass(RolOpcion.class);
+    public List<HibernateRolOpcion> getRolOpcionList(Rol rol) {
+        GenericCriteria<HibernateRolOpcion> query = GenericCriteria.forClass(HibernateRolOpcion.class);
 
         query.addEquals(RolOpcion_.estado, HibernateEntidad.Estado.ACTIVO);
         query.addEquals(RolOpcion_.rol, rol);
@@ -265,7 +267,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
 
     @Override
     public void generateRolOpcion(Rol rol, Opcion opcion) {
-        RolOpcion rolOpcion = new RolOpcion();
+        HibernateRolOpcion rolOpcion = new HibernateRolOpcion();
         
         rolOpcion.setAuditoria(new HibernateAuditoria());
         rolOpcion.setCreador(getSessionBean().getUsuario());
@@ -283,11 +285,11 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
   
     @Override
-    public void saveRolOpcionList(List<RolOpcion> rolOpcionList) { 
+    public void saveRolOpcionList(List<HibernateRolOpcion> rolOpcionList) { 
         if (rolOpcionList != null) {
-        	Usuario usuario = getSessionBean().getUsuario();
+        	HibernateUsuario usuario = getSessionBean().getUsuario();
             Date fecha = new Date();
-            for (RolOpcion rolOpcion : rolOpcionList) {
+            for (HibernateRolOpcion rolOpcion : rolOpcionList) {
             	rolOpcion.setModificador(usuario);
                 rolOpcion.setModificado(fecha);
                 update(rolOpcion);
@@ -296,34 +298,34 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public RolOpcion saveRolOpcion(RolOpcion rolOpcion) {
+    public RolOpcion saveRolOpcion(HibernateRolOpcion rolOpcion) {
         return update(rolOpcion);
     }
 
     @Override
-    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList) {
+    public void deleteRolOpcionList(List<HibernateRolOpcion> rolOpcionList) {
         deleteAll(rolOpcionList);
         putSuccess("Opcion(es) removido(s) correctamente");
     }
 
     //TODO (epa): Optimizar consulta
-    private List<RolOpcion> obtenerRolOpcionList(Usuario usuario) {
+    private List<HibernateRolOpcion> obtenerRolOpcionList(HibernateUsuario usuario) {
 
-        GenericCriteria<UsuarioRol> criteria = GenericCriteria.forClass(UsuarioRol.class);
+        GenericCriteria<HibernateUsuarioRol> criteria = GenericCriteria.forClass(HibernateUsuarioRol.class);
         criteria.addEquals(UsuarioRol_.usuario, usuario);
         criteria.addEquals(UsuarioRol_.estado, HibernateEntidad.Estado.ACTIVO);
-        List<UsuarioRol> usuarioRolList = findByCriteria(criteria);
+        List<HibernateUsuarioRol> usuarioRolList = findByCriteria(criteria);
 
-        List<RolOpcion> rolOpcionList = new ArrayList<RolOpcion>();
+        List<HibernateRolOpcion> rolOpcionList = new ArrayList<HibernateRolOpcion>();
         
         if (usuarioRolList != null) {
-            for (UsuarioRol usuarioRol : usuarioRolList) {
-                GenericCriteria<RolOpcion> rolOpcCriteria = GenericCriteria.forClass(RolOpcion.class);
+            for (HibernateUsuarioRol usuarioRol : usuarioRolList) {
+                GenericCriteria<HibernateRolOpcion> rolOpcCriteria = GenericCriteria.forClass(HibernateRolOpcion.class);
                 rolOpcCriteria.addEquals(RolOpcion_.estado, HibernateEntidad.Estado.ACTIVO);
                 rolOpcCriteria.addEquals(RolOpcion_.rol, usuarioRol.getRol());
-                List<RolOpcion> tmp = findByCriteria(rolOpcCriteria);
+                List<HibernateRolOpcion> tmp = findByCriteria(rolOpcCriteria);
                 if (tmp != null) {
-                	for (RolOpcion rolOpcion : tmp) {
+                	for (HibernateRolOpcion rolOpcion : tmp) {
                 		Objeto obj = rolOpcion.getOpcion().getObjeto();
 						String beanName = obj != null ? obj.getCodigo() : StringUtils.EMPTY;
 						rolOpcion.getOpcion().setBeanName(beanName);
@@ -343,27 +345,27 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     
     @Override
     public boolean authLogin(SessionBean sessionBean) {
-        GenericCriteria<Usuario> criteria = GenericCriteria.forClass(Usuario.class);
+        GenericCriteria<HibernateUsuario> criteria = GenericCriteria.forClass(HibernateUsuario.class);
         criteria.addAliasedJoins(Usuario_.empresaPersona, Usuario_.empresaPersona+"."+EmpresaPersona_.persona);
         criteria.addEquals(Usuario_.estado, HibernateEntidad.Estado.ACTIVO);
         criteria.addEquals(Usuario_.username, sessionBean.getUsuario().getUsername());
         criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(sessionBean.getUsuario().getPassword()));
 
-        Usuario usuario = findFirstByCriteria(criteria);        
+        HibernateUsuario usuario = findFirstByCriteria(criteria);        
         if (usuario != null) {        	
         	sessionBean.setUsuario(usuario);
         } else {
             putError("sesion.error.usuarioPassIncorrecta");
             return false;
         }
-        List<RolOpcion> rolOpcionList = obtenerRolOpcionList(usuario);
+        List<HibernateRolOpcion> rolOpcionList = obtenerRolOpcionList(usuario);
         sessionBean.setRolOpcionList(rolOpcionList);
         return true;
     }
     
     @Override
-    public void changePassword(Usuario usuario){
-        Usuario oldUsuario = getUsuario(usuario.getId());
+    public void changePassword(HibernateUsuario usuario){
+        HibernateUsuario oldUsuario = getUsuario(usuario.getId());
         evict(oldUsuario);
         
         if (oldUsuario.getPassword().equals(CryptoUtils.computeHashSHA256(usuario.getPassword()))) {        	
@@ -387,8 +389,8 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     /**
      * Guarda las preferencias del usuario
      */
-    public void saveUserPreferences(Usuario usuario){
-    	Usuario oldUsuario = getUsuario(usuario.getId());
+    public void saveUserPreferences(HibernateUsuario usuario){
+    	HibernateUsuario oldUsuario = getUsuario(usuario.getId());
     	//Definir preferencias a guardar    	
     	oldUsuario.setTema(usuario.getTema());
     	oldUsuario.setLocalidad(usuario.getLocalidad());

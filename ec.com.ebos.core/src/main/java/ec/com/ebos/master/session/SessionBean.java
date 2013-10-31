@@ -9,8 +9,8 @@ import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.security.core.service.SecurityS;
-import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 
 
 /**
@@ -38,9 +38,9 @@ public interface SessionBean {
 
 	public void setLocalidad(Localidad localidad);
 
-	public Usuario getUsuario();
+	public HibernateUsuario getUsuario();
 
-	public void setUsuario(Usuario usuario);
+	public void setUsuario(HibernateUsuario usuario);
 
 	public Organizacion getEmpresa();
 
@@ -50,9 +50,9 @@ public interface SessionBean {
 
 	public void setLogin(boolean login);
 
-	public List<RolOpcion> getRolOpcionList();
+	public List<HibernateRolOpcion> getRolOpcionList();
 
-	public void setRolOpcionList(List<RolOpcion> rolOpcionList);
+	public void setRolOpcionList(List<HibernateRolOpcion> rolOpcionList);
 
 	@PostConstruct
 	public void postConstruct();

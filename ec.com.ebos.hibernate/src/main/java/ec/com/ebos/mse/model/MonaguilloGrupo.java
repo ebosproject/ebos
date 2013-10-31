@@ -16,6 +16,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 
@@ -27,10 +28,10 @@ import ec.com.ebos.root.model.hibernate.HibernateEntidad;
  * @since 2013/04/28
  */
 @Entity
-@Table(name = MonaguilloGrupo.TABLE_NAME, schema = Mse.SCHEMA)
+@Table(name = HibernateMonaguilloGrupo.TABLE_NAME, schema = Mse.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class MonaguilloGrupo extends Mse<MonaguilloGrupo> {
+public class MonaguilloGrupo extends Mse<HibernateMonaguilloGrupo> {
 	
 	
 	private static final long serialVersionUID = 3071315408504111078L;

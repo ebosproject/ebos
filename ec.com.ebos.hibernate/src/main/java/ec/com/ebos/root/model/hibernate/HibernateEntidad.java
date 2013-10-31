@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -57,24 +57,24 @@ public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements
     /////////// METODOS PROXY PARA PROPIEDAD AUDITORIA ///////
     
     @Transient
-    public Usuario getCreador(){    	
+    public HibernateUsuario getCreador(){    	
     	return getAuditoria() != null ? getAuditoria().getCreador() : null;
     }
     
     @Transient
-    public void setCreador(Usuario creador){
+    public void setCreador(HibernateUsuario creador){
     	if(getAuditoria() != null){
     		getAuditoria().setCreador(creador);
     	}
     }
     
     @Transient
-    public Usuario getModificador(){
+    public HibernateUsuario getModificador(){
     	return getAuditoria() != null ? getAuditoria().getModificador() : null;
     }
     
     @Transient
-    public void setModificador(Usuario modificador){
+    public void setModificador(HibernateUsuario modificador){
     	if(getAuditoria() != null){    	
     		getAuditoria().setModificador(modificador);
     	}

@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.master.model.hibernate.HibernatePersona;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
@@ -32,7 +33,7 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = PersonaBean.BEAN_NAME)
 @SessionScoped
-public class PersonaBean extends MasterBean<Persona> {
+public class PersonaBean extends MasterBean<HibernatePersona> {
 
 	private static final long serialVersionUID = 783070179851922363L;
 
@@ -51,7 +52,7 @@ public class PersonaBean extends MasterBean<Persona> {
 	
 	@Override
 	public void getInit() {
-		entitySearch = new Persona();
+		entitySearch = new HibernatePersona();
 	}
 
 	@Override
@@ -76,7 +77,7 @@ public class PersonaBean extends MasterBean<Persona> {
 	// /////////////////////// DATA MODEL ////////////////////////
 
 	@Override
-	protected List<Persona> loadDataTableCollection(Persona persona,
+	protected List<HibernatePersona> loadDataTableCollection(HibernatePersona persona,
 			Pagination pagination) {
 		return masterS.findPersonaList(persona, pagination);
 	}
@@ -141,15 +142,15 @@ public class PersonaBean extends MasterBean<Persona> {
 	/////////////////////////// LISTS ///////////////////////////
 
 	@Getter
-	private List<Persona.TipoIdentificacion> tipoIdentificacionList = new ArrayList<Persona.TipoIdentificacion>(
+	private List<HibernatePersona.TipoIdentificacion> tipoIdentificacionList = new ArrayList<HibernatePersona.TipoIdentificacion>(
 			Persona.TipoIdentificacion.LIST);
 
 	@Getter
-	private List<Persona.TipoPersona> tipoPersonaList = new ArrayList<Persona.TipoPersona>(
+	private List<HibernatePersona.TipoPersona> tipoPersonaList = new ArrayList<HibernatePersona.TipoPersona>(
 			Persona.TipoPersona.LIST);
 	
 	@Getter
-	private List<Persona.Genero> generoList = new ArrayList<Persona.Genero>(Persona.Genero.LIST);
+	private List<HibernatePersona.Genero> generoList = new ArrayList<HibernatePersona.Genero>(Persona.Genero.LIST);
 
 	//////////////////////// VALIDATORS ////////////////////////
 	public void validateFile(FacesContext ctx, UIComponent comp, Object value) {

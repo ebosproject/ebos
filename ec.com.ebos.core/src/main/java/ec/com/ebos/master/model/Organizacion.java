@@ -1,96 +1,80 @@
 package ec.com.ebos.master.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import org.hibernate.annotations.Type;
-
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.CentroCostoEmpresa;
-import ec.com.ebos.conta.model.CuentaCentro;
-import ec.com.ebos.conta.model.CuentaContableEmpresa;
-import ec.com.ebos.conta.model.Ejercicio;
-import ec.com.ebos.conta.model.field.CentroCostoEmpresa_;
-import ec.com.ebos.conta.model.field.CuentaCentro_;
-import ec.com.ebos.conta.model.field.CuentaContableEmpresa_;
-import ec.com.ebos.conta.model.field.Ejercicio_;
-import ec.com.ebos.master.model.field.Activo_;
-import ec.com.ebos.master.model.field.EmpresaPersona_;
-import ec.com.ebos.master.model.field.Sucursal_;
+import ec.com.ebos.conta.model.hibernate.HibernateCentroCostoEmpresa;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaCentro;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaContableEmpresa;
+import ec.com.ebos.conta.model.hibernate.HibernateEjercicio;
+import ec.com.ebos.master.model.hibernate.HibernateActivo;
+import ec.com.ebos.master.model.hibernate.HibernateEmpresaPersona;
+import ec.com.ebos.master.model.hibernate.HibernateSucursal;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-/**
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * 
- */
-@Entity
-@Table(name = Organizacion.TABLE_NAME, schema = Master.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@Auditable
-public class Organizacion extends Master<Organizacion>{
+public interface Organizacion {
 
-	private static final long serialVersionUID = 7508531917964868788L;
+	public Set<HibernateActivo> getActivoList();
 
-	protected static final String TABLE_NAME = "ORGANIZACION";
-	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public Auditoria getAuditoria();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-	private Long id;
-	
-	@Embedded
-	private Auditoria auditoria;
-		
-	@Column(name = "descripcion", nullable = false, length = 50)
-	private String descripcion;
+	public Set<HibernateCentroCostoEmpresa> getCentroCostoEmpresaList();
 
-	@Column(name = "imagen", nullable = false, length = 50)
-	private String imagen;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_persona", nullable = false)
-    private Persona persona;
-	
-	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
-	
-	@OneToMany(mappedBy = EmpresaPersona_.empresa, fetch= FetchType.LAZY)
-    private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);
-	
-	@OneToMany(mappedBy = Sucursal_.empresa, fetch= FetchType.LAZY)
-    private Set<Sucursal> sucursalList = new HashSet<Sucursal>(0);	
-	
-	@OneToMany(mappedBy = Activo_.empresa, fetch= FetchType.LAZY)
-    private Set<Activo> activoList = new HashSet<Activo>(0);
-	
-	@OneToMany(mappedBy = CentroCostoEmpresa_.empresa, fetch = FetchType.LAZY)
-    private Set<CentroCostoEmpresa> centroCostoEmpresaList = new HashSet<CentroCostoEmpresa>(0);
-	
-	@OneToMany(mappedBy = CuentaCentro_.empresa, fetch = FetchType.LAZY)
-    private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
-	
-	@OneToMany(mappedBy = CuentaContableEmpresa_.empresa, fetch = FetchType.LAZY)
-    private Set<CuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<CuentaContableEmpresa>(0);
-	
-	@OneToMany(mappedBy = Ejercicio_.empresa, fetch = FetchType.LAZY)
-    private Set<Ejercicio> ejercicioList = new HashSet<Ejercicio>(0);
+	public Set<HibernateCuentaCentro> getCuentaCentroList();
+
+	public Set<HibernateCuentaContableEmpresa> getCuentaContableEmpresaList();
+
+	public String getDescripcion();
+
+	public Set<HibernateEjercicio> getEjercicioList();
+
+	public Set<HibernateEmpresaPersona> getEmpresaPersonaList();
+
+	public Entidad.Estado getEstado();
+
+	public Long getId();
+
+	public String getImagen();
+
+	public Persona getPersona();
+
+	public Set<HibernateSucursal> getSucursalList();
+
+	public void setActivoList(Set<HibernateActivo> activoList);
+
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setCentroCostoEmpresaList(
+			Set<HibernateCentroCostoEmpresa> centroCostoEmpresaList);
+
+	public void setCuentaCentroList(Set<HibernateCuentaCentro> cuentaCentroList);
+
+	public void setCuentaContableEmpresaList(
+			Set<HibernateCuentaContableEmpresa> cuentaContableEmpresaList);
+
+	public void setDescripcion(String descripcion);
+
+	public void setEjercicioList(Set<HibernateEjercicio> ejercicioList);
+
+	public void setEmpresaPersonaList(
+			Set<HibernateEmpresaPersona> empresaPersonaList);
+
+	public void setEstado(Entidad.Estado estado);
+
+	public void setId(Long id);
+
+	public void setImagen(String imagen);
+
+	public void setPersona(Persona persona);
+
+	public void setSucursalList(Set<HibernateSucursal> sucursalList);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

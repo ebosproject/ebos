@@ -18,6 +18,8 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
 
 /**
  *
@@ -25,10 +27,10 @@ import ec.com.ebos.root.model.hibernate.HibernateEntidad;
  * 
  */
 @Entity
-@Table(name = UsuarioRol.TABLE_NAME, schema = Security.SCHEMA)
+@Table(name = HibernateUsuarioRol.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class UsuarioRol extends Security<UsuarioRol> {
+public class UsuarioRol extends Security<HibernateUsuarioRol> {
 
 	private static final long serialVersionUID = -1368865964860468015L;
 
@@ -46,7 +48,7 @@ public class UsuarioRol extends Security<UsuarioRol> {
 	
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
-    private Usuario usuario;
+    private HibernateUsuario usuario;
             
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = false)

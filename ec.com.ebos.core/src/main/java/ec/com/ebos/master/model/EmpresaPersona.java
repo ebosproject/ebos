@@ -1,71 +1,49 @@
 package ec.com.ebos.master.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import org.hibernate.annotations.Type;
-
-import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.master.model.hibernate.HibernateActivoCustodio;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
-import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 
-/**
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * 
- */
-@Entity
-@Table(name = EmpresaPersona.TABLE_NAME, schema = Master.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@Auditable
-public class EmpresaPersona extends Master<EmpresaPersona>{
+public interface EmpresaPersona {
 
-	private static final long serialVersionUID = 6960552970253412538L;
+	public Set<HibernateActivoCustodio> getActivoCustodioList();
 
-	protected static final String TABLE_NAME = "EMPRESA_PERSONA";
-	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public Auditoria getAuditoria();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-	private Long id;
-	
-	@Embedded
-	private Auditoria auditoria;
-		
-	@ManyToOne
-	@JoinColumn(name = "id_empresa", nullable = false)
-    private Organizacion empresa;
-        
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_persona", nullable = false)
-    private Persona persona;
-	
-	@Column(name = Entidad_.estado, nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
-	
-	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY)
-    private Set<Usuario> usuarioList = new HashSet<Usuario>(0);
-	
-	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY)
-    private Set<ActivoCustodio> activoCustodioList = new HashSet<ActivoCustodio>(0);
-	
+	public Organizacion getEmpresa();
+
+	public Entidad.Estado getEstado();
+
+	public Long getId();
+
+	public Persona getPersona();
+
+	public Set<HibernateUsuario> getUsuarioList();
+
+	public void setActivoCustodioList(
+			Set<HibernateActivoCustodio> activoCustodioList);
+
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setEmpresa(Organizacion empresa);
+
+	public void setEstado(Entidad.Estado estado);
+
+	public void setId(Long id);
+
+	public void setPersona(Persona persona);
+
+	public void setUsuarioList(Set<HibernateUsuario> usuarioList);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

@@ -1,10 +1,10 @@
 package ec.com.ebos.conta.model.field;
 
-import ec.com.ebos.conta.model.DocumentoDistribucion;
+import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
 
 
 /**
- * Entity model attributes for {@link DocumentoDistribucion}
+ * Entity model attributes for {@link HibernateDocumentoDistribucion}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

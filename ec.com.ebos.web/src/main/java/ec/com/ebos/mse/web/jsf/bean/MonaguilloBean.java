@@ -17,7 +17,8 @@ import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.master.core.service.MasterS;
 import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.mse.model.Monaguillo;
+import ec.com.ebos.master.model.hibernate.HibernatePersona;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
@@ -29,7 +30,7 @@ import ec.com.ebos.util.StringUtils;
 @Component
 @ManagedBean(name = MonaguilloBean.BEAN_NAME)
 @SessionScoped
-public class MonaguilloBean extends MseBean<Monaguillo> {
+public class MonaguilloBean extends MseBean<HibernateMonaguillo> {
 
 	private static final long serialVersionUID = 1936050047220453830L;
 
@@ -43,13 +44,13 @@ public class MonaguilloBean extends MseBean<Monaguillo> {
     protected MasterS masterS;
 	
 	@Getter @Setter
-	private List<Persona> suggestionPersona;
+	private List<HibernatePersona> suggestionPersona;
 	
 	@Override
 	public void getInit() {
 		// Para busquedas
-		entitySearch = new Monaguillo();
-		entitySearch.setPersona(new Persona());
+		entitySearch = new HibernateMonaguillo();
+		entitySearch.setPersona(new HibernatePersona());
 	}
 
 	@Override
@@ -74,7 +75,7 @@ public class MonaguilloBean extends MseBean<Monaguillo> {
 	// /////////////////////// DATA MODEL ////////////////////////
 
 	@Override
-	protected List<Monaguillo> loadDataTableCollection(Monaguillo monaguillo,
+	protected List<HibernateMonaguillo> loadDataTableCollection(HibernateMonaguillo monaguillo,
 			Pagination pagination) {
 		return mseS.findMonaguilloList(monaguillo, pagination);
 	}
@@ -109,7 +110,7 @@ public class MonaguilloBean extends MseBean<Monaguillo> {
 	// ////////////////////// LISTS ///////////////////////////////
 
 	// ////////////////// AUTOCOMPLETES ///////////////////////////
-	public List<Persona> completePersona(String query){
+	public List<HibernatePersona> completePersona(String query){
 		suggestionPersona = masterS.findPersonaList(query);
 		return suggestionPersona;
 	}

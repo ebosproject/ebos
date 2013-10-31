@@ -10,8 +10,10 @@ import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.security.model.UsuarioRol;
+import ec.com.ebos.security.model.hibernate.HibernateRol;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
 
 /**
  *
@@ -42,46 +44,46 @@ public interface SecurityP {
     //
     //Usuario
     //
-    public Usuario createUsuario();
+    public HibernateUsuario createUsuario();
 
-    public Usuario getUsuario(Long id);
+    public HibernateUsuario getUsuario(Long id);
 
-    public Usuario saveUsuario(Usuario usuario);
+    public HibernateUsuario saveUsuario(HibernateUsuario usuario);
 
-    public void deleteUsuario(Usuario usuario);
+    public void deleteUsuario(HibernateUsuario usuario);
 
-    public List<Usuario> findUsuarioList(Usuario entitySearch, Pagination pagination);
+    public List<HibernateUsuario> findUsuarioList(HibernateUsuario entitySearch, Pagination pagination);
 
-    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList);
+    public void saveUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList);
 
-    public void generateUsuarioRol(Usuario usuario, Rol rol);
+    public void generateUsuarioRol(HibernateUsuario usuario, Rol rol);
 
-    public List<UsuarioRol> getUsuarioRolList(Usuario usuario);
+    public List<HibernateUsuarioRol> getUsuarioRolList(HibernateUsuario usuario);
 
-    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList);
+    public void deleteRolOpcionList(List<HibernateRolOpcion> rolOpcionList);
     
     public int getUsuarioCount();
 
     //
     // Rol
     //
-    public List<Rol> findRolList(Rol rol, Pagination pagination);
+    public List<HibernateRol> findRolList(HibernateRol rol, Pagination pagination);
 
-    public Rol createRol();
+    public HibernateRol createRol();
 
-    public Rol saveRol(Rol rol);
+    public HibernateRol saveRol(HibernateRol rol);
 
-    public void eliminarRol(Rol rol);
+    public void eliminarRol(HibernateRol rol);
 
-    public List<RolOpcion> getRolOpcionList(Rol rol);
+    public List<HibernateRolOpcion> getRolOpcionList(Rol rol);
 
     public void generateRolOpcion(Rol rol, Opcion opcion);
 
-    public void saveRolOpcionList(List<RolOpcion> rolOpcionList);
+    public void saveRolOpcionList(List<HibernateRolOpcion> rolOpcionList);
 
-    public RolOpcion saveRolOpcion(RolOpcion rolOpcion);
+    public RolOpcion saveRolOpcion(HibernateRolOpcion rolOpcion);
 
-    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList);
+    public void deleteUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList);
 
     
     // 
@@ -90,11 +92,11 @@ public interface SecurityP {
     @Transactional(readOnly = true)
     public boolean authLogin(SessionBean aThis);
 
-    public void changePassword(Usuario usuario);
+    public void changePassword(HibernateUsuario usuario);
 
     public SessionBean getSessionBean();
 
-	public void saveUserPreferences(Usuario usuario);
+	public void saveUserPreferences(HibernateUsuario usuario);
 
 
 }

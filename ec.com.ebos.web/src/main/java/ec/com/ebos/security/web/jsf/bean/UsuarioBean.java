@@ -12,12 +12,14 @@ import org.springframework.stereotype.Component;
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.master.model.EmpresaPersona;
-import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.master.model.hibernate.HibernateEmpresaPersona;
+import ec.com.ebos.master.model.hibernate.HibernatePersona;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Rol;
-import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.security.model.UsuarioRol;
+import ec.com.ebos.security.model.hibernate.HibernateRol;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
 import ec.com.ebos.util.EntityUtils;
 
 /**
@@ -26,7 +28,7 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = UsuarioBean.BEAN_NAME)
 @ViewScoped
-public class UsuarioBean extends SecurityBean<Usuario> {
+public class UsuarioBean extends SecurityBean<HibernateUsuario> {
     
 	private static final long serialVersionUID = 3205546315013216597L;
 	
@@ -35,9 +37,9 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     @Override
     public void getInit() {
         // Para busquedas
-        entitySearch = new Usuario();
-        EmpresaPersona empresaPersona = new EmpresaPersona();
-        empresaPersona.setPersona(new Persona());
+        entitySearch = new HibernateUsuario();
+        EmpresaPersona empresaPersona = new HibernateEmpresaPersona();
+        empresaPersona.setPersona(new HibernatePersona());
         entitySearch.setEmpresaPersona(empresaPersona);
         entitySearch.setEstado(Entidad.Estado.ACTIVO);    
     }
@@ -63,7 +65,7 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Usuario> loadDataTableCollection(Usuario usuario, Pagination pagination) {
+    protected List<HibernateUsuario> loadDataTableCollection(HibernateUsuario usuario, Pagination pagination) {
         return securityS.findUsuarioList(usuario, pagination);
     }
         
@@ -100,13 +102,13 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     ///////////////////////// DATALIST /////////////////////////
     
     @Setter
-    private List<UsuarioRol> usuarioRolList = new ArrayList<UsuarioRol>();
+    private List<HibernateUsuarioRol> usuarioRolList = new ArrayList<HibernateUsuarioRol>();
     
     @Setter
-    private List<Rol> rolList = new ArrayList<Rol>();
+    private List<HibernateRol> rolList = new ArrayList<HibernateRol>();
     
     @Getter @Setter
-    private UsuarioRol[] selectedUsuarioRolList;
+    private HibernateUsuarioRol[] selectedUsuarioRolList;
     
     @Getter @Setter
     private Rol selectedRol;    
@@ -122,7 +124,7 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     }
     
     public void deleteUsuarioRolList(){
-        List<UsuarioRol> list = Arrays.asList(selectedUsuarioRolList);        
+        List<HibernateUsuarioRol> list = Arrays.asList(selectedUsuarioRolList);        
         securityS.deleteUsuarioRolList(list);        
         usuarioRolList.removeAll(list);
         usuarioRolList.clear();
@@ -132,14 +134,14 @@ public class UsuarioBean extends SecurityBean<Usuario> {
     // Getters
     //
     
-    public List<Rol> getRolList() {
+    public List<HibernateRol> getRolList() {
         if(rolList.isEmpty()){
             rolList = securityS.findRolList(null, null);
         }
         return rolList;
     }
 
-    public List<UsuarioRol> getUsuarioRolList() {
+    public List<HibernateUsuarioRol> getUsuarioRolList() {
         if(usuarioRolList.isEmpty()){
             usuarioRolList = securityS.getUsuarioRolList(activeEntity);
         }

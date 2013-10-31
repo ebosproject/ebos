@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.master.model.Tema;
+import ec.com.ebos.master.model.hibernate.HibernateTema;
 import ec.com.ebos.master.session.SessionBean;
 
 /**
@@ -38,7 +38,7 @@ public class ThemeSwitcherBean implements Serializable{
     private Map<String, String> temas;
     
     @Getter
-    private List<Tema> temasAvanzados;
+    private List<HibernateTema> temasAvanzados;
     
     @Getter @Setter
     private String tema;
@@ -53,44 +53,44 @@ public class ThemeSwitcherBean implements Serializable{
     public void init() { // TODO (epa): Leer temas desde base de datos
         tema = sessionBean.getTema();
         
-        temasAvanzados = new ArrayList<Tema>();
-        temasAvanzados.add(new Tema("afterdark", "afterdark.png"));
-        temasAvanzados.add(new Tema("afternoon", "afternoon.png"));
-        temasAvanzados.add(new Tema("afterwork", "afterwork.png"));
-        temasAvanzados.add(new Tema("aristo", "aristo.png"));
-        temasAvanzados.add(new Tema("black-tie", "black-tie.png"));
-        temasAvanzados.add(new Tema("blitzer", "blitzer.png"));
-        temasAvanzados.add(new Tema("bluesky", "bluesky.png"));
-        temasAvanzados.add(new Tema("bootstrap", "bootstrap.png"));
-        temasAvanzados.add(new Tema("casablanca", "casablanca.png"));
-        temasAvanzados.add(new Tema("cruze", "cruze.png"));
-        temasAvanzados.add(new Tema("cupertino", "cupertino.png"));
-        temasAvanzados.add(new Tema("dark-hive", "dark-hive.png"));
-        temasAvanzados.add(new Tema("dot-luv", "dot-luv.png"));
-        temasAvanzados.add(new Tema("eggplant", "eggplant.png"));
-        temasAvanzados.add(new Tema("excite-bike", "excite-bike.png"));
-        temasAvanzados.add(new Tema("flick", "flick.png"));
-        temasAvanzados.add(new Tema("glass-x", "glass-x.png"));
-        temasAvanzados.add(new Tema("home", "home.png"));
-        temasAvanzados.add(new Tema("hot-sneaks", "hot-sneaks.png"));
-        temasAvanzados.add(new Tema("humanity", "humanity.png"));
-        temasAvanzados.add(new Tema("le-frog", "le-frog.png"));
-        temasAvanzados.add(new Tema("midnight", "midnight.png"));
-        temasAvanzados.add(new Tema("mint-choc", "mint-choc.png"));
-        temasAvanzados.add(new Tema("overcast", "overcast.png"));
-        temasAvanzados.add(new Tema("pepper-grinder", "pepper-grinder.png"));
-        temasAvanzados.add(new Tema("redmond", "redmond.png"));
-        temasAvanzados.add(new Tema("rocket", "rocket.png"));
-        temasAvanzados.add(new Tema("sam", "sam.png"));
-        temasAvanzados.add(new Tema("smoothness", "smoothness.png"));
-        temasAvanzados.add(new Tema("south-street", "south-street.png"));
-        temasAvanzados.add(new Tema("start", "start.png"));
-        temasAvanzados.add(new Tema("sunny", "sunny.png"));
-        temasAvanzados.add(new Tema("swanky-purse", "swanky-purse.png"));
-        temasAvanzados.add(new Tema("trontastic", "trontastic.png"));
-        temasAvanzados.add(new Tema("ui-darkness", "ui-darkness.png"));
-        temasAvanzados.add(new Tema("ui-lightness", "ui-lightness.png"));
-        temasAvanzados.add(new Tema("vader", "vader.png"));
+        temasAvanzados = new ArrayList<HibernateTema>();
+        temasAvanzados.add(new HibernateTema("afterdark", "afterdark.png"));
+        temasAvanzados.add(new HibernateTema("afternoon", "afternoon.png"));
+        temasAvanzados.add(new HibernateTema("afterwork", "afterwork.png"));
+        temasAvanzados.add(new HibernateTema("aristo", "aristo.png"));
+        temasAvanzados.add(new HibernateTema("black-tie", "black-tie.png"));
+        temasAvanzados.add(new HibernateTema("blitzer", "blitzer.png"));
+        temasAvanzados.add(new HibernateTema("bluesky", "bluesky.png"));
+        temasAvanzados.add(new HibernateTema("bootstrap", "bootstrap.png"));
+        temasAvanzados.add(new HibernateTema("casablanca", "casablanca.png"));
+        temasAvanzados.add(new HibernateTema("cruze", "cruze.png"));
+        temasAvanzados.add(new HibernateTema("cupertino", "cupertino.png"));
+        temasAvanzados.add(new HibernateTema("dark-hive", "dark-hive.png"));
+        temasAvanzados.add(new HibernateTema("dot-luv", "dot-luv.png"));
+        temasAvanzados.add(new HibernateTema("eggplant", "eggplant.png"));
+        temasAvanzados.add(new HibernateTema("excite-bike", "excite-bike.png"));
+        temasAvanzados.add(new HibernateTema("flick", "flick.png"));
+        temasAvanzados.add(new HibernateTema("glass-x", "glass-x.png"));
+        temasAvanzados.add(new HibernateTema("home", "home.png"));
+        temasAvanzados.add(new HibernateTema("hot-sneaks", "hot-sneaks.png"));
+        temasAvanzados.add(new HibernateTema("humanity", "humanity.png"));
+        temasAvanzados.add(new HibernateTema("le-frog", "le-frog.png"));
+        temasAvanzados.add(new HibernateTema("midnight", "midnight.png"));
+        temasAvanzados.add(new HibernateTema("mint-choc", "mint-choc.png"));
+        temasAvanzados.add(new HibernateTema("overcast", "overcast.png"));
+        temasAvanzados.add(new HibernateTema("pepper-grinder", "pepper-grinder.png"));
+        temasAvanzados.add(new HibernateTema("redmond", "redmond.png"));
+        temasAvanzados.add(new HibernateTema("rocket", "rocket.png"));
+        temasAvanzados.add(new HibernateTema("sam", "sam.png"));
+        temasAvanzados.add(new HibernateTema("smoothness", "smoothness.png"));
+        temasAvanzados.add(new HibernateTema("south-street", "south-street.png"));
+        temasAvanzados.add(new HibernateTema("start", "start.png"));
+        temasAvanzados.add(new HibernateTema("sunny", "sunny.png"));
+        temasAvanzados.add(new HibernateTema("swanky-purse", "swanky-purse.png"));
+        temasAvanzados.add(new HibernateTema("trontastic", "trontastic.png"));
+        temasAvanzados.add(new HibernateTema("ui-darkness", "ui-darkness.png"));
+        temasAvanzados.add(new HibernateTema("ui-lightness", "ui-lightness.png"));
+        temasAvanzados.add(new HibernateTema("vader", "vader.png"));
         
         temas = new TreeMap<String, String>();
         temas.put("Afterdark", "afterdark");

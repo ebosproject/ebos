@@ -1,66 +1,46 @@
 package ec.com.ebos.master.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import ec.com.ebos.conta.model.Asiento;
-import ec.com.ebos.conta.model.field.Asiento_;
+public interface TipoDocumento {
 
-/**
- * Tipos de transacciones de la empresa
- * 
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * @since 2013/04/27
- */
-@Entity
-@Table(name = TipoDocumento.TABLE_NAME, schema = Master.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-public class TipoDocumento extends Master<TipoDocumento>{
+	public Set<HibernateAsiento> getAsientoList();
 
-	private static final long serialVersionUID = -2896367216397132540L;
+	public Long getId();
 
-	protected static final String TABLE_NAME = "TIPO_DOCUMENTO";
-	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public TipoDocumento getTipoDocumentoReversa();
 
-	/**
-	 * Id del tipo de documento
-	 */
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-	private Long id;
-	
-	@Column(name = "impresion_automatica", nullable = false)
-	private boolean impresionAutomatica = false;
-	
-	@Column(name = "contable", nullable = false)
-	private boolean contable = true;
-	
-	@Column(name = "contabiliza", nullable = false)
-	private boolean contabiliza = false;
-	
-	@Column(name = "pide_preimpreso", nullable = false)
-	private boolean pidePreimpreso = false;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_tipo_documento_reserva")
-    private TipoDocumento tipoDocumentoReversa; //TODO (epa): Consultar si tabla es recursiva
-	
-    @OneToMany(mappedBy = Asiento_.tipoDocumento, fetch = FetchType.LAZY)
-    private Set<Asiento> asientoList = new HashSet<Asiento>(0);
-	
+	public boolean isContabiliza();
+
+	public boolean isContable();
+
+	public boolean isImpresionAutomatica();
+
+	public boolean isPidePreimpreso();
+
+	public void setAsientoList(Set<HibernateAsiento> asientoList);
+
+	public void setContabiliza(boolean contabiliza);
+
+	public void setContable(boolean contable);
+
+	public void setId(Long id);
+
+	public void setImpresionAutomatica(boolean impresionAutomatica);
+
+	public void setPidePreimpreso(boolean pidePreimpreso);
+
+	public void setTipoDocumentoReversa(
+			TipoDocumento tipoDocumentoReversa);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

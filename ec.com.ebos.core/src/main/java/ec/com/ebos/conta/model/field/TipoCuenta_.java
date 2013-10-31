@@ -1,11 +1,11 @@
 package ec.com.ebos.conta.model.field;
 
-import ec.com.ebos.conta.model.Periodo;
-import ec.com.ebos.conta.model.TipoCuenta;
+import ec.com.ebos.conta.model.hibernate.HibernatePeriodo;
+import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 
 
 /**
- * Entity model attributes for {@link TipoCuenta}
+ * Entity model attributes for {@link HibernateTipoCuenta}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

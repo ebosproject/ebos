@@ -19,6 +19,7 @@ import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
 
 /**
  *
@@ -26,10 +27,10 @@ import ec.com.ebos.root.model.hibernate.HibernateEntidad;
  * 
  */
 @Entity
-@Table(name = RolOpcion.TABLE_NAME, schema = Security.SCHEMA)
+@Table(name = HibernateRolOpcion.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class RolOpcion extends Security<RolOpcion> {
+public class RolOpcion extends Security<HibernateRolOpcion> {
 
 	private static final long serialVersionUID = -6703784659046763976L;
 

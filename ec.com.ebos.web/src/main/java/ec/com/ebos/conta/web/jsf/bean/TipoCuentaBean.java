@@ -9,8 +9,8 @@ import javax.faces.bean.ViewScoped;
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.conta.model.TipoCuenta;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
+import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
@@ -21,7 +21,7 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = TipoCuentaBean.BEAN_NAME)
 @ViewScoped
-public class TipoCuentaBean extends ContaBean<TipoCuenta> {
+public class TipoCuentaBean extends ContaBean<HibernateTipoCuenta> {
     	
 	private static final long serialVersionUID = 4109617962842899097L;
 	
@@ -31,7 +31,7 @@ public class TipoCuentaBean extends ContaBean<TipoCuenta> {
 	@Override
     public void getInit() {
         // Para busquedas
-        entitySearch = new TipoCuenta();
+        entitySearch = new HibernateTipoCuenta();
         entitySearch.setTipo(null);
         entitySearch.setNaturaleza(null);
     }
@@ -60,7 +60,7 @@ public class TipoCuentaBean extends ContaBean<TipoCuenta> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<TipoCuenta> loadDataTableCollection(TipoCuenta tipoCuenta, Pagination pagination) {
+    protected List<HibernateTipoCuenta> loadDataTableCollection(HibernateTipoCuenta tipoCuenta, Pagination pagination) {
         return contaS.findTipoCuentaList(tipoCuenta, pagination);
     }
         
@@ -94,9 +94,9 @@ public class TipoCuentaBean extends ContaBean<TipoCuenta> {
     //////////////////////// LISTS ///////////////////////////////
     
     @Getter
-    protected final List<TipoCuenta.Tipo> tipoList = new ArrayList<TipoCuenta.Tipo>(TipoCuenta.Tipo.LIST);
+    protected final List<HibernateTipoCuenta.Tipo> tipoList = new ArrayList<HibernateTipoCuenta.Tipo>(HibernateTipoCuenta.Tipo.LIST);
     
     @Getter
-    protected final List<CuentaContable.Naturaleza> naturalezaList = new ArrayList<CuentaContable.Naturaleza>(CuentaContable.Naturaleza.LIST);
+    protected final List<HibernateCuentaContable.Naturaleza> naturalezaList = new ArrayList<HibernateCuentaContable.Naturaleza>(HibernateCuentaContable.Naturaleza.LIST);
     
 }

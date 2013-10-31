@@ -1,10 +1,10 @@
 package ec.com.ebos.conta.model.field;
 
-import ec.com.ebos.conta.model.SaldoCuentaCentro;
+import ec.com.ebos.conta.model.hibernate.HibernateSaldoCuentaCentro;
 
 
 /**
- * Entity model attributes for {@link SaldoCuentaCentro}
+ * Entity model attributes for {@link HibernateSaldoCuentaCentro}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

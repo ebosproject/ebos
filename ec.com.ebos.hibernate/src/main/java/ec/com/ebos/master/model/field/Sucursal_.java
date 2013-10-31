@@ -1,9 +1,9 @@
 package ec.com.ebos.master.model.field;
 
-import ec.com.ebos.master.model.Sucursal;
+import ec.com.ebos.master.model.hibernate.HibernateSucursal;
 
 /**
- * Entity model attributes for {@link Sucursal}
+ * Entity model attributes for {@link HibernateSucursal}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

@@ -1,46 +1,25 @@
 package ec.com.ebos.master.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+public interface PropiedadValor {
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+	public Long getId();
 
-/**
- * Theme clase
- * 
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * @since 2013-02-27
- */
-@Entity
-@Table(name = PropiedadValor.TABLE_NAME, schema = Master.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false)
-public class PropiedadValor extends Master<PropiedadValor> {
-    
-	private static final long serialVersionUID = -5344259206776358470L;
+	public Propiedad getPropiedad();
 
-	protected static final String TABLE_NAME = "PROPIEDAD_VALOR";
-	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public String getValor();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-	private Long id;	
+	public void setId(Long id);
 
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "id_propiedad", nullable = false)
-    private Propiedad propiedad;	
-	
-	@Column(name = "valor", nullable = false, length = 50)
-	private String valor;    	    
-           
+	public void setPropiedad(Propiedad propiedad);
+
+	public void setValor(String valor);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }
-

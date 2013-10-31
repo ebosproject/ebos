@@ -17,8 +17,8 @@ import ec.com.ebos.admin.model.HibernateOpcion;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.Rol;
-import ec.com.ebos.security.model.RolOpcion;
+import ec.com.ebos.security.model.hibernate.HibernateRol;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
 import ec.com.ebos.util.EntityUtils;
 
 /**
@@ -29,7 +29,7 @@ import ec.com.ebos.util.EntityUtils;
 @ManagedBean(name = RolBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped
-public class RolBean extends SecurityBean<Rol> {
+public class RolBean extends SecurityBean<HibernateRol> {
     
 	private static final long serialVersionUID = 5900425430487867980L;
 	
@@ -42,7 +42,7 @@ public class RolBean extends SecurityBean<Rol> {
     @Override
     public void getInit() {
         // para busquedas
-        entitySearch = new Rol();
+        entitySearch = new HibernateRol();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 
@@ -66,7 +66,7 @@ public class RolBean extends SecurityBean<Rol> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Rol> loadDataTableCollection(Rol rol, Pagination pagination) {
+    protected List<HibernateRol> loadDataTableCollection(HibernateRol rol, Pagination pagination) {
         return securityS.findRolList(rol, pagination);
     }
         
@@ -103,13 +103,13 @@ public class RolBean extends SecurityBean<Rol> {
     ///////////////////////// DATALIST /////////////////////////
     
     @Setter
-    private List<RolOpcion> rolOpcionList = new ArrayList<RolOpcion>();
+    private List<HibernateRolOpcion> rolOpcionList = new ArrayList<HibernateRolOpcion>();
     
     @Setter
     private List<HibernateOpcion> opcionList = new ArrayList<HibernateOpcion>();
     
     @Getter @Setter
-    private RolOpcion[] selectedRolOpcionList;
+    private HibernateRolOpcion[] selectedRolOpcionList;
     
     @Getter @Setter
     private Opcion selectedOpcion;    
@@ -126,14 +126,14 @@ public class RolBean extends SecurityBean<Rol> {
     }
     
     public void eliminarRolOpcionList(){ 
-        List<RolOpcion> list = Arrays.asList(selectedRolOpcionList);
+        List<HibernateRolOpcion> list = Arrays.asList(selectedRolOpcionList);
         securityS.deleteRolOpcionList(list);        
         rolOpcionList.clear();
     }
     
     //GETTERS AND SETTERS
 
-    public List<RolOpcion> getRolOpcionList() {
+    public List<HibernateRolOpcion> getRolOpcionList() {
         if(rolOpcionList.isEmpty()){
             rolOpcionList = securityS.getRolOpcionList(activeEntity);
         }

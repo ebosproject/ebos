@@ -1,6 +1,6 @@
 package ec.com.ebos.security.model.field;
 
-import ec.com.ebos.admin.model.HibernateOpcion;
+import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

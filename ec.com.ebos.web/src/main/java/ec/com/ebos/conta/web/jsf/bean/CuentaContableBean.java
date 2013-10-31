@@ -9,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
-import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
@@ -20,7 +20,7 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = CuentaContableBean.BEAN_NAME)
 @ViewScoped
-public class CuentaContableBean extends ContaBean<CuentaContable> {
+public class CuentaContableBean extends ContaBean<HibernateCuentaContable> {
     	
 	private static final long serialVersionUID = 4109617962842899097L;
 	
@@ -30,7 +30,7 @@ public class CuentaContableBean extends ContaBean<CuentaContable> {
 	@Override
     public void getInit() {
         // Para busquedas
-        entitySearch = new CuentaContable();
+        entitySearch = new HibernateCuentaContable();
     }
 
     @Override
@@ -57,9 +57,9 @@ public class CuentaContableBean extends ContaBean<CuentaContable> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<CuentaContable> loadDataTableCollection(CuentaContable cuentaContable, Pagination pagination) {
+    protected List<HibernateCuentaContable> loadDataTableCollection(HibernateCuentaContable cuentaContable, Pagination pagination) {
         //return contaS.findTipoCuentaList(cuentaContable, pagination);
-    	return new ArrayList<CuentaContable>();
+    	return new ArrayList<HibernateCuentaContable>();
     }
         
     //////////////////// ACCIONES ////////////////////

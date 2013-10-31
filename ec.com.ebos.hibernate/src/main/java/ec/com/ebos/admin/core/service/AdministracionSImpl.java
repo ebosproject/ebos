@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 
 import ec.com.ebos.admin.core.process.AdministracionP;
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.HibernateBundle;
-import ec.com.ebos.admin.model.HibernateConfiguracion;
-import ec.com.ebos.admin.model.HibernateObjeto;
-import ec.com.ebos.admin.model.HibernateOpcion;
-import ec.com.ebos.admin.model.HibernateParametros;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
+import ec.com.ebos.admin.model.hibernate.HibernateBundle;
+import ec.com.ebos.admin.model.hibernate.HibernateConfiguracion;
+import ec.com.ebos.admin.model.hibernate.HibernateObjeto;
+import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
+import ec.com.ebos.admin.model.hibernate.HibernateParametros;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**

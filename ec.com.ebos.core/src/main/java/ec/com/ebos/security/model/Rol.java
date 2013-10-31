@@ -1,67 +1,48 @@
 package ec.com.ebos.security.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import org.hibernate.annotations.Type;
-
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
+import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
 
-/**
- *
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * 
- */
-@Entity
-@Table(name = Rol.TABLE_NAME, schema = Security.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@org.hibernate.annotations.Entity(dynamicUpdate = true)
-@Auditable
-public class Rol extends Security<Rol> {
-    
-	private static final long serialVersionUID = 1684996463596485829L;
+public interface Rol {
 
-	protected static final String TABLE_NAME = "ROL";
-	private static final String SEQUENCE = Security.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public Auditoria getAuditoria();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-    private Long id;
-    
-	@Embedded
-	private Auditoria auditoria;
-	
-    @Column(name="nombre", length=30, unique=true, nullable=false)
-    private String nombre;
-    
-    @Column(name="descripcion", length=500)
-    private String descripcion;
+	public String getDescripcion();
 
-    @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
-    
-    @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)    
-    private Set<RolOpcion> rolOpcionList = new HashSet<RolOpcion>(0);
-    
-    @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)    
-    private Set<UsuarioRol> usuarioRolList = new HashSet<UsuarioRol>(0);
-            
+	public Entidad.Estado getEstado();
+
+	public Long getId();
+
+	public String getNombre();
+
+	public Set<HibernateRolOpcion> getRolOpcionList();
+
+	public Set<HibernateUsuarioRol> getUsuarioRolList();
+
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setDescripcion(String descripcion);
+
+	public void setEstado(Entidad.Estado estado);
+
+	public void setId(Long id);
+
+	public void setNombre(String nombre);
+
+	public void setRolOpcionList(Set<HibernateRolOpcion> rolOpcionList);
+
+	public void setUsuarioRolList(Set<HibernateUsuarioRol> usuarioRolList);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

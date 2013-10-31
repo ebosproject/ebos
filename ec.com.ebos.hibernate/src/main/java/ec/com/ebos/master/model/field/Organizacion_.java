@@ -1,9 +1,9 @@
 package ec.com.ebos.master.model.field;
 
-import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 
 /**
- * Entity model attributes for {@link Organizacion}
+ * Entity model attributes for {@link HibernateOrganizacion}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

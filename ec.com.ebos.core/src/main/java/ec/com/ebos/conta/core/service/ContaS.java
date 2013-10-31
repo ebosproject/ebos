@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import ec.com.ebos.admin.core.service.AdministracionS;
-import ec.com.ebos.conta.model.TipoCuenta;
+import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -21,12 +21,12 @@ public interface ContaS extends Serializable {
 	//
     // TipoCuenta
     //
-	public List<TipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination);
+	public List<HibernateTipoCuenta> findTipoCuentaList(HibernateTipoCuenta tipoCuenta, Pagination pagination);
 	
-	public TipoCuenta createTipoCuenta();
+	public HibernateTipoCuenta createTipoCuenta();
 	
-	public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta);
+	public HibernateTipoCuenta saveTipoCuenta(HibernateTipoCuenta tipoCuenta);
 	
-	public void deleteTipoCuenta(TipoCuenta tipoCuenta);
+	public void deleteTipoCuenta(HibernateTipoCuenta tipoCuenta);
 	
 }

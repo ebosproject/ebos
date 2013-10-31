@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.master.model.Propiedad;
+import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
@@ -18,7 +19,7 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = PropiedadBean.BEAN_NAME)
 @SessionScoped
-public class PropiedadBean extends MasterBean<Propiedad> {
+public class PropiedadBean extends MasterBean<HibernatePropiedad> {
     
 	private static final long serialVersionUID = -8387498705417931654L;
 	
@@ -27,7 +28,7 @@ public class PropiedadBean extends MasterBean<Propiedad> {
 	@Override
     public void getInit() {
         // Para busquedas
-        entitySearch = new Propiedad();
+        entitySearch = new HibernatePropiedad();
     }
 
     @Override
@@ -55,7 +56,7 @@ public class PropiedadBean extends MasterBean<Propiedad> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Propiedad> loadDataTableCollection(Propiedad propiedad, Pagination pagination) {
+    protected List<HibernatePropiedad> loadDataTableCollection(Propiedad propiedad, Pagination pagination) {
         return masterS.findPropiedadList(propiedad, pagination);
     }
         

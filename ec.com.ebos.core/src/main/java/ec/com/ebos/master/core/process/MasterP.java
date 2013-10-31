@@ -4,6 +4,8 @@ import java.util.List;
 
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.Propiedad;
+import ec.com.ebos.master.model.hibernate.HibernatePersona;
+import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -17,11 +19,11 @@ public interface MasterP {
 	// Propiedad
 	//
 
-	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination);
+	public List<HibernatePropiedad> findPropiedadList(Propiedad propiedad, Pagination pagination);
 
-	public Propiedad buildPropiedad();
+	public HibernatePropiedad buildPropiedad();
 
-	public Propiedad savePropiedad(Propiedad propiedad);
+	public HibernatePropiedad savePropiedad(HibernatePropiedad propiedad);
 
 	public void deletePropiedad(Propiedad propiedad);
 
@@ -30,14 +32,14 @@ public interface MasterP {
 	// Persona
 	//
 	
-	public List<Persona> findPersonaList(Persona persona, Pagination pagination);
+	public List<HibernatePersona> findPersonaList(Persona persona, Pagination pagination);
 	
-	public List<Persona> findPersonaList(String query);
+	public List<HibernatePersona> findPersonaList(String query);
 
-	public Persona createPersona();
+	public HibernatePersona createPersona();
 
-	public Persona savePersona(Persona persona);
+	public HibernatePersona savePersona(HibernatePersona persona);
 
-	public void deletePersona(Persona persona);
+	public void deletePersona(HibernatePersona persona);
 
 }

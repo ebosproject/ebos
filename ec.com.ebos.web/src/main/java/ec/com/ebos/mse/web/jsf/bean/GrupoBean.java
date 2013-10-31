@@ -14,9 +14,11 @@ import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
@@ -29,7 +31,7 @@ import ec.com.ebos.util.web.jsf.component.DataTable;
 @Component
 @ManagedBean(name = GrupoBean.BEAN_NAME)
 @SessionScoped
-public class GrupoBean extends MseBean<Grupo> {
+public class GrupoBean extends MseBean<HibernateGrupo> {
     	
 	private static final long serialVersionUID = 6778254758599296978L;
 	
@@ -39,7 +41,7 @@ public class GrupoBean extends MseBean<Grupo> {
 	@Override
     public void getInit() {
         // Para busquedas
-        entitySearch = new Grupo();
+        entitySearch = new HibernateGrupo();
     }
 
     @Override
@@ -64,7 +66,7 @@ public class GrupoBean extends MseBean<Grupo> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Grupo> loadDataTableCollection(Grupo grupo, Pagination pagination) {
+    protected List<HibernateGrupo> loadDataTableCollection(HibernateGrupo grupo, Pagination pagination) {
     	return mseS.findGrupoList(grupo, pagination);
     }
         
@@ -100,10 +102,10 @@ public class GrupoBean extends MseBean<Grupo> {
     //////////////////////// DATALISTS ///////////////////////////////
     
     @Getter @Setter
-    protected DataTable<MonaguilloGrupo> monaguilloGrupoDataTable = new DataTable<MonaguilloGrupo>(){
+    protected DataTable<HibernateMonaguilloGrupo> monaguilloGrupoDataTable = new DataTable<HibernateMonaguilloGrupo>(){
 
 		@Override
-		public List<MonaguilloGrupo> loadCollection() {
+		public List<HibernateMonaguilloGrupo> loadCollection() {
 			return mseS.getMonaguilloGrupoList(activeEntity);
 		}
 		
@@ -113,7 +115,7 @@ public class GrupoBean extends MseBean<Grupo> {
 		}
 		
 		@Override
-		public void save(MonaguilloGrupo entity) {
+		public void save(HibernateMonaguilloGrupo entity) {
 			entity.setGrupo(activeEntity);
 			mseS.saveMonaguilloGrupo(entity);
 		}
@@ -124,7 +126,7 @@ public class GrupoBean extends MseBean<Grupo> {
 		}
 		
 		@Override
-		public void delete(MonaguilloGrupo entity) {
+		public void delete(HibernateMonaguilloGrupo entity) {
 			mseS.deleteMonaguilloGrupo(entity);
 		}
 				    	
@@ -133,9 +135,9 @@ public class GrupoBean extends MseBean<Grupo> {
     
     //////////////////// AUTOCOMPLETES ///////////////////////////
     @Getter @Setter
-	private List<Monaguillo> suggestionMonaguillo;
+	private List<HibernateMonaguillo> suggestionMonaguillo;
     
- 	public List<Monaguillo> completeMonaguillo(String query){
+ 	public List<HibernateMonaguillo> completeMonaguillo(String query){
  		suggestionMonaguillo = mseS.findMonaguilloList(query);
  		return suggestionMonaguillo;
  	}
@@ -152,7 +154,7 @@ public class GrupoBean extends MseBean<Grupo> {
  					return null;
  				} else {
  					try {
- 						for(Monaguillo m : suggestionMonaguillo){
+ 						for(HibernateMonaguillo m : suggestionMonaguillo){
                  			if(m.getId().equals(Long.parseLong(submittedValue))){
                  				return m;
                  			}
@@ -172,7 +174,7 @@ public class GrupoBean extends MseBean<Grupo> {
  				if (value == null || value.equals("")) {
  					return StringUtils.EMPTY;
  				} else {
- 					return String.valueOf(((Monaguillo) value).getId());
+ 					return String.valueOf(((HibernateMonaguillo) value).getId());
  				}
  			}
  		};
@@ -180,7 +182,7 @@ public class GrupoBean extends MseBean<Grupo> {
  	
  	// ////////////////////// GETTERS /////////////////////////////////
  	public Monaguillo getMonaguillo(Long id){
- 		for(Monaguillo m : suggestionMonaguillo){
+ 		for(HibernateMonaguillo m : suggestionMonaguillo){
  			if(m.getId().equals(id)){
  				return m;
  			}

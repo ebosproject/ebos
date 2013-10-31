@@ -3,8 +3,10 @@ package ec.com.ebos.mse.core.process;
 import java.util.List;
 
 import ec.com.ebos.mse.model.Grupo;
-import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -17,34 +19,34 @@ public interface MseP {
 	//
 	// Grupo
 	//
-	public List<Grupo> findGrupoList(Grupo grupo, Pagination pagination);
+	public List<HibernateGrupo> findGrupoList(HibernateGrupo grupo, Pagination pagination);
 	
-	public Grupo createGrupo();
+	public HibernateGrupo createGrupo();
 	
-	public Grupo saveGrupo(Grupo grupo);
+	public HibernateGrupo saveGrupo(HibernateGrupo grupo);
 	
-	public void deleteGrupo(Grupo grupo);
+	public void deleteGrupo(HibernateGrupo grupo);
 	
 	//
 	// Monagillo
 	//
-	public List<Monaguillo> findMonaguilloList(Monaguillo monaguillo, Pagination pagination);
+	public List<HibernateMonaguillo> findMonaguilloList(HibernateMonaguillo monaguillo, Pagination pagination);
 	
-	public List<Monaguillo> findMonaguilloList(String query);
+	public List<HibernateMonaguillo> findMonaguilloList(String query);
 	
-	public List<MonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo);
+	public List<HibernateMonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo);
 	
-	public Monaguillo createMonaguillo();
+	public HibernateMonaguillo createMonaguillo();
 	
-	public Monaguillo saveMonaguillo(Monaguillo monaguillo);
+	public HibernateMonaguillo saveMonaguillo(HibernateMonaguillo monaguillo);
 	
-	public void deleteMonaguillo(Monaguillo monaguillo);
+	public void deleteMonaguillo(HibernateMonaguillo monaguillo);
 
 	public MonaguilloGrupo createMonaguilloGrupo();
 
-	public void saveMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo);
+	public void saveMonaguilloGrupo(HibernateMonaguilloGrupo monaguilloGrupo);
 
-	public void deleteMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo);
+	public void deleteMonaguilloGrupo(HibernateMonaguilloGrupo monaguilloGrupo);
 
 
 }

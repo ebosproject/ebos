@@ -1,71 +1,45 @@
 package ec.com.ebos.mse.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.Type;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.AsientoDetalle;
-import ec.com.ebos.conta.model.field.AsientoDetalle_;
-import ec.com.ebos.mse.model.field.Grupo_;
-import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-/**
- * Monagillo
- *
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- *
- * @since 2013/04/28
- */
-@Entity
-@Table(name = Grupo.TABLE_NAME, schema = Mse.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false)
-@Auditable
-public class Grupo extends Mse<Grupo> {
-	
-	private static final long serialVersionUID = 2824372366156085256L;
-	
-	protected static final String TABLE_NAME = "GRUPO";
-	private static final String SEQUENCE = Mse.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+public interface Grupo {
 
-	/**
-	 * Id del grupo
-	 */
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-    private Long id;
-	
-	@Embedded
-	private Auditoria auditoria;
+	public Set<HibernateAsientoDetalle> getAsientoDetalleList();
 
-	@Column(name = Grupo_.nombre, length = 30, nullable = false)
-	private String nombre;
-	
-	@Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
-	
-	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
-    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
-	
-	@OneToMany(mappedBy = MonaguilloGrupo_.grupo, fetch = FetchType.LAZY)
-    private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
-	
+	public Auditoria getAuditoria();
+
+	public Entidad.Estado getEstado();
+
+	public Long getId();
+
+	public Set<HibernateMonaguilloGrupo> getMonaguilloGrupoList();
+
+	public String getNombre();
+
+	public void setAsientoDetalleList(
+			Set<HibernateAsientoDetalle> asientoDetalleList);
+
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setEstado(Entidad.Estado estado);
+
+	public void setId(Long id);
+
+	public void setMonaguilloGrupoList(
+			Set<HibernateMonaguilloGrupo> monaguilloGrupoList);
+
+	public void setNombre(String nombre);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

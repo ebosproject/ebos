@@ -1,10 +1,10 @@
 package ec.com.ebos.security.model.field;
 
-import ec.com.ebos.security.model.Rol;
+import ec.com.ebos.security.model.hibernate.HibernateRol;
 
 
 /**
- * Entity model attributes for {@link Rol}
+ * Entity model attributes for {@link HibernateRol}
  * 
  * @author Eduardo Plua Alay
  */

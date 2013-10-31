@@ -10,23 +10,23 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.conta.exception.ContaException;
-import ec.com.ebos.conta.model.Asiento;
-import ec.com.ebos.conta.model.AsientoDetalle;
-import ec.com.ebos.conta.model.CentroCosto;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.conta.model.Ejercicio;
-import ec.com.ebos.conta.model.Periodo;
-import ec.com.ebos.conta.model.SaldoCentroCosto;
-import ec.com.ebos.conta.model.SaldoCuentaCentro;
-import ec.com.ebos.conta.model.SaldoCuentaContable;
-import ec.com.ebos.conta.model.TipoCuenta;
-import ec.com.ebos.conta.model.field.CentroCosto_;
-import ec.com.ebos.conta.model.field.CuentaContable_;
-import ec.com.ebos.conta.model.field.Ejercicio_;
-import ec.com.ebos.conta.model.field.Periodo_;
-import ec.com.ebos.conta.model.field.SaldoCentroCosto_;
-import ec.com.ebos.conta.model.field.SaldoCuentaContable_;
-import ec.com.ebos.conta.model.field.TipoCuenta_;
+import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
+import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
+import ec.com.ebos.conta.model.hibernate.HibernateCentroCosto;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
+import ec.com.ebos.conta.model.hibernate.HibernateEjercicio;
+import ec.com.ebos.conta.model.hibernate.HibernatePeriodo;
+import ec.com.ebos.conta.model.hibernate.HibernateSaldoCentroCosto;
+import ec.com.ebos.conta.model.hibernate.HibernateSaldoCuentaCentro;
+import ec.com.ebos.conta.model.hibernate.HibernateSaldoCuentaContable;
+import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
+import ec.com.ebos.conta.model.hibernate.field.CentroCosto_;
+import ec.com.ebos.conta.model.hibernate.field.CuentaContable_;
+import ec.com.ebos.conta.model.hibernate.field.Ejercicio_;
+import ec.com.ebos.conta.model.hibernate.field.Periodo_;
+import ec.com.ebos.conta.model.hibernate.field.SaldoCentroCosto_;
+import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaContable_;
+import ec.com.ebos.conta.model.hibernate.field.TipoCuenta_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
@@ -41,20 +41,20 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 
 	private static final long serialVersionUID = -6982586050138698390L;
 
-	public Ejercicio getEjercicio(Organizacion empresa, Date fecha) {
+	public HibernateEjercicio getEjercicio(Organizacion empresa, Date fecha) {
 		return null;
 	}
 
-	public Periodo getPeriodo(Ejercicio ejercicio, Date fecha) {
-		GenericCriteria<Periodo> criteria = GenericCriteria.forClass(Periodo.class);
+	public HibernatePeriodo getPeriodo(HibernateEjercicio ejercicio, Date fecha) {
+		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addLE(Periodo_.fechaInicial, fecha);
 		criteria.addGE(Periodo_.fechaFinal, fecha);
 		criteria.addEquals(Periodo_.ejercicio, ejercicio);
 		return findFirstByCriteria(criteria);
 	}
 	
-	public Periodo getPeriodo(Date fecha) {
-		GenericCriteria<Periodo> criteria = GenericCriteria.forClass(Periodo.class);
+	public HibernatePeriodo getPeriodo(Date fecha) {
+		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addAliasedJoins(Periodo_.ejercicio);
 		criteria.addLE(Periodo_.fechaInicial, fecha);
 		criteria.addGE(Periodo_.fechaFinal, fecha);
@@ -62,53 +62,53 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		return findFirstByCriteria(criteria);
 	}
 
-	public Periodo getPeriodo(Long id) {
-		GenericCriteria<Periodo> criteria = GenericCriteria.forClass(Periodo.class);
+	public HibernatePeriodo getPeriodo(Long id) {
+		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addAliasedJoins(Periodo_.ejercicio);
 		criteria.addEquals(Periodo_.id, id);
 		return findFirstByCriteria(criteria);
 	}
 
-	public List<Periodo> listPeriodosPosteriores(Periodo periodo) {
-		GenericCriteria<Periodo> criteria = GenericCriteria.forClass(Periodo.class);
+	public List<HibernatePeriodo> listPeriodosPosteriores(HibernatePeriodo periodo) {
+		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addAliasedJoins(Periodo_.ejercicio);
 		criteria.addGE(Periodo_.fechaInicial, periodo.getFechaInicial());
 		criteria.addEquals(Ejercicio_.empresa, getSessionBean().getEmpresa());
 		criteria.addOrderAsc(Periodo_.fechaInicial);
-		criteria.addNotEquals(Periodo_.estado, Periodo.Estado.PENDIENTE);
+		criteria.addNotEquals(Periodo_.estado, HibernatePeriodo.Estado.PENDIENTE);
 		return findByCriteria(criteria, true);
 	}
 
-	public CuentaContable getCuentaContable(Long id) {
-		GenericCriteria<CuentaContable> criteria = GenericCriteria.forClass(CuentaContable.class);
+	public HibernateCuentaContable getCuentaContable(Long id) {
+		GenericCriteria<HibernateCuentaContable> criteria = GenericCriteria.forClass(HibernateCuentaContable.class);
 		criteria.addAliasedJoins(CuentaContable_.padre);
 		criteria.addEquals(CuentaContable_.id, id);
 		return findFirstByCriteria(criteria);
 	}
 	
-	public SaldoCuentaContable getSaldoCuenta(SaldoCuentaContable saldo) {
-		GenericCriteria<SaldoCuentaContable> criteria = GenericCriteria.forClass(SaldoCuentaContable.class);
+	public HibernateSaldoCuentaContable getSaldoCuenta(HibernateSaldoCuentaContable saldo) {
+		GenericCriteria<HibernateSaldoCuentaContable> criteria = GenericCriteria.forClass(HibernateSaldoCuentaContable.class);
 		criteria.addEquals(SaldoCuentaContable_.periodo, saldo.getPeriodo());
 		criteria.addEquals(SaldoCuentaContable_.cuentaContable, saldo.getCuentaContable());
 		return findFirstByCriteria(criteria);
 	}
 	
-	public CentroCosto getCentroCosto(Long id) {
-		GenericCriteria<CentroCosto> criteria = GenericCriteria.forClass(CentroCosto.class);
+	public HibernateCentroCosto getCentroCosto(Long id) {
+		GenericCriteria<HibernateCentroCosto> criteria = GenericCriteria.forClass(HibernateCentroCosto.class);
 		criteria.addAliasedJoins(CentroCosto_.padre);
 		criteria.addEquals(CentroCosto_.id, id);
 		return findFirstByCriteria(criteria);
 	}
 	
-	public SaldoCentroCosto getSaldoCentro(SaldoCentroCosto saldo) {
-		GenericCriteria<SaldoCentroCosto> criteria = GenericCriteria.forClass(SaldoCentroCosto.class);
+	public HibernateSaldoCentroCosto getSaldoCentro(HibernateSaldoCentroCosto saldo) {
+		GenericCriteria<HibernateSaldoCentroCosto> criteria = GenericCriteria.forClass(HibernateSaldoCentroCosto.class);
 		criteria.addEquals(SaldoCentroCosto_.periodo, saldo.getPeriodo());
 		criteria.addEquals(SaldoCentroCosto_.centroCosto, saldo.getCentroCosto());
 		return findFirstByCriteria(criteria);
 	}
 
-	public List<AsientoDetalle> listAsientoDetalle(Asiento asiento) {
-		GenericCriteria<AsientoDetalle> criteria = GenericCriteria.forClass(AsientoDetalle.class);
+	public List<HibernateAsientoDetalle> listAsientoDetalle(HibernateAsiento asiento) {
+		GenericCriteria<HibernateAsientoDetalle> criteria = GenericCriteria.forClass(HibernateAsientoDetalle.class);
 		criteria.addAliasedJoins("cuentaContableEmpresa", 
 				"cuentaContableEmpresa.cuentaContable", "cuentaContable.padre");
 		criteria.addAliasedLeftJoins("centroCosto", "subcentroCosto");
@@ -116,28 +116,28 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		return findByCriteria(criteria, true);
 	}
 
-	public Boolean mayorizarAsiento(Asiento asiento, int signo) {
+	public Boolean mayorizarAsiento(HibernateAsiento asiento, int signo) {
 
 		//Ejercicio ejercicio = getEjercicio(asiento.getEmpresa(),  asiento.getDocumento().getEmitido());
-		Periodo periodoAsiento = getPeriodo(asiento.getPeriodo().getId());
+		HibernatePeriodo periodoAsiento = getPeriodo(asiento.getPeriodo().getId());
 		//Validar estados de periodos
 //		if(periodoAsiento.getEstado().isActivo()){ TODO (vvc): descomentar estas lineas y verificar la existencia de metodo isActivo()
 //			
 //		}
 		
 		
-		List<AsientoDetalle> saldos = listAsientoDetalle(asiento);
+		List<HibernateAsientoDetalle> saldos = listAsientoDetalle(asiento);
 		//Este mapa alamcenara temporalemten todas las cuentas, padres e hijas usadas en el asiento
 		// de tal manera que no hagamos conultas a la base para obtenerlas cada vez que las necesitemos
-		Map<Long, CuentaContable> cuentasDeAsiento = new HashMap<Long, CuentaContable>();
-		Map<Long, CentroCosto> centrosDeAsiento = new HashMap<Long, CentroCosto>();
-		Map<CuentaContable, SaldoCuentaContable> saldosCuentaMap= new HashMap<CuentaContable, SaldoCuentaContable>();
-		Map<String, SaldoCuentaCentro> saldosCuentaCentroMap= new HashMap<String, SaldoCuentaCentro>();
-		Map<CentroCosto, SaldoCentroCosto> saldosCentroMap= new HashMap<CentroCosto, SaldoCentroCosto>();
+		Map<Long, HibernateCuentaContable> cuentasDeAsiento = new HashMap<Long, HibernateCuentaContable>();
+		Map<Long, HibernateCentroCosto> centrosDeAsiento = new HashMap<Long, HibernateCentroCosto>();
+		Map<HibernateCuentaContable, HibernateSaldoCuentaContable> saldosCuentaMap= new HashMap<HibernateCuentaContable, HibernateSaldoCuentaContable>();
+		Map<String, HibernateSaldoCuentaCentro> saldosCuentaCentroMap= new HashMap<String, HibernateSaldoCuentaCentro>();
+		Map<HibernateCentroCosto, HibernateSaldoCentroCosto> saldosCentroMap= new HashMap<HibernateCentroCosto, HibernateSaldoCentroCosto>();
 
-		List<Periodo> periodoList = listPeriodosPosteriores(periodoAsiento);
-		for (AsientoDetalle detalle : saldos) {
-			for (Periodo periodo : periodoList) {
+		List<HibernatePeriodo> periodoList = listPeriodosPosteriores(periodoAsiento);
+		for (HibernateAsientoDetalle detalle : saldos) {
+			for (HibernatePeriodo periodo : periodoList) {
 				if(periodo.getEstado().isCerrado()) {
 					// error
 				}
@@ -147,38 +147,38 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			}
 		}
 		
-		Collection<SaldoCuentaContable> saldosCuenta = saldosCuentaMap.values();
-		for (SaldoCuentaContable saldoCuentaContable : saldosCuenta) {
+		Collection<HibernateSaldoCuentaContable> saldosCuenta = saldosCuentaMap.values();
+		for (HibernateSaldoCuentaContable saldoCuentaContable : saldosCuenta) {
 			saveOrUpdate(saldoCuentaContable);
 		}
-		Collection<SaldoCuentaCentro> saldosCuentaCentro = saldosCuentaCentroMap.values();
-		for (SaldoCuentaCentro saldoCuentaCentro : saldosCuentaCentro) {
+		Collection<HibernateSaldoCuentaCentro> saldosCuentaCentro = saldosCuentaCentroMap.values();
+		for (HibernateSaldoCuentaCentro saldoCuentaCentro : saldosCuentaCentro) {
 			saveOrUpdate(saldoCuentaCentro);
 		}
-		Collection<SaldoCentroCosto> saldosCentro = saldosCentroMap.values();
-		for (SaldoCentroCosto saldoCentroCosto : saldosCentro) {
+		Collection<HibernateSaldoCentroCosto> saldosCentro = saldosCentroMap.values();
+		for (HibernateSaldoCentroCosto saldoCentroCosto : saldosCentro) {
 			saveOrUpdate(saldoCentroCosto);
 		}
 		return true;
 	}
 	
-	private void actualizarSaldosCuentasContbables(Map<Long, CuentaContable> cuentasDeAsiento, Map<CuentaContable, 
-			SaldoCuentaContable> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
-		CuentaContable cuenta = detalle.getCuentaContable();
+	private void actualizarSaldosCuentasContbables(Map<Long, HibernateCuentaContable> cuentasDeAsiento, Map<HibernateCuentaContable, 
+			HibernateSaldoCuentaContable> mapSaldos, HibernatePeriodo periodo, HibernateAsientoDetalle detalle, int signo) {
+		HibernateCuentaContable cuenta = detalle.getCuentaContable();
 		boolean continuar= true;
 		do {
 			continuar = cuenta.getPadre()!=null;
 			//Verificamos si ya obtuvimos el saldo de la cuenta a afectar
-			SaldoCuentaContable saldoCuenta = mapSaldos.get(cuenta);
+			HibernateSaldoCuentaContable saldoCuenta = mapSaldos.get(cuenta);
 			if(saldoCuenta==null) {
-				saldoCuenta = new SaldoCuentaContable();
+				saldoCuenta = new HibernateSaldoCuentaContable();
 				saldoCuenta.setPeriodo(periodo);
 				saldoCuenta.setCuentaContable(detalle.getCuentaContable());
 				// sino lo tenemos lo leemos de la base por cuenta y periodo
 				saldoCuenta = getSaldoCuenta(saldoCuenta);
 				if(saldoCuenta==null) {
 					// si no lo encontramos en la base , entonces debemos agregarlo
-					saldoCuenta = new SaldoCuentaContable();
+					saldoCuenta = new HibernateSaldoCuentaContable();
 					saldoCuenta.setPeriodo(periodo);
 					saldoCuenta.setCuentaContable(detalle.getCuentaContable());
 				}
@@ -193,7 +193,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			mapSaldos.put(cuenta, saldoCuenta);
 			//
 			if(continuar) {
-				CuentaContable cuentaPadre = cuentasDeAsiento.get(cuenta.getPadre().getId());
+				HibernateCuentaContable cuentaPadre = cuentasDeAsiento.get(cuenta.getPadre().getId());
 				if(cuentaPadre==null) {
 					cuentaPadre = getCuentaContable(cuenta.getPadre().getId());
 					cuentasDeAsiento.put(cuenta.getId(), cuenta);
@@ -203,23 +203,23 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		} while (continuar); 
 	}
 	
-	private void actualizarSaldosCentrosCosto(Map<Long, CentroCosto> centrosDeAsiento, Map<CentroCosto, 
-			SaldoCentroCosto> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
-		CentroCosto centro = detalle.getCentroCosto();
+	private void actualizarSaldosCentrosCosto(Map<Long, HibernateCentroCosto> centrosDeAsiento, Map<HibernateCentroCosto, 
+			HibernateSaldoCentroCosto> mapSaldos, HibernatePeriodo periodo, HibernateAsientoDetalle detalle, int signo) {
+		HibernateCentroCosto centro = detalle.getCentroCosto();
 		boolean continuar= true;
 		do {
 			continuar = centro.getPadre()!=null;
 			//Verificamos si ya obtuvimos el saldo de la cuenta a afectar
-			SaldoCentroCosto saldoCentro = mapSaldos.get(centro);
+			HibernateSaldoCentroCosto saldoCentro = mapSaldos.get(centro);
 			if(saldoCentro==null) {
-				saldoCentro = new SaldoCentroCosto();
+				saldoCentro = new HibernateSaldoCentroCosto();
 				saldoCentro.setPeriodo(periodo);
 				saldoCentro.setCentroCosto(detalle.getCentroCosto());
 				// sino lo tenemos lo leemos de la base por cuenta y periodo
 				saldoCentro = getSaldoCentro(saldoCentro);
 				if(saldoCentro==null) {
 					// si no lo encontramos en la base , entonces debemos agregarlo
-					saldoCentro = new SaldoCentroCosto();
+					saldoCentro = new HibernateSaldoCentroCosto();
 					saldoCentro.setPeriodo(periodo);
 					saldoCentro.setCentroCosto(detalle.getCentroCosto());
 				}
@@ -234,7 +234,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			mapSaldos.put(centro, saldoCentro);
 			//
 			if(continuar) {
-				CentroCosto cuentaPadre = centrosDeAsiento.get(centro.getPadre().getId());
+				HibernateCentroCosto cuentaPadre = centrosDeAsiento.get(centro.getPadre().getId());
 				if(cuentaPadre==null) {
 					cuentaPadre = getCentroCosto(centro.getPadre().getId());
 					centrosDeAsiento.put(centro.getId(), centro);
@@ -248,8 +248,8 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
     // TipoCuenta
     //
     @Override
-    public List<TipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination) {
-        GenericCriteria<TipoCuenta> criteria = GenericCriteria.forClass(TipoCuenta.class);
+    public List<HibernateTipoCuenta> findTipoCuentaList(HibernateTipoCuenta tipoCuenta, Pagination pagination) {
+        GenericCriteria<HibernateTipoCuenta> criteria = GenericCriteria.forClass(HibernateTipoCuenta.class);
         
         criteria.addEqualsIfNotZero(TipoCuenta_.id, tipoCuenta.getId());
         if(criteria.isChanged()){
@@ -265,20 +265,20 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
     }
 
     @Override
-    public TipoCuenta createTipoCuenta() {
-        TipoCuenta tipoCuenta = new TipoCuenta();
+    public HibernateTipoCuenta createTipoCuenta() {
+        HibernateTipoCuenta tipoCuenta = new HibernateTipoCuenta();
         return tipoCuenta;
     }
 
     @Override
-    public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta) {
+    public HibernateTipoCuenta saveTipoCuenta(HibernateTipoCuenta tipoCuenta) {
         tipoCuenta = saveOrMerge(tipoCuenta);
         putSuccess("tipoCuenta.success.save", tipoCuenta.getId());
         return tipoCuenta;
     }
 
     @Override
-    public void deleteTipoCuenta(TipoCuenta tipoCuenta) {
+    public void deleteTipoCuenta(HibernateTipoCuenta tipoCuenta) {
         Long id = tipoCuenta.getId();
         delete(tipoCuenta);
         putSuccess("tipoCuenta.success.delete",id);
