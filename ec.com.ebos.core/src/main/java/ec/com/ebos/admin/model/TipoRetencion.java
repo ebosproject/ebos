@@ -1,46 +1,25 @@
 package ec.com.ebos.admin.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.SaldoRetencion;
-import ec.com.ebos.conta.model.field.SaldoRetencion_;
 
-/**
- * Documento
- * 
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * @since 2013/04/28
- */
-@Entity
-@Table(name = TipoRetencion.TABLE_NAME, schema = Administracion.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@Auditable
-public class TipoRetencion extends Administracion<TipoRetencion> {
+public interface TipoRetencion {
 
-	private static final long serialVersionUID = -6748190361672935897L;
+	public Long getId();
 
-	protected static final String TABLE_NAME = "TIPO_RETENCION";
-	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public Set<SaldoRetencion> getSaldoRetencionList();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-    private Long id;
-	
-	@OneToMany(mappedBy = SaldoRetencion_.tipoRetencion, fetch = FetchType.LAZY)
-    private Set<SaldoRetencion> saldoRetencionList = new HashSet<SaldoRetencion>(0);
-    
+	public void setId(Long id);
+
+	public void setSaldoRetencionList(Set<SaldoRetencion> saldoRetencionList);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

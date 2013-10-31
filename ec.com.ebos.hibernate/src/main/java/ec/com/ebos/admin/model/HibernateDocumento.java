@@ -30,10 +30,10 @@ import ec.com.ebos.conta.model.field.DocumentoDistribucion_;
  * @since 2013/04/28
  */
 @Entity
-@Table(name = Documento.TABLE_NAME, schema = Administracion.SCHEMA)
+@Table(name = HibernateDocumento.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class Documento extends Administracion<Documento> {
+public class HibernateDocumento extends Administracion<HibernateDocumento> implements Documento {
 
 	private static final long serialVersionUID = -6748190361672935897L;
 

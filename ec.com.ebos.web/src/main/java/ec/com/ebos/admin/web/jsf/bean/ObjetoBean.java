@@ -9,6 +9,7 @@ import javax.faces.bean.ViewScoped;
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
+import ec.com.ebos.admin.model.HibernateObjeto;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
@@ -21,7 +22,7 @@ import ec.com.ebos.util.EntityUtils;
 @ManagedBean(name = ObjetoBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped
-public class ObjetoBean extends AdministracionBean<Objeto> {
+public class ObjetoBean extends AdministracionBean<HibernateObjeto> {
     
 	private static final long serialVersionUID = 833763360386716739L;
 	
@@ -29,7 +30,7 @@ public class ObjetoBean extends AdministracionBean<Objeto> {
 
 	@Override
     public void getInit() {
-        entitySearch = new Objeto();
+        entitySearch = new HibernateObjeto();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
         entitySearch.setTipo(Objeto.TipoObjeto.BEAN);
     }
@@ -54,7 +55,7 @@ public class ObjetoBean extends AdministracionBean<Objeto> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Objeto> loadDataTableCollection(Objeto objeto, Pagination pagination) {
+    protected List<HibernateObjeto> loadDataTableCollection(Objeto objeto, Pagination pagination) {
         return administracionS.findObjetoList(objeto,pagination);
     }
         
@@ -82,6 +83,6 @@ public class ObjetoBean extends AdministracionBean<Objeto> {
 	///////////////////////////LISTS ///////////////////////////
 	    
     @Getter
-	private List<Objeto.TipoObjeto> tipoObjetoList = new ArrayList<Objeto.TipoObjeto>(Objeto.TipoObjeto.LIST);
+	private List<HibernateObjeto.TipoObjeto> tipoObjetoList = new ArrayList<HibernateObjeto.TipoObjeto>(Objeto.TipoObjeto.LIST);
 
 }

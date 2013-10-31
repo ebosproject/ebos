@@ -1,96 +1,79 @@
 package ec.com.ebos.admin.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import org.hibernate.annotations.Type;
-
-import ec.com.ebos.admin.model.field.Opcion_;
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.RolOpcion;
 
-/**
- *
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- * 
- */
-@Entity
-@Table(name = Opcion.TABLE_NAME, schema = Administracion.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@Auditable
-public class Opcion extends Administracion<Opcion> {
-    
-	private static final long serialVersionUID = 6962443015587297421L;
+public interface Opcion {
 
-	protected static final String TABLE_NAME = "OPCION";
-	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public Auditoria getAuditoria();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-    private Long id;
+	public String getBeanName();
 
-	@Embedded
-	private Auditoria auditoria;	
-	
-	@ManyToOne
-	@JoinColumn(name = "id_padre")
-    private Opcion padre;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_objeto")
-    private Objeto objeto;
-    
-    @Column(name="nombre", length=30, unique=true, nullable=false)
-    private String nombre;
-    
-    @Column(name="descripcion", length=500)
-    private String descripcion;
-    
-    @Column(name="etiqueta", length=30, nullable=false)
-    private String etiqueta;
-    
-    @Column(name="target", length=200, nullable=false)
-    private String target;
-    
-    @Column(name="icono", length=200)
-    private String icono;
+	public String getDescripcion();
 
-    @Column(name=Opcion_.width, length=4)
-    private int width = 700;
-    
-    @Column(name=Opcion_.height, length=4)
-    private int height = 450;
-    
-    @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
-    
-    @OneToMany(mappedBy = "opcion", fetch= FetchType.LAZY)
-    private Set<RolOpcion> rolOpcionList = new HashSet<RolOpcion>(0);
+	public Entidad.Estado getEstado();
 
-    @OneToMany(mappedBy = "padre", fetch= FetchType.LAZY)
-    private Set<Opcion> opcionList = new HashSet<Opcion>(0);
+	public String getEtiqueta();
 
-    @Transient
-    private String beanName;
+	public int getHeight();
+
+	public String getIcono();
+
+	public Long getId();
+
+	public String getNombre();
+
+	public Objeto getObjeto();
+
+	public Set<HibernateOpcion> getOpcionList();
+
+	public Opcion getPadre();
+
+	public Set<RolOpcion> getRolOpcionList();
+
+	public String getTarget();
+
+	public int getWidth();
+
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setBeanName(String beanName);
+
+	public void setDescripcion(String descripcion);
+
+	public void setEstado(Entidad.Estado estado);
+
+	public void setEtiqueta(String etiqueta);
+
+	public void setHeight(int height);
+
+	public void setIcono(String icono);
+
+	public void setId(Long id);
+
+	public void setNombre(String nombre);
+
+	public void setObjeto(Objeto objeto);
+
+	public void setOpcionList(Set<HibernateOpcion> opcionList);
+
+	public void setPadre(Opcion padre);
+
+	public void setRolOpcionList(Set<RolOpcion> rolOpcionList);
+
+	public void setTarget(String target);
+
+	public void setWidth(int width);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

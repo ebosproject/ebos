@@ -13,6 +13,7 @@ import javax.faces.convert.ConverterException;
 
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.admin.model.HibernateOpcion;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
@@ -26,7 +27,7 @@ import ec.com.ebos.util.StringUtils;
 @ManagedBean(name = OpcionBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped
-public class OpcionBean extends AdministracionBean<Opcion> {
+public class OpcionBean extends AdministracionBean<HibernateOpcion> {
     
 	private static final long serialVersionUID = 833763360386716739L;
 	
@@ -34,7 +35,7 @@ public class OpcionBean extends AdministracionBean<Opcion> {
 
 	@Override
     public void getInit() {
-        entitySearch = new Opcion();
+        entitySearch = new HibernateOpcion();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 
@@ -58,7 +59,7 @@ public class OpcionBean extends AdministracionBean<Opcion> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<Opcion> loadDataTableCollection(Opcion opcion, Pagination pagination) {
+    protected List<HibernateOpcion> loadDataTableCollection(HibernateOpcion opcion, Pagination pagination) {
         return administracionS.findOpcionList(opcion,pagination);
     }
         
@@ -86,7 +87,7 @@ public class OpcionBean extends AdministracionBean<Opcion> {
    
     //////////// LISTS ////////////////////////////
     
-    private List<Opcion> opcionList = new ArrayList<Opcion>();
+    private List<HibernateOpcion> opcionList = new ArrayList<HibernateOpcion>();
     
     
     ///////////// CONVERTERS ////////////////////////
@@ -125,7 +126,7 @@ public class OpcionBean extends AdministracionBean<Opcion> {
     
     ///////////// GETTERS AND SETTERS //////////////////////////
 
-    public List<Opcion> getOpcionList() { //TODO (epa): Cambiar por suggestions AutoCompleteItemTip
+    public List<HibernateOpcion> getOpcionList() { //TODO (epa): Cambiar por suggestions AutoCompleteItemTip
     	if(opcionList.isEmpty()){
     		opcionList = administracionS.getOpcionPadreList();
     	}

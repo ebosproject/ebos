@@ -1,9 +1,9 @@
 package ec.com.ebos.admin.model.field;
 
-import ec.com.ebos.admin.model.Bundle;
+import ec.com.ebos.admin.model.HibernateBundle;
 
 /**
- * Entity model attributes for {@link Bundle}
+ * Entity model attributes for {@link HibernateBundle}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-24

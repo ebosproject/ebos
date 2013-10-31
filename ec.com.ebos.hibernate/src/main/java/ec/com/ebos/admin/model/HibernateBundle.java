@@ -30,11 +30,11 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = Bundle.TABLE_NAME, schema = Administracion.SCHEMA,
+@Table(name = HibernateBundle.TABLE_NAME, schema = Administracion.SCHEMA,
 	uniqueConstraints = @UniqueConstraint(columnNames={Bundle_.codigo, Bundle_.localidad}))
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
-public class Bundle extends Administracion<Bundle>{
+public class HibernateBundle extends Administracion<HibernateBundle> implements Bundle{
 
 	private static final long serialVersionUID = -2896367216397132540L;
 	
@@ -52,11 +52,14 @@ public class Bundle extends Administracion<Bundle>{
 
 	@Column(name = "localidad", nullable = false, length = 5)
 	@Type(type = Localidad.TYPE)
-	private Bundle.Localidad localidad;
+	private HibernateBundle.Localidad localidad;
 
 	@Column(name = "valor", nullable = false, length = 500)
 	private String valor;
 	
+	/* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Bundle#getKeyCache()
+	 */
 	public String getKeyCache(){
 		return codigo+localidad.getValue();
 	}

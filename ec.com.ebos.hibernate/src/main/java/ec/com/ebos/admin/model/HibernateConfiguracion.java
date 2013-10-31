@@ -20,10 +20,10 @@ import ec.com.ebos.root.model.Auditoria;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = Configuracion.TABLE_NAME, schema = Administracion.SCHEMA)
+@Table(name = HibernateConfiguracion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class Configuracion extends Administracion<Configuracion> {
+public class HibernateConfiguracion extends Administracion<HibernateConfiguracion> implements Configuracion {
 
 	private static final long serialVersionUID = -6748190361672935897L;
 
@@ -97,42 +97,72 @@ public class Configuracion extends Administracion<Configuracion> {
     //
     //Proxies
     //
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#isEnviarSmsPrx()
+	 */
     public boolean isEnviarSmsPrx() {
         return enviarSms.equals(Short.valueOf("1"));
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#setEnviarSmsPrx(boolean)
+	 */
     public void setEnviarSmsPrx(boolean enviarSmsPrx) {        
         this.enviarSms = Short.valueOf(enviarSmsPrx ? "1" : "0");
     }
      
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#isEnviarEmailPrx()
+	 */
     public boolean isEnviarEmailPrx(){
         return enviarEmail.equals(Short.valueOf("1"));
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#setEnviarEmailPrx(boolean)
+	 */
     public void setEnviarEmailPrx(boolean enviarEmailPrx) {                
         this.enviarEmail = Short.valueOf(enviarEmailPrx ? "1" : "0");
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#isEnviarSmsGatewayPrx()
+	 */
     public boolean isEnviarSmsGatewayPrx(){
         return enviarSmsGateway.equals(Short.valueOf("1"));
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#setEnviarSmsGatewayPrx(boolean)
+	 */
     public void setEnviarSmsGatewayPrx(boolean enviarSmsGatewayPrx) {        
         this.enviarSmsGateway = Short.valueOf(enviarSmsGatewayPrx ? "1" : "0");
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#isTlsMailPrx()
+	 */
     public boolean isTlsMailPrx() {
         return tlsMail.equals(Short.valueOf("1"));
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#setTlsMailPrx(boolean)
+	 */
     public void setTlsMailPrx(boolean tlsMailPrx) {
         this.tlsMail = Short.valueOf(tlsMailPrx ? "1" : "0");
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#isAutenticarMailPrx()
+	 */
     public boolean isAutenticarMailPrx(){
         return autenticarMail.equals(Short.valueOf("1"));
     }
     
+    /* (non-Javadoc)
+	 * @see ec.com.ebos.admin.model.Configuracion#setAutenticarMailPrx(boolean)
+	 */
     public void setAutenticarMailPrx(boolean isAutenticarMailPrx) {
         this.autenticarMail = Short.valueOf(isAutenticarMailPrx ? "1" : "0");
     }

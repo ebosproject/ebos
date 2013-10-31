@@ -1,9 +1,9 @@
 package ec.com.ebos.admin.model.field;
 
-import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.admin.model.HibernateOpcion;
 
 /**
- * Entity model attributes for {@link Opcion}
+ * Entity model attributes for {@link HibernateOpcion}
  * 
  * @author Eduardo Plua Alay
  */

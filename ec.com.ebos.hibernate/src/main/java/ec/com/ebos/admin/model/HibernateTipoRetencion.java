@@ -24,10 +24,10 @@ import ec.com.ebos.conta.model.field.SaldoRetencion_;
  * @since 2013/04/28
  */
 @Entity
-@Table(name = TipoRetencion.TABLE_NAME, schema = Administracion.SCHEMA)
+@Table(name = HibernateTipoRetencion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class TipoRetencion extends Administracion<TipoRetencion> {
+public class HibernateTipoRetencion extends Administracion<HibernateTipoRetencion> implements TipoRetencion {
 
 	private static final long serialVersionUID = -6748190361672935897L;
 

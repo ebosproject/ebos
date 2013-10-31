@@ -8,7 +8,10 @@ import org.springframework.cache.annotation.Cacheable;
 //import org.springframework.test.annotation.NotTransactional;
 
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.Configuracion;
+import ec.com.ebos.admin.model.HibernateConfiguracion;
+import ec.com.ebos.admin.model.HibernateObjeto;
+import ec.com.ebos.admin.model.HibernateOpcion;
+import ec.com.ebos.admin.model.HibernateParametros;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
@@ -54,44 +57,44 @@ public interface AdministracionS extends Serializable {
     //
     //Parametros
     //
-    public List<Parametros> getParametrosList(Parametros param);
+    public List<HibernateParametros> getParametrosList(Parametros param);
 
-    public Parametros saveParametros(Parametros param);
+    public HibernateParametros saveParametros(HibernateParametros param);
 
     //
     //Configuracion
     //
-    public Configuracion getConfiguracion();
+    public HibernateConfiguracion getConfiguracion();
 
-    public Configuracion saveConfiguracion(Configuracion configuracionActual);
+    public HibernateConfiguracion saveConfiguracion(HibernateConfiguracion configuracionActual);
 
     
     //
     // Opcion
     //
     
-    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination);
+    public List<HibernateOpcion> findOpcionList(Opcion opcion, Pagination pagination);
 
-    public Opcion createOpcion();
+    public HibernateOpcion createOpcion();
 
-    public Opcion saveOpcion(Opcion opcion);
+    public HibernateOpcion saveOpcion(HibernateOpcion opcion);
 
-    public void deleteOpcion(Opcion opcion);
+    public void deleteOpcion(HibernateOpcion opcion);
     
     public Opcion getOpcion(Long id);
     
-    public List<Opcion> getOpcionPadreList();
+    public List<HibernateOpcion> getOpcionPadreList();
     
     //
     // Objeto
     //
-    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination);
+    public List<HibernateObjeto> findObjetoList(Objeto objeto, Pagination pagination);
 
-    public Objeto createObjeto();
+    public HibernateObjeto createObjeto();
 
-    public Objeto saveObjeto(Objeto objeto);
+    public HibernateObjeto saveObjeto(HibernateObjeto objeto);
 
-    public void deleteObjeto(Objeto objeto);
+    public void deleteObjeto(HibernateObjeto objeto);
 
     public Objeto getObjeto(Long id);
 }

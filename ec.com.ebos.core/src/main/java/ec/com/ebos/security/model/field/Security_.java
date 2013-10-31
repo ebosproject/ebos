@@ -1,10 +1,10 @@
 package ec.com.ebos.security.model.field;
 
-import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.admin.model.HibernateOpcion;
 import ec.com.ebos.root.model.field.Entidad_;
 
 /**
- * Entity model attributes for {@link Opcion}
+ * Entity model attributes for {@link HibernateOpcion}
  * 
  * @author Eduardo Plua Alay
  */

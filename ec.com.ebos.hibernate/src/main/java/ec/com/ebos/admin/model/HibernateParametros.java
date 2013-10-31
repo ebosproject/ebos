@@ -15,16 +15,16 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.Entidad;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = Parametros.TABLE_NAME, schema = Administracion.SCHEMA)
+@Table(name = HibernateParametros.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class Parametros extends Administracion<Parametros>{
+public class HibernateParametros extends Administracion<HibernateParametros> implements Parametros{
   
 	private static final long serialVersionUID = 7865213458933031067L;
 
@@ -50,7 +50,7 @@ public class Parametros extends Administracion<Parametros>{
     private String valor;
     
     @Column(name = "ESTADO", nullable=false, length=1)
-    @Type(type = HibernateEntidad.Estado.TYPE)
-    private HibernateEntidad.Estado estado  ;
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado  ;
     
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.admin.core.service.AdministracionS;
+import ec.com.ebos.admin.model.HibernateOpcion;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
@@ -105,7 +106,7 @@ public class RolBean extends SecurityBean<Rol> {
     private List<RolOpcion> rolOpcionList = new ArrayList<RolOpcion>();
     
     @Setter
-    private List<Opcion> opcionList = new ArrayList<Opcion>();
+    private List<HibernateOpcion> opcionList = new ArrayList<HibernateOpcion>();
     
     @Getter @Setter
     private RolOpcion[] selectedRolOpcionList;
@@ -139,7 +140,7 @@ public class RolBean extends SecurityBean<Rol> {
         return rolOpcionList;
     }
 
-    public List<Opcion> getOpcionList() {
+    public List<HibernateOpcion> getOpcionList() {
         if(opcionList.isEmpty()){
             opcionList = administracionS.findOpcionList(null, new Pagination()); // TODO (epa): Crear metodo sin pagination
         }        

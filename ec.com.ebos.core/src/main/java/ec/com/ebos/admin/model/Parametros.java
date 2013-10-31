@@ -1,56 +1,40 @@
 package ec.com.ebos.admin.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import org.hibernate.annotations.Type;
-
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-/**
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- */
-@Entity
-@Table(name = Parametros.TABLE_NAME, schema = Administracion.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@Auditable
-public class Parametros extends Administracion<Parametros>{
-  
-	private static final long serialVersionUID = 7865213458933031067L;
+public interface Parametros {
 
-	protected static final String TABLE_NAME = "PARAMETROS";
-	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public Auditoria getAuditoria();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-    private Long id;
-	
-	@Embedded
-	private Auditoria auditoria;
+	public String getClave();
 
-	@Column(length = 10, nullable = false)
-    private String grupo;
-    
-    @Column(length = 15, nullable = false, unique= true)
-    private String clave;
-    
-    @Column(length = 10, nullable=false)
-    private String valor;
-    
-    @Column(name = "ESTADO", nullable=false, length=1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado  ;
-    
+	public Entidad.Estado getEstado();
+
+	public String getGrupo();
+
+	public Long getId();
+
+	public String getValor();
+
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setClave(String clave);
+
+	public void setEstado(Entidad.Estado estado);
+
+	public void setGrupo(String grupo);
+
+	public void setId(Long id);
+
+	public void setValor(String valor);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

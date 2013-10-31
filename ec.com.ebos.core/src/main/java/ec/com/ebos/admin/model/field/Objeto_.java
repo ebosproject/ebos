@@ -1,11 +1,11 @@
 package ec.com.ebos.admin.model.field;
 
-import ec.com.ebos.admin.model.Objeto;
+import ec.com.ebos.admin.model.HibernateObjeto;
 
 
 
 /**
- * Entity model attributes for {@link Objeto}
+ * Entity model attributes for {@link HibernateObjeto}
  * 
  * @author Eduardo Plua Alay
  */

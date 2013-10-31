@@ -1,130 +1,46 @@
 package ec.com.ebos.admin.model;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-
-import org.hibernate.annotations.Type;
-
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
 
-/**
- *
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- */
-@Entity
-@Table(name = Objeto.TABLE_NAME, schema = Administracion.SCHEMA)
-@Data @EqualsAndHashCode(callSuper=false) 
-@Auditable
-public class Objeto extends Administracion<Objeto> {
-    
-	private static final long serialVersionUID = -3052521057254508069L;
+public interface Objeto {
 
-	protected static final String TABLE_NAME = "OBJETO";
-	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public Auditoria getAuditoria();
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-    private Long id;
+	public String getCodigo();
 
-	@Embedded
-	private Auditoria auditoria;	
-    
-    @Column(name="codigo", length=30, unique=true, nullable=false)
-    private String codigo;
-    
-    @Column(name="descripcion", length=150)
-    private String descripcion;
-    
-    @Column(name = "tipo", nullable = false, length = 1)
-    @Type(type = Objeto.TipoObjeto.TYPE)
-    private Objeto.TipoObjeto tipo;
-    
-    @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = Entidad.Estado.TYPE)
-    private Entidad.Estado estado;
+	public String getDescripcion();
 
-    @OneToMany(mappedBy = "objeto", fetch=FetchType.LAZY)
-    private Set<Opcion> opcionList = new HashSet<Opcion>(0);
-    
-    /**
-     * <strong>TipoObjeto de un {@link Objeto}</strong> <br>
-     * <table border="1">
-     * <tr><th valign="top"> Tipos </th>
-     * <tr><td valign="top"> B: Bean<br> O: Otro<br> </td></tr>
-     * </table>
-     *
-     * @author Eduardo Plua Alay
-     *
-     */
-    public enum TipoObjeto implements StringValuedEnum<TipoObjeto> {
+	public Entidad.Estado getEstado();
 
-        BEAN("B"),
-        OTRO("O");
+	public Long getId();
 
-        public static class Type extends StringValuedEnumType<TipoObjeto> {
-        }
-        
-        public static final String TYPE = Constantes.DOMAIN_NAME+".admin.model.Objeto$TipoObjeto$Type";
-        
-        @Getter
-        private String value;
-        private String labelKey;
+	public Set<HibernateOpcion> getOpcionList();
 
-        private TipoObjeto(String value) {
-            this.value = value;
-            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
-        }
-        public static final Map<String, TipoObjeto> LABELED_MAP =
-                EntityUtils.buildLabeledEnumMap(TipoObjeto.values());
+	public HibernateObjeto.TipoObjeto getTipo();
 
-        /**
-         * Listas para iteraciones
-         */
-        public static final List<TipoObjeto> LIST = Arrays.asList(TipoObjeto.values());
+	public void setAuditoria(Auditoria auditoria);
 
-        @Override
-        public String getLabel() {
-            return labelKey;
-        }
+	public void setCodigo(String codigo);
 
-        @Override
-        public String getDescription() {
-            return getLabel();
-        }
+	public void setDescripcion(String descripcion);
 
-        public boolean isBean() {
-            return this.equals(BEAN);
-        }
-        
-        public boolean isOtro() {
-            return this.equals(OTRO);
-        }
-    }
-    
+	public void setEstado(Entidad.Estado estado);
+
+	public void setId(Long id);
+
+	public void setOpcionList(Set<HibernateOpcion> opcionList);
+
+	public void setTipo(HibernateObjeto.TipoObjeto tipo);
+
+	public java.lang.String toString();
+
+	public boolean canEqual(java.lang.Object other);
+
+	public boolean equals(java.lang.Object o);
+
+	public int hashCode();
+
 }

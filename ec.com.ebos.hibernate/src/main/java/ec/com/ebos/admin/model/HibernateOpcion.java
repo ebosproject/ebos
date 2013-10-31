@@ -24,7 +24,7 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.admin.model.field.Opcion_;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.RolOpcion;
 
 /**
@@ -33,10 +33,10 @@ import ec.com.ebos.security.model.RolOpcion;
  * 
  */
 @Entity
-@Table(name = Opcion.TABLE_NAME, schema = Administracion.SCHEMA)
+@Table(name = HibernateOpcion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class Opcion extends Administracion<Opcion> {
+public class HibernateOpcion extends Administracion<HibernateOpcion> implements Opcion {
     
 	private static final long serialVersionUID = 6962443015587297421L;
 
@@ -82,14 +82,14 @@ public class Opcion extends Administracion<Opcion> {
     private int height = 450;
     
     @Column(name = "estado", nullable = false, length = 1)
-    @Type(type = HibernateEntidad.Estado.TYPE)
-    private HibernateEntidad.Estado estado;
+    @Type(type = Entidad.Estado.TYPE)
+    private Entidad.Estado estado;
     
     @OneToMany(mappedBy = "opcion", fetch= FetchType.LAZY)
     private Set<RolOpcion> rolOpcionList = new HashSet<RolOpcion>(0);
 
     @OneToMany(mappedBy = "padre", fetch= FetchType.LAZY)
-    private Set<Opcion> opcionList = new HashSet<Opcion>(0);
+    private Set<HibernateOpcion> opcionList = new HashSet<HibernateOpcion>(0);
 
     @Transient
     private String beanName;

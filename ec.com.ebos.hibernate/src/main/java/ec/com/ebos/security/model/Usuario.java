@@ -22,6 +22,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Bundle;
+import ec.com.ebos.admin.model.HibernateBundle;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.root.model.Auditoria;
@@ -70,7 +71,7 @@ public class Usuario extends Security<Usuario> {
     
     @Column(name = "localidad", length = 5)
     @Type(type = Bundle.Localidad.TYPE)
-    private Bundle.Localidad localidad;
+    private HibernateBundle.Localidad localidad;
     
     @Column(name = "tema", length = 50)
     private String tema;

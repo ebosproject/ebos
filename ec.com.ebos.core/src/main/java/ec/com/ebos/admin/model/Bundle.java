@@ -1,109 +1,31 @@
 package ec.com.ebos.admin.model;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+public interface Bundle {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
+	public String getCodigo();
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+	public Long getId();
 
-import org.hibernate.annotations.Type;
+	public HibernateBundle.Localidad getLocalidad();
 
-import ec.com.ebos.admin.model.field.Bundle_;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
+	public String getValor();
 
-/**
- * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
- */
-@Entity
-@Table(name = Bundle.TABLE_NAME, schema = Administracion.SCHEMA,
-	uniqueConstraints = @UniqueConstraint(columnNames={Bundle_.codigo, Bundle_.localidad}))
-@Data @EqualsAndHashCode(callSuper=false)
-@org.hibernate.annotations.Entity(dynamicUpdate = true)
-public class Bundle extends Administracion<Bundle>{
+	public void setCodigo(String codigo);
 
-	private static final long serialVersionUID = -2896367216397132540L;
-	
-	protected static final String TABLE_NAME = "BUNDLE";
-	private static final String SEQUENCE = Administracion.SCHEMA+".S"+TABLE_NAME;
-	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
+	public void setId(Long id);
 
-	@Id
-	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
-	@GeneratedValue(generator = GENERATOR)
-	private Long id;
-		
-	@Column(name = "codigo", nullable = false, length = 50)
-	private String codigo;
+	public void setLocalidad(HibernateBundle.Localidad localidad);
 
-	@Column(name = "localidad", nullable = false, length = 5)
-	@Type(type = Localidad.TYPE)
-	private Bundle.Localidad localidad;
+	public void setValor(String valor);
 
-	@Column(name = "valor", nullable = false, length = 500)
-	private String valor;
-	
-	public String getKeyCache(){
-		return codigo+localidad.getValue();
-	}
-	
-	/**
-     * <strong>Localidades(es[_EC]) que soporta el sistema</strong> <br> <table border="1">
-     * <tr><th valign="top"> Localidad </th>
-     * <tr><td> es_EC: Espaniol Ecuador </td>
-     * <tr><td> en_US: Ingles USA </td>
-     * </table>
-     *
-     * @author Eduardo Plua Alay
-     *
-     */
-    public enum Localidad implements StringValuedEnum<Localidad> {
+	public java.lang.String toString();
 
-        es_EC("es_EC"),
-        en_US("en_US");
+	public boolean canEqual(java.lang.Object other);
 
-        public static class Type extends StringValuedEnumType<Localidad> {
-        }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".admin.model.Bundle$Localidad$Type";
-        
-        @Getter
-        private String value;
-        private String labelKey;
+	public boolean equals(java.lang.Object o);
 
-        private Localidad(String value) {
-            this.value = value;
-            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
-        }
-        public static final Map<String, Localidad> LABELED_MAP =
-                EntityUtils.buildLabeledEnumMap(Localidad.values());
-        /**
-         * Lists for iterations
-         */
-        public static final List<Localidad> LIST = Arrays.asList(Localidad.values());
+	public int hashCode();
 
-        @Override
-        public String getLabel() {        	
-        	return labelKey;
-        }
-
-        @Override
-        public String getDescription() {
-            return getLabel();
-        }
-    }
+	public String getKeyCache();
 
 }

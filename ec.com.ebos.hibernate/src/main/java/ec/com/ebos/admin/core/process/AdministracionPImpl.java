@@ -8,8 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.admin.core.exception.AdministracionException;
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.Bundle.Localidad;
-import ec.com.ebos.admin.model.Configuracion;
+import ec.com.ebos.admin.model.HibernateBundle;
+import ec.com.ebos.admin.model.HibernateBundle.Localidad;
+import ec.com.ebos.admin.model.HibernateConfiguracion;
+import ec.com.ebos.admin.model.HibernateObjeto;
+import ec.com.ebos.admin.model.HibernateOpcion;
+import ec.com.ebos.admin.model.HibernateParametros;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
@@ -39,8 +43,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     //
 	
 	@Override
-	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {
-		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
+	public List<HibernateBundle> findBundleList(Bundle bundle, Pagination pagination) {
+		GenericCriteria<HibernateBundle> criteria = GenericCriteria.forClass(HibernateBundle.class);
 
 		criteria.addEqualsIfNotZero(Bundle_.id, bundle.getId());
 		if(criteria.isChanged()){
@@ -57,8 +61,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 	
 	@Override
 	public Bundle getMessageResource(String codigo,
-			Bundle.Localidad localidad) {
-		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
+			HibernateBundle.Localidad localidad) {
+		GenericCriteria<HibernateBundle> criteria = GenericCriteria.forClass(HibernateBundle.class);
 		criteria.addEquals(MessageResource_.codigo, codigo);
 		criteria.addEquals(MessageResource_.localidad, localidad);
 		return findFirstByCriteria(criteria);
@@ -71,14 +75,14 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 	
 	@Override
 	public Bundle buildBundle() {
-		Bundle bundle = new Bundle();
+		Bundle bundle = new HibernateBundle();
 		bundle.setLocalidad(getSessionBean().getLocalidad());
         return bundle;
 	}
 	
 	@Override
 	public Bundle loadBundle(Long id) {
-        return load(id, Bundle.class);
+        return load(id, HibernateBundle.class);
 	}
 
 	@Override
@@ -100,8 +104,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     //
 	
     @Override
-    public List<Parametros> getParametrosList(Parametros param) {
-        GenericCriteria<Parametros> criteria = GenericCriteria.forClass(Parametros.class);
+    public List<HibernateParametros> getParametrosList(Parametros param) {
+        GenericCriteria<HibernateParametros> criteria = GenericCriteria.forClass(HibernateParametros.class);
         if(param != null){
             criteria.addLike(Parametros_.grupo, param.getGrupo());
             criteria.addLike(Parametros_.clave, param.getClave());
@@ -110,7 +114,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     }
 
     @Override
-    public Parametros saveParametros(Parametros param) throws AdministracionException{
+    public HibernateParametros saveParametros(HibernateParametros param) throws AdministracionException{
         Date fecha = new Date();
         if(EntityUtils.isPersistent(param)){
             param.setModificado(fecha);
@@ -135,14 +139,14 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     
     @SuppressWarnings("unchecked")
 	@Override
-    public Configuracion getConfiguracion() {                
-        Configuracion conf = get(new Long(1), Configuracion.class);       
+    public HibernateConfiguracion getConfiguracion() {                
+        HibernateConfiguracion conf = get(new Long(1), HibernateConfiguracion.class);       
         conf.setParametros(buildParametrosHash(getParametrosList(null)));
         return conf;
     }
 
     @Override
-    public Configuracion saveConfiguracion(Configuracion configuracion) throws AdministracionException{                
+    public HibernateConfiguracion saveConfiguracion(HibernateConfiguracion configuracion) throws AdministracionException{                
                 
         if(configuracion.isEnviarSmsPrx() && configuracion.isEnviarSmsGatewayPrx()){            
             configuracion.setEnviarSmsGatewayPrx(false);
@@ -163,7 +167,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
      * @return 
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
-	private HashMap buildParametrosHash(List<Parametros> parametrosList){
+	private HashMap buildParametrosHash(List<HibernateParametros> parametrosList){
         HashMap hashParam = new HashMap();
         for (Parametros parametros : parametrosList) {
             hashParam.put(parametros.getClave(), parametros.getValor());
@@ -176,8 +180,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     // Opcion
     //
     @Override
-    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
-        GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
+    public List<HibernateOpcion> findOpcionList(Opcion opcion, Pagination pagination) {
+        GenericCriteria<HibernateOpcion> criteria = GenericCriteria.forClass(HibernateOpcion.class);
         criteria.addEquals("estado", HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador, Opcion_.padre);
@@ -192,14 +196,14 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     }
 
     @Override
-    public Opcion createOpcion() {
-        Opcion opcion = new Opcion();
+    public HibernateOpcion createOpcion() {
+        HibernateOpcion opcion = new HibernateOpcion();
         opcion.setEstado(Usuario.Estado.INACTIVO);
         return opcion;
     }
 
     @Override
-    public Opcion saveOpcion(Opcion opcion) {
+    public HibernateOpcion saveOpcion(HibernateOpcion opcion) {
         if (!EntityUtils.isPersistent(opcion)) {
             opcion.setEstado(HibernateEntidad.Estado.ACTIVO);
         }
@@ -209,7 +213,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     }
 
     @Override
-    public void deleteOpcion(Opcion opcion) {
+    public void deleteOpcion(HibernateOpcion opcion) {
         Long id = opcion.getId();
         delete(opcion);
         putSuccess("opcion.success.delete",id);
@@ -217,7 +221,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 
     @Override
     public Opcion getOpcion(Long id) {
-    	GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
+    	GenericCriteria<HibernateOpcion> criteria = GenericCriteria.forClass(HibernateOpcion.class);
     	criteria.addEquals("estado", HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador);
@@ -225,8 +229,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     }
 
     @Override
-    public List<Opcion> getOpcionPadreList() {
-        GenericCriteria<Opcion> criteria = GenericCriteria.forClass(Opcion.class);
+    public List<HibernateOpcion> getOpcionPadreList() {
+        GenericCriteria<HibernateOpcion> criteria = GenericCriteria.forClass(HibernateOpcion.class);
         criteria.addEquals(Opcion_.estado, HibernateEntidad.Estado.ACTIVO);
         criteria.addIsNull(Opcion_.padre);
         criteria.addOrderAsc(Opcion_.padre);
@@ -238,8 +242,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     //
     
     @Override
-    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination) {
-        GenericCriteria<Objeto> criteria = GenericCriteria.forClass(Objeto.class);
+    public List<HibernateObjeto> findObjetoList(Objeto objeto, Pagination pagination) {
+        GenericCriteria<HibernateObjeto> criteria = GenericCriteria.forClass(HibernateObjeto.class);
         criteria.addEquals("estado", HibernateEntidad.Estado.ACTIVO);
         criteria.addAliasedJoins(Auditoria_.creador);
         criteria.addAliasedLeftJoins(Auditoria_.modificador);
@@ -254,14 +258,14 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     }
 
     @Override
-    public Objeto createObjeto() {
-        Objeto opcion = new Objeto();
+    public HibernateObjeto createObjeto() {
+        HibernateObjeto opcion = new HibernateObjeto();
         opcion.setEstado(Usuario.Estado.INACTIVO);
         return opcion;
     }
 
     @Override
-    public Objeto saveObjeto(Objeto objeto) {
+    public HibernateObjeto saveObjeto(HibernateObjeto objeto) {
         if (!EntityUtils.isPersistent(objeto)) {
             objeto.setEstado(HibernateEntidad.Estado.ACTIVO);
         }
@@ -271,7 +275,7 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
     }
 
     @Override
-    public void deleteObjeto(Objeto objeto) {
+    public void deleteObjeto(HibernateObjeto objeto) {
         Long id = objeto.getId();
     	delete(objeto);
     	putSuccess("objeto.success.delete",id);
@@ -279,6 +283,6 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 
     @Override
     public Objeto getObjeto(Long id) {
-        return get(id, Objeto.class);
+        return get(id, HibernateObjeto.class);
     }
 }

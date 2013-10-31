@@ -1,7 +1,7 @@
 package ec.com.ebos.admin.model.field;
 
 /**
- * Entity model attributes for {@link Parametros}
+ * Entity model attributes for {@link HibernateParametros}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

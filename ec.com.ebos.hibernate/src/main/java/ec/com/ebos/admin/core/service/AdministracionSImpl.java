@@ -13,7 +13,11 @@ import org.springframework.stereotype.Service;
 
 import ec.com.ebos.admin.core.process.AdministracionP;
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.Configuracion;
+import ec.com.ebos.admin.model.HibernateBundle;
+import ec.com.ebos.admin.model.HibernateConfiguracion;
+import ec.com.ebos.admin.model.HibernateObjeto;
+import ec.com.ebos.admin.model.HibernateOpcion;
+import ec.com.ebos.admin.model.HibernateParametros;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
@@ -39,13 +43,13 @@ public class AdministracionSImpl implements AdministracionS{
     //
 	
 	@Override
-	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {		
+	public List<HibernateBundle> findBundleList(Bundle bundle, Pagination pagination) {		
 		return administracionP.findBundleList(bundle, pagination);
 	}
 	
 	
 	/**
-	 * Obtiene un unique {@link Bundle} entity por su codigo y localidad.
+	 * Obtiene un unique {@link HibernateBundle} entity por su codigo y localidad.
 	 * 
 	 * La entidad obtenida es almacenada en cache para uso de todas las pantallas que lo requieran
 	 * 
@@ -60,13 +64,13 @@ public class AdministracionSImpl implements AdministracionS{
 	}
 
 	/**
-	 * Obtiene el listado de codigos de los {@link Bundle} entities existentes por localidad
+	 * Obtiene el listado de codigos de los {@link HibernateBundle} entities existentes por localidad
 	 * 
 	 * @param localidad
 	 * @return
 	 */
 	@Override
-	public List<String> getCodeMessageResourceList(Bundle.Localidad localidad) {
+	public List<String> getCodeMessageResourceList(HibernateBundle.Localidad localidad) {
 		return administracionP.getCodeMessageResourceList(localidad);
 	}
 	
@@ -80,7 +84,7 @@ public class AdministracionSImpl implements AdministracionS{
 	}
 	
 	/**
-	 * Guarda un {@link Bundle} entity en la base de datos y descarga la cacheBundle
+	 * Guarda un {@link HibernateBundle} entity en la base de datos y descarga la cacheBundle
 	 * para que la entidad guardada vuelva a ser cargada por las pantallas que lo utilicen 
 	 * 
 	 * @param bundle
@@ -94,7 +98,7 @@ public class AdministracionSImpl implements AdministracionS{
 	}
 	
 	/**
-	 * Elimina un {@link Bundle} y descarga la cacheBundle
+	 * Elimina un {@link HibernateBundle} y descarga la cacheBundle
 	 * @param activeEntity
 	 */
 	@Override
@@ -108,12 +112,12 @@ public class AdministracionSImpl implements AdministracionS{
     //
     
     @Override
-    public List<Parametros> getParametrosList(Parametros param) {
+    public List<HibernateParametros> getParametrosList(Parametros param) {
         return administracionP.getParametrosList(param);
     }
 
     @Override
-    public Parametros saveParametros(Parametros param) {
+    public HibernateParametros saveParametros(HibernateParametros param) {
         return administracionP.saveParametros(param);
     }
     
@@ -122,12 +126,12 @@ public class AdministracionSImpl implements AdministracionS{
     //
 
     @Override
-    public Configuracion getConfiguracion() {
+    public HibernateConfiguracion getConfiguracion() {
         return administracionP.getConfiguracion();
     }
     
     @Override
-    public Configuracion saveConfiguracion(Configuracion configuracion) {
+    public HibernateConfiguracion saveConfiguracion(HibernateConfiguracion configuracion) {
         return administracionP.saveConfiguracion(configuracion);
     }
     
@@ -136,22 +140,22 @@ public class AdministracionSImpl implements AdministracionS{
     //
     
     @Override
-    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
+    public List<HibernateOpcion> findOpcionList(Opcion opcion, Pagination pagination) {
         return administracionP.findOpcionList(opcion, pagination);
     }
 
     @Override
-    public Opcion createOpcion() {
+    public HibernateOpcion createOpcion() {
         return administracionP.createOpcion();
     }
 
     @Override
-    public Opcion saveOpcion(Opcion opcion) {
+    public HibernateOpcion saveOpcion(HibernateOpcion opcion) {
         return administracionP.saveOpcion(opcion);
     }
 
     @Override
-    public void deleteOpcion(Opcion opcion) {
+    public void deleteOpcion(HibernateOpcion opcion) {
         administracionP.deleteOpcion(opcion);
     }
     
@@ -162,26 +166,26 @@ public class AdministracionSImpl implements AdministracionS{
     }
 
     @Override
-    public List<Opcion> getOpcionPadreList() {
+    public List<HibernateOpcion> getOpcionPadreList() {
         return administracionP.getOpcionPadreList();
     }
     
     //
     // Objeto
     //
-    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination){
+    public List<HibernateObjeto> findObjetoList(Objeto objeto, Pagination pagination){
     	return administracionP.findObjetoList(objeto, pagination);
     }
 
-    public Objeto createObjeto(){
+    public HibernateObjeto createObjeto(){
     	return administracionP.createObjeto();
     }
 
-    public Objeto saveObjeto(Objeto objeto){
+    public HibernateObjeto saveObjeto(HibernateObjeto objeto){
     	return administracionP.saveObjeto(objeto);
     }
 
-    public void deleteObjeto(Objeto objeto){
+    public void deleteObjeto(HibernateObjeto objeto){
     	administracionP.deleteObjeto(objeto);
     }
 

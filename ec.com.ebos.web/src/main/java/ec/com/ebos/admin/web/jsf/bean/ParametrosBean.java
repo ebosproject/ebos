@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.admin.model.HibernateParametros;
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
@@ -22,7 +23,7 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = ParametrosBean.BEAN_NAME)
 @SessionScoped
-public class ParametrosBean extends AdministracionBean<Parametros>{
+public class ParametrosBean extends AdministracionBean<HibernateParametros>{
 
 	private static final long serialVersionUID = -8810452745934111969L;
 	
@@ -30,7 +31,7 @@ public class ParametrosBean extends AdministracionBean<Parametros>{
 	
     @Override
     public void getInit() {
-        entitySearch = new Parametros();
+        entitySearch = new HibernateParametros();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 
@@ -53,7 +54,7 @@ public class ParametrosBean extends AdministracionBean<Parametros>{
 
     ///////////////////////// DATA MODEL ////////////////////////
     @Override
-    protected List<Parametros> loadDataTableCollection(Parametros parametros, Pagination pagination) {
+    protected List<HibernateParametros> loadDataTableCollection(Parametros parametros, Pagination pagination) {
         return administracionS.getParametrosList(parametros);
     }
 
@@ -87,7 +88,7 @@ public class ParametrosBean extends AdministracionBean<Parametros>{
         return activeEntity;
     }
 
-    public void setParametrosActual(Parametros activeEntity) {
+    public void setParametrosActual(HibernateParametros activeEntity) {
         this.activeEntity = activeEntity;
     }
     
