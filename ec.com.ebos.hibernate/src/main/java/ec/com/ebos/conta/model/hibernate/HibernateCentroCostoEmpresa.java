@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.CentroCosto;
+import ec.com.ebos.conta.model.CentroCostoEmpresa;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.master.model.Organizacion;
 
@@ -26,7 +28,7 @@ import ec.com.ebos.master.model.Organizacion;
 @Table(name = HibernateCentroCostoEmpresa.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCentroCostoEmpresa extends Contabilidad<HibernateCentroCostoEmpresa> {
+public class HibernateCentroCostoEmpresa extends Contabilidad<HibernateCentroCostoEmpresa> implements CentroCostoEmpresa {
 
 
 	private static final long serialVersionUID = 3057838065566530983L;
@@ -48,7 +50,7 @@ public class HibernateCentroCostoEmpresa extends Contabilidad<HibernateCentroCos
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_padre", nullable = false)
-    private HibernateCentroCosto centroCosto;
+    private CentroCosto centroCosto;
 	
 	/**
 	 * Empresa

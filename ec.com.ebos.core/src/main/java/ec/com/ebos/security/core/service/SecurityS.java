@@ -9,12 +9,11 @@ import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateRol;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
-import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
+import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.UsuarioRol;
 
 /**
  *
@@ -31,7 +30,6 @@ public interface SecurityS extends Serializable {
 	 * Nombre del Bean como EL a ser referenciado para la inyeccion de una instancia de {@link SecuritySImpl} 
 	 * en otro ManagedBean
 	 */
-	@SuppressWarnings("el-syntax")
 	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 	
 	//
@@ -44,45 +42,45 @@ public interface SecurityS extends Serializable {
     //
     // Usuario
     //
-    public HibernateUsuario createUsuario();
+    public Usuario createUsuario();
 
-    public HibernateUsuario getUsuario(Long id);
+    public Usuario getUsuario(Long id);
     
-    public HibernateUsuario saveUsuario(HibernateUsuario usuario);
+    public Usuario saveUsuario(Usuario usuario);
     
-    public void deleteUsuario(HibernateUsuario usuario);
+    public void deleteUsuario(Usuario usuario);
     
-    public List<HibernateUsuario> findUsuarioList(HibernateUsuario entitySearch, Pagination pagination);
+    public List<Usuario> findUsuarioList(Usuario entitySearch, Pagination pagination);
     
-    public void generateUsuarioRol(HibernateUsuario usuario, Rol rol);
+    public void generateUsuarioRol(Usuario usuario, Rol rol);
 
-    public void saveUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList);
+    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList);
     
-    public List<HibernateUsuarioRol> getUsuarioRolList(HibernateUsuario usuario);
+    public List<UsuarioRol> getUsuarioRolList(Usuario usuario);
     
-    public void deleteUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList);
+    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList);
 
     public int getUsuarioCount();
     //
     // Rol
     //
-    public List<HibernateRol> findRolList(HibernateRol rol, Pagination pagination);
+    public List<Rol> findRolList(Rol rol, Pagination pagination);
 
-    public HibernateRol createRol();
+    public Rol createRol();
 
-    public HibernateRol saveRol(HibernateRol rol);
+    public Rol saveRol(Rol rol);
 
-    public void deleteRol(HibernateRol rol);
+    public void deleteRol(Rol rol);
     
     public void generateRolOpcion(Rol rol, Opcion opcion);
     
-    public List<HibernateRolOpcion> getRolOpcionList(Rol rol);
+    public List<RolOpcion> getRolOpcionList(Rol rol);
     
-    public void saveRolOpcionList(List<HibernateRolOpcion> rolOpcionList);
+    public void saveRolOpcionList(List<RolOpcion> rolOpcionList);
     
-    public RolOpcion saveRolOpcion(HibernateRolOpcion rolOpcion);
+    public RolOpcion saveRolOpcion(RolOpcion rolOpcion);
     
-    public void deleteRolOpcionList(List<HibernateRolOpcion> rolOpcionList);
+    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList);
     
     
     //
@@ -92,10 +90,12 @@ public interface SecurityS extends Serializable {
     @Transactional(readOnly = true)
     public boolean authLogin(SessionBean sessionBean);
 
-    public void changePassword(HibernateUsuario usuario);
+    public void changePassword(Usuario usuario);
     
     public SessionBean getSessionBean();
 
-	public void saveUserPreferences(HibernateUsuario usuario);
+	public void saveUserPreferences(Usuario usuario);
+
+	Auditoria getAuditoria();
 
 }

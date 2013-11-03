@@ -2,15 +2,13 @@ package ec.com.ebos.master.model;
 
 import java.util.Set;
 
-import ec.com.ebos.master.model.hibernate.HibernateActivo;
-import ec.com.ebos.master.model.hibernate.HibernateCategoria;
 import ec.com.ebos.root.model.Entidad;
 
 public interface Categoria {
 
-	public Set<HibernateActivo> getActivoList();
+	public Set<Activo> getActivoList();
 
-	public Set<HibernateCategoria> getCategoriaList();
+	public Set<Categoria> getCategoriaList();
 
 	public String getCodigo();
 
@@ -22,9 +20,9 @@ public interface Categoria {
 
 	public ActivoCategoria getPadre();
 
-	public void setActivoList(Set<HibernateActivo> activoList);
+	public void setActivoList(Set<Activo> activoList);
 
-	public void setCategoriaList(Set<HibernateCategoria> categoriaList);
+	public void setCategoriaList(Set<Categoria> categoriaList);
 
 	public void setCodigo(String codigo);
 

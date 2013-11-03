@@ -2,13 +2,13 @@ package ec.com.ebos.mse.model;
 
 import java.util.Set;
 
-import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
+import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
 public interface Grupo {
 
-	public Set<HibernateAsientoDetalle> getAsientoDetalleList();
+	public Set<AsientoDetalle> getAsientoDetalleList();
 
 	public Auditoria getAuditoria();
 
@@ -16,12 +16,11 @@ public interface Grupo {
 
 	public Long getId();
 
-	public Set<HibernateMonaguilloGrupo> getMonaguilloGrupoList();
+	public Set<MonaguilloGrupo> getMonaguilloGrupoList();
 
 	public String getNombre();
 
-	public void setAsientoDetalleList(
-			Set<HibernateAsientoDetalle> asientoDetalleList);
+	public void setAsientoDetalleList(Set<AsientoDetalle> asientoDetalleList);
 
 	public void setAuditoria(Auditoria auditoria);
 
@@ -29,8 +28,7 @@ public interface Grupo {
 
 	public void setId(Long id);
 
-	public void setMonaguilloGrupoList(
-			Set<HibernateMonaguilloGrupo> monaguilloGrupoList);
+	public void setMonaguilloGrupoList(Set<MonaguilloGrupo> monaguilloGrupoList);
 
 	public void setNombre(String nombre);
 

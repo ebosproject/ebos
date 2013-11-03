@@ -2,33 +2,30 @@ package ec.com.ebos.master.model;
 
 import java.util.Set;
 
-import ec.com.ebos.conta.model.hibernate.HibernateCentroCostoEmpresa;
-import ec.com.ebos.conta.model.hibernate.HibernateCuentaCentro;
-import ec.com.ebos.conta.model.hibernate.HibernateCuentaContableEmpresa;
-import ec.com.ebos.conta.model.hibernate.HibernateEjercicio;
-import ec.com.ebos.master.model.hibernate.HibernateActivo;
-import ec.com.ebos.master.model.hibernate.HibernateEmpresaPersona;
-import ec.com.ebos.master.model.hibernate.HibernateSucursal;
+import ec.com.ebos.conta.model.CentroCostoEmpresa;
+import ec.com.ebos.conta.model.CuentaCentro;
+import ec.com.ebos.conta.model.CuentaContableEmpresa;
+import ec.com.ebos.conta.model.Ejercicio;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
 public interface Organizacion {
 
-	public Set<HibernateActivo> getActivoList();
+	public Set<Activo> getActivoList();
 
 	public Auditoria getAuditoria();
 
-	public Set<HibernateCentroCostoEmpresa> getCentroCostoEmpresaList();
+	public Set<CentroCostoEmpresa> getCentroCostoEmpresaList();
 
-	public Set<HibernateCuentaCentro> getCuentaCentroList();
+	public Set<CuentaCentro> getCuentaCentroList();
 
-	public Set<HibernateCuentaContableEmpresa> getCuentaContableEmpresaList();
+	public Set<CuentaContableEmpresa> getCuentaContableEmpresaList();
 
 	public String getDescripcion();
 
-	public Set<HibernateEjercicio> getEjercicioList();
+	public Set<Ejercicio> getEjercicioList();
 
-	public Set<HibernateEmpresaPersona> getEmpresaPersonaList();
+	public Set<EmpresaPersona> getEmpresaPersonaList();
 
 	public Entidad.Estado getEstado();
 
@@ -38,26 +35,23 @@ public interface Organizacion {
 
 	public Persona getPersona();
 
-	public Set<HibernateSucursal> getSucursalList();
+	public Set<Sucursal> getSucursalList();
 
-	public void setActivoList(Set<HibernateActivo> activoList);
+	public void setActivoList(Set<Activo> activoList);
 
 	public void setAuditoria(Auditoria auditoria);
 
-	public void setCentroCostoEmpresaList(
-			Set<HibernateCentroCostoEmpresa> centroCostoEmpresaList);
+	public void setCentroCostoEmpresaList(Set<CentroCostoEmpresa> centroCostoEmpresaList);
 
-	public void setCuentaCentroList(Set<HibernateCuentaCentro> cuentaCentroList);
+	public void setCuentaCentroList(Set<CuentaCentro> cuentaCentroList);
 
-	public void setCuentaContableEmpresaList(
-			Set<HibernateCuentaContableEmpresa> cuentaContableEmpresaList);
+	public void setCuentaContableEmpresaList(Set<CuentaContableEmpresa> cuentaContableEmpresaList);
 
 	public void setDescripcion(String descripcion);
 
-	public void setEjercicioList(Set<HibernateEjercicio> ejercicioList);
+	public void setEjercicioList(Set<Ejercicio> ejercicioList);
 
-	public void setEmpresaPersonaList(
-			Set<HibernateEmpresaPersona> empresaPersonaList);
+	public void setEmpresaPersonaList(Set<EmpresaPersona> empresaPersonaList);
 
 	public void setEstado(Entidad.Estado estado);
 
@@ -67,7 +61,7 @@ public interface Organizacion {
 
 	public void setPersona(Persona persona);
 
-	public void setSucursalList(Set<HibernateSucursal> sucursalList);
+	public void setSucursalList(Set<Sucursal> sucursalList);
 
 	public java.lang.String toString();
 

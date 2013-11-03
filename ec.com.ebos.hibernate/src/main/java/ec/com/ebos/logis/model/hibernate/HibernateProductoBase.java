@@ -1,4 +1,4 @@
-package ec.com.ebos.logis.model;
+package ec.com.ebos.logis.model.hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,8 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.master.model.Master;
+import ec.com.ebos.logis.model.Logistica;
+import ec.com.ebos.logis.model.ProductoBase;
 
 
 /**
@@ -17,13 +18,11 @@ import ec.com.ebos.master.model.Master;
  * @update 2013/04/29 <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Entity
-@Table(name = ProductoBase.TABLE_NAME, schema = Logistica.SCHEMA)
+@Table(name = HibernateProductoBase.TABLE_NAME, schema = Logistica.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class ProductoBase extends Logistica<ProductoBase> {
+public class HibernateProductoBase extends Logistica<HibernateProductoBase> implements ProductoBase {
 
-	private static final long serialVersionUID = -4664966746836596369L;
-	
 	protected static final String TABLE_NAME = "PRODUCTO_BASE";
 	private static final String SEQUENCE = Logistica.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";

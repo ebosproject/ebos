@@ -17,6 +17,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.Asiento;
+import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.field.Entidad_;
@@ -32,7 +35,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateAsientoDetalle.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateAsientoDetalle extends Contabilidad<HibernateAsientoDetalle> {
+public class HibernateAsientoDetalle extends Contabilidad<HibernateAsientoDetalle> implements AsientoDetalle {
 
 	private static final long serialVersionUID = -2771940733623486993L;
 	
@@ -53,7 +56,7 @@ public class HibernateAsientoDetalle extends Contabilidad<HibernateAsientoDetall
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_asiento", nullable = false)
-    private HibernateAsiento asiento;
+    private Asiento asiento;
 	
 	/**
 	 * Cuenta contable
@@ -74,7 +77,7 @@ public class HibernateAsientoDetalle extends Contabilidad<HibernateAsientoDetall
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_subcentro_costo")
-    private HibernateCentroCosto subcentroCosto;
+    private CentroCosto subcentroCosto;
 	
 	/**
 	 * Documento

@@ -1,9 +1,6 @@
 package ec.com.ebos.conta.model.hibernate;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -18,19 +15,17 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.Periodo;
+import ec.com.ebos.conta.model.SaldoCentroCosto;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
+import ec.com.ebos.root.model.Entidad.Estado;
 
 /**
  * Saldos centros de costos
@@ -43,7 +38,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Table(name = HibernateSaldoCentroCosto.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class HibernateSaldoCentroCosto extends Contabilidad<HibernateSaldoCentroCosto> {
+public class HibernateSaldoCentroCosto extends Contabilidad<HibernateSaldoCentroCosto> implements SaldoCentroCosto {
 
 	private static final long serialVersionUID = 5615088107461153660L;
 
@@ -64,21 +59,21 @@ public class HibernateSaldoCentroCosto extends Contabilidad<HibernateSaldoCentro
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_periodo", nullable = false)
-	private HibernatePeriodo periodo;
+	private Periodo periodo;
 	
 	/**
 	 * {@link HibernateCentroCosto}
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_centro_costo", nullable = false)
-	private HibernateCentroCosto centroCosto;
+	private CentroCosto centroCosto;
 
 	/**
 	 * Tipo de saldo
 	 */
 	@Column(name = "tipoSaldo", nullable = false, length = 3)
     @Type(type = HibernateSaldoCentroCosto.TipoSaldo.TYPE)
-    private HibernateSaldoCentroCosto.TipoSaldo tipoSaldo = HibernateSaldoCentroCosto.TipoSaldo.CENTRO;
+    private SaldoCentroCosto.TipoSaldo tipoSaldo = SaldoCentroCosto.TipoSaldo.CENTRO;
 	
 	/**
 	 * Valor inicial de la cuenta en el periodo
@@ -103,71 +98,11 @@ public class HibernateSaldoCentroCosto extends Contabilidad<HibernateSaldoCentro
 	private Auditoria auditoria;
 	
 	/**
-	 * Estado del {@link HibernateSaldoCentroCosto}
+	 * Estado del {@link SaldoCentroCosto}
 	 */
 	@Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;
 	
-		
-    /**
-     * <strong>Tipo saldo de un {@link HibernateSaldoCentroCosto}</strong> <br>
-     * <table border="1">
-     * <tr><th valign="top"> Tipos </th>
-     * <tr><td valign="top"> CTR: Centro<br> SCT: Subcentro<br> FLJ: Flujo de caja<br> </td></tr>
-     * </table>
-     *
-     * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
-     *
-     */
-    public enum TipoSaldo implements StringValuedEnum<TipoSaldo> {
-    	
-        CENTRO("CTR"),
-        SUBCENTRO("SCT"),
-        FLUJO_CAJA("FLJ");
-
-        public static class Type extends StringValuedEnumType<TipoSaldo> {
-        }
-        
-        public static final String TYPE = Constantes.DOMAIN_NAME+".conta.model.SaldoCentroCosto$TipoSaldo$Type";
-        
-        @Getter
-        private String value;
-        private String labelKey;
-        
-        private TipoSaldo(String value) {
-            this.value = value;
-            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
-        }
-        
-        public static final Map<String, TipoSaldo> LABELED_MAP =
-                EntityUtils.buildLabeledEnumMap(TipoSaldo.values());
-        /**
-         * Lists para iteraciones
-         */
-        public static final List<TipoSaldo> LIST = Arrays.asList(TipoSaldo.values());
-
-        @Override
-        public String getLabel() {
-            return labelKey;
-        }
-
-        @Override
-        public String getDescription() {
-            return getLabel();
-        }
-
-        public boolean isCentro() {
-            return this.equals(CENTRO);
-        }
-
-        public boolean isSubcentro() {
-            return this.equals(SUBCENTRO);
-        }
-        
-        public boolean isFlujoCaja() {
-            return this.equals(FLUJO_CAJA);
-        }
-    }
     
 }

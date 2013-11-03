@@ -2,7 +2,7 @@ package ec.com.ebos.conta.core.process;
 
 import java.util.List;
 
-import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
+import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -15,11 +15,11 @@ public interface ContaP {
 	//
 	// TipoCuenta
 	//
-	public List<HibernateTipoCuenta> findTipoCuentaList(HibernateTipoCuenta tipoCuenta, Pagination pagination);
+	public List<TipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination);
 	
-	public HibernateTipoCuenta createTipoCuenta();
+	public TipoCuenta createTipoCuenta();
 	
-	public HibernateTipoCuenta saveTipoCuenta(HibernateTipoCuenta tipoCuenta);
+	public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta);
 	
-	public void deleteTipoCuenta(HibernateTipoCuenta tipoCuenta);
+	public void deleteTipoCuenta(TipoCuenta tipoCuenta);
 }

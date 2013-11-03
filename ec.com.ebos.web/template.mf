@@ -24,8 +24,7 @@ Import-Bundle:
  com.springsource.net.sf.ehcache;version="[2.2.0,2.2.0]",
  com.springsource.javax.mail;version="[1.4.5,1.4.5]",
  com.springsource.org.apache.log4j;version="[1.2.15,1.2.15]",
- ec.com.ebos.postgresql;version="9.0",
- ec.com.ebos.core;version="[3.0.1,3.1.0)"
+ ec.com.ebos.postgresql;version="9.0",1
 Import-Template: 
  org.primefaces.*;version="[3.5.0,3.5.0]",
  org.primefaces.extensions.*;version="[0.7.1,0.7.1]",
@@ -40,8 +39,7 @@ Excluded-Imports:
  org.hibernate.*,
  org.springframework.test.*,
  org.junit.*,
- resources,
- ec.com.ebos.*.web
+ resources
 Excluded-Exports: 
  *
 Import-Package: 

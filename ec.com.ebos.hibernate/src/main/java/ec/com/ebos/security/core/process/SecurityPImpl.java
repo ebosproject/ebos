@@ -26,6 +26,7 @@ import ec.com.ebos.root.model.hibernate.field.Auditoria_;
 import ec.com.ebos.security.exception.SecurityException;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.field.RolOpcion_;
 import ec.com.ebos.security.model.field.Rol_;
 import ec.com.ebos.security.model.field.UsuarioRol_;
@@ -73,9 +74,9 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     //Usuario
     //
     @Override
-    public HibernateUsuario createUsuario() {
-        HibernateUsuario usuario = new HibernateUsuario();
-        usuario.setEstado(Usuario.Estado.INACTIVO);
+    public Usuario createUsuario() {
+        Usuario usuario = new HibernateUsuario();
+        usuario.setEstado(ec.com.ebos.security.model.Estado.INACTIVO);
         return usuario;
     }
 
@@ -85,7 +86,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public HibernateUsuario saveUsuario(HibernateUsuario usuario) {
+    public Usuario saveUsuario(HibernateUsuario usuario) {
 
         if (isUsuarioValido(usuario)) {
             Date date = new Date();
@@ -113,18 +114,18 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public void deleteUsuario(HibernateUsuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
+    public void deleteUsuario(Usuario usuario) { // TODO (epa): Usar definitivamente resource bundle para mensajes
         Long id = usuario.getId();
         delete(usuario);
         putSuccess("usuario.success.eliminar", id);
     }
 
     @Override
-    public List<HibernateUsuario> findUsuarioList(HibernateUsuario usuario, Pagination pagination) {        
+    public List<HibernateUsuario> findUsuarioList(Usuario usuario, Pagination pagination) {        
         return findByCriteria(buildUsuarioCriteria(usuario), pagination);
     }
     
-    private GenericCriteria<HibernateUsuario> buildUsuarioCriteria(HibernateUsuario usuario){
+    private GenericCriteria<HibernateUsuario> buildUsuarioCriteria(Usuario usuario){
         GenericCriteria<HibernateUsuario> criteria = GenericCriteria.forClass(HibernateUsuario.class);
         
         criteria.addEqualsIfNotZero(Usuario_.id, usuario.getId());
@@ -152,7 +153,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public void generateUsuarioRol(HibernateUsuario usuario, Rol rol) {
+    public void generateUsuarioRol(Usuario usuario, Rol rol) {
         HibernateUsuarioRol usuarioRol = new HibernateUsuarioRol();
         usuarioRol.setEstado(HibernateEntidad.Estado.ACTIVO);
         usuarioRol.setUsuario(usuario);
@@ -165,7 +166,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     @Override
-    public List<HibernateUsuarioRol> getUsuarioRolList(HibernateUsuario usuario) {
+    public List<HibernateUsuarioRol> getUsuarioRolList(Usuario usuario) {
         GenericCriteria<HibernateUsuarioRol> query = GenericCriteria.forClass(HibernateUsuarioRol.class);
         query.addEquals(UsuarioRol_.estado, HibernateEntidad.Estado.ACTIVO);
         query.addEquals(UsuarioRol_.usuario, usuario);
@@ -179,7 +180,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     	putSuccess("Rol(es) removido(s) correctamente");
     }
 
-    private void buildSendMailCuentaUsuario(HibernateUsuario usuario) {      
+    private void buildSendMailCuentaUsuario(Usuario usuario) {      
         String sender = null;
         String subject = "eBos: Creacion Cuenta  " + usuario.getUsername(); //TODO (epa): Usar bundle
         String content = "Se creo correctamente cuenta para Usuario: " + usuario.getUsername()
@@ -188,7 +189,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         utilP.sendMail(subject, content, sender, to, null, null);            
     }
 
-    private boolean isUsuarioValido(HibernateUsuario usuario) {
+    private boolean isUsuarioValido(Usuario usuario) {
         String username = usuario.getUsername();
         
         GenericCriteria<HibernateUsuario> query = GenericCriteria.forClass(HibernateUsuario.class);                        
@@ -229,7 +230,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     @Override
     public HibernateRol createRol() {
         HibernateRol rol = new HibernateRol();
-        rol.setEstado(Usuario.Estado.INACTIVO);
+        rol.setEstado(ec.com.ebos.security.model.Estado.INACTIVO);
         return rol;
     }
 
@@ -287,7 +288,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     @Override
     public void saveRolOpcionList(List<HibernateRolOpcion> rolOpcionList) { 
         if (rolOpcionList != null) {
-        	HibernateUsuario usuario = getSessionBean().getUsuario();
+        	Usuario usuario = getSessionBean().getUsuario();
             Date fecha = new Date();
             for (HibernateRolOpcion rolOpcion : rolOpcionList) {
             	rolOpcion.setModificador(usuario);
@@ -309,7 +310,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     }
 
     //TODO (epa): Optimizar consulta
-    private List<HibernateRolOpcion> obtenerRolOpcionList(HibernateUsuario usuario) {
+    private List<HibernateRolOpcion> obtenerRolOpcionList(Usuario usuario) {
 
         GenericCriteria<HibernateUsuarioRol> criteria = GenericCriteria.forClass(HibernateUsuarioRol.class);
         criteria.addEquals(UsuarioRol_.usuario, usuario);
@@ -351,7 +352,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
         criteria.addEquals(Usuario_.username, sessionBean.getUsuario().getUsername());
         criteria.addEquals(Usuario_.password, CryptoUtils.computeHashSHA256(sessionBean.getUsuario().getPassword()));
 
-        HibernateUsuario usuario = findFirstByCriteria(criteria);        
+        Usuario usuario = findFirstByCriteria(criteria);        
         if (usuario != null) {        	
         	sessionBean.setUsuario(usuario);
         } else {
@@ -365,7 +366,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     
     @Override
     public void changePassword(HibernateUsuario usuario){
-        HibernateUsuario oldUsuario = getUsuario(usuario.getId());
+        Usuario oldUsuario = getUsuario(usuario.getId());
         evict(oldUsuario);
         
         if (oldUsuario.getPassword().equals(CryptoUtils.computeHashSHA256(usuario.getPassword()))) {        	
@@ -386,10 +387,16 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
     	return super.getSessionBean();
     }
     
+    @Override
+    public Auditoria getAuditoria(){
+    	return super.getAuditoria();
+    }
+    
+    
     /**
      * Guarda las preferencias del usuario
      */
-    public void saveUserPreferences(HibernateUsuario usuario){
+    public void saveUserPreferences(Usuario usuario){
     	HibernateUsuario oldUsuario = getUsuario(usuario.getId());
     	//Definir preferencias a guardar    	
     	oldUsuario.setTema(usuario.getTema());

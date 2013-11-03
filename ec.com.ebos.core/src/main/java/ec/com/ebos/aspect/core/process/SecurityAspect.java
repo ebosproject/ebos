@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.session.SessionBean;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.HTTPUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class SecurityAspect {
 		ExternalContext context = EbosContext.getExternalContext();
 		
 		try {
-			HibernateUsuario usuario = sessionBean.getUsuario();
+			Usuario usuario = sessionBean.getUsuario();
 
 			Persona persona = usuario.getEmpresaPersona().getPersona();
 			logger.info("(" + HTTPUtils.getRemoteAddr(((HttpServletRequest) context.getRequest())) 

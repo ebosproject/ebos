@@ -18,6 +18,9 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaCentro;
+import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
@@ -33,7 +36,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateCuentaCentro.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCuentaCentro extends Contabilidad<HibernateCuentaCentro> {
+public class HibernateCuentaCentro extends Contabilidad<HibernateCuentaCentro> implements CuentaCentro {
 
 	private static final long serialVersionUID = 1943393643558976463L;
 	
@@ -55,11 +58,11 @@ public class HibernateCuentaCentro extends Contabilidad<HibernateCuentaCentro> {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cuenta_contable", nullable = false)
-    private HibernateCuentaContable cuentaContable;
+    private CuentaContable cuentaContable;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_centro_costo")
-    private HibernateTipoCentroCosto tipoCentroCosto;
+    private TipoCentroCosto tipoCentroCosto;
 	
 	@Embedded
 	private Auditoria auditoria;

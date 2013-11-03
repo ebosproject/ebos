@@ -4,8 +4,6 @@ import java.util.Set;
 
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
 
 public interface Rol {
 
@@ -19,9 +17,9 @@ public interface Rol {
 
 	public String getNombre();
 
-	public Set<HibernateRolOpcion> getRolOpcionList();
+	public Set<RolOpcion> getRolOpcionList();
 
-	public Set<HibernateUsuarioRol> getUsuarioRolList();
+	public Set<UsuarioRol> getUsuarioRolList();
 
 	public void setAuditoria(Auditoria auditoria);
 
@@ -33,9 +31,9 @@ public interface Rol {
 
 	public void setNombre(String nombre);
 
-	public void setRolOpcionList(Set<HibernateRolOpcion> rolOpcionList);
+	public void setRolOpcionList(Set<RolOpcion> rolOpcionList);
 
-	public void setUsuarioRolList(Set<HibernateUsuarioRol> usuarioRolList);
+	public void setUsuarioRolList(Set<UsuarioRol> usuarioRolList);
 
 	public java.lang.String toString();
 

@@ -2,8 +2,7 @@ package ec.com.ebos.master.model;
 
 import java.util.Set;
 
-import ec.com.ebos.conta.model.hibernate.HibernatePeriodoFiscalPais;
-import ec.com.ebos.master.model.hibernate.HibernateDivisionGeografica;
+import ec.com.ebos.conta.model.PeriodoFiscalPais;
 
 public interface DivisionGeografica {
 
@@ -11,7 +10,7 @@ public interface DivisionGeografica {
 
 	public String getDescripcion();
 
-	public Set<HibernateDivisionGeografica> getDivisionGeograficaList();
+	public Set<DivisionGeografica> getDivisionGeograficaList();
 
 	public Long getId();
 
@@ -19,7 +18,7 @@ public interface DivisionGeografica {
 
 	public DivisionGeografica getPadre();
 
-	public Set<HibernatePeriodoFiscalPais> getPeriodoFiscalPaisList();
+	public Set<PeriodoFiscalPais> getPeriodoFiscalPaisList();
 
 	public int getTerminante();
 
@@ -27,8 +26,7 @@ public interface DivisionGeografica {
 
 	public void setDescripcion(String descripcion);
 
-	public void setDivisionGeograficaList(
-			Set<HibernateDivisionGeografica> divisionGeograficaList);
+	public void setDivisionGeograficaList(Set<DivisionGeografica> divisionGeograficaList);
 
 	public void setId(Long id);
 
@@ -36,8 +34,7 @@ public interface DivisionGeografica {
 
 	public void setPadre(DivisionGeografica padre);
 
-	public void setPeriodoFiscalPaisList(
-			Set<HibernatePeriodoFiscalPais> periodoFiscalPaisList);
+	public void setPeriodoFiscalPaisList(Set<PeriodoFiscalPais> periodoFiscalPaisList);
 
 	public void setTerminante(int terminante);
 

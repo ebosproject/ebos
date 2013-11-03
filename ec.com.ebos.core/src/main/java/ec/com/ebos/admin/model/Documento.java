@@ -3,21 +3,21 @@ package ec.com.ebos.admin.model;
 import java.util.Date;
 import java.util.Set;
 
-import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
-import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
-import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
+import ec.com.ebos.conta.model.Asiento;
+import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.DocumentoDistribucion;
 
 public interface Documento {
 
-	public Set<HibernateAsientoDetalle> getAsientoDetalleList();
+	public Set<AsientoDetalle> getAsientoDetalleList();
 
-	public Set<HibernateAsiento> getAsientoList();
+	public Set<Asiento> getAsientoList();
 
 	public Date getAutorizado();
 
 	public Date getContabilizado();
 
-	public Set<HibernateDocumentoDistribucion> getDocumentoDistribucionList();
+	public Set<DocumentoDistribucion> getDocumentoDistribucionList();
 
 	public Date getEmitido();
 
@@ -29,16 +29,16 @@ public interface Documento {
 
 	public Date getVencimiento();
 
-	public void setAsientoDetalleList(Set<HibernateAsientoDetalle> asientoDetalleList);
+	public void setAsientoDetalleList(Set<AsientoDetalle> asientoDetalleList);
 
-	public void setAsientoList(Set<HibernateAsiento> asientoList);
+	public void setAsientoList(Set<Asiento> asientoList);
 
 	public void setAutorizado(Date autorizado);
 
 	public void setContabilizado(Date contabilizado);
 
 	public void setDocumentoDistribucionList(
-			Set<HibernateDocumentoDistribucion> documentoDistribucionList);
+			Set<DocumentoDistribucion> documentoDistribucionList);
 
 	public void setEmitido(Date emitido);
 

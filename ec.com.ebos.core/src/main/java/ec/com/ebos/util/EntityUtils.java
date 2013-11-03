@@ -13,7 +13,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
-import ec.com.ebos.root.model.IEntidad;
+import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.type.StringValuedEnum;
 
 
@@ -28,7 +28,7 @@ public class EntityUtils {
 	 * @param 
 	 * @return true si la entity  es persistente, false en caso contrario
 	 */
-	public static <T extends IEntidad> boolean isPersistent(IEntidad entity) {
+	public static <T extends Entidad> boolean isPersistent(Entidad entity) {
 		return (entity != null && entity.getId() != null);
 	}
 
@@ -38,11 +38,11 @@ public class EntityUtils {
 	 * @return true si todos los  dados son persistentes, false en caso contrario
 	 * @see #isPersistent(IEntidad)
 	 */
-	public static boolean areAllPersistent(IEntidad... entities) {
+	public static boolean areAllPersistent(Entidad... entities) {
 		if (ObjectUtils.isEmpty(entities)) {
 			return false;
 		}
-		for (IEntidad entity : entities) {
+		for (Entidad entity : entities) {
 			if (!isPersistent(entity)) {
 				return false;
 			}
@@ -55,11 +55,11 @@ public class EntityUtils {
 	 * @param entity
 	 * @return true si al menos uno de los entity dados es persistente, false en caso contrario
 	 */
-	public static boolean isAnyPersistent(IEntidad... entities) {
+	public static boolean isAnyPersistent(Entidad... entities) {
 		if (ObjectUtils.isEmpty(entities)) {
 			return false;
 		}
-		for (IEntidad entity: entities) {
+		for (Entidad entity: entities) {
 			if (isPersistent(entity)) {
 				return true;
 			}
@@ -73,7 +73,7 @@ public class EntityUtils {
 	 * @return true si ninguno de los entity dados es persistente, false en caso contrario
 	 * @see EntityUtils#isAnyPersistent(IEntidad...)
 	 */
-	public static boolean areAllNotPersistent(IEntidad... entities) {
+	public static boolean areAllNotPersistent(Entidad... entities) {
 		return !isAnyPersistent(entities);
 	}
 
@@ -81,12 +81,12 @@ public class EntityUtils {
 	 * Crea una nueva instancia del tipo del entity indicado.
 	 * Copia el id del  original.
 	 * @param <T>
-	 * @param <T> Tipo del entity, extiende de {@link IEntidad}
+	 * @param <T> Tipo del entity, extiende de {@link Entidad}
 	 * @param  entity original
 	 * @return T
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T extends IEntidad> T buildInstanceWithId(IEntidad entity) {
+	public static <T extends Entidad> T buildInstanceWithId(Entidad entity) {
 		T newEntity = null;
 		try {
 			newEntity = ((Class<T>) entity.getClass()).newInstance();
@@ -102,7 +102,7 @@ public class EntityUtils {
 	 * @param entityList
 	 * @return
 	 */
-	public static <T extends IEntidad> List<Long> buildIdList(Collection<T> entityList) {
+	public static <T extends Entidad> List<Long> buildIdList(Collection<T> entityList) {
 		List<Long> ids = new ArrayList<Long>();
 		if (!ObjectUtils.isEmpty(entityList)) {
 			for (T entity: entityList) {
@@ -117,7 +117,7 @@ public class EntityUtils {
 	 * @param List
 	 * @return
 	 */
-	public static <T extends IEntidad> List<Long> buildIdList(T... entityList) {
+	public static <T extends Entidad> List<Long> buildIdList(T... entityList) {
 		List<Long> ids = new ArrayList<Long>();
 		if (!ObjectUtils.isEmpty(entityList)) {
 			for (T  entity: entityList) {
@@ -133,7 +133,7 @@ public class EntityUtils {
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
-	public static <T extends IEntidad> List<Object> buildValueList(T... entityList) {
+	public static <T extends Entidad> List<Object> buildValueList(T... entityList) {
 		List<Object> values = new ArrayList<Object>();
 		if (!ObjectUtils.isEmpty(entityList)) {
 			for (T  entity: entityList) {
@@ -173,14 +173,14 @@ public class EntityUtils {
 	}
 	
 	/**
-	 * Filtra un mapa de objetos que implementan {@link IEntidad}, indexados por claves de tipo objeto,
+	 * Filtra un mapa de objetos que implementan {@link Entidad}, indexados por claves de tipo objeto,
 	 * de modo que el label de cada elemento contenga el patron dado
 	 * @param map Map&lt;Object, T>
 	 * @param pattern String
 	 * @param wildcard String
 	 * @return 
 	 */
-	public static <T extends IEntidad> Map<Object, T> filterMapByContains(
+	public static <T extends Entidad> Map<Object, T> filterMapByContains(
 			Map<Object, T> map, String pattern, String wildcard) {
 		Map<Object, T> filtered = new HashMap<Object, T>();
 		if (map != null) {
@@ -289,7 +289,7 @@ public class EntityUtils {
 	 */
 	@SuppressWarnings("unused")
 	@Deprecated
-	private static class MappedConverter<T extends IEntidad> implements Converter, java.io.Serializable {
+	private static class MappedConverter<T extends Entidad> implements Converter, java.io.Serializable {
 
 		/**
 		 * 
@@ -299,14 +299,14 @@ public class EntityUtils {
 		private final HashMap<Long, T> map;
 
 		/**
-		 * Constructor de este Converter, que alimenta el mapa interno en base a una coleccion de objetos que extienen de IEntidad.
-		 * @param col Collection&lt;T extends IEntidad>
+		 * Constructor de este Converter, que alimenta el mapa interno en base a una coleccion de objetos que extienen de Entidad.
+		 * @param col Collection&lt;T extends Entidad>
 		 * @deprecated El mapa no funciona
 		 */
 		@Deprecated
 		public MappedConverter(final List<T> col) {
 			map = new HashMap<Long, T>(col.size());
-			for (T  entity: col) {
+			for (T entity: col) {
 				map.put(entity.getId(), entity);
 			}
 		}
@@ -315,8 +315,8 @@ public class EntityUtils {
 		public String getAsString(FacesContext facesContext, UIComponent component, Object value) {
 			if (value == null) return "";
 			if (value instanceof String) return (String) value;
-			if (IEntidad.class.isInstance(value)) {
-				IEntidad entity = (IEntidad) value;
+			if (Entidad.class.isInstance(value)) {
+				Entidad entity = (Entidad) value;
 				return entity.getId() == null ? "" : entity.getId().toString();
 			}
 			throw new IllegalArgumentException("This converter only handles instances of IEntidad");
@@ -324,7 +324,7 @@ public class EntityUtils {
 		
 		@Override
 		public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-			IEntidad  entity = null;
+			Entidad  entity = null;
 			if (value != null) {
 				try {
 					Long id = new Long(value);

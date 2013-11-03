@@ -255,5 +255,7 @@ public class SessionBeanImpl implements Serializable, SessionBean{
     public void putFatal(String summary) {
         putMessage(FacesMessage.SEVERITY_FATAL, summary, "");        
     }
+    
+    public Auditoria
 
 }

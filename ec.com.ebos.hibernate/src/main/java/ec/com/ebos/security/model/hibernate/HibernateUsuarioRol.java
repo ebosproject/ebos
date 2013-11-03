@@ -20,6 +20,7 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.Security;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.UsuarioRol;
 
 /**
@@ -49,7 +50,7 @@ public class HibernateUsuarioRol extends Security<HibernateUsuarioRol> implement
 	
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
-    private HibernateUsuario usuario;
+    private Usuario usuario;
             
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = false)

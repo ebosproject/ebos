@@ -13,9 +13,11 @@ import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
 import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.security.core.process.SecurityP;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.hibernate.HibernateRol;
 import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
 import ec.com.ebos.security.model.hibernate.HibernateUsuario;
@@ -56,32 +58,32 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public HibernateUsuario createUsuario() {
+    public Usuario createUsuario() {
         return securityP.createUsuario();
     }
     
     @Override
-    public HibernateUsuario getUsuario(Long id) {
+    public Usuario getUsuario(Long id) {
         return securityP.getUsuario(id);
     }
 
     @Override
-    public HibernateUsuario saveUsuario(HibernateUsuario usuario) {
+    public Usuario saveUsuario(HibernateUsuario usuario) {
         return securityP.saveUsuario(usuario);
     }
 
     @Override
-    public void deleteUsuario(HibernateUsuario usuario) {
+    public void deleteUsuario(Usuario usuario) {
         securityP.deleteUsuario(usuario);
     }
     
     @Override
-    public List<HibernateUsuario> findUsuarioList(HibernateUsuario entitySearch, Pagination pagination) {
+    public List<HibernateUsuario> findUsuarioList(Usuario entitySearch, Pagination pagination) {
         return securityP.findUsuarioList(entitySearch, pagination);
     }
     
     @Override
-    public void generateUsuarioRol(HibernateUsuario usuario, Rol rol) {
+    public void generateUsuarioRol(Usuario usuario, Rol rol) {
         securityP.generateUsuarioRol(usuario,rol);
     }
 
@@ -91,7 +93,7 @@ public class SecuritySImpl implements SecurityS{
     }
     
     @Override
-    public List<HibernateUsuarioRol> getUsuarioRolList(HibernateUsuario usuario) {
+    public List<HibernateUsuarioRol> getUsuarioRolList(Usuario usuario) {
         return securityP.getUsuarioRolList(usuario);
     }
     
@@ -172,9 +174,15 @@ public class SecuritySImpl implements SecurityS{
     @Override
     public SessionBean getSessionBean() {
     	return securityP.getSessionBean();
-    }    
+    }
     
-    public void saveUserPreferences(HibernateUsuario usuario){
+    @Override
+    public Auditoria getAuditoria() {
+    	return securityP.getAuditoria();
+    }
+        
+    
+    public void saveUserPreferences(Usuario usuario){
     	securityP.saveUserPreferences(usuario);
     }
     

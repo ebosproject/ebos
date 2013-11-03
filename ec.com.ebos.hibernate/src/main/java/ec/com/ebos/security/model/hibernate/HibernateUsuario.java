@@ -27,6 +27,7 @@ import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Security;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.field.UsuarioRol_;
 
 /**
@@ -39,7 +40,7 @@ import ec.com.ebos.security.model.field.UsuarioRol_;
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
 @Auditable
-public class HibernateUsuario extends Security<HibernateUsuario> {
+public class HibernateUsuario extends Security<HibernateUsuario> implements Usuario {
 
 	private static final long serialVersionUID = 5615088107461153660L;
 

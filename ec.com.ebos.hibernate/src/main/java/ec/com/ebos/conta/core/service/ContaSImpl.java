@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ec.com.ebos.conta.core.process.ContaP;
+import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
@@ -32,23 +33,23 @@ public class ContaSImpl implements ContaS{
 	//
 	
 	@Override
-	public List<HibernateTipoCuenta> findTipoCuentaList(HibernateTipoCuenta tipoCuenta,
+	public List<HibernateTipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta,
 			Pagination pagination) {		
 		return contaP.findTipoCuentaList(tipoCuenta, pagination);
 	}
 
 	@Override
-	public HibernateTipoCuenta createTipoCuenta() {
+	public TipoCuenta createTipoCuenta() {
 		return contaP.createTipoCuenta();
 	}
 
 	@Override
-	public HibernateTipoCuenta saveTipoCuenta(HibernateTipoCuenta tipoCuenta) {
+	public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta) {
 		return contaP.saveTipoCuenta(tipoCuenta);
 	}
 
 	@Override
-	public void deleteTipoCuenta(HibernateTipoCuenta tipoCuenta) {
+	public void deleteTipoCuenta(TipoCuenta tipoCuenta) {
 		contaP.deleteTipoCuenta(tipoCuenta);
 	}
 	

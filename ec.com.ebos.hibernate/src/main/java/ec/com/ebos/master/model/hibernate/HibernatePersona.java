@@ -1,10 +1,7 @@
 package ec.com.ebos.master.model.hibernate;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -39,12 +36,7 @@ import ec.com.ebos.mse.model.field.Monaguillo_;
 import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.DateUtils;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -177,172 +169,5 @@ public class HibernatePersona extends Master<HibernatePersona> implements Person
 	public String getFullName(){
 		return nombres +" "+ apellidos;
 	}
-	/**
-     * <strong>Tipo Identificacion para una Persona</strong> <br>
-     * <table border="1">
-     * <tr><th valign="top"> Tipos </th>
-     * <tr><td valign="top"> C: Cedula<br> R: Ruc<br> </td></tr>
-     * </table>
-     *
-     * @author Eduardo Plua Alay
-     *
-     */
-    public enum TipoIdentificacion implements StringValuedEnum<TipoIdentificacion> {
-        CEDULA("C"),
-        RUC("R"),
-        CODIGO("O");
-
-        public static class Type extends StringValuedEnumType<Estado> {
-        }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Persona$TipoIdentificacion$Type";
-
-        @Getter
-        private String value;
-        private String labelKey;
-
-        private TipoIdentificacion(String value) {
-            this.value = value;
-            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
-        }
-        public static final Map<String, TipoIdentificacion> LABELED_MAP =
-                EntityUtils.buildLabeledEnumMap(TipoIdentificacion.values());
-        /**
-         * Lists para iteraciones
-         */
-        public static final List<TipoIdentificacion> LIST = Arrays.asList(TipoIdentificacion.values());
-
-        @Override
-        public String getLabel() {
-            return labelKey;
-        }
-
-        @Override
-        public String getDescription() {
-            return getLabel();
-        }
-
-        public boolean isCedula() {
-            return this.equals(CEDULA);
-        }
-
-        public boolean isRuc() {
-            return this.equals(RUC);
-        }
-        
-        public boolean isCodigo(){
-        	return this.equals(CODIGO);
-        }
-    }
-
-    
-	/**
-     * <strong>Tipo Persona</strong> <br>
-     * <table border="1">
-     * <tr><th valign="top"> Tipos </th>
-     * <tr><td valign="top"> N: Natural<br> J: Juridica<br> </td></tr>
-     * </table>
-     *
-     * @author Eduardo Plua Alay
-     *
-     */
-    public enum TipoPersona implements StringValuedEnum<TipoPersona> {
-
-        NATURAL("N"),
-        JURIDICA("J");
-
-        public static class Type extends StringValuedEnumType<Estado> {
-        }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Persona$TipoPersona$Type";
-
-        @Getter
-        private String value;
-        private String labelKey;
-
-        private TipoPersona(String value) {
-            this.value = value;
-            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
-        }
-        public static final Map<String, TipoPersona> LABELED_MAP =
-                EntityUtils.buildLabeledEnumMap(TipoPersona.values());
-        /**
-         * Lists para iteraciones
-         */
-        public static final List<TipoPersona> LIST = Arrays.asList(TipoPersona.values());
-
-        @Override
-        public String getLabel() {
-            return labelKey;
-        }
-
-        @Override
-        public String getDescription() {
-            return getLabel();
-        }
-
-        public boolean isNatural() {
-            return this.equals(NATURAL);
-        }
-
-        public boolean isJuridica() {
-            return this.equals(JURIDICA);
-        }
-    }
-    
-    /**
-     * <strong>Genero de una Persona</strong> <br>
-     * <table border="1">
-     * <tr><th valign="top"> Generos </th>
-     * <tr><td valign="top"> M: Masculino<br> F: Femenino<br> O: Otro<br></td></tr>
-     * </table>
-     *
-     * @author Eduardo Plua Alay
-     *
-     */
-    public enum Genero implements StringValuedEnum<Genero> {
-        MASCULINO("M"),
-        FEMENINO("F"),
-        OTRO("O");
-
-        public static class Type extends StringValuedEnumType<Estado> {
-        }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Persona$Genero$Type";
-
-        @Getter
-        private String value;
-        private String labelKey;
-
-        private Genero(String value) {
-            this.value = value;
-            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
-        }
-        public static final Map<String, Genero> LABELED_MAP =
-                EntityUtils.buildLabeledEnumMap(Genero.values());
-        /**
-         * Lists para iteraciones
-         */
-        public static final List<Genero> LIST = Arrays.asList(Genero.values());
-
-        @Override
-        public String getLabel() {
-            return labelKey;
-        }
-
-        @Override
-        public String getDescription() {
-            return getLabel();
-        }
-
-        public boolean isMasculino() {
-            return this.equals(MASCULINO);
-        }
-
-        public boolean isFemenino() {
-            return this.equals(FEMENINO);
-        }
-        
-        public boolean isOtro(){
-        	return this.equals(OTRO);
-        }
-    }
-
+	
 }

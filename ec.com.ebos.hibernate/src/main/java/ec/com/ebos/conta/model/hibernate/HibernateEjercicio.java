@@ -24,6 +24,8 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.conta.model.Ejercicio;
 import ec.com.ebos.conta.model.hibernate.field.Periodo_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.model.Entidad;
@@ -40,7 +42,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateEjercicio.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateEjercicio extends Contabilidad<HibernateEjercicio> {
+public class HibernateEjercicio extends Contabilidad<HibernateEjercicio> implements Ejercicio {
 
 	private static final long serialVersionUID = 5615088107461153660L;
 
@@ -68,7 +70,7 @@ public class HibernateEjercicio extends Contabilidad<HibernateEjercicio> {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cuenta_utilidad", nullable = false)
-    private HibernateCuentaContable cuentaUtilidad;
+    private CuentaContable cuentaUtilidad;
 	
 	/**
 	 * Valor de la utilidad del ejercicio 

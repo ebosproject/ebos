@@ -1,10 +1,17 @@
 package ec.com.ebos.master.model;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
-import ec.com.ebos.master.model.hibernate.HibernatePropiedadValor;
+import lombok.Getter;
 import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.util.Constantes;
+import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.util.type.StringValuedEnum;
+import ec.com.ebos.util.type.StringValuedEnumReflect;
+import ec.com.ebos.util.type.StringValuedEnumType;
 
 public interface Propiedad {
 
@@ -18,9 +25,9 @@ public interface Propiedad {
 
 	public int getLongitud();
 
-	public Set<HibernatePropiedadValor> getPropiedadValorList();
+	public Set<PropiedadValor> getPropiedadValorList();
 
-	public HibernatePropiedad.TipoDato getTipoDato();
+	public Propiedad.TipoDato getTipoDato();
 
 	public String getValor();
 
@@ -42,12 +49,11 @@ public interface Propiedad {
 
 	public void setLongitud(int longitud);
 
-	public void setPropiedadValorList(
-			Set<HibernatePropiedadValor> propiedadValorList);
+	public void setPropiedadValorList(Set<PropiedadValor> propiedadValorList);
 
 	public void setRequerido(boolean requerido);
 
-	public void setTipoDato(HibernatePropiedad.TipoDato tipoDato);
+	public void setTipoDato(Propiedad.TipoDato tipoDato);
 
 	public void setValor(String valor);
 
@@ -60,5 +66,69 @@ public interface Propiedad {
 	public boolean equals(java.lang.Object o);
 
 	public int hashCode();
+	
+    /**
+     * <strong>Tipo de dato</strong> <br>
+     * <table border="1">
+     * <tr><th valign="top"> Estados </th>
+     * <tr><td valign="top"> 
+     * T: TEXT <br> 
+     * N: NUMBER <br>
+     * B: BOOLEAN <br>
+     * </td></tr>
+     * </table>
+     *
+     * @author Eduardo Plua Alay
+     *
+     */
+    public enum TipoDato implements StringValuedEnum<TipoDato> { //TODO (epa): agregar mas tipos de datos
+
+        TEXT("T"),
+        NUMBER("N"),
+        BOOLEAN("B");
+
+        public static class Type extends StringValuedEnumType<TipoDato> {
+        }
+        
+        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Propiedad$TipoDato$Type";
+
+        @Getter
+        private String value;
+        private String labelKey;
+
+        private TipoDato(String value) {
+            this.value = value;
+            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
+        }
+        public static final Map<String, TipoDato> LABELED_MAP =
+                EntityUtils.buildLabeledEnumMap(TipoDato.values());
+        /**
+         * Lists para iteraciones
+         */
+        public static final List<TipoDato> LIST = Arrays.asList(TipoDato.values());
+
+        @Override
+        public String getLabel() {
+            return labelKey;
+        }
+
+        @Override
+        public String getDescription() {
+            return getLabel();
+        }
+
+        public boolean isTexto() {
+            return this.equals(TEXT);
+        }
+        
+        public boolean isNumber() {
+            return this.equals(NUMBER);
+        }
+        
+        public boolean isBoolean() {
+            return this.equals(BOOLEAN);
+        }
+
+    }
 
 }

@@ -2,7 +2,6 @@ package ec.com.ebos.security.model;
 
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 
 public interface UsuarioRol {
 
@@ -14,7 +13,7 @@ public interface UsuarioRol {
 
 	public Rol getRol();
 
-	public HibernateUsuario getUsuario();
+	public Usuario getUsuario();
 
 	public void setAuditoria(Auditoria auditoria);
 
@@ -24,7 +23,7 @@ public interface UsuarioRol {
 
 	public void setRol(Rol rol);
 
-	public void setUsuario(HibernateUsuario usuario);
+	public void setUsuario(Usuario usuario);
 
 	public java.lang.String toString();
 

@@ -10,11 +10,16 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import ec.com.ebos.conta.exception.ContaException;
-import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
+import ec.com.ebos.conta.model.Asiento;
+import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.Ejercicio;
+import ec.com.ebos.conta.model.Periodo;
+import ec.com.ebos.conta.model.SaldoCentroCosto;
+import ec.com.ebos.conta.model.SaldoCuentaContable;
+import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
 import ec.com.ebos.conta.model.hibernate.HibernateCentroCosto;
 import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
-import ec.com.ebos.conta.model.hibernate.HibernateEjercicio;
 import ec.com.ebos.conta.model.hibernate.HibernatePeriodo;
 import ec.com.ebos.conta.model.hibernate.HibernateSaldoCentroCosto;
 import ec.com.ebos.conta.model.hibernate.HibernateSaldoCuentaCentro;
@@ -41,11 +46,11 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 
 	private static final long serialVersionUID = -6982586050138698390L;
 
-	public HibernateEjercicio getEjercicio(Organizacion empresa, Date fecha) {
+	public Ejercicio getEjercicio(Organizacion empresa, Date fecha) {
 		return null;
 	}
 
-	public HibernatePeriodo getPeriodo(HibernateEjercicio ejercicio, Date fecha) {
+	public Periodo getPeriodo(Ejercicio ejercicio, Date fecha) {
 		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addLE(Periodo_.fechaInicial, fecha);
 		criteria.addGE(Periodo_.fechaFinal, fecha);
@@ -53,7 +58,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		return findFirstByCriteria(criteria);
 	}
 	
-	public HibernatePeriodo getPeriodo(Date fecha) {
+	public Periodo getPeriodo(Date fecha) {
 		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addAliasedJoins(Periodo_.ejercicio);
 		criteria.addLE(Periodo_.fechaInicial, fecha);
@@ -62,20 +67,20 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		return findFirstByCriteria(criteria);
 	}
 
-	public HibernatePeriodo getPeriodo(Long id) {
+	public Periodo getPeriodo(Long id) {
 		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addAliasedJoins(Periodo_.ejercicio);
 		criteria.addEquals(Periodo_.id, id);
 		return findFirstByCriteria(criteria);
 	}
 
-	public List<HibernatePeriodo> listPeriodosPosteriores(HibernatePeriodo periodo) {
+	public List<HibernatePeriodo> listPeriodosPosteriores(Periodo periodo) {
 		GenericCriteria<HibernatePeriodo> criteria = GenericCriteria.forClass(HibernatePeriodo.class);
 		criteria.addAliasedJoins(Periodo_.ejercicio);
 		criteria.addGE(Periodo_.fechaInicial, periodo.getFechaInicial());
 		criteria.addEquals(Ejercicio_.empresa, getSessionBean().getEmpresa());
 		criteria.addOrderAsc(Periodo_.fechaInicial);
-		criteria.addNotEquals(Periodo_.estado, HibernatePeriodo.Estado.PENDIENTE);
+		criteria.addNotEquals(Periodo_.estado, ec.com.ebos.conta.model.Estado.PENDIENTE);
 		return findByCriteria(criteria, true);
 	}
 
@@ -86,7 +91,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		return findFirstByCriteria(criteria);
 	}
 	
-	public HibernateSaldoCuentaContable getSaldoCuenta(HibernateSaldoCuentaContable saldo) {
+	public HibernateSaldoCuentaContable getSaldoCuenta(SaldoCuentaContable saldo) {
 		GenericCriteria<HibernateSaldoCuentaContable> criteria = GenericCriteria.forClass(HibernateSaldoCuentaContable.class);
 		criteria.addEquals(SaldoCuentaContable_.periodo, saldo.getPeriodo());
 		criteria.addEquals(SaldoCuentaContable_.cuentaContable, saldo.getCuentaContable());
@@ -100,14 +105,14 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		return findFirstByCriteria(criteria);
 	}
 	
-	public HibernateSaldoCentroCosto getSaldoCentro(HibernateSaldoCentroCosto saldo) {
+	public HibernateSaldoCentroCosto getSaldoCentro(SaldoCentroCosto saldo) {
 		GenericCriteria<HibernateSaldoCentroCosto> criteria = GenericCriteria.forClass(HibernateSaldoCentroCosto.class);
 		criteria.addEquals(SaldoCentroCosto_.periodo, saldo.getPeriodo());
 		criteria.addEquals(SaldoCentroCosto_.centroCosto, saldo.getCentroCosto());
 		return findFirstByCriteria(criteria);
 	}
 
-	public List<HibernateAsientoDetalle> listAsientoDetalle(HibernateAsiento asiento) {
+	public List<HibernateAsientoDetalle> listAsientoDetalle(Asiento asiento) {
 		GenericCriteria<HibernateAsientoDetalle> criteria = GenericCriteria.forClass(HibernateAsientoDetalle.class);
 		criteria.addAliasedJoins("cuentaContableEmpresa", 
 				"cuentaContableEmpresa.cuentaContable", "cuentaContable.padre");
@@ -116,10 +121,10 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		return findByCriteria(criteria, true);
 	}
 
-	public Boolean mayorizarAsiento(HibernateAsiento asiento, int signo) {
+	public Boolean mayorizarAsiento(Asiento asiento, int signo) {
 
 		//Ejercicio ejercicio = getEjercicio(asiento.getEmpresa(),  asiento.getDocumento().getEmitido());
-		HibernatePeriodo periodoAsiento = getPeriodo(asiento.getPeriodo().getId());
+		Periodo periodoAsiento = getPeriodo(asiento.getPeriodo().getId());
 		//Validar estados de periodos
 //		if(periodoAsiento.getEstado().isActivo()){ TODO (vvc): descomentar estas lineas y verificar la existencia de metodo isActivo()
 //			
@@ -136,8 +141,8 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		Map<HibernateCentroCosto, HibernateSaldoCentroCosto> saldosCentroMap= new HashMap<HibernateCentroCosto, HibernateSaldoCentroCosto>();
 
 		List<HibernatePeriodo> periodoList = listPeriodosPosteriores(periodoAsiento);
-		for (HibernateAsientoDetalle detalle : saldos) {
-			for (HibernatePeriodo periodo : periodoList) {
+		for (AsientoDetalle detalle : saldos) {
+			for (Periodo periodo : periodoList) {
 				if(periodo.getEstado().isCerrado()) {
 					// error
 				}
@@ -148,7 +153,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		}
 		
 		Collection<HibernateSaldoCuentaContable> saldosCuenta = saldosCuentaMap.values();
-		for (HibernateSaldoCuentaContable saldoCuentaContable : saldosCuenta) {
+		for (SaldoCuentaContable saldoCuentaContable : saldosCuenta) {
 			saveOrUpdate(saldoCuentaContable);
 		}
 		Collection<HibernateSaldoCuentaCentro> saldosCuentaCentro = saldosCuentaCentroMap.values();
@@ -163,7 +168,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 	}
 	
 	private void actualizarSaldosCuentasContbables(Map<Long, HibernateCuentaContable> cuentasDeAsiento, Map<HibernateCuentaContable, 
-			HibernateSaldoCuentaContable> mapSaldos, HibernatePeriodo periodo, HibernateAsientoDetalle detalle, int signo) {
+			HibernateSaldoCuentaContable> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
 		HibernateCuentaContable cuenta = detalle.getCuentaContable();
 		boolean continuar= true;
 		do {
@@ -204,7 +209,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 	}
 	
 	private void actualizarSaldosCentrosCosto(Map<Long, HibernateCentroCosto> centrosDeAsiento, Map<HibernateCentroCosto, 
-			HibernateSaldoCentroCosto> mapSaldos, HibernatePeriodo periodo, HibernateAsientoDetalle detalle, int signo) {
+			HibernateSaldoCentroCosto> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
 		HibernateCentroCosto centro = detalle.getCentroCosto();
 		boolean continuar= true;
 		do {
@@ -248,7 +253,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
     // TipoCuenta
     //
     @Override
-    public List<HibernateTipoCuenta> findTipoCuentaList(HibernateTipoCuenta tipoCuenta, Pagination pagination) {
+    public List<HibernateTipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination) {
         GenericCriteria<HibernateTipoCuenta> criteria = GenericCriteria.forClass(HibernateTipoCuenta.class);
         
         criteria.addEqualsIfNotZero(TipoCuenta_.id, tipoCuenta.getId());
@@ -265,20 +270,20 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
     }
 
     @Override
-    public HibernateTipoCuenta createTipoCuenta() {
-        HibernateTipoCuenta tipoCuenta = new HibernateTipoCuenta();
+    public TipoCuenta createTipoCuenta() {
+        TipoCuenta tipoCuenta = new HibernateTipoCuenta();
         return tipoCuenta;
     }
 
     @Override
-    public HibernateTipoCuenta saveTipoCuenta(HibernateTipoCuenta tipoCuenta) {
+    public TipoCuenta saveTipoCuenta(TipoCuenta tipoCuenta) {
         tipoCuenta = saveOrMerge(tipoCuenta);
         putSuccess("tipoCuenta.success.save", tipoCuenta.getId());
         return tipoCuenta;
     }
 
     @Override
-    public void deleteTipoCuenta(HibernateTipoCuenta tipoCuenta) {
+    public void deleteTipoCuenta(TipoCuenta tipoCuenta) {
         Long id = tipoCuenta.getId();
         delete(tipoCuenta);
         putSuccess("tipoCuenta.success.delete",id);

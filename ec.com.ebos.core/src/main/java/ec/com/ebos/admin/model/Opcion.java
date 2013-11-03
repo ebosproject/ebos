@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
+import ec.com.ebos.security.model.RolOpcion;
 
 public interface Opcion {
 
@@ -28,11 +28,11 @@ public interface Opcion {
 
 	public Objeto getObjeto();
 
-	public Set<HibernateOpcion> getOpcionList();
+	public Set<Opcion> getOpcionList();
 
 	public Opcion getPadre();
 
-	public Set<HibernateRolOpcion> getRolOpcionList();
+	public Set<RolOpcion> getRolOpcionList();
 
 	public String getTarget();
 
@@ -58,11 +58,11 @@ public interface Opcion {
 
 	public void setObjeto(Objeto objeto);
 
-	public void setOpcionList(Set<HibernateOpcion> opcionList);
+	public void setOpcionList(Set<Opcion> opcionList);
 
 	public void setPadre(Opcion padre);
 
-	public void setRolOpcionList(Set<HibernateRolOpcion> rolOpcionList);
+	public void setRolOpcionList(Set<RolOpcion> rolOpcionList);
 
 	public void setTarget(String target);
 

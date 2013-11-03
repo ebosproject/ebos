@@ -3,19 +3,14 @@ package ec.com.ebos.admin.core.service;
 import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-//import org.springframework.test.annotation.NotTransactional;
-
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.HibernateConfiguracion;
-import ec.com.ebos.admin.model.HibernateObjeto;
-import ec.com.ebos.admin.model.HibernateOpcion;
-import ec.com.ebos.admin.model.HibernateParametros;
+import ec.com.ebos.admin.model.Bundle.Localidad;
+import ec.com.ebos.admin.model.Configuracion;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.orm.crud.Pagination;
+//import org.springframework.test.annotation.NotTransactional;
 
 /**
  *
@@ -32,7 +27,6 @@ public interface AdministracionS extends Serializable {
 	 * Nombre del Bean como EL a ser referenciado para la inyeccion de una instancia de {@link AdministracionSImpl} 
 	 * en otro ManagedBean
 	 */
-	@SuppressWarnings("el-syntax")
 	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 	
 	//
@@ -44,7 +38,7 @@ public interface AdministracionS extends Serializable {
 	//public Bundle getMessageResource(String codigo, Bundle.Localidad localidad);
 	public Bundle getMessageResource(Bundle bundle);
 	
-	public List<String> getCodeMessageResourceList(Bundle.Localidad localidad);
+	public List<String> getCodeMessageResourceList(Localidad localidad);
 	
 	public Bundle createBundle();
 	
@@ -57,44 +51,44 @@ public interface AdministracionS extends Serializable {
     //
     //Parametros
     //
-    public List<HibernateParametros> getParametrosList(Parametros param);
+    public List<Parametros> getParametrosList(Parametros param);
 
-    public HibernateParametros saveParametros(HibernateParametros param);
+    public Parametros saveParametros(Parametros param);
 
     //
     //Configuracion
     //
-    public HibernateConfiguracion getConfiguracion();
+    public Configuracion getConfiguracion();
 
-    public HibernateConfiguracion saveConfiguracion(HibernateConfiguracion configuracionActual);
+    public Configuracion saveConfiguracion(Configuracion configuracionActual);
 
     
     //
     // Opcion
     //
     
-    public List<HibernateOpcion> findOpcionList(Opcion opcion, Pagination pagination);
+    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination);
 
-    public HibernateOpcion createOpcion();
+    public Opcion createOpcion();
 
-    public HibernateOpcion saveOpcion(HibernateOpcion opcion);
+    public Opcion saveOpcion(Opcion opcion);
 
-    public void deleteOpcion(HibernateOpcion opcion);
+    public void deleteOpcion(Opcion opcion);
     
     public Opcion getOpcion(Long id);
     
-    public List<HibernateOpcion> getOpcionPadreList();
+    public List<Opcion> getOpcionPadreList();
     
     //
     // Objeto
     //
-    public List<HibernateObjeto> findObjetoList(Objeto objeto, Pagination pagination);
+    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination);
 
-    public HibernateObjeto createObjeto();
+    public Objeto createObjeto();
 
-    public HibernateObjeto saveObjeto(HibernateObjeto objeto);
+    public Objeto saveObjeto(Objeto objeto);
 
-    public void deleteObjeto(HibernateObjeto objeto);
+    public void deleteObjeto(Objeto objeto);
 
     public Objeto getObjeto(Long id);
 }

@@ -2,14 +2,12 @@ package ec.com.ebos.master.model;
 
 import java.util.Set;
 
-import ec.com.ebos.master.model.hibernate.HibernateActivoCustodio;
-import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
 public interface Activo {
 
-	public Set<HibernateActivoCustodio> getActivoCustodioList();
+	public Set<ActivoCustodio> getActivoCustodioList();
 
 	public Auditoria getAuditoria();
 
@@ -23,10 +21,9 @@ public interface Activo {
 
 	public Long getId();
 
-	public Set<HibernatePropiedad> getPropiedadList();
+	public Set<Propiedad> getPropiedadList();
 
-	public void setActivoCustodioList(
-			Set<HibernateActivoCustodio> activoCustodioList);
+	public void setActivoCustodioList(Set<ActivoCustodio> activoCustodioList);
 
 	public void setAuditoria(Auditoria auditoria);
 
@@ -40,7 +37,7 @@ public interface Activo {
 
 	public void setId(Long id);
 
-	public void setPropiedadList(Set<HibernatePropiedad> propiedadList);
+	public void setPropiedadList(Set<Propiedad> propiedadList);
 
 	public java.lang.String toString();
 

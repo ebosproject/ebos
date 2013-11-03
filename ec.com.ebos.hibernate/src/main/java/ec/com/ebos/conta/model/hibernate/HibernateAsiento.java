@@ -18,7 +18,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.Periodo;
+import ec.com.ebos.conta.model.TipoAsiento;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.TipoDocumento;
@@ -35,7 +38,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateAsiento.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateAsiento extends Contabilidad<HibernateAsiento> {
+public class HibernateAsiento extends Contabilidad<HibernateAsiento> implements Asiento {
 
 	private static final long serialVersionUID = -1240240963222272900L;
 
@@ -61,7 +64,7 @@ public class HibernateAsiento extends Contabilidad<HibernateAsiento> {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_periodo")
-    private HibernatePeriodo periodo;
+    private Periodo periodo;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_documento")
@@ -69,7 +72,7 @@ public class HibernateAsiento extends Contabilidad<HibernateAsiento> {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_asiento", nullable = false)
-    private HibernateTipoAsiento tipoAsiento;
+    private TipoAsiento tipoAsiento;
     
 	/**
 	 * Documento

@@ -21,7 +21,9 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.conta.model.hibernate.field.CentroCostoEmpresa_;
 import ec.com.ebos.conta.model.hibernate.field.CentroCosto_;
@@ -44,7 +46,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateCentroCosto.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCentroCosto extends Contabilidad<HibernateCentroCosto> {
+public class HibernateCentroCosto extends Contabilidad<HibernateCentroCosto> implements CentroCosto {
 
 	private static final long serialVersionUID = -567856834893258749L;
 	
@@ -65,11 +67,11 @@ public class HibernateCentroCosto extends Contabilidad<HibernateCentroCosto> {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_padre")
-    private HibernateCentroCosto padre;
+    private CentroCosto padre;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_centro_costo")
-    private HibernateTipoCentroCosto tipoCentroCosto;
+    private TipoCentroCosto tipoCentroCosto;
 	
 	@Embedded
 	private Auditoria auditoria;

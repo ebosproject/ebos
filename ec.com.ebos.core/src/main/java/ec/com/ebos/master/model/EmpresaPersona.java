@@ -2,14 +2,13 @@ package ec.com.ebos.master.model;
 
 import java.util.Set;
 
-import ec.com.ebos.master.model.hibernate.HibernateActivoCustodio;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.Usuario;
 
 public interface EmpresaPersona {
 
-	public Set<HibernateActivoCustodio> getActivoCustodioList();
+	public Set<ActivoCustodio> getActivoCustodioList();
 
 	public Auditoria getAuditoria();
 
@@ -21,10 +20,9 @@ public interface EmpresaPersona {
 
 	public Persona getPersona();
 
-	public Set<HibernateUsuario> getUsuarioList();
+	public Set<Usuario> getUsuarioList();
 
-	public void setActivoCustodioList(
-			Set<HibernateActivoCustodio> activoCustodioList);
+	public void setActivoCustodioList(Set<ActivoCustodio> activoCustodioList);
 
 	public void setAuditoria(Auditoria auditoria);
 
@@ -36,7 +34,7 @@ public interface EmpresaPersona {
 
 	public void setPersona(Persona persona);
 
-	public void setUsuarioList(Set<HibernateUsuario> usuarioList);
+	public void setUsuarioList(Set<Usuario> usuarioList);
 
 	public java.lang.String toString();
 

@@ -8,9 +8,10 @@ import javax.annotation.PreDestroy;
 import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.security.core.service.SecurityS;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.RolOpcion;
+import ec.com.ebos.security.model.Usuario;
 
 
 /**
@@ -38,9 +39,9 @@ public interface SessionBean {
 
 	public void setLocalidad(Localidad localidad);
 
-	public HibernateUsuario getUsuario();
+	public Usuario getUsuario();
 
-	public void setUsuario(HibernateUsuario usuario);
+	public void setUsuario(Usuario usuario);
 
 	public Organizacion getEmpresa();
 
@@ -50,9 +51,9 @@ public interface SessionBean {
 
 	public void setLogin(boolean login);
 
-	public List<HibernateRolOpcion> getRolOpcionList();
+	public List<RolOpcion> getRolOpcionList();
 
-	public void setRolOpcionList(List<HibernateRolOpcion> rolOpcionList);
+	public void setRolOpcionList(List<RolOpcion> rolOpcionList);
 
 	@PostConstruct
 	public void postConstruct();
@@ -120,5 +121,7 @@ public interface SessionBean {
 	public void putFatal(String keySummary, String detail, Object... args);
 
 	public void putFatal(String summary);
+
+	public Auditoria getAuditoria();
 
 }

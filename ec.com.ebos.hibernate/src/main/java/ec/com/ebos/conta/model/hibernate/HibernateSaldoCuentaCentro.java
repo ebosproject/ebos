@@ -19,7 +19,11 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.conta.model.Periodo;
+import ec.com.ebos.conta.model.SaldoCuentaCentro;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -34,7 +38,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateSaldoCuentaCentro.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateSaldoCuentaCentro extends Contabilidad<HibernateSaldoCuentaCentro> {
+public class HibernateSaldoCuentaCentro extends Contabilidad<HibernateSaldoCuentaCentro> implements SaldoCuentaCentro {
 
 	private static final long serialVersionUID = 1433992189978133926L;
 	
@@ -55,28 +59,28 @@ public class HibernateSaldoCuentaCentro extends Contabilidad<HibernateSaldoCuent
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_periodo", nullable = false)
-	private HibernatePeriodo periodo;
+	private Periodo periodo;
 	
 	/**
 	 * Cuenta contable
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_cuenta_contable", nullable = false)
-	private HibernateCuentaContable cuentaContable;
+	private CuentaContable cuentaContable;
 	
 	/**
 	 * Centro de costos
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_centro_costo", nullable = false)
-	private HibernateCentroCosto centroCosto;
+	private CentroCosto centroCosto;
 	
 	/**
 	 * Subcentro de costos
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_subcentro_costo")
-	private HibernateCentroCosto subcentroCosto;
+	private CentroCosto subcentroCosto;
 	
 	/**
 	 * Valor inicial de la cuenta en el periodo

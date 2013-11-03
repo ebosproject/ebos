@@ -19,6 +19,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.conta.model.hibernate.field.CentroCosto_;
 import ec.com.ebos.conta.model.hibernate.field.CentroSubcentro_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
@@ -36,7 +37,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateTipoCentroCosto.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateTipoCentroCosto extends Contabilidad<HibernateTipoCentroCosto> {
+public class HibernateTipoCentroCosto extends Contabilidad<HibernateTipoCentroCosto> implements TipoCentroCosto {
 
 	private static final long serialVersionUID = 4913746566919074839L;
 	

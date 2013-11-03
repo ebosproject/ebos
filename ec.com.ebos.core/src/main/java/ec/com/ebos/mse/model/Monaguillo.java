@@ -3,7 +3,6 @@ package ec.com.ebos.mse.model;
 import java.util.Set;
 
 import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -17,7 +16,7 @@ public interface Monaguillo {
 
 	public Long getId();
 
-	public Set<HibernateMonaguilloGrupo> getMonaguilloGrupoList();
+	public Set<MonaguilloGrupo> getMonaguilloGrupoList();
 
 	public Persona getPersona();
 
@@ -31,8 +30,7 @@ public interface Monaguillo {
 
 	public void setId(Long id);
 
-	public void setMonaguilloGrupoList(
-			Set<HibernateMonaguilloGrupo> monaguilloGrupoList);
+	public void setMonaguilloGrupoList(Set<MonaguilloGrupo> monaguilloGrupoList);
 
 	public void setPersona(Persona persona);
 

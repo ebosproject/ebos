@@ -2,11 +2,11 @@ package ec.com.ebos.master.model;
 
 import java.util.Set;
 
-import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
+import ec.com.ebos.conta.model.Asiento;
 
 public interface TipoDocumento {
 
-	public Set<HibernateAsiento> getAsientoList();
+	public Set<Asiento> getAsientoList();
 
 	public Long getId();
 
@@ -20,7 +20,7 @@ public interface TipoDocumento {
 
 	public boolean isPidePreimpreso();
 
-	public void setAsientoList(Set<HibernateAsiento> asientoList);
+	public void setAsientoList(Set<Asiento> asientoList);
 
 	public void setContabiliza(boolean contabiliza);
 
@@ -32,8 +32,7 @@ public interface TipoDocumento {
 
 	public void setPidePreimpreso(boolean pidePreimpreso);
 
-	public void setTipoDocumentoReversa(
-			TipoDocumento tipoDocumentoReversa);
+	public void setTipoDocumentoReversa(TipoDocumento tipoDocumentoReversa);
 
 	public java.lang.String toString();
 

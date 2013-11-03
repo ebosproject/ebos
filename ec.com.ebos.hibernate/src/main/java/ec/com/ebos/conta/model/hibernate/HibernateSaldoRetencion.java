@@ -18,6 +18,8 @@ import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.TipoRetencion;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.Periodo;
+import ec.com.ebos.conta.model.SaldoRetencion;
 import ec.com.ebos.root.model.Auditoria;
 
 /**
@@ -31,7 +33,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Table(name = HibernateSaldoRetencion.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class HibernateSaldoRetencion extends Contabilidad<HibernateSaldoRetencion> {
+public class HibernateSaldoRetencion extends Contabilidad<HibernateSaldoRetencion> implements SaldoRetencion {
 
 	private static final long serialVersionUID = 8010531470490736331L;
 	/**
@@ -51,7 +53,7 @@ public class HibernateSaldoRetencion extends Contabilidad<HibernateSaldoRetencio
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_periodo")
-	private HibernatePeriodo periodo;
+	private Periodo periodo;
 	
 	/**
 	 * Tipo retencion

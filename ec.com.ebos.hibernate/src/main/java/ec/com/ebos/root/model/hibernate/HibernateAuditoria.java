@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.Usuario;
 
 /**
  * Clase de auditoria para las Entity
@@ -29,12 +29,12 @@ public class HibernateAuditoria implements Serializable, Auditoria{
 	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_creador", nullable = false, updatable=false)
-	private HibernateUsuario creador;
+	private Usuario creador;
 	
 	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_modificador")
-	private HibernateUsuario modificador;
+	private Usuario modificador;
 
 	@Getter @Setter
 	@Column(name = "creacion", nullable = false, updatable=false)

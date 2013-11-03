@@ -13,6 +13,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.conta.model.CuentaContableEmpresa;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 
@@ -27,7 +29,7 @@ import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 @Table(name = HibernateCuentaContableEmpresa.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCuentaContableEmpresa extends Contabilidad<HibernateCuentaContableEmpresa> {
+public class HibernateCuentaContableEmpresa extends Contabilidad<HibernateCuentaContableEmpresa> implements CuentaContableEmpresa {
 
 	private static final long serialVersionUID = -9092708941710165749L;
 	
@@ -45,7 +47,7 @@ public class HibernateCuentaContableEmpresa extends Contabilidad<HibernateCuenta
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cuenta_contable", nullable = false)
-    private HibernateCuentaContable cuentaContable;		
+    private CuentaContable cuentaContable;		
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_empresa", nullable = false)

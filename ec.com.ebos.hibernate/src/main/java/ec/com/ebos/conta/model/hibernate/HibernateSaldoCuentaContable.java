@@ -20,6 +20,9 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.conta.model.Periodo;
+import ec.com.ebos.conta.model.SaldoCuentaContable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -34,7 +37,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateSaldoCuentaContable.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateSaldoCuentaContable extends Contabilidad<HibernateSaldoCuentaContable> {
+public class HibernateSaldoCuentaContable extends Contabilidad<HibernateSaldoCuentaContable> implements SaldoCuentaContable {
 
 	private static final long serialVersionUID = -5156096029803747688L;
 	
@@ -55,14 +58,14 @@ public class HibernateSaldoCuentaContable extends Contabilidad<HibernateSaldoCue
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_periodo", nullable = false)
-	private HibernatePeriodo periodo;
+	private Periodo periodo;
 	
 	/**
 	 * Cuenta contable
 	 */
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "id_cuenta_contable", nullable = false)
-	private HibernateCuentaContable cuentaContable;
+	private CuentaContable cuentaContable;
 	
 	/**
 	 * Valor inicial de la cuenta en el periodo

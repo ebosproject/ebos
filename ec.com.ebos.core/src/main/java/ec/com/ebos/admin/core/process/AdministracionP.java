@@ -3,11 +3,8 @@ package ec.com.ebos.admin.core.process;
 import java.util.List;
 
 import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.HibernateConfiguracion;
-import ec.com.ebos.admin.model.HibernateObjeto;
-import ec.com.ebos.admin.model.HibernateOpcion;
-import ec.com.ebos.admin.model.HibernateParametros;
 import ec.com.ebos.admin.model.Bundle.Localidad;
+import ec.com.ebos.admin.model.Configuracion;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
@@ -40,43 +37,43 @@ public interface AdministracionP {
     //
     //Parametros
     //
-    public List<HibernateParametros> getParametrosList(Parametros param);
+    public List<Parametros> getParametrosList(Parametros param);
 
-    public HibernateParametros saveParametros(HibernateParametros param);
+    public Parametros saveParametros(Parametros param);
 
     //
     //Configuracion
     //
-    public HibernateConfiguracion getConfiguracion();
+    public Configuracion getConfiguracion();
 
-    public HibernateConfiguracion saveConfiguracion(HibernateConfiguracion configuracion);
+    public Configuracion saveConfiguracion(Configuracion configuracion);
 
     //
     // Opcion
     //
-    public List<HibernateOpcion> findOpcionList(Opcion opcion, Pagination pagination);
+    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination);
 
-    public HibernateOpcion createOpcion();
+    public Opcion createOpcion();
 
-    public HibernateOpcion saveOpcion(HibernateOpcion opcion);
+    public Opcion saveOpcion(Opcion opcion);
 
-    public void deleteOpcion(HibernateOpcion opcion);
+    public void deleteOpcion(Opcion opcion);
 
     public Opcion getOpcion(Long id);
 
-    public List<HibernateOpcion> getOpcionPadreList();
+    public List<Opcion> getOpcionPadreList();
 
 
     //
     // Objeto
     //
-    public List<HibernateObjeto> findObjetoList(Objeto objeto, Pagination pagination);
+    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination);
 
-    public HibernateObjeto createObjeto();
+    public Objeto createObjeto();
 
-    public HibernateObjeto saveObjeto(HibernateObjeto objeto);
+    public Objeto saveObjeto(Objeto objeto);
 
-    public void deleteObjeto(HibernateObjeto objeto);
+    public void deleteObjeto(Objeto objeto);
 
     public Objeto getObjeto(Long id);
 }

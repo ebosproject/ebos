@@ -20,6 +20,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.TipoAsiento;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
@@ -36,7 +37,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateTipoAsiento.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateTipoAsiento extends Contabilidad<HibernateTipoAsiento> {
+public class HibernateTipoAsiento extends Contabilidad<HibernateTipoAsiento> implements TipoAsiento {
 
 	private static final long serialVersionUID = -7133451003821826238L;
 	

@@ -16,7 +16,10 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.CentroCosto;
+import ec.com.ebos.conta.model.CentroSubcentro;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.root.model.Entidad;
 
 /**
@@ -30,7 +33,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateCentroSubcentro.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCentroSubcentro extends Contabilidad<HibernateCentroSubcentro> {
+public class HibernateCentroSubcentro extends Contabilidad<HibernateCentroSubcentro> implements CentroSubcentro {
 
 	private static final long serialVersionUID = 3656927531814475058L;
 
@@ -51,21 +54,21 @@ public class HibernateCentroSubcentro extends Contabilidad<HibernateCentroSubcen
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_centro_costo", nullable = false)
-    private HibernateCentroCosto centroCosto;
+    private CentroCosto centroCosto;
 
 	/**
 	 * Subcentro costo
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_subcentro_costo")
-    private HibernateCentroCosto subcentroCosto;	
+    private CentroCosto subcentroCosto;	
 	
 	/**
 	 * Tipo de centro de costo
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_centro_costo")
-    private HibernateTipoCentroCosto tipoCentroCosto;	
+    private TipoCentroCosto tipoCentroCosto;	
     
 	/**
 	 * Estado de la relacion 

@@ -43,6 +43,7 @@ import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.orm.crud.PaginationParams;
 import ec.com.ebos.root.core.exception.RootException;
+import ec.com.ebos.root.model.hibernate.HibernateAuditoria;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.security.core.process.SecurityPImpl;
 import ec.com.ebos.security.exception.SecurityException;
@@ -953,5 +954,8 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
         return sessionBean;
     }
 
+    protected HibernateAuditoria getAuditoria(){
+    	return new HibernateAuditoria();
+    }
 
 }

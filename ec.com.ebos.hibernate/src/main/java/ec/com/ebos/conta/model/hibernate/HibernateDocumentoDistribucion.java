@@ -20,7 +20,10 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.DocumentoDistribucion;
+import ec.com.ebos.conta.model.DocumentoDistrubucion;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -35,7 +38,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateDocumentoDistribucion.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateDocumentoDistribucion extends Contabilidad<HibernateDocumentoDistribucion> {
+public class HibernateDocumentoDistribucion extends Contabilidad<HibernateDocumentoDistribucion> implements DocumentoDistrubucion, DocumentoDistribucion {
 
 	private static final long serialVersionUID = -1204172994571329360L;
 	
@@ -59,14 +62,14 @@ public class HibernateDocumentoDistribucion extends Contabilidad<HibernateDocume
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_centro_costo", nullable = false)
-    private HibernateCentroCosto centroCosto;
+    private CentroCosto centroCosto;
 	
 	/**
 	 * Subcentro de Costo
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_subcentro_costo", nullable = false)
-    private HibernateCentroCosto subcentroCosto;
+    private CentroCosto subcentroCosto;
 	
 	/**
 	 * Documento

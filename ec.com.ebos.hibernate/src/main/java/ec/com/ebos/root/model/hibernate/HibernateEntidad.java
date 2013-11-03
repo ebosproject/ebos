@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.type.StringValuedEnum;
@@ -24,7 +24,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements Entidad, Serializable {
+public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements Entidad, Serializable, Entidad<T> {
 
 	private static final long serialVersionUID = 2233398298735454479L;
 	
@@ -57,24 +57,24 @@ public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements
     /////////// METODOS PROXY PARA PROPIEDAD AUDITORIA ///////
     
     @Transient
-    public HibernateUsuario getCreador(){    	
+    public Usuario getCreador(){    	
     	return getAuditoria() != null ? getAuditoria().getCreador() : null;
     }
     
     @Transient
-    public void setCreador(HibernateUsuario creador){
+    public void setCreador(Usuario creador){
     	if(getAuditoria() != null){
     		getAuditoria().setCreador(creador);
     	}
     }
     
     @Transient
-    public HibernateUsuario getModificador(){
+    public Usuario getModificador(){
     	return getAuditoria() != null ? getAuditoria().getModificador() : null;
     }
     
     @Transient
-    public void setModificador(HibernateUsuario modificador){
+    public void setModificador(Usuario modificador){
     	if(getAuditoria() != null){    	
     		getAuditoria().setModificador(modificador);
     	}
@@ -122,58 +122,5 @@ public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements
     @Override
     public abstract String toString();
 
-    /**
-     * <strong>Estado A/I para cualquier Entidad</strong> <br>
-     * <table border="1">
-     * <tr><th valign="top"> Estados </th>
-     * <tr><td valign="top"> A: Activo<br> I: Inactivo<br> </td></tr>
-     * </table>
-     *
-     * @author Eduardo Plua Alay
-     *
-     */
-    public enum Estado implements StringValuedEnum<Estado> {
-
-        ACTIVO("A"),
-        INACTIVO("I");
-
-        public static class Type extends StringValuedEnumType<Estado> {
-        }
-        
-        public static final String TYPE = Constantes.DOMAIN_NAME+".root.model.Entidad$Estado$Type";
-        
-        @Getter
-        private String value;
-        private String labelKey;
-        
-        private Estado(String value) {
-            this.value = value;
-            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
-        }
-        
-        public static final Map<String, Estado> LABELED_MAP =
-                EntityUtils.buildLabeledEnumMap(Estado.values());
-        /**
-         * Lists para iteraciones
-         */
-        public static final List<Estado> LIST = Arrays.asList(Estado.values());
-
-        @Override
-        public String getLabel() {
-            return labelKey;
-        }
-
-        @Override
-        public String getDescription() {
-            return getLabel();
-        }
-
-        public boolean isActivo() {
-            return this.equals(ACTIVO);
-        }
-
-        public boolean isInactivo() {
-            return this.equals(INACTIVO);
-        }
-    }
+    
 }

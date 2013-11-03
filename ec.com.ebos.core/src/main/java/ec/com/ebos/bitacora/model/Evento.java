@@ -1,13 +1,18 @@
 package ec.com.ebos.bitacora.model;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-import ec.com.ebos.bitacora.model.hibernate.HibernateEvento;
-import ec.com.ebos.bitacora.model.hibernate.HibernateEventoLog;
-import ec.com.ebos.bitacora.model.hibernate.HibernateVisitante;
+import lombok.Getter;
 import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.util.Constantes;
+import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.util.type.StringValuedEnum;
+import ec.com.ebos.util.type.StringValuedEnumReflect;
+import ec.com.ebos.util.type.StringValuedEnumType;
 
 public interface Evento {
 
@@ -15,9 +20,9 @@ public interface Evento {
 
 	public String getDescripcion();
 
-	public HibernateEvento.EstadoEvento getEstado();
+	public Evento.EstadoEvento getEstado();
 
-	public Set<HibernateEventoLog> getEventoLogList();
+	public Set<EventoLog> getEventoLogList();
 
 	public Date getFechaFin();
 
@@ -29,15 +34,15 @@ public interface Evento {
 
 	public String getObservacion();
 
-	public HibernateEvento.EstadoEvento getTipoEvento();
+	public Evento.EstadoEvento getTipoEvento();
 
 	public void setAuditoria(Auditoria auditoria);
 
 	public void setDescripcion(String descripcion);
 
-	public void setEstado(HibernateEvento.EstadoEvento estado);
+	public void setEstado(Evento.EstadoEvento estado);
 
-	public void setEventoLogList(Set<HibernateEventoLog> eventoLogList);
+	public void setEventoLogList(Set<EventoLog> eventoLogList);
 
 	public void setFechaFin(Date fechaFin);
 
@@ -49,9 +54,9 @@ public interface Evento {
 
 	public void setObservacion(String observacion);
 
-	public void setTipoEvento(HibernateEvento.EstadoEvento tipoEvento);
+	public void setTipoEvento(Evento.EstadoEvento tipoEvento);
 
-	public void setVisitantes(List<HibernateVisitante> visitantes);
+	public void setVisitantes(List<Visitante> visitantes);
 
 	public java.lang.String toString();
 
@@ -61,10 +66,138 @@ public interface Evento {
 
 	public int hashCode();
 
-	public List<HibernateVisitante> getVisitantes();
+	public List<Visitante> getVisitantes();
 
-	public void addVisitante(HibernateVisitante visitante);
+	public void addVisitante(Visitante visitante);
 
 	public void removeVisitante(Visitante visitante);
+	
+    /**
+     * <strong>Estado de evento</strong> <br>
+     * <table border="1">
+     * <tr><th valign="top"> Estados </th>
+     * <tr><td valign="top"> 
+     * I: Ingreso <br> 
+     * S: Salida <br>
+     * </td></tr>
+     * </table>
+     *
+     * @author Eduardo Plua Alay
+     *
+     */
+    public enum EstadoEvento implements StringValuedEnum<EstadoEvento> {
+
+        INGRESO("I"),
+        SALIDA("S");
+
+        public static class Type extends StringValuedEnumType<EstadoEvento> {
+        }
+        
+        public static final String TYPE = Constantes.DOMAIN_NAME+".bitacora.model.Evento$EstadoEvento$Type";
+        
+        @Getter
+        private String value;
+        private String labelKey;
+
+        private EstadoEvento(String value) {
+            this.value = value;
+            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
+        }
+        public static final Map<String, EstadoEvento> LABELED_MAP =
+                EntityUtils.buildLabeledEnumMap(EstadoEvento.values());
+        /**
+         * Lists para iteraciones
+         */
+        public static final List<EstadoEvento> LIST = Arrays.asList(EstadoEvento.values());
+
+        @Override
+        public String getLabel() {
+            return labelKey;
+        }
+
+        @Override
+        public String getDescription() {
+            return getLabel();
+        }
+
+        public boolean isIngresoCliente() {
+            return this.equals(INGRESO);
+        }
+        
+        public boolean isIngresoEmpleado() {
+            return this.equals(SALIDA);
+        }
+
+    }
+    
+    /**
+     * <strong>Tipo de evento</strong> <br>
+     * <table border="1">
+     * <tr><th valign="top"> Tipos </th>
+     * <tr><td valign="top"> 
+     * IC: IngresoCliente <br> 
+     * IE: IngresoEmpleado <br>
+     * IP: IngresoProveedor <br>
+     * IV: IngresoVisitante <br>
+     * </td></tr>
+     * </table>
+     *
+     * @author Eduardo Plua Alay
+     *
+     */
+    public enum TipoEvento implements StringValuedEnum<TipoEvento> {
+
+        INGRESO_CLIENTE("IC"),
+        INGRESO_EMPLEADO("IE"),
+        INGRESO_PROVEEDOR("IP"),
+        INGRESO_VISITANTE("IV") ;
+
+        public static class Type extends StringValuedEnumType<TipoEvento> {
+        }
+        
+        public static final String TYPE = Constantes.DOMAIN_NAME+".bitacora.model.Evento$TipoEvento$Type";
+
+        @Getter
+        private String value;
+        private String labelKey;
+
+        private TipoEvento(String value) {
+            this.value = value;
+            this.labelKey = StringValuedEnumReflect.getLabelKeyFromEnum(this);
+        }
+        public static final Map<String, TipoEvento> LABELED_MAP =
+                EntityUtils.buildLabeledEnumMap(TipoEvento.values());
+        /**
+         * Lists para iteraciones
+         */
+        public static final List<TipoEvento> LIST = Arrays.asList(TipoEvento.values());
+
+        @Override
+        public String getLabel() {
+            return labelKey;
+        }
+
+        @Override
+        public String getDescription() {
+            return getLabel();
+        }
+
+        public boolean isIngresoCliente() {
+            return this.equals(INGRESO_CLIENTE);
+        }
+        
+        public boolean isIngresoEmpleado() {
+            return this.equals(INGRESO_EMPLEADO);
+        }
+        
+        public boolean isIngresoProveedor() {
+            return this.equals(INGRESO_PROVEEDOR);
+        }
+        
+        public boolean isIngresoVisitante() {
+            return this.equals(INGRESO_VISITANTE);
+        }
+
+    }
 
 }
