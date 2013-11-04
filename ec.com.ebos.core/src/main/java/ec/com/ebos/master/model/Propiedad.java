@@ -13,7 +13,7 @@ import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
 
-public interface Propiedad {
+public interface Propiedad extends Master {
 
 	public Activo getActivo();
 

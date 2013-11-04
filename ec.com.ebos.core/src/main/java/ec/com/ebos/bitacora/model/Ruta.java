@@ -2,7 +2,7 @@ package ec.com.ebos.bitacora.model;
 
 import ec.com.ebos.root.model.Auditoria;
 
-public interface Ruta {
+public interface Ruta extends Bitacora {
 
 	public Auditoria getAuditoria();
 

@@ -19,12 +19,13 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.conta.model.TipoAsiento;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Asientos contables
@@ -37,7 +38,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateTipoAsiento.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateTipoAsiento extends Contabilidad<HibernateTipoAsiento> implements TipoAsiento {
+public class HibernateTipoAsiento extends HibernateContabilidad implements TipoAsiento {
 
 	private static final long serialVersionUID = -7133451003821826238L;
 	
@@ -85,6 +86,6 @@ public class HibernateTipoAsiento extends Contabilidad<HibernateTipoAsiento> imp
     private Entidad.Estado estado = Estado.ACTIVO;		
 	
 	@OneToMany(mappedBy = Asiento_.tipoAsiento, fetch = FetchType.LAZY)
-    private Set<HibernateAsiento> asientoList = new HashSet<HibernateAsiento>(0);
+    private Set<Asiento> asientoList = new HashSet<Asiento>(0);
     
 }

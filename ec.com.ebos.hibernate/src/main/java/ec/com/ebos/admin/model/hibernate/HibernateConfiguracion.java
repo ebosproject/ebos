@@ -25,7 +25,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Table(name = HibernateConfiguracion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateConfiguracion extends Administracion<HibernateConfiguracion> implements Configuracion {
+public class HibernateConfiguracion extends HibernateAdministracion implements Configuracion {
 
 	private static final long serialVersionUID = -6748190361672935897L;
 

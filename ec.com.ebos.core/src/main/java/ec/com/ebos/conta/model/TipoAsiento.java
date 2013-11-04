@@ -5,7 +5,7 @@ import java.util.Set;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface TipoAsiento {
+public interface TipoAsiento extends Contabilidad {
 
 	public Set<Asiento> getAsientoList();
 

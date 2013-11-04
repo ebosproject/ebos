@@ -7,7 +7,7 @@ import ec.com.ebos.root.model.Entidad;
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class Contabilidad<T extends Contabilidad<T>> {
+public interface Contabilidad extends Entidad {
 
 	public static final String SCHEMA = "EBOSCONT";
     

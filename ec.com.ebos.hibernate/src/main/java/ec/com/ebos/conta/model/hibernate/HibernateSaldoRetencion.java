@@ -33,7 +33,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Table(name = HibernateSaldoRetencion.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class HibernateSaldoRetencion extends Contabilidad<HibernateSaldoRetencion> implements SaldoRetencion {
+public class HibernateSaldoRetencion extends HibernateContabilidad implements SaldoRetencion {
 
 	private static final long serialVersionUID = 8010531470490736331L;
 	/**

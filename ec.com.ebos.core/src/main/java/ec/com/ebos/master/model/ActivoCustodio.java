@@ -1,5 +1,5 @@
 package ec.com.ebos.master.model;
 
-public interface ActivoCustodio {
+public interface ActivoCustodio extends Master {
 
 }

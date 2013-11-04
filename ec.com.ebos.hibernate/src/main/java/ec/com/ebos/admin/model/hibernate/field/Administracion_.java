@@ -4,7 +4,7 @@ import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 
 /**
- * Entity model attributes for {@link Administracion}
+ * Entity model attributes for {@link HibernateAdministracion}
  * 
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */

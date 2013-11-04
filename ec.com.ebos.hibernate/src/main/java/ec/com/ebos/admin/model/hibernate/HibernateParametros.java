@@ -26,7 +26,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateParametros.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateParametros extends Administracion<HibernateParametros> implements Parametros{
+public class HibernateParametros extends HibernateAdministracion implements Parametros, Auditoria{
   
 	private static final long serialVersionUID = 7865213458933031067L;
 

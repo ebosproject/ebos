@@ -1,11 +1,9 @@
 package ec.com.ebos.bitacora.model.hibernate;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -22,20 +20,15 @@ import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.bitacora.model.Bitacora;
 import ec.com.ebos.bitacora.model.Evento;
+import ec.com.ebos.bitacora.model.EventoLog;
 import ec.com.ebos.bitacora.model.Visitante;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -45,7 +38,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Table(name = HibernateEvento.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateEvento extends Bitacora<HibernateEvento> implements Evento{
+public class HibernateEvento extends HibernateBitacora implements Evento{
 
 	private static final long serialVersionUID = 3922934845182492539L;
 
@@ -87,17 +80,17 @@ public class HibernateEvento extends Bitacora<HibernateEvento> implements Evento
 	private Date fechaFin;
 	
 	@OneToMany(mappedBy = "evento", fetch= FetchType.LAZY)
-    private Set<HibernateEventoLog> eventoLogList = new HashSet<HibernateEventoLog>(0);
+    private Set<EventoLog> eventoLogList = new HashSet<EventoLog>(0);
 	
 	@Transient
-	private List<HibernateVisitante> visitantes; 
+	private List<Visitante> visitantes; 
 	
 	/* (non-Javadoc)
 	 * @see ec.com.ebos.bitacora.model.Evento#getVisitantes()
 	 */
-	public List<HibernateVisitante> getVisitantes(){
+	public List<Visitante> getVisitantes(){
 		if(integrantes == null){
-			visitantes = new ArrayList<HibernateVisitante>();
+			visitantes = new ArrayList<Visitante>();
 			String[] lista = integrantes.split("|@|");
 			for (String obj : lista) {
 				visitantes.add((HibernateVisitante) ((Object) obj));
@@ -109,7 +102,7 @@ public class HibernateEvento extends Bitacora<HibernateEvento> implements Evento
 	/* (non-Javadoc)
 	 * @see ec.com.ebos.bitacora.model.Evento#addVisitante(ec.com.ebos.bitacora.model.HibernateVisitante)
 	 */
-	public void addVisitante(HibernateVisitante visitante){
+	public void addVisitante(Visitante visitante){
 		visitantes.add(visitante);
 		integrantes += "|@|"+visitante.toString();
 	}

@@ -29,7 +29,7 @@ import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 @Table(name = HibernateCuentaContableEmpresa.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCuentaContableEmpresa extends Contabilidad<HibernateCuentaContableEmpresa> implements CuentaContableEmpresa {
+public class HibernateCuentaContableEmpresa extends HibernateContabilidad implements CuentaContableEmpresa {
 
 	private static final long serialVersionUID = -9092708941710165749L;
 	

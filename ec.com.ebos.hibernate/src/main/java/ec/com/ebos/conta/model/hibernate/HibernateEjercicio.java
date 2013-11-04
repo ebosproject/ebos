@@ -26,10 +26,11 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.conta.model.Ejercicio;
+import ec.com.ebos.conta.model.Periodo;
 import ec.com.ebos.conta.model.hibernate.field.Periodo_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Ejercicio fiscal
@@ -42,7 +43,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateEjercicio.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateEjercicio extends Contabilidad<HibernateEjercicio> implements Ejercicio {
+public class HibernateEjercicio extends HibernateContabilidad implements Ejercicio {
 
 	private static final long serialVersionUID = 5615088107461153660L;
 
@@ -112,8 +113,8 @@ public class HibernateEjercicio extends Contabilidad<HibernateEjercicio> impleme
 	private String descripcion;	
     
 	@OneToMany(mappedBy = Periodo_.ejercicio, fetch = FetchType.LAZY)
-    private Set<HibernatePeriodo> periodoList = new HashSet<HibernatePeriodo>(0);
+    private Set<Periodo> periodoList = new HashSet<Periodo>(0);
 	
 	@OneToMany(mappedBy = Periodo_.periodoFiscalPais, fetch = FetchType.LAZY)
-    private Set<HibernatePeriodo> periodoList2 = new HashSet<HibernatePeriodo>(0);
+    private Set<Periodo> periodoList2 = new HashSet<Periodo>(0);
 }

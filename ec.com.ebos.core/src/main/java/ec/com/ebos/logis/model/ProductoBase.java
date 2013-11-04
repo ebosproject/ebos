@@ -1,6 +1,6 @@
 package ec.com.ebos.logis.model;
 
-public interface ProductoBase {
+public interface ProductoBase extends Logistica {
 
 	public Long getId();
 

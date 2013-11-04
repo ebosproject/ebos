@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ec.com.ebos.root.model.Entidad;
 
-public interface Categoria {
+public interface Categoria extends Master {
 
 	public Set<Activo> getActivoList();
 

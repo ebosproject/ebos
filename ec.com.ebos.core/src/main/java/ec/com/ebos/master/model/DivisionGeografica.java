@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ec.com.ebos.conta.model.PeriodoFiscalPais;
 
-public interface DivisionGeografica {
+public interface DivisionGeografica extends Master {
 
 	public String getCodigo();
 

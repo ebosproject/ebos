@@ -14,7 +14,7 @@ import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
 
-public interface SaldoCentroCosto {
+public interface SaldoCentroCosto extends Contabilidad {
 
 	public Auditoria getAuditoria();
 

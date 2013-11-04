@@ -1,9 +1,6 @@
 package ec.com.ebos.conta.model.hibernate;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -20,13 +17,18 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaCentro;
 import ec.com.ebos.conta.model.CuentaContable;
+import ec.com.ebos.conta.model.CuentaContableEmpresa;
+import ec.com.ebos.conta.model.Ejercicio;
+import ec.com.ebos.conta.model.SaldoCuentaCentro;
+import ec.com.ebos.conta.model.SaldoCuentaContable;
 import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
@@ -37,12 +39,7 @@ import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaCentro_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaContable_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Plan de cuentas general
@@ -55,7 +52,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Table(name = HibernateCuentaContable.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCuentaContable extends Contabilidad<HibernateCuentaContable> implements CuentaContable {
+public class HibernateCuentaContable extends HibernateContabilidad implements CuentaContable {
 
 	private static final long serialVersionUID = 2646781225564626367L;
 	
@@ -119,8 +116,8 @@ public class HibernateCuentaContable extends Contabilidad<HibernateCuentaContabl
 	 * Naturaleza de la {@link HibernateCuentaContable}
 	 */
 	@Column(name = "naturaleza", nullable = false, length = 1)
-    @Type(type = HibernateCuentaContable.Naturaleza.TYPE)
-    private HibernateCuentaContable.Naturaleza naturaleza = ec.com.ebos.conta.model.Naturaleza.DEUDORA;
+    @Type(type = CuentaContable.Naturaleza.TYPE)
+    private CuentaContable.Naturaleza naturaleza = CuentaContable.Naturaleza.DEUDORA;
 	
 	/**
 	 * Indica si pide o no centro de costo
@@ -132,8 +129,8 @@ public class HibernateCuentaContable extends Contabilidad<HibernateCuentaContabl
 	 * Tipo de proceso en la que se puede usar la {@link HibernateCuentaContable}
 	 */
 	@Column(name = "tipo_proceso", nullable = false, length = 1)
-    @Type(type = HibernateCuentaContable.TipoProceso.TYPE)
-    private HibernateCuentaContable.TipoProceso tipoProceso = ec.com.ebos.conta.model.TipoProceso.MIXTA;
+    @Type(type = CuentaContable.TipoProceso.TYPE)
+    private CuentaContable.TipoProceso tipoProceso = CuentaContable.TipoProceso.MIXTA;
 	
 	
 	/**
@@ -144,24 +141,24 @@ public class HibernateCuentaContable extends Contabilidad<HibernateCuentaContabl
     private Entidad.Estado estado = Estado.ACTIVO;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.cuentaContable, fetch = FetchType.LAZY)
-    private Set<HibernateAsientoDetalle> asientoDetalleList = new HashSet<HibernateAsientoDetalle>(0);
+    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
 	
 	@OneToMany(mappedBy = CuentaCentro_.cuentaContable, fetch = FetchType.LAZY)
-    private Set<HibernateCuentaCentro> cuentaCentroList = new HashSet<HibernateCuentaCentro>(0);
+    private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
 	
 	@OneToMany(mappedBy = CuentaContable_.padre, fetch = FetchType.LAZY)
-    private Set<HibernateCuentaContable> cuentaContableList = new HashSet<HibernateCuentaContable>(0);
+    private Set<CuentaContable> cuentaContableList = new HashSet<CuentaContable>(0);
 	
 	@OneToMany(mappedBy = CuentaContableEmpresa_.cuentaContable, fetch = FetchType.LAZY)
-    private Set<HibernateCuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<HibernateCuentaContableEmpresa>(0);
+    private Set<CuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<CuentaContableEmpresa>(0);
 	
 	@OneToMany(mappedBy = Ejercicio_.cuentaUtilidad, fetch = FetchType.LAZY)
-    private Set<HibernateEjercicio> ejercicioList = new HashSet<HibernateEjercicio>(0);
+    private Set<Ejercicio> ejercicioList = new HashSet<Ejercicio>(0);
 	
 	@OneToMany(mappedBy = SaldoCuentaCentro_.cuentaContable, fetch = FetchType.LAZY)
-    private Set<HibernateSaldoCuentaCentro> saldoCuentaCentroList = new HashSet<HibernateSaldoCuentaCentro>(0);
+    private Set<SaldoCuentaCentro> saldoCuentaCentroList = new HashSet<SaldoCuentaCentro>(0);
 	
 	@OneToMany(mappedBy = SaldoCuentaContable_.cuentaContable, fetch = FetchType.LAZY)
-    private Set<HibernateSaldoCuentaContable> saldoCuentaContableList = new HashSet<HibernateSaldoCuentaContable>(0);
+    private Set<SaldoCuentaContable> saldoCuentaContableList = new HashSet<SaldoCuentaContable>(0);
 	
 }

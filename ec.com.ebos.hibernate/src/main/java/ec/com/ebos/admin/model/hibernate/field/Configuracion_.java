@@ -1,6 +1,5 @@
 package ec.com.ebos.admin.model.hibernate.field;
 
-import ec.com.ebos.admin.model.field.Administracion_;
 
 
 /**

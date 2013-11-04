@@ -6,7 +6,7 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Usuario;
 
-public interface EmpresaPersona {
+public interface EmpresaPersona extends Master {
 
 	public Set<ActivoCustodio> getActivoCustodioList();
 

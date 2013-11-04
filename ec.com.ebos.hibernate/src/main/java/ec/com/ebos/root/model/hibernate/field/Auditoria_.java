@@ -1,6 +1,5 @@
 package ec.com.ebos.root.model.hibernate.field;
 
-import ec.com.ebos.root.model.field.Entidad_;
 
 /**
  * Entity model attributes for AuditoriaEntity @Embeddable

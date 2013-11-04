@@ -23,8 +23,10 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.Activo;
 import ec.com.ebos.master.model.ActivoCategoria;
+import ec.com.ebos.master.model.ActivoCustodio;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.Propiedad;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -36,7 +38,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateActivo.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateActivo extends Master<HibernateActivo> implements Activo{
+public class HibernateActivo extends HibernateMaster implements Activo{
 
 	private static final long serialVersionUID = 7521526484197846192L;
 	
@@ -69,8 +71,9 @@ public class HibernateActivo extends Master<HibernateActivo> implements Activo{
     private Entidad.Estado estado;
 	
 	@OneToMany(mappedBy = "activo", fetch = FetchType.LAZY)
-    private Set<HibernateActivoCustodio> activoCustodioList = new HashSet<HibernateActivoCustodio>(0);
+    private Set<ActivoCustodio> activoCustodioList = new HashSet<ActivoCustodio>(0);
 	
 	@OneToMany(mappedBy = "activo", fetch = FetchType.LAZY)
-    private Set<HibernatePropiedad> propiedadList = new HashSet<HibernatePropiedad>(0);
+    private Set<Propiedad> propiedadList = new HashSet<Propiedad>(0);
+
 }

@@ -1,11 +1,10 @@
 package ec.com.ebos.admin.model;
 
-import ec.com.ebos.root.model.Auditoria;
+import java.util.Date;
+
 import ec.com.ebos.root.model.Entidad;
 
-public interface Parametros {
-
-	public Auditoria getAuditoria();
+public interface Parametros extends Administracion {
 
 	public String getClave();
 
@@ -13,11 +12,7 @@ public interface Parametros {
 
 	public String getGrupo();
 
-	public Long getId();
-
 	public String getValor();
-
-	public void setAuditoria(Auditoria auditoria);
 
 	public void setClave(String clave);
 
@@ -25,16 +20,10 @@ public interface Parametros {
 
 	public void setGrupo(String grupo);
 
-	public void setId(Long id);
-
 	public void setValor(String valor);
 
-	public java.lang.String toString();
+	public void setModificado(Date fecha);
 
-	public boolean canEqual(java.lang.Object other);
-
-	public boolean equals(java.lang.Object o);
-
-	public int hashCode();
+	public void setCreado(Date fecha);
 
 }

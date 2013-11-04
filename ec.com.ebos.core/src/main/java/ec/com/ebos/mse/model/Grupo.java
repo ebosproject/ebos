@@ -6,7 +6,7 @@ import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface Grupo {
+public interface Grupo extends Entidad {
 
 	public Set<AsientoDetalle> getAsientoDetalleList();
 

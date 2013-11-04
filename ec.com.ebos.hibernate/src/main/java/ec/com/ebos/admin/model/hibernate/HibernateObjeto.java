@@ -20,6 +20,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Administracion;
 import ec.com.ebos.admin.model.Objeto;
+import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
@@ -32,7 +33,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateObjeto.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateObjeto extends Administracion<HibernateObjeto> implements Objeto {
+public class HibernateObjeto extends HibernateAdministracion implements Objeto {
     
 	private static final long serialVersionUID = -3052521057254508069L;
 
@@ -55,14 +56,24 @@ public class HibernateObjeto extends Administracion<HibernateObjeto> implements 
     private String descripcion;
     
     @Column(name = "tipo", nullable = false, length = 1)
-    @Type(type = HibernateObjeto.TipoObjeto.TYPE)
-    private HibernateObjeto.TipoObjeto tipo;
+    @Type(type = Objeto.TipoObjeto.TYPE)
+    private Objeto.TipoObjeto tipo;
     
     @Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 
     @OneToMany(mappedBy = "objeto", fetch=FetchType.LAZY)
-    private Set<HibernateOpcion> opcionList = new HashSet<HibernateOpcion>(0);
+    private Set<Opcion> opcionList = new HashSet<Opcion>(0);
+
+	@Override
+	public Object getValue() {
+		return codigo;
+	}
+
+	@Override
+	public String getLabel() {
+		return descripcion;
+	}
     
 }

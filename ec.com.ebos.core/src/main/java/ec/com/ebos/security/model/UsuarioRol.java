@@ -3,7 +3,7 @@ package ec.com.ebos.security.model;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface UsuarioRol {
+public interface UsuarioRol extends Security {
 
 	public Auditoria getAuditoria();
 

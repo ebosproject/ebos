@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
+import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.TipoDocumento;
@@ -30,7 +30,7 @@ import ec.com.ebos.master.model.TipoDocumento;
 @Entity
 @Table(name = HibernateTipoDocumento.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
-public class HibernateTipoDocumento extends Master<HibernateTipoDocumento> implements TipoDocumento{
+public class HibernateTipoDocumento extends HibernateMaster implements TipoDocumento{
 
 	private static final long serialVersionUID = -2896367216397132540L;
 
@@ -63,6 +63,6 @@ public class HibernateTipoDocumento extends Master<HibernateTipoDocumento> imple
     private TipoDocumento tipoDocumentoReversa; //TODO (epa): Consultar si tabla es recursiva
 	
     @OneToMany(mappedBy = Asiento_.tipoDocumento, fetch = FetchType.LAZY)
-    private Set<HibernateAsiento> asientoList = new HashSet<HibernateAsiento>(0);
+    private Set<Asiento> asientoList = new HashSet<Asiento>(0);
 	
 }

@@ -28,7 +28,9 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Security;
 import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.UsuarioRol;
 import ec.com.ebos.security.model.field.UsuarioRol_;
+import ec.com.ebos.util.type.StringValuedEnum;
 
 /**
  *
@@ -40,7 +42,7 @@ import ec.com.ebos.security.model.field.UsuarioRol_;
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
 @Auditable
-public class HibernateUsuario extends Security<HibernateUsuario> implements Usuario {
+public class HibernateUsuario extends HibernateSecurity implements Usuario {
 
 	private static final long serialVersionUID = 5615088107461153660L;
 
@@ -81,12 +83,13 @@ public class HibernateUsuario extends Security<HibernateUsuario> implements Usua
     private int maxOptions;
 
     @OneToMany(mappedBy = UsuarioRol_.usuario, fetch = FetchType.LAZY)
-    private Set<HibernateUsuarioRol> usuarioRolList = new HashSet<HibernateUsuarioRol>(0);
+    private Set<UsuarioRol> usuarioRolList = new HashSet<UsuarioRol>(0);
 
     @Transient
     private String newpassword;
     
     @Transient
     private String confpassword;
+
     
 }

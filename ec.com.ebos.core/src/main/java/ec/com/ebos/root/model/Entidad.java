@@ -19,7 +19,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @update 2013-04-25
  */
-public interface Entidad {
+public interface Entidad extends Root{
 
 	/**
 	 * Metodos para propiedad Id
@@ -28,35 +28,7 @@ public interface Entidad {
 
 	public void setId(Long id);
 
-	public Auditoria getAuditoria();
-
-	public void setAuditoria(Auditoria auditoria);
-
-	public Date getFechaDesde();
-
-	public void setFechaDesde(Date fechaDesde);
-
-	public Date getFechaHasta();
-
-	public void setFechaHasta(Date fechaHasta);
-	
 	public Object getValue();
-
-	public Usuario getCreador();
-
-	public void setCreador(Usuario creador);
-
-	public Usuario getModificador();
-
-	public void setModificador(Usuario modificador);
-
-	public Date getCreado();
-
-	public void setCreado(Date creado);
-
-	public Date getModificado();
-
-	public void setModificado(Date modificado);
 
 	/**
 	 * @return Etiqueta; por default devuelve el Id de la entidad
@@ -69,7 +41,21 @@ public interface Entidad {
 
 	public String toString();
 
+	//
+	// Metodos de auditoria 
+	//
 	
+	public void setAuditoria(Auditoria auditoria);
+
+	public void setCreador(Usuario usuario);
+
+	public void setCreado(Date date);
+
+	public void setModificador(Usuario usuario);
+
+	public void setModificado(Date date);
+
+	public Object getAuditoria();
 	
 	
 	/**
@@ -126,4 +112,5 @@ public interface Entidad {
             return this.equals(INACTIVO);
         }
     }
+
 }

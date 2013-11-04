@@ -22,7 +22,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Table(name = HibernateRutaLog.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateRutaLog extends Bitacora<HibernateRutaLog> implements RutaLog{
+public class HibernateRutaLog extends HibernateBitacora implements RutaLog{
 
 	private static final long serialVersionUID = 6923351017759818531L;
 

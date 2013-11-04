@@ -16,12 +16,12 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.conta.model.hibernate.HibernatePeriodoFiscalPais;
+import ec.com.ebos.conta.model.PeriodoFiscalPais;
 import ec.com.ebos.conta.model.hibernate.field.PeriodoFiscalPais_;
 import ec.com.ebos.master.model.DivisionGeografica;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.field.DivisionGeografica_;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Contiene la division geografica del pais
@@ -33,7 +33,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Entity
 @Table(name = HibernateDivisionGeografica.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
-public class HibernateDivisionGeografica extends Master<HibernateDivisionGeografica> implements DivisionGeografica{
+public class HibernateDivisionGeografica extends HibernateMaster implements DivisionGeografica{
 
 	private static final long serialVersionUID = -3016906366966810717L;
 	
@@ -75,8 +75,8 @@ public class HibernateDivisionGeografica extends Master<HibernateDivisionGeograf
 	private String descripcion;	
 	
 	@OneToMany(mappedBy = PeriodoFiscalPais_.divisionGeografica, fetch = FetchType.LAZY)
-    private Set<HibernatePeriodoFiscalPais> periodoFiscalPaisList = new HashSet<HibernatePeriodoFiscalPais>(0);
+    private Set<PeriodoFiscalPais> periodoFiscalPaisList = new HashSet<PeriodoFiscalPais>(0);
 	
 	@OneToMany(mappedBy = DivisionGeografica_.padre, fetch = FetchType.LAZY)
-    private Set<HibernateDivisionGeografica> divisionGeograficaList = new HashSet<HibernateDivisionGeografica>(0);
+    private Set<DivisionGeografica> divisionGeograficaList = new HashSet<DivisionGeografica>(0);
 }

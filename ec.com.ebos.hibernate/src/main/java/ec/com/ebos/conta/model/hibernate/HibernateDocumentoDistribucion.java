@@ -38,7 +38,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateDocumentoDistribucion.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateDocumentoDistribucion extends Contabilidad<HibernateDocumentoDistribucion> implements DocumentoDistrubucion, DocumentoDistribucion {
+public class HibernateDocumentoDistribucion extends HibernateContabilidad implements DocumentoDistrubucion, DocumentoDistribucion {
 
 	private static final long serialVersionUID = -1204172994571329360L;
 	

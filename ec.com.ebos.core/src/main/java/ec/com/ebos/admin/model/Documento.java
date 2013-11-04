@@ -7,7 +7,7 @@ import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.conta.model.DocumentoDistribucion;
 
-public interface Documento {
+public interface Documento extends Administracion{
 
 	public Set<AsientoDetalle> getAsientoDetalleList();
 

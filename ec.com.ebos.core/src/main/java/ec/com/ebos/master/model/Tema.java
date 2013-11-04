@@ -2,7 +2,7 @@ package ec.com.ebos.master.model;
 
 import ec.com.ebos.root.model.Entidad;
 
-public interface Tema {
+public interface Tema extends Master {
 
 	public Entidad.Estado getEstado();
 

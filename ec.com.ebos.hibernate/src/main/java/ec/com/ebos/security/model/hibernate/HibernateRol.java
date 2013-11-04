@@ -22,7 +22,9 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Rol;
+import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Security;
+import ec.com.ebos.security.model.UsuarioRol;
 
 /**
  *
@@ -34,7 +36,7 @@ import ec.com.ebos.security.model.Security;
 @Data @EqualsAndHashCode(callSuper=false) 
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
 @Auditable
-public class HibernateRol extends Security<HibernateRol> implements Rol {
+public class HibernateRol extends HibernateSecurity implements Rol {
     
 	private static final long serialVersionUID = 1684996463596485829L;
 
@@ -61,9 +63,9 @@ public class HibernateRol extends Security<HibernateRol> implements Rol {
     private Entidad.Estado estado;
     
     @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)    
-    private Set<HibernateRolOpcion> rolOpcionList = new HashSet<HibernateRolOpcion>(0);
+    private Set<RolOpcion> rolOpcionList = new HashSet<RolOpcion>(0);
     
     @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)    
-    private Set<HibernateUsuarioRol> usuarioRolList = new HashSet<HibernateUsuarioRol>(0);
+    private Set<UsuarioRol> usuarioRolList = new HashSet<UsuarioRol>(0);
             
 }

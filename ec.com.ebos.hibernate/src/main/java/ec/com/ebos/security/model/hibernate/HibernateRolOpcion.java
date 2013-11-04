@@ -32,7 +32,7 @@ import ec.com.ebos.security.model.Security;
 @Table(name = HibernateRolOpcion.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateRolOpcion extends Security<HibernateRolOpcion> implements RolOpcion {
+public class HibernateRolOpcion extends HibernateSecurity implements RolOpcion {
 
 	private static final long serialVersionUID = -6703784659046763976L;
 

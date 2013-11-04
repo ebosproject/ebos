@@ -9,7 +9,7 @@ import ec.com.ebos.conta.model.Ejercicio;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface Organizacion {
+public interface Organizacion extends Master {
 
 	public Set<Activo> getActivoList();
 

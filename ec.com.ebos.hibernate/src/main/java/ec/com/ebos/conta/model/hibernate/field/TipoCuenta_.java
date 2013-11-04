@@ -1,7 +1,5 @@
 package ec.com.ebos.conta.model.hibernate.field;
 
-import ec.com.ebos.conta.model.field.Contabilidad_;
-import ec.com.ebos.conta.model.hibernate.HibernatePeriodo;
 import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 
 

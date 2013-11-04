@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.root.model.Auditoria;
 
-public interface AsientoDetalle {
+public interface AsientoDetalle extends Contabilidad{
 
 	public Asiento getAsiento();
 

@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ec.com.ebos.conta.model.Asiento;
 
-public interface TipoDocumento {
+public interface TipoDocumento extends Master {
 
 	public Set<Asiento> getAsientoList();
 

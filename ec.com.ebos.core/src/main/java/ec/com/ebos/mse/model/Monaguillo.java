@@ -6,7 +6,7 @@ import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface Monaguillo {
+public interface Monaguillo extends Entidad {
 
 	public Auditoria getAuditoria();
 

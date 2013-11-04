@@ -2,7 +2,7 @@ package ec.com.ebos.conta.model;
 
 import ec.com.ebos.master.model.Organizacion;
 
-public interface CuentaContableEmpresa {
+public interface CuentaContableEmpresa extends Contabilidad {
 
 	public CuentaContable getCuentaContable();
 

@@ -18,10 +18,7 @@ import ec.com.ebos.security.core.process.SecurityP;
 import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.security.model.hibernate.HibernateRol;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
-import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
+import ec.com.ebos.security.model.UsuarioRol;
 
 /**
  * @author Eduardo Plua Alay
@@ -68,7 +65,7 @@ public class SecuritySImpl implements SecurityS{
     }
 
     @Override
-    public Usuario saveUsuario(HibernateUsuario usuario) {
+    public Usuario saveUsuario(Usuario usuario) {
         return securityP.saveUsuario(usuario);
     }
 
@@ -78,7 +75,7 @@ public class SecuritySImpl implements SecurityS{
     }
     
     @Override
-    public List<HibernateUsuario> findUsuarioList(Usuario entitySearch, Pagination pagination) {
+    public List<Usuario> findUsuarioList(Usuario entitySearch, Pagination pagination) {
         return securityP.findUsuarioList(entitySearch, pagination);
     }
     
@@ -88,17 +85,17 @@ public class SecuritySImpl implements SecurityS{
     }
 
     @Override
-    public void saveUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList) {
+    public void saveUsuarioRolList(List<UsuarioRol> usuarioRolList) {
         securityP.saveUsuarioRolList(usuarioRolList);
     }
     
     @Override
-    public List<HibernateUsuarioRol> getUsuarioRolList(Usuario usuario) {
+    public List<UsuarioRol> getUsuarioRolList(Usuario usuario) {
         return securityP.getUsuarioRolList(usuario);
     }
     
     @Override
-    public void deleteUsuarioRolList(List<HibernateUsuarioRol> usuarioRolList) {
+    public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList) {
         securityP.deleteUsuarioRolList(usuarioRolList);
     }
     
@@ -112,27 +109,27 @@ public class SecuritySImpl implements SecurityS{
     //
     
     @Override
-    public List<HibernateRol> findRolList(HibernateRol rol, Pagination pagination) {
+    public List<Rol> findRolList(Rol rol, Pagination pagination) {
         return securityP.findRolList(rol, pagination);
     }
 
     @Override
-    public HibernateRol createRol() {
+    public Rol createRol() {
         return securityP.createRol();
     }
 
     @Override
-    public HibernateRol saveRol(HibernateRol rol) {
+    public Rol saveRol(Rol rol) {
         return securityP.saveRol(rol);
     }
 
     @Override
-    public void deleteRol(HibernateRol rol) {
+    public void deleteRol(Rol rol) {
         securityP.eliminarRol(rol);
     }    
     
     @Override
-    public List<HibernateRolOpcion> getRolOpcionList(Rol rol) {
+    public List<RolOpcion> getRolOpcionList(Rol rol) {
         return securityP.getRolOpcionList(rol);
     }
     
@@ -142,17 +139,17 @@ public class SecuritySImpl implements SecurityS{
     }
     
     @Override
-    public void saveRolOpcionList(List<HibernateRolOpcion> rolOpcionList) {
+    public void saveRolOpcionList(List<RolOpcion> rolOpcionList) {
         securityP.saveRolOpcionList(rolOpcionList);
     }
     
     @Override
-    public RolOpcion saveRolOpcion(HibernateRolOpcion rolOpcion) {
+    public RolOpcion saveRolOpcion(RolOpcion rolOpcion) {
         return securityP.saveRolOpcion(rolOpcion);
     }
     
     @Override
-    public void deleteRolOpcionList(List<HibernateRolOpcion> rolOpcionList) {
+    public void deleteRolOpcionList(List<RolOpcion> rolOpcionList) {
         securityP.deleteRolOpcionList(rolOpcionList);
     }
     
@@ -166,7 +163,7 @@ public class SecuritySImpl implements SecurityS{
     }      
     
     @Override
-    public void changePassword(HibernateUsuario usuario){
+    public void changePassword(Usuario usuario){
         securityP.changePassword(usuario);
     }
     

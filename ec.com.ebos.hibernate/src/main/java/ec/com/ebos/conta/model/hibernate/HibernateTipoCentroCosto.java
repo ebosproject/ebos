@@ -18,13 +18,16 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.CentroCosto;
+import ec.com.ebos.conta.model.CentroSubcentro;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaCentro;
 import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.conta.model.hibernate.field.CentroCosto_;
 import ec.com.ebos.conta.model.hibernate.field.CentroSubcentro_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Tipos de centros de costo
@@ -37,7 +40,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateTipoCentroCosto.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateTipoCentroCosto extends Contabilidad<HibernateTipoCentroCosto> implements TipoCentroCosto {
+public class HibernateTipoCentroCosto extends HibernateContabilidad implements TipoCentroCosto {
 
 	private static final long serialVersionUID = 4913746566919074839L;
 	
@@ -79,12 +82,12 @@ public class HibernateTipoCentroCosto extends Contabilidad<HibernateTipoCentroCo
     private Entidad.Estado estado = Estado.ACTIVO;
 	
 	@OneToMany(mappedBy = CentroCosto_.tipoCentroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateCentroCosto> centroCostoList = new HashSet<HibernateCentroCosto>(0);
+    private Set<CentroCosto> centroCostoList = new HashSet<CentroCosto>(0);
 	
 	@OneToMany(mappedBy = CentroSubcentro_.tipoCentroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateCentroSubcentro> centroSubcentroList = new HashSet<HibernateCentroSubcentro>(0);
+    private Set<CentroSubcentro> centroSubcentroList = new HashSet<CentroSubcentro>(0);
 	
 	@OneToMany(mappedBy = CuentaCentro_.tipoCentroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateCuentaCentro> cuentaCentroList = new HashSet<HibernateCuentaCentro>(0);
+    private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
     
 }

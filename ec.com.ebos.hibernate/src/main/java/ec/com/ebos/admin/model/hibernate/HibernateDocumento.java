@@ -18,9 +18,9 @@ import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Administracion;
 import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
-import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
-import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
+import ec.com.ebos.conta.model.Asiento;
+import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.DocumentoDistribucion;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
 import ec.com.ebos.conta.model.hibernate.field.DocumentoDistribucion_;
@@ -35,7 +35,7 @@ import ec.com.ebos.conta.model.hibernate.field.DocumentoDistribucion_;
 @Table(name = HibernateDocumento.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateDocumento extends Administracion<HibernateDocumento> implements Documento {
+public class HibernateDocumento extends HibernateAdministracion implements Documento {
 
 	private static final long serialVersionUID = -6748190361672935897L;
 
@@ -49,30 +49,30 @@ public class HibernateDocumento extends Administracion<HibernateDocumento> imple
     private Long id;
 	
 	@OneToMany(mappedBy = Asiento_.documento, fetch = FetchType.LAZY)
-    private Set<HibernateAsiento> asientoList = new HashSet<HibernateAsiento>(0);
+    private Set<Asiento> asientoList = new HashSet<Asiento>(0);
 	
 	@OneToMany(mappedBy = AsientoDetalle_.documento, fetch = FetchType.LAZY)
-    private Set<HibernateAsientoDetalle> asientoDetalleList = new HashSet<HibernateAsientoDetalle>(0);
+    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
     
 	@OneToMany(mappedBy = DocumentoDistribucion_.documento, fetch = FetchType.LAZY)
-    private Set<HibernateDocumentoDistribucion> documentoDistribucionList = new HashSet<HibernateDocumentoDistribucion>(0);
+    private Set<DocumentoDistribucion> documentoDistribucionList = new HashSet<DocumentoDistribucion>(0);
 	
 	@Column
-	Date emitido;
+	private Date emitido;
 
 	@Column
-	Date vencimiento;
+	private Date vencimiento;
 
 	@Column
-	Date enviado;
+	private Date enviado;
 	
 	@Column
-	Date autorizado;
+	private Date autorizado;
 	
 	@Column
-	Date procesado;
+	private Date procesado;
 
 	@Column
-	Date contabilizado;
+	private Date contabilizado;
 
 }

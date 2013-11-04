@@ -32,7 +32,7 @@ import ec.com.ebos.security.model.UsuarioRol;
 @Table(name = HibernateUsuarioRol.TABLE_NAME, schema = Security.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateUsuarioRol extends Security<HibernateUsuarioRol> implements UsuarioRol {
+public class HibernateUsuarioRol extends HibernateSecurity implements UsuarioRol {
 
 	private static final long serialVersionUID = -1368865964860468015L;
 

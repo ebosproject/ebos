@@ -22,7 +22,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Table(name = HibernateInspeccionDetalle.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateInspeccionDetalle extends Bitacora<HibernateInspeccionDetalle> implements InspeccionDetalle{
+public class HibernateInspeccionDetalle extends HibernateBitacora implements InspeccionDetalle{
 
 	private static final long serialVersionUID = -7309331268578348471L;
 

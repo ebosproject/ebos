@@ -16,7 +16,7 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.conta.model.PeriodoFiscalPais;
 import ec.com.ebos.master.model.DivisionGeografica;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Periodos fiscales definidos para cada pais
@@ -29,7 +29,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernatePeriodoFiscalPais.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernatePeriodoFiscalPais extends Contabilidad<HibernatePeriodoFiscalPais> implements PeriodoFiscalPais {
+public class HibernatePeriodoFiscalPais extends HibernateContabilidad implements PeriodoFiscalPais {
 
 	private static final long serialVersionUID = -6957465871366953630L;
 

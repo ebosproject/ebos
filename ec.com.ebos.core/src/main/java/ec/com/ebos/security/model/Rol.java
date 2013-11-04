@@ -5,7 +5,7 @@ import java.util.Set;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface Rol {
+public interface Rol extends Security {
 
 	public Auditoria getAuditoria();
 

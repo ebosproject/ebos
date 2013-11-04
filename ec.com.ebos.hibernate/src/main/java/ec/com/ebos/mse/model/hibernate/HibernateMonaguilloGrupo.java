@@ -34,7 +34,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateMonaguilloGrupo.TABLE_NAME, schema = Mse.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateMonaguilloGrupo extends Mse<HibernateMonaguilloGrupo> implements MonaguilloGrupo {
+public class HibernateMonaguilloGrupo extends HibernateMse implements MonaguilloGrupo {
 	
 	
 	private static final long serialVersionUID = 3071315408504111078L;

@@ -31,7 +31,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateActivoCustodio.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateActivoCustodio extends Master<HibernateActivoCustodio> implements ActivoCustodio{
+public class HibernateActivoCustodio extends HibernateMaster implements ActivoCustodio{
 
 	private static final long serialVersionUID = 8578280108376775316L;
 	

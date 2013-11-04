@@ -10,12 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.Propiedad;
 import ec.com.ebos.master.model.PropiedadValor;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * Theme clase
@@ -26,7 +25,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = HibernatePropiedadValor.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
-public class HibernatePropiedadValor extends Master<HibernatePropiedadValor> implements PropiedadValor {
+public class HibernatePropiedadValor extends HibernateMaster implements PropiedadValor {
     
 	private static final long serialVersionUID = -5344259206776358470L;
 

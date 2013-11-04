@@ -22,7 +22,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Table(name = HibernateTurno.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateTurno extends Bitacora<HibernateTurno> implements Turno{
+public class HibernateTurno extends HibernateBitacora implements Turno{
 
 	private static final long serialVersionUID = 3922934845182492539L;
 

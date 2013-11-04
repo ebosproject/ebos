@@ -28,7 +28,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = HibernateSucursal.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
-public class HibernateSucursal extends Master<HibernateSucursal> implements Sucursal{
+public class HibernateSucursal extends HibernateMaster implements Sucursal{
 
 	private static final long serialVersionUID = 7508531917964868788L;
 

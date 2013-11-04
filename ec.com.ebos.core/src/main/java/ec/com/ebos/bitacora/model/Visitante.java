@@ -2,7 +2,7 @@ package ec.com.ebos.bitacora.model;
 
 import ec.com.ebos.root.model.Auditoria;
 
-public interface Visitante {
+public interface Visitante extends Bitacora {
 
 	public String getApellidos();
 

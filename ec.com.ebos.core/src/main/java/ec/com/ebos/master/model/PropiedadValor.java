@@ -1,6 +1,6 @@
 package ec.com.ebos.master.model;
 
-public interface PropiedadValor {
+public interface PropiedadValor extends Master {
 
 	public Long getId();
 

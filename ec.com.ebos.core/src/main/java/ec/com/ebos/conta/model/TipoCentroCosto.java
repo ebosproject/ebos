@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ec.com.ebos.root.model.Entidad;
 
-public interface TipoCentroCosto {
+public interface TipoCentroCosto extends Contabilidad {
 
 	public Set<CentroCosto> getCentroCostoList();
 

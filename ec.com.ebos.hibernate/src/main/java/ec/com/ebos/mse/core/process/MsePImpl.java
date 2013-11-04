@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import ec.com.ebos.conta.exception.ContaException;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.Grupo;
+import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
 import ec.com.ebos.mse.model.field.Grupo_;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
@@ -18,7 +19,7 @@ import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
-import ec.com.ebos.root.model.hibernate.HibernateEntidad.Estado;
+import ec.com.ebos.root.model.Entidad.Estado;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.StringUtils;
@@ -36,8 +37,8 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     // Grupo
     //
     @Override
-    public List<HibernateGrupo> findGrupoList(HibernateGrupo grupo, Pagination pagination) {
-        GenericCriteria<HibernateGrupo> criteria = GenericCriteria.forClass(HibernateGrupo.class);
+    public List<Grupo> findGrupoList(Grupo grupo, Pagination pagination) {
+        GenericCriteria<Grupo> criteria = GenericCriteria.forClass(Grupo.class);
         criteria.addAliasedJoins(Grupo_.creador);
         criteria.addAliasedLeftJoins(Grupo_.modificador);
         criteria.addEqualsIfNotZero(Grupo_.id, grupo.getId());
@@ -52,14 +53,14 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
 
     @Override
-    public HibernateGrupo createGrupo() {
-        HibernateGrupo grupo = new HibernateGrupo();
+    public Grupo createGrupo() {
+        Grupo grupo = new HibernateGrupo();
         grupo.setEstado(Estado.INACTIVO);
         return grupo;
     }
 
     @Override
-    public HibernateGrupo saveGrupo(HibernateGrupo grupo) {
+    public Grupo saveGrupo(Grupo grupo) {
     	if(!EntityUtils.isPersistent(grupo)){
     		grupo.setEstado(Estado.ACTIVO);
     	}
@@ -69,7 +70,7 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
 
     @Override
-    public void deleteGrupo(HibernateGrupo grupo) {
+    public void deleteGrupo(Grupo grupo) {
         Long id = grupo.getId();
         delete(grupo);
         putSuccess("grupo.success.delete",id);
@@ -79,8 +80,8 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     // Monaguillo
     //
     @Override
-    public List<HibernateMonaguillo> findMonaguilloList(HibernateMonaguillo monaguillo, Pagination pagination) {
-        GenericCriteria<HibernateMonaguillo> criteria = GenericCriteria.forClass(HibernateMonaguillo.class);
+    public List<Monaguillo> findMonaguilloList(Monaguillo monaguillo, Pagination pagination) {
+        GenericCriteria<Monaguillo> criteria = GenericCriteria.forClass(Monaguillo.class);
         criteria.addAliasedJoins(Monaguillo_.persona, Monaguillo_.creador);
         criteria.addAliasedLeftJoins(Monaguillo_.modificador);
         
@@ -97,12 +98,12 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
         return findByCriteria(criteria, pagination);
     }
     
-    public List<HibernateMonaguillo> findMonaguilloList(String query){
+    public List<Monaguillo> findMonaguilloList(String query){
     	if(StringUtils.isBlank(query)){
-			return new ArrayList<HibernateMonaguillo>();
+			return new ArrayList<Monaguillo>();
 		}
 	
-		GenericCriteria<HibernateMonaguillo> criteria = GenericCriteria.forClass(HibernateMonaguillo.class);
+		GenericCriteria<Monaguillo> criteria = GenericCriteria.forClass(Monaguillo.class);
 		criteria.addAliasedJoins(Monaguillo_.persona);
 		
 		if(NumberUtils.tryParseLong(query)){
@@ -118,8 +119,8 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
     
     @Override
-    public List<HibernateMonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo){
-    	GenericCriteria<HibernateMonaguilloGrupo> criteria = GenericCriteria.forClass(HibernateMonaguilloGrupo.class);
+    public List<MonaguilloGrupo> getMonaguilloGrupoList(Grupo grupo){
+    	GenericCriteria<MonaguilloGrupo> criteria = GenericCriteria.forClass(MonaguilloGrupo.class);
         criteria.addAliasedJoins(MonaguilloGrupo_.monaguillo, MonaguilloGrupo_.monaguillo+"."+MonaguilloGrupo_.persona,MonaguilloGrupo_.creador);
         criteria.addAliasedLeftJoins(MonaguilloGrupo_.modificador);
         criteria.addEquals(MonaguilloGrupo_.grupo, grupo);        
@@ -127,14 +128,14 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
     
        @Override
-    public HibernateMonaguillo createMonaguillo() {
-        HibernateMonaguillo monaguillo = new HibernateMonaguillo();
+    public Monaguillo createMonaguillo() {
+        Monaguillo monaguillo = new HibernateMonaguillo();
         monaguillo.setEstado(Estado.INACTIVO);
         return monaguillo;
     }
 
     @Override
-    public HibernateMonaguillo saveMonaguillo(HibernateMonaguillo monaguillo) {
+    public Monaguillo saveMonaguillo(Monaguillo monaguillo) {
         
         if(!EntityUtils.isPersistent(monaguillo)){
         	monaguillo.setEstado(Estado.ACTIVO);
@@ -146,7 +147,7 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
 
     @Override
-    public void deleteMonaguillo(HibernateMonaguillo monaguillo) {
+    public void deleteMonaguillo(Monaguillo monaguillo) {
         Long id = monaguillo.getId();
         delete(monaguillo);
         putSuccess("monaguillo.success.delete",id);
@@ -160,13 +161,13 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
     }
 
     @Override
-	public void saveMonaguilloGrupo(HibernateMonaguilloGrupo monaguilloGrupo){
+	public void saveMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
     	 monaguilloGrupo = saveOrMerge(monaguilloGrupo);
          putSuccess("monaguilloGrupo.success.save", monaguilloGrupo.getId());
     }
 
     @Override
-	public void deleteMonaguilloGrupo(HibernateMonaguilloGrupo monaguilloGrupo){
+	public void deleteMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
     	Long id = monaguilloGrupo.getId();
         delete(monaguilloGrupo);
         putSuccess("monaguilloGrupo.success.delete",id);

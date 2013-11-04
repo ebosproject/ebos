@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import ec.com.ebos.root.model.Auditoria;
 
-public interface Configuracion {
+public interface Configuracion extends Administracion{
 
 	public String getAppidSmsGateway();
 

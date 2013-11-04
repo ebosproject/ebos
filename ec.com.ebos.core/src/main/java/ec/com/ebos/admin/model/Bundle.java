@@ -13,7 +13,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 
 
 
-public interface Bundle {
+public interface Bundle extends Administracion{
 
 	public String getCodigo();
 

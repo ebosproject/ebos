@@ -21,17 +21,20 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.hibernate.HibernateCentroCostoEmpresa;
-import ec.com.ebos.conta.model.hibernate.HibernateCuentaCentro;
-import ec.com.ebos.conta.model.hibernate.HibernateCuentaContableEmpresa;
-import ec.com.ebos.conta.model.hibernate.HibernateEjercicio;
+import ec.com.ebos.conta.model.CentroCostoEmpresa;
+import ec.com.ebos.conta.model.CuentaCentro;
+import ec.com.ebos.conta.model.CuentaContableEmpresa;
+import ec.com.ebos.conta.model.Ejercicio;
 import ec.com.ebos.conta.model.hibernate.field.CentroCostoEmpresa_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaContableEmpresa_;
 import ec.com.ebos.conta.model.hibernate.field.Ejercicio_;
+import ec.com.ebos.master.model.Activo;
+import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.master.model.Sucursal;
 import ec.com.ebos.master.model.field.Activo_;
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Sucursal_;
@@ -46,7 +49,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateOrganizacion.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateOrganizacion extends Master<HibernateOrganizacion> implements Organizacion{
+public class HibernateOrganizacion extends HibernateMaster implements Organizacion{
 
 	private static final long serialVersionUID = 7508531917964868788L;
 
@@ -77,23 +80,23 @@ public class HibernateOrganizacion extends Master<HibernateOrganizacion> impleme
     private Entidad.Estado estado;
 	
 	@OneToMany(mappedBy = EmpresaPersona_.empresa, fetch= FetchType.LAZY)
-    private Set<HibernateEmpresaPersona> empresaPersonaList = new HashSet<HibernateEmpresaPersona>(0);
+    private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);
 	
 	@OneToMany(mappedBy = Sucursal_.empresa, fetch= FetchType.LAZY)
-    private Set<HibernateSucursal> sucursalList = new HashSet<HibernateSucursal>(0);	
+    private Set<Sucursal> sucursalList = new HashSet<Sucursal>(0);	
 	
 	@OneToMany(mappedBy = Activo_.empresa, fetch= FetchType.LAZY)
-    private Set<HibernateActivo> activoList = new HashSet<HibernateActivo>(0);
+    private Set<Activo> activoList = new HashSet<Activo>(0);
 	
 	@OneToMany(mappedBy = CentroCostoEmpresa_.empresa, fetch = FetchType.LAZY)
-    private Set<HibernateCentroCostoEmpresa> centroCostoEmpresaList = new HashSet<HibernateCentroCostoEmpresa>(0);
+    private Set<CentroCostoEmpresa> centroCostoEmpresaList = new HashSet<CentroCostoEmpresa>(0);
 	
 	@OneToMany(mappedBy = CuentaCentro_.empresa, fetch = FetchType.LAZY)
-    private Set<HibernateCuentaCentro> cuentaCentroList = new HashSet<HibernateCuentaCentro>(0);
+    private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
 	
 	@OneToMany(mappedBy = CuentaContableEmpresa_.empresa, fetch = FetchType.LAZY)
-    private Set<HibernateCuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<HibernateCuentaContableEmpresa>(0);
+    private Set<CuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<CuentaContableEmpresa>(0);
 	
 	@OneToMany(mappedBy = Ejercicio_.empresa, fetch = FetchType.LAZY)
-    private Set<HibernateEjercicio> ejercicioList = new HashSet<HibernateEjercicio>(0);
+    private Set<Ejercicio> ejercicioList = new HashSet<Ejercicio>(0);
 }

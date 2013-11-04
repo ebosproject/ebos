@@ -12,9 +12,12 @@ import org.springframework.stereotype.Repository;
 import ec.com.ebos.conta.exception.ContaException;
 import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.CentroCosto;
+import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.conta.model.Ejercicio;
 import ec.com.ebos.conta.model.Periodo;
 import ec.com.ebos.conta.model.SaldoCentroCosto;
+import ec.com.ebos.conta.model.SaldoCuentaCentro;
 import ec.com.ebos.conta.model.SaldoCuentaContable;
 import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
@@ -22,7 +25,6 @@ import ec.com.ebos.conta.model.hibernate.HibernateCentroCosto;
 import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
 import ec.com.ebos.conta.model.hibernate.HibernatePeriodo;
 import ec.com.ebos.conta.model.hibernate.HibernateSaldoCentroCosto;
-import ec.com.ebos.conta.model.hibernate.HibernateSaldoCuentaCentro;
 import ec.com.ebos.conta.model.hibernate.HibernateSaldoCuentaContable;
 import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 import ec.com.ebos.conta.model.hibernate.field.CentroCosto_;
@@ -80,7 +82,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		criteria.addGE(Periodo_.fechaInicial, periodo.getFechaInicial());
 		criteria.addEquals(Ejercicio_.empresa, getSessionBean().getEmpresa());
 		criteria.addOrderAsc(Periodo_.fechaInicial);
-		criteria.addNotEquals(Periodo_.estado, ec.com.ebos.conta.model.Estado.PENDIENTE);
+		criteria.addNotEquals(Periodo_.estado, Periodo.Estado.PENDIENTE);
 		return findByCriteria(criteria, true);
 	}
 
@@ -134,11 +136,11 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		List<HibernateAsientoDetalle> saldos = listAsientoDetalle(asiento);
 		//Este mapa alamcenara temporalemten todas las cuentas, padres e hijas usadas en el asiento
 		// de tal manera que no hagamos conultas a la base para obtenerlas cada vez que las necesitemos
-		Map<Long, HibernateCuentaContable> cuentasDeAsiento = new HashMap<Long, HibernateCuentaContable>();
-		Map<Long, HibernateCentroCosto> centrosDeAsiento = new HashMap<Long, HibernateCentroCosto>();
-		Map<HibernateCuentaContable, HibernateSaldoCuentaContable> saldosCuentaMap= new HashMap<HibernateCuentaContable, HibernateSaldoCuentaContable>();
-		Map<String, HibernateSaldoCuentaCentro> saldosCuentaCentroMap= new HashMap<String, HibernateSaldoCuentaCentro>();
-		Map<HibernateCentroCosto, HibernateSaldoCentroCosto> saldosCentroMap= new HashMap<HibernateCentroCosto, HibernateSaldoCentroCosto>();
+		Map<Long, CuentaContable> cuentasDeAsiento = new HashMap<Long, CuentaContable>();
+		Map<Long, CentroCosto> centrosDeAsiento = new HashMap<Long, CentroCosto>();
+		Map<CuentaContable, SaldoCuentaContable> saldosCuentaMap= new HashMap<CuentaContable, SaldoCuentaContable>();
+		Map<String, SaldoCuentaCentro> saldosCuentaCentroMap= new HashMap<String, SaldoCuentaCentro>();
+		Map<CentroCosto, SaldoCentroCosto> saldosCentroMap= new HashMap<CentroCosto, SaldoCentroCosto>();
 
 		List<HibernatePeriodo> periodoList = listPeriodosPosteriores(periodoAsiento);
 		for (AsientoDetalle detalle : saldos) {
@@ -152,29 +154,29 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			}
 		}
 		
-		Collection<HibernateSaldoCuentaContable> saldosCuenta = saldosCuentaMap.values();
+		Collection<SaldoCuentaContable> saldosCuenta = saldosCuentaMap.values();
 		for (SaldoCuentaContable saldoCuentaContable : saldosCuenta) {
 			saveOrUpdate(saldoCuentaContable);
 		}
-		Collection<HibernateSaldoCuentaCentro> saldosCuentaCentro = saldosCuentaCentroMap.values();
-		for (HibernateSaldoCuentaCentro saldoCuentaCentro : saldosCuentaCentro) {
+		Collection<SaldoCuentaCentro> saldosCuentaCentro = saldosCuentaCentroMap.values();
+		for (SaldoCuentaCentro saldoCuentaCentro : saldosCuentaCentro) {
 			saveOrUpdate(saldoCuentaCentro);
 		}
-		Collection<HibernateSaldoCentroCosto> saldosCentro = saldosCentroMap.values();
-		for (HibernateSaldoCentroCosto saldoCentroCosto : saldosCentro) {
+		Collection<SaldoCentroCosto> saldosCentro = saldosCentroMap.values();
+		for (SaldoCentroCosto saldoCentroCosto : saldosCentro) {
 			saveOrUpdate(saldoCentroCosto);
 		}
 		return true;
 	}
 	
-	private void actualizarSaldosCuentasContbables(Map<Long, HibernateCuentaContable> cuentasDeAsiento, Map<HibernateCuentaContable, 
-			HibernateSaldoCuentaContable> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
-		HibernateCuentaContable cuenta = detalle.getCuentaContable();
+	private void actualizarSaldosCuentasContbables(Map<Long, CuentaContable> cuentasDeAsiento, Map<CuentaContable, 
+			SaldoCuentaContable> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
+		CuentaContable cuenta = detalle.getCuentaContable();
 		boolean continuar= true;
 		do {
 			continuar = cuenta.getPadre()!=null;
 			//Verificamos si ya obtuvimos el saldo de la cuenta a afectar
-			HibernateSaldoCuentaContable saldoCuenta = mapSaldos.get(cuenta);
+			SaldoCuentaContable saldoCuenta = mapSaldos.get(cuenta);
 			if(saldoCuenta==null) {
 				saldoCuenta = new HibernateSaldoCuentaContable();
 				saldoCuenta.setPeriodo(periodo);
@@ -198,7 +200,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			mapSaldos.put(cuenta, saldoCuenta);
 			//
 			if(continuar) {
-				HibernateCuentaContable cuentaPadre = cuentasDeAsiento.get(cuenta.getPadre().getId());
+				CuentaContable cuentaPadre = cuentasDeAsiento.get(cuenta.getPadre().getId());
 				if(cuentaPadre==null) {
 					cuentaPadre = getCuentaContable(cuenta.getPadre().getId());
 					cuentasDeAsiento.put(cuenta.getId(), cuenta);
@@ -208,14 +210,14 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 		} while (continuar); 
 	}
 	
-	private void actualizarSaldosCentrosCosto(Map<Long, HibernateCentroCosto> centrosDeAsiento, Map<HibernateCentroCosto, 
-			HibernateSaldoCentroCosto> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
-		HibernateCentroCosto centro = detalle.getCentroCosto();
+	private void actualizarSaldosCentrosCosto(Map<Long, CentroCosto> centrosDeAsiento, Map<CentroCosto, 
+			SaldoCentroCosto> mapSaldos, Periodo periodo, AsientoDetalle detalle, int signo) {
+		CentroCosto centro = detalle.getCentroCosto();
 		boolean continuar= true;
 		do {
 			continuar = centro.getPadre()!=null;
 			//Verificamos si ya obtuvimos el saldo de la cuenta a afectar
-			HibernateSaldoCentroCosto saldoCentro = mapSaldos.get(centro);
+			SaldoCentroCosto saldoCentro = mapSaldos.get(centro);
 			if(saldoCentro==null) {
 				saldoCentro = new HibernateSaldoCentroCosto();
 				saldoCentro.setPeriodo(periodo);
@@ -239,7 +241,7 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
 			mapSaldos.put(centro, saldoCentro);
 			//
 			if(continuar) {
-				HibernateCentroCosto cuentaPadre = centrosDeAsiento.get(centro.getPadre().getId());
+				CentroCosto cuentaPadre = centrosDeAsiento.get(centro.getPadre().getId());
 				if(cuentaPadre==null) {
 					cuentaPadre = getCentroCosto(centro.getPadre().getId());
 					centrosDeAsiento.put(centro.getId(), centro);
@@ -253,8 +255,8 @@ public class ContaPImpl extends RootPImpl<Object, ContaException> implements Con
     // TipoCuenta
     //
     @Override
-    public List<HibernateTipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination) {
-        GenericCriteria<HibernateTipoCuenta> criteria = GenericCriteria.forClass(HibernateTipoCuenta.class);
+    public List<TipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta, Pagination pagination) {
+        GenericCriteria<TipoCuenta> criteria = GenericCriteria.forClass(TipoCuenta.class);
         
         criteria.addEqualsIfNotZero(TipoCuenta_.id, tipoCuenta.getId());
         if(criteria.isChanged()){

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import ec.com.ebos.admin.model.TipoRetencion;
 import ec.com.ebos.root.model.Auditoria;
 
-public interface SaldoRetencion {
+public interface SaldoRetencion extends Contabilidad {
 
 	public Auditoria getAuditoria();
 

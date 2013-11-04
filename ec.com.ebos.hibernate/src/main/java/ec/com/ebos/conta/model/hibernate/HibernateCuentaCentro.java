@@ -36,7 +36,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateCuentaCentro.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCuentaCentro extends Contabilidad<HibernateCuentaCentro> implements CuentaCentro {
+public class HibernateCuentaCentro extends HibernateContabilidad implements CuentaCentro {
 
 	private static final long serialVersionUID = 1943393643558976463L;
 	

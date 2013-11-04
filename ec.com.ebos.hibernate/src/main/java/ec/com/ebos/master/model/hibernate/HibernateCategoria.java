@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.master.model.Activo;
 import ec.com.ebos.master.model.ActivoCategoria;
 import ec.com.ebos.master.model.Categoria;
 import ec.com.ebos.master.model.Master;
@@ -33,7 +34,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = HibernateCategoria.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
-public class HibernateCategoria extends Master<HibernateCategoria> implements ActivoCategoria, Categoria {
+public class HibernateCategoria extends HibernateMaster implements ActivoCategoria, Categoria {
     
 	private static final long serialVersionUID = 2268813629003896997L;
 
@@ -61,9 +62,9 @@ public class HibernateCategoria extends Master<HibernateCategoria> implements Ac
     private Entidad.Estado estado;
     
     @OneToMany(mappedBy = "categoria", fetch= FetchType.LAZY)
-    private Set<HibernateActivo> activoList = new HashSet<HibernateActivo>(0);       
+    private Set<Activo> activoList = new HashSet<Activo>(0);       
     
     @OneToMany(mappedBy = "padre", fetch= FetchType.LAZY)
-    private Set<HibernateCategoria> categoriaList = new HashSet<HibernateCategoria>(0);
+    private Set<Categoria> categoriaList = new HashSet<Categoria>(0);
 }
 

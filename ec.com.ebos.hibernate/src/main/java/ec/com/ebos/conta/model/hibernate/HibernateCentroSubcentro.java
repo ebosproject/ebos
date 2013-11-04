@@ -33,7 +33,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateCentroSubcentro.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCentroSubcentro extends Contabilidad<HibernateCentroSubcentro> implements CentroSubcentro {
+public class HibernateCentroSubcentro extends HibernateContabilidad implements CentroSubcentro {
 
 	private static final long serialVersionUID = 3656927531814475058L;
 

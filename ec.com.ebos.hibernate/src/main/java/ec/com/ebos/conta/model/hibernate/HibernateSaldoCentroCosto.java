@@ -25,7 +25,6 @@ import ec.com.ebos.conta.model.Periodo;
 import ec.com.ebos.conta.model.SaldoCentroCosto;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.Entidad.Estado;
 
 /**
  * Saldos centros de costos
@@ -38,7 +37,7 @@ import ec.com.ebos.root.model.Entidad.Estado;
 @Table(name = HibernateSaldoCentroCosto.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class HibernateSaldoCentroCosto extends Contabilidad<HibernateSaldoCentroCosto> implements SaldoCentroCosto {
+public class HibernateSaldoCentroCosto extends HibernateContabilidad implements SaldoCentroCosto {
 
 	private static final long serialVersionUID = 5615088107461153660L;
 

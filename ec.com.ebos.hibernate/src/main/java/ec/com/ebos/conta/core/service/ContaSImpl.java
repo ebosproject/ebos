@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import ec.com.ebos.conta.core.process.ContaP;
 import ec.com.ebos.conta.model.TipoCuenta;
-import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -33,7 +32,7 @@ public class ContaSImpl implements ContaS{
 	//
 	
 	@Override
-	public List<HibernateTipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta,
+	public List<TipoCuenta> findTipoCuentaList(TipoCuenta tipoCuenta,
 			Pagination pagination) {		
 		return contaP.findTipoCuentaList(tipoCuenta, pagination);
 	}

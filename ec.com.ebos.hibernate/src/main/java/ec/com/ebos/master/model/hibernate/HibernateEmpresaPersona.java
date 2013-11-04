@@ -21,14 +21,15 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.master.model.ActivoCustodio;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
+import ec.com.ebos.security.model.Usuario;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -38,7 +39,7 @@ import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 @Table(name = HibernateEmpresaPersona.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateEmpresaPersona extends Master<HibernateEmpresaPersona> implements EmpresaPersona{
+public class HibernateEmpresaPersona extends HibernateMaster implements EmpresaPersona{
 
 	private static final long serialVersionUID = 6960552970253412538L;
 
@@ -67,9 +68,10 @@ public class HibernateEmpresaPersona extends Master<HibernateEmpresaPersona> imp
     private Entidad.Estado estado;
 	
 	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY)
-    private Set<HibernateUsuario> usuarioList = new HashSet<HibernateUsuario>(0);
+    private Set<Usuario> usuarioList = new HashSet<Usuario>(0);
+	
 	
 	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY)
-    private Set<HibernateActivoCustodio> activoCustodioList = new HashSet<HibernateActivoCustodio>(0);
+    private Set<ActivoCustodio> activoCustodioList = new HashSet<ActivoCustodio>(0);
 	
 }

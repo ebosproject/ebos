@@ -13,14 +13,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.field.AsientoDetalle_;
-import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
+import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.mse.model.Grupo;
+import ec.com.ebos.mse.model.MonaguilloGrupo;
 import ec.com.ebos.mse.model.Mse;
 import ec.com.ebos.mse.model.field.Grupo_;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
@@ -38,7 +40,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateGrupo.TABLE_NAME, schema = Mse.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class HibernateGrupo extends Mse<HibernateGrupo> implements Grupo {
+public class HibernateGrupo extends HibernateMse implements Grupo {
 	
 	private static final long serialVersionUID = 2824372366156085256L;
 	
@@ -65,9 +67,9 @@ public class HibernateGrupo extends Mse<HibernateGrupo> implements Grupo {
     private Entidad.Estado estado;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
-    private Set<HibernateAsientoDetalle> asientoDetalleList = new HashSet<HibernateAsientoDetalle>(0);
+    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
 	
 	@OneToMany(mappedBy = MonaguilloGrupo_.grupo, fetch = FetchType.LAZY)
-    private Set<HibernateMonaguilloGrupo> monaguilloGrupoList = new HashSet<HibernateMonaguilloGrupo>(0);
+    private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
 	
 }

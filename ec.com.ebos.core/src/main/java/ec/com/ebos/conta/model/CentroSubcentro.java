@@ -2,7 +2,7 @@ package ec.com.ebos.conta.model;
 
 import ec.com.ebos.root.model.Entidad;
 
-public interface CentroSubcentro {
+public interface CentroSubcentro extends Contabilidad{
 
 	public CentroCosto getCentroCosto();
 

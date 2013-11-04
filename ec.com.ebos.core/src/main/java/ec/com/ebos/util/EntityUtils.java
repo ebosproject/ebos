@@ -132,7 +132,6 @@ public class EntityUtils {
 	 * @param entityList
 	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
 	public static <T extends Entidad> List<Object> buildValueList(T... entityList) {
 		List<Object> values = new ArrayList<Object>();
 		if (!ObjectUtils.isEmpty(entityList)) {
@@ -204,7 +203,6 @@ public class EntityUtils {
 	 * @param pattern String
 	 * @return 
 	 */
-	@SuppressWarnings("rawtypes")
 	public static <T extends IEntidad> List<T> filterCollectionByTokens(List<T> col, String pattern) {
 		if (pattern == null || "".equals(pattern))
 			return col;
@@ -244,7 +242,6 @@ public class EntityUtils {
 	 * @param pattern String
 	 * @return 
 	 */
-	@SuppressWarnings("rawtypes")
 	public static <T extends IEntidad> List<T> filterCollectionByContains(List<T> col, String pattern) {
 		if (pattern == null || "".equals(pattern))
 			return col;
@@ -264,7 +261,6 @@ public class EntityUtils {
 	 * @param pattern String
 	 * @return 
 	 */
-	@SuppressWarnings("rawtypes")
 	public static <T extends IEntidad> List<T> filterCollectionByStartsWith(List<T> col, String pattern) {
 		if (pattern == null || "".equals(pattern))
 			return col;

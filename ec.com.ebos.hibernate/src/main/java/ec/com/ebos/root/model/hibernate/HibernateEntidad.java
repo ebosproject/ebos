@@ -1,10 +1,7 @@
 package ec.com.ebos.root.model.hibernate;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 import javax.persistence.Transient;
 
@@ -13,18 +10,14 @@ import lombok.Setter;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
 
 /**
  * Superclase para todas las @Entidades de todos los modulos del sistema
  *
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements Entidad, Serializable, Entidad<T> {
+//public abstract class HibernateEntidad<T extends HibernateEntidad<T>> implements Entidad, Serializable {
+public abstract class HibernateEntidad implements Entidad, Serializable {
 
 	private static final long serialVersionUID = 2233398298735454479L;
 	

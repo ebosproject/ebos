@@ -1,12 +1,13 @@
 package ec.com.ebos.security.model;
 
+import java.util.Date;
 import java.util.Set;
 
+import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.util.type.StringValuedEnum;
 
-public interface Usuario {
+public interface Usuario extends Security {
 
 	public Auditoria getAuditoria();
 
@@ -14,11 +15,11 @@ public interface Usuario {
 
 	public EmpresaPersona getEmpresaPersona();
 
-	public StringValuedEnum<?> getEstado();
+	public Estado getEstado();
 
 	public Long getId();
 
-	public StringValuedEnum<?> getLocalidad();
+	public Localidad getLocalidad();
 
 	public int getMaxOptions();
 
@@ -38,11 +39,11 @@ public interface Usuario {
 
 	public void setEmpresaPersona(EmpresaPersona empresaPersona);
 
-	public void setEstado(StringValuedEnum<?> estado);
+	public void setEstado(Estado estado);
 
 	public void setId(Long id);
 
-	public void setLocalidad(StringValuedEnum<?> localidad);
+	public void setLocalidad(Localidad localidad);
 
 	public void setMaxOptions(int maxOptions);
 
@@ -56,12 +57,6 @@ public interface Usuario {
 
 	public void setUsuarioRolList(Set<UsuarioRol> usuarioRolList);
 
-	public java.lang.String toString();
-
-	public boolean canEqual(java.lang.Object other);
-
-	public boolean equals(java.lang.Object o);
-
-	public int hashCode();
+	public Date getCreado();
 
 }

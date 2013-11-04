@@ -3,7 +3,7 @@ package ec.com.ebos.mse.model;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface MonaguilloGrupo {
+public interface MonaguilloGrupo extends Entidad {
 
 	public Auditoria getAuditoria();
 

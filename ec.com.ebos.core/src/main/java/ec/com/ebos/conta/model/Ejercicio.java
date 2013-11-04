@@ -7,7 +7,7 @@ import java.util.Set;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.root.model.Entidad;
 
-public interface Ejercicio {
+public interface Ejercicio extends Contabilidad {
 
 	public String getCodigo();
 

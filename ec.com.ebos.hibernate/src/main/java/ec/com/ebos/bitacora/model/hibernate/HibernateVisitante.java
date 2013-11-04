@@ -23,7 +23,7 @@ import ec.com.ebos.root.model.Auditoria;
 @Table(name = HibernateVisitante.TABLE_NAME, schema = Bitacora.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateVisitante extends Bitacora<HibernateVisitante> implements Visitante{
+public class HibernateVisitante extends HibernateBitacora implements Visitante{
 
 	private static final long serialVersionUID = -372384679228539239L;
 

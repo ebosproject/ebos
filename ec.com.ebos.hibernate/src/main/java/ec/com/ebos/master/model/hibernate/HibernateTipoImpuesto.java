@@ -1,9 +1,5 @@
 package ec.com.ebos.master.model.hibernate;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -14,7 +10,6 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
@@ -22,13 +17,8 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.TipoImpuesto;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
+import ec.com.ebos.root.model.hibernate.HibernateEntidad;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * @author <a href="mailto:vipconsultoresaso@gmail.com">VIP Consultores</a>
@@ -39,7 +29,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Table(name = HibernateTipoImpuesto.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateTipoImpuesto extends Entidad<HibernateTipoImpuesto> implements TipoImpuesto{
+public class HibernateTipoImpuesto extends HibernateEntidad implements TipoImpuesto{
 
 	private static final long serialVersionUID = 3922934845182492539L;
 	

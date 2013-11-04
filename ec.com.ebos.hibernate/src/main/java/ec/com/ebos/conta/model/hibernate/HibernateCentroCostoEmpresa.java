@@ -28,7 +28,7 @@ import ec.com.ebos.master.model.Organizacion;
 @Table(name = HibernateCentroCostoEmpresa.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCentroCostoEmpresa extends Contabilidad<HibernateCentroCostoEmpresa> implements CentroCostoEmpresa {
+public class HibernateCentroCostoEmpresa extends HibernateContabilidad implements CentroCostoEmpresa {
 
 
 	private static final long serialVersionUID = 3057838065566530983L;

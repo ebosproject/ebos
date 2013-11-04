@@ -25,7 +25,7 @@ import ec.com.ebos.admin.model.hibernate.field.Bundle_;
 	uniqueConstraints = @UniqueConstraint(columnNames={Bundle_.codigo, Bundle_.localidad}))
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
-public class HibernateBundle extends Administracion<HibernateBundle> implements Bundle{
+public class HibernateBundle extends HibernateAdministracion implements Bundle{
 
 	private static final long serialVersionUID = -2896367216397132540L;
 	

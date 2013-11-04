@@ -15,7 +15,7 @@ import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
 import ec.com.ebos.orm.crud.GenericCriteria;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
-import ec.com.ebos.root.model.hibernate.HibernateEntidad.Estado;
+import ec.com.ebos.root.model.Entidad.Estado;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.StringUtils;
@@ -34,8 +34,8 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 	//
 	
 	@Override
-	public List<HibernatePropiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
-		GenericCriteria<HibernatePropiedad> criteria = GenericCriteria.forClass(HibernatePropiedad.class);
+	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
+		GenericCriteria<Propiedad> criteria = GenericCriteria.forClass(Propiedad.class);
 
 		criteria.addEqualsIfNotZero(Propiedad_.id, propiedad.getId());
 		if(criteria.isChanged()){
@@ -60,7 +60,7 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 	}
 
 	@Override
-	public HibernatePropiedad savePropiedad(HibernatePropiedad propiedad){
+	public Propiedad savePropiedad(Propiedad propiedad){
 		propiedad = saveOrMerge(propiedad);
         putSuccess("propiedad.success.guardar", propiedad.getId());
         return propiedad;
@@ -77,8 +77,8 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 	// Persona
 	//
 	
-	public List<HibernatePersona> findPersonaList(Persona persona, Pagination pagination){
-		GenericCriteria<HibernatePersona> criteria = GenericCriteria.forClass(HibernatePersona.class);
+	public List<Persona> findPersonaList(Persona persona, Pagination pagination){
+		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
 		criteria.addAliasedJoins(Persona_.creador);
 		criteria.addAliasedLeftJoins(Persona_.modificador);
 		
@@ -106,12 +106,12 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 	 * Obtiene una lista de Personas que cumplan el criterio de busqueda
 	 * @param query : String con criterios de busqueda
 	 */
-	public List<HibernatePersona> findPersonaList(String query){
+	public List<Persona> findPersonaList(String query){
 		if(StringUtils.isBlank(query)){
-			return new ArrayList<HibernatePersona>();
+			return new ArrayList<Persona>();
 		}
 	
-		GenericCriteria<HibernatePersona> criteria = GenericCriteria.forClass(HibernatePersona.class);
+		GenericCriteria<Persona> criteria = GenericCriteria.forClass(Persona.class);
 		criteria.addAliasedJoins(Persona_.creador);
 		
 		if(NumberUtils.tryParseLong(query)){
@@ -126,13 +126,13 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
 		return findByCriteria(criteria);
 	}
 
-	public HibernatePersona createPersona(){
-		HibernatePersona persona = new HibernatePersona();
+	public Persona createPersona(){
+		Persona persona = new HibernatePersona();
 		persona.setEstado(Estado.INACTIVO);
 		return persona;
 	}
 
-	public HibernatePersona savePersona(HibernatePersona persona){
+	public Persona savePersona(Persona persona){
 		if(!EntityUtils.isPersistent(persona)){
 			persona.setEstado(Estado.ACTIVO);
 		}
@@ -141,10 +141,12 @@ public class MasterPImpl extends RootPImpl<Object, MasterException> implements M
         return persona;
 	}
 
-	public void deletePersona(HibernatePersona persona){
+	public void deletePersona(Persona persona){
 		Long id = persona.getId();
         delete(persona);
         putSuccess("persona.success.eliminar", id);
 	}
+
+
 	
 }

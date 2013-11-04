@@ -13,14 +13,11 @@ import org.springframework.stereotype.Service;
 
 import ec.com.ebos.admin.core.process.AdministracionP;
 import ec.com.ebos.admin.model.Bundle;
+import ec.com.ebos.admin.model.Configuracion;
 import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.admin.model.hibernate.HibernateBundle;
-import ec.com.ebos.admin.model.hibernate.HibernateConfiguracion;
-import ec.com.ebos.admin.model.hibernate.HibernateObjeto;
-import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
-import ec.com.ebos.admin.model.hibernate.HibernateParametros;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -43,7 +40,7 @@ public class AdministracionSImpl implements AdministracionS{
     //
 	
 	@Override
-	public List<HibernateBundle> findBundleList(Bundle bundle, Pagination pagination) {		
+	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {		
 		return administracionP.findBundleList(bundle, pagination);
 	}
 	
@@ -112,12 +109,12 @@ public class AdministracionSImpl implements AdministracionS{
     //
     
     @Override
-    public List<HibernateParametros> getParametrosList(Parametros param) {
+    public List<Parametros> getParametrosList(Parametros param) {
         return administracionP.getParametrosList(param);
     }
 
     @Override
-    public HibernateParametros saveParametros(HibernateParametros param) {
+    public Parametros saveParametros(Parametros param) {
         return administracionP.saveParametros(param);
     }
     
@@ -126,12 +123,12 @@ public class AdministracionSImpl implements AdministracionS{
     //
 
     @Override
-    public HibernateConfiguracion getConfiguracion() {
+    public Configuracion getConfiguracion() {
         return administracionP.getConfiguracion();
     }
     
     @Override
-    public HibernateConfiguracion saveConfiguracion(HibernateConfiguracion configuracion) {
+    public Configuracion saveConfiguracion(Configuracion configuracion) {
         return administracionP.saveConfiguracion(configuracion);
     }
     
@@ -140,22 +137,22 @@ public class AdministracionSImpl implements AdministracionS{
     //
     
     @Override
-    public List<HibernateOpcion> findOpcionList(Opcion opcion, Pagination pagination) {
+    public List<Opcion> findOpcionList(Opcion opcion, Pagination pagination) {
         return administracionP.findOpcionList(opcion, pagination);
     }
 
     @Override
-    public HibernateOpcion createOpcion() {
+    public Opcion createOpcion() {
         return administracionP.createOpcion();
     }
 
     @Override
-    public HibernateOpcion saveOpcion(HibernateOpcion opcion) {
+    public Opcion saveOpcion(Opcion opcion) {
         return administracionP.saveOpcion(opcion);
     }
 
     @Override
-    public void deleteOpcion(HibernateOpcion opcion) {
+    public void deleteOpcion(Opcion opcion) {
         administracionP.deleteOpcion(opcion);
     }
     
@@ -166,26 +163,26 @@ public class AdministracionSImpl implements AdministracionS{
     }
 
     @Override
-    public List<HibernateOpcion> getOpcionPadreList() {
+    public List<Opcion> getOpcionPadreList() {
         return administracionP.getOpcionPadreList();
     }
     
     //
     // Objeto
     //
-    public List<HibernateObjeto> findObjetoList(Objeto objeto, Pagination pagination){
+    public List<Objeto> findObjetoList(Objeto objeto, Pagination pagination){
     	return administracionP.findObjetoList(objeto, pagination);
     }
 
-    public HibernateObjeto createObjeto(){
+    public Objeto createObjeto(){
     	return administracionP.createObjeto();
     }
 
-    public HibernateObjeto saveObjeto(HibernateObjeto objeto){
+    public Objeto saveObjeto(Objeto objeto){
     	return administracionP.saveObjeto(objeto);
     }
 
-    public void deleteObjeto(HibernateObjeto objeto){
+    public void deleteObjeto(Objeto objeto){
     	administracionP.deleteObjeto(objeto);
     }
 

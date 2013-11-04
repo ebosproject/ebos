@@ -2,7 +2,7 @@ package ec.com.ebos.conta.model;
 
 import ec.com.ebos.master.model.DivisionGeografica;
 
-public interface PeriodoFiscalPais {
+public interface PeriodoFiscalPais extends Contabilidad {
 
 	public String getCodigo();
 

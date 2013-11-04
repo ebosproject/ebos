@@ -21,8 +21,14 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.conta.model.CentroCosto;
+import ec.com.ebos.conta.model.CentroCostoEmpresa;
+import ec.com.ebos.conta.model.CentroSubcentro;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.DocumentoDistribucion;
+import ec.com.ebos.conta.model.SaldoCentroCosto;
+import ec.com.ebos.conta.model.SaldoCuentaCentro;
 import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.conta.model.hibernate.field.CentroCostoEmpresa_;
@@ -33,7 +39,7 @@ import ec.com.ebos.conta.model.hibernate.field.SaldoCentroCosto_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaCentro_;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Se definen los centros de costo a usarse por el grupo de empresas
@@ -46,7 +52,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateCentroCosto.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateCentroCosto extends Contabilidad<HibernateCentroCosto> implements CentroCosto {
+public class HibernateCentroCosto extends HibernateContabilidad implements CentroCosto {
 
 	private static final long serialVersionUID = -567856834893258749L;
 	
@@ -108,35 +114,35 @@ public class HibernateCentroCosto extends Contabilidad<HibernateCentroCosto> imp
     private Entidad.Estado estado = Estado.ACTIVO;
 	
 	@OneToMany(mappedBy = AsientoDetalle_.centroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateAsientoDetalle> asientoDetalleList = new HashSet<HibernateAsientoDetalle>(0);
+    private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
 	
 	@OneToMany(mappedBy = AsientoDetalle_.subcentroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateAsientoDetalle> asientoDetalleList2 = new HashSet<HibernateAsientoDetalle>(0);
+    private Set<AsientoDetalle> asientoDetalleList2 = new HashSet<AsientoDetalle>(0);
 	
 	@OneToMany(mappedBy = CentroCosto_.padre, fetch = FetchType.LAZY)
-    private Set<HibernateCentroCosto> centroCostoList = new HashSet<HibernateCentroCosto>(0);
+    private Set<CentroCosto> centroCostoList = new HashSet<CentroCosto>(0);
 	
 	@OneToMany(mappedBy = CentroCostoEmpresa_.centroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateCentroCostoEmpresa> centroCostoEmpresaList = new HashSet<HibernateCentroCostoEmpresa>(0);
+    private Set<CentroCostoEmpresa> centroCostoEmpresaList = new HashSet<CentroCostoEmpresa>(0);
 	
 	@OneToMany(mappedBy = CentroSubcentro_.centroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateCentroSubcentro> centroSubcentroList = new HashSet<HibernateCentroSubcentro>(0);
+    private Set<CentroSubcentro> centroSubcentroList = new HashSet<CentroSubcentro>(0);
 	
 	@OneToMany(mappedBy = CentroSubcentro_.subcentroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateCentroSubcentro> centroSubcentroList2 = new HashSet<HibernateCentroSubcentro>(0);
+    private Set<CentroSubcentro> centroSubcentroList2 = new HashSet<CentroSubcentro>(0);
 	
 	@OneToMany(mappedBy = DocumentoDistribucion_.centroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateDocumentoDistribucion> documentoDistribucionList = new HashSet<HibernateDocumentoDistribucion>(0);
+    private Set<DocumentoDistribucion> documentoDistribucionList = new HashSet<DocumentoDistribucion>(0);
 	
 	@OneToMany(mappedBy = DocumentoDistribucion_.subcentroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateDocumentoDistribucion> documentoDistribucionList2 = new HashSet<HibernateDocumentoDistribucion>(0);
+    private Set<DocumentoDistribucion> documentoDistribucionList2 = new HashSet<DocumentoDistribucion>(0);
 	
 	@OneToMany(mappedBy = SaldoCentroCosto_.centroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateSaldoCentroCosto> saldoCentroCostoList = new HashSet<HibernateSaldoCentroCosto>(0);
+    private Set<SaldoCentroCosto> saldoCentroCostoList = new HashSet<SaldoCentroCosto>(0);
 	
 	@OneToMany(mappedBy = SaldoCuentaCentro_.centroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateSaldoCuentaCentro> saldoCuentaCentroList = new HashSet<HibernateSaldoCuentaCentro>(0);
+    private Set<SaldoCuentaCentro> saldoCuentaCentroList = new HashSet<SaldoCuentaCentro>(0);
 	
 	@OneToMany(mappedBy = SaldoCuentaCentro_.subcentroCosto, fetch = FetchType.LAZY)
-    private Set<HibernateSaldoCuentaCentro> saldoCuentaCentroList2 = new HashSet<HibernateSaldoCuentaCentro>(0);
+    private Set<SaldoCuentaCentro> saldoCuentaCentroList2 = new HashSet<SaldoCuentaCentro>(0);
 }

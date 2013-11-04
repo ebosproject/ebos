@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ec.com.ebos.conta.model.SaldoRetencion;
 
-public interface TipoRetencion {
+public interface TipoRetencion extends Administracion{
 
 	public Long getId();
 

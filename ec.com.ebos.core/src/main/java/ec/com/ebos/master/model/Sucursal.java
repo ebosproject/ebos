@@ -3,7 +3,7 @@ package ec.com.ebos.master.model;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface Sucursal {
+public interface Sucursal extends Master {
 
 	public Auditoria getAuditoria();
 

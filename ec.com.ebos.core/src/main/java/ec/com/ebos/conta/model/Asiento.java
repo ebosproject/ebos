@@ -6,7 +6,7 @@ import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.TipoDocumento;
 
-public interface Asiento {
+public interface Asiento extends Contabilidad{
 
 	public Set<AsientoDetalle> getAsientoDetalleList();
 

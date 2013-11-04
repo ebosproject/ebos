@@ -1,5 +1,5 @@
 package ec.com.ebos.bitacora.model;
 
-public interface InspeccionDetalle {
+public interface InspeccionDetalle extends Bitacora {
 
 }

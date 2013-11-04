@@ -25,7 +25,7 @@ import ec.com.ebos.root.model.Entidad;
 @Entity
 @Table(name = HibernateTema.TABLE_NAME, schema = Master.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
-public class HibernateTema extends Master<HibernateTema> implements Tema {
+public class HibernateTema extends HibernateMaster implements Tema {
     
 	private static final long serialVersionUID = -1002580062576804439L;
 

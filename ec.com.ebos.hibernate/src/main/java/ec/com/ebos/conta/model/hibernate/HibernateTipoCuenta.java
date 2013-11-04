@@ -1,9 +1,6 @@
 package ec.com.ebos.conta.model.hibernate;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -17,20 +14,15 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.field.CuentaContable_;
-import ec.com.ebos.root.model.field.Entidad_;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.type.StringValuedEnum;
-import ec.com.ebos.util.type.StringValuedEnumReflect;
-import ec.com.ebos.util.type.StringValuedEnumType;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Tipos de cuenta contable
@@ -44,7 +36,7 @@ import ec.com.ebos.util.type.StringValuedEnumType;
 @Data @EqualsAndHashCode(callSuper=false)
 @org.hibernate.annotations.Entity(dynamicUpdate = true)
 @Auditable
-public class HibernateTipoCuenta extends Contabilidad<HibernateTipoCuenta> implements TipoCuenta {
+public class HibernateTipoCuenta extends HibernateContabilidad implements TipoCuenta {
 
 	private static final long serialVersionUID = 948691083807866461L;
 	
@@ -76,18 +68,18 @@ public class HibernateTipoCuenta extends Contabilidad<HibernateTipoCuenta> imple
 	 * Tipo de tipo de cuenta
 	 */
 	@Column(name = "tipo", nullable = false, length = 1)
-    @Type(type = HibernateTipoCuenta.Tipo.TYPE)
-    private HibernateTipoCuenta.Tipo tipo = ec.com.ebos.conta.model.Tipo.BALANCE;
+    @Type(type = TipoCuenta.Tipo.TYPE)
+    private TipoCuenta.Tipo tipo = TipoCuenta.Tipo.BALANCE;
 	
 	/**
 	 * Naturaleza del {@link HibernateTipoCuenta}
 	 */
 	@Column(name = "naturaleza", nullable = false, length = 1)
-    @Type(type = ec.com.ebos.conta.model.Naturaleza.TYPE)
-    private HibernateCuentaContable.Naturaleza naturaleza = ec.com.ebos.conta.model.Naturaleza.DEUDORA;
+    @Type(type = CuentaContable.Naturaleza.TYPE)
+    private CuentaContable.Naturaleza naturaleza = CuentaContable.Naturaleza.DEUDORA;
 	
 	
 	@OneToMany(mappedBy = CuentaContable_.tipoCuenta, fetch = FetchType.LAZY)
-    private Set<HibernateCuentaContable> cuentaContableList = new HashSet<HibernateCuentaContable>(0);
+    private Set<CuentaContable> cuentaContableList = new HashSet<CuentaContable>(0);
 	
 }

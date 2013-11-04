@@ -22,7 +22,7 @@ import ec.com.ebos.security.model.Usuario;
  * @since 2013-02-10
  */
 @Embeddable
-public class HibernateAuditoria implements Serializable, Auditoria{
+public class HibernateAuditoria implements Auditoria, Serializable{
 
 	private static final long serialVersionUID = -2195848600759541457L;
 
@@ -45,4 +45,15 @@ public class HibernateAuditoria implements Serializable, Auditoria{
 	@Column(name = "modificacion")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date modificado;
+
+	@Override
+	public Auditoria getAuditoria() {
+		return null;
+	}
+
+	@Override
+	public void setAuditoria(Auditoria auditoria) {
+		
+	}
+
 }

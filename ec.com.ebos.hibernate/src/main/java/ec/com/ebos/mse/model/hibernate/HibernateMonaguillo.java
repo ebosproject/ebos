@@ -15,14 +15,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Type;
+
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.Monaguillo;
+import ec.com.ebos.mse.model.MonaguilloGrupo;
 import ec.com.ebos.mse.model.Mse;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 import ec.com.ebos.mse.model.field.Monaguillo_;
@@ -40,7 +42,7 @@ import ec.com.ebos.root.model.Entidad;
 @Table(name = HibernateMonaguillo.TABLE_NAME, schema = Mse.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false)
 @Auditable
-public class HibernateMonaguillo extends Mse<HibernateMonaguillo> implements Monaguillo {
+public class HibernateMonaguillo extends HibernateMse implements Monaguillo {
 
 	private static final long serialVersionUID = 8123939355501042044L;
 	
@@ -74,6 +76,6 @@ public class HibernateMonaguillo extends Mse<HibernateMonaguillo> implements Mon
 	private String centroEstudio;
 	
 	@OneToMany(mappedBy = MonaguilloGrupo_.monaguillo, fetch = FetchType.LAZY)
-    private Set<HibernateMonaguilloGrupo> monaguilloGrupoList = new HashSet<HibernateMonaguilloGrupo>(0);
+    private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
 	
 }

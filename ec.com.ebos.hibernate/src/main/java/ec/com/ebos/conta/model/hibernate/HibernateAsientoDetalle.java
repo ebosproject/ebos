@@ -21,8 +21,9 @@ import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.field.Entidad_;
+import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
  * Asientos contables
@@ -35,7 +36,7 @@ import ec.com.ebos.root.model.field.Entidad_;
 @Table(name = HibernateAsientoDetalle.TABLE_NAME, schema = Contabilidad.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateAsientoDetalle extends Contabilidad<HibernateAsientoDetalle> implements AsientoDetalle {
+public class HibernateAsientoDetalle extends HibernateContabilidad implements AsientoDetalle {
 
 	private static final long serialVersionUID = -2771940733623486993L;
 	
@@ -63,14 +64,14 @@ public class HibernateAsientoDetalle extends Contabilidad<HibernateAsientoDetall
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cuenta_contable", nullable = false)
-    private HibernateCuentaContable cuentaContable;
+    private CuentaContable cuentaContable;
 	
 	/**
 	 * Centro de costo
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_centro_costo")
-    private HibernateCentroCosto centroCosto;
+    private CentroCosto centroCosto;
 	
 	/**
 	 * Subcentro de costo
@@ -106,4 +107,5 @@ public class HibernateAsientoDetalle extends Contabilidad<HibernateAsientoDetall
 	 */
 	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;
+
 }

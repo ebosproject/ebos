@@ -12,7 +12,7 @@ import ec.com.ebos.util.type.StringValuedEnum;
 import ec.com.ebos.util.type.StringValuedEnumReflect;
 import ec.com.ebos.util.type.StringValuedEnumType;
 
-public interface TipoCuenta {
+public interface TipoCuenta extends Contabilidad {
 
 	public String getCodigo();
 

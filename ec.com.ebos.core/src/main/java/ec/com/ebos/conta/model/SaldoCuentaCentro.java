@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface SaldoCuentaCentro {
+public interface SaldoCuentaCentro extends Contabilidad {
 
 	public Auditoria getAuditoria();
 

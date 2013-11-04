@@ -6,7 +6,7 @@ import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface DocumentoDistribucion {
+public interface DocumentoDistribucion extends Contabilidad {
 
 	public Auditoria getAuditoria();
 

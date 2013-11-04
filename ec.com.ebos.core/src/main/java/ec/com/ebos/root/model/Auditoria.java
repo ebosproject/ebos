@@ -4,7 +4,11 @@ import java.util.Date;
 
 import ec.com.ebos.security.model.Usuario;
 
-public interface Auditoria {
+public interface Auditoria extends Root{
+	
+	public Auditoria getAuditoria();
+
+	public void setAuditoria(Auditoria auditoria);
 
 	public Usuario getCreador();
 

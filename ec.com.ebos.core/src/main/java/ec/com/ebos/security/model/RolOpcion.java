@@ -4,7 +4,7 @@ import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
-public interface RolOpcion {
+public interface RolOpcion extends Security {
 
 	public Auditoria getAuditoria();
 

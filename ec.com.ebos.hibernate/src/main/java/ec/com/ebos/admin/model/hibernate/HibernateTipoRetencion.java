@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Administracion;
 import ec.com.ebos.admin.model.TipoRetencion;
 import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.hibernate.HibernateSaldoRetencion;
+import ec.com.ebos.conta.model.SaldoRetencion;
 import ec.com.ebos.conta.model.hibernate.field.SaldoRetencion_;
 
 /**
@@ -29,7 +29,7 @@ import ec.com.ebos.conta.model.hibernate.field.SaldoRetencion_;
 @Table(name = HibernateTipoRetencion.TABLE_NAME, schema = Administracion.SCHEMA)
 @Data @EqualsAndHashCode(callSuper=false) 
 @Auditable
-public class HibernateTipoRetencion extends Administracion<HibernateTipoRetencion> implements TipoRetencion {
+public class HibernateTipoRetencion extends HibernateAdministracion implements TipoRetencion {
 
 	private static final long serialVersionUID = -6748190361672935897L;
 
@@ -43,6 +43,6 @@ public class HibernateTipoRetencion extends Administracion<HibernateTipoRetencio
     private Long id;
 	
 	@OneToMany(mappedBy = SaldoRetencion_.tipoRetencion, fetch = FetchType.LAZY)
-    private Set<HibernateSaldoRetencion> saldoRetencionList = new HashSet<HibernateSaldoRetencion>(0);
+    private Set<SaldoRetencion> saldoRetencionList = new HashSet<SaldoRetencion>(0);
     
 }

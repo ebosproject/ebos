@@ -12,15 +12,13 @@ import org.springframework.stereotype.Service;
 import ec.com.ebos.master.core.process.MasterP;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.Propiedad;
-import ec.com.ebos.master.model.hibernate.HibernatePersona;
-import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
  * @author Eduardo Plua Alay
  */
 @Service(MasterS.BEAN_NAME)
-public class MasterSImpl implements MasterS{
+public class MasterSImpl implements MasterS {
     
 	private static final long serialVersionUID = 4753228280831766443L;
 
@@ -34,15 +32,15 @@ public class MasterSImpl implements MasterS{
     // Propiedad
     //
 
-	public List<HibernatePropiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
+	public List<Propiedad> findPropiedadList(Propiedad propiedad, Pagination pagination){
 		return masterP.findPropiedadList(propiedad, pagination);
 	}
 	
-	public HibernatePropiedad createPropiedad(){
+	public Propiedad createPropiedad(){
 		return masterP.buildPropiedad();
 	}
 	
-	public HibernatePropiedad savePropiedad(HibernatePropiedad propiedad){
+	public Propiedad savePropiedad(Propiedad propiedad){
 		return masterP.savePropiedad(propiedad);
 	}
 	
@@ -54,23 +52,23 @@ public class MasterSImpl implements MasterS{
 	// Persona
 	//
 	
-	public List<HibernatePersona> findPersonaList(Persona persona, Pagination pagination){
+	public List<Persona> findPersonaList(Persona persona, Pagination pagination){
 		return masterP.findPersonaList(persona, pagination);
 	}
 	
-	public List<HibernatePersona> findPersonaList(String query){
+	public List<Persona> findPersonaList(String query){
 		return masterP.findPersonaList(query);
 	}
 
-	public HibernatePersona createPersona(){
+	public Persona createPersona(){
 		return masterP.createPersona();
 	}
 
-	public HibernatePersona savePersona(HibernatePersona persona){
+	public Persona savePersona(Persona persona){
 		return masterP.savePersona(persona);
 	}
 
-	public void deletePersona(HibernatePersona persona){
+	public void deletePersona(Persona persona){
 		masterP.deletePersona(persona);
 	}
 }
