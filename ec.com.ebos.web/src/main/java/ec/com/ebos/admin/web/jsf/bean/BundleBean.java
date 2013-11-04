@@ -6,9 +6,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import lombok.Getter;
+
 import org.springframework.stereotype.Component;
 
-import lombok.Getter;
 import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
@@ -29,7 +30,7 @@ public class BundleBean extends AdministracionBean<Bundle> {
 	@Override
     public void getInit() {
         // Para busquedas
-        entitySearch = new Bundle();
+        //entitySearch = new Bundle(); TODO (epa): instanciar
     }
 
     @Override

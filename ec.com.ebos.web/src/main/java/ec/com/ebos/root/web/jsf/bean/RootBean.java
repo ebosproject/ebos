@@ -33,7 +33,7 @@ import ec.com.ebos.util.type.JsfMessage;
  *
  * @author Eduardo Plua Alay
  */
-public abstract class RootBean<T extends Entidad<T>> implements Serializable, JsfMessage{
+public abstract class RootBean<T extends Entidad> implements Serializable, JsfMessage{
 
 	private static final long serialVersionUID = 6416663507886628619L;
 

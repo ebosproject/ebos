@@ -6,7 +6,6 @@ import javax.faces.bean.SessionScoped;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.admin.model.Configuracion;
-import ec.com.ebos.admin.model.HibernateConfiguracion;
 import ec.com.ebos.util.EntityUtils;
 
 
@@ -17,17 +16,17 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = ConfiguracionBean.BEAN_NAME)
 @SessionScoped
-public class ConfiguracionBean extends AdministracionBean<HibernateConfiguracion>{
+public class ConfiguracionBean extends AdministracionBean<Configuracion>{
 
 	private static final long serialVersionUID = -4050902280012061901L;
 	
 	public static final String BEAN_NAME = "configuracionBean";
 	
-	private HibernateConfiguracion configuracionActual;
+	private Configuracion configuracionActual;
     
     @Override
     public void getInit() {
-        entitySearch = new HibernateConfiguracion();        
+        //entitySearch = new Configuracion(); TODO (epa): instanciar       
     }
 
     @Override
@@ -71,7 +70,7 @@ public class ConfiguracionBean extends AdministracionBean<HibernateConfiguracion
         return configuracionActual;
     }
 
-    public void setConfiguracionActual(HibernateConfiguracion configuracionActual) {
+    public void setConfiguracionActual(Configuracion configuracionActual) {
         this.configuracionActual = configuracionActual;
     }
     
