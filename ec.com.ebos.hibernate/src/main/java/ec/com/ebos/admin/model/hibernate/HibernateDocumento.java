@@ -21,6 +21,9 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.AsientoDetalle;
 import ec.com.ebos.conta.model.DocumentoDistribucion;
+import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
+import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
+import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
 import ec.com.ebos.conta.model.hibernate.field.DocumentoDistribucion_;
@@ -48,13 +51,13 @@ public class HibernateDocumento extends HibernateAdministracion implements Docum
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
-	@OneToMany(mappedBy = Asiento_.documento, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = Asiento_.documento, fetch = FetchType.LAZY, targetEntity = HibernateAsiento.class)
     private Set<Asiento> asientoList = new HashSet<Asiento>(0);
 	
-	@OneToMany(mappedBy = AsientoDetalle_.documento, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = AsientoDetalle_.documento, fetch = FetchType.LAZY, targetEntity = HibernateAsientoDetalle.class)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
     
-	@OneToMany(mappedBy = DocumentoDistribucion_.documento, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = DocumentoDistribucion_.documento, fetch = FetchType.LAZY, targetEntity = HibernateDocumentoDistribucion.class)
     private Set<DocumentoDistribucion> documentoDistribucionList = new HashSet<DocumentoDistribucion>(0);
 	
 	@Column

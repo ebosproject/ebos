@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Rol;
@@ -62,10 +63,10 @@ public class HibernateRol extends HibernateSecurity implements Rol {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
     
-    @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)    
+    @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY, targetEntity = HibernateRolOpcion.class)    
     private Set<RolOpcion> rolOpcionList = new HashSet<RolOpcion>(0);
     
-    @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY)    
+    @OneToMany(mappedBy = "rol", fetch = FetchType.LAZY, targetEntity = HibernateUsuarioRol.class)    
     private Set<UsuarioRol> usuarioRolList = new HashSet<UsuarioRol>(0);
             
 }

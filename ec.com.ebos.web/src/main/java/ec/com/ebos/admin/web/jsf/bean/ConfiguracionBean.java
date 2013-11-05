@@ -26,7 +26,7 @@ public class ConfiguracionBean extends AdministracionBean<Configuracion>{
     
     @Override
     public void getInit() {
-        //entitySearch = new Configuracion(); TODO (epa): instanciar       
+        entitySearch = administracionS.getInstanceConfiguracion();       
     }
 
     @Override

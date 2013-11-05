@@ -14,7 +14,7 @@ import ec.com.ebos.root.web.jsf.bean.RootBean;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-24 
  */
-public abstract class MseBean<T extends Entidad<T>> extends RootBean<T> {
+public abstract class MseBean<T extends Entidad> extends RootBean<T> {
 
 	private static final long serialVersionUID = -5560084142240463124L;
 

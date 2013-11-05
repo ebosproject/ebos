@@ -3,6 +3,7 @@ package ec.com.ebos.conta.core.service;
 import java.io.Serializable;
 import java.util.List;
 
+import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
@@ -28,4 +29,12 @@ public interface ContaS extends Serializable {
 	
 	public void deleteTipoCuenta(TipoCuenta tipoCuenta);
 	
+	public TipoCuenta getInstanceTipoCuenta();
+	
+	
+	//
+	// CuentaContable
+	//
+	public CuentaContable getInstanceCuentaContable();
+
 }

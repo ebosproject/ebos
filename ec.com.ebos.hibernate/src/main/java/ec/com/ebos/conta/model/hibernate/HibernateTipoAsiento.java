@@ -85,7 +85,7 @@ public class HibernateTipoAsiento extends HibernateContabilidad implements TipoA
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;		
 	
-	@OneToMany(mappedBy = Asiento_.tipoAsiento, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = Asiento_.tipoAsiento, fetch = FetchType.LAZY, targetEntity = HibernateAsiento.class)
     private Set<Asiento> asientoList = new HashSet<Asiento>(0);
     
 }

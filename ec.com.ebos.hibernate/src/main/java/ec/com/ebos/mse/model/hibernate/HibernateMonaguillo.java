@@ -23,6 +23,7 @@ import org.hibernate.annotations.Type;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.field.Persona_;
+import ec.com.ebos.master.model.hibernate.HibernatePersona;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
 import ec.com.ebos.mse.model.Mse;
@@ -65,7 +66,7 @@ public class HibernateMonaguillo extends HibernateMse implements Monaguillo {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernatePersona.class)
 	@JoinColumn(name = Persona_.id_persona, nullable = false)
     private Persona persona;
 
@@ -75,7 +76,7 @@ public class HibernateMonaguillo extends HibernateMse implements Monaguillo {
 	@Column(name = Monaguillo_.centroEstudio, length = 200)
 	private String centroEstudio;
 	
-	@OneToMany(mappedBy = MonaguilloGrupo_.monaguillo, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = MonaguilloGrupo_.monaguillo, fetch = FetchType.LAZY, targetEntity = HibernateMonaguilloGrupo.class)
     private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
 	
 }

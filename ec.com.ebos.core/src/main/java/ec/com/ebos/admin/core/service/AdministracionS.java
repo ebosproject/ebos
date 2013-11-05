@@ -11,6 +11,7 @@ import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.orm.crud.Pagination;
 //import org.springframework.test.annotation.NotTransactional;
+import ec.com.ebos.security.model.Rol;
 
 /**
  *
@@ -48,12 +49,16 @@ public interface AdministracionS extends Serializable {
 	
 	public void deleteBundle(Bundle bundle);
 	
+	public Bundle getInstanceBundle();
+	
     //
     //Parametros
     //
     public List<Parametros> getParametrosList(Parametros param);
 
     public Parametros saveParametros(Parametros param);
+    
+    public Parametros getInstanceParametros();
 
     //
     //Configuracion
@@ -61,6 +66,8 @@ public interface AdministracionS extends Serializable {
     public Configuracion getConfiguracion();
 
     public Configuracion saveConfiguracion(Configuracion configuracionActual);
+    
+    public Configuracion getInstanceConfiguracion();
 
     
     //
@@ -79,6 +86,8 @@ public interface AdministracionS extends Serializable {
     
     public List<Opcion> getOpcionPadreList();
     
+    public Opcion getInstanceOpcion();
+    
     //
     // Objeto
     //
@@ -91,4 +100,8 @@ public interface AdministracionS extends Serializable {
     public void deleteObjeto(Objeto objeto);
 
     public Objeto getObjeto(Long id);
+
+	public Objeto getInstanceObjeto();
+
+
 }

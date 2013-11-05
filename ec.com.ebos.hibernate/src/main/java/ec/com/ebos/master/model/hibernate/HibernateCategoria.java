@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
 import ec.com.ebos.master.model.Activo;
 import ec.com.ebos.master.model.ActivoCategoria;
 import ec.com.ebos.master.model.Categoria;
@@ -47,7 +48,7 @@ public class HibernateCategoria extends HibernateMaster implements ActivoCategor
 	@GeneratedValue(generator = GENERATOR)
 	private Long id;	
 
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateCategoria.class)
 	@JoinColumn(name = "id_padre")
     private ActivoCategoria padre;
 	
@@ -61,10 +62,10 @@ public class HibernateCategoria extends HibernateMaster implements ActivoCategor
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
     
-    @OneToMany(mappedBy = "categoria", fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "categoria", fetch= FetchType.LAZY, targetEntity = HibernateActivo.class)
     private Set<Activo> activoList = new HashSet<Activo>(0);       
     
-    @OneToMany(mappedBy = "padre", fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "padre", fetch= FetchType.LAZY, targetEntity = HibernateCategoria.class)
     private Set<Categoria> categoriaList = new HashSet<Categoria>(0);
 }
 

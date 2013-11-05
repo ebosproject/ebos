@@ -13,6 +13,8 @@ import ec.com.ebos.mse.core.process.MseP;
 import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateGrupo;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -50,6 +52,10 @@ public class MseSImpl implements MseS{
 	@Override
 	public void deleteGrupo(Grupo grupo) {
 		mseP.deleteGrupo(grupo);
+	}
+	
+	public Grupo getInstanceGrupo(){
+		return new HibernateGrupo();
 	}
 
 	//
@@ -98,6 +104,10 @@ public class MseSImpl implements MseS{
 	@Override
 	public void deleteMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo){
 		mseP.deleteMonaguilloGrupo(monaguilloGrupo);
+	}
+	
+	public Monaguillo getInstanceMonaguillo(){
+		return new HibernateMonaguillo();
 	}
 	
 }

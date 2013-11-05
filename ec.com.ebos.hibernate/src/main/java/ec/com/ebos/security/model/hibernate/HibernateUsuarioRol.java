@@ -48,11 +48,11 @@ public class HibernateUsuarioRol extends HibernateSecurity implements UsuarioRol
 	@Embedded
 	private Auditoria auditoria;
 	
-    @ManyToOne
+    @ManyToOne(targetEntity = HibernateUsuario.class)
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
             
-    @ManyToOne
+    @ManyToOne(targetEntity =  HibernateRol.class)
     @JoinColumn(name = "id_rol", nullable = false)
     private Rol rol;
 

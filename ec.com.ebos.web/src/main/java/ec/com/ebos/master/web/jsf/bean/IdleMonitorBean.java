@@ -11,7 +11,6 @@ import javax.faces.context.FacesContext;
 
 import lombok.Setter;
 
-import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.context.EbosContext;

@@ -3,6 +3,7 @@ package ec.com.ebos.master.core.service;
 import java.io.Serializable;
 import java.util.List;
 
+import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.master.model.Propiedad;
 import ec.com.ebos.orm.crud.Pagination;
@@ -28,6 +29,8 @@ public interface MasterS extends Serializable {
 	public Propiedad savePropiedad(Propiedad propiedad);
 	
 	public void deletePropiedad(Propiedad propiedad);
+	
+	public Propiedad getInstancePropiedad();
 
 	
 	//
@@ -44,5 +47,11 @@ public interface MasterS extends Serializable {
 
 	public void deletePersona(Persona persona);
 
+	public Persona getInstancePersona();
+	
+	//
+	// EmpresaPersona
+	//
+	public EmpresaPersona getInstanceEmpresaPersona();
 
 }

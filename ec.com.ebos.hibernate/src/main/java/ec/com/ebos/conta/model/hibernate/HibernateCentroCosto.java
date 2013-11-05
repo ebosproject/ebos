@@ -71,11 +71,11 @@ public class HibernateCentroCosto extends HibernateContabilidad implements Centr
 	/**
 	 * Centro costo padre
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_padre")
     private CentroCosto padre;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateTipoCentroCosto.class)
 	@JoinColumn(name = "id_tipo_centro_costo")
     private TipoCentroCosto tipoCentroCosto;
 	
@@ -113,36 +113,36 @@ public class HibernateCentroCosto extends HibernateContabilidad implements Centr
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;
 	
-	@OneToMany(mappedBy = AsientoDetalle_.centroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = AsientoDetalle_.centroCosto, fetch = FetchType.LAZY, targetEntity = HibernateAsientoDetalle.class)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
 	
-	@OneToMany(mappedBy = AsientoDetalle_.subcentroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = AsientoDetalle_.subcentroCosto, fetch = FetchType.LAZY, targetEntity = HibernateAsientoDetalle.class)
     private Set<AsientoDetalle> asientoDetalleList2 = new HashSet<AsientoDetalle>(0);
 	
-	@OneToMany(mappedBy = CentroCosto_.padre, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CentroCosto_.padre, fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
     private Set<CentroCosto> centroCostoList = new HashSet<CentroCosto>(0);
 	
-	@OneToMany(mappedBy = CentroCostoEmpresa_.centroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CentroCostoEmpresa_.centroCosto, fetch = FetchType.LAZY, targetEntity = HibernateCentroCostoEmpresa.class)
     private Set<CentroCostoEmpresa> centroCostoEmpresaList = new HashSet<CentroCostoEmpresa>(0);
 	
-	@OneToMany(mappedBy = CentroSubcentro_.centroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CentroSubcentro_.centroCosto, fetch = FetchType.LAZY, targetEntity = HibernateCentroSubcentro.class)
     private Set<CentroSubcentro> centroSubcentroList = new HashSet<CentroSubcentro>(0);
 	
-	@OneToMany(mappedBy = CentroSubcentro_.subcentroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CentroSubcentro_.subcentroCosto, fetch = FetchType.LAZY, targetEntity = HibernateCentroSubcentro.class)
     private Set<CentroSubcentro> centroSubcentroList2 = new HashSet<CentroSubcentro>(0);
 	
-	@OneToMany(mappedBy = DocumentoDistribucion_.centroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = DocumentoDistribucion_.centroCosto, fetch = FetchType.LAZY, targetEntity = HibernateDocumentoDistribucion.class)
     private Set<DocumentoDistribucion> documentoDistribucionList = new HashSet<DocumentoDistribucion>(0);
 	
-	@OneToMany(mappedBy = DocumentoDistribucion_.subcentroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = DocumentoDistribucion_.subcentroCosto, fetch = FetchType.LAZY, targetEntity = HibernateDocumentoDistribucion.class)
     private Set<DocumentoDistribucion> documentoDistribucionList2 = new HashSet<DocumentoDistribucion>(0);
 	
-	@OneToMany(mappedBy = SaldoCentroCosto_.centroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCentroCosto_.centroCosto, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCentroCosto.class)
     private Set<SaldoCentroCosto> saldoCentroCostoList = new HashSet<SaldoCentroCosto>(0);
 	
-	@OneToMany(mappedBy = SaldoCuentaCentro_.centroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCuentaCentro_.centroCosto, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCuentaCentro.class)
     private Set<SaldoCuentaCentro> saldoCuentaCentroList = new HashSet<SaldoCuentaCentro>(0);
 	
-	@OneToMany(mappedBy = SaldoCuentaCentro_.subcentroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCuentaCentro_.subcentroCosto, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCuentaCentro.class)
     private Set<SaldoCuentaCentro> saldoCuentaCentroList2 = new HashSet<SaldoCuentaCentro>(0);
 }

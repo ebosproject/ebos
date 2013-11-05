@@ -18,6 +18,10 @@ import ec.com.ebos.admin.model.Objeto;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.admin.model.hibernate.HibernateBundle;
+import ec.com.ebos.admin.model.hibernate.HibernateConfiguracion;
+import ec.com.ebos.admin.model.hibernate.HibernateObjeto;
+import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
+import ec.com.ebos.admin.model.hibernate.HibernateParametros;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -104,6 +108,10 @@ public class AdministracionSImpl implements AdministracionS{
 		administracionP.deleteBundle(bundle);
 	}
 	
+	public Bundle getInstanceBundle(){
+		return new HibernateBundle();
+	}
+	
     //
     //Parametros
     //
@@ -118,6 +126,10 @@ public class AdministracionSImpl implements AdministracionS{
         return administracionP.saveParametros(param);
     }
     
+    public Parametros getInstanceParametros(){
+    	return new HibernateParametros();
+    }
+    
     //
     //Configuracion
     //
@@ -130,6 +142,10 @@ public class AdministracionSImpl implements AdministracionS{
     @Override
     public Configuracion saveConfiguracion(Configuracion configuracion) {
         return administracionP.saveConfiguracion(configuracion);
+    }
+    
+    public Configuracion getInstanceConfiguracion(){
+    	return new HibernateConfiguracion();
     }
     
     //
@@ -167,6 +183,10 @@ public class AdministracionSImpl implements AdministracionS{
         return administracionP.getOpcionPadreList();
     }
     
+    public Opcion getInstanceOpcion(){
+    	return new HibernateOpcion();
+    }
+    
     //
     // Objeto
     //
@@ -190,5 +210,8 @@ public class AdministracionSImpl implements AdministracionS{
     	return administracionP.getObjeto(id);
     }
 
+    public Objeto getInstanceObjeto(){
+    	return new HibernateObjeto();
+    }
 
 }

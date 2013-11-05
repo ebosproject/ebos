@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
+import ec.com.ebos.master.model.Tema;
 import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Auditoria;
@@ -39,9 +40,12 @@ public interface SecurityS extends Serializable {
 	public void putError(String key, Object... args);
     
 	public void putError(ExceptionAspectHandlerException e);
+	
+	
     //
     // Usuario
     //
+	
     public Usuario createUsuario();
 
     public Usuario getUsuario(Long id);
@@ -61,9 +65,14 @@ public interface SecurityS extends Serializable {
     public void deleteUsuarioRolList(List<UsuarioRol> usuarioRolList);
 
     public int getUsuarioCount();
+    
+    public Usuario getInstanceUsuario();
+    
+    
     //
     // Rol
     //
+    
     public List<Rol> findRolList(Rol rol, Pagination pagination);
 
     public Rol createRol();
@@ -82,6 +91,8 @@ public interface SecurityS extends Serializable {
     
     public void deleteRolOpcionList(List<RolOpcion> rolOpcionList);
     
+    public Rol getInstanceRol();
+    
     
     //
     // Session usuario
@@ -96,6 +107,8 @@ public interface SecurityS extends Serializable {
 
 	public void saveUserPreferences(Usuario usuario);
 
-	Auditoria getAuditoria();
+	public Auditoria getAuditoria();
+
+	public Tema getInstanceTema(String nombre, String imagen);
 
 }

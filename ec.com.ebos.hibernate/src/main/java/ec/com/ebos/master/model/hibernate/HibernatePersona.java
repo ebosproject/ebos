@@ -26,6 +26,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
 import ec.com.ebos.master.model.DivisionGeografica;
 import ec.com.ebos.master.model.EmpresaPersona;
 import ec.com.ebos.master.model.Master;
@@ -36,6 +37,7 @@ import ec.com.ebos.master.model.field.Organizacion_;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.field.Monaguillo_;
+import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.util.DateUtils;
@@ -81,7 +83,7 @@ public class HibernatePersona extends HibernateMaster implements Persona{
 	@Column(name = Persona_.identificacion, unique = true, nullable = false, length = 20)
 	private String identificacion;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateDivisionGeografica.class)
 	@JoinColumn(name = Persona_.id_ciudad)
     private DivisionGeografica ciudad;
 	
@@ -148,13 +150,13 @@ public class HibernatePersona extends HibernateMaster implements Persona{
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	
-	@OneToMany(mappedBy = Organizacion_.persona, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = Organizacion_.persona, fetch = FetchType.LAZY, targetEntity = HibernateOrganizacion.class)
     private Set<Organizacion> empresaList = new HashSet<Organizacion>(0);
 	
-	@OneToMany(mappedBy = EmpresaPersona_.persona, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = EmpresaPersona_.persona, fetch= FetchType.LAZY, targetEntity = HibernateEmpresaPersona.class)
     private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);
 	
-	@OneToMany(mappedBy = Monaguillo_.persona, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = Monaguillo_.persona, fetch= FetchType.LAZY, targetEntity = HibernateMonaguillo.class)
     private Set<Monaguillo> monagilloList = new HashSet<Monaguillo>(0);
 	
 	

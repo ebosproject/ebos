@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.conta.model.Asiento;
+import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
 import ec.com.ebos.master.model.Master;
 import ec.com.ebos.master.model.TipoDocumento;
@@ -58,11 +59,11 @@ public class HibernateTipoDocumento extends HibernateMaster implements TipoDocum
 	@Column(name = "pide_preimpreso", nullable = false)
 	private boolean pidePreimpreso = false;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateTipoDocumento.class)
 	@JoinColumn(name = "id_tipo_documento_reserva")
     private TipoDocumento tipoDocumentoReversa; //TODO (epa): Consultar si tabla es recursiva
 	
-    @OneToMany(mappedBy = Asiento_.tipoDocumento, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = Asiento_.tipoDocumento, fetch = FetchType.LAZY, targetEntity = HibernateAsiento.class)
     private Set<Asiento> asientoList = new HashSet<Asiento>(0);
 	
 }

@@ -13,7 +13,7 @@ import ec.com.ebos.root.web.jsf.bean.RootBean;
  * @since 2013-03-12
  * 
  */
-public abstract class BitacoraBean<T extends Entidad<T>> extends RootBean<T> {
+public abstract class BitacoraBean<T extends Entidad> extends RootBean<T> {
 	
 	private static final long serialVersionUID = -6616673494138961943L;
 

@@ -26,11 +26,12 @@ import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.context.EbosContext;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.Tema;
 import ec.com.ebos.master.session.SessionBean;
+import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
+import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.util.Constantes;
 import ec.com.ebos.util.FacesUtils;
 import ec.com.ebos.util.MessageUtils;
@@ -62,7 +63,7 @@ public class SessionBeanImpl implements Serializable, SessionBean{
 	private Localidad localidad;
     
     @Getter @Setter
-    private HibernateUsuario usuario;
+    private Usuario usuario;
            
     @Getter @Setter
     private Organizacion empresa;
@@ -71,13 +72,13 @@ public class SessionBeanImpl implements Serializable, SessionBean{
     private boolean login;
     
     @Getter @Setter
-    private List<HibernateRolOpcion> rolOpcionList;
+    private List<RolOpcion> rolOpcionList;
     
     @PostConstruct
     public void postConstruct() {
-        usuario = new HibernateUsuario();
+        //usuario = new HibernateUsuario();
         login = false;
-        rolOpcionList = new ArrayList<HibernateRolOpcion>();
+        rolOpcionList = new ArrayList<RolOpcion>();
 //        defineSessionTimeout();
     }
     
@@ -255,7 +256,14 @@ public class SessionBeanImpl implements Serializable, SessionBean{
     public void putFatal(String summary) {
         putMessage(FacesMessage.SEVERITY_FATAL, summary, "");        
     }
-    
-    public Auditoria
+
+	@Override
+	public Auditoria getAuditoria() {
+		return securityS.getAuditoria();
+	}
+	
+	public Tema getInstanceTema(String nombre, String imagen){
+		return securityS.getInstanceTema(nombre, imagen);
+	}
 
 }

@@ -79,7 +79,7 @@ public class HibernateEvento extends HibernateBitacora implements Evento{
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date fechaFin;
 	
-	@OneToMany(mappedBy = "evento", fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = "evento", fetch= FetchType.LAZY, targetEntity = HibernateEventoLog.class)
     private Set<EventoLog> eventoLogList = new HashSet<EventoLog>(0);
 	
 	@Transient

@@ -32,7 +32,6 @@ import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.master.exception.MasterException;
 import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
 import ec.com.ebos.util.FacesUtils;
 import ec.com.ebos.util.NumberUtils;
 import ec.com.ebos.util.StringUtils;
@@ -50,7 +49,6 @@ public class DeskBean implements Serializable{
 
 	public static final String BEAN_NAME = "deskBean";
 	
-	@SuppressWarnings("el-syntax")
 	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 	
 	@Setter
@@ -60,7 +58,7 @@ public class DeskBean implements Serializable{
 	
 	private MenuModel menuModel;
 	
-	private List<HibernateRolOpcion> rolOptionList;
+	private List<RolOpcion> rolOptionList;
 	
 	@Setter
 	private Panel pnlFrames; 
@@ -76,7 +74,6 @@ public class DeskBean implements Serializable{
     	pnlFrames = new Panel();
     }
 	
-    @SuppressWarnings("el-syntax")
     private void buildMenuModel() { //TODO (epa): Optimizar con Mapas y hacerlo recursivo, con N niveles
     	String style = "background-image:url('resources/images/%s') !important;"
                 + "background-repeat: no-repeat;"

@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
+import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
 import ec.com.ebos.master.model.Activo;
 import ec.com.ebos.master.model.ActivoCategoria;
 import ec.com.ebos.master.model.Master;
@@ -48,11 +49,11 @@ public class HibernatePropiedad extends HibernateMaster implements Propiedad {
 	@GeneratedValue(generator = GENERATOR)
 	private Long id;	
 
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateActivo.class)
 	@JoinColumn(name = "id_activo", nullable = false)
 	private Activo activo;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateCategoria.class)
 	@JoinColumn(name = "id_categoria", nullable = false)
     private ActivoCategoria categoria;
 	
@@ -79,7 +80,7 @@ public class HibernatePropiedad extends HibernateMaster implements Propiedad {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
     
-    @OneToMany(mappedBy = "propiedad", fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "propiedad", fetch= FetchType.LAZY, targetEntity = HibernatePropiedadValor.class)
     private Set<PropiedadValor> propiedadValorList = new HashSet<PropiedadValor>(0);
     
 }

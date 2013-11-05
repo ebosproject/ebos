@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ec.com.ebos.conta.core.process.ContaP;
+import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.conta.model.TipoCuenta;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
+import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
 import ec.com.ebos.orm.crud.Pagination;
 
 /**
@@ -52,4 +55,16 @@ public class ContaSImpl implements ContaS{
 		contaP.deleteTipoCuenta(tipoCuenta);
 	}
 	
+	public TipoCuenta getInstanceTipoCuenta(){
+		return new HibernateTipoCuenta();
+	}
+	
+	
+	//
+	// CuentaContable
+	//
+	
+	public CuentaContable getInstanceCuentaContable(){
+		return new HibernateCuentaContable();
+	}
 }

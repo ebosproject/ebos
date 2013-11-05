@@ -79,7 +79,7 @@ public class HibernateTipoCuenta extends HibernateContabilidad implements TipoCu
     private CuentaContable.Naturaleza naturaleza = CuentaContable.Naturaleza.DEUDORA;
 	
 	
-	@OneToMany(mappedBy = CuentaContable_.tipoCuenta, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CuentaContable_.tipoCuenta, fetch = FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
     private Set<CuentaContable> cuentaContableList = new HashSet<CuentaContable>(0);
 	
 }

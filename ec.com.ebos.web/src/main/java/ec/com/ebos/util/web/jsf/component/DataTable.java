@@ -1,6 +1,5 @@
 package ec.com.ebos.util.web.jsf.component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
@@ -13,7 +12,7 @@ import ec.com.ebos.root.model.Entidad;
  *
  * @param <T>
  */
-public abstract class DataTable<T extends Entidad<T>> extends org.primefaces.component.datatable.DataTable {
+public abstract class DataTable<T extends Entidad> extends org.primefaces.component.datatable.DataTable {
 	
     @Getter @Setter
     private T[] selectedList;

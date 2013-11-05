@@ -22,6 +22,7 @@ import ec.com.ebos.conta.model.CuentaCentro;
 import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 
@@ -52,15 +53,15 @@ public class HibernateCuentaCentro extends HibernateContabilidad implements Cuen
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
 	@JoinColumn(name = "id_cuenta_contable", nullable = false)
     private CuentaContable cuentaContable;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateTipoCentroCosto.class)
 	@JoinColumn(name = "id_tipo_centro_costo")
     private TipoCentroCosto tipoCentroCosto;
 	

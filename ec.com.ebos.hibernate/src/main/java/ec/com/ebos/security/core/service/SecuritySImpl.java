@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.aspect.core.exception.ExceptionAspectHandlerException;
+import ec.com.ebos.master.model.Tema;
+import ec.com.ebos.master.model.hibernate.HibernateTema;
 import ec.com.ebos.master.session.SessionBean;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Auditoria;
@@ -19,6 +21,8 @@ import ec.com.ebos.security.model.Rol;
 import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.security.model.Usuario;
 import ec.com.ebos.security.model.UsuarioRol;
+import ec.com.ebos.security.model.hibernate.HibernateRol;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 
 /**
  * @author Eduardo Plua Alay
@@ -104,6 +108,10 @@ public class SecuritySImpl implements SecurityS{
         return securityP.getUsuarioCount();
     }
     
+    public Usuario getInstanceUsuario(){
+    	return new HibernateUsuario();
+    }
+    
     //
     // Rol
     //
@@ -153,6 +161,10 @@ public class SecuritySImpl implements SecurityS{
         securityP.deleteRolOpcionList(rolOpcionList);
     }
     
+    public Rol getInstanceRol(){
+    	return new HibernateRol();
+    }
+    
     //
     // Session Usuario
     //
@@ -183,4 +195,7 @@ public class SecuritySImpl implements SecurityS{
     	securityP.saveUserPreferences(usuario);
     }
     
+    public Tema getInstanceTema(String nombre, String imagen){
+    	return new HibernateTema(nombre, imagen);
+    }
 }

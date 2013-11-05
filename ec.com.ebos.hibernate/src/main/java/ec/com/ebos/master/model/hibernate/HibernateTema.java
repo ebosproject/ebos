@@ -33,6 +33,12 @@ public class HibernateTema extends HibernateMaster implements Tema {
 	private static final String SEQUENCE = Master.SCHEMA+".S"+TABLE_NAME;
 	private static final String GENERATOR = TABLE_NAME+"_ID_GENERATOR";
 
+	
+	public HibernateTema(String nombre, String imagen) {
+        this.nombre = nombre;
+        this.imagen = imagen;
+    }
+	
 	@Id
 	@SequenceGenerator(name = GENERATOR, sequenceName = SEQUENCE)
 	@GeneratedValue(generator = GENERATOR)
@@ -47,11 +53,6 @@ public class HibernateTema extends HibernateMaster implements Tema {
     @Column(name = "estado", nullable = false, length = 1)
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
-    
-    public HibernateTema(String nombre, String imagen) {
-        this.nombre = nombre;
-        this.imagen = imagen;
-    }
     
 }
 

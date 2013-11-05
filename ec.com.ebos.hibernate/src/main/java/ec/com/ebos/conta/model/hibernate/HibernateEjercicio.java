@@ -29,6 +29,7 @@ import ec.com.ebos.conta.model.Ejercicio;
 import ec.com.ebos.conta.model.Periodo;
 import ec.com.ebos.conta.model.hibernate.field.Periodo_;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
@@ -62,14 +63,14 @@ public class HibernateEjercicio extends HibernateContabilidad implements Ejercic
 	/**
 	 * Empresa
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
 	
 	/**
 	 * {@link HibernateCuentaContable} que almacenara la utilidad del ejercicio
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
 	@JoinColumn(name = "id_cuenta_utilidad", nullable = false)
     private CuentaContable cuentaUtilidad;
 	
@@ -112,9 +113,9 @@ public class HibernateEjercicio extends HibernateContabilidad implements Ejercic
 	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;	
     
-	@OneToMany(mappedBy = Periodo_.ejercicio, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = Periodo_.ejercicio, fetch = FetchType.LAZY, targetEntity = HibernatePeriodo.class)
     private Set<Periodo> periodoList = new HashSet<Periodo>(0);
 	
-	@OneToMany(mappedBy = Periodo_.periodoFiscalPais, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = Periodo_.periodoFiscalPais, fetch = FetchType.LAZY, targetEntity = HibernatePeriodo.class)
     private Set<Periodo> periodoList2 = new HashSet<Periodo>(0);
 }

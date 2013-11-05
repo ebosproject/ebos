@@ -29,6 +29,7 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.RolOpcion;
+import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
 
 /**
  *
@@ -55,14 +56,14 @@ public class HibernateOpcion extends HibernateAdministracion implements Opcion {
 	@Embedded
 	private Auditoria auditoria;	
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateOpcion.class)
 	@JoinColumn(name = "id_padre")
     private Opcion padre;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateObjeto.class)
 	@JoinColumn(name = "id_objeto")
     private Objeto objeto;
-    
+	    
     @Column(name="nombre", length=30, unique=true, nullable=false)
     private String nombre;
     
@@ -88,10 +89,10 @@ public class HibernateOpcion extends HibernateAdministracion implements Opcion {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
     
-    @OneToMany(mappedBy = "opcion", fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "opcion", fetch= FetchType.LAZY, targetEntity = HibernateRolOpcion.class)
     private Set<RolOpcion> rolOpcionList = new HashSet<RolOpcion>(0);
 
-    @OneToMany(mappedBy = "padre", fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "padre", fetch= FetchType.LAZY, targetEntity = HibernateOpcion.class)
     private Set<Opcion> opcionList = new HashSet<Opcion>(0);
 
     @Transient

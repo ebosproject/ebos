@@ -47,11 +47,11 @@ public class HibernateActivoCustodio extends HibernateMaster implements ActivoCu
 	@Embedded
 	private Auditoria auditoria;
 		
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateActivo.class)
 	@JoinColumn(name = "id_activo", nullable = false)
     private Activo activo;
         
-    @ManyToOne
+    @ManyToOne(targetEntity = HibernateEmpresaPersona.class)
     @JoinColumn(name = "id_empresapersona", nullable = false)
     private EmpresaPersona empresaPersona;
 	

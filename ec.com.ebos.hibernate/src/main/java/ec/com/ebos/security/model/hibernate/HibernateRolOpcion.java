@@ -16,6 +16,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Opcion;
+import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
@@ -48,11 +49,11 @@ public class HibernateRolOpcion extends HibernateSecurity implements RolOpcion {
 	@Embedded
 	private Auditoria auditoria;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateRol.class)
 	@JoinColumn(name = "id_rol", nullable = false)
     private Rol rol;
         
-    @ManyToOne
+    @ManyToOne(targetEntity = HibernateOpcion.class)
     @JoinColumn(name = "id_opcion", nullable = false)
     private Opcion opcion;
     

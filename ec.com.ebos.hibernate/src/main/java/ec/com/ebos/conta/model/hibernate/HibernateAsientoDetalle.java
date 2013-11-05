@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
+import ec.com.ebos.admin.model.hibernate.HibernateDocumento;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.AsientoDetalle;
@@ -55,35 +56,35 @@ public class HibernateAsientoDetalle extends HibernateContabilidad implements As
 	/**
 	 * Asiento contable
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateAsiento.class)
 	@JoinColumn(name = "id_asiento", nullable = false)
     private Asiento asiento;
 	
 	/**
 	 * Cuenta contable
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
 	@JoinColumn(name = "id_cuenta_contable", nullable = false)
     private CuentaContable cuentaContable;
 	
 	/**
 	 * Centro de costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_centro_costo")
     private CentroCosto centroCosto;
 	
 	/**
 	 * Subcentro de costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_subcentro_costo")
     private CentroCosto subcentroCosto;
 	
 	/**
 	 * Documento
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateDocumento.class)
 	@JoinColumn(name = "id_documento")
     private Documento documento;
 	

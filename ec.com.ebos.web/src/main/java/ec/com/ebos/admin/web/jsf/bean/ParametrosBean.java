@@ -30,7 +30,7 @@ public class ParametrosBean extends AdministracionBean<Parametros>{
 	
     @Override
     public void getInit() {
-        // entitySearch = new HibernateParametros();TODO (epa): instanciar
+        entitySearch = administracionS.getInstanceParametros();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 

@@ -20,6 +20,7 @@ import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.AsientoDetalle;
+import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
@@ -66,10 +67,10 @@ public class HibernateGrupo extends HibernateMse implements Grupo {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	
-	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY, targetEntity = HibernateAsientoDetalle.class)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
 	
-	@OneToMany(mappedBy = MonaguilloGrupo_.grupo, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = MonaguilloGrupo_.grupo, fetch = FetchType.LAZY, targetEntity = HibernateMonaguilloGrupo.class)
     private Set<MonaguilloGrupo> monaguilloGrupoList = new HashSet<MonaguilloGrupo>(0);
 	
 }

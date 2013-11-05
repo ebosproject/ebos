@@ -63,7 +63,7 @@ public class HibernateObjeto extends HibernateAdministracion implements Objeto {
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 
-    @OneToMany(mappedBy = "objeto", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "objeto", fetch=FetchType.LAZY, targetEntity = HibernateOpcion.class)
     private Set<Opcion> opcionList = new HashSet<Opcion>(0);
 
 	@Override

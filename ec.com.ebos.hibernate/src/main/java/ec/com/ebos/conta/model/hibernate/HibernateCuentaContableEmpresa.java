@@ -45,11 +45,11 @@ public class HibernateCuentaContableEmpresa extends HibernateContabilidad implem
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
 	@JoinColumn(name = "id_cuenta_contable", nullable = false)
     private CuentaContable cuentaContable;		
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
     

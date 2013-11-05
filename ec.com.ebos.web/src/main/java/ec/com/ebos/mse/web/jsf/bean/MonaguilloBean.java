@@ -11,14 +11,14 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
-import org.springframework.stereotype.Component;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import org.springframework.stereotype.Component;
+
 import ec.com.ebos.master.core.service.MasterS;
 import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.master.model.hibernate.HibernatePersona;
-import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
+import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 import ec.com.ebos.util.StringUtils;
@@ -30,13 +30,12 @@ import ec.com.ebos.util.StringUtils;
 @Component
 @ManagedBean(name = MonaguilloBean.BEAN_NAME)
 @SessionScoped
-public class MonaguilloBean extends MseBean<HibernateMonaguillo> {
+public class MonaguilloBean extends MseBean<Monaguillo> {
 
 	private static final long serialVersionUID = 1936050047220453830L;
 
 	public static final String BEAN_NAME = "monaguilloBean";
 	
-	@SuppressWarnings("el-syntax")
 	public static final String EL_BEAN_NAME = "#{"+BEAN_NAME+"}";
 
 	@Getter @Setter
@@ -44,13 +43,12 @@ public class MonaguilloBean extends MseBean<HibernateMonaguillo> {
     protected MasterS masterS;
 	
 	@Getter @Setter
-	private List<HibernatePersona> suggestionPersona;
+	private List<Persona> suggestionPersona;
 	
 	@Override
 	public void getInit() {
-		// Para busquedas
-		entitySearch = new HibernateMonaguillo();
-		entitySearch.setPersona(new HibernatePersona());
+		entitySearch = mseS.getInstanceMonaguillo();
+		entitySearch.setPersona(masterS.getInstancePersona());
 	}
 
 	@Override
@@ -75,7 +73,7 @@ public class MonaguilloBean extends MseBean<HibernateMonaguillo> {
 	// /////////////////////// DATA MODEL ////////////////////////
 
 	@Override
-	protected List<HibernateMonaguillo> loadDataTableCollection(HibernateMonaguillo monaguillo,
+	protected List<Monaguillo> loadDataTableCollection(Monaguillo monaguillo,
 			Pagination pagination) {
 		return mseS.findMonaguilloList(monaguillo, pagination);
 	}
@@ -110,7 +108,7 @@ public class MonaguilloBean extends MseBean<HibernateMonaguillo> {
 	// ////////////////////// LISTS ///////////////////////////////
 
 	// ////////////////// AUTOCOMPLETES ///////////////////////////
-	public List<HibernatePersona> completePersona(String query){
+	public List<Persona> completePersona(String query){
 		suggestionPersona = masterS.findPersonaList(query);
 		return suggestionPersona;
 	}

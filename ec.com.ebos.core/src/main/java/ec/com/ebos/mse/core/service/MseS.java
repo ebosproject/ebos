@@ -3,6 +3,7 @@ package ec.com.ebos.mse.core.service;
 import java.io.Serializable;
 import java.util.List;
 
+import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.mse.model.Grupo;
 import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.MonaguilloGrupo;
@@ -30,6 +31,8 @@ public interface MseS extends Serializable {
 	
 	public void deleteGrupo(Grupo grupo);
 	
+	public Grupo getInstanceGrupo();
+	
 	//
 	// Monagillo
 	//
@@ -50,6 +53,8 @@ public interface MseS extends Serializable {
 	public void saveMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo);
 
 	public void deleteMonaguilloGrupo(MonaguilloGrupo monaguilloGrupo);
+
+	public Monaguillo getInstanceMonaguillo();
 
 	
 }

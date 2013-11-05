@@ -29,8 +29,7 @@ public class BundleBean extends AdministracionBean<Bundle> {
 
 	@Override
     public void getInit() {
-        // Para busquedas
-        //entitySearch = new Bundle(); TODO (epa): instanciar
+        entitySearch = administracionS.getInstanceBundle();
     }
 
     @Override

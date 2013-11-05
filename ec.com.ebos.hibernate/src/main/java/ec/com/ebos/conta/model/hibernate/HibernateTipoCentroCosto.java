@@ -81,13 +81,13 @@ public class HibernateTipoCentroCosto extends HibernateContabilidad implements T
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;
 	
-	@OneToMany(mappedBy = CentroCosto_.tipoCentroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CentroCosto_.tipoCentroCosto, fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
     private Set<CentroCosto> centroCostoList = new HashSet<CentroCosto>(0);
 	
-	@OneToMany(mappedBy = CentroSubcentro_.tipoCentroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CentroSubcentro_.tipoCentroCosto, fetch = FetchType.LAZY, targetEntity = HibernateCentroSubcentro.class)
     private Set<CentroSubcentro> centroSubcentroList = new HashSet<CentroSubcentro>(0);
 	
-	@OneToMany(mappedBy = CuentaCentro_.tipoCentroCosto, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CuentaCentro_.tipoCentroCosto, fetch = FetchType.LAZY, targetEntity = HibernateCuentaCentro.class)
     private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
     
 }

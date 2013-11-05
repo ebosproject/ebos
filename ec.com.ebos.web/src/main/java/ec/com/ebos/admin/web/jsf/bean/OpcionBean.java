@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -24,8 +24,7 @@ import ec.com.ebos.util.StringUtils;
  */
 @Component
 @ManagedBean(name = OpcionBean.BEAN_NAME)
-//@SessionScoped
-@ViewScoped
+@SessionScoped
 public class OpcionBean extends AdministracionBean<Opcion> {
     
 	private static final long serialVersionUID = 833763360386716739L;
@@ -34,7 +33,7 @@ public class OpcionBean extends AdministracionBean<Opcion> {
 
 	@Override
     public void getInit() {
-        //entitySearch = new HibernateOpcion();TODO (epa): instanciar
+        entitySearch = administracionS.getInstanceOpcion();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 

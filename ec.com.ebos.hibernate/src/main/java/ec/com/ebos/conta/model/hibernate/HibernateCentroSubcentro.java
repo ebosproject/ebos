@@ -52,21 +52,21 @@ public class HibernateCentroSubcentro extends HibernateContabilidad implements C
 	/**
 	 * Centro costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_centro_costo", nullable = false)
     private CentroCosto centroCosto;
 
 	/**
 	 * Subcentro costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_subcentro_costo")
     private CentroCosto subcentroCosto;	
 	
 	/**
 	 * Tipo de centro de costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateTipoCentroCosto.class)
 	@JoinColumn(name = "id_tipo_centro_costo")
     private TipoCentroCosto tipoCentroCosto;	
     

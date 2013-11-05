@@ -30,7 +30,6 @@ public class AppBean implements Serializable{
 	private static final long serialVersionUID = -3490701569635035883L;
 	
 	public static final String BEAN_NAME = "adminBean";
-	@SuppressWarnings("el-syntax")
 	public static final String EL_BEAN_NAME = "#{" + BEAN_NAME + "}";
 	
 	/**

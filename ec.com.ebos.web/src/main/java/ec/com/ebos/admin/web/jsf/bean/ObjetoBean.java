@@ -30,7 +30,7 @@ public class ObjetoBean extends AdministracionBean<Objeto> {
 
 	@Override
     public void getInit() {
-        //entitySearch = new Objeto(); TODO (epa): instanciar
+        entitySearch = administracionS.getInstanceObjeto();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
         entitySearch.setTipo(Objeto.TipoObjeto.BEAN);
     }

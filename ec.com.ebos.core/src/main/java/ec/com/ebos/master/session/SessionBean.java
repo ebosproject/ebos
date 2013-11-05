@@ -8,6 +8,7 @@ import javax.annotation.PreDestroy;
 import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.admin.model.Bundle.Localidad;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.Tema;
 import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.security.core.service.SecurityS;
 import ec.com.ebos.security.model.RolOpcion;
@@ -123,5 +124,7 @@ public interface SessionBean {
 	public void putFatal(String summary);
 
 	public Auditoria getAuditoria();
+
+	public Tema getInstanceTema(String nombre, String imagen);
 
 }

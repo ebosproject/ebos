@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.conta.model.PeriodoFiscalPais;
+import ec.com.ebos.conta.model.hibernate.HibernatePeriodoFiscalPais;
 import ec.com.ebos.conta.model.hibernate.field.PeriodoFiscalPais_;
 import ec.com.ebos.master.model.DivisionGeografica;
 import ec.com.ebos.master.model.Master;
@@ -52,7 +53,7 @@ public class HibernateDivisionGeografica extends HibernateMaster implements Divi
 	/**
 	 * {@link HibernateDivisionGeografica} padre
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernateDivisionGeografica.class)
     @JoinColumn(name = "id_division_geografica")
 	private DivisionGeografica padre;
 	
@@ -74,9 +75,9 @@ public class HibernateDivisionGeografica extends HibernateMaster implements Divi
 	@Column(name = Entidad_.descripcion, nullable = false, length = Entidad_.descripcion_lenght)
 	private String descripcion;	
 	
-	@OneToMany(mappedBy = PeriodoFiscalPais_.divisionGeografica, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = PeriodoFiscalPais_.divisionGeografica, fetch = FetchType.LAZY, targetEntity = HibernatePeriodoFiscalPais.class)
     private Set<PeriodoFiscalPais> periodoFiscalPaisList = new HashSet<PeriodoFiscalPais>(0);
 	
-	@OneToMany(mappedBy = DivisionGeografica_.padre, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = DivisionGeografica_.padre, fetch = FetchType.LAZY, targetEntity = HibernateDivisionGeografica.class)
     private Set<DivisionGeografica> divisionGeograficaList = new HashSet<DivisionGeografica>(0);
 }

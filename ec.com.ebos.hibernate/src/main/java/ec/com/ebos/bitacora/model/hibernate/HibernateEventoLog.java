@@ -42,7 +42,7 @@ public class HibernateEventoLog extends HibernateBitacora implements EventoLog{
 	@Embedded
 	private Auditoria auditoria;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateEvento.class)
 	@JoinColumn(name = "id_evento", nullable = false)
     private Evento evento;
 	

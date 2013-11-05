@@ -16,6 +16,7 @@ import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.CentroCostoEmpresa;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 
 /**
  * Centros de costo que puede usar una empresa
@@ -48,14 +49,14 @@ public class HibernateCentroCostoEmpresa extends HibernateContabilidad implement
 	/**
 	 * Centro costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_padre", nullable = false)
     private CentroCosto centroCosto;
 	
 	/**
 	 * Empresa
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
 		

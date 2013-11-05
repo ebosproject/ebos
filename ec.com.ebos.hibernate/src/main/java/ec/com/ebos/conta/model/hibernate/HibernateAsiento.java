@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.Documento;
+import ec.com.ebos.admin.model.hibernate.HibernateDocumento;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.AsientoDetalle;
@@ -26,6 +27,8 @@ import ec.com.ebos.conta.model.TipoAsiento;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.master.model.Organizacion;
 import ec.com.ebos.master.model.TipoDocumento;
+import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
+import ec.com.ebos.master.model.hibernate.HibernateTipoDocumento;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
@@ -55,30 +58,30 @@ public class HibernateAsiento extends HibernateContabilidad implements Asiento {
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa")
     private Organizacion empresa;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_punto_venta")
     private Organizacion puntoVenta;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernatePeriodo.class)
 	@JoinColumn(name = "id_periodo")
     private Periodo periodo;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateTipoDocumento.class)
 	@JoinColumn(name = "id_tipo_documento")
     private TipoDocumento tipoDocumento;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateTipoAsiento.class)
 	@JoinColumn(name = "id_tipo_asiento", nullable = false)
     private TipoAsiento tipoAsiento;
     
 	/**
 	 * Documento
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateDocumento.class)
 	@JoinColumn(name = "id_documento")
     private Documento documento;
 	
@@ -112,7 +115,7 @@ public class HibernateAsiento extends HibernateContabilidad implements Asiento {
 	@Column(name = "cuadrado", nullable = false)
 	private boolean cuadrado = true;
 	
-	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = AsientoDetalle_.asiento, fetch = FetchType.LAZY, targetEntity = HibernateAsientoDetalle.class)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
 	
 }

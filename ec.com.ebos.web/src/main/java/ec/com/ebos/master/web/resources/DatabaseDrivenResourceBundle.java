@@ -6,6 +6,10 @@ import java.util.ResourceBundle;
 
 import javax.faces.context.FacesContext;
 
+import lombok.Setter;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import ec.com.ebos.admin.core.service.AdministracionS;
 import ec.com.ebos.admin.model.Bundle;
 import ec.com.ebos.context.EbosContext;
@@ -21,14 +25,15 @@ import ec.com.ebos.util.Constantes;
 public class DatabaseDrivenResourceBundle extends ResourceBundle {
  
     private AdministracionS administracionS;
- 
+
     public DatabaseDrivenResourceBundle() {
     	administracionS = EbosContext.getBean(AdministracionS.BEAN_NAME, AdministracionS.class);
     }
     
     @Override
     protected Object handleGetObject(String key) {
-    	Bundle bundle = new Bundle();
+
+    	Bundle bundle = administracionS.getInstanceBundle();
     	bundle.setCodigo(key);
     	bundle.setLocalidad(Bundle.Localidad.valueOf(FacesContext.getCurrentInstance()
                         .getViewRoot().getLocale().toString()));

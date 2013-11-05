@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.admin.model.Documento;
+import ec.com.ebos.admin.model.hibernate.HibernateDocumento;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.CentroCosto;
 import ec.com.ebos.conta.model.Contabilidad;
@@ -60,21 +61,21 @@ public class HibernateDocumentoDistribucion extends HibernateContabilidad implem
 	/**
 	 * Centro de Costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_centro_costo", nullable = false)
     private CentroCosto centroCosto;
 	
 	/**
 	 * Subcentro de Costo
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
 	@JoinColumn(name = "id_subcentro_costo", nullable = false)
     private CentroCosto subcentroCosto;
 	
 	/**
 	 * Documento
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateDocumento.class)
 	@JoinColumn(name = "id_documento")
     private Documento documento;
 	

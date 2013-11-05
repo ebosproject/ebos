@@ -17,6 +17,7 @@ import ec.com.ebos.admin.model.Administracion;
 import ec.com.ebos.admin.model.TipoRetencion;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.SaldoRetencion;
+import ec.com.ebos.conta.model.hibernate.HibernateSaldoRetencion;
 import ec.com.ebos.conta.model.hibernate.field.SaldoRetencion_;
 
 /**
@@ -42,7 +43,7 @@ public class HibernateTipoRetencion extends HibernateAdministracion implements T
 	@GeneratedValue(generator = GENERATOR)
     private Long id;
 	
-	@OneToMany(mappedBy = SaldoRetencion_.tipoRetencion, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoRetencion_.tipoRetencion, fetch = FetchType.LAZY, targetEntity = HibernateSaldoRetencion.class)
     private Set<SaldoRetencion> saldoRetencionList = new HashSet<SaldoRetencion>(0);
     
 }

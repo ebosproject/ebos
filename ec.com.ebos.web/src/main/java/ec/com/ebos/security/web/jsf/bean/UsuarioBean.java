@@ -5,21 +5,21 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-
-import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import org.springframework.stereotype.Component;
+
+import ec.com.ebos.master.core.service.MasterS;
 import ec.com.ebos.master.model.EmpresaPersona;
-import ec.com.ebos.master.model.hibernate.HibernateEmpresaPersona;
-import ec.com.ebos.master.model.hibernate.HibernatePersona;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.security.model.Rol;
-import ec.com.ebos.security.model.hibernate.HibernateRol;
-import ec.com.ebos.security.model.hibernate.HibernateUsuario;
-import ec.com.ebos.security.model.hibernate.HibernateUsuarioRol;
+import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.UsuarioRol;
 import ec.com.ebos.util.EntityUtils;
 
 /**
@@ -28,18 +28,21 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = UsuarioBean.BEAN_NAME)
 @ViewScoped
-public class UsuarioBean extends SecurityBean<HibernateUsuario> {
+public class UsuarioBean extends SecurityBean<Usuario> {
     
 	private static final long serialVersionUID = 3205546315013216597L;
 	
 	public static final String BEAN_NAME = "usuarioBean";
 
+	@Getter @Setter
+    @ManagedProperty(value = "#{masterS}")
+	protected MasterS masterS;
+	
     @Override
     public void getInit() {
-        // Para busquedas
-        entitySearch = new HibernateUsuario();
-        EmpresaPersona empresaPersona = new HibernateEmpresaPersona();
-        empresaPersona.setPersona(new HibernatePersona());
+        entitySearch = securityS.getInstanceUsuario();
+        EmpresaPersona empresaPersona = masterS.getInstanceEmpresaPersona();
+        empresaPersona.setPersona(masterS.getInstancePersona());
         entitySearch.setEmpresaPersona(empresaPersona);
         entitySearch.setEstado(Entidad.Estado.ACTIVO);    
     }
@@ -65,7 +68,7 @@ public class UsuarioBean extends SecurityBean<HibernateUsuario> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<HibernateUsuario> loadDataTableCollection(HibernateUsuario usuario, Pagination pagination) {
+    protected List<Usuario> loadDataTableCollection(Usuario usuario, Pagination pagination) {
         return securityS.findUsuarioList(usuario, pagination);
     }
         
@@ -102,13 +105,13 @@ public class UsuarioBean extends SecurityBean<HibernateUsuario> {
     ///////////////////////// DATALIST /////////////////////////
     
     @Setter
-    private List<HibernateUsuarioRol> usuarioRolList = new ArrayList<HibernateUsuarioRol>();
+    private List<UsuarioRol> usuarioRolList = new ArrayList<UsuarioRol>();
     
     @Setter
-    private List<HibernateRol> rolList = new ArrayList<HibernateRol>();
+    private List<Rol> rolList = new ArrayList<Rol>();
     
     @Getter @Setter
-    private HibernateUsuarioRol[] selectedUsuarioRolList;
+    private UsuarioRol[] selectedUsuarioRolList;
     
     @Getter @Setter
     private Rol selectedRol;    
@@ -124,7 +127,7 @@ public class UsuarioBean extends SecurityBean<HibernateUsuario> {
     }
     
     public void deleteUsuarioRolList(){
-        List<HibernateUsuarioRol> list = Arrays.asList(selectedUsuarioRolList);        
+        List<UsuarioRol> list = Arrays.asList(selectedUsuarioRolList);        
         securityS.deleteUsuarioRolList(list);        
         usuarioRolList.removeAll(list);
         usuarioRolList.clear();
@@ -134,14 +137,14 @@ public class UsuarioBean extends SecurityBean<HibernateUsuario> {
     // Getters
     //
     
-    public List<HibernateRol> getRolList() {
+    public List<Rol> getRolList() {
         if(rolList.isEmpty()){
             rolList = securityS.findRolList(null, null);
         }
         return rolList;
     }
 
-    public List<HibernateUsuarioRol> getUsuarioRolList() {
+    public List<UsuarioRol> getUsuarioRolList() {
         if(usuarioRolList.isEmpty()){
             usuarioRolList = securityS.getUsuarioRolList(activeEntity);
         }

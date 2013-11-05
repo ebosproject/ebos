@@ -36,7 +36,16 @@ Import-Template:
 Excluded-Imports:
  org.hibernate.*,
  org.springframework.test.*,
- org.junit.*
+ org.junit.*,
+ ec.com.ebos.security,
+ ec.com.ebos.admin,
+ ec.com.ebos.aspect,
+ ec.com.ebos.bitacora,
+ ec.com.ebos.logis,
+ ec.com.ebos.master,
+ ec.com.ebos.mse,
+ ec.com.ebos.root,
+ ec.com.ebos.conta
 Excluded-Exports: 
  ec.com.ebos.*
 Import-Package: 

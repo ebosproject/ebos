@@ -30,6 +30,7 @@ import ec.com.ebos.root.model.Auditoria;
 import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -55,11 +56,11 @@ public class HibernateEmpresaPersona extends HibernateMaster implements EmpresaP
 	@Embedded
 	private Auditoria auditoria;
 		
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
         
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernatePersona.class)
     @JoinColumn(name = "id_persona", nullable = false)
     private Persona persona;
 	
@@ -67,11 +68,11 @@ public class HibernateEmpresaPersona extends HibernateMaster implements EmpresaP
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	
-	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY, targetEntity = HibernateUsuario.class)
     private Set<Usuario> usuarioList = new HashSet<Usuario>(0);
 	
 	
-	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "empresaPersona", fetch = FetchType.LAZY, targetEntity = HibernateActivoCustodio.class)
     private Set<ActivoCustodio> activoCustodioList = new HashSet<ActivoCustodio>(0);
 	
 }

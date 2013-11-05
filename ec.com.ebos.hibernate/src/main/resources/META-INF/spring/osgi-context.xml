@@ -9,6 +9,9 @@
     <osgi:reference id="dataSource" interface="javax.sql.DataSource"/>
 
 	<!-- export the Service to ec.com.ebos.web-->
+	
+	<osgi:service interface="ec.com.ebos.admin.core.process.AdministracionP" ref="adminP"/>
+	
 	<osgi:service interface="ec.com.ebos.admin.core.service.AdministracionS" ref="administracionS"/>
 	
 	<osgi:service interface="ec.com.ebos.conta.core.service.ContaS" ref="contaS"/>

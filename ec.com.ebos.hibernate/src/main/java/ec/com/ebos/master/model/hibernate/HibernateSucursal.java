@@ -44,7 +44,7 @@ public class HibernateSucursal extends HibernateMaster implements Sucursal{
 	@Embedded
 	private Auditoria auditoria;
 		
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
 	

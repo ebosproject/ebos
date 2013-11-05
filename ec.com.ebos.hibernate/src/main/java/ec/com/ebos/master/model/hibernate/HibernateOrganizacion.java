@@ -25,6 +25,10 @@ import ec.com.ebos.conta.model.CentroCostoEmpresa;
 import ec.com.ebos.conta.model.CuentaCentro;
 import ec.com.ebos.conta.model.CuentaContableEmpresa;
 import ec.com.ebos.conta.model.Ejercicio;
+import ec.com.ebos.conta.model.hibernate.HibernateCentroCostoEmpresa;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaCentro;
+import ec.com.ebos.conta.model.hibernate.HibernateCuentaContableEmpresa;
+import ec.com.ebos.conta.model.hibernate.HibernateEjercicio;
 import ec.com.ebos.conta.model.hibernate.field.CentroCostoEmpresa_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaContableEmpresa_;
@@ -71,7 +75,7 @@ public class HibernateOrganizacion extends HibernateMaster implements Organizaci
 	@Column(name = "imagen", nullable = false, length = 50)
 	private String imagen;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernatePersona.class)
 	@JoinColumn(name = "id_persona", nullable = false)
     private Persona persona;
 	
@@ -79,24 +83,24 @@ public class HibernateOrganizacion extends HibernateMaster implements Organizaci
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	
-	@OneToMany(mappedBy = EmpresaPersona_.empresa, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = EmpresaPersona_.empresa, fetch= FetchType.LAZY, targetEntity = HibernateEmpresaPersona.class)
     private Set<EmpresaPersona> empresaPersonaList = new HashSet<EmpresaPersona>(0);
 	
-	@OneToMany(mappedBy = Sucursal_.empresa, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = Sucursal_.empresa, fetch= FetchType.LAZY, targetEntity = HibernateSucursal.class)
     private Set<Sucursal> sucursalList = new HashSet<Sucursal>(0);	
 	
-	@OneToMany(mappedBy = Activo_.empresa, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = Activo_.empresa, fetch= FetchType.LAZY, targetEntity = HibernateActivo.class)
     private Set<Activo> activoList = new HashSet<Activo>(0);
 	
-	@OneToMany(mappedBy = CentroCostoEmpresa_.empresa, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CentroCostoEmpresa_.empresa, fetch = FetchType.LAZY, targetEntity = HibernateCentroCostoEmpresa.class)
     private Set<CentroCostoEmpresa> centroCostoEmpresaList = new HashSet<CentroCostoEmpresa>(0);
 	
-	@OneToMany(mappedBy = CuentaCentro_.empresa, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CuentaCentro_.empresa, fetch = FetchType.LAZY, targetEntity = HibernateCuentaCentro.class)
     private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
 	
-	@OneToMany(mappedBy = CuentaContableEmpresa_.empresa, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CuentaContableEmpresa_.empresa, fetch = FetchType.LAZY, targetEntity = HibernateCuentaContableEmpresa.class)
     private Set<CuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<CuentaContableEmpresa>(0);
 	
-	@OneToMany(mappedBy = Ejercicio_.empresa, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = Ejercicio_.empresa, fetch = FetchType.LAZY, targetEntity = HibernateEjercicio.class)
     private Set<Ejercicio> ejercicioList = new HashSet<Ejercicio>(0);
 }

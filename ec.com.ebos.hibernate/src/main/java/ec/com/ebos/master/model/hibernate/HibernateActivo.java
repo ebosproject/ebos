@@ -21,6 +21,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.aspect.annotation.Auditable;
+import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
 import ec.com.ebos.master.model.Activo;
 import ec.com.ebos.master.model.ActivoCategoria;
 import ec.com.ebos.master.model.ActivoCustodio;
@@ -54,13 +55,13 @@ public class HibernateActivo extends HibernateMaster implements Activo{
 	@Embedded
 	private Auditoria auditoria;
 		
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateOrganizacion.class)
 	@JoinColumn(name = "id_empresa", nullable = false)
     private Organizacion empresa;
         
-    @ManyToOne
+    @ManyToOne(targetEntity = HibernateCategoria.class)
     @JoinColumn(name = "id_categoria", nullable = false)
-    private ActivoCategoria categoria;
+    private ActivoCategoria categoria; // TODO (epa): Refactorizar Interface ActivoCategoria a Categoria
     
     
     @Column(name = "descripcion", nullable = false, length = 100)
@@ -70,10 +71,10 @@ public class HibernateActivo extends HibernateMaster implements Activo{
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado;
 	
-	@OneToMany(mappedBy = "activo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "activo", fetch = FetchType.LAZY, targetEntity = HibernateActivoCustodio.class)
     private Set<ActivoCustodio> activoCustodioList = new HashSet<ActivoCustodio>(0);
 	
-	@OneToMany(mappedBy = "activo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "activo", fetch = FetchType.LAZY, targetEntity = HibernatePropiedad.class)
     private Set<Propiedad> propiedadList = new HashSet<Propiedad>(0);
 
 }

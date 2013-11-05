@@ -56,14 +56,14 @@ public class HibernateSaldoCuentaContable extends HibernateContabilidad implemen
 	/**
 	 * Periodo contable
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernatePeriodo.class)
     @JoinColumn(name = "id_periodo", nullable = false)
 	private Periodo periodo;
 	
 	/**
 	 * Cuenta contable
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
     @JoinColumn(name = "id_cuenta_contable", nullable = false)
 	private CuentaContable cuentaContable;
 	

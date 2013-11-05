@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ec.com.ebos.admin.model.TipoRetencion;
+import ec.com.ebos.admin.model.hibernate.HibernateTipoRetencion;
 import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.conta.model.Periodo;
@@ -51,14 +52,14 @@ public class HibernateSaldoRetencion extends HibernateContabilidad implements Sa
 	/**
 	 * Periodo contable
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernatePeriodo.class)
     @JoinColumn(name = "id_periodo")
 	private Periodo periodo;
 	
 	/**
 	 * Tipo retencion
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernateTipoRetencion.class)
     @JoinColumn(name = "id_tipo_retencion")
 	private TipoRetencion tipoRetencion;
 	

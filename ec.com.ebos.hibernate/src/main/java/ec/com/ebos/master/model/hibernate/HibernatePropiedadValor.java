@@ -38,7 +38,7 @@ public class HibernatePropiedadValor extends HibernateMaster implements Propieda
 	@GeneratedValue(generator = GENERATOR)
 	private Long id;	
 
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernatePropiedad.class)
 	@JoinColumn(name = "id_propiedad", nullable = false)
     private Propiedad propiedad;	
 	

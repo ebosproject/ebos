@@ -56,14 +56,14 @@ public class HibernateSaldoCentroCosto extends HibernateContabilidad implements 
 	/**
 	 * Periodo contable
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernatePeriodo.class)
     @JoinColumn(name = "id_periodo", nullable = false)
 	private Periodo periodo;
 	
 	/**
 	 * {@link HibernateCentroCosto}
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernateCentroCosto.class)
     @JoinColumn(name = "id_centro_costo", nullable = false)
 	private CentroCosto centroCosto;
 

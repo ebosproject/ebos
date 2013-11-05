@@ -6,8 +6,6 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Component;
 
 import ec.com.ebos.master.model.Persona;
 import ec.com.ebos.mse.web.jsf.bean.MonaguilloBean;
-import ec.com.ebos.util.NumberUtils;
 
 @Component
 @ManagedBean(name = ImageBean.BEAN_NAME)

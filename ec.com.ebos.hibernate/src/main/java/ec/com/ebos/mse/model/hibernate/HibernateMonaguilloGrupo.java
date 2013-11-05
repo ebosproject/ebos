@@ -51,11 +51,11 @@ public class HibernateMonaguilloGrupo extends HibernateMse implements Monaguillo
 	@Embedded
 	private Auditoria auditoria;
 
-	@ManyToOne
+	@ManyToOne(targetEntity = HibernateMonaguillo.class)
     @JoinColumn(name = "id_monaguillo", nullable = false)
     private Monaguillo monaguillo;
 	
-    @ManyToOne
+    @ManyToOne(targetEntity = HibernateGrupo.class)
     @JoinColumn(name = "id_grupo", nullable = false)
     private Grupo grupo;
             

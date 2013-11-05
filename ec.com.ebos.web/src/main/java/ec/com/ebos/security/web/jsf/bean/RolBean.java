@@ -8,17 +8,17 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import org.springframework.stereotype.Component;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import org.springframework.stereotype.Component;
+
 import ec.com.ebos.admin.core.service.AdministracionS;
-import ec.com.ebos.admin.model.HibernateOpcion;
 import ec.com.ebos.admin.model.Opcion;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.hibernate.HibernateRol;
-import ec.com.ebos.security.model.hibernate.HibernateRolOpcion;
+import ec.com.ebos.security.model.Rol;
+import ec.com.ebos.security.model.RolOpcion;
 import ec.com.ebos.util.EntityUtils;
 
 /**
@@ -29,7 +29,7 @@ import ec.com.ebos.util.EntityUtils;
 @ManagedBean(name = RolBean.BEAN_NAME)
 //@SessionScoped
 @ViewScoped
-public class RolBean extends SecurityBean<HibernateRol> {
+public class RolBean extends SecurityBean<Rol> {
     
 	private static final long serialVersionUID = 5900425430487867980L;
 	
@@ -41,8 +41,7 @@ public class RolBean extends SecurityBean<HibernateRol> {
 
     @Override
     public void getInit() {
-        // para busquedas
-        entitySearch = new HibernateRol();
+        entitySearch = securityS.getInstanceRol();
         entitySearch.setEstado(Entidad.Estado.ACTIVO);
     }
 
@@ -66,7 +65,7 @@ public class RolBean extends SecurityBean<HibernateRol> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<HibernateRol> loadDataTableCollection(HibernateRol rol, Pagination pagination) {
+    protected List<Rol> loadDataTableCollection(Rol rol, Pagination pagination) {
         return securityS.findRolList(rol, pagination);
     }
         
@@ -103,13 +102,13 @@ public class RolBean extends SecurityBean<HibernateRol> {
     ///////////////////////// DATALIST /////////////////////////
     
     @Setter
-    private List<HibernateRolOpcion> rolOpcionList = new ArrayList<HibernateRolOpcion>();
+    private List<RolOpcion> rolOpcionList = new ArrayList<RolOpcion>();
     
     @Setter
-    private List<HibernateOpcion> opcionList = new ArrayList<HibernateOpcion>();
+    private List<Opcion> opcionList = new ArrayList<Opcion>();
     
     @Getter @Setter
-    private HibernateRolOpcion[] selectedRolOpcionList;
+    private RolOpcion[] selectedRolOpcionList;
     
     @Getter @Setter
     private Opcion selectedOpcion;    
@@ -126,21 +125,21 @@ public class RolBean extends SecurityBean<HibernateRol> {
     }
     
     public void eliminarRolOpcionList(){ 
-        List<HibernateRolOpcion> list = Arrays.asList(selectedRolOpcionList);
+        List<RolOpcion> list = Arrays.asList(selectedRolOpcionList);
         securityS.deleteRolOpcionList(list);        
         rolOpcionList.clear();
     }
     
     //GETTERS AND SETTERS
 
-    public List<HibernateRolOpcion> getRolOpcionList() {
+    public List<RolOpcion> getRolOpcionList() {
         if(rolOpcionList.isEmpty()){
             rolOpcionList = securityS.getRolOpcionList(activeEntity);
         }
         return rolOpcionList;
     }
 
-    public List<HibernateOpcion> getOpcionList() {
+    public List<Opcion> getOpcionList() {
         if(opcionList.isEmpty()){
             opcionList = administracionS.findOpcionList(null, new Pagination()); // TODO (epa): Crear metodo sin pagination
         }        

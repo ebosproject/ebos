@@ -16,6 +16,7 @@ import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.Contabilidad;
 import ec.com.ebos.conta.model.PeriodoFiscalPais;
 import ec.com.ebos.master.model.DivisionGeografica;
+import ec.com.ebos.master.model.hibernate.HibernateDivisionGeografica;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**
@@ -48,7 +49,7 @@ public class HibernatePeriodoFiscalPais extends HibernateContabilidad implements
 	/**
 	 * Division geografica
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernateDivisionGeografica.class)
     @JoinColumn(name = "id_division_geografica")
 	private DivisionGeografica divisionGeografica;
 	

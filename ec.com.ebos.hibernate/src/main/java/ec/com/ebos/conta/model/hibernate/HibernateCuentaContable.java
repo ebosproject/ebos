@@ -71,14 +71,14 @@ public class HibernateCuentaContable extends HibernateContabilidad implements Cu
 	/**
 	 * Cuenta contable padre
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
 	@JoinColumn(name = "id_padre")
     private CuentaContable padre;
 	
 	/**
 	 * Tipo de cuenta
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateTipoCuenta.class)
 	@JoinColumn(name = "id_tipo_cuenta", nullable = false)
     private TipoCuenta tipoCuenta;
 	
@@ -140,25 +140,25 @@ public class HibernateCuentaContable extends HibernateContabilidad implements Cu
     @Type(type = Entidad.Estado.TYPE)
     private Entidad.Estado estado = Estado.ACTIVO;
 	
-	@OneToMany(mappedBy = AsientoDetalle_.cuentaContable, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = AsientoDetalle_.cuentaContable, fetch = FetchType.LAZY, targetEntity = HibernateAsientoDetalle.class)
     private Set<AsientoDetalle> asientoDetalleList = new HashSet<AsientoDetalle>(0);
 	
-	@OneToMany(mappedBy = CuentaCentro_.cuentaContable, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CuentaCentro_.cuentaContable, fetch = FetchType.LAZY, targetEntity = HibernateCuentaCentro.class)
     private Set<CuentaCentro> cuentaCentroList = new HashSet<CuentaCentro>(0);
 	
-	@OneToMany(mappedBy = CuentaContable_.padre, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CuentaContable_.padre, fetch = FetchType.LAZY, targetEntity = HibernateCuentaContable.class)
     private Set<CuentaContable> cuentaContableList = new HashSet<CuentaContable>(0);
 	
-	@OneToMany(mappedBy = CuentaContableEmpresa_.cuentaContable, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = CuentaContableEmpresa_.cuentaContable, fetch = FetchType.LAZY, targetEntity = HibernateCuentaContableEmpresa.class)
     private Set<CuentaContableEmpresa> cuentaContableEmpresaList = new HashSet<CuentaContableEmpresa>(0);
 	
-	@OneToMany(mappedBy = Ejercicio_.cuentaUtilidad, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = Ejercicio_.cuentaUtilidad, fetch = FetchType.LAZY, targetEntity = HibernateEjercicio.class)
     private Set<Ejercicio> ejercicioList = new HashSet<Ejercicio>(0);
 	
-	@OneToMany(mappedBy = SaldoCuentaCentro_.cuentaContable, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCuentaCentro_.cuentaContable, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCuentaCentro.class)
     private Set<SaldoCuentaCentro> saldoCuentaCentroList = new HashSet<SaldoCuentaCentro>(0);
 	
-	@OneToMany(mappedBy = SaldoCuentaContable_.cuentaContable, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCuentaContable_.cuentaContable, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCuentaContable.class)
     private Set<SaldoCuentaContable> saldoCuentaContableList = new HashSet<SaldoCuentaContable>(0);
 	
 }

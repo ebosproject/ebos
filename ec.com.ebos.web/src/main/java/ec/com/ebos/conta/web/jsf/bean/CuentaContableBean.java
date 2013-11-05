@@ -6,10 +6,11 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import lombok.Getter;
+
 import org.springframework.stereotype.Component;
 
-import lombok.Getter;
-import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
+import ec.com.ebos.conta.model.CuentaContable;
 import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.util.EntityUtils;
 
@@ -20,7 +21,7 @@ import ec.com.ebos.util.EntityUtils;
 @Component
 @ManagedBean(name = CuentaContableBean.BEAN_NAME)
 @ViewScoped
-public class CuentaContableBean extends ContaBean<HibernateCuentaContable> {
+public class CuentaContableBean extends ContaBean<CuentaContable> {
     	
 	private static final long serialVersionUID = 4109617962842899097L;
 	
@@ -29,8 +30,7 @@ public class CuentaContableBean extends ContaBean<HibernateCuentaContable> {
 
 	@Override
     public void getInit() {
-        // Para busquedas
-        entitySearch = new HibernateCuentaContable();
+        entitySearch = contaS.getInstanceCuentaContable();
     }
 
     @Override
@@ -57,9 +57,9 @@ public class CuentaContableBean extends ContaBean<HibernateCuentaContable> {
     ///////////////////////// DATA MODEL ////////////////////////
 
     @Override
-    protected List<HibernateCuentaContable> loadDataTableCollection(HibernateCuentaContable cuentaContable, Pagination pagination) {
+    protected List<CuentaContable> loadDataTableCollection(CuentaContable cuentaContable, Pagination pagination) {
         //return contaS.findTipoCuentaList(cuentaContable, pagination);
-    	return new ArrayList<HibernateCuentaContable>();
+    	return new ArrayList<CuentaContable>();
     }
         
     //////////////////// ACCIONES ////////////////////

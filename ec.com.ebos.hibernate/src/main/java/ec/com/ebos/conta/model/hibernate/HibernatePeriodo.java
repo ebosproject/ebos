@@ -68,14 +68,14 @@ public class HibernatePeriodo extends HibernateContabilidad implements Periodo {
 	/**
 	 * Ejercicio contable
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernateEjercicio.class)
     @JoinColumn(name = "id_ejercicio", nullable = false)
 	private Ejercicio ejercicio;
 	
 	/**
 	 * Periodo fiscal pais
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, targetEntity = HibernateEjercicio.class)
     @JoinColumn(name = "id_periodo_fiscal_pais")
 	private Ejercicio periodoFiscalPais;
 	
@@ -119,16 +119,16 @@ public class HibernatePeriodo extends HibernateContabilidad implements Periodo {
     private Periodo.Estado estado = Periodo.Estado.PENDIENTE;
 	
 	
-	@OneToMany(mappedBy = SaldoCentroCosto_.periodo, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCentroCosto_.periodo, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCentroCosto.class)
     private Set<SaldoCentroCosto> saldoCentroCostoList = new HashSet<SaldoCentroCosto>(0);
 	
-	@OneToMany(mappedBy = SaldoCuentaCentro_.periodo, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCuentaCentro_.periodo, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCuentaCentro.class)
     private Set<SaldoCuentaCentro> saldoCuentaCentroList = new HashSet<SaldoCuentaCentro>(0);
 	
-	@OneToMany(mappedBy = SaldoCuentaContable_.periodo, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoCuentaContable_.periodo, fetch = FetchType.LAZY, targetEntity = HibernateSaldoCuentaContable.class)
     private Set<SaldoCuentaContable> saldoCuentaContableList = new HashSet<SaldoCuentaContable>(0);
 	
-	@OneToMany(mappedBy = SaldoRetencion_.periodo, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = SaldoRetencion_.periodo, fetch = FetchType.LAZY, targetEntity = HibernateSaldoRetencion.class)
     private Set<SaldoRetencion> saldoRetencionList = new HashSet<SaldoRetencion>(0);
 
 }
