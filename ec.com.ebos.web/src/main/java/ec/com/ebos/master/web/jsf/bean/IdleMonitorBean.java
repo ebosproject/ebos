@@ -13,8 +13,8 @@ import lombok.Setter;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.context.EbosContext;
-import ec.com.ebos.master.session.SessionBean;
+import ec.com.ebos.core.context.EbosContext;
+import ec.com.ebos.core.master.session.SessionBean;
 
 @Component
 @ManagedBean(name = IdleMonitorBean.BEAN_NAME)

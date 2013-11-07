@@ -6,8 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import ec.com.ebos.orm.crud.CrudException;
-import ec.com.ebos.orm.crud.CrudService;
+import ec.com.ebos.core.orm.crud.CrudException;
+import ec.com.ebos.core.orm.crud.CrudService;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

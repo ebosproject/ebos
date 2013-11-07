@@ -9,10 +9,10 @@ import javax.faces.context.FacesContext;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.admin.model.Parametros;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.core.admin.model.Parametros;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.util.EntityUtils;
 
 
 /**

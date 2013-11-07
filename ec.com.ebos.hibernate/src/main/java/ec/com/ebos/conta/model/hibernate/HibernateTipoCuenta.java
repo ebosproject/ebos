@@ -17,11 +17,11 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.field.CuentaContable_;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.CuentaContable;
+import ec.com.ebos.core.conta.model.TipoCuenta;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

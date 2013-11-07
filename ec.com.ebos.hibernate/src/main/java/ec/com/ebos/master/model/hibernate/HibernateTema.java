@@ -12,9 +12,9 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.master.model.Tema;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.master.model.Master;
+import ec.com.ebos.core.master.model.Tema;
+import ec.com.ebos.core.root.model.Entidad;
 
 /**
  * Theme clase

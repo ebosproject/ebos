@@ -5,8 +5,8 @@ import javax.faces.bean.SessionScoped;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.admin.model.Configuracion;
-import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.core.admin.model.Configuracion;
+import ec.com.ebos.core.util.EntityUtils;
 
 
 /**

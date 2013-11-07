@@ -28,13 +28,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.admin.model.Opcion;
-import ec.com.ebos.master.exception.MasterException;
-import ec.com.ebos.master.session.SessionBean;
-import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.util.FacesUtils;
-import ec.com.ebos.util.NumberUtils;
-import ec.com.ebos.util.StringUtils;
+import ec.com.ebos.core.admin.model.Opcion;
+import ec.com.ebos.core.master.exception.MasterException;
+import ec.com.ebos.core.master.session.SessionBean;
+import ec.com.ebos.core.security.model.RolOpcion;
+import ec.com.ebos.core.util.FacesUtils;
+import ec.com.ebos.core.util.NumberUtils;
+import ec.com.ebos.core.util.StringUtils;
 
 /**
  * ManagedBean que maneja el menuOptions y los dialogs

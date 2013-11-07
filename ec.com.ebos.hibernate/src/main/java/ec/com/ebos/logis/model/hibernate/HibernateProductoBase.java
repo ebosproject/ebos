@@ -8,9 +8,9 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.logis.model.Logistica;
-import ec.com.ebos.logis.model.ProductoBase;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.logis.model.Logistica;
+import ec.com.ebos.core.logis.model.ProductoBase;
 
 
 /**

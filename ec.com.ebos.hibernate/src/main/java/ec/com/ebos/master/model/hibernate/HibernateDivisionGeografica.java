@@ -16,11 +16,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.conta.model.PeriodoFiscalPais;
 import ec.com.ebos.conta.model.hibernate.HibernatePeriodoFiscalPais;
 import ec.com.ebos.conta.model.hibernate.field.PeriodoFiscalPais_;
-import ec.com.ebos.master.model.DivisionGeografica;
-import ec.com.ebos.master.model.Master;
+import ec.com.ebos.core.conta.model.PeriodoFiscalPais;
+import ec.com.ebos.core.master.model.DivisionGeografica;
+import ec.com.ebos.core.master.model.Master;
 import ec.com.ebos.master.model.field.DivisionGeografica_;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 

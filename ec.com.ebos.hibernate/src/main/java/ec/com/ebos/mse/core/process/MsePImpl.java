@@ -5,24 +5,25 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import ec.com.ebos.conta.exception.ContaException;
+import ec.com.ebos.core.conta.exception.ContaException;
+import ec.com.ebos.core.mse.model.Grupo;
+import ec.com.ebos.core.mse.model.Monaguillo;
+import ec.com.ebos.core.mse.model.MonaguilloGrupo;
+import ec.com.ebos.core.mse.process.MseP;
+import ec.com.ebos.core.orm.crud.GenericCriteria;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.root.model.Entidad.Estado;
+import ec.com.ebos.core.util.EntityUtils;
+import ec.com.ebos.core.util.NumberUtils;
+import ec.com.ebos.core.util.StringUtils;
 import ec.com.ebos.master.model.field.Persona_;
-import ec.com.ebos.mse.model.Grupo;
-import ec.com.ebos.mse.model.Monaguillo;
-import ec.com.ebos.mse.model.MonaguilloGrupo;
 import ec.com.ebos.mse.model.field.Grupo_;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 import ec.com.ebos.mse.model.field.Monaguillo_;
 import ec.com.ebos.mse.model.hibernate.HibernateGrupo;
 import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
 import ec.com.ebos.mse.model.hibernate.HibernateMonaguilloGrupo;
-import ec.com.ebos.orm.crud.GenericCriteria;
-import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
-import ec.com.ebos.root.model.Entidad.Estado;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.NumberUtils;
-import ec.com.ebos.util.StringUtils;
 
 /**
  * @author <a href="mailto:vipconsultoresaso@gmail.com">VIP Consultores</a>

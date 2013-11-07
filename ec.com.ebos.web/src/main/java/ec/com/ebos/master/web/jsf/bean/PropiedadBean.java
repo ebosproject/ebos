@@ -7,9 +7,9 @@ import javax.faces.bean.SessionScoped;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.master.model.Propiedad;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.core.master.model.Propiedad;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

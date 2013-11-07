@@ -22,15 +22,15 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.conta.model.Ejercicio;
-import ec.com.ebos.conta.model.Periodo;
 import ec.com.ebos.conta.model.hibernate.field.Periodo_;
-import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.CuentaContable;
+import ec.com.ebos.core.conta.model.Ejercicio;
+import ec.com.ebos.core.conta.model.Periodo;
+import ec.com.ebos.core.master.model.Organizacion;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
-import ec.com.ebos.root.model.Entidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

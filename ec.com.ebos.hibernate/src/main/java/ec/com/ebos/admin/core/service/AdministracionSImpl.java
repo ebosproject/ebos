@@ -11,18 +11,19 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import ec.com.ebos.admin.core.process.AdministracionP;
-import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.Configuracion;
-import ec.com.ebos.admin.model.Objeto;
-import ec.com.ebos.admin.model.Opcion;
-import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.admin.model.hibernate.HibernateBundle;
 import ec.com.ebos.admin.model.hibernate.HibernateConfiguracion;
 import ec.com.ebos.admin.model.hibernate.HibernateObjeto;
 import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
 import ec.com.ebos.admin.model.hibernate.HibernateParametros;
-import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.core.admin.model.Bundle;
+import ec.com.ebos.core.admin.model.Configuracion;
+import ec.com.ebos.core.admin.model.Objeto;
+import ec.com.ebos.core.admin.model.Opcion;
+import ec.com.ebos.core.admin.model.Parametros;
+import ec.com.ebos.core.admin.process.AdministracionP;
+import ec.com.ebos.core.admin.service.AdministracionS;
+import ec.com.ebos.core.orm.crud.Pagination;
 
 /**
  *

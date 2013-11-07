@@ -11,11 +11,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.CentroCosto;
-import ec.com.ebos.conta.model.CentroCostoEmpresa;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.master.model.Organizacion;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.CentroCosto;
+import ec.com.ebos.core.conta.model.CentroCostoEmpresa;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.master.model.Organizacion;
 import ec.com.ebos.master.model.hibernate.HibernateOrganizacion;
 
 /**

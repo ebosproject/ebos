@@ -16,7 +16,7 @@
 	
 	<osgi:service interface="ec.com.ebos.security.core.service.SecurityS" ref="securityS"/> -->
 	
-	<osgi:reference id="adminP" interface="ec.com.ebos.admin.core.process.AdministracionP"  cardinality="0..1"/>
+	<osgi:reference id="administracionS" interface="ec.com.ebos.admin.core.service.AdministracionS" cardinality="0..1"/>
 	
 	<osgi:reference id="securityS" interface="ec.com.ebos.security.core.service.SecurityS"  cardinality="0..1"/>
 	

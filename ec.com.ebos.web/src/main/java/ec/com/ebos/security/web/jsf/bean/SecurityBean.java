@@ -1,6 +1,6 @@
 package ec.com.ebos.security.web.jsf.bean;
 
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.root.web.jsf.bean.RootBean;
 
 /**

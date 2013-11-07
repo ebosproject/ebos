@@ -15,12 +15,12 @@ import lombok.Setter;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.mse.model.Grupo;
-import ec.com.ebos.mse.model.Monaguillo;
-import ec.com.ebos.mse.model.MonaguilloGrupo;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.StringUtils;
+import ec.com.ebos.core.mse.model.Grupo;
+import ec.com.ebos.core.mse.model.Monaguillo;
+import ec.com.ebos.core.mse.model.MonaguilloGrupo;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.util.EntityUtils;
+import ec.com.ebos.core.util.StringUtils;
 import ec.com.ebos.util.web.jsf.component.DataTable;
 
 /**

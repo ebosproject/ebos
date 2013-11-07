@@ -18,13 +18,13 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.Asiento;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.TipoAsiento;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.Asiento;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.TipoAsiento;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

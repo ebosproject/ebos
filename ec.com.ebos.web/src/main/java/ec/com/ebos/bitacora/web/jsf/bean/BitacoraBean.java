@@ -4,8 +4,8 @@ import javax.faces.bean.ManagedProperty;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.admin.core.service.AdministracionS;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.admin.service.AdministracionS;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.root.web.jsf.bean.RootBean;
 
 /**

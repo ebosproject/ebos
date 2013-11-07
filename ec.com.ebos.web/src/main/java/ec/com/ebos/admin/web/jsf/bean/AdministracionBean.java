@@ -6,8 +6,8 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import ec.com.ebos.admin.core.service.AdministracionS;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.admin.service.AdministracionS;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.root.web.jsf.bean.RootBean;
 
 /**

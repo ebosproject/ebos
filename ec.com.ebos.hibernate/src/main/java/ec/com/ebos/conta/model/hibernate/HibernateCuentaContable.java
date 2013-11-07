@@ -20,16 +20,6 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.AsientoDetalle;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.CuentaCentro;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.conta.model.CuentaContableEmpresa;
-import ec.com.ebos.conta.model.Ejercicio;
-import ec.com.ebos.conta.model.SaldoCuentaCentro;
-import ec.com.ebos.conta.model.SaldoCuentaContable;
-import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.field.AsientoDetalle_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaContableEmpresa_;
@@ -37,8 +27,18 @@ import ec.com.ebos.conta.model.hibernate.field.CuentaContable_;
 import ec.com.ebos.conta.model.hibernate.field.Ejercicio_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaCentro_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaContable_;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.AsientoDetalle;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.CuentaCentro;
+import ec.com.ebos.core.conta.model.CuentaContable;
+import ec.com.ebos.core.conta.model.CuentaContableEmpresa;
+import ec.com.ebos.core.conta.model.Ejercicio;
+import ec.com.ebos.core.conta.model.SaldoCuentaCentro;
+import ec.com.ebos.core.conta.model.SaldoCuentaContable;
+import ec.com.ebos.core.conta.model.TipoCuenta;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

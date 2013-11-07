@@ -22,19 +22,19 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.Ejercicio;
-import ec.com.ebos.conta.model.Periodo;
-import ec.com.ebos.conta.model.SaldoCentroCosto;
-import ec.com.ebos.conta.model.SaldoCuentaCentro;
-import ec.com.ebos.conta.model.SaldoCuentaContable;
-import ec.com.ebos.conta.model.SaldoRetencion;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCentroCosto_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaCentro_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaContable_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoRetencion_;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.Ejercicio;
+import ec.com.ebos.core.conta.model.Periodo;
+import ec.com.ebos.core.conta.model.SaldoCentroCosto;
+import ec.com.ebos.core.conta.model.SaldoCuentaCentro;
+import ec.com.ebos.core.conta.model.SaldoCuentaContable;
+import ec.com.ebos.core.conta.model.SaldoRetencion;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 

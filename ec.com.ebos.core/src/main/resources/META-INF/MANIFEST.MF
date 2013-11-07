@@ -22,7 +22,7 @@ Export-Package: ec.com.ebos.admin.core.exception;version="3.0.3";uses:
  ption",ec.com.ebos.conta.model;version="3.0.3";uses:="ec.com.ebos.adm
  in.model,ec.com.ebos.master.model,ec.com.ebos.root.model,ec.com.ebos.
  util.type,lombok",ec.com.ebos.context;version="3.0.3";uses:="ec.com.e
- bos.admin.core.process,ec.com.ebos.admin.model,javax.annotation,javax
+ bos.admin.core.service,ec.com.ebos.admin.model,javax.annotation,javax
  .faces.context,lombok,org.springframework.beans.factory.annotation,or
  g.springframework.context,org.springframework.stereotype",ec.com.ebos
  .logis.model;version="3.0.3";uses:="ec.com.ebos.root.model",ec.com.eb
@@ -72,21 +72,20 @@ Export-Package: ec.com.ebos.admin.core.exception;version="3.0.3";uses:
  ;version="3.0.3";uses:="ec.com.ebos.root.model,javax.el,javax.faces.a
  pplication,javax.faces.component,javax.faces.context,javax.faces.conv
  ert,javax.faces.event,javax.servlet.http",ec.com.ebos.util.core.proce
- ss;version="3.0.3";uses:="ec.com.ebos.util.mail,lombok,org.springfram
- ework.beans.factory.annotation,org.springframework.scheduling.annotat
- ion,org.springframework.stereotype,org.springframework.transaction.an
- notation",ec.com.ebos.util.core.service;version="3.0.3";uses:="ec.com
- .ebos.util.core.process,lombok,org.springframework.beans.factory.anno
- tation,org.springframework.scheduling.annotation,org.springframework.
- stereotype",ec.com.ebos.util.crypto;version="3.0.3",ec.com.ebos.util.
- exception;version="3.0.3";uses:="ec.com.ebos.root.core.exception",ec.
- com.ebos.util.mail;version="3.0.3";uses:="ec.com.ebos.context,javax.m
- ail.internet,lombok,org.springframework.beans.factory.annotation,org.
- springframework.mail,org.springframework.mail.javamail,org.springfram
- ework.stereotype",ec.com.ebos.util.sms;version="3.0.3";uses:="ec.com.
- ebos.context,javax.annotation,lombok,org.springframework.beans.factor
- y.annotation,org.springframework.stereotype",ec.com.ebos.util.type;ve
- rsion="3.0.3";uses:="lombok,org.hibernate.usertype"
+ ss;version="3.0.3";uses:="org.springframework.scheduling.annotation,o
+ rg.springframework.stereotype,org.springframework.transaction.annotat
+ ion",ec.com.ebos.util.core.service;version="3.0.3";uses:="ec.com.ebos
+ .util.core.process,lombok,org.springframework.beans.factory.annotatio
+ n,org.springframework.scheduling.annotation,org.springframework.stere
+ otype",ec.com.ebos.util.crypto;version="3.0.3",ec.com.ebos.util.excep
+ tion;version="3.0.3";uses:="ec.com.ebos.root.core.exception",ec.com.e
+ bos.util.mail;version="3.0.3";uses:="ec.com.ebos.context,javax.mail.i
+ nternet,lombok,org.springframework.beans.factory.annotation,org.sprin
+ gframework.mail,org.springframework.mail.javamail,org.springframework
+ .stereotype",ec.com.ebos.util.sms;version="3.0.3";uses:="ec.com.ebos.
+ context,javax.annotation,lombok,org.springframework.beans.factory.ann
+ otation,org.springframework.stereotype",ec.com.ebos.util.type;version
+ ="3.0.3";uses:="lombok,org.hibernate.usertype"
 Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
  LEASE,1.6.12.RELEASE]",org.glassfish.javax.faces;version="[2.1.18,2.1
  .18]",ec.com.ebos.primefaces;version="[3.5.0,3.5.0]",ec.com.ebos.prim

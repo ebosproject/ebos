@@ -15,15 +15,15 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.admin.model.Documento;
 import ec.com.ebos.admin.model.hibernate.HibernateDocumento;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.Asiento;
-import ec.com.ebos.conta.model.AsientoDetalle;
-import ec.com.ebos.conta.model.CentroCosto;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.core.admin.model.Documento;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.Asiento;
+import ec.com.ebos.core.conta.model.AsientoDetalle;
+import ec.com.ebos.core.conta.model.CentroCosto;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.CuentaContable;
+import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

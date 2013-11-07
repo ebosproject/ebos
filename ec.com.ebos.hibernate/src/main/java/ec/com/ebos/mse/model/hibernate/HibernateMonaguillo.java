@@ -20,17 +20,17 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.master.model.Persona;
+import ec.com.ebos.core.mse.model.Monaguillo;
+import ec.com.ebos.core.mse.model.MonaguilloGrupo;
+import ec.com.ebos.core.mse.model.Mse;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.master.model.field.Persona_;
 import ec.com.ebos.master.model.hibernate.HibernatePersona;
-import ec.com.ebos.mse.model.Monaguillo;
-import ec.com.ebos.mse.model.MonaguilloGrupo;
-import ec.com.ebos.mse.model.Mse;
 import ec.com.ebos.mse.model.field.MonaguilloGrupo_;
 import ec.com.ebos.mse.model.field.Monaguillo_;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
 
 /**
  * Monagillo

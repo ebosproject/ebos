@@ -13,10 +13,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import ec.com.ebos.orm.crud.FinderSQLException;
-import ec.com.ebos.orm.crud.FinderSQLService;
-import ec.com.ebos.orm.crud.support.ParametrosProcedimiento;
-import ec.com.ebos.orm.crud.support.StoreProcedureUtility;
+import ec.com.ebos.core.orm.crud.FinderSQLException;
+import ec.com.ebos.core.orm.crud.FinderSQLService;
+import ec.com.ebos.core.orm.crud.support.ParametrosProcedimiento;
+import ec.com.ebos.core.orm.crud.support.StoreProcedureUtility;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

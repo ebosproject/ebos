@@ -29,14 +29,14 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import ec.com.ebos.orm.crud.FinderException;
-import ec.com.ebos.orm.crud.FinderSQLException;
-import ec.com.ebos.orm.crud.FinderSQLService;
-import ec.com.ebos.orm.crud.FinderService;
-import ec.com.ebos.orm.crud.GenericCriteria;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.orm.crud.PaginationParams;
-import ec.com.ebos.orm.crud.support.ParametrosProcedimiento;
+import ec.com.ebos.core.orm.crud.FinderException;
+import ec.com.ebos.core.orm.crud.FinderSQLException;
+import ec.com.ebos.core.orm.crud.FinderSQLService;
+import ec.com.ebos.core.orm.crud.FinderService;
+import ec.com.ebos.core.orm.crud.GenericCriteria;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.orm.crud.PaginationParams;
+import ec.com.ebos.core.orm.crud.support.ParametrosProcedimiento;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

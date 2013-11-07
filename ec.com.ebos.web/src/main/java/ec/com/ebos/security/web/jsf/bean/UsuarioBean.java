@@ -13,14 +13,14 @@ import lombok.Setter;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.master.core.service.MasterS;
-import ec.com.ebos.master.model.EmpresaPersona;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.Rol;
-import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.security.model.UsuarioRol;
-import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.core.master.model.EmpresaPersona;
+import ec.com.ebos.core.master.service.MasterS;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.security.model.Rol;
+import ec.com.ebos.core.security.model.Usuario;
+import ec.com.ebos.core.security.model.UsuarioRol;
+import ec.com.ebos.core.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

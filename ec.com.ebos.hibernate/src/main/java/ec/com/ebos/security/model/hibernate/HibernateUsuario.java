@@ -21,18 +21,18 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
-import ec.com.ebos.master.model.EmpresaPersona;
+import ec.com.ebos.core.admin.model.Bundle;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.master.model.EmpresaPersona;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.security.model.Security;
+import ec.com.ebos.core.security.model.Usuario;
+import ec.com.ebos.core.security.model.UsuarioRol;
+import ec.com.ebos.core.util.type.StringValuedEnum;
 import ec.com.ebos.master.model.hibernate.HibernateEmpresaPersona;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.model.Security;
-import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.security.model.UsuarioRol;
 import ec.com.ebos.security.model.field.UsuarioRol_;
-import ec.com.ebos.util.type.StringValuedEnum;
 
 /**
  *

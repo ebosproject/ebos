@@ -9,13 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import ec.com.ebos.mse.core.process.MseP;
-import ec.com.ebos.mse.model.Grupo;
-import ec.com.ebos.mse.model.Monaguillo;
-import ec.com.ebos.mse.model.MonaguilloGrupo;
+import ec.com.ebos.core.mse.model.Grupo;
+import ec.com.ebos.core.mse.model.Monaguillo;
+import ec.com.ebos.core.mse.model.MonaguilloGrupo;
+import ec.com.ebos.core.mse.process.MseP;
+import ec.com.ebos.core.mse.service.MseS;
+import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.mse.model.hibernate.HibernateGrupo;
 import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
-import ec.com.ebos.orm.crud.Pagination;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

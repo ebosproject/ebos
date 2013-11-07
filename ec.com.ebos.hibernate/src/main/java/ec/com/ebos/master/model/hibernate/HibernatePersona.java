@@ -25,22 +25,22 @@ import lombok.Setter;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
 import ec.com.ebos.conta.model.hibernate.HibernateDocumentoDistribucion;
-import ec.com.ebos.master.model.DivisionGeografica;
-import ec.com.ebos.master.model.EmpresaPersona;
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.master.model.Organizacion;
-import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.master.model.DivisionGeografica;
+import ec.com.ebos.core.master.model.EmpresaPersona;
+import ec.com.ebos.core.master.model.Master;
+import ec.com.ebos.core.master.model.Organizacion;
+import ec.com.ebos.core.master.model.Persona;
+import ec.com.ebos.core.mse.model.Monaguillo;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.util.DateUtils;
 import ec.com.ebos.master.model.field.EmpresaPersona_;
 import ec.com.ebos.master.model.field.Organizacion_;
 import ec.com.ebos.master.model.field.Persona_;
-import ec.com.ebos.mse.model.Monaguillo;
 import ec.com.ebos.mse.model.field.Monaguillo_;
 import ec.com.ebos.mse.model.hibernate.HibernateMonaguillo;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.DateUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

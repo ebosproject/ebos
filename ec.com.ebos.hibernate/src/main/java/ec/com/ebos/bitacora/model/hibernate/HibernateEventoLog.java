@@ -12,11 +12,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.bitacora.model.Bitacora;
-import ec.com.ebos.bitacora.model.Evento;
-import ec.com.ebos.bitacora.model.EventoLog;
-import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.bitacora.model.Bitacora;
+import ec.com.ebos.core.bitacora.model.Evento;
+import ec.com.ebos.core.bitacora.model.EventoLog;
+import ec.com.ebos.core.root.model.Auditoria;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

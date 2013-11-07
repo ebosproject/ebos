@@ -12,10 +12,10 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.PeriodoFiscalPais;
-import ec.com.ebos.master.model.DivisionGeografica;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.PeriodoFiscalPais;
+import ec.com.ebos.core.master.model.DivisionGeografica;
 import ec.com.ebos.master.model.hibernate.HibernateDivisionGeografica;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 

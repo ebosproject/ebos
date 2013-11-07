@@ -17,16 +17,16 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.CentroCosto;
-import ec.com.ebos.conta.model.CentroSubcentro;
-import ec.com.ebos.conta.model.Contabilidad;
-import ec.com.ebos.conta.model.CuentaCentro;
-import ec.com.ebos.conta.model.TipoCentroCosto;
 import ec.com.ebos.conta.model.hibernate.field.CentroCosto_;
 import ec.com.ebos.conta.model.hibernate.field.CentroSubcentro_;
 import ec.com.ebos.conta.model.hibernate.field.CuentaCentro_;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.CentroCosto;
+import ec.com.ebos.core.conta.model.CentroSubcentro;
+import ec.com.ebos.core.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.CuentaCentro;
+import ec.com.ebos.core.conta.model.TipoCentroCosto;
+import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

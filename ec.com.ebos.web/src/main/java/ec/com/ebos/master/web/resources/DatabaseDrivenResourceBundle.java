@@ -10,10 +10,10 @@ import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ec.com.ebos.admin.core.service.AdministracionS;
-import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.context.EbosContext;
-import ec.com.ebos.util.Constantes;
+import ec.com.ebos.core.admin.model.Bundle;
+import ec.com.ebos.core.admin.service.AdministracionS;
+import ec.com.ebos.core.context.EbosContext;
+import ec.com.ebos.core.util.Constantes;
 
 
 /**

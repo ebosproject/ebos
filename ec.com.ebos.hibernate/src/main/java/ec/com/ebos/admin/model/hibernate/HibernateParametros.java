@@ -13,11 +13,11 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.admin.model.Administracion;
-import ec.com.ebos.admin.model.Parametros;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.admin.model.Administracion;
+import ec.com.ebos.core.admin.model.Parametros;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.root.model.Entidad;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

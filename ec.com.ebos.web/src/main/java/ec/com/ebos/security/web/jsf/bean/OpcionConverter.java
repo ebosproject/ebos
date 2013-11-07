@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.admin.core.service.AdministracionS;
-import ec.com.ebos.admin.model.Opcion;
-import ec.com.ebos.util.StringUtils;
+import ec.com.ebos.core.admin.model.Opcion;
+import ec.com.ebos.core.admin.service.AdministracionS;
+import ec.com.ebos.core.util.StringUtils;
 
 @Component
 @ManagedBean(name = OpcionConverter.BEAN_NAME)

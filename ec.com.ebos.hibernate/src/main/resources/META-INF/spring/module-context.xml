@@ -101,11 +101,8 @@
 	     p:shared="true"/>
 	     
     <context:component-scan 
-    	base-package="ec.com.ebos.context,
-	    	ec.com.ebos.master,
-	   		ec.com.ebos.aspect,
+    	base-package="ec.com.ebos.master,
 	   		ec.com.ebos.security,
-	   		ec.com.ebos.util,
 	   		ec.com.ebos.admin,
 			ec.com.ebos.conta,
 			ec.com.ebos.logis,

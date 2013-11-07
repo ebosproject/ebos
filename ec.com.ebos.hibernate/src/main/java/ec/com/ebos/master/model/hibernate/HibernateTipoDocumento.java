@@ -16,11 +16,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.conta.model.Asiento;
 import ec.com.ebos.conta.model.hibernate.HibernateAsiento;
 import ec.com.ebos.conta.model.hibernate.field.Asiento_;
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.master.model.TipoDocumento;
+import ec.com.ebos.core.conta.model.Asiento;
+import ec.com.ebos.core.master.model.Master;
+import ec.com.ebos.core.master.model.TipoDocumento;
 
 /**
  * Tipos de transacciones de la empresa

@@ -39,7 +39,7 @@ import lombok.Getter;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.util.Constantes;
+import ec.com.ebos.core.util.Constantes;
 
 /**
  * Informacion tecnica del sistema

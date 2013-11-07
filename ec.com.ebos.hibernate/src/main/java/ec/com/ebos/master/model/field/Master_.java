@@ -1,6 +1,6 @@
 package ec.com.ebos.master.model.field;
 
-import ec.com.ebos.master.model.Master;
+import ec.com.ebos.core.master.model.Master;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

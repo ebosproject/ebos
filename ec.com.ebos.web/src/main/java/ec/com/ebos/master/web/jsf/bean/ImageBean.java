@@ -14,7 +14,7 @@ import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.master.model.Persona;
+import ec.com.ebos.core.master.model.Persona;
 import ec.com.ebos.mse.web.jsf.bean.MonaguilloBean;
 
 @Component

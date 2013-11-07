@@ -22,19 +22,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.Bundle.Localidad;
-import ec.com.ebos.context.EbosContext;
-import ec.com.ebos.master.model.Organizacion;
-import ec.com.ebos.master.model.Tema;
-import ec.com.ebos.master.session.SessionBean;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.security.core.service.SecurityS;
-import ec.com.ebos.security.model.RolOpcion;
-import ec.com.ebos.security.model.Usuario;
-import ec.com.ebos.util.Constantes;
-import ec.com.ebos.util.FacesUtils;
-import ec.com.ebos.util.MessageUtils;
+import ec.com.ebos.core.admin.model.Bundle;
+import ec.com.ebos.core.admin.model.Bundle.Localidad;
+import ec.com.ebos.core.context.EbosContext;
+import ec.com.ebos.core.master.model.Organizacion;
+import ec.com.ebos.core.master.model.Tema;
+import ec.com.ebos.core.master.session.SessionBean;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.security.model.RolOpcion;
+import ec.com.ebos.core.security.model.Usuario;
+import ec.com.ebos.core.security.service.SecurityS;
+import ec.com.ebos.core.util.Constantes;
+import ec.com.ebos.core.util.FacesUtils;
+import ec.com.ebos.core.util.MessageUtils;
 
 /**
  * Bean para datos de sesion del usuario

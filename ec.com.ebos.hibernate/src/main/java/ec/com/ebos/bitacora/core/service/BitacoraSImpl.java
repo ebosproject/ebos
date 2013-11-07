@@ -2,6 +2,8 @@ package ec.com.ebos.bitacora.core.service;
 
 import org.springframework.stereotype.Service;
 
+import ec.com.ebos.core.bitacora.service.BitacoraS;
+
 /**
  * @author Eduardo Plua Alay
  */

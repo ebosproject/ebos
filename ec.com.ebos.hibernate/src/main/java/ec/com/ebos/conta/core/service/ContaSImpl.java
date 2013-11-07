@@ -9,12 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import ec.com.ebos.conta.core.process.ContaP;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
 import ec.com.ebos.conta.model.hibernate.HibernateTipoCuenta;
-import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.core.conta.model.CuentaContable;
+import ec.com.ebos.core.conta.model.TipoCuenta;
+import ec.com.ebos.core.conta.process.ContaP;
+import ec.com.ebos.core.conta.service.ContaS;
+import ec.com.ebos.core.orm.crud.Pagination;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

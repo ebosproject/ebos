@@ -15,11 +15,11 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.master.model.Organizacion;
-import ec.com.ebos.master.model.Sucursal;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.master.model.Master;
+import ec.com.ebos.core.master.model.Organizacion;
+import ec.com.ebos.core.master.model.Sucursal;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.root.model.Entidad;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

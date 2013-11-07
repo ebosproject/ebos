@@ -2,7 +2,8 @@ package ec.com.ebos.bitacora.core.process;
 
 import org.springframework.stereotype.Repository;
 
-import ec.com.ebos.bitacora.core.exception.BitacoraException;
+import ec.com.ebos.core.bitacora.exception.BitacoraException;
+import ec.com.ebos.core.bitacora.process.BitacoraP;
 import ec.com.ebos.root.core.process.RootPImpl;
 
 /**

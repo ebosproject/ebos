@@ -13,10 +13,10 @@ import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.Type;
 
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.master.model.TipoImpuesto;
-import ec.com.ebos.root.model.Auditoria;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.master.model.Master;
+import ec.com.ebos.core.master.model.TipoImpuesto;
+import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 

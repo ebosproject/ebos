@@ -1,6 +1,6 @@
 package ec.com.ebos.conta.model.hibernate.field;
 
-import ec.com.ebos.conta.model.Contabilidad;
+import ec.com.ebos.core.conta.model.Contabilidad;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

@@ -13,11 +13,11 @@ import javax.faces.convert.ConverterException;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.admin.model.Opcion;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.StringUtils;
+import ec.com.ebos.core.admin.model.Opcion;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.util.EntityUtils;
+import ec.com.ebos.core.util.StringUtils;
 
 /**
  * @author Eduardo Plua Alay

@@ -20,9 +20,9 @@ import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.core.master.model.Persona;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

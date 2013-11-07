@@ -10,10 +10,10 @@ import lombok.Getter;
 
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.admin.model.Objeto;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.util.EntityUtils;
+import ec.com.ebos.core.admin.model.Objeto;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

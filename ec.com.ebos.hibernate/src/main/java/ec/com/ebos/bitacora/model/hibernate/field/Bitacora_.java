@@ -1,6 +1,6 @@
 package ec.com.ebos.bitacora.model.hibernate.field;
 
-import ec.com.ebos.bitacora.model.Bitacora;
+import ec.com.ebos.core.bitacora.model.Bitacora;
 import ec.com.ebos.root.model.hibernate.field.Entidad_;
 
 /**

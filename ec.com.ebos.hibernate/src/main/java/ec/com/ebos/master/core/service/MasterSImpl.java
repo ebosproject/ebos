@@ -9,14 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import ec.com.ebos.master.core.process.MasterP;
-import ec.com.ebos.master.model.EmpresaPersona;
-import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.master.model.Propiedad;
+import ec.com.ebos.core.master.model.EmpresaPersona;
+import ec.com.ebos.core.master.model.Persona;
+import ec.com.ebos.core.master.model.Propiedad;
+import ec.com.ebos.core.master.process.MasterP;
+import ec.com.ebos.core.master.service.MasterS;
+import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.master.model.hibernate.HibernateEmpresaPersona;
 import ec.com.ebos.master.model.hibernate.HibernatePersona;
 import ec.com.ebos.master.model.hibernate.HibernatePropiedad;
-import ec.com.ebos.orm.crud.Pagination;
 
 /**
  * @author Eduardo Plua Alay

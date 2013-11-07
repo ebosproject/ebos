@@ -17,8 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import ec.com.ebos.master.model.Tema;
-import ec.com.ebos.master.session.SessionBean;
+import ec.com.ebos.core.master.model.Tema;
+import ec.com.ebos.core.master.session.SessionBean;
 
 /**
  * 

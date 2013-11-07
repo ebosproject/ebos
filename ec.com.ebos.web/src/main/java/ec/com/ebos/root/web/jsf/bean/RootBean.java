@@ -17,16 +17,16 @@ import org.primefaces.model.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import ec.com.ebos.master.session.SessionBean;
-import ec.com.ebos.orm.crud.Pagination;
-import ec.com.ebos.root.core.exception.RootException;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.security.core.service.SecurityS;
-import ec.com.ebos.util.EntityUtils;
-import ec.com.ebos.util.FacesUtils;
-import ec.com.ebos.util.MessageUtils;
-import ec.com.ebos.util.NumberUtils;
-import ec.com.ebos.util.type.JsfMessage;
+import ec.com.ebos.core.master.session.SessionBean;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.root.exception.RootException;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.security.service.SecurityS;
+import ec.com.ebos.core.util.EntityUtils;
+import ec.com.ebos.core.util.FacesUtils;
+import ec.com.ebos.core.util.MessageUtils;
+import ec.com.ebos.core.util.NumberUtils;
+import ec.com.ebos.core.util.type.JsfMessage;
 
 /**
  *

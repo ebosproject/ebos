@@ -12,8 +12,8 @@ import javax.persistence.Temporal;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.root.model.Auditoria;
-import ec.com.ebos.security.model.Usuario;
+import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.core.security.model.Usuario;
 import ec.com.ebos.security.model.hibernate.HibernateUsuario;
 
 /**

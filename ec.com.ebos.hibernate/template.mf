@@ -46,8 +46,6 @@ Excluded-Imports:
  ec.com.ebos.mse,
  ec.com.ebos.root,
  ec.com.ebos.conta
-Excluded-Exports: 
- ec.com.ebos.*
 Import-Package: 
  javax.servlet;version="[3.0.0, 3.1.0)",
  org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",

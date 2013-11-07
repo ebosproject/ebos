@@ -9,17 +9,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import ec.com.ebos.conta.exception.ContaException;
-import ec.com.ebos.conta.model.Asiento;
-import ec.com.ebos.conta.model.AsientoDetalle;
-import ec.com.ebos.conta.model.CentroCosto;
-import ec.com.ebos.conta.model.CuentaContable;
-import ec.com.ebos.conta.model.Ejercicio;
-import ec.com.ebos.conta.model.Periodo;
-import ec.com.ebos.conta.model.SaldoCentroCosto;
-import ec.com.ebos.conta.model.SaldoCuentaCentro;
-import ec.com.ebos.conta.model.SaldoCuentaContable;
-import ec.com.ebos.conta.model.TipoCuenta;
 import ec.com.ebos.conta.model.hibernate.HibernateAsientoDetalle;
 import ec.com.ebos.conta.model.hibernate.HibernateCentroCosto;
 import ec.com.ebos.conta.model.hibernate.HibernateCuentaContable;
@@ -34,9 +23,21 @@ import ec.com.ebos.conta.model.hibernate.field.Periodo_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCentroCosto_;
 import ec.com.ebos.conta.model.hibernate.field.SaldoCuentaContable_;
 import ec.com.ebos.conta.model.hibernate.field.TipoCuenta_;
-import ec.com.ebos.master.model.Organizacion;
-import ec.com.ebos.orm.crud.GenericCriteria;
-import ec.com.ebos.orm.crud.Pagination;
+import ec.com.ebos.core.conta.exception.ContaException;
+import ec.com.ebos.core.conta.model.Asiento;
+import ec.com.ebos.core.conta.model.AsientoDetalle;
+import ec.com.ebos.core.conta.model.CentroCosto;
+import ec.com.ebos.core.conta.model.CuentaContable;
+import ec.com.ebos.core.conta.model.Ejercicio;
+import ec.com.ebos.core.conta.model.Periodo;
+import ec.com.ebos.core.conta.model.SaldoCentroCosto;
+import ec.com.ebos.core.conta.model.SaldoCuentaCentro;
+import ec.com.ebos.core.conta.model.SaldoCuentaContable;
+import ec.com.ebos.core.conta.model.TipoCuenta;
+import ec.com.ebos.core.conta.process.ContaP;
+import ec.com.ebos.core.master.model.Organizacion;
+import ec.com.ebos.core.orm.crud.GenericCriteria;
+import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
 
 /**

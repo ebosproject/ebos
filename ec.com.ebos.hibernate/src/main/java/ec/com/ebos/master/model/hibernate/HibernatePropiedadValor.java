@@ -12,9 +12,9 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.master.model.Master;
-import ec.com.ebos.master.model.Propiedad;
-import ec.com.ebos.master.model.PropiedadValor;
+import ec.com.ebos.core.master.model.Master;
+import ec.com.ebos.core.master.model.Propiedad;
+import ec.com.ebos.core.master.model.PropiedadValor;
 
 /**
  * Theme clase

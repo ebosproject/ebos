@@ -13,12 +13,12 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ec.com.ebos.admin.model.Administracion;
-import ec.com.ebos.admin.model.TipoRetencion;
-import ec.com.ebos.aspect.annotation.Auditable;
-import ec.com.ebos.conta.model.SaldoRetencion;
 import ec.com.ebos.conta.model.hibernate.HibernateSaldoRetencion;
 import ec.com.ebos.conta.model.hibernate.field.SaldoRetencion_;
+import ec.com.ebos.core.admin.model.Administracion;
+import ec.com.ebos.core.admin.model.TipoRetencion;
+import ec.com.ebos.core.aspect.annotation.Auditable;
+import ec.com.ebos.core.conta.model.SaldoRetencion;
 
 /**
  * Documento

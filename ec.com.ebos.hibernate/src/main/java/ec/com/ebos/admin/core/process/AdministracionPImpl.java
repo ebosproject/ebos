@@ -6,13 +6,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import ec.com.ebos.admin.core.exception.AdministracionException;
-import ec.com.ebos.admin.model.Bundle;
-import ec.com.ebos.admin.model.Bundle.Localidad;
-import ec.com.ebos.admin.model.Configuracion;
-import ec.com.ebos.admin.model.Objeto;
-import ec.com.ebos.admin.model.Opcion;
-import ec.com.ebos.admin.model.Parametros;
 import ec.com.ebos.admin.model.hibernate.HibernateBundle;
 import ec.com.ebos.admin.model.hibernate.HibernateObjeto;
 import ec.com.ebos.admin.model.hibernate.HibernateOpcion;
@@ -20,15 +13,23 @@ import ec.com.ebos.admin.model.hibernate.field.Bundle_;
 import ec.com.ebos.admin.model.hibernate.field.Objeto_;
 import ec.com.ebos.admin.model.hibernate.field.Opcion_;
 import ec.com.ebos.admin.model.hibernate.field.Parametros_;
+import ec.com.ebos.core.admin.exception.AdministracionException;
+import ec.com.ebos.core.admin.model.Bundle;
+import ec.com.ebos.core.admin.model.Configuracion;
+import ec.com.ebos.core.admin.model.Objeto;
+import ec.com.ebos.core.admin.model.Opcion;
+import ec.com.ebos.core.admin.model.Parametros;
+import ec.com.ebos.core.admin.model.Bundle.Localidad;
+import ec.com.ebos.core.admin.process.AdministracionP;
+import ec.com.ebos.core.orm.crud.GenericCriteria;
+import ec.com.ebos.core.orm.crud.Pagination;
+import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.core.root.model.Entidad.Estado;
+import ec.com.ebos.core.util.EntityUtils;
 import ec.com.ebos.master.model.field.MessageResource_;
-import ec.com.ebos.orm.crud.GenericCriteria;
-import ec.com.ebos.orm.crud.Pagination;
 import ec.com.ebos.root.core.process.RootPImpl;
-import ec.com.ebos.root.model.Entidad;
-import ec.com.ebos.root.model.Entidad.Estado;
 import ec.com.ebos.root.model.hibernate.HibernateEntidad;
 import ec.com.ebos.root.model.hibernate.field.Auditoria_;
-import ec.com.ebos.util.EntityUtils;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>

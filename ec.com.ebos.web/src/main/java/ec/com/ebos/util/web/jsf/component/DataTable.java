@@ -4,7 +4,7 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
-import ec.com.ebos.root.model.Entidad;
+import ec.com.ebos.core.root.model.Entidad;
 
 /**
  * 

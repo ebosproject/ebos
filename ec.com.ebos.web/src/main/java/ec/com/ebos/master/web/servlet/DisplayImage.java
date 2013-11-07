@@ -6,11 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ec.com.ebos.master.model.Persona;
-import ec.com.ebos.mse.exception.MseException;
+import ec.com.ebos.core.master.model.Persona;
+import ec.com.ebos.core.mse.exception.MseException;
+import ec.com.ebos.core.util.HTTPUtils;
+import ec.com.ebos.core.util.NumberUtils;
 import ec.com.ebos.mse.web.jsf.bean.MonaguilloBean;
-import ec.com.ebos.util.HTTPUtils;
-import ec.com.ebos.util.NumberUtils;
 
 public class DisplayImage extends AbstractFacesServlet {
  
