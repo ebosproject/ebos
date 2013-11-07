@@ -76,7 +76,7 @@ public interface Entidad extends Root{
         public static class Type extends StringValuedEnumType<Estado> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".root.model.Entidad$Estado$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.root.model.Entidad$Estado$Type";
         
         @Getter
         private String value;

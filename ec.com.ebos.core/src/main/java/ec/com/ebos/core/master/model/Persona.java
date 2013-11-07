@@ -151,7 +151,7 @@ public interface Persona extends Master {
 
         public static class Type extends StringValuedEnumType<TipoIdentificacion> {
         }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Persona$TipoIdentificacion$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.master.model.Persona$TipoIdentificacion$Type";
 
         @Getter
         private String value;
@@ -209,7 +209,7 @@ public interface Persona extends Master {
 
         public static class Type extends StringValuedEnumType<TipoPersona> {
         }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Persona$TipoPersona$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.master.model.Persona$TipoPersona$Type";
 
         @Getter
         private String value;
@@ -262,7 +262,7 @@ public interface Persona extends Master {
 
         public static class Type extends StringValuedEnumType<Genero> {
         }
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Persona$Genero$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.master.model.Persona$Genero$Type";
 
         @Getter
         private String value;

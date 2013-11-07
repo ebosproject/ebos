@@ -70,7 +70,7 @@ public interface Objeto extends Administracion {
         public static class Type extends StringValuedEnumType<TipoObjeto> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".admin.model.Objeto$TipoObjeto$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.admin.model.Objeto$TipoObjeto$Type";
         
         @Getter
         private String value;

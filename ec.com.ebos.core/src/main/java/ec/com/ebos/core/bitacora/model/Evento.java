@@ -93,7 +93,7 @@ public interface Evento extends Bitacora {
         public static class Type extends StringValuedEnumType<EstadoEvento> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".bitacora.model.Evento$EstadoEvento$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.bitacora.model.Evento$EstadoEvento$Type";
         
         @Getter
         private String value;
@@ -155,7 +155,7 @@ public interface Evento extends Bitacora {
         public static class Type extends StringValuedEnumType<TipoEvento> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".bitacora.model.Evento$TipoEvento$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.bitacora.model.Evento$TipoEvento$Type";
 
         @Getter
         private String value;

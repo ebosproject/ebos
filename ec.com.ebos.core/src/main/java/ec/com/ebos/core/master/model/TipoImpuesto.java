@@ -70,7 +70,7 @@ public interface TipoImpuesto extends Master {
         public static class Type extends StringValuedEnumType<ClaseImpuesto> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.TipoImpuesto$ClaseImpuesto$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.master.model.TipoImpuesto$ClaseImpuesto$Type";
 
         @Getter
         private String value;

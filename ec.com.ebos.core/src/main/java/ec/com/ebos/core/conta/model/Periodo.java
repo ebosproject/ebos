@@ -97,7 +97,7 @@ public interface Periodo extends Contabilidad {
         public static class Type extends StringValuedEnumType<Estado> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".root.model.Periodo$Estado$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.root.model.Periodo$Estado$Type";
         
         @Getter
         private String value;

@@ -64,7 +64,7 @@ public interface TipoCuenta extends Contabilidad {
         public static class Type extends StringValuedEnumType<Tipo> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".conta.model.TipoCuenta$Tipo$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.conta.model.TipoCuenta$Tipo$Type";
         
         @Getter
         private String value;

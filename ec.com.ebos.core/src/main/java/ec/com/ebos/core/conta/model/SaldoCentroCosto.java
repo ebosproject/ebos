@@ -79,7 +79,7 @@ public interface SaldoCentroCosto extends Contabilidad {
         public static class Type extends StringValuedEnumType<TipoSaldo> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".conta.model.SaldoCentroCosto$TipoSaldo$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.conta.model.SaldoCentroCosto$TipoSaldo$Type";
         
         @Getter
         private String value;

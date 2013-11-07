@@ -10,14 +10,14 @@
 
 	<!-- export the Service to ec.com.ebos.web-->
 		
-	<osgi:service interface="ec.com.ebos.admin.core.service.AdministracionS" ref="administracionS"/>
+	<osgi:service interface="ec.com.ebos.core.admin.service.AdministracionS" ref="administracionS"/>
 	
-	<osgi:service interface="ec.com.ebos.conta.core.service.ContaS" ref="contaS"/>
+	<osgi:service interface="ec.com.ebos.core.conta.service.ContaS" ref="contaS"/>
 	
-	<osgi:service interface="ec.com.ebos.master.core.service.MasterS" ref="masterS"/>
+	<osgi:service interface="ec.com.ebos.core.master.service.MasterS" ref="masterS"/>
 	
-	<osgi:service interface="ec.com.ebos.mse.core.service.MseS" ref="mseS"/>
+	<osgi:service interface="ec.com.ebos.core.mse.service.MseS" ref="mseS"/>
 	
-	<osgi:service interface="ec.com.ebos.security.core.service.SecurityS" ref="securityS"/>
+	<osgi:service interface="ec.com.ebos.core.security.service.SecurityS" ref="securityS"/>
 
 </beans>

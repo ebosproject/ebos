@@ -90,7 +90,7 @@ public interface Propiedad extends Master {
         public static class Type extends StringValuedEnumType<TipoDato> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".master.model.Propiedad$TipoDato$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.master.model.Propiedad$TipoDato$Type";
 
         @Getter
         private String value;

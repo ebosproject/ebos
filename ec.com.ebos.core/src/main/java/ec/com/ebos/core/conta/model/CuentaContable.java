@@ -122,7 +122,7 @@ public interface CuentaContable extends Contabilidad{
         public static class Type extends StringValuedEnumType<Naturaleza> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".conta.model.CuentaContable$Naturaleza$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.conta.model.CuentaContable$Naturaleza$Type";
         
         @Getter
         private String value;
@@ -179,7 +179,7 @@ public interface CuentaContable extends Contabilidad{
         public static class Type extends StringValuedEnumType<TipoProceso> {
         }
         
-        public static final String TYPE = Constantes.DOMAIN_NAME+".conta.model.CuentaContable$TipoProceso$Type";
+        public static final String TYPE = Constantes.DOMAIN_NAME+".core.conta.model.CuentaContable$TipoProceso$Type";
         
         @Getter
         private String value;

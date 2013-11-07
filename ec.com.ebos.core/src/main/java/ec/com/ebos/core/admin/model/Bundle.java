@@ -58,7 +58,7 @@ public interface Bundle extends Administracion {
 
 	    public static class Type extends StringValuedEnumType<Localidad> {
 	    }
-	    public static final String TYPE = Constantes.DOMAIN_NAME+".admin.model.Bundle$Localidad$Type";
+	    public static final String TYPE = Constantes.DOMAIN_NAME+".core.admin.model.Bundle$Localidad$Type";
 	    
 	    @Getter
 	    private String value;
