@@ -105,15 +105,15 @@
 	     p:shared="true"/> -->
 	     
     <context:component-scan 
-    	base-package="ec.com.ebos.context,
-	    	ec.com.ebos.master,
-	   		ec.com.ebos.aspect,
-	   		ec.com.ebos.security,
-	   		ec.com.ebos.util,
-	   		ec.com.ebos.admin,
-			ec.com.ebos.conta,
-			ec.com.ebos.logis,
-			ec.com.ebos.mse" />
+    	base-package="ec.com.ebos.core.context,
+	    	ec.com.ebos.core.master,
+	   		ec.com.ebos.core.aspect,
+	   		ec.com.ebos.core.security,
+	   		ec.com.ebos.core.util,
+	   		ec.com.ebos.core.admin,
+			ec.com.ebos.core.conta,
+			ec.com.ebos.core.logis,
+			ec.com.ebos.core.mse" />
 	           	       
     
 </beans>
