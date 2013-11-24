@@ -21,5 +21,7 @@
 	<osgi:reference id="securityS" interface="ec.com.ebos.core.security.service.SecurityS"  cardinality="0..1"/>
 	
 	<osgi:service interface="ec.com.ebos.core.util.service.UtilS" ref="utilS"/>
+	
+	<osgi:service interface="ec.com.ebos.core.util.process.UtilP" ref="utilP"/>
 		                                                                  
 </beans>

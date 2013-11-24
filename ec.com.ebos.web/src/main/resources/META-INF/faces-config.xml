@@ -11,13 +11,13 @@
             <supported-locale>en_US</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>ec.com.ebos.master.web.resources.DatabaseDrivenResourceBundle</base-name>
+            <base-name>ec.com.ebos.web.master.resources.DatabaseDrivenResourceBundle</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>
     
     <factory>    
-    	<exception-handler-factory>ec.com.ebos.util.web.jsf.handler.EbosExceptionHandlerFactory</exception-handler-factory>
+    	<exception-handler-factory>ec.com.ebos.web.util.jsf.handler.EbosExceptionHandlerFactory</exception-handler-factory>
     	<exception-handler-factory>org.primefaces.extensions.component.ajaxerrorhandler.AjaxExceptionHandlerFactory</exception-handler-factory>
     </factory>  
     

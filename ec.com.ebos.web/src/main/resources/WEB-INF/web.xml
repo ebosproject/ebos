@@ -127,7 +127,7 @@
 		<description></description>
 		<display-name>DisplayImage</display-name>
 		<servlet-name>DisplayImage</servlet-name>
-		<servlet-class>ec.com.ebos.master.web.servlet.DisplayImage</servlet-class>
+		<servlet-class>ec.com.ebos.web.master.servlet.DisplayImage</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DisplayImage</servlet-name>

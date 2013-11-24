@@ -7,6 +7,8 @@
 
     <!-- import the DataSource from ec.com.ebos.db -->
     <osgi:reference id="dataSource" interface="javax.sql.DataSource"/>
+    
+    <osgi:reference id="utilP" interface="ec.com.ebos.core.util.process.UtilP"/>
 
 	<!-- export the Service to ec.com.ebos.web-->
 		

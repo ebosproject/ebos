@@ -15,24 +15,24 @@
 
     <!-- <context:load-time-weaver aspectj-weaving="on"/> -->
     
-    <osgi:reference id="administracionS" interface="ec.com.ebos.admin.core.service.AdministracionS"/>
+    <osgi:reference id="administracionS" interface="ec.com.ebos.core.admin.service.AdministracionS"/>
 
-	<osgi:reference id="contaS" interface="ec.com.ebos.conta.core.service.ContaS"/>
+	<osgi:reference id="contaS" interface="ec.com.ebos.core.conta.service.ContaS"/>
 	
-	<osgi:reference id="masterS" interface="ec.com.ebos.master.core.service.MasterS"/>
+	<osgi:reference id="masterS" interface="ec.com.ebos.core.master.service.MasterS"/>
 	
-	<osgi:reference id="mseS" interface="ec.com.ebos.mse.core.service.MseS"/>
+	<osgi:reference id="mseS" interface="ec.com.ebos.core.mse.service.MseS"/>
 	
-	<osgi:reference id="securityS" interface="ec.com.ebos.security.core.service.SecurityS"/>
+	<osgi:reference id="securityS" interface="ec.com.ebos.core.security.service.SecurityS"/>
 	
-	<osgi:reference id="utilS" interface="ec.com.ebos.util.core.service.UtilS"/>
+	<osgi:reference id="utilS" interface="ec.com.ebos.core.util.service.UtilS"/>
 	
     <context:component-scan 
-    	base-package="ec.com.ebos.master.web,
-	   		ec.com.ebos.security.web,
-	   		ec.com.ebos.util.web,
-	   		ec.com.ebos.admin.web,
-			ec.com.ebos.conta.web,
-			ec.com.ebos.mse.web" />
+    	base-package="ec.com.ebos.web.master,
+	   		ec.com.ebos.web.security,
+	   		ec.com.ebos.web.util,
+	   		ec.com.ebos.web.admin,
+			ec.com.ebos.web.conta,
+			ec.com.ebos.web.mse" />
 	
 </beans>

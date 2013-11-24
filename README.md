@@ -7,7 +7,13 @@
 
 ## ¿Cómo funciona?
 
-En desarrollo...
+### Instalación de herramientas
+
+#### STS
+http://spring.io/tools/sts/all
+
+#### VIRGO PLUGIN
+http://wiki.eclipse.org/Virgo/Tooling
 
 
 
