@@ -1,9 +1,8 @@
 #		     eBos Project 3.0.3								
-
-> Autor: Eduardo Plúa Alay							
+							
 > Nombre: eBos Project				
-> Version: 3.0.3
-> Publicación: 2013-11-24
+> Versión: 3.0.3
+> Autor: Eduardo Plúa Alay
 
 ## ¿Qué es?
 __eBos Project__ Sistema de Operaciones Empresariales Ecuatoriano (__eBos__, por sus siglas en inglés), es una iniciativa open source para el desarrollo de una plataforma modular basada en OSGi y varios de los
