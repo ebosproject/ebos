@@ -6,7 +6,7 @@
 
 ## ¿Qué es?
 __eBos Project__ Sistema de Operaciones Empresariales Ecuatoriano (__eBos__, por sus siglas en inglés), es una iniciativa open source para el desarrollo de una plataforma modular basada en OSGi y varios de los
-frameworks java más robustos del mercado.
+frameworks Java más robustos del mercado.
 
 
 __eBos Project__ tiene como objetivo abstraer al desarrollador de la complejidad de una arquitectura de software del mundo real y permitirle así enfocarse

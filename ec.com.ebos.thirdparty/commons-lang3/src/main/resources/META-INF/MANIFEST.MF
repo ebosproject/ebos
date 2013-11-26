@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.commons.lang3;version="3.1";uses:="org.apac
+ he.commons.lang3.builder,org.apache.commons.lang3.text.translate",org
+ .apache.commons.lang3.builder;version="3.1";uses:="org.apache.commons
+ .lang3.tuple",org.apache.commons.lang3.concurrent;version="3.1";uses:
+ ="org.apache.commons.lang3.builder",org.apache.commons.lang3.event;ve
+ rsion="3.1",org.apache.commons.lang3.exception;version="3.1",org.apac
+ he.commons.lang3.math;version="3.1",org.apache.commons.lang3.mutable;
+ version="3.1",org.apache.commons.lang3.reflect;version="3.1",org.apac
+ he.commons.lang3.text;version="3.1",org.apache.commons.lang3.text.tra
+ nslate;version="3.1",org.apache.commons.lang3.time;version="3.1",org.
+ apache.commons.lang3.tuple;version="3.1",templates;version="3.1"
+Bundle-Vendor: eBos
+Build-Jdk: 1.6.0_37
+Built-By: eduardo
+Bundle-Version: 3.1
+Tool: Bundlor 1.1.2.RELEASE
+Bundle-Name: ec.com.ebos.commons-lang3
+Bundle-ManifestVersion: 2
+Created-By: Apache Maven 3.0.4
+Bundle-SymbolicName: ec.com.ebos.commons-lang3
+Archiver-Version: Plexus Archiver
+

@@ -7,7 +7,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ec.com.ebos</groupId>
 	<artifactId>ec.com.ebos</artifactId>
-	<version>3.0.1-SNAPSHOT</version>
+	<version>3.0.3-SNAPSHOT</version>
 	<name>ec.com.ebos</name>
 	<packaging>pom</packaging>
 	<modules>
@@ -15,8 +15,9 @@
 		<module>ec.com.ebos.parent</module>
 		<module>ec.com.ebos.db</module>
 		<module>ec.com.ebos.core</module>
+		<module>ec.com.ebos.hibernate</module>
 		<module>ec.com.ebos.web</module>
 		<module>ec.com.ebos.solution</module>
 	</modules>
-	<description>Ecuador Business Operation System</description>
+	<description>eBos - Ecuador Business Operation System</description>
 </project>
