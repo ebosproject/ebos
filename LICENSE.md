@@ -1,5 +1,8 @@
-#		     eBos Project								
+#		     eBos Project 3.0.3								
+							
+> Nombre: eBos Project				
+> Versión: 3.0.3<br>
+> Autor: Eduardo Plúa Alay
 
-> @Author: Eduardo Plúa Alay							
-> @Description: eBos Project release notes				
-> @Since: 2013-10-17
+
+Por editar.. Licencia OpenSource
