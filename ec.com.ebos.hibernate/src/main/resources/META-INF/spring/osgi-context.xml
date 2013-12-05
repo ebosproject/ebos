@@ -6,7 +6,7 @@
 	xmlns:osgi="http://www.springframework.org/schema/osgi">
 
     <!-- import the DataSource from ec.com.ebos.db -->
-    <osgi:reference id="dataSource" interface="javax.sql.DataSource"/>
+    <osgi:reference id="dataSource" interface="javax.sql.DataSource" />
     
     <osgi:reference id="utilP" interface="ec.com.ebos.core.util.process.UtilP"/>
 

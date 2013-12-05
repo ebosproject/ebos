@@ -40,12 +40,16 @@ Navegador interno
 
 
 
-## Instalación
+## Instalación Herramientas
 
-### Herramientas
-
-#### STS
+### STS
 http://spring.io/tools/sts/all
 
-#### VIRGO PLUGIN
+### VIRGO PLUGIN
 http://wiki.eclipse.org/Virgo/Tooling
+
+### VIRGO SERVER
+[download](http://www.eclipse.org/downloads/download.php?file=/virgo/release/VP/3.6.2.RELEASE/virgo-tomcat-server-3.6.2.RELEASE.zip)
+
+### MARKDOWN SINTAX
+[Oficial site](http://daringfireball.net/projects/markdown)
