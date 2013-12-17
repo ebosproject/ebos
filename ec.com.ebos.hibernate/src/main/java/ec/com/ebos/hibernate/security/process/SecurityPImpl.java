@@ -384,7 +384,7 @@ public class SecurityPImpl extends RootPImpl<Object, SecurityException> implemen
                 putError("Contrasena de confirmacion incorrecta"); 
             }
         } else {
-           putError("Contrasena actual incorrecta"); 
+           putError("contrasenia.actual.incorrecta"); 
         }
     }
     
