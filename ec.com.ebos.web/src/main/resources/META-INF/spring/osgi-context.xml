@@ -5,11 +5,7 @@
 		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd"
 	xmlns:osgi="http://www.springframework.org/schema/osgi">
 
-	<!-- <osgi:reference id="crudService" interface="ec.com.ebos.orm.crud.CrudService" />
-	
-	<osgi:reference id="finderSqlService" interface="ec.com.ebos.orm.crud.FinderSQLService" />
-	
-	<osgi:reference id="finderService" interface="ec.com.ebos.orm.crud.FinderService" />
+	<!-- <osgi:reference id="" interface="" />
 	 -->
 	                                                                  
 </beans>
