@@ -1,7 +1,7 @@
-#		     eBos Project 3.0.3								
+#		     eBos Project 1.0.0-beta								
 							
-> Nombre: eBos Project				
-> Versión: 3.0.3<br>
+> Nombre: eBos Project  
+> Versión: 1.0.0-beta  
 > Autor: Eduardo Plúa Alay
 
 ## ¿Qué es?
