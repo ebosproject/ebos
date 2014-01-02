@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-Version: 3.0.3
+Tool: Bundlor 1.1.2.RELEASE
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ec.com.ebos.solution
+

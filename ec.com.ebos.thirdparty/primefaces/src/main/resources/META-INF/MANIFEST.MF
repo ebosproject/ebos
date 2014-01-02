@@ -436,14 +436,15 @@ Export-Package: org.primefaces;version="3.5",org.primefaces.applicatio
  ="javax.faces.event,javax.servlet.http,org.apache.commons.fileupload,
  org.apache.commons.fileupload.servlet",org.primefaces.webapp.filter;v
  ersion="3.5";uses:="javax.servlet"
-Built-By: eduardo
+Built-By: eplua
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.primefaces
 Created-By: Apache Maven 3.0.4
 Bundle-Vendor: eBos
 Bundle-Version: 3.5
-Build-Jdk: 1.6.0_37
+Build-Jdk: 1.7.0_45
 Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ec.com.ebos.primefaces
 Import-Package: com.lowagie.text;resolution:="optional",com.lowagie.te
  xt.pdf;resolution:="optional",javax.el,javax.faces;version="[2.1,3)",
  javax.faces.application;version="[2.1,3)",javax.faces.component;versi
@@ -463,6 +464,5 @@ Import-Package: com.lowagie.text;resolution:="optional",com.lowagie.te
  ="optional",org.atmosphere.handler;resolution:="optional",org.atmosph
  ere.interceptor;resolution:="optional",org.slf4j;version="[1.6,2)";re
  solution:="optional"
-Bundle-SymbolicName: ec.com.ebos.primefaces
 Archiver-Version: Plexus Archiver
 

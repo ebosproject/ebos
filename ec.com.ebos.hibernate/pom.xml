@@ -41,10 +41,11 @@
 			<artifactId>ec.com.ebos.primefaces</artifactId>
 			<version>3.5</version>
 		</dependency>
-		<dependency>
-			<groupId>org.primefaces.extensions</groupId>
-			<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.primefaces.extensions</groupId> -->
+<!-- 			<artifactId>ec.com.ebos.primefaces-extensions</artifactId> -->
+<!-- 			<version></version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>ec.com.ebos.resources-codemirror</artifactId>
@@ -211,11 +212,11 @@
         </dependency>
 
 		<!-- POSTGRESQL -->        
-        <dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>ec.com.ebos.postgresql</artifactId>
-			<version>9.0-801.jdbc4</version>
-		</dependency>
+<!--         <dependency> -->
+<!-- 			<groupId>postgresql</groupId> -->
+<!-- 			<artifactId>ec.com.ebos.postgresql</artifactId> -->
+<!-- 			<version>9.0-801.jdbc4</version> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 

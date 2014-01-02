@@ -55,6 +55,7 @@
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
+			<version>0.7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
@@ -82,22 +83,22 @@
 		</dependency>
 
 		<!-- HIBERNATE -->
-		<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>ec.com.ebos.hibernate-core</artifactId>
-            <version>3.6.0.Final</version>
-        </dependency>
+<!-- 		<dependency> -->
+<!--             <groupId>org.hibernate</groupId> -->
+<!--             <artifactId>ec.com.ebos.hibernate-core</artifactId> -->
+<!--             <version>3.6.0.Final</version> -->
+<!--         </dependency> -->
         <dependency>
             <groupId>javassist</groupId>
             <artifactId>ec.com.ebos.javassist</artifactId>
             <version>3.12.0.GA</version>
         </dependency>
-        <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>com.springsource.javax.transaction</artifactId>
-            <version>1.1.0</version>
-            <scope>provided</scope>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>javax.transaction</groupId> -->
+<!--             <artifactId>com.springsource.javax.transaction</artifactId> -->
+<!--             <version>1.1.0</version> -->
+<!--             <scope>provided</scope> -->
+<!--         </dependency> -->
         <dependency>
             <groupId>org.junit</groupId>
             <artifactId>com.springsource.org.junit</artifactId>
@@ -136,16 +137,16 @@
         </dependency>
 
         <!-- EHCACHE -->
-		<dependency>
-		    <groupId>net.sourceforge.ehcache</groupId>
-		    <artifactId>com.springsource.net.sf.ehcache</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>net.sourceforge.ehcache</groupId> -->
+<!-- 		    <artifactId>com.springsource.net.sf.ehcache</artifactId> -->
+<!-- 		</dependency> -->
 		
 		<!-- JAVAX PERSISTENCE -->
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>com.springsource.javax.persistence</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.persistence</groupId> -->
+<!-- 			<artifactId>com.springsource.javax.persistence</artifactId> -->
+<!-- 		</dependency> -->
 		
 		<!-- LOMBOK -->
 		<dependency>
@@ -166,18 +167,18 @@
 			<version>3.1</version>
 		</dependency>
 		
-		<!-- EHCACHE -->
-		<dependency>
-		    <groupId>net.sourceforge.ehcache</groupId>
-		    <artifactId>com.springsource.net.sf.ehcache</artifactId>
-		</dependency>
+ 		<!-- EHCACHE --> 
+<!-- 		<dependency> -->
+<!-- 		    <groupId>net.sourceforge.ehcache</groupId> -->
+<!-- 		    <artifactId>com.springsource.net.sf.ehcache</artifactId> -->
+<!-- 		</dependency> -->
 		
-		<!-- JAVA MAIL API -->
-		<dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>com.springsource.javax.mail</artifactId>
-		    <version>1.4.5</version>
-		</dependency>
+ 		<!-- JAVA MAIL API -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>javax.mail</groupId> -->
+<!-- 		    <artifactId>com.springsource.javax.mail</artifactId> -->
+<!-- 		    <version>1.4.5</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- EL API -->
 		<dependency>
@@ -186,12 +187,12 @@
 		    <version>2.1.0</version>
 		</dependency>
 		
-		<!-- LOGGING -->
-		<dependency>
-		    <groupId>org.apache.log4j</groupId>
-		    <artifactId>com.springsource.org.apache.log4j</artifactId>
-		    <version>1.2.15</version>
-		</dependency>
+ 		<!-- LOGGING -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.log4j</groupId> -->
+<!-- 		    <artifactId>com.springsource.org.apache.log4j</artifactId> -->
+<!-- 		    <version>1.2.15</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- COMMONS LANG -->
 		<dependency>
@@ -221,12 +222,12 @@
             <scope>compile</scope>
         </dependency>
 
-		<!-- POSTGRESQL -->        
-        <dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>ec.com.ebos.postgresql</artifactId>
-			<version>9.0-801.jdbc4</version>
-		</dependency>
+ 		<!-- POSTGRESQL --> 
+<!--         <dependency> -->
+<!-- 			<groupId>postgresql</groupId> -->
+<!-- 			<artifactId>ec.com.ebos.postgresql</artifactId> -->
+<!-- 			<version>9.0-801.jdbc4</version> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 

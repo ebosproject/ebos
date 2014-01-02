@@ -1,5 +1,6 @@
 package ec.com.ebos.hibernate.admin.process;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -46,18 +47,17 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 	@Override
 	public List<Bundle> findBundleList(Bundle bundle, Pagination pagination) {
 		GenericCriteria<Bundle> criteria = GenericCriteria.forClass(Bundle.class);
-
 		criteria.addEqualsIfNotZero(Bundle_.id, bundle.getId());
 		if(criteria.isChanged()){
 			return findByCriteria(criteria, pagination);
 		}
-		
 		criteria.addLikeIfNotNull(Bundle_.codigo, bundle.getCodigo());
         criteria.addEqualsIfNotNull(Bundle_.localidad, bundle.getLocalidad());
 
         //criteria.addOrderAsc(Bundle_.codigo); //TODO (epa): Ordenar por codigo y evitar grupo by por uso de funcion de agrupacion en la paginacion
         
-        return findByCriteria(criteria, pagination);
+        //return findByCriteria(criteria, pagination);
+        return new ArrayList<Bundle>();
 	}
 	
 	@Override

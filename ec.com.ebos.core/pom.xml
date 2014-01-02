@@ -34,10 +34,11 @@
 			<artifactId>ec.com.ebos.primefaces</artifactId>
 			<version>3.5</version>
 		</dependency>
-		<dependency>
-			<groupId>org.primefaces.extensions</groupId>
-			<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.primefaces.extensions</groupId> -->
+<!-- 			<artifactId>ec.com.ebos.primefaces-extensions</artifactId> -->
+<!-- 			<version>0.7.1</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>ec.com.ebos.resources-codemirror</artifactId>
@@ -64,11 +65,11 @@
 		</dependency>
 
 		<!-- HIBERNATE -->
-		<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>ec.com.ebos.hibernate-core</artifactId>
-            <version>3.6.0.Final</version>
-        </dependency>
+<!-- 		<dependency> -->
+<!--             <groupId>org.hibernate</groupId> -->
+<!--             <artifactId>ec.com.ebos.hibernate-core</artifactId> -->
+<!--             <version>3.6.0.Final</version> -->
+<!--         </dependency> -->
         <dependency>
             <groupId>javassist</groupId>
             <artifactId>ec.com.ebos.javassist</artifactId>
@@ -124,10 +125,10 @@
 		</dependency>
 		
 		<!-- JAVAX PERSISTENCE -->
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>com.springsource.javax.persistence</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>javax.persistence</groupId> -->
+<!-- 			<artifactId>com.springsource.javax.persistence</artifactId> -->
+<!-- 		</dependency> -->
 		
 		<!-- LOMBOK -->
 		<dependency>
@@ -204,11 +205,11 @@
         </dependency>
 
 		<!-- POSTGRESQL -->        
-        <dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>ec.com.ebos.postgresql</artifactId>
-			<version>9.0-801.jdbc4</version>
-		</dependency>
+<!--         <dependency> -->
+<!-- 			<groupId>postgresql</groupId> -->
+<!-- 			<artifactId>ec.com.ebos.postgresql</artifactId> -->
+<!-- 			<version>9.0-801.jdbc4</version> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 

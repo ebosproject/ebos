@@ -61,16 +61,16 @@ Export-Package: aj.org.objectweb.asm;version="1.6.12.RELEASE",aj.org.o
  ctj.weaver.tools;version="1.6.12.RELEASE";uses:="org.aspectj.bridge,o
  rg.aspectj.util,org.aspectj.weaver,org.aspectj.weaver.patterns,org.as
  pectj.weaver.reflect"
-Built-By: eduardo
+Built-By: eplua
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.aspectjweaver
 Created-By: Apache Maven 3.0.4
 Bundle-Vendor: eBos
 Bundle-Version: 1.6.12.RELEASE
-Build-Jdk: 1.6.0_37
+Build-Jdk: 1.7.0_45
 Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ec.com.ebos.aspectjweaver
 Import-Package: org.apache.commons.logging;version="[1.1.1, 2.0.0)";re
  solution:="optional"
-Bundle-SymbolicName: ec.com.ebos.aspectjweaver
 Archiver-Version: Plexus Archiver
 

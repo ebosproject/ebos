@@ -29,7 +29,6 @@ import ec.com.ebos.core.master.model.Organizacion;
 import ec.com.ebos.core.master.model.Propiedad;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
-import ec.com.ebos.hibernate.conta.model.HibernateDocumentoDistribucion;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -76,5 +75,7 @@ public class HibernateActivo extends HibernateMaster implements Activo{
 	
 	@OneToMany(mappedBy = "activo", fetch = FetchType.LAZY, targetEntity = HibernatePropiedad.class)
     private Set<Propiedad> propiedadList = new HashSet<Propiedad>(0);
+	
+	//Prueba3
 
 }

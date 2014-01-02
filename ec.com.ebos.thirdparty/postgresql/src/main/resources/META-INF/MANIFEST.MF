@@ -31,19 +31,19 @@ Export-Package: org.postgresql;version="9.0";uses:="org.postgresql.cop
  n="9.0",org.postgresql.xa;version="9.0";uses:="javax.naming,javax.sql
  ,javax.transaction.xa,org.postgresql.core,org.postgresql.ds,org.postg
  resql.ds.common"
-Built-By: eduardo
+Built-By: eplua
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.postgresql
 Created-By: Apache Maven 3.0.4
 Bundle-Vendor: eBos
 Bundle-Version: 9.0
-Build-Jdk: 1.6.0_37
+Build-Jdk: 1.7.0_45
 Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ec.com.ebos.postgresql
 Import-Package: javax.naming;version="0",javax.naming.spi;version="0",
  javax.net;version="0",javax.net.ssl;version="0",javax.security.auth;v
  ersion="0",javax.security.auth.callback;version="0",javax.security.au
  th.login;version="0",javax.sql;version="0",javax.transaction.xa;versi
  on="0",org.ietf.jgss;version="0"
-Bundle-SymbolicName: ec.com.ebos.postgresql
 Archiver-Version: Plexus Archiver
 

@@ -34,16 +34,16 @@
 			</dependency>
 			
 			<!--PRIMEFACES && EXTENSIONS -->
-			<dependency>
-				<groupId>org.primefaces</groupId>
-				<artifactId>primefaces</artifactId>
-				<version>3.5</version>
-			</dependency>
-			<dependency>
-				<groupId>org.primefaces.extensions</groupId>
-				<artifactId>ec.com.ebos.primefaces-extensions</artifactId>
-				<version>0.7.1</version>
-			</dependency>
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.primefaces</groupId> -->
+<!-- 				<artifactId>primefaces</artifactId> -->
+<!-- 				<version>3.5</version> -->
+<!-- 			</dependency> -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.primefaces.extensions</groupId> -->
+<!-- 				<artifactId>ec.com.ebos.primefaces-extensions</artifactId> -->
+<!-- 				<version>0.7.1</version> -->
+<!-- 			</dependency> -->
 		
 			<!-- SPRING -->
 			<dependency>
@@ -150,12 +150,12 @@
 			</dependency>
 
 			<!-- HIBERNATE -->
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>org.hibernate.ejb-library</artifactId>
-				<type>libd</type>
-				<version>3.4.0.GA-A</version>
-			</dependency>
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.hibernate</groupId> -->
+<!-- 				<artifactId>org.hibernate.ejb-library</artifactId> -->
+<!-- 				<type>libd</type> -->
+<!-- 				<version>3.4.0.GA-A</version> -->
+<!-- 			</dependency> -->
 			
 			<!-- EHCACHE -->
 			<dependency>
@@ -165,11 +165,11 @@
 			</dependency>
 			
 			<!-- JAVAX PERSISTENCE -->
-			<dependency>
-				<groupId>javax.persistence</groupId>
-				<artifactId>com.springsource.javax.persistence</artifactId>
-				<version>1.99.0</version>
-			</dependency>
+<!-- 			<dependency> -->
+<!-- 				<groupId>javax.persistence</groupId> -->
+<!-- 				<artifactId>com.springsource.javax.persistence</artifactId> -->
+<!-- 				<version>1.99.0</version> -->
+<!-- 			</dependency> -->
 		</dependencies>
 	</dependencyManagement>
 

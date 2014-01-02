@@ -62,8 +62,8 @@ Export-Package: com.sun.jna;version="0.11.6",com.sun.jna.darwin;versio
  a,com.sun.jna.ptr",lombok.patcher.scripts;version="0.11.6";uses:="lom
  bok,lombok.libs.org.objectweb.asm,lombok.patcher"
 Bundle-Vendor: eBos
-Build-Jdk: 1.6.0_37
-Built-By: eduardo
+Build-Jdk: 1.7.0_45
+Built-By: eplua
 Bundle-Version: 0.11.6
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.lombok

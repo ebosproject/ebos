@@ -31,16 +31,13 @@
     hibernate-proxool
     hibernate-testing
 -->
-    <properties>
-        <wrapped.version>3.6.0.Final</wrapped.version>
-    </properties>
     <dependencies>
         <!-- complete hibernate build out -->
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${wrapped.version}</version>
-            <optional>true</optional>
+            <version>3.6.0.Final</version>
+<!--             <optional>true</optional> -->
             <exclusions>
                 <exclusion>
                     <groupId>antlr</groupId>
@@ -73,8 +70,8 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>ec.com.ebos.hibernate-commons-annotations</artifactId>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
             <version>3.2.0.Final</version>
         </dependency>
 
