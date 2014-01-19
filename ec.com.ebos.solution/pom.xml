@@ -15,29 +15,29 @@
 	<name>ec.com.ebos.solution</name>
 	<artifactId>ec.com.ebos.solution</artifactId>
 	<packaging>par</packaging>
-	<version>3.0.3</version>
+	<version>1.0.0</version>
 	<description>eBos PAR</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>ec.com.ebos</groupId>
 			<artifactId>ec.com.ebos.db</artifactId>
-			<version>3.0.3-SNAPSHOT</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>ec.com.ebos</groupId>
 			<artifactId>ec.com.ebos.core</artifactId>
-			<version>3.0.3-SNAPSHOT</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>ec.com.ebos</groupId>
 			<artifactId>ec.com.ebos.hibernate</artifactId>
-			<version>3.0.3-SNAPSHOT</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>ec.com.ebos</groupId>
 			<artifactId>ec.com.ebos.web</artifactId>
-			<version>3.0.3-SNAPSHOT</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

@@ -13,8 +13,10 @@ import javax.faces.convert.ConverterException;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.mse.model.Grupo;
 import ec.com.ebos.core.mse.model.Monaguillo;
 import ec.com.ebos.core.mse.model.MonaguilloGrupo;
@@ -27,9 +29,10 @@ import ec.com.ebos.web.util.jsf.component.DataTable;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-08-23
  */
-@Component
-@ManagedBean(name = GrupoBean.BEAN_NAME)
-@SessionScoped
+@Component(GrupoBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = GrupoBean.BEAN_NAME)
+//@SessionScoped
 public class GrupoBean extends MseBean<Grupo> {
     	
 	private static final long serialVersionUID = 6778254758599296978L;

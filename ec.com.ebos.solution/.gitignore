@@ -1,3 +1,4 @@
 /target/par-provided
 /target/surefire
 /target/ec.com.ebos.solution-*
+/target

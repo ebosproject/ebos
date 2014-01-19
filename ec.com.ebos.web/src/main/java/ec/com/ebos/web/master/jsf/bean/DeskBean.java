@@ -26,9 +26,11 @@ import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.admin.model.Opcion;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.exception.MasterException;
 import ec.com.ebos.core.master.session.SessionBean;
 import ec.com.ebos.core.security.model.RolOpcion;
@@ -40,9 +42,10 @@ import ec.com.ebos.core.util.StringUtils;
  * ManagedBean que maneja el menuOptions y los dialogs
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-@Component
-@ManagedBean(name = DeskBean.BEAN_NAME)
-@SessionScoped
+@Component(DeskBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = DeskBean.BEAN_NAME)
+//@SessionScoped
 public class DeskBean implements Serializable{
 
 	private static final long serialVersionUID = 7101283517831219515L;

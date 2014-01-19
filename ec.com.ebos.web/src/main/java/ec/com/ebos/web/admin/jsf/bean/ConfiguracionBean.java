@@ -3,9 +3,11 @@ package ec.com.ebos.web.admin.jsf.bean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.admin.model.Configuracion;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.util.EntityUtils;
 
 
@@ -13,9 +15,10 @@ import ec.com.ebos.core.util.EntityUtils;
  *
  * @author Eduardo Plua Alay
  */
-@Component
-@ManagedBean(name = ConfiguracionBean.BEAN_NAME)
-@SessionScoped
+@Component(ConfiguracionBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = ConfiguracionBean.BEAN_NAME)
+//@SessionScoped
 public class ConfiguracionBean extends AdministracionBean<Configuracion>{
 
 	private static final long serialVersionUID = -4050902280012061901L;

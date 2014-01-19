@@ -11,9 +11,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.admin.model.Opcion;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.util.EntityUtils;
@@ -22,9 +24,10 @@ import ec.com.ebos.core.util.StringUtils;
 /**
  * @author Eduardo Plua Alay
  */
-@Component
-@ManagedBean(name = OpcionBean.BEAN_NAME)
-@SessionScoped
+@Component(OpcionBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = OpcionBean.BEAN_NAME)
+//@SessionScoped
 public class OpcionBean extends AdministracionBean<Opcion> {
     
 	private static final long serialVersionUID = 833763360386716739L;

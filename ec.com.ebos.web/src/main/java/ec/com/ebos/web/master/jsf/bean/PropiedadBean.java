@@ -5,8 +5,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.model.Propiedad;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.util.EntityUtils;
@@ -15,9 +17,10 @@ import ec.com.ebos.core.util.EntityUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-31
  */
-@Component
-@ManagedBean(name = PropiedadBean.BEAN_NAME)
-@SessionScoped
+@Component(PropiedadBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = PropiedadBean.BEAN_NAME)
+//@SessionScoped
 public class PropiedadBean extends MasterBean<Propiedad> {
     
 	private static final long serialVersionUID = -8387498705417931654L;

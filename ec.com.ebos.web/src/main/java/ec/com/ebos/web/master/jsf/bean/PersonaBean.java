@@ -18,8 +18,10 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.model.Persona;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.util.EntityUtils;
@@ -28,9 +30,10 @@ import ec.com.ebos.core.util.EntityUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-04-02
  */
-@Component
-@ManagedBean(name = PersonaBean.BEAN_NAME)
-@SessionScoped
+@Component(PersonaBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = PersonaBean.BEAN_NAME)
+//@SessionScoped
 public class PersonaBean extends MasterBean<Persona> {
 
 	private static final long serialVersionUID = 783070179851922363L;

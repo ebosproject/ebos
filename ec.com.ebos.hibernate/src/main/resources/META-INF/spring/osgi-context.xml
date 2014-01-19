@@ -5,10 +5,26 @@
 		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd"
 	xmlns:osgi="http://www.springframework.org/schema/osgi">
 
+
+<!--     <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer"> -->
+<!-- 		<property name="scopes"> -->
+<!-- 			<map> -->
+<!-- 				<entry key="request"> -->
+<!-- 					<bean class="org.springframework.web.context.request.RequestScope"/> -->
+<!-- 				</entry> -->
+<!-- 				<entry key="session"> -->
+<!-- 					<bean class="org.springframework.web.context.request.SessionScope"/> -->
+<!-- 				</entry> -->
+<!-- 			</map> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
     <!-- import the DataSource from ec.com.ebos.db -->
     <osgi:reference id="dataSource" interface="javax.sql.DataSource" />
     
     <osgi:reference id="utilP" interface="ec.com.ebos.core.util.process.UtilP"/>
+    
+    <osgi:reference id="sessionBean" interface="ec.com.ebos.core.master.session.SessionBean" cardinality="0..1"/>
 
 	<!-- export the Service to ec.com.ebos.web-->
 		

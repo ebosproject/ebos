@@ -4,20 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
-
 import lombok.Getter;
 import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.model.EmpresaPersona;
 import ec.com.ebos.core.master.service.MasterS;
-import ec.com.ebos.core.master.session.SessionBean;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.security.model.Rol;
@@ -28,9 +25,10 @@ import ec.com.ebos.core.util.EntityUtils;
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
-@Component
-@ManagedBean(name = UsuarioBean.BEAN_NAME)
-@SessionScoped
+@Component(UsuarioBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = UsuarioBean.BEAN_NAME)
+//@SessionScoped
 public class UsuarioBean extends SecurityBean<Usuario> {
     
 	private static final long serialVersionUID = 3205546315013216597L;

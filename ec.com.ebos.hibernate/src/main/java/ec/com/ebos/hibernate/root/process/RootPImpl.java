@@ -15,6 +15,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 
+import lombok.Getter;
 import lombok.Setter;
 
 import org.apache.commons.lang.StringUtils;
@@ -80,6 +81,12 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
 	@Autowired
 	@Qualifier("finderService")
 	private FinderService finder;
+	
+	@Getter @Setter
+	@Autowired(required = false)
+    @Qualifier(SessionBean.BEAN_NAME)
+    protected SessionBean sessionBean;
+
 	
 	/**
 	 * Inicializa target y attributes
@@ -911,32 +918,32 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
 	}
 	
     public void putSuccess(String key, Object... args) {        
-       getSessionBean().putSuccess(buildMessage(key, args));
+       sessionBean.putSuccess(buildMessage(key, args));
     }
 
     public void putWarning(String key, Object... args) {
-    	getSessionBean().putWarning(buildMessage(key, args));        
+    	sessionBean.putWarning(buildMessage(key, args));        
     }
 
     public void putError(String key, Object... args) {
-    	getSessionBean().putError(buildMessage(key, args));        
+    	sessionBean.putError(buildMessage(key, args));        
     }
     
 	public void putError(ExceptionAspectHandlerException e) {
-		getSessionBean().setSuccess(false);
+		sessionBean.setSuccess(false);
 		
 		e.printStackTrace();
 		MessageUtils.clearFacesMessages(FacesMessage.SEVERITY_WARN);
 		
 		if (e instanceof RootException && !((RootException) e).isFatal()) {
-			getSessionBean().putError(e.getKey(), e.getMessage());
+			sessionBean.putError(e.getKey(), e.getMessage());
 		} else {
-			getSessionBean().putFatal(e.getKey(), e.getMessage());
+			sessionBean.putFatal(e.getKey(), e.getMessage());
 		}
 	}
     
     public void putFatal(String key, Object... args) {
-    	getSessionBean().putFatal(buildMessage(key, args));        
+    	sessionBean.putFatal(buildMessage(key, args));        
     }
 
 //    /**
@@ -948,13 +955,13 @@ public abstract class RootPImpl<X, E extends Exception> extends ProxyFactoryBean
 //     * @see org.springframework.web.context.request.RequestContextListener
 //     * @see org.springframework.web.context.request.RequestContextHolder
 //     */
-    protected SessionBean getSessionBean() {
-    	SessionBean sessionBean = EbosContext.getBean(SessionBean.BEAN_NAME);
-        if (sessionBean == null) {
-            throw new SecurityException("session.error.sessionNoValid");
-        }
-        return sessionBean;
-    }
+//    protected SessionBean getSessionBean() {
+//    	SessionBean sessionBean = EbosContext.getBean(SessionBean.BEAN_NAME);
+//        if (sessionBean == null) {
+//            throw new SecurityException("session.error.sessionNoValid");
+//        }
+//        return sessionBean;
+//    }
 
     protected Auditoria getAuditoria(){
     	return new HibernateAuditoria();

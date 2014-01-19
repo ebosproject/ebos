@@ -16,8 +16,10 @@ import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.model.Persona;
 import ec.com.ebos.core.master.service.MasterS;
 import ec.com.ebos.core.master.session.SessionBean;
@@ -30,9 +32,10 @@ import ec.com.ebos.core.util.StringUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-08-23
  */
-@Component
-@ManagedBean(name = MonaguilloBean.BEAN_NAME)
-@SessionScoped
+@Component(MonaguilloBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = MonaguilloBean.BEAN_NAME)
+//@SessionScoped
 public class MonaguilloBean extends MseBean<Monaguillo> {
 
 	private static final long serialVersionUID = 1936050047220453830L;

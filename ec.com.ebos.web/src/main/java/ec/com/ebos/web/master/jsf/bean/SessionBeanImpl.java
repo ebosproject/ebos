@@ -9,8 +9,6 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -20,10 +18,13 @@ import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.admin.model.Bundle;
 import ec.com.ebos.core.admin.model.Bundle.Localidad;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.context.EbosContext;
 import ec.com.ebos.core.master.model.Organizacion;
 import ec.com.ebos.core.master.model.Tema;
@@ -42,9 +43,11 @@ import ec.com.ebos.core.util.MessageUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  */
 @Component(SessionBeanImpl.BEAN_NAME)
-@ManagedBean(name = SessionBeanImpl.BEAN_NAME)
-@SessionScoped
-public class SessionBeanImpl implements Serializable, SessionBean{
+//@Scope(value=BeanScopes.SESSION, proxyMode= ScopedProxyMode.TARGET_CLASS)
+@Scope(value=BeanScopes.SESSION)
+//@ManagedBean(name = SessionBeanImpl.BEAN_NAME)
+//@SessionScoped
+public final class SessionBeanImpl implements Serializable, SessionBean{
 
 	private static final long serialVersionUID = 502301922012194259L;
 	

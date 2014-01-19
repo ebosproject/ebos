@@ -8,9 +8,11 @@ import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.admin.model.Bundle;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.util.EntityUtils;
 
@@ -18,9 +20,10 @@ import ec.com.ebos.core.util.EntityUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-03-24
  */
-@Component
-@ManagedBean(name = BundleBean.BEAN_NAME)
-@ViewScoped
+@Component(BundleBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = BundleBean.BEAN_NAME)
+//@ViewScoped
 public class BundleBean extends AdministracionBean<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;

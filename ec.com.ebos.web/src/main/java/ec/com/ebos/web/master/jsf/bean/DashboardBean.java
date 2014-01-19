@@ -14,15 +14,19 @@ import org.primefaces.model.DashboardColumn;
 import org.primefaces.model.DashboardModel;
 import org.primefaces.model.DefaultDashboardColumn;
 import org.primefaces.model.DefaultDashboardModel;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import ec.com.ebos.core.context.BeanScopes;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013/04/10
  */
-@Component
-@ManagedBean(name = DashboardBean.BEAN_NAME)
-@SessionScoped
+@Component(DashboardBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = DashboardBean.BEAN_NAME)
+//@SessionScoped
 public class DashboardBean implements Serializable {
 
 	private static final long serialVersionUID = -4472801591227829631L;

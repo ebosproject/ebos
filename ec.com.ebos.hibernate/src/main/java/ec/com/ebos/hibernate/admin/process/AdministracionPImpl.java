@@ -56,8 +56,8 @@ public class AdministracionPImpl extends RootPImpl<Object, AdministracionExcepti
 
         //criteria.addOrderAsc(Bundle_.codigo); //TODO (epa): Ordenar por codigo y evitar grupo by por uso de funcion de agrupacion en la paginacion
         
-        //return findByCriteria(criteria, pagination);
-        return new ArrayList<Bundle>();
+        return findByCriteria(criteria, pagination);
+        //return new ArrayList<Bundle>();
 	}
 	
 	@Override

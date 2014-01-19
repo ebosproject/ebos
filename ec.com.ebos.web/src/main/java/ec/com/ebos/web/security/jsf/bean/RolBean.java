@@ -11,10 +11,12 @@ import javax.faces.bean.ViewScoped;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.admin.model.Opcion;
 import ec.com.ebos.core.admin.service.AdministracionS;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.security.model.Rol;
@@ -25,10 +27,11 @@ import ec.com.ebos.core.util.EntityUtils;
  * @author Eduardo Plua Alay
  */
 
-@Component
-@ManagedBean(name = RolBean.BEAN_NAME)
+@Component(RolBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = RolBean.BEAN_NAME)
 //@SessionScoped
-@ViewScoped
+//@ViewScoped
 public class RolBean extends SecurityBean<Rol> {
     
 	private static final long serialVersionUID = 5900425430487867980L;

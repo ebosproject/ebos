@@ -7,9 +7,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.admin.model.Parametros;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.util.EntityUtils;
@@ -19,9 +21,10 @@ import ec.com.ebos.core.util.EntityUtils;
  *
  * @author Eduardo Plua Alay
  */
-@Component
-@ManagedBean(name = ParametrosBean.BEAN_NAME)
-@SessionScoped
+@Component(ParametrosBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = ParametrosBean.BEAN_NAME)
+//@SessionScoped
 public class ParametrosBean extends AdministracionBean<Parametros>{
 
 	private static final long serialVersionUID = -8810452745934111969L;

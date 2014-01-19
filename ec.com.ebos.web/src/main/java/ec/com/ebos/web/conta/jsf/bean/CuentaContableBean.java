@@ -8,9 +8,11 @@ import javax.faces.bean.ViewScoped;
 
 import lombok.Getter;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ec.com.ebos.core.conta.model.CuentaContable;
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.orm.crud.Pagination;
 import ec.com.ebos.core.util.EntityUtils;
 
@@ -18,9 +20,10 @@ import ec.com.ebos.core.util.EntityUtils;
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
  * @since 2013-05-23
  */
-@Component
-@ManagedBean(name = CuentaContableBean.BEAN_NAME)
-@ViewScoped
+@Component(CuentaContableBean.BEAN_NAME)
+@Scope(BeanScopes.SESSION)
+//@ManagedBean(name = CuentaContableBean.BEAN_NAME)
+//@ViewScoped
 public class CuentaContableBean extends ContaBean<CuentaContable> {
     	
 	private static final long serialVersionUID = 4109617962842899097L;

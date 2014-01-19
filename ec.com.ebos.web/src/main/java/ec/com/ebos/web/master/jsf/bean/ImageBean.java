@@ -12,14 +12,17 @@ import lombok.Setter;
 
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.model.Persona;
 import ec.com.ebos.web.mse.jsf.bean.MonaguilloBean;
 
-@Component
-@ManagedBean(name = ImageBean.BEAN_NAME)
-@RequestScoped
+@Component(ImageBean.BEAN_NAME)
+@Scope(BeanScopes.REQUEST)
+//@ManagedBean(name = ImageBean.BEAN_NAME)
+//@RequestScoped
 public class ImageBean implements Serializable{
 	
 	private static final long serialVersionUID = -8970475930766912497L;

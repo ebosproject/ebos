@@ -15,8 +15,10 @@ import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.model.Tema;
 import ec.com.ebos.core.master.session.SessionBean;
 
@@ -25,9 +27,10 @@ import ec.com.ebos.core.master.session.SessionBean;
  * @author Eduardo Plua Alay
  * @since 2013-02-27
  */
-@Component
-@ManagedBean(name = ThemeSwitcherBean.BEAN_NAME)
-@RequestScoped
+@Component(ThemeSwitcherBean.BEAN_NAME)
+@Scope(BeanScopes.REQUEST)
+//@ManagedBean(name = ThemeSwitcherBean.BEAN_NAME)
+//@RequestScoped
 public class ThemeSwitcherBean implements Serializable{
 
 	private static final long serialVersionUID = -8104402118225511781L;

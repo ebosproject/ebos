@@ -13,8 +13,10 @@ import javax.faces.bean.ManagedBean;
 
 import lombok.Getter;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import ec.com.ebos.core.context.BeanScopes;
 import ec.com.ebos.core.master.session.SessionBean;
 
 /**
@@ -22,9 +24,10 @@ import ec.com.ebos.core.master.session.SessionBean;
  * 
  * @author Eduardo Plua Alay
  */
-@Component
-@ManagedBean(name = AppBean.BEAN_NAME)
-@ApplicationScoped
+@Component(AppBean.BEAN_NAME)
+//@Scope(BeanScopes.SINGLETON)
+//@ManagedBean(name = AppBean.BEAN_NAME)
+//@ApplicationScoped
 public class AppBean implements Serializable{
     
 	private static final long serialVersionUID = -3490701569635035883L;
