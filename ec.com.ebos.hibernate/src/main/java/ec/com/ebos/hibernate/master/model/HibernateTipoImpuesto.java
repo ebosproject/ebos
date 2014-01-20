@@ -11,12 +11,14 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
 import ec.com.ebos.core.master.model.Master;
 import ec.com.ebos.core.master.model.TipoImpuesto;
 import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 import ec.com.ebos.hibernate.root.model.HibernateEntidad;
 import ec.com.ebos.hibernate.root.model.field.Entidad_;
 
@@ -46,6 +48,7 @@ public class HibernateTipoImpuesto extends HibernateEntidad implements TipoImpue
 	private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 		
 	@Column(name = Entidad_.codigo, nullable = false, length = Entidad_.codigo_lenght)

@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -25,7 +26,7 @@ import ec.com.ebos.core.security.model.Rol;
 import ec.com.ebos.core.security.model.RolOpcion;
 import ec.com.ebos.core.security.model.Security;
 import ec.com.ebos.core.security.model.UsuarioRol;
-import ec.com.ebos.hibernate.conta.model.HibernateDocumentoDistribucion;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  *
@@ -51,6 +52,7 @@ public class HibernateRol extends HibernateSecurity implements Rol {
     private Long id;
     
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
     @Column(name="nombre", length=30, unique=true, nullable=false)

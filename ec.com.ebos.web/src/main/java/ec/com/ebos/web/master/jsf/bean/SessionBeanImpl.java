@@ -58,6 +58,7 @@ public final class SessionBeanImpl implements Serializable, SessionBean{
 
     @Getter @Setter
     @Autowired
+    @Qualifier(AppBean.BEAN_NAME)
     protected AppBean admin;
     
 	private String tema = null;

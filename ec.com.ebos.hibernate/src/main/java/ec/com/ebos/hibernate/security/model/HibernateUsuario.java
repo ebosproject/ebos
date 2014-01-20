@@ -19,6 +19,7 @@ import javax.persistence.Transient;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.admin.model.Bundle;
@@ -29,9 +30,8 @@ import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.security.model.Security;
 import ec.com.ebos.core.security.model.Usuario;
 import ec.com.ebos.core.security.model.UsuarioRol;
-import ec.com.ebos.core.util.type.StringValuedEnum;
-import ec.com.ebos.hibernate.conta.model.HibernateDocumentoDistribucion;
 import ec.com.ebos.hibernate.master.model.HibernateEmpresaPersona;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 import ec.com.ebos.hibernate.security.model.field.UsuarioRol_;
 
 /**
@@ -58,6 +58,7 @@ public class HibernateUsuario extends HibernateSecurity implements Usuario {
     private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = HibernateEmpresaPersona.class)

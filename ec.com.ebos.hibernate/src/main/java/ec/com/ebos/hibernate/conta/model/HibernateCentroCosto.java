@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -39,6 +40,7 @@ import ec.com.ebos.hibernate.conta.model.field.CentroSubcentro_;
 import ec.com.ebos.hibernate.conta.model.field.DocumentoDistribucion_;
 import ec.com.ebos.hibernate.conta.model.field.SaldoCentroCosto_;
 import ec.com.ebos.hibernate.conta.model.field.SaldoCuentaCentro_;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 import ec.com.ebos.hibernate.root.model.field.Entidad_;
 
 /**
@@ -80,6 +82,7 @@ public class HibernateCentroCosto extends HibernateContabilidad implements Centr
     private TipoCentroCosto tipoCentroCosto;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	/**

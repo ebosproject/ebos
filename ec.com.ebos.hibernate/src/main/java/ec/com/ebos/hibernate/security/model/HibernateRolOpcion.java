@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.admin.model.Opcion;
@@ -23,6 +24,7 @@ import ec.com.ebos.core.security.model.Rol;
 import ec.com.ebos.core.security.model.RolOpcion;
 import ec.com.ebos.core.security.model.Security;
 import ec.com.ebos.hibernate.admin.model.HibernateOpcion;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  *
@@ -47,6 +49,7 @@ public class HibernateRolOpcion extends HibernateSecurity implements RolOpcion {
     private Long id;
 
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	@ManyToOne(targetEntity = HibernateRol.class)

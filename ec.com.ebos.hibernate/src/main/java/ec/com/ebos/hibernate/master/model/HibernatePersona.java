@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -23,6 +24,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -35,12 +37,12 @@ import ec.com.ebos.core.mse.model.Monaguillo;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.util.DateUtils;
-import ec.com.ebos.hibernate.conta.model.HibernateDocumentoDistribucion;
 import ec.com.ebos.hibernate.master.model.field.EmpresaPersona_;
 import ec.com.ebos.hibernate.master.model.field.Organizacion_;
 import ec.com.ebos.hibernate.master.model.field.Persona_;
 import ec.com.ebos.hibernate.mse.model.HibernateMonaguillo;
 import ec.com.ebos.hibernate.mse.model.field.Monaguillo_;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -63,6 +65,7 @@ public class HibernatePersona extends HibernateMaster implements Persona{
 	private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 		
 	@Column(name = Persona_.nombres, nullable = false, length = 50)
@@ -101,8 +104,10 @@ public class HibernatePersona extends HibernateMaster implements Persona{
 	 *  
 	*/
 	@Lob //Postgres default oid type
+	@Type(type="org.hibernate.type.PrimitiveByteArrayBlobType")
 	@Column(name = Persona_.imagen)
-	private byte[] imagen;
+	@Basic(fetch = FetchType.LAZY)
+	private byte[] imagen;	
 	
 	@Column(name = Persona_.contentType, length = 15)
 	private String contentType;

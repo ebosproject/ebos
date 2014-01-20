@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -29,6 +30,7 @@ import ec.com.ebos.core.master.model.Persona;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.security.model.Usuario;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 import ec.com.ebos.hibernate.root.model.field.Entidad_;
 import ec.com.ebos.hibernate.security.model.HibernateUsuario;
 
@@ -54,6 +56,7 @@ public class HibernateEmpresaPersona extends HibernateMaster implements EmpresaP
 	private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 		
 	@ManyToOne(targetEntity = HibernateOrganizacion.class)

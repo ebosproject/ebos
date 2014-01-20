@@ -12,6 +12,8 @@ import lombok.Setter;
 
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -30,11 +32,13 @@ public class ImageBean implements Serializable{
 	public static final String BEAN_NAME = "imageBean";
 	
 	@Getter @Setter
-    @ManagedProperty(value = PersonaBean.EL_BEAN_NAME)
+    @Autowired
+    @Qualifier(PersonaBean.BEAN_NAME)
 	protected PersonaBean personaBean;
 	
 	@Getter @Setter
-    @ManagedProperty(value = MonaguilloBean.EL_BEAN_NAME)
+    @Autowired
+    @Qualifier(MonaguilloBean.BEAN_NAME)
 	protected MonaguilloBean monaguilloBean;
 	
 	public StreamedContent getPersonaImage(){

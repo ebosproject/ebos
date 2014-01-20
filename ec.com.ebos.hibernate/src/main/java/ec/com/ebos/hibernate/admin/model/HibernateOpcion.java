@@ -19,6 +19,7 @@ import javax.persistence.Transient;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.admin.model.Administracion;
@@ -29,6 +30,7 @@ import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.core.security.model.RolOpcion;
 import ec.com.ebos.hibernate.admin.model.field.Opcion_;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 import ec.com.ebos.hibernate.security.model.HibernateRolOpcion;
 
 /**
@@ -54,6 +56,7 @@ public class HibernateOpcion extends HibernateAdministracion implements Opcion {
     private Long id;
 
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;	
 	
 	@ManyToOne(targetEntity = HibernateOpcion.class)

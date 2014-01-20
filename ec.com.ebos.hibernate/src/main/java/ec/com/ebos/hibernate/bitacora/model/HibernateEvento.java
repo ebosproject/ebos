@@ -21,6 +21,7 @@ import javax.persistence.Transient;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -29,6 +30,7 @@ import ec.com.ebos.core.bitacora.model.Evento;
 import ec.com.ebos.core.bitacora.model.EventoLog;
 import ec.com.ebos.core.bitacora.model.Visitante;
 import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -52,6 +54,7 @@ public class HibernateEvento extends HibernateBitacora implements Evento{
 	private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 		
 	@Column(name = "descripcion", nullable = false, length = 50)

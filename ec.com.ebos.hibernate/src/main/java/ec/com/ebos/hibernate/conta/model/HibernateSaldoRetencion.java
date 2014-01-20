@@ -15,6 +15,9 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Target;
+
 import ec.com.ebos.core.admin.model.TipoRetencion;
 import ec.com.ebos.core.aspect.annotation.Auditable;
 import ec.com.ebos.core.conta.model.Contabilidad;
@@ -22,6 +25,7 @@ import ec.com.ebos.core.conta.model.Periodo;
 import ec.com.ebos.core.conta.model.SaldoRetencion;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.hibernate.admin.model.HibernateTipoRetencion;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * Saldos retenciones
@@ -70,6 +74,7 @@ public class HibernateSaldoRetencion extends HibernateContabilidad implements Sa
 	private BigDecimal baseImponible = BigDecimal.ZERO;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 		

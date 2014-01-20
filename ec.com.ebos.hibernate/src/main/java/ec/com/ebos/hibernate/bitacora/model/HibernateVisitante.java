@@ -10,10 +10,14 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Target;
+
 import ec.com.ebos.core.aspect.annotation.Auditable;
 import ec.com.ebos.core.bitacora.model.Bitacora;
 import ec.com.ebos.core.bitacora.model.Visitante;
 import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -37,6 +41,7 @@ public class HibernateVisitante extends HibernateBitacora implements Visitante{
 	private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	@Column(name = "cedula", unique = true, nullable = false, length = 20)

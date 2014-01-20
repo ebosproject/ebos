@@ -147,17 +147,15 @@ Import-Package: ec.com.ebos.core.admin.exception;version="[1.0.0,1.1.0
  ",lombok;version="[0.11.6,0.11.6]",org.apache.commons.lang,org.eclips
  e.virgo.web.dm;version="[3.0.0, 4.0.0)",org.springframework.aop.frame
  work;version="[3.0, 3.2)",org.springframework.beans.factory.annotatio
- n;version="[3.0, 3.2)",org.springframework.beans.factory.config;versi
- on="[3.0, 3.2)",org.springframework.cache.annotation;version="[3.0, 3
- .2)",org.springframework.cache.ehcache;version="[3.0, 3.2)",org.sprin
- gframework.context.weaving;version="[3.0, 3.2)",org.springframework.j
- dbc.core;version="[3.0, 3.2)",org.springframework.jdbc.support;versio
- n="[3.0, 3.2)",org.springframework.jdbc.support.lob;version="[3.0, 3.
- 2)",org.springframework.orm.hibernate3;version="[3.0, 3.2)",org.sprin
- gframework.orm.hibernate3.annotation;version="[3.0, 3.2)",org.springf
- ramework.stereotype;version="[3.0, 3.2)",org.springframework.transact
- ion.aspectj;version="[3.0, 3.2)",org.springframework.transaction.inte
- rceptor;version="[3.0, 3.2)",org.springframework.web.context.request;
- version="[3.0, 3.2)"
+ n;version="[3.0, 3.2)",org.springframework.cache.annotation;version="
+ [3.0, 3.2)",org.springframework.cache.ehcache;version="[3.0, 3.2)",or
+ g.springframework.context.weaving;version="[3.0, 3.2)",org.springfram
+ ework.jdbc.core;version="[3.0, 3.2)",org.springframework.jdbc.support
+ ;version="[3.0, 3.2)",org.springframework.jdbc.support.lob;version="[
+ 3.0, 3.2)",org.springframework.orm.hibernate3;version="[3.0, 3.2)",or
+ g.springframework.orm.hibernate3.annotation;version="[3.0, 3.2)",org.
+ springframework.stereotype;version="[3.0, 3.2)",org.springframework.t
+ ransaction.aspectj;version="[3.0, 3.2)",org.springframework.transacti
+ on.interceptor;version="[3.0, 3.2)"
 Bundle-SymbolicName: ec.com.ebos.hibernate
 

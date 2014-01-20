@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -25,6 +26,7 @@ import ec.com.ebos.core.master.model.Organizacion;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.hibernate.master.model.HibernateOrganizacion;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * Asiento detalle
@@ -66,6 +68,7 @@ public class HibernateCuentaCentro extends HibernateContabilidad implements Cuen
     private TipoCentroCosto tipoCentroCosto;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	/**

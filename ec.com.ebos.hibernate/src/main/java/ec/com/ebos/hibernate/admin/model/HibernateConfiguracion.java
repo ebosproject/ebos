@@ -13,10 +13,14 @@ import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Target;
+
 import ec.com.ebos.core.admin.model.Administracion;
 import ec.com.ebos.core.admin.model.Configuracion;
 import ec.com.ebos.core.aspect.annotation.Auditable;
 import ec.com.ebos.core.root.model.Auditoria;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * @author <a href="mailto:eduardo.plua@gmail.com">Eduardo Plua Alay</a>
@@ -39,6 +43,7 @@ public class HibernateConfiguracion extends HibernateAdministracion implements C
     private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
     
     @Column(name = "IS_SMS")

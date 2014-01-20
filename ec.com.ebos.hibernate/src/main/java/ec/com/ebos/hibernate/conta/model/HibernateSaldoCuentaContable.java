@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -25,6 +26,7 @@ import ec.com.ebos.core.conta.model.Periodo;
 import ec.com.ebos.core.conta.model.SaldoCuentaContable;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * Plan de cuentas de la empresa
@@ -92,6 +94,7 @@ public class HibernateSaldoCuentaContable extends HibernateContabilidad implemen
 	private BigDecimal saldo = BigDecimal.ZERO;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	/**

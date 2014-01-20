@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -22,6 +23,7 @@ import ec.com.ebos.core.mse.model.MonaguilloGrupo;
 import ec.com.ebos.core.mse.model.Mse;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * Grupo de Monagillos
@@ -49,6 +51,7 @@ public class HibernateMonaguilloGrupo extends HibernateMse implements Monaguillo
     private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 
 	@ManyToOne(targetEntity = HibernateMonaguillo.class)

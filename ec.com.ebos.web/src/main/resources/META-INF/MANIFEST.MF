@@ -48,12 +48,10 @@ Import-Package: ec.com.ebos.core.admin.model;version="[1.0.0,1.1.0)",e
  ersion="[3.5.0,3.5.0]",org.primefaces.event;version="[3.5.0,3.5.0]",o
  rg.primefaces.extensions.model.layout;version="[0.7.1,0.7.1]",org.pri
  mefaces.model;version="[3.5.0,3.5.0]",org.springframework.beans.facto
- ry.annotation;version="[3.0, 3.2)",org.springframework.beans.factory.
- config;version="[3.0, 3.2)",org.springframework.context.annotation;ve
- rsion="[3.0, 3.2)",org.springframework.context.weaving;version="[3.0,
-  3.2)",org.springframework.stereotype;version="[3.0, 3.2)",org.spring
- framework.transaction.aspectj;version="[3.0, 3.2)",org.springframewor
- k.web.context.request;version="[3.0, 3.2)"
+ ry.annotation;version="[3.0, 3.2)",org.springframework.context.annota
+ tion;version="[3.0, 3.2)",org.springframework.context.weaving;version
+ ="[3.0, 3.2)",org.springframework.stereotype;version="[3.0, 3.2)",org
+ .springframework.transaction.aspectj;version="[3.0, 3.2)"
 Bundle-SymbolicName: ec.com.ebos.web
-Web-ContextPath: ebos
+Web-ContextPath: platform
 

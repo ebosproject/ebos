@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.admin.model.Documento;
@@ -27,6 +28,7 @@ import ec.com.ebos.core.conta.model.DocumentoDistrubucion;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.hibernate.admin.model.HibernateDocumento;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * Distribucion de egresos
@@ -56,6 +58,7 @@ public class HibernateDocumentoDistribucion extends HibernateContabilidad implem
     private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	/**

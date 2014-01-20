@@ -15,6 +15,9 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import org.hibernate.annotations.Target;
+
 import ec.com.ebos.core.admin.model.Documento;
 import ec.com.ebos.core.aspect.annotation.Auditable;
 import ec.com.ebos.core.conta.model.Asiento;
@@ -24,6 +27,7 @@ import ec.com.ebos.core.conta.model.Contabilidad;
 import ec.com.ebos.core.conta.model.CuentaContable;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.hibernate.admin.model.HibernateDocumento;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 import ec.com.ebos.hibernate.root.model.field.Entidad_;
 
 /**
@@ -89,6 +93,7 @@ public class HibernateAsientoDetalle extends HibernateContabilidad implements As
     private Documento documento;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	/**

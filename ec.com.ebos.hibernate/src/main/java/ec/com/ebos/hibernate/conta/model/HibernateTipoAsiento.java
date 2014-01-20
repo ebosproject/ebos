@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -25,6 +26,7 @@ import ec.com.ebos.core.conta.model.TipoAsiento;
 import ec.com.ebos.core.root.model.Auditoria;
 import ec.com.ebos.core.root.model.Entidad;
 import ec.com.ebos.hibernate.conta.model.field.Asiento_;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 import ec.com.ebos.hibernate.root.model.field.Entidad_;
 
 /**
@@ -76,6 +78,7 @@ public class HibernateTipoAsiento extends HibernateContabilidad implements TipoA
 	private boolean distribucion = false;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 	
 	/**

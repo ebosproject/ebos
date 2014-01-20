@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 
 import ec.com.ebos.core.aspect.annotation.Auditable;
@@ -29,6 +30,7 @@ import ec.com.ebos.hibernate.conta.model.HibernateAsientoDetalle;
 import ec.com.ebos.hibernate.conta.model.field.AsientoDetalle_;
 import ec.com.ebos.hibernate.mse.model.field.Grupo_;
 import ec.com.ebos.hibernate.mse.model.field.MonaguilloGrupo_;
+import ec.com.ebos.hibernate.root.model.HibernateAuditoria;
 
 /**
  * Monagillo
@@ -58,6 +60,7 @@ public class HibernateGrupo extends HibernateMse implements Grupo {
     private Long id;
 	
 	@Embedded
+	@Target(HibernateAuditoria.class)
 	private Auditoria auditoria;
 
 	@Column(name = Grupo_.nombre, length = 30, nullable = false)
