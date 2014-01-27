@@ -42,7 +42,11 @@
 			</p:panel>
 		</p:dashboard>
 		
+		<ui:repeat value="#{snapsBean.snapList}" var="snap">
+			<h:outputLink value="#{request.contextPath}#{snap.contextPath}#{snap.properties['link.path']}">#{snap.properties['link.text']} </h:outputLink>
+		</ui:repeat>
 	</h:form> 
+	
 	
 	<p:imageSwitch id="imsBackg" widgetVar="wgtBackg" effect="fade" 
 		style="z-index:-100; height:100%;" slideshowAuto="false">

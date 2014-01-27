@@ -43,7 +43,8 @@
 	<osgi:reference id="utilS" interface="ec.com.ebos.core.util.service.UtilS"/>
 	
     <context:component-scan 
-    	base-package="ec.com.ebos.web.master,
+    	base-package="ec.com.ebos.web.root.jsf.bean,
+    		ec.com.ebos.web.master,
 	   		ec.com.ebos.web.security,
 	   		ec.com.ebos.web.util,
 	   		ec.com.ebos.web.admin,

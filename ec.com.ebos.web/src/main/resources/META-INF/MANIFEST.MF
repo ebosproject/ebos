@@ -12,7 +12,9 @@ Import-Bundle: com.springsource.org.aspectj.weaver;version="[1.6.12.RE
  e-core;version="3.6.0.Final";import-scope:="application",com.springso
  urce.net.sf.ehcache;version="[2.2.0,2.2.0]",com.springsource.javax.ma
  il;version="[1.4.5,1.4.5]",com.springsource.org.apache.log4j;version=
- "[1.2.15,1.2.15]",ec.com.ebos.postgresql;version="9.0"
+ "[1.2.15,1.2.15]",ec.com.ebos.postgresql;version="9.0",com.springsour
+ ce.org.apache.taglibs.standard;version="[1.1.2,2.1.2)",org.eclipse.vi
+ rgo.snaps.api;version="[3.0.0,3.7)"
 Bundle-Vendor: eBos
 Bundle-ClassPath: .,WEB-INF/classes
 Bundle-Version: 1.0.0
@@ -40,18 +42,21 @@ Import-Package: ec.com.ebos.core.admin.model;version="[1.0.0,1.1.0)",e
  ces.component,javax.faces.component.html,javax.faces.context,javax.fa
  ces.convert,javax.faces.el,javax.faces.event,javax.faces.lifecycle,ja
  vax.faces.validator,javax.servlet;version="[3.0.0, 3.1.0)",javax.serv
- let.http,lombok;version="[0.11.6,0.11.6]",org.eclipse.virgo.web.dm;ve
- rsion="[3.0.0, 4.0.0)",org.primefaces.component.datatable;version="[3
- .5.0,3.5.0]",org.primefaces.component.menuitem;version="[3.5.0,3.5.0]
- ",org.primefaces.component.panel;version="[3.5.0,3.5.0]",org.primefac
- es.component.submenu;version="[3.5.0,3.5.0]",org.primefaces.context;v
- ersion="[3.5.0,3.5.0]",org.primefaces.event;version="[3.5.0,3.5.0]",o
- rg.primefaces.extensions.model.layout;version="[0.7.1,0.7.1]",org.pri
- mefaces.model;version="[3.5.0,3.5.0]",org.springframework.beans.facto
- ry.annotation;version="[3.0, 3.2)",org.springframework.context.annota
- tion;version="[3.0, 3.2)",org.springframework.context.weaving;version
- ="[3.0, 3.2)",org.springframework.stereotype;version="[3.0, 3.2)",org
- .springframework.transaction.aspectj;version="[3.0, 3.2)"
+ let.http,javax.servlet.jsp.jstl.core;version="[1.2.0,2.2.0)",lombok;v
+ ersion="[0.11.6,0.11.6]",org.eclipse.gemini.web.core,org.eclipse.virg
+ o.snaps.core;version="[3.0.0,3.7)",org.eclipse.virgo.web.dm;version="
+ [3.0.0, 4.0.0)",org.osgi.framework;version="0",org.primefaces.compone
+ nt.datatable;version="[3.5.0,3.5.0]",org.primefaces.component.menuite
+ m;version="[3.5.0,3.5.0]",org.primefaces.component.panel;version="[3.
+ 5.0,3.5.0]",org.primefaces.component.submenu;version="[3.5.0,3.5.0]",
+ org.primefaces.context;version="[3.5.0,3.5.0]",org.primefaces.event;v
+ ersion="[3.5.0,3.5.0]",org.primefaces.extensions.model.layout;version
+ ="[0.7.1,0.7.1]",org.primefaces.model;version="[3.5.0,3.5.0]",org.slf
+ 4j,org.springframework.beans.factory.annotation;version="[3.0, 3.2)",
+ org.springframework.context.annotation;version="[3.0, 3.2)",org.sprin
+ gframework.context.weaving;version="[3.0, 3.2)",org.springframework.s
+ tereotype;version="[3.0, 3.2)",org.springframework.transaction.aspect
+ j;version="[3.0, 3.2)"
 Bundle-SymbolicName: ec.com.ebos.web
 Web-ContextPath: platform
 

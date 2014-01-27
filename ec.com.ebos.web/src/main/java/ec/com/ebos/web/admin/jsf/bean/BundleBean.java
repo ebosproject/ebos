@@ -3,9 +3,6 @@ package ec.com.ebos.web.admin.jsf.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 import lombok.Getter;
 
 import org.springframework.context.annotation.Scope;
@@ -22,8 +19,6 @@ import ec.com.ebos.core.util.EntityUtils;
  */
 @Component(BundleBean.BEAN_NAME)
 @Scope(BeanScopes.SESSION)
-//@ManagedBean(name = BundleBean.BEAN_NAME)
-//@ViewScoped
 public class BundleBean extends AdministracionBean<Bundle> {
     
 	private static final long serialVersionUID = -8387498705417931654L;

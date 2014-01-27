@@ -18,9 +18,7 @@ public class DisplayImage extends AbstractFacesServlet {
 
 	
 	@Override
-    public void doGet(HttpServletRequest request,
-            HttpServletResponse response)
-            throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
         try {
  
             String id = request.getParameter("Image_id");
