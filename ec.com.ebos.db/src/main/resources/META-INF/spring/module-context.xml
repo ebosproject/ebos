@@ -12,7 +12,8 @@
 		p:username="ebos" p:password="ebos" /> -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/ec.com.ebos-1.0.0" />
+<!-- 		<property name="url" value="jdbc:postgresql://localhost:5432/ec.com.ebos-1.0.0" /> -->
+		<property name="url" value="jdbc:postgresql://localhost:5433/ec.com.ebos-1.0.0" />
 		<property name="username" value="ebos" />		
 		<property name="password" value="ebos" />
 		

@@ -5,7 +5,11 @@
 	<artifactId>ec.com.ebos.db</artifactId>
 	<name>ec.com.ebos.db</name>
 	<url>https://git.assembla.com/git/ebos</url>
-	<description>eBos db bundle</description>
+	<description>eBos Postgres DB Bundle</description>
+	
+	<properties>
+		<bundleVersion>1.0.0</bundleVersion>
+	</properties>
 	
 	<parent>
 		<groupId>ec.com.ebos</groupId>

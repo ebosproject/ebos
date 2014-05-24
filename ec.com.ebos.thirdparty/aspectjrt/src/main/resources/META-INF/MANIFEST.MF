@@ -11,8 +11,8 @@ Export-Package: org.aspectj.internal.lang.annotation;version="1.6.11",
  ion="1.6.11",org.aspectj.runtime.reflect;version="1.6.11";uses:="org.
  aspectj.lang,org.aspectj.lang.reflect,org.aspectj.runtime.internal"
 Bundle-Vendor: eBos
-Build-Jdk: 1.7.0_45
-Built-By: eplua
+Build-Jdk: 1.7.0_51
+Built-By: eduardo
 Bundle-Version: 1.6.11
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.aspectjrt

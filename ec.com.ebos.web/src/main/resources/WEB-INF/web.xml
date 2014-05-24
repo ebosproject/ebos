@@ -7,7 +7,7 @@
 	<display-name>eBos</display-name>
 	<description>eBos Project</description>
 
-	<!-- JSF -->
+	<!-- JAVA SERVER FACES -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -47,7 +47,6 @@
 		<param-value>resources.application</param-value>
 	</context-param>
 	
-	<!-- FACES -->
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
@@ -75,11 +74,12 @@
 		<session-timeout>15</session-timeout>
 	</session-config>
 
-	<!-- SPRING -->
+	<!-- VIRGO DYNAMIC MODULES -->
 	<context-param>
 		<param-name>contextClass</param-name>
 		<param-value>org.eclipse.virgo.web.dm.ServerOsgiBundleXmlWebApplicationContext</param-value>
 	</context-param>
+	<!-- SPRING FRAMEWORK -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -112,7 +112,7 @@
 		<param-name>org.primefaces.extensions.DELIVER_UNCOMPRESSED_RESOURCES</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	<filter>
+`	<filter>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
 	</filter>
@@ -122,7 +122,7 @@
 	</filter-mapping>
 	
 	
-	<!-- EBOS -->
+	<!-- EBOS IMAGES SERVLET -->
 	<servlet>
 		<description></description>
 		<display-name>DisplayImage</display-name>
@@ -134,7 +134,7 @@
 		<url-pattern>/DisplayImage</url-pattern>
 	</servlet-mapping>
 	
-	<!-- SNAPS -->
+	<!-- VIRGO SNAPS -->
 	<filter>
 		<filter-name>host-filter</filter-name>
 		<filter-class>org.eclipse.virgo.snaps.core.SnapHostFilter</filter-class>
@@ -147,7 +147,7 @@
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 
-	<!-- PAGES -->
+	<!-- WELCOME PAGES -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>welcome.jsf</welcome-file>

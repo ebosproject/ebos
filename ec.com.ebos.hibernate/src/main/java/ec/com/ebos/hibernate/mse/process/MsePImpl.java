@@ -96,7 +96,8 @@ public class MsePImpl extends RootPImpl<Object, ContaException> implements MseP 
         criteria.addLikeTokens(Monaguillo_.centroEstudio, monaguillo.getCentroEstudio());
         criteria.addLikeTokens(Monaguillo_.representantes, monaguillo.getRepresentantes());
         
-        return findByCriteria(criteria, pagination);
+        //return findByCriteria(criteria, pagination);
+        return new ArrayList<Monaguillo>();
     }
     
     public List<Monaguillo> findMonaguilloList(String query){

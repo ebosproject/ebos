@@ -133,7 +133,7 @@ Export-Package: com.google.gson;version="0.7.1";uses:="com.google.gson
  mefaces.extensions.util.json;version="0.7.1";uses:="com.google.gson",
  org.primefaces.extensions.util.visitcallback;version="0.7.1";uses:="j
  avax.faces.component,javax.faces.component.visit"
-Built-By: eplua
+Built-By: eduardo
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.primefaces-extensions
 Created-By: Apache Maven 3.0.4
@@ -141,7 +141,7 @@ Import-Bundle: ec.com.ebos.commons-lang3;version="[3.1,3.1]",com.sprin
  gsource.org.apache.poi;version="[3.9.0.FINAL,3.9.0.FINAL]"
 Bundle-Vendor: eBos
 Bundle-Version: 0.7.1
-Build-Jdk: 1.7.0_45
+Build-Jdk: 1.7.0_51
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: ec.com.ebos.primefaces-extensions
 Import-Package: com.lowagie.text;version="[2.0.8,2.0.8]",com.lowagie.t

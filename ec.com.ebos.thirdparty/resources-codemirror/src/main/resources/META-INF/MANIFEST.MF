@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Vendor: eBos
-Build-Jdk: 1.7.0_45
-Built-By: eplua
+Build-Jdk: 1.7.0_51
+Built-By: eduardo
 Bundle-Version: 0.6.2
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.resources-codemirror

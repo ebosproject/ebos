@@ -1,13 +1,13 @@
 package ec.com.ebos.core.spring.config;
 
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+//import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+//import org.springframework.cache.annotation.EnableCaching;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+//import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.io.ClassPathResource;
+//import org.springframework.core.io.ClassPathResource;
 
 /**
  * Spring Master Context Configuration - java
@@ -21,17 +21,17 @@ import org.springframework.core.io.ClassPathResource;
  */
 @Import({RepositoryConfig.class})
 @Configuration
-@EnableAspectJAutoProxy
-@EnableCaching
-@ComponentScan({"ec.com.ebos.context",
-	"ec.com.ebos.master",
-	"ec.com.ebos.aspect", 
-	"ec.com.ebos.security", 
-	"ec.com.ebos.util",
-	"ec.com.ebos.admin",
-	"ec.com.ebos.conta",
-	"ec.com.ebos.logis",
-	"ec.com.ebos.mse"})
+//@EnableAspectJAutoProxy
+//@EnableCaching
+//@ComponentScan({"ec.com.ebos.context",
+//	"ec.com.ebos.master",
+//	"ec.com.ebos.aspect", 
+//	"ec.com.ebos.security", 
+//	"ec.com.ebos.util",
+//	"ec.com.ebos.admin",
+//	"ec.com.ebos.conta",
+//	"ec.com.ebos.logis",
+//	"ec.com.ebos.mse"})
 public class EbosConfig {
 	
 //	@Bean

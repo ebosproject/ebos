@@ -5,7 +5,7 @@ Bundle-Name: ec.com.ebos.web
 Bundle-Vendor: eBos
 Bundle-Version: 1.0.0
 Bundle-SymbolicName: ec.com.ebos.web
-Web-ContextPath: platform
+Web-ContextPath: /platform
 Import-Library: 
  org.springframework.spring;version="[3.0, 3.2)"
 Import-Bundle:

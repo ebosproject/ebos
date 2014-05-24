@@ -6,6 +6,10 @@
 	<name>ec.com.ebos.core</name>
 	<url>https://git.assembla.com/git/ebos</url>
 	<description>eBos - Ecuadorian Business Operations System</description>
+
+	<properties>
+		<bundleVersion>1.0.0</bundleVersion>
+	</properties>
 	
 	<parent>
 		<groupId>ec.com.ebos</groupId>
@@ -21,6 +25,16 @@
             <artifactId>org.springframework.osgi.core</artifactId>
             <scope>provided</scope>
         </dependency> -->
+        
+		<!-- OSGi -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+		<dependency>
+ 			<groupId>org.eclipse.gemini</groupId>
+	 		<artifactId>org.eclipse.gemini.blueprint.core</artifactId>
+	 	</dependency>
 	 
 		<!-- JSF -->
 		<dependency>

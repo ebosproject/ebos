@@ -10,7 +10,6 @@
 	<packaging>pom</packaging>
 
 	<dependencyManagement>
-	
 		<dependencies>
 			<!-- OSGi -->
 			<dependency>
@@ -69,6 +68,12 @@
 			        </exclusion>
 		 		</exclusions>
 	 		</dependency>
+	 		<dependency>
+		 		<groupId>org.eclipse.gemini</groupId>
+		 		<artifactId>org.eclipse.gemini.blueprint.core</artifactId>
+		 		<version>1.0.2.RELEASE</version>
+		 		<scope>provided</scope>
+	 		</dependency>
         
 			<!-- JSF -->
 			<dependency>
@@ -77,18 +82,6 @@
 				<version>2.1.18</version>
 			</dependency>
 			
-			<!--PRIMEFACES && EXTENSIONS -->
-<!-- 			<dependency> -->
-<!-- 				<groupId>org.primefaces</groupId> -->
-<!-- 				<artifactId>primefaces</artifactId> -->
-<!-- 				<version>3.5</version> -->
-<!-- 			</dependency> -->
-<!-- 			<dependency> -->
-<!-- 				<groupId>org.primefaces.extensions</groupId> -->
-<!-- 				<artifactId>ec.com.ebos.primefaces-extensions</artifactId> -->
-<!-- 				<version>0.7.1</version> -->
-<!-- 			</dependency> -->
-		
 			<!-- SPRING -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -126,7 +119,6 @@
 			<dependency>
 				<groupId>javax.persistence</groupId>
 				<artifactId>com.springsource.javax.persistence</artifactId>
-				<!-- <version>1.0.0</version> -->
 				<version>1.99.0</version>
 			</dependency>
 			<dependency>
@@ -192,14 +184,6 @@
 				<version>3.0.0.v201103241009</version>
 				<scope>provided</scope>
 			</dependency>
-
-			<!-- HIBERNATE -->
-<!-- 			<dependency> -->
-<!-- 				<groupId>org.hibernate</groupId> -->
-<!-- 				<artifactId>org.hibernate.ejb-library</artifactId> -->
-<!-- 				<type>libd</type> -->
-<!-- 				<version>3.4.0.GA-A</version> -->
-<!-- 			</dependency> -->
 			
 			<!-- EHCACHE -->
 			<dependency>
@@ -207,21 +191,10 @@
 			    <artifactId>com.springsource.net.sf.ehcache</artifactId>
 			    <version>2.2.0</version>
 			</dependency>
-			
-			<!-- JAVAX PERSISTENCE -->
-<!-- 			<dependency> -->
-<!-- 				<groupId>javax.persistence</groupId> -->
-<!-- 				<artifactId>com.springsource.javax.persistence</artifactId> -->
-<!-- 				<version>1.99.0</version> -->
-<!-- 			</dependency> -->
 		</dependencies>
 	</dependencyManagement>
 
 	<repositories>
-
-		<!-- <repository> <id>com.springsource.repository.bundles.snapshot</id> 
-			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Snapshot</name> 
-			<url>http://repository.springsource.com/maven/bundles/snapshot</url> </repository> -->
 		<repository>
 			<id>com.springsource.repository.bundles.release</id>
 			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
@@ -296,8 +269,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -336,22 +309,36 @@
 					<junitArtifactName>org.junit:com.springsource.org.junit</junitArtifactName>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.8</version>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.felix</groupId> -->
+<!-- 				<artifactId>maven-bundle-plugin</artifactId> -->
+<!-- 				<version>2.3.7</version> -->
+<!-- 				<extensions>true</extensions> -->
+<!-- 				<configuration> -->
+<!-- 					<instructions> -->
+<!-- 						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName> -->
+<!-- 						<Bundle-Name>${project.name}</Bundle-Name> -->
+<!-- 						<Bundle-Version>${project.version}</Bundle-Version> -->
+<!-- 					</instructions> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+			<plugin>
+				<groupId>net.flybyte.virgo</groupId>
+				<artifactId>virgo-maven-plugin</artifactId>
+				<version>1.0.1-SNAPSHOT</version>
 				<configuration>
-					<useProjectReferences>false</useProjectReferences>
-					<downloadSources>true</downloadSources>
-					<wtpversion>2.0</wtpversion>
-					<classpathContainers>
-						<classpathContainer>
-							org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6
-						</classpathContainer>
-					</classpathContainers>
-					<packaging>${project.packaging}</packaging>
+					<virgoRoot>/home/eduardo/servers/virgo-tomcat-server-3.6.2.RELEASE</virgoRoot>
+					<truststoreLocation>/home/eduardo/virgo-tomcat-server-3.6.2.RELEASE/config/keystore</truststoreLocation>
+					<serviceUrl>service:jmx:rmi://localhost:9755/jndi/rmi://localhost:9755/jmxrmi</serviceUrl>
+<!-- 					<serviceUrl>service:jmx:rmi://localhost:9875/jndi/rmi://localhost:9875/jmxrmi</serviceUrl> -->
+					<osgiVersion>${bundleVersion}</osgiVersion>
+<!-- 					<symbolicName>${project.groupId}.${project.artifactId}</symbolicName> -->
+					<symbolicName>${project.artifactId}</symbolicName>
+					<user>admin</user>
+					<password>springsource</password>
+					<recoverable>false</recoverable>
 				</configuration>
-			</plugin> -->
+			</plugin>
 		</plugins>
 
 		<pluginManagement>
@@ -364,12 +351,6 @@
 						<failOnWarnings>false</failOnWarnings>
 					</configuration>
 				</plugin>
-				<!-- <plugin> <groupId>com.springsource.bundlor</groupId> <artifactId>com.springsource.bundlor.maven</artifactId> 
-					<version>1.0.0.RELEASE</version> <configuration> <failOnWarnings>false</failOnWarnings> 
-					</configuration> </plugin> -->
-
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

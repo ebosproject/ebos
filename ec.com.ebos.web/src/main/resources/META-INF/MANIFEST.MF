@@ -22,41 +22,44 @@ Tool: Bundlor 1.1.2.RELEASE
 Import-Library: org.springframework.spring;version="[3.0, 3.2)"
 Bundle-Name: ec.com.ebos.web
 Bundle-ManifestVersion: 2
-Import-Package: ec.com.ebos.core.admin.model;version="[1.0.0,1.1.0)",e
- c.com.ebos.core.admin.service;version="[1.0.0,1.1.0)",ec.com.ebos.cor
- e.conta.model;version="[1.0.0,1.1.0)",ec.com.ebos.core.conta.service;
- version="[1.0.0,1.1.0)",ec.com.ebos.core.context;version="[1.0.0,1.1.
- 0)",ec.com.ebos.core.master.exception;version="[1.0.0,1.1.0)",ec.com.
- ebos.core.master.model;version="[1.0.0,1.1.0)",ec.com.ebos.core.maste
- r.service;version="[1.0.0,1.1.0)",ec.com.ebos.core.master.session;ver
- sion="[1.0.0,1.1.0)",ec.com.ebos.core.mse.exception;version="[1.0.0,1
- .1.0)",ec.com.ebos.core.mse.model;version="[1.0.0,1.1.0)",ec.com.ebos
- .core.mse.service;version="[1.0.0,1.1.0)",ec.com.ebos.core.orm.crud;v
- ersion="[1.0.0,1.1.0)",ec.com.ebos.core.root.exception;version="[1.0.
- 0,1.1.0)",ec.com.ebos.core.root.model;version="[1.0.0,1.1.0)",ec.com.
- ebos.core.security.model;version="[1.0.0,1.1.0)",ec.com.ebos.core.sec
- urity.service;version="[1.0.0,1.1.0)",ec.com.ebos.core.util;version="
- [1.0.0,1.1.0)",ec.com.ebos.core.util.service;version="[1.0.0,1.1.0)",
- ec.com.ebos.core.util.type;version="[1.0.0,1.1.0)",javax.annotation,j
- avax.el,javax.faces,javax.faces.application,javax.faces.bean,javax.fa
- ces.component,javax.faces.component.html,javax.faces.context,javax.fa
- ces.convert,javax.faces.el,javax.faces.event,javax.faces.lifecycle,ja
- vax.faces.validator,javax.servlet;version="[3.0.0, 3.1.0)",javax.serv
- let.http,javax.servlet.jsp.jstl.core;version="[1.2.0,2.2.0)",lombok;v
- ersion="[0.11.6,0.11.6]",org.eclipse.gemini.web.core,org.eclipse.virg
- o.snaps.core;version="[3.0.0,3.7)",org.eclipse.virgo.web.dm;version="
- [3.0.0, 4.0.0)",org.osgi.framework;version="0",org.primefaces.compone
- nt.datatable;version="[3.5.0,3.5.0]",org.primefaces.component.menuite
- m;version="[3.5.0,3.5.0]",org.primefaces.component.panel;version="[3.
- 5.0,3.5.0]",org.primefaces.component.submenu;version="[3.5.0,3.5.0]",
- org.primefaces.context;version="[3.5.0,3.5.0]",org.primefaces.event;v
- ersion="[3.5.0,3.5.0]",org.primefaces.extensions.model.layout;version
- ="[0.7.1,0.7.1]",org.primefaces.model;version="[3.5.0,3.5.0]",org.slf
- 4j,org.springframework.beans.factory.annotation;version="[3.0, 3.2)",
- org.springframework.context.annotation;version="[3.0, 3.2)",org.sprin
- gframework.context.weaving;version="[3.0, 3.2)",org.springframework.s
- tereotype;version="[3.0, 3.2)",org.springframework.transaction.aspect
- j;version="[3.0, 3.2)"
+Import-Package: com.sun.faces.config,ec.com.ebos.core.admin.model;vers
+ ion="[1.0.0,1.1.0)",ec.com.ebos.core.admin.service;version="[1.0.0,1.
+ 1.0)",ec.com.ebos.core.conta.model;version="[1.0.0,1.1.0)",ec.com.ebo
+ s.core.conta.service;version="[1.0.0,1.1.0)",ec.com.ebos.core.context
+ ;version="[1.0.0,1.1.0)",ec.com.ebos.core.master.exception;version="[
+ 1.0.0,1.1.0)",ec.com.ebos.core.master.model;version="[1.0.0,1.1.0)",e
+ c.com.ebos.core.master.service;version="[1.0.0,1.1.0)",ec.com.ebos.co
+ re.master.session;version="[1.0.0,1.1.0)",ec.com.ebos.core.mse.except
+ ion;version="[1.0.0,1.1.0)",ec.com.ebos.core.mse.model;version="[1.0.
+ 0,1.1.0)",ec.com.ebos.core.mse.service;version="[1.0.0,1.1.0)",ec.com
+ .ebos.core.orm.crud;version="[1.0.0,1.1.0)",ec.com.ebos.core.root.exc
+ eption;version="[1.0.0,1.1.0)",ec.com.ebos.core.root.model;version="[
+ 1.0.0,1.1.0)",ec.com.ebos.core.security.model;version="[1.0.0,1.1.0)"
+ ,ec.com.ebos.core.security.service;version="[1.0.0,1.1.0)",ec.com.ebo
+ s.core.util;version="[1.0.0,1.1.0)",ec.com.ebos.core.util.service;ver
+ sion="[1.0.0,1.1.0)",ec.com.ebos.core.util.type;version="[1.0.0,1.1.0
+ )",javax.annotation,javax.el,javax.faces,javax.faces.application,java
+ x.faces.bean,javax.faces.component,javax.faces.component.html,javax.f
+ aces.context,javax.faces.convert,javax.faces.el,javax.faces.event,jav
+ ax.faces.lifecycle,javax.faces.validator,javax.faces.webapp,javax.ser
+ vlet;version="[3.0.0, 3.1.0)",javax.servlet.http,javax.servlet.jsp.js
+ tl.core;version="[1.2.0,2.2.0)",lombok;version="[0.11.6,0.11.6]",org.
+ eclipse.gemini.web.core,org.eclipse.virgo.snaps.core;version="[3.0.0,
+ 3.7)",org.eclipse.virgo.web.dm;version="[3.0.0, 4.0.0)",org.osgi.fram
+ ework;version="0",org.primefaces.component.datatable;version="[3.5.0,
+ 3.5.0]",org.primefaces.component.menuitem;version="[3.5.0,3.5.0]",org
+ .primefaces.component.panel;version="[3.5.0,3.5.0]",org.primefaces.co
+ mponent.submenu;version="[3.5.0,3.5.0]",org.primefaces.context;versio
+ n="[3.5.0,3.5.0]",org.primefaces.event;version="[3.5.0,3.5.0]",org.pr
+ imefaces.extensions.model.layout;version="[0.7.1,0.7.1]",org.primefac
+ es.model;version="[3.5.0,3.5.0]",org.primefaces.webapp.filter;version
+ ="[3.5.0,3.5.0]",org.slf4j,org.springframework.beans.factory.annotati
+ on;version="[3.0, 3.2)",org.springframework.context.annotation;versio
+ n="[3.0, 3.2)",org.springframework.context.weaving;version="[3.0, 3.2
+ )",org.springframework.stereotype;version="[3.0, 3.2)",org.springfram
+ ework.transaction.aspectj;version="[3.0, 3.2)",org.springframework.we
+ b.context;version="[3.0, 3.2)",org.springframework.web.context.reques
+ t;version="[3.0, 3.2)"
 Bundle-SymbolicName: ec.com.ebos.web
-Web-ContextPath: platform
+Web-ContextPath: /platform
 

@@ -4,6 +4,7 @@ Bundle-Name: ec.com.ebos.db
 Bundle-Vendor: eBos
 Bundle-Version: 1.0.0
 Bundle-SymbolicName: ec.com.ebos.db
+Bundle-Description: eBos Postgres DB Bundle
 Import-Bundle:
  ec.com.ebos.postgresql;version="9.0"
 Import-Template: 

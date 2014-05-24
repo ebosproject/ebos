@@ -7,6 +7,10 @@
 	<url>https://git.assembla.com/git/ebos</url>
 	<description>eBos - Ecuadorian Business Operations System</description>
 	
+	<properties>
+		<bundleVersion>1.0.0</bundleVersion>
+	</properties>
+	
 	<parent>
 		<groupId>ec.com.ebos</groupId>
 		<artifactId>ec.com.ebos.parent</artifactId>

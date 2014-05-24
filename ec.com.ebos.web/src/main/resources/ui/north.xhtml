@@ -29,7 +29,7 @@
 				<h:form id="frmThemeSwitcher">
 					<p:themeSwitcher id="themeSwitcher" value="#{themeSwitcherBean.tema}" var="t" 
 						style="width:175px;" effect="fade" >
-						<f:selectItem itemLabel="#{msg.ebEscojaTema}" itemValue="" />
+						<f:selectItem itemLabel="#{msg.chooseTheme}" itemValue="" />
 						<f:selectItems value="#{themeSwitcherBean.temasAvanzados}"
 							var="tema" itemLabel="#{tema.nombre}" itemValue="#{tema.nombre}" />
 						<p:ajax listener="#{themeSwitcherBean.saveTheme}" />

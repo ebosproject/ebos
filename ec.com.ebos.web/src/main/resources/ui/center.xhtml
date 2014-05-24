@@ -12,7 +12,10 @@
 		<p:dashboard id="dashboard" model="#{dashboardBean.model}" style="right:0px;" >
             <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}"/>
 			<p:panel id="bundle" header="#{msg.bundle}" footer="#{msg.bundle}" toggleable="true" closable="true" widgetVar="bundle">
-				<p:commandButton value="#{msg.bundle}" actionListener="#{deskBean.openFrame(37)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
+				<ui:remove><p:commandButton value="#{msg.bundle}" actionListener="#{deskBean.openFrame(37)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/></ui:remove>
+				<ui:repeat value="#{snapsBean.snapList}" var="snap">				
+					<h:outputLink value="#{request.contextPath}#{snap.contextPath}#{snap.properties['link.path']}">#{snap.properties['link.text']} </h:outputLink>
+				</ui:repeat>
 				<f:facet name="options">
                     <p:menu>
                         <p:submenu label="Settings">
@@ -41,10 +44,6 @@
 				<p:commandButton value="#{msg.personas}" actionListener="#{deskBean.openFrame(47)}" oncomplete="jsUpdPngFrame(xhr, status, args)"/>
 			</p:panel>
 		</p:dashboard>
-		
-		<ui:repeat value="#{snapsBean.snapList}" var="snap">
-			<h:outputLink value="#{request.contextPath}#{snap.contextPath}#{snap.properties['link.path']}">#{snap.properties['link.text']} </h:outputLink>
-		</ui:repeat>
 	</h:form> 
 	
 	

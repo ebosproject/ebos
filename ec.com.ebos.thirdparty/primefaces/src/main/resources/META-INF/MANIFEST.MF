@@ -436,13 +436,13 @@ Export-Package: org.primefaces;version="3.5",org.primefaces.applicatio
  ="javax.faces.event,javax.servlet.http,org.apache.commons.fileupload,
  org.apache.commons.fileupload.servlet",org.primefaces.webapp.filter;v
  ersion="3.5";uses:="javax.servlet"
-Built-By: eplua
+Built-By: eduardo
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.primefaces
 Created-By: Apache Maven 3.0.4
 Bundle-Vendor: eBos
 Bundle-Version: 3.5
-Build-Jdk: 1.7.0_45
+Build-Jdk: 1.7.0_51
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: ec.com.ebos.primefaces
 Import-Package: com.lowagie.text;resolution:="optional",com.lowagie.te

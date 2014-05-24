@@ -2,14 +2,14 @@ package ec.com.ebos.core.spring.config;
 
 import java.util.Properties;
 
-import javax.naming.InitialContext;
+//import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
+//import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
+//import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,11 +22,11 @@ import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
-import ec.com.ebos.core.aspect.process.AuditoryAspect;
-import ec.com.ebos.core.aspect.process.ExceptionAspect;
-import ec.com.ebos.core.aspect.process.SecurityAspect;
+//import ec.com.ebos.core.aspect.process.AuditoryAspect;
+//import ec.com.ebos.core.aspect.process.ExceptionAspect;
+//import ec.com.ebos.core.aspect.process.SecurityAspect;
 import ec.com.ebos.core.orm.crud.CrudService;
-import ec.com.ebos.core.orm.crud.FinderSQLService;
+//import ec.com.ebos.core.orm.crud.FinderSQLService;
 import ec.com.ebos.core.orm.crud.FinderService;
 import ec.com.ebos.core.orm.crud.support.BaseDaoSupport;
 import ec.com.ebos.core.util.Constantes;
@@ -223,15 +223,15 @@ public class RepositoryConfig {
 		return ehcache;
 	}
 	
-	/**
-	 * Manager de la cache haciendo uso del soporte por defecto de ehcache
-	 */
-	@Bean
-	public EhCacheCacheManager cacheManager(){
-		EhCacheCacheManager cacheManager = new EhCacheCacheManager();
-		cacheManager.setCacheManager(ehcache().getObject());
-		return cacheManager;
-	}
+//	/**
+//	 * Manager de la cache haciendo uso del soporte por defecto de ehcache
+//	 */
+//	@Bean
+//	public EhCacheCacheManager cacheManager(){
+//		EhCacheCacheManager cacheManager = new EhCacheCacheManager();
+//		cacheManager.setCacheManager(ehcache().getObject());
+//		return cacheManager;
+//	}
 	
 	////////////////// ASPECTS /////////////////////
 	
