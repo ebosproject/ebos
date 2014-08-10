@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-Vendor: eBos
 Build-Jdk: 1.7.0_51
-Built-By: eduardo
 Bundle-Version: 0.6.2
+Built-By: eduardo
 Tool: Bundlor 1.1.2.RELEASE
 Bundle-Name: ec.com.ebos.resources-codemirror
-Bundle-ManifestVersion: 2
 Created-By: Apache Maven 3.0.4
+Bundle-ManifestVersion: 2
 Bundle-SymbolicName: ec.com.ebos.resources-codemirror
 Archiver-Version: Plexus Archiver
 
